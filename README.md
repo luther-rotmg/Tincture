@@ -133,7 +133,8 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] **Ascendancy → `.build` code table** — completed and cross-confirmed from the same export (`scripts/buildfile.py`; `treedata.py --check` re-verifies per patch)
 - [ ] **Loadable Decant = "export *my* character"** — wire a logged-in user's own GGG character (passives → slugs via `treedata`) into a real `.build`. GGG's `account:characters` is self-only and the ladder API is summary-only, so decanting an *arbitrary* ladder player's build is not possible — the aggregate meta stays an honest template. Remaining: the gem → metadata path mapping (needs one real character export) and a registered GGG OAuth client (see [docs/owner-actions.md](docs/owner-actions.md))
 - [ ] **Direct GGG ladder cross-check** — a second, official source for ascendancy shares (scaffolded in `scripts/ggg.py`; needs the OAuth client). Summary-only, so it validates shares, not build content
-- [ ] A guide directory — link out to the best community guide for each meta build
+- [x] Guide pointers — a "find a guide" link on the headline and every ledger row opens a neutral, patch-specific web search for that ascendancy's community guides (honest search, not an endorsed "best guide")
+- [ ] Curated guide directory — hand-pick a specific best guide per meta build (needs manual curation each league)
 
 ---
 
