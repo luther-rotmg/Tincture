@@ -1,0 +1,46 @@
+name: Reconstruct meta builds
+
+# Regenerates the loadable builds/*.build files from current top public-ladder characters
+# (via poe.ninja), one per meta ascendancy. Weekly + on demand — the meta shifts slowly and
+# this hits an undocumented, solo-run endpoint, so keep the cadence gentle. Node, not Python:
+# tools/build-from-ninja.cjs is the reconstructor (passives via the GGG tree export, gems via
+# PoB2 metadata). Data is fetched at runtime; nothing is vendored.
+
+on:
+  schedule:
+    - cron: "23 6 * * 1"   # 06:23 UTC every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: builds
+  cancel-in-progress: false
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Reconstruct loadable builds (one per meta ascendancy)
+        run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur --max 80
+
+      - name: Commit refreshed builds
+        run: |
+          git config user.name  "tincture-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- builds/; then
+            echo "No change in the reconstructed builds this run."
+          else
+            git add builds/
+            git commit -m "Builds: refresh reconstructed meta builds ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
