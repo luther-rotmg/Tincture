@@ -330,10 +330,22 @@
   @keyframes rise{0%{opacity:0; transform:translateY(6px);}50%{opacity:.5;}100%{opacity:0; transform:translateY(-10px);}}
 
   /* ---------------- guide ---------------- */
-  .guide{ padding:46px 0 40px; border-bottom:1px solid var(--hair); }
-  .guide .eyebrow{ display:block; margin-bottom:14px; }
-  .guide h2{ font-family:var(--ftext); font-weight:600; font-size:28px; line-height:1.14; margin:0 0 12px; color:var(--bone); }
-  .guide .lede{ color:var(--bone-dim); font-size:16px; max-width:64ch; margin:0 0 30px; }
+  .guide{ border-bottom:1px solid var(--hair); }
+  .guide-toggle{
+    display:flex; align-items:center; gap:16px; width:100%; text-align:left;
+    background:none; border:none; cursor:pointer; padding:22px 0; color:var(--bone); font:inherit;
+  }
+  .gt-eyebrow{ font-family:var(--fmono); font-size:11px; font-weight:500; letter-spacing:.34em; text-transform:uppercase; color:var(--gold); flex:none; }
+  .gt-title{ font-family:var(--ftext); font-weight:600; font-size:19px; color:var(--bone); flex:1; }
+  .gt-chevron{ color:var(--gold); flex:none; transition:transform .25s ease; }
+  .guide.open .gt-chevron{ transform:rotate(180deg); }
+  .guide-toggle:hover .gt-title{ color:var(--gold-bright); }
+  .guide-body{ display:none; padding:0 0 40px; }
+  .guide.open .guide-body{ display:block; }
+  .guide .lede{ color:var(--bone-dim); font-size:16px; max-width:64ch; margin:0 0 22px; }
+  .guide .lede em{ font-style:italic; color:var(--bone); }
+  .path-label{ color:var(--bone-dim); font-size:14px; margin:0 0 8px; }
+  @media (max-width:560px){ .guide-toggle{ flex-wrap:wrap; gap:6px 14px; } .gt-title{ flex-basis:100%; } }
   .guide .lede b{ color:var(--bone); }
   .steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
   .step{ display:flex; gap:14px; align-items:flex-start; }
@@ -453,7 +465,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
             Decant the essence
           </button>
-          <a href="#guide" class="ghost-link">new? how Decant works ↓</a>
+          <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
           <a href="#ledger" class="ghost-link">browse all builds ↓</a>
         </div>
       </div>
@@ -466,37 +478,46 @@
     </div>
   </section>
 
-  <!-- ===================== HOW TO DECANT (guide) ===================== -->
+  <!-- ===================== HOW TO DECANT (guide, collapsible) ===================== -->
   <section class="guide" id="guide" aria-label="How decanting works">
-    <span class="eyebrow">New here?</span>
-    <h2>Decant a build straight into your game</h2>
-    <p class="lede"><b>Decant</b> drops a ready-made build into Path of&nbsp;Exile&nbsp;2's in-game <b>Build Planner</b> — no copy-paste, no alt-tabbing, no spreadsheets. Connect your folder once and every build on this page is a single click away.</p>
-    <ol class="steps">
-      <li class="step">
-        <span class="step-num">1</span>
-        <div>
-          <h3>Connect your folder<span class="once">one time</span></h3>
-          <p>Click <b>Connect BuildPlanner folder</b> (top-right) and pick this folder:</p>
-          <code class="path-box">Documents\My Games\Path of Exile 2\BuildPlanner</code>
-          <p class="hint">Chrome, Edge, Brave &amp; Opera save into it directly. Firefox/Safari download the file instead — just drop it into that folder yourself.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step-num">2</span>
-        <div>
-          <h3>Decant a build</h3>
-          <p>Press <b>Decant</b> on the headline build or any row in the ledger below. Tincture writes a <code>.build</code> file straight into your BuildPlanner folder.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step-num">3</span>
-        <div>
-          <h3>Open it in-game</h3>
-          <p>Launch Path of&nbsp;Exile&nbsp;2 and open the <b>Build Planner</b> — your decanted build is waiting there, ready to follow node by node as you level.</p>
-        </div>
-      </li>
-    </ol>
-    <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser. Don't see a <code>BuildPlanner</code> folder yet? Path of&nbsp;Exile&nbsp;2 creates it automatically the first time you open the in-game Build Planner.</p>
+    <button class="guide-toggle" id="guideToggle" aria-expanded="false" aria-controls="guideBody">
+      <span class="gt-eyebrow">New here?</span>
+      <span class="gt-title">How to Decant a build into your game</span>
+      <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="guide-body" id="guideBody">
+      <p class="lede"><b>Decant</b> drops a ready-made build into Path of&nbsp;Exile&nbsp;2's in-game <b>Build Planner</b> — no copy-paste, no spreadsheets. It works in <em>any</em> browser; the only difference is whether the file saves automatically or you move it once by hand.</p>
+
+      <p class="path-label">Every build lives in one folder:</p>
+      <code class="path-box">Documents\My Games\Path of Exile 2\BuildPlanner</code>
+      <p class="hint">Don't see that folder? Path of&nbsp;Exile&nbsp;2 creates it automatically the first time you open the in-game Build Planner.</p>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Decant a build</h3>
+            <p>Press <b>Decant</b> on the headline build or any row in the ledger below. Tincture turns it into a <code>.build</code> file.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Get it into the folder</h3>
+            <p><b>Chrome, Edge, Brave, Opera:</b> click <b>Connect BuildPlanner folder</b> (top-right) once and pick the folder above — after that, every Decant saves straight in.</p>
+            <p><b>Firefox, Safari, or any other browser:</b> no problem — the <code>.build</code> file simply <b>downloads</b> instead. Just drag it from your Downloads into that BuildPlanner folder. That's the whole trick.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Open it in-game</h3>
+            <p>Launch Path of&nbsp;Exile&nbsp;2, open the <b>Build Planner</b>, and your build is waiting — follow it node by node as you level.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser.</p>
+    </div>
   </section>
 
   <!-- ===================== CONTROLS ===================== -->
@@ -983,6 +1004,15 @@ async function boot(){
       renderRows();
     };
   });
+
+  // collapsible "How to Decant" guide — collapsed by default
+  const guide = $("#guide"), guideToggle = $("#guideToggle");
+  if (guide && guideToggle){
+    const setGuide = open => { guide.classList.toggle("open", open); guideToggle.setAttribute("aria-expanded", open ? "true" : "false"); };
+    guideToggle.onclick = () => setGuide(!guide.classList.contains("open"));
+    const heroLink = $("#guideHeroLink");
+    if (heroLink) heroLink.onclick = e => { e.preventDefault(); setGuide(true); guide.scrollIntoView({behavior:"smooth", block:"start"}); };
+  }
 
   // keep "x min ago" honest if the tab stays open
   setInterval(renderMeta, 60000);
