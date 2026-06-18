@@ -18,7 +18,7 @@ Tincture reads what the top of the live ladder is actually playing, boils thousa
 The big sites are planners and raw stat dashboards. Tincture is a **discovery** tool with one job: get you from "what should I play?" to a confident starting point, fast — and it's honest about exactly what it knows.
 
 - **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with 24-hour trend arrows that light up once a day of snapshots has accumulated.
-- **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, and a cross-league comparison — all hand-rolled SVG, no libraries, computed in your browser.
+- **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, a cross-league comparison, and **The Crucible** — an ascendancy × league-mode heatmap with a *Share* ⇄ *Vs. typical* (over/under-index) toggle. All hand-rolled SVG/CSS, no libraries, computed in your browser.
 - **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The same static file the page reads is the public "API" — no backend, no key.
 - **One-click Decant (honest about it).** Decant exports a labelled meta template — ascendancy, ladder share, sample, playstyle, guide pointer — via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API) or a download. It's a starting pointer, **not** a loadable `.build`; the game silently refuses malformed files, so we don't fabricate one. Loadable builds land with the GGG character pull.
 - **Never stale.** A scheduled job re-distills the meta every hour, **validates** the result, and commits only if it passes. The page just reads it.
@@ -124,7 +124,7 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] Decode the `.build` format ([SCHEMA.md](SCHEMA.md)) + a validated serializer (`scripts/buildfile.py`)
 - [x] Live meta from poe.ninja's `build-index-state` (ascendancy shares + 24h trend)
 - [x] League switcher — Softcore / Hardcore / SSF / HC SSF + Standard (dropdown)
-- [x] **The Assay** — class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, cross-league comparison (hand-rolled SVG)
+- [x] **The Assay** — class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, cross-league comparison, and **The Crucible** ascendancy × mode heatmap with a Share / over-under-index toggle (hand-rolled SVG/CSS)
 - [x] **The Cellar** — every build across every league in one sortable table, raw `data.json` view, CSV/JSON export, open-data docs
 - [x] Ledger enrichment — editorial playstyle tags, sample-confidence cue, honest "baseline" trends, top-N coverage footnote
 - [x] **Honest Decant** — exports a labelled meta template (`.txt`), never a fabricated `.build`; serves a real `.build` automatically once one exists
