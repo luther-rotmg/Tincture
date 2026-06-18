@@ -1,0 +1,21 @@
+# Cloudflare Worker config for Tincture's OAuth backend (the "Decant my character" path).
+# Deploy: `cd cloudflare && npx wrangler deploy`. See README.md.
+name = "tincture-oauth"
+main = "worker.js"
+compatibility_date = "2026-06-18"
+
+# Public config (not secret). Set REDIRECT_URI to the exact URI you register with GGG.
+[vars]
+SITE_ORIGIN = "https://tincturepoe2.com"
+REDIRECT_URI = "https://tincturepoe2.com/api/oauth/callback"
+
+# Route the Worker under your domain (needs the zone on Cloudflare — owner-actions.md #3).
+# Until then it also runs at https://tincture-oauth.<your-subdomain>.workers.dev/api/*
+[[routes]]
+pattern = "tincturepoe2.com/api/*"
+zone_name = "tincturepoe2.com"
+
+# Secrets are NOT stored here — set them once with wrangler:
+#   npx wrangler secret put GGG_CLIENT_ID
+#   npx wrangler secret put GGG_CLIENT_SECRET
+#   npx wrangler secret put COOKIE_SECRET     # any long random string
