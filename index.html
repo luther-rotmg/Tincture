@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tincture — the distilled meta of Path of Exile 2</title>
 <meta name="description" content="The current Path of Exile 2 meta, distilled from the ladder and decanted into your game with one click." />
+<link rel="canonical" href="https://tincturepoe2.com/" />
+<meta name="theme-color" content="#14100b" />
+<!-- Open Graph / social unfurl (Discord, Reddit, forums) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Tincture" />
+<meta property="og:title" content="Tincture — the distilled meta of Path of Exile 2" />
+<meta property="og:description" content="The current Path of Exile 2 meta, distilled from the public ladder via poe.ninja — ranked, tiered, visualized, and exportable. Auto-refreshed hourly. No backend, no tracking." />
+<meta property="og:url" content="https://tincturepoe2.com/" />
+<meta property="og:image" content="https://tincturepoe2.com/docs/og.svg" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:alt" content="Tincture — the Path of Exile 2 build meta, distilled." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Tincture — the distilled meta of Path of Exile 2" />
+<meta name="twitter:description" content="The current PoE 2 meta, distilled from the public ladder via poe.ninja — ranked, visualized, exportable. Refreshed hourly." />
+<meta name="twitter:image" content="https://tincturepoe2.com/docs/og.svg" />
+<!-- data.json is published as an open dataset (see The Cellar) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.0), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -399,6 +418,9 @@
   .toast .path{color:var(--bone-dim);}
 
   :focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px; border-radius:2px;}
+  /* skip-to-content: visually hidden until focused */
+  .skip-link{ position:absolute; left:12px; top:-48px; z-index:50; font-family:var(--fmono); font-size:12px; letter-spacing:.06em; color:#1a120c; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); border:1px solid var(--gold-bright); border-radius:2px; padding:9px 14px; text-decoration:none; transition:top .18s ease; }
+  .skip-link:focus{ top:12px; color:#1a120c; }
 
   /* ---------------- responsive ---------------- */
   @media (max-width:880px){
@@ -541,6 +563,32 @@
   .cross-val{ text-align:right; font-family:var(--fmono); font-size:11px; color:var(--bone-dim); }
   .cross-val.absent{ color:var(--muted); }
 
+  /* ---- The Crucible heatmap (ascendancy × mode) ---- */
+  .panel-crucible{ grid-column:1 / -1; }
+  .crucible-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px 16px; flex-wrap:wrap; }
+  .crucible-toggle{ display:inline-flex; border:1px solid var(--hair-strong); border-radius:3px; overflow:hidden; flex:none; }
+  .cru-tab{ font-family:var(--fmono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); background:none; border:none; cursor:pointer; padding:7px 13px; transition:color .18s, background .18s; }
+  .cru-tab + .cru-tab{ border-left:1px solid var(--hair); }
+  .cru-tab:hover{ color:var(--bone-dim); }
+  .cru-tab.active{ color:#1a120c; background:linear-gradient(180deg,var(--gold-bright),var(--gold)); }
+  .crucible-scroll{ overflow-x:auto; margin:0 -2px; padding:0 2px; }
+  .crucible-grid{ display:grid; grid-template-columns:minmax(128px,1.4fr) repeat(var(--cru-cols,4),minmax(54px,1fr)); gap:4px; min-width:330px; }
+  .cru-colh{ display:flex; align-items:center; justify-content:center; gap:5px; font-family:var(--fmono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding:4px 0 6px; }
+  .cru-colh .dot{ width:6px; height:6px; border-radius:50%; flex:none; }
+  .cru-colh.active{ color:var(--gold-bright); }
+  .cru-rowh{ display:flex; flex-direction:column; justify-content:center; min-width:0; padding:0 8px 0 2px; }
+  .cru-rowh .a{ font-family:var(--ftext); font-weight:600; font-size:13.5px; color:var(--bone); line-height:1.15; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cru-rowh .c{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); }
+  .cru-cell{ position:relative; display:flex; align-items:center; justify-content:center; min-height:38px; border-radius:2px; font-family:var(--fmono); font-size:11px; border:1px solid var(--hair); transition:outline .12s; }
+  .cru-cell:hover{ outline:1px solid var(--gold-bright); outline-offset:1px; }
+  .cru-cell.empty{ color:var(--muted); background:var(--ink); border-style:dashed; border-color:rgba(135,122,98,.3); background-image:repeating-linear-gradient(45deg, transparent 0 4px, rgba(200,162,74,.05) 4px 5px); }
+  .cru-cell.col-active{ outline:1px solid var(--gold); outline-offset:1px; }
+  .cru-tick{ position:absolute; top:3px; right:4px; width:4px; height:4px; border-top:1.5px solid currentColor; border-right:1.5px solid currentColor; opacity:.6; }
+  .crucible-legend{ display:flex; align-items:center; gap:7px 12px; flex-wrap:wrap; font-family:var(--fmono); font-size:10px; letter-spacing:.04em; color:var(--muted); }
+  .cru-ramp{ display:inline-flex; height:9px; border:1px solid var(--hair); border-radius:2px; overflow:hidden; }
+  .cru-ramp i{ width:22px; height:100%; display:inline-block; }
+  .cru-leg-empty i{ display:inline-block; width:11px; height:11px; vertical-align:middle; border:1px dashed rgba(135,122,98,.4); background-image:repeating-linear-gradient(45deg, transparent 0 3px, rgba(200,162,74,.06) 3px 4px); margin-right:5px; }
+
   .section-caveat{
     margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
     font-family:var(--fmono); font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.8; max-width:88ch;
@@ -619,6 +667,8 @@
   @media (max-width:880px){
     .assay-grid{ grid-template-columns:1fr; }
     .assay-row2{ grid-template-columns:1fr; }
+    .crucible-grid{ grid-template-columns:minmax(100px,1.1fr) repeat(var(--cru-cols,4),minmax(44px,1fr)); min-width:0; }
+    .cru-rowh .c{ display:none; }
     .donut-wrap{ flex-direction:column; align-items:stretch; }
     .donut-svg{ margin:0 auto; }
     .donut-legend{ width:100%; }
@@ -640,10 +690,14 @@
     .panel{ padding:20px 16px; }
     .bar-row{ grid-template-columns:108px 1fr 64px; gap:8px; }
     .stat-grid{ gap:16px; }
+    .crucible-grid{ grid-template-columns:minmax(88px,1fr) repeat(var(--cru-cols,4),minmax(42px,1fr)); gap:3px; }
+    .cru-cell{ min-height:34px; font-size:10px; }
+    .cru-rowh .a{ font-size:12.5px; }
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="wrap">
 
   <!-- ===================== MASTHEAD ===================== -->
@@ -657,13 +711,25 @@
         <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
         <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
       </span>
-      <button class="folder" id="folderBtn" title="Connect your BuildPlanner folder — loadable builds will save here in one click once they ship (roadmap)">
+      <button class="folder" id="folderBtn" aria-pressed="false" title="Connect your BuildPlanner folder — loadable builds will save here in one click once they ship (roadmap)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         <span id="folderLabel">Connect BuildPlanner folder</span>
       </button>
-      <span class="updated"><span class="pulse"></span><span id="updatedText">refreshed —</span></span>
+      <span class="updated"><span class="pulse"></span><time id="updatedText">refreshed —</time></span>
     </div>
   </header>
+
+  <main id="main">
+
+  <noscript>
+    <section class="section-frame" style="margin-top:28px">
+      <header class="section-head">
+        <span class="eyebrow">JavaScript required</span>
+        <h2>Tincture distills the meta in your browser.</h2>
+        <p class="sub">This page reads <code>data.json</code> and draws the ledger, The Assay analytics and the heatmap client-side, so it needs JavaScript on. The data itself is open and human-readable — view or download the raw current meta here: <a href="data.json">data.json</a>. The source and how it's built live on <a href="https://github.com/luther-rotmg/Tincture" rel="noopener">GitHub</a>.</p>
+      </header>
+    </section>
+  </noscript>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
@@ -786,9 +852,23 @@
           <div class="panel-note">Tiers count how many run a build, not how strong it is.</div>
         </article>
       </div>
+      <article class="panel panel-crucible" id="assayCruciblePanel">
+        <div class="crucible-head">
+          <div><span class="panel-eyebrow">The Crucible</span><div class="panel-title">Every essence across the four vessels</div></div>
+          <div class="crucible-toggle" role="group" aria-label="Heatmap colour mode">
+            <button type="button" class="cru-tab active" id="cruTabShare" data-view="share" aria-pressed="true">Share</button>
+            <button type="button" class="cru-tab" id="cruTabIndex" data-view="index" aria-pressed="false">Vs. typical</button>
+          </div>
+        </div>
+        <div class="crucible-scroll">
+          <div class="crucible-grid" id="assayCrucible" role="group" aria-label="Ascendancy share by league mode — heatmap"></div>
+        </div>
+        <div class="crucible-legend" id="assayCrucibleLegend"></div>
+        <p class="panel-note" style="max-width:74ch">Colour = published ladder <b>share</b> only; a blank tile means an ascendancy is outside that mode's published top-N — <b>not zero</b>. Switch to <b>Vs. typical</b> to see where an essence over- or under-indexes against its own cross-mode average. Hover a cell for the estimated sample. Standard is curated, not live ladder data, so it's left out. League populations differ up to ~30×, so colour compares share, not headcount.</p>
+      </article>
       <article class="panel panel-cross" id="assayCrossPanel">
         <div><span class="panel-eyebrow">Across the leagues</span><div class="panel-title">The same essence, four vessels</div></div>
-        <p class="panel-note" style="max-width:66ch">How the headline ascendancies shift between Softcore, Hardcore, SSF and HC SSF — like-for-like published shares, no curation. League populations differ up to ~30×, so smaller leagues are noisier. <span style="color:var(--gold)">Gold = softcore</span>, <span style="color:var(--oxblood-bright)">oxblood = hardcore</span>.</p>
+        <p class="panel-note" style="max-width:66ch">How the headline ascendancies shift between Softcore, Hardcore, SSF and HC SSF — like-for-like published shares, no curation. League populations differ up to ~30×, so smaller leagues are noisier. <span style="color:var(--gold)">Gold = softcore variants</span>, <span style="color:var(--oxblood-bright)">oxblood = hardcore variants</span> (SSF shares its trade league's colour; the mode label tells them apart).</p>
         <div class="cross-grid" id="assayCross"></div>
       </article>
     </div>
@@ -847,7 +927,7 @@
         </div>
         <div class="counters">
           <div class="counter"><div class="num" id="cChars" data-count="0">0</div><div class="lab">Characters read</div></div>
-          <div class="counter"><div class="num" id="cBuilds" data-count="0" data-suffix=" distilled">0</div><div class="lab">Meta builds served</div></div>
+          <div class="counter"><div class="num" id="cBuilds" data-count="0" data-suffix=" distilled">0</div><div class="lab">Builds distilled</div></div>
           <div class="counter"><div class="num" id="cAsc" data-count="0">0</div><div class="lab">Ascendancies ranked</div></div>
           <div class="counter"><div class="num" data-count="60" data-prefix="every " data-suffix=" min">0</div><div class="lab">Refresh cadence</div></div>
         </div>
@@ -925,6 +1005,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="note">
@@ -932,7 +1014,7 @@
       Build files are player-driven and distilled from public ladder data; GGG does not curate or rank them — judge a build on its merits before you commit a league to it.
     </div>
     <div class="cols">
-      <div>Distilled hourly · <span id="footUpdated">—</span></div>
+      <div>Distilled hourly · <time id="footUpdated">—</time></div>
       <div><a href="#assay">the assay</a> · <a href="#archive">the open data</a> · <a href="#still">how the essence is drawn</a></div>
     </div>
   </footer>
@@ -1127,12 +1209,19 @@ const defaultLeague = () => leagues().find(l => l.url === (DATA && DATA.default)
 
 /* ----- relative time ----- */
 function relTime(iso){
+  // floor every bucket so freshness is never overstated — a tool that promises "refreshed
+  // hourly" must not round 31 min up to "1 hour ago" or 90 min up to "2 hours ago".
   const diff = Math.max(0, Date.now() - new Date(iso).getTime());
-  const m = Math.round(diff/60000);
+  const m = Math.floor(diff/60000);
   if (m < 1) return "just now";
   if (m < 60) return m + " min ago";
-  const h = Math.round(m/60);
+  const h = Math.floor(m/60);
   return h + (h===1?" hour ago":" hours ago");
+}
+/* absolute UTC label for the title/tooltip on the <time> readouts */
+function absTime(iso){
+  const d = new Date(iso);
+  return isNaN(d) ? "" : d.toISOString().replace("T"," ").replace(/\.\d+Z$/,"Z");
 }
 
 /* ----- roman numerals for ranks ----- */
@@ -1200,6 +1289,7 @@ async function connectFolder(){
   try{
     dirHandle = await window.showDirectoryPicker({ mode:"readwrite", id:"poe2-buildplanner" });
     $("#folderBtn").classList.add("connected");
+    $("#folderBtn").setAttribute("aria-pressed", "true");
     $("#folderLabel").textContent = "BuildPlanner connected";
     toast(`Folder connected. Loadable builds will save straight here once they ship — for now Decant exports a meta template.`, "ok");
     return true;
@@ -1215,17 +1305,39 @@ async function connectFolder(){
    true .build (folder write / download). Otherwise export an honest meta TEMPLATE as
    .txt — never the game's .build slot, so a non-loadable file can never be silently
    refused in-game. */
+/* builds manifest — builds/index.json lists the slugs that have a real loadable .build.
+   undefined = not yet loaded, null = no manifest (older deploy), array = slug list.
+   Gating the .build fetch on this avoids a guaranteed 404 on every Decant while none exist
+   (and dodges the static-host "200 text/html fallback" hazard), without ever regressing a
+   deploy that lacks the manifest. */
+let _buildsManifest;
+async function buildsManifest(){
+  if (_buildsManifest !== undefined) return _buildsManifest;
+  try {
+    const res = await fetch("builds/index.json", { cache: "no-store" });
+    const ct = (res.headers.get("content-type") || "").toLowerCase();
+    const j = (res.ok && !ct.includes("text/html")) ? await res.json() : null;
+    _buildsManifest = Array.isArray(j) ? j : null;
+  } catch (_) { _buildsManifest = null; }
+  return _buildsManifest;
+}
+
 async function decant(b){
   const slug = slugOf(b);
   let real = null;
-  try {
-    const res = await fetch("builds/" + slug + ".build", { cache: "no-store" });
-    // Only treat it as a real build if it actually 200s AND isn't an HTML fallback page
-    // (some static hosts serve index.html with 200 for unknown paths — that must NOT be
-    // saved as a .build). A real .build is JSON/octet-stream, never text/html.
-    const ct = (res.headers.get("content-type") || "").toLowerCase();
-    if (res.ok && !ct.includes("text/html")) real = await res.text();
-  } catch (_) { /* none generated yet */ }
+  const manifest = await buildsManifest();
+  // attempt the .build fetch only when a manifest lists this slug — or when there's no
+  // manifest at all (fall back to trying, so nothing regresses on older deploys)
+  if (manifest === null || manifest.includes(slug)) {
+    try {
+      const res = await fetch("builds/" + slug + ".build", { cache: "no-store" });
+      // Only treat it as a real build if it actually 200s AND isn't an HTML fallback page
+      // (some static hosts serve index.html with 200 for unknown paths — that must NOT be
+      // saved as a .build). A real .build is JSON/octet-stream, never text/html.
+      const ct = (res.headers.get("content-type") || "").toLowerCase();
+      if (res.ok && !ct.includes("text/html")) real = await res.text();
+    } catch (_) { /* none generated yet */ }
+  }
   if (real != null) return saveRealBuild(b, real, slug + ".build");
   // honest path today: a meta template, downloaded, clearly not a loadable build
   saveBlob(templateText(b), slug + "-tincture-template.txt", "text/plain;charset=utf-8");
@@ -1377,8 +1489,12 @@ function renderMeta(){
   const sel = $("#leagueSelect"); if (sel) sel.value = activeUrl;
   $("#patch").textContent = DATA.patch;
   const rt = relTime(DATA.updated);
-  $("#updatedText").textContent = "refreshed " + rt;
-  $("#footUpdated").textContent = "last refreshed " + rt;
+  const abs = absTime(DATA.updated);
+  const upd = $("#updatedText"), foot = $("#footUpdated");
+  upd.textContent = "refreshed " + rt;
+  foot.textContent = "last refreshed " + rt;
+  // expose the precise instant to crawlers + screen readers, and on hover
+  [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC"; } });
   // The Still is a fixed brand statement about the LIVE Runes of Aldur ladder, and its
   // prose names that ladder — so pin its counters to the default (SC challenge) league
   // regardless of the dropdown. This avoids the curated Standard population (a whole-league
@@ -1404,6 +1520,13 @@ function syncCounters(){
 function setupLeaguePicker(){
   const sel = $("#leagueSelect"); if (!sel) return;
   sel.innerHTML = "";
+  if (!leagues().length){   // defensive: a data.json with no leagues shouldn't render a blank, silent control
+    const o = document.createElement("option");
+    o.textContent = "no leagues available"; o.disabled = true; o.selected = true;
+    sel.appendChild(o); sel.disabled = true;
+    return;
+  }
+  sel.disabled = false;
   leagues().forEach(L=>{
     const o = document.createElement("option");
     o.value = L.url; o.textContent = L.label || L.name;
@@ -1509,10 +1632,160 @@ function highlightCross(){
   });
 }
 
+/* ---- The Crucible — ascendancy × live-league heatmap ----
+   The full asc×mode matrix that complements the headline cross panel: every ascendancy
+   that appears in any LIVE league (curated Standard excluded), coloured by published
+   share. A "Vs. typical" toggle recolours each cell by how far it over/under-indexes
+   against that ascendancy's own cross-mode average. Honesty rules, all load-bearing:
+   an absent cell means "outside this mode's published top-N", NOT zero — it renders as
+   a distinct hatched void and is excluded from the index average; n (derived) and delta
+   live only in the tooltip, never in colour. Built once (the matrix is league-
+   independent), re-highlighted on league switch — the same lifecycle as the cross panel. */
+function crucibleMatrix(){
+  const lg = ladderLeaguesList();                  // non-curated, non-empty leagues only
+  const ascSet = [];
+  lg.forEach(L => shownBuilds(L).forEach(b => { if (!ascSet.includes(b.asc)) ascSet.push(b.asc); }));
+  // per-asc average over ONLY the modes where it's present (absence never drags it down)
+  const avg = {};
+  ascSet.forEach(asc => {
+    const present = [];
+    lg.forEach(L => { const h = (L.builds||[]).find(b => b.asc === asc && b.pop != null); if (h) present.push(h.pop); });
+    avg[asc] = present.length ? present.reduce((a,b)=>a+b,0)/present.length : null;
+  });
+  let globalMax = 0;
+  const rows = ascSet.map(asc => {
+    let cls = "", reach = 0, maxShare = 0;
+    const byLeague = lg.map(L => {
+      const hit = (L.builds||[]).find(b => b.asc === asc && b.pop != null);
+      if (!hit) return { mode:L.mode, url:L.url, present:false, share:null, n:null, delta:null, idx:null };
+      reach++; cls = cls || hit.cls || "";
+      maxShare = Math.max(maxShare, hit.pop);
+      globalMax = Math.max(globalMax, hit.pop);
+      const base = avg[asc];
+      const idx = base ? (hit.pop / base - 1) : null;   // over/under-index vs its own cross-mode avg
+      return { mode:L.mode, url:L.url, present:true, share:hit.pop, n:hit.n, delta:hit.delta, idx };
+    });
+    return { asc, cls, reach, maxShare, byLeague };
+  });
+  // dominant-everywhere floats up: most modes reached first, then biggest single peak
+  rows.sort((a,b)=> (b.reach - a.reach) || (b.maxShare - a.maxShare));
+  // each column's peak share, for the "leader of this mode" corner tick (Share view only)
+  const colMax = lg.map((_, i) => rows.reduce((m,r)=> r.byLeague[i].present ? Math.max(m, r.byLeague[i].share) : m, 0));
+  return { rows, leagues: lg, globalMax: globalMax || 1, colMax };
+}
+
+/* colour scales — both derive from the existing palette; empty cells are never scaled */
+function cruShareBg(share, gm){
+  if (share == null) return "var(--ink-3)";
+  const q = Math.min(4, Math.floor(Math.min(1, share / gm) * 5));      // quintile 0..4 vs global peak
+  if (q >= 4) return "rgba(194,81,64,1)";                              // oxblood-bright — hottest
+  if (q === 3) return "linear-gradient(0deg, rgba(194,81,64,.55), rgba(200,162,74,.62))";
+  return `rgba(200,162,74,${(0.16 + 0.21 * q).toFixed(2)})`;          // gold wash, .16 floor so present≠empty
+}
+function cruShareFg(share, gm){
+  const q = Math.min(4, Math.floor(Math.min(1, share / gm) * 5));
+  return q >= 3 ? "#1a120c" : (q === 2 ? "var(--bone)" : "var(--bone-dim)");
+}
+function cruIndexBg(idx){
+  if (idx == null || Math.abs(idx) < 0.03) return "var(--ink-3)";     // parity recedes into the ground
+  const a = (0.12 + 0.5 * (Math.min(0.5, Math.abs(idx)) / 0.5)).toFixed(2);   // clamped ±50%
+  return idx > 0 ? `rgba(140,170,102,${a})` : `rgba(185,116,92,${a})`;        // rise / fall
+}
+
+function cruCellHTML(asc, c, view, gm, isLeader, solo){
+  if (!c.present){
+    const lab = `${asc}, ${c.mode}: not in this mode's published top-N (not zero population)`;
+    return `<div class="cru-cell empty" role="img" aria-label="${esc(lab)}" title="${esc(lab)}">—</div>`;
+  }
+  let bg, fg, glyph;
+  if (view === "index"){
+    bg = solo ? "var(--ink-3)" : cruIndexBg(c.idx);
+    glyph = solo ? "·" : (c.idx > 0 ? "+" : "") + Math.round(c.idx * 100) + "%";
+    fg = solo ? "var(--muted)" : (Math.abs(c.idx) < 0.03 ? "var(--bone-dim)" : (c.idx > 0 ? "#cfe0b0" : "#e6b59e"));
+  } else {
+    bg = cruShareBg(c.share, gm);
+    glyph = c.share.toFixed(1) + "%";
+    fg = cruShareFg(c.share, gm);
+  }
+  const trendTxt = (c.delta == null) ? "baseline (no trend yet)"
+                 : (Math.abs(c.delta) < 0.05 ? "flat" : (c.delta > 0 ? "+" : "") + c.delta.toFixed(1) + " pts");
+  const idxTxt = (solo || c.idx == null) ? "single-mode (no cross-mode baseline)"
+               : (c.idx > 0 ? "over" : "under") + "-indexes " + Math.abs(Math.round(c.idx * 100)) + "% vs its avg";
+  const title = `${asc} · ${c.mode} — ${c.share.toFixed(1)}% share · ~${fmt(c.n)} est. characters · ${idxTxt} · ${trendTxt}`;
+  const aria  = `${asc}, ${c.mode}, ${c.share.toFixed(1)} percent share, about ${fmt(c.n)} estimated characters, ${idxTxt}`;
+  const tick = (isLeader && view === "share") ? '<span class="cru-tick" aria-hidden="true"></span>' : '';
+  return `<div class="cru-cell" role="img" data-url="${esc(c.url)}" style="background:${bg};color:${fg}" title="${esc(title)}" aria-label="${esc(aria)}">${tick}${esc(glyph)}</div>`;
+}
+
+function cruLegendHTML(view, gm){
+  if (view === "index"){
+    return `<span>Under</span>`
+      + `<span class="cru-ramp"><i style="background:rgba(185,116,92,.62)"></i><i style="background:var(--ink-3)"></i><i style="background:rgba(140,170,102,.62)"></i></span>`
+      + `<span>Over &nbsp;·&nbsp; centre = typical for that essence &nbsp;·&nbsp; clamped ±50%</span>`
+      + `<span class="cru-leg-empty"><i></i>not in this mode's top-N</span>`;
+  }
+  const steps = [0,1,2,3,4].map(q=>{
+    const bg = q >= 4 ? "rgba(194,81,64,1)"
+      : q === 3 ? "linear-gradient(0deg,rgba(194,81,64,.55),rgba(200,162,74,.62))"
+      : `rgba(200,162,74,${(0.16 + 0.21 * q).toFixed(2)})`;
+    return `<i style="background:${bg}"></i>`;
+  }).join("");
+  return `<span>Share of ladder</span><span class="cru-ramp">${steps}</span>`
+    + `<span>0 · ${Math.round(gm*0.25)} · ${Math.round(gm*0.5)} · ${Math.round(gm*0.75)} · ${gm.toFixed(0)}%+</span>`
+    + `<span class="cru-leg-empty"><i></i>not in this mode's top-N</span>`;
+}
+
+let crucibleBuilt = false;
+let crucibleView = "share";
+let crucibleData = null;   // cached matrix so the view toggle repaints without recomputing
+function paintCrucible(){
+  if (!crucibleData) return;
+  const { rows, leagues:lg, globalMax:gm, colMax } = crucibleData;
+  const head = `<div class="cru-corner" aria-hidden="true"></div>` + lg.map(L=>{
+    const hc = /Hardcore|HC/.test(L.mode);
+    const abbr = L.mode.replace("Hardcore","HC").replace("Softcore","SC");
+    return `<div class="cru-colh" data-url="${esc(L.url)}"><span class="dot" style="background:${hc?'var(--oxblood-bright)':'var(--gold)'}"></span>${esc(abbr)}</div>`;
+  }).join("");
+  const body = rows.map(r=>{
+    const solo = r.reach === 1;
+    const cells = r.byLeague.map((c,i)=> cruCellHTML(r.asc, c, crucibleView, gm, c.present && c.share === colMax[i], solo)).join("");
+    return `<div class="cru-rowh"><span class="a">${esc(r.asc)}</span><span class="c">${esc(r.cls||'')}</span></div>${cells}`;
+  }).join("");
+  const wrap = $("#assayCrucible");
+  wrap.style.setProperty("--cru-cols", lg.length);   // keep the grid track count in lockstep with the data
+  wrap.innerHTML = head + body;
+  $("#assayCrucibleLegend").innerHTML = cruLegendHTML(crucibleView, gm);
+  highlightCrucible();
+}
+function buildCrucibleOnce(){
+  if (crucibleBuilt) return;
+  const wrap = $("#assayCrucible"); if (!wrap) return;
+  crucibleData = crucibleMatrix();
+  if (!crucibleData.rows.length || crucibleData.leagues.length < 2){
+    const p = $("#assayCruciblePanel"); if (p) p.hidden = true; crucibleBuilt = true; return;
+  }
+  paintCrucible();
+  [["cruTabShare","share"],["cruTabIndex","index"]].forEach(([id,v])=>{
+    const b = $("#"+id); if (!b) return;
+    b.onclick = ()=>{
+      crucibleView = v;
+      document.querySelectorAll(".cru-tab").forEach(t=>{ const on = t.dataset.view===v; t.classList.toggle("active",on); t.setAttribute("aria-pressed", on?"true":"false"); });
+      paintCrucible();
+    };
+  });
+  crucibleBuilt = true;
+}
+function highlightCrucible(){
+  document.querySelectorAll("#assayCrucible .cru-colh").forEach(el=> el.classList.toggle("active", el.dataset.url === activeUrl));
+  document.querySelectorAll("#assayCrucible .cru-cell").forEach(el=> el.classList.toggle("col-active", el.dataset.url === activeUrl));
+}
+
 function renderAssay(){
   const sec = $("#assay"); if (!sec) return;
   buildCrossOnce();
   highlightCross();
+  buildCrucibleOnce();
+  highlightCrucible();
   const L = curLeague();
   const sb = shownBuilds(L);
   const grid = $("#assayGrid");
@@ -1765,6 +2038,14 @@ async function boot(){
   renderAssay();
   setupArchive();
   watchStill();
+
+  // the Cellar's "API" address should reflect wherever this page is actually served
+  // (a fork, a *.github.io deploy, or local) — not a hardcoded prod domain. Fall back to
+  // the canonical URL only on file://, where a local path would be useless to copy.
+  const ep = $("#archEndpoint");
+  if (ep) ep.textContent = (location.protocol === "file:")
+    ? "https://tincturepoe2.com/data.json"
+    : new URL("data.json", location.href).href;
 
   $("#folderBtn").onclick = connectFolder;
   document.querySelectorAll(".sort button").forEach(btn=>{
