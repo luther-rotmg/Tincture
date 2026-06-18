@@ -1,6 +1,6 @@
 {
   "patch": "0.5.0",
-  "updated": "2026-06-18T02:47:34+00:00",
+  "updated": "2026-06-18T03:19:52+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -497,12 +497,80 @@
       "name": "Standard",
       "mode": "Standard",
       "label": "Standard",
+      "curated": true,
+      "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 75622,
-        "ascendancies": 0
+        "characters": 75617,
+        "ascendancies": 6
       },
-      "builds": [],
-      "note": "poe.ninja doesn't publish a ranked build breakdown for permanent leagues. Pick a Runes of Aldur league for the live meta."
+      "builds": [
+        {
+          "rank": 1,
+          "tier": "",
+          "cls": "Witch",
+          "asc": "Infernalist",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Evergreen minion summoner — hands-off, beginner-friendly"
+        },
+        {
+          "rank": 2,
+          "tier": "",
+          "cls": "Ranger",
+          "asc": "Deadeye",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Classic bow / projectiles — fast clear"
+        },
+        {
+          "rank": 3,
+          "tier": "",
+          "cls": "Warrior",
+          "asc": "Titan",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Slow, tanky slam melee — very forgiving"
+        },
+        {
+          "rank": 4,
+          "tier": "",
+          "cls": "Sorceress",
+          "asc": "Stormweaver",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Elemental spellcaster — strong bossing"
+        },
+        {
+          "rank": 5,
+          "tier": "",
+          "cls": "Monk",
+          "asc": "Invoker",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Elemental strike melee — high mobility"
+        },
+        {
+          "rank": 6,
+          "tier": "",
+          "cls": "Mercenary",
+          "asc": "Witchhunter",
+          "skill": "",
+          "pop": null,
+          "delta": null,
+          "n": null,
+          "tag": "Crossbow generalist — flexible, anti-caster"
+        }
+      ]
     }
   ]
 }
