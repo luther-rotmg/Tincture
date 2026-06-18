@@ -119,7 +119,7 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [ ] Complete the ascendancy → code table
 - [ ] **Direct GGG ladder cross-check** — a second source so the meta isn't single-sourced
 - [ ] A guide directory — link out to the best community guide for each meta build
-- [ ] Hardcore / SSF toggles
+- [x] League switcher — Softcore / Hardcore / SSF / HC SSF + Standard (dropdown)
 
 ---
 

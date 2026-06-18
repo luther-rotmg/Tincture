@@ -2,20 +2,22 @@
 """
 Tincture — the distillation engine.
 
-Reads the current Path of Exile 2 challenge-league build meta, boils it down to a
-single ranked list, and writes data.json (the file the front end reads).
+Reads the current Path of Exile 2 build meta across every league variant, boils
+each down to a ranked list, and writes data.json (the file the front end reads).
 
 Design notes
 ------------
 * Stdlib only (urllib + json). No pip install needed, so the GitHub Action stays
   dependency-free and this runs anywhere Python 3.9+ exists.
-* poe.ninja's PoE2 endpoints are UNDOCUMENTED and rate-limited (~12 req / 5 min),
-  so we make only one call per run and cache nothing client-side.
-* The builds source is the confirmed GET /poe2/api/data/build-index-state. It
-  returns every current league's top ascendancies with a share-of-ladder % and a
-  -1/0/1 trend flag. Verified live and reachable from a bare request, so the
-  GitHub Action (Python urllib, datacenter IP) can fetch it. See --probe.
-* Fails safe: if the live fetch errors or returns an unexpected shape, we keep the
+* The builds source is the confirmed GET /poe2/api/data/build-index-state. One call
+  returns *every* current league with its top ascendancies (share-of-ladder % and a
+  -1/0/1 trend flag) plus a league total. Verified live and reachable from a bare
+  request, so the Action (Python urllib, datacenter IP) can fetch it. See --probe.
+* We surface the current challenge league's four variants (Softcore / Hardcore /
+  SSF / HC SSF) plus permanent Standard. poe.ninja does NOT break down permanent
+  leagues, so Standard comes back with no statistics — we keep it in the dropdown
+  with an honest empty state rather than inventing data.
+* Fails safe: if the live fetch errors or no league has usable builds, we keep the
   existing data.json untouched and exit 0, so a bad upstream response never breaks
   the deployed site.
 
@@ -23,7 +25,7 @@ Usage
 -----
   python distill.py            # live run (used by the GitHub Action)
   python distill.py --demo     # no network; runs the full pipeline on sample data
-  python distill.py --probe    # try candidate builds endpoints, print what comes back
+  python distill.py --probe    # dump the live leagues + their top ascendancies
 """
 
 import json
@@ -37,9 +39,7 @@ from datetime import datetime, timezone
 # ----------------------------------------------------------------------------- #
 # Config
 # ----------------------------------------------------------------------------- #
-LEAGUE = "Runes of Aldur"   # current challenge league (0.5.0). Case-sensitive for the API.
 PATCH = "0.5.0"
-MODE = "Softcore"
 
 POE2_API = "https://poe.ninja/poe2/api"
 
@@ -55,8 +55,34 @@ TIERS = [("S", 9.0), ("A", 4.5), ("B", 2.5), ("C", 0.0)]
 # ascendancies with a share-of-ladder % and a -1/0/1 trend flag.
 BUILD_INDEX_URL = f"{POE2_API}/data/build-index-state"
 
-# Our league's url key inside that payload (softcore trade — not the HC / SSF rows).
-LEAGUE_URL = "runesofaldur"
+# The current challenge league family. Its variants share this url stem + a suffix.
+# When a new league launches, update these two lines and the rest follows.
+LEAGUE_FAMILY = "runesofaldur"
+FAMILY_NAME = "Runes of Aldur"
+
+# (url suffix, mode label) for the four challenge-league variants, in dropdown order.
+VARIANTS = [("", "Softcore"), ("hc", "Hardcore"), ("ssf", "SSF"), ("hcssf", "HC SSF")]
+
+# Permanent leagues to always surface. poe.ninja publishes no ranked build breakdown
+# for these, so they show up empty (with a note) — kept because users ask for them.
+PERMANENT = [("standard", "Standard", "Standard")]  # (url, name, mode)
+
+NO_BREAKDOWN_NOTE = (
+    "poe.ninja doesn't publish a ranked build breakdown for permanent leagues. "
+    "Pick a Runes of Aldur league for the live meta."
+)
+
+
+def target_leagues():
+    """The leagues we surface, in dropdown order: challenge variants then permanent."""
+    out = [{"url": LEAGUE_FAMILY + suffix, "name": FAMILY_NAME, "mode": mode,
+            "label": f"{FAMILY_NAME} · {mode}"} for suffix, mode in VARIANTS]
+    out += [{"url": url, "name": name, "mode": mode, "label": name}
+            for url, name, mode in PERMANENT]
+    return out
+
+
+TARGET_LEAGUES = target_leagues()
 
 # poe.ninja ranks at the ascendancy level (its "class" field is the ascendancy name)
 # and exposes no dominant skill here. Map each ascendancy to its base class for the
@@ -128,47 +154,29 @@ def fetch_poeninja_builds():
     return None
 
 
-def _select_league(leagues):
-    """Pick our softcore trade league by url key, with a display-name fallback."""
-    by_url = next((l for l in leagues if l.get("leagueUrl") == LEAGUE_URL), None)
-    if by_url is not None:
-        return by_url
-    return next((l for l in leagues if l.get("leagueName") == LEAGUE), None)
+def index_by_url(raw):
+    """{leagueUrl: league_obj} from a build-index-state payload."""
+    if not isinstance(raw, dict):
+        return {}
+    return {l.get("leagueUrl"): l for l in raw.get("leagueBuilds", []) if isinstance(l, dict)}
 
 
-def normalize_builds(raw):
+def normalize_one(league_obj):
     """
-    Map poe.ninja's build-index-state into our internal shape:
-        {cls, asc, skill, pop (float %), n (int)}
+    One poe.ninja league object -> (build rows, league total).
 
-    Confirmed live shape:
-        {"leagueBuilds": [
-            {"leagueName": "Runes of Aldur", "leagueUrl": "runesofaldur",
-             "total": 124248,
-             "statistics": [{"class": "Martial Artist", "percentage": 24.5, "trend": -1}, ...]},
-            ... (HC / SSF variants) ]}
+    A league object looks like:
+        {"leagueName": "...", "leagueUrl": "...", "total": 124248,
+         "statistics": [{"class": "Martial Artist", "percentage": 24.5, "trend": -1}, ...]}
 
     poe.ninja ranks ascendancies (its "class" field) and gives no dominant skill, so
     `skill` is left blank and the front end shows the ascendancy as the headline.
-    `n` is reconstructed from the league total and each ascendancy's share.
+    `n` is reconstructed from the league total and each ascendancy's share. Permanent
+    leagues return an empty statistics list -> we return ([], total).
     """
-    if not isinstance(raw, dict):
-        return None
-    leagues = raw.get("leagueBuilds")
-    if not isinstance(leagues, list) or not leagues:
-        print("[normalize] unexpected shape; top-level keys =",
-              list(raw.keys()) if isinstance(raw, dict) else type(raw).__name__)
-        return None
-
-    league = _select_league(leagues)
-    if league is None:
-        print(f"[normalize] league {LEAGUE_URL!r} not found in",
-              [l.get("leagueUrl") for l in leagues])
-        return None
-
-    total = int(league.get("total") or 0)
+    total = int(league_obj.get("total") or 0)
     out = []
-    for s in league.get("statistics") or []:
+    for s in league_obj.get("statistics") or []:
         if not isinstance(s, dict):
             continue
         asc = s.get("class")
@@ -187,14 +195,10 @@ def normalize_builds(raw):
             "n": round(total * pop / 100.0) if total else 0,
             "tag": "",
         })
-
-    if not out:
-        print("[normalize] matched 0 ascendancies in", league.get("leagueName"))
-        return None
-    return out
+    return out, total
 
 # ----------------------------------------------------------------------------- #
-# Distillation: tiers, trends, ranking
+# Distillation: tiers, trends, ranking — per league
 # ----------------------------------------------------------------------------- #
 def tier_for(pop):
     for name, cutoff in TIERS:
@@ -218,45 +222,62 @@ def key_of(b):
     return f"{b['asc']}|{b['skill']}".lower()
 
 
-def apply_trends(builds, previous):
-    """delta = current share - share an hour ago. 0 on first run / new builds."""
-    prev_map = {}
-    if previous and not previous.get("_seed") and isinstance(previous.get("builds"), list):
-        for pb in previous["builds"]:
-            prev_map[key_of(pb)] = pb.get("pop", 0.0)
+def prev_builds_for(previous, url):
+    """The previous run's build rows for one league url (empty if absent / old shape)."""
+    if not isinstance(previous, dict):
+        return []
+    for league in previous.get("leagues", []) or []:
+        if league.get("url") == url:
+            return league.get("builds", []) or []
+    return []
+
+
+def apply_trends(builds, prev_builds):
+    """delta = current share - share an hour ago; 0 on first run / new builds."""
+    prev_map = {key_of(pb): pb.get("pop", 0.0) for pb in (prev_builds or [])}
     for b in builds:
         old = prev_map.get(key_of(b))
         b["delta"] = round(b["pop"] - old, 1) if old is not None else 0.0
     return builds
 
 
-def distill(raw_builds, previous, total=None):
+def distill_league(raw_builds, prev_builds, total, meta):
+    """Rank + tier + trend one league's builds and wrap with its metadata."""
     builds = [b for b in raw_builds if b.get("pop", 0) > 0]
     builds.sort(key=lambda b: b["pop"], reverse=True)
     for i, b in enumerate(builds, start=1):
         b["rank"] = i
         b["tier"] = tier_for(b["pop"])
-    apply_trends(builds, previous)
+    apply_trends(builds, prev_builds)
 
     ascendancies = len({b["asc"] for b in builds})
-    # Prefer the source's real league population; fall back to summing the shown
-    # builds (the demo path has no separate total).
+    # Prefer the source's real league population; fall back to summing shown builds
+    # (the demo path has no separate total).
     characters = int(total) if total else sum(int(b.get("n", 0)) for b in builds)
 
-    return {
-        "league": LEAGUE,
-        "patch": PATCH,
-        "mode": MODE,
-        "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "totals": {
-            "characters": characters,
-            "sources": 1,            # bump to 2 when the GGG ladder cross-check is on
-            "ascendancies": ascendancies,
-        },
+    league = {
+        "url": meta["url"],
+        "name": meta["name"],
+        "mode": meta["mode"],
+        "label": meta["label"],
+        "totals": {"characters": characters, "ascendancies": ascendancies},
         "builds": [
             {k: b[k] for k in ("rank", "tier", "cls", "asc", "skill", "pop", "delta", "n", "tag")}
             for b in builds
         ],
+    }
+    if not league["builds"]:
+        league["note"] = NO_BREAKDOWN_NOTE
+    return league
+
+
+def build_payload(leagues):
+    return {
+        "patch": PATCH,
+        "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "sources": 1,            # bump to 2 when the GGG ladder cross-check is on
+        "default": LEAGUE_FAMILY,  # the softcore challenge league
+        "leagues": leagues,
     }
 
 
@@ -264,8 +285,9 @@ def write_data(payload):
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
         f.write("\n")
-    print(f"[write] {OUT_PATH} — {len(payload['builds'])} builds, "
-          f"{payload['totals']['characters']:,} characters")
+    leagues = payload.get("leagues", [])
+    nb = sum(len(l.get("builds", [])) for l in leagues)
+    print(f"[write] {OUT_PATH} — {len(leagues)} leagues, {nb} builds total")
 
 # ----------------------------------------------------------------------------- #
 # Modes
@@ -278,45 +300,57 @@ def run_probe():
         print(f"  failed: {type(e).__name__}: {e}")
         return
     leagues = data.get("leagueBuilds", []) if isinstance(data, dict) else []
-    print(f"  OK — {len(leagues)} leagues returned:")
+    targets = {m["url"] for m in TARGET_LEAGUES}
+    print(f"  OK — {len(leagues)} leagues returned (we surface {len(targets)}):")
     for l in leagues:
-        mark = "  <-- ours" if l.get("leagueUrl") == LEAGUE_URL else ""
-        print(f"    {str(l.get('leagueUrl')):<22} {str(l.get('leagueName')):<24} "
+        mark = "  <-- surfaced" if l.get("leagueUrl") in targets else ""
+        print(f"    {str(l.get('leagueUrl')):<22} {str(l.get('leagueName')):<26} "
               f"total={l.get('total'):>7}  ascendancies={len(l.get('statistics') or [])}{mark}")
-    ours = _select_league(leagues)
-    if ours:
-        print(f"\n  Top of {ours.get('leagueName')}:")
-        for s in (ours.get('statistics') or [])[:5]:
-            print(f"    {str(s.get('class')):<22} {float(s.get('percentage', 0)):.1f}%  "
-                  f"trend={s.get('trend')}")
 
 
 def run_demo():
     print("DEMO mode — no network. Running the full pipeline on sample data.\n")
     previous = load_previous()
-    payload = distill([dict(b) for b in SAMPLE_BUILDS], previous)
+    meta = {"url": LEAGUE_FAMILY, "name": FAMILY_NAME, "mode": "Softcore",
+            "label": f"{FAMILY_NAME} · Softcore"}
+    sc = distill_league([dict(b) for b in SAMPLE_BUILDS],
+                        prev_builds_for(previous, LEAGUE_FAMILY), total=None, meta=meta)
+    payload = build_payload([sc])
     write_data(payload)
     print("\nTop of the ledger:")
-    for b in payload["builds"][:5]:
+    for b in sc["builds"][:5]:
         arrow = "▲" if b["delta"] > 0 else "▼" if b["delta"] < 0 else "—"
         print(f"  {b['rank']:>2}. [{b['tier']}] {b['asc']:<20} {b['skill']:<18} "
               f"{b['pop']:>5.1f}%  {arrow}{abs(b['delta']):.1f}")
 
 
 def run_live():
-    print(f"LIVE run — distilling '{LEAGUE}' ({MODE}, {PATCH})\n")
+    print(f"LIVE run — distilling {FAMILY_NAME} variants + Standard ({PATCH})\n")
     previous = load_previous()
     raw = fetch_poeninja_builds()
-    builds = normalize_builds(raw)
-    if not builds:
-        print("\n[live] no usable build data this run — keeping the existing data.json. "
+    if not isinstance(raw, dict):
+        print("\n[live] no data this run — keeping the existing data.json. Exiting 0.")
+        return 0
+
+    feed = index_by_url(raw)
+    leagues_out = []
+    for meta in TARGET_LEAGUES:
+        league_obj = feed.get(meta["url"])
+        if league_obj is None:
+            print(f"[live] {meta['url']} not in feed — skipping")
+            continue
+        rows, total = normalize_one(league_obj)
+        league = distill_league(rows, prev_builds_for(previous, meta["url"]), total, meta)
+        print(f"[live] {meta['label']:<28} {len(league['builds']):>2} builds, "
+              f"{league['totals']['characters']:>7,} characters")
+        leagues_out.append(league)
+
+    if not any(l["builds"] for l in leagues_out):
+        print("\n[live] no league had usable build data — keeping the existing data.json. "
               "Exiting 0 so the site stays up.")
         return 0
-    leagues = raw.get("leagueBuilds", []) if isinstance(raw, dict) else []
-    league = _select_league(leagues)
-    total = int(league.get("total") or 0) if league else 0
-    payload = distill(builds, previous, total=total or None)
-    write_data(payload)
+
+    write_data(build_payload(leagues_out))
     return 0
 
 

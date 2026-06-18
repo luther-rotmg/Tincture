@@ -111,6 +111,16 @@
   }
   .league-badge .patch{color:var(--gold);}
   .league-badge .sep{width:1px; height:13px; background:var(--hair-strong);}
+  .league-select{
+    appearance:none; -webkit-appearance:none;
+    font:inherit; letter-spacing:inherit; text-transform:uppercase;
+    color:var(--bone); background:transparent; border:none; outline:none; cursor:pointer;
+    margin:0; padding:0 16px 0 0; max-width:62vw;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23c8a24a' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right center; background-size:9px 6px;
+  }
+  .league-select:hover, .league-select:focus-visible{color:var(--gold-bright);}
+  .league-select option{background:var(--ink-2); color:var(--bone); text-transform:none; letter-spacing:normal;}
   .updated{
     font-family:var(--fmono); font-size:11px; letter-spacing:.08em; color:var(--muted);
   }
@@ -381,8 +391,8 @@
     </div>
     <div class="meta-right">
       <span class="league-badge">
-        <span id="leagueName">Runes of Aldur</span>
-        <span class="sep"></span><span>Softcore</span>
+        <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
+        <span class="sep"></span><span id="leagueMode">Softcore</span>
         <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
       </span>
       <button class="folder" id="folderBtn" title="Connect your Path of Exile 2 BuildPlanner folder so builds save in one click">
@@ -528,37 +538,65 @@
    later and nothing here changes.
    ============================================================ */
 
-/* ---- SAMPLE DATA (Runes of Aldur, softcore) ----
-   Realistic placeholder shaped exactly like the pipeline output.
-   Replaced verbatim by data.json once the live aggregator runs. */
+/* ---- SAMPLE DATA (multi-league) ----
+   Realistic placeholder shaped exactly like the pipeline output: a top-level
+   wrapper with a leagues[] array. Replaced verbatim by data.json once the live
+   aggregator runs. Standard is included empty to show the dropdown + empty state. */
 const SAMPLE_DATA = {
-  league: "Runes of Aldur",
   patch: "0.5.0",
-  mode: "Softcore",
   updated: new Date(Date.now() - 14 * 60 * 1000).toISOString(),
-  totals: { characters: 12847, sources: 3, ascendancies: 24 },
-  builds: [
-    { rank:1,  tier:"S", cls:"Huntress",   asc:"Spirit Walker",        skill:"Whirling Slash",       pop:13.8, delta:+2.4, n:1772, tag:"Does a bit of everything — clears fast, bosses fine" },
-    { rank:2,  tier:"S", cls:"Monk",       asc:"Martial Artist",       skill:"Tempest Flurry",       pop:11.1, delta:+1.0, n:1424, tag:"Highest ceiling once geared" },
-    { rank:3,  tier:"S", cls:"Ranger",     asc:"Deadeye",              skill:"Lightning Arrow",      pop:9.7,  delta:-0.9, n:1245, tag:"The league-start default" },
-    { rank:4,  tier:"A", cls:"Witch",      asc:"Infernalist",          skill:"Skeletal Storm Mages", pop:8.3,  delta:+0.6, n:1066, tag:"Hands-off minion comfort" },
-    { rank:5,  tier:"A", cls:"Sorceress",  asc:"Stormweaver",          skill:"Frost Bomb",           pop:6.9,  delta:+1.7, n:886,  tag:"Deletes pinnacle bosses" },
-    { rank:6,  tier:"A", cls:"Ranger",     asc:"Pathfinder",           skill:"Ice-Tipped Arrows",    pop:5.4,  delta:-0.4, n:693,  tag:"Tanky, flask-driven mapper" },
-    { rank:7,  tier:"A", cls:"Warrior",    asc:"Titan",                skill:"Earthshatter",         pop:4.8,  delta:+0.2, n:616,  tag:"Slow, unkillable, heavy hits" },
-    { rank:8,  tier:"B", cls:"Witch",      asc:"Lich",                 skill:"Galvanic Shards",      pop:4.1,  delta:+0.9, n:526,  tag:"Crossbow caster, strong burst" },
-    { rank:9,  tier:"B", cls:"Monk",       asc:"Invoker",              skill:"Tempest Bell",         pop:3.6,  delta:-0.5, n:462,  tag:"Combo melee, high skill floor" },
-    { rank:10, tier:"B", cls:"Mercenary",  asc:"Gemling Legionnaire",  skill:"Galvanic Field",       pop:3.0,  delta:+0.1, n:385,  tag:"Flexible gem-stacking shell" },
-    { rank:11, tier:"C", cls:"Sorceress",  asc:"Chronomancer",         skill:"Comet",                pop:2.4,  delta:+0.7, n:308,  tag:"Spike-cast glass cannon" }
+  sources: 1,
+  default: "runesofaldur",
+  leagues: [
+    {
+      url:"runesofaldur", name:"Runes of Aldur", mode:"Softcore", label:"Runes of Aldur · Softcore",
+      totals:{ characters:124248, ascendancies:11 },
+      builds:[
+        { rank:1,  tier:"S", cls:"Huntress",   asc:"Spirit Walker",        skill:"Whirling Slash",       pop:13.8, delta:+2.4, n:1772, tag:"Does a bit of everything — clears fast, bosses fine" },
+        { rank:2,  tier:"S", cls:"Monk",       asc:"Martial Artist",       skill:"Tempest Flurry",       pop:11.1, delta:+1.0, n:1424, tag:"Highest ceiling once geared" },
+        { rank:3,  tier:"S", cls:"Ranger",     asc:"Deadeye",              skill:"Lightning Arrow",      pop:9.7,  delta:-0.9, n:1245, tag:"The league-start default" },
+        { rank:4,  tier:"A", cls:"Witch",      asc:"Infernalist",          skill:"Skeletal Storm Mages", pop:8.3,  delta:+0.6, n:1066, tag:"Hands-off minion comfort" },
+        { rank:5,  tier:"A", cls:"Sorceress",  asc:"Stormweaver",          skill:"Frost Bomb",           pop:6.9,  delta:+1.7, n:886,  tag:"Deletes pinnacle bosses" },
+        { rank:6,  tier:"A", cls:"Ranger",     asc:"Pathfinder",           skill:"Ice-Tipped Arrows",    pop:5.4,  delta:-0.4, n:693,  tag:"Tanky, flask-driven mapper" },
+        { rank:7,  tier:"A", cls:"Warrior",    asc:"Titan",                skill:"Earthshatter",         pop:4.8,  delta:+0.2, n:616,  tag:"Slow, unkillable, heavy hits" },
+        { rank:8,  tier:"B", cls:"Witch",      asc:"Lich",                 skill:"Galvanic Shards",      pop:4.1,  delta:+0.9, n:526,  tag:"Crossbow caster, strong burst" },
+        { rank:9,  tier:"B", cls:"Monk",       asc:"Invoker",              skill:"Tempest Bell",         pop:3.6,  delta:-0.5, n:462,  tag:"Combo melee, high skill floor" },
+        { rank:10, tier:"B", cls:"Mercenary",  asc:"Gemling Legionnaire",  skill:"Galvanic Field",       pop:3.0,  delta:+0.1, n:385,  tag:"Flexible gem-stacking shell" },
+        { rank:11, tier:"C", cls:"Sorceress",  asc:"Chronomancer",         skill:"Comet",                pop:2.4,  delta:+0.7, n:308,  tag:"Spike-cast glass cannon" }
+      ]
+    },
+    {
+      url:"standard", name:"Standard", mode:"Standard", label:"Standard",
+      totals:{ characters:75622, ascendancies:0 }, builds:[],
+      note:"poe.ninja doesn't publish a ranked build breakdown for permanent leagues. Pick a Runes of Aldur league for the live meta."
+    }
   ]
 };
 
-let DATA = SAMPLE_DATA;
+/* Accept the multi-league shape (or, defensively, an older single-league one). */
+function normalizeData(json){
+  if (json && Array.isArray(json.leagues) && json.leagues.length) return json;
+  if (json && Array.isArray(json.builds)){
+    const t = json.totals || {};
+    return { patch:json.patch, updated:json.updated, sources:t.sources||1, default:json.league,
+      leagues:[{ url:json.league||"league", name:json.league||"League", mode:json.mode||"Softcore",
+        label:json.league||"League", totals:{characters:t.characters||0, ascendancies:t.ascendancies||0},
+        builds:json.builds }] };
+  }
+  return null;
+}
+
+let DATA = normalizeData(SAMPLE_DATA);
+let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
 let activeSort = "pop";
 
 const $ = (s, r=document) => r.querySelector(s);
 const fmt = n => n.toLocaleString("en-US");
+
+const leagues = () => (DATA && DATA.leagues) || [];
+const curLeague = () => leagues().find(l => l.url === activeUrl) || leagues()[0] || {builds:[], totals:{}};
 
 /* ----- relative time ----- */
 function relTime(iso){
@@ -593,7 +631,7 @@ function buildFile(b){
     _tool: "tincture",
     _note: "Placeholder structure — final schema set when live serialization lands.",
     version: 1,
-    league: DATA.league,
+    league: curLeague().name,
     name: b.skill ? `${b.asc} — ${b.skill}` : b.asc,
     class: b.cls,
     ascendancy: b.asc,
@@ -673,8 +711,7 @@ function downloadFallback(file, name, silentReason){
 
 /* ----- render ----- */
 function classList(){
-  const set = ["All", ...Array.from(new Set(DATA.builds.map(b=>b.cls).filter(Boolean)))];
-  return set;
+  return ["All", ...Array.from(new Set((curLeague().builds||[]).map(b=>b.cls).filter(Boolean)))];
 }
 function renderChips(){
   const wrap = $("#classChips"); wrap.innerHTML = "";
@@ -687,7 +724,7 @@ function renderChips(){
   });
 }
 function currentBuilds(){
-  let list = DATA.builds.slice();
+  let list = (curLeague().builds||[]).slice();
   if (activeClass !== "All") list = list.filter(b=>b.cls===activeClass);
   if (activeSort === "trend") list.sort((a,b)=> b.delta - a.delta);
   else list.sort((a,b)=> b.pop - a.pop);
@@ -695,6 +732,11 @@ function currentBuilds(){
 }
 function renderRows(){
   const rows = $("#rows"); rows.innerHTML = "";
+  const L = curLeague();
+  if (!(L.builds||[]).length){
+    rows.innerHTML = `<div style="padding:44px 20px;color:var(--bone-dim);font-family:var(--fmono);font-size:13px;line-height:1.8;max-width:680px">${L.note || ("No ranked build data for " + (L.name||"this league") + ".")}</div>`;
+    return;
+  }
   const list = currentBuilds();
   if (!list.length){
     rows.innerHTML = `<div style="padding:40px 18px;color:var(--muted);font-family:var(--fmono);font-size:13px">No ${activeClass} builds in the current distillation. Pick another class above.</div>`;
@@ -727,27 +769,67 @@ function renderRows(){
   });
 }
 function renderHero(){
-  const top = DATA.builds.slice().sort((a,b)=>b.pop-a.pop)[0];
+  const L = curLeague();
+  const blds = (L.builds||[]).slice().sort((a,b)=>b.pop-a.pop);
+  const hd = $("#heroDecant");
+  if (!blds.length){
+    $("#essenceName").innerHTML = `<span class="asc">No ranked data</span>`;
+    $("#essenceSub").innerHTML = L.note || `poe.ninja doesn't publish a build breakdown for ${L.name}.`;
+    $("#heroChars").textContent = (L.totals && L.totals.characters) ? fmt(L.totals.characters) : "—";
+    $("#heroBuilds").textContent = "0";
+    $("#heroShare").innerHTML = `—`;
+    if (hd){ hd.disabled = true; hd.onclick = null; }
+    return;
+  }
+  const top = blds[0];
   $("#essenceName").innerHTML = `<span class="asc">${top.asc}</span>${top.skill ? `<span class="skill">${top.skill}</span>` : ""}`;
   $("#essenceSub").innerHTML =
-    `The clearest signal in <b>${DATA.league}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — distilled from <span class="figure">${fmt(top.n)}</span> characters.`;
-  $("#heroChars").textContent = fmt(DATA.totals.characters);
-  $("#heroBuilds").textContent = DATA.builds.length;
+    `The clearest signal in <b>${L.name}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — distilled from <span class="figure">${fmt(top.n)}</span> characters.`;
+  $("#heroChars").textContent = fmt((L.totals && L.totals.characters) || 0);
+  $("#heroBuilds").textContent = blds.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
-  $("#heroDecant").onclick = ()=> decant(top);
+  if (hd){ hd.disabled = false; hd.onclick = ()=> decant(top); }
 }
 function renderMeta(){
-  $("#leagueName").textContent = DATA.league;
+  const L = curLeague();
+  const sel = $("#leagueSelect"); if (sel) sel.value = activeUrl;
+  const lm = $("#leagueMode"); if (lm) lm.textContent = L.mode || "";
   $("#patch").textContent = DATA.patch;
   const rt = relTime(DATA.updated);
   $("#updatedText").textContent = "refreshed " + rt;
   $("#footUpdated").textContent = "last refreshed " + rt;
-  // feed The Still's counters from real totals (animation reads data-count)
-  const t = DATA.totals || {};
+  // feed The Still's counters from the active league's totals
+  const t = L.totals || {};
   const setCount = (id, val) => { const el = document.getElementById(id); if (el) el.dataset.count = val; };
   setCount("cChars", t.characters || 0);
-  setCount("cBuilds", (DATA.builds || []).length);
+  setCount("cBuilds", (L.builds || []).length);
   setCount("cAsc", t.ascendancies || 0);
+  syncCounters();
+}
+
+/* paint counters to their current data-count (used on league switch / each minute);
+   the scroll-in animation in animateCounters still plays on first view. */
+function syncCounters(){
+  document.querySelectorAll(".counter .num").forEach(el=>{
+    const pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
+    el.textContent = pre + fmt(+el.dataset.count || 0) + suf;
+  });
+}
+
+function setupLeaguePicker(){
+  const sel = $("#leagueSelect"); if (!sel) return;
+  sel.innerHTML = "";
+  leagues().forEach(L=>{
+    const o = document.createElement("option");
+    o.value = L.url; o.textContent = L.label || L.name;
+    sel.appendChild(o);
+  });
+  sel.value = activeUrl;
+  sel.onchange = ()=>{
+    activeUrl = sel.value;
+    activeClass = "All";
+    renderMeta(); renderHero(); renderChips(); renderRows();
+  };
 }
 
 /* ----- animated counters in The Still ----- */
@@ -789,11 +871,13 @@ async function boot(){
   try{
     const res = await fetch("data.json", { cache:"no-store" });
     if (res.ok){
-      const json = await res.json();
-      if (json && Array.isArray(json.builds) && json.builds.length) DATA = json;
+      const norm = normalizeData(await res.json());
+      if (norm) DATA = norm;
     }
   }catch(_){ /* offline / not deployed yet — sample stands in */ }
 
+  activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
+  setupLeaguePicker();
   renderMeta();
   renderHero();
   renderChips();
