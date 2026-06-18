@@ -15,18 +15,31 @@ import json
 import re
 import sys
 
-# Ascendancy display name -> .build code ("{Class}{slot}").
-# Only Martial Artist is confirmed from real exports; fill the rest by exporting one
-# build per ascendancy and reading the "ascendancy" field (tracked in the README TODO).
+# Ascendancy display name -> .build code (usually "{Class}{slot}", e.g. "Monk1").
+# Derived from the OFFICIAL GGG PoE2 skill-tree export
+# (github.com/grindinggear/poe2-skilltree-export, tag 0.5.2) — classes[].ascendancies[].id
+# is exactly the code the .build "ascendancy" field uses. Martial Artist -> Monk1 is
+# additionally cross-confirmed against a real .build export, which validates that the
+# export's ascendancyId == the .build code for the rest. Note Abyssal Lich -> "Witch3b"
+# (a lettered variant, not "{Class}{digit}"). `scripts/treedata.py` re-derives this map
+# from the live export so it can be refreshed per patch without re-vendoring GGG data.
 ASCENDANCY_CODES = {
-    "Martial Artist": "Monk1",
-    # "Invoker": "Monk?",  "Acolyte of Chayula": "Monk?",
-    # "Deadeye": "Ranger?", "Pathfinder": "Ranger?",
-    # "Titan": "Warrior?",  "Warbringer": "Warrior?",
-    # "Infernalist": "Witch?", "Blood Mage": "Witch?", "Lich": "Witch?",
-    # "Stormweaver": "Sorceress?", "Chronomancer": "Sorceress?",
-    # "Witchhunter": "Mercenary?", "Gemling Legionnaire": "Mercenary?",
-    # "Spirit Walker": "Huntress?",
+    # Monk
+    "Martial Artist": "Monk1", "Invoker": "Monk2", "Acolyte of Chayula": "Monk3",
+    # Ranger
+    "Deadeye": "Ranger1", "Pathfinder": "Ranger3",
+    # Warrior
+    "Titan": "Warrior1", "Warbringer": "Warrior2", "Smith of Kitava": "Warrior3",
+    # Witch
+    "Infernalist": "Witch1", "Blood Mage": "Witch2", "Lich": "Witch3", "Abyssal Lich": "Witch3b",
+    # Sorceress
+    "Stormweaver": "Sorceress1", "Chronomancer": "Sorceress2", "Disciple of Varashta": "Sorceress3",
+    # Mercenary
+    "Tactician": "Mercenary1", "Witchhunter": "Mercenary2", "Gemling Legionnaire": "Mercenary3",
+    # Huntress
+    "Amazon": "Huntress1", "Spirit Walker": "Huntress2", "Ritualist": "Huntress3",
+    # Druid
+    "Oracle": "Druid1", "Shaman": "Druid2",
 }
 
 VALID_SLOTS = {
@@ -85,8 +98,9 @@ def make_skill(gem, *, supports=None, min_level=1, max_level=100):
     }
 
 
-# A real ascendancy code is "{Class}{slot}", e.g. "Monk1" — letters then a digit.
-_CODE_RE = re.compile(r"^[A-Za-z]+[0-9]$")
+# A real ascendancy code is "{Class}{slot}" — letters then a digit, optionally a lettered
+# variant (e.g. "Monk1", "Sorceress2", "Witch3b").
+_CODE_RE = re.compile(r"^[A-Za-z]+[0-9]+[a-z]?$")
 
 
 def resolve_ascendancy(ascendancy):
@@ -215,7 +229,7 @@ def _selftest():
     ok = not errs
     # no-fabrication guard: an unmapped display name must REFUSE to serialize
     try:
-        serialize_build(author="x", ascendancy="Stormweaver", name="nope")
+        serialize_build(author="x", ascendancy="Definitely Not An Ascendancy", name="nope")
         print("unmapped guard : FAIL (unmapped ascendancy did not raise)"); ok = False
     except ValueError:
         print("unmapped guard : OK (refused unconfirmed ascendancy)")

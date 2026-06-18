@@ -23,6 +23,7 @@ sys.path.insert(0, HERE)
 
 import distill    # noqa: E402
 import buildfile  # noqa: E402
+import treedata   # noqa: E402
 
 DATA_PATH = os.path.join(ROOT, "data.json")
 
@@ -169,14 +170,27 @@ class DataJson(unittest.TestCase):
 
 class NoFabrication(unittest.TestCase):
     def test_unmapped_ascendancy_refused(self):
+        # an ascendancy with no confirmed .build code must still refuse to serialize
         with self.assertRaises(ValueError):
-            buildfile.serialize_build(author="x", ascendancy="Stormweaver", name="nope")
+            buildfile.serialize_build(author="x", ascendancy="Definitely Not An Ascendancy", name="nope")
 
     def test_confirmed_ascendancy_serializes(self):
         b = buildfile.serialize_build(author="Tincture", ascendancy="Martial Artist",
                                       name="ok", passives=["attack_speed25"])
         self.assertEqual(b["ascendancy"], "Monk1")
         self.assertEqual(buildfile.validate(b), [])
+
+    def test_every_meta_ascendancy_has_a_build_code(self):
+        # every ascendancy the meta map knows must be serialisable (have a .build code),
+        # so Decant never refuses a real ladder ascendancy. Codes come from the official
+        # GGG tree export; this locks the two tables in sync.
+        for asc in distill.ASC_TO_CLASS:
+            self.assertIn(asc, buildfile.ASCENDANCY_CODES, f"{asc!r} has no .build ascendancy code")
+
+    def test_ascendancy_codes_are_well_formed(self):
+        import re
+        for asc, code in buildfile.ASCENDANCY_CODES.items():
+            self.assertRegex(code, r"^[A-Za-z]+[0-9]+[a-z]?$", f"{asc!r} code {code!r} is malformed")
 
     def test_meta_template_is_not_a_valid_build(self):
         template = {"_tool": "tincture", "_kind": "meta-template", "ascendancy": "Martial Artist"}
@@ -201,6 +215,45 @@ class NoFabrication(unittest.TestCase):
             self.assertTrue(buildfile.is_loadable(build), f"{name} is structurally valid but not loadable")
         if not seen:
             self.skipTest("builds/ has no .build files yet")
+
+
+MINI_EXPORT = {
+    "nodes": {
+        "root": {},
+        "4": {"skill": 4, "id": "lightning14", "name": "Shock Chance"},
+        "55": {"skill": 55, "id": "ailments38", "name": "Fast Acting Toxins"},
+        "9999": {"skill": 9999, "name": "node with no slug"},   # missing id -> skipped
+    },
+    "classes": [
+        {"name": "Monk", "ascendancies": [
+            {"name": "Martial Artist", "id": "Monk1"},
+            {"name": None, "id": "MonkX"},                       # unnamed -> skipped
+        ]},
+        {"name": "Witch", "ascendancies": [{"name": "Abyssal Lich", "id": "Witch3b"}]},
+    ],
+}
+
+
+class TreeData(unittest.TestCase):
+    """Lock the export-parsing logic offline (no network) on a synthetic fixture."""
+    def test_slug_map_skips_root_and_slugless(self):
+        self.assertEqual(treedata.slug_map(MINI_EXPORT), {4: "lightning14", 55: "ailments38"})
+
+    def test_ascendancy_codes_skips_unnamed(self):
+        codes = treedata.ascendancy_codes(MINI_EXPORT)
+        self.assertEqual(codes, {"Martial Artist": "Monk1", "Abyssal Lich": "Witch3b"})
+
+    def test_hashes_to_slugs_drops_unknown(self):
+        smap = treedata.slug_map(MINI_EXPORT)
+        self.assertEqual(treedata.hashes_to_slugs([4, 55, 123, "55"], smap),
+                         ["lightning14", "ailments38", "ailments38"])
+
+    def test_export_codes_agree_with_buildfile(self):
+        # the codes we ship must match what the (fixture-shaped) export would derive
+        codes = treedata.ascendancy_codes(MINI_EXPORT)
+        for name, code in codes.items():
+            self.assertEqual(buildfile.ASCENDANCY_CODES.get(name), code,
+                             f"{name!r}: buildfile disagrees with the export")
 
 
 if __name__ == "__main__":
