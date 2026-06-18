@@ -329,6 +329,36 @@
   .anim .vapor{animation:rise 4s ease-in-out infinite;}
   @keyframes rise{0%{opacity:0; transform:translateY(6px);}50%{opacity:.5;}100%{opacity:0; transform:translateY(-10px);}}
 
+  /* ---------------- guide ---------------- */
+  .guide{ padding:46px 0 40px; border-bottom:1px solid var(--hair); }
+  .guide .eyebrow{ display:block; margin-bottom:14px; }
+  .guide h2{ font-family:var(--ftext); font-weight:600; font-size:28px; line-height:1.14; margin:0 0 12px; color:var(--bone); }
+  .guide .lede{ color:var(--bone-dim); font-size:16px; max-width:64ch; margin:0 0 30px; }
+  .guide .lede b{ color:var(--bone); }
+  .steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .step{ display:flex; gap:14px; align-items:flex-start; }
+  .step-num{
+    flex:none; width:30px; height:30px; border-radius:50%; display:grid; place-items:center;
+    font-family:var(--fmono); font-size:14px; font-weight:600; color:var(--gold-bright);
+    border:1px solid var(--gold); background:linear-gradient(180deg, rgba(200,162,74,.10), transparent);
+  }
+  .step h3{ font-family:var(--ftext); font-weight:600; font-size:17px; margin:2px 0 7px; color:var(--bone); }
+  .step h3 .once{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--hair-strong); border-radius:2px; padding:2px 6px; margin-left:8px; vertical-align:middle; white-space:nowrap; }
+  .step p{ color:var(--bone-dim); font-size:14px; line-height:1.6; margin:0 0 8px; }
+  .step p b{ color:var(--bone); }
+  .step .hint{ font-size:12.5px; color:var(--muted); }
+  .path-box{
+    display:block; font-family:var(--fmono); font-size:12px; color:var(--gold-bright);
+    background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:3px;
+    padding:8px 10px; margin:0 0 9px; word-break:break-word;
+  }
+  .guide p code, .guide-foot code{ font-family:var(--fmono); color:var(--bone-dim); background:var(--ink-2); padding:1px 5px; border-radius:2px; font-size:.88em; }
+  .guide-foot{
+    margin:28px 0 0; padding-top:18px; border-top:1px solid var(--hair);
+    font-family:var(--fmono); font-size:12px; letter-spacing:.02em; color:var(--muted); line-height:1.75; max-width:84ch;
+  }
+  @media (max-width:880px){ .steps{ grid-template-columns:1fr; gap:18px; } }
+
   /* ---------------- footer ---------------- */
   .footer{
     margin-top:24px; padding:30px 0 64px;
@@ -423,7 +453,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
             Decant the essence
           </button>
-          <a href="#ledger" class="ghost-link">or browse all builds ↓</a>
+          <a href="#guide" class="ghost-link">new? how Decant works ↓</a>
+          <a href="#ledger" class="ghost-link">browse all builds ↓</a>
         </div>
       </div>
       <aside class="hero-side" aria-label="League data summary">
@@ -433,6 +464,39 @@
         <div class="stat-row"><span class="k">Refresh</span><span class="v" style="font-size:20px">hourly</span></div>
       </aside>
     </div>
+  </section>
+
+  <!-- ===================== HOW TO DECANT (guide) ===================== -->
+  <section class="guide" id="guide" aria-label="How decanting works">
+    <span class="eyebrow">New here?</span>
+    <h2>Decant a build straight into your game</h2>
+    <p class="lede"><b>Decant</b> drops a ready-made build into Path of&nbsp;Exile&nbsp;2's in-game <b>Build Planner</b> — no copy-paste, no alt-tabbing, no spreadsheets. Connect your folder once and every build on this page is a single click away.</p>
+    <ol class="steps">
+      <li class="step">
+        <span class="step-num">1</span>
+        <div>
+          <h3>Connect your folder<span class="once">one time</span></h3>
+          <p>Click <b>Connect BuildPlanner folder</b> (top-right) and pick this folder:</p>
+          <code class="path-box">Documents\My Games\Path of Exile 2\BuildPlanner</code>
+          <p class="hint">Chrome, Edge, Brave &amp; Opera save into it directly. Firefox/Safari download the file instead — just drop it into that folder yourself.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">2</span>
+        <div>
+          <h3>Decant a build</h3>
+          <p>Press <b>Decant</b> on the headline build or any row in the ledger below. Tincture writes a <code>.build</code> file straight into your BuildPlanner folder.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">3</span>
+        <div>
+          <h3>Open it in-game</h3>
+          <p>Launch Path of&nbsp;Exile&nbsp;2 and open the <b>Build Planner</b> — your decanted build is waiting there, ready to follow node by node as you level.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser. Don't see a <code>BuildPlanner</code> folder yet? Path of&nbsp;Exile&nbsp;2 creates it automatically the first time you open the in-game Build Planner.</p>
   </section>
 
   <!-- ===================== CONTROLS ===================== -->
