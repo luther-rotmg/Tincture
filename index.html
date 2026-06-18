@@ -919,11 +919,11 @@
       <div class="still-copy">
         <span class="eyebrow">The Still</span>
         <h2>Thousands of characters, reduced to one essence.</h2>
-        <p>Every hour we read poe.ninja's live aggregation of the Runes of Aldur ladder — itself distilled from the top 15,000 characters through GGG's official API — and boil the cloud of variation down to the consensus that's actually winning. No editorial guesswork. Just what the ladder is doing, distilled.</p>
+        <p>Every hour we read poe.ninja's live aggregation of the Runes of Aldur ladder — itself drawn from the top 15,000 characters through GGG's official API — and boil the cloud of variation down to the consensus that's actually winning. Each week we go deeper: reconstructing a real, <b>loadable</b> build for every meta pick and breaking down the skills, supports and passives behind each ascendancy. No editorial guesswork — just what the ladder is doing, distilled and decanted.</p>
         <div class="provenance">
-          <div class="src">poe.ninja <span class="note">— live PoE 2 build aggregation, hourly</span></div>
+          <div class="src">poe.ninja <span class="note">— live PoE 2 ladder build data, per-character</span></div>
           <div class="src">GGG ladder <span class="note">— the source underneath: top 15,000 characters</span></div>
-          <div class="src">Direct GGG cross-check <span class="note">— on the roadmap</span></div>
+          <div class="src">GGG tree export + PoB2 data <span class="note">— passive &amp; gem mapping that makes builds loadable</span></div>
         </div>
       </div>
 
@@ -1039,7 +1039,7 @@
         <dt>leagues[]</dt><dd>{ url, name, mode, label, totals{characters, ascendancies}, builds[], note?, curated? }</dd>
         <dt>builds[]</dt><dd>{ rank, tier, cls, asc, skill, pop, delta, n, tag } — pop/delta/n are null on curated rows</dd>
       </dl>
-      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. Ascendancy-level only: no per-skill data (<code>skill</code> is intentionally blank), and 24-hour trends sit at baseline until snapshots accumulate. <code>n</code> is derived (share × league total), not a measured headcount. No key, no rate limit beyond the host's — please don't hammer it; it only changes once an hour. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
+      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. <code>n</code> is derived (share × league total), not a measured headcount; 24-hour trends sit at baseline until snapshots accumulate. Two companion files are public too: <code>meta-detail.json</code> (per-ascendancy top skills, supports, passive notables, uniques and stat medians — the breakdown behind the expandable ledger rows and The Dispensary) and <code>builds/&lt;slug&gt;.build</code> (the real loadable build Decant serves for each meta pick). No key, no rate limit beyond the host's — please don't hammer it. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
     </div>
   </section>
 

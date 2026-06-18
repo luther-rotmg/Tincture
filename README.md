@@ -2,7 +2,7 @@
 
 **The current Path of Exile 2 meta, distilled from the ladder and decanted into your game with one click.**
 
-Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, and lets you export any pick as a labelled starting template in one click. It auto-refreshes every hour, so it's never out of date. (Loadable one-click builds — straight into your in-game Build Planner — are the next milestone; we don't fake a `.build` the game would silently refuse.)
+Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, breaks down the skills, supports and passives behind every ascendancy, and **Decants any meta pick as a real, loadable `.build`** — reconstructed from a top public-ladder character and dropped straight into your in-game Build Planner in one click. It auto-refreshes hourly, so it's never out of date.
 
 > Built for the **Runes of Aldur** league (PoE 2 patch 0.5.0). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
 
@@ -19,8 +19,9 @@ The big sites are planners and raw stat dashboards. Tincture is a **discovery** 
 
 - **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with 24-hour trend arrows that light up once a day of snapshots has accumulated.
 - **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, a cross-league comparison, and **The Crucible** — an ascendancy × league-mode heatmap with a *Share* ⇄ *Vs. typical* (over/under-index) toggle. All hand-rolled SVG/CSS, no libraries, computed in your browser.
-- **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The same static file the page reads is the public "API" — no backend, no key.
-- **One-click Decant (honest about it).** Decant exports a labelled meta template — ascendancy, ladder share, sample, playstyle, guide pointer — via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API) or a download. It's a starting pointer, **not** a loadable `.build`; the game silently refuses malformed files, so we don't fabricate one. Loadable builds land with the GGG character pull.
+- **The build behind the pick.** Expand any ledger row for that ascendancy's most popular skills, support gems, passive notables and unique items — with median EHP/DPS — aggregated from its whole ladder population. *The Dispensary* does the same for the entire meta at once.
+- **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The static files the page reads (`data.json`, `meta-detail.json`, `builds/<slug>.build`) are the public "API" — no backend, no key.
+- **One-click Decant — real loadable builds.** Every meta pick now Decants a real, loadable `.build`, reconstructed from a top public-ladder character (credited in the file), straight into your in-game Build Planner via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API) or a download. Picks not yet reconstructed fall back to an honest labelled template — never a fabricated build the game would silently refuse.
 - **Never stale.** A scheduled job re-distills the meta every hour, **validates** the result, and commits only if it passes. The page just reads it.
 
 ---
