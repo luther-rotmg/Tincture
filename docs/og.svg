@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Tincture — the distilled meta of Path of Exile 2.">
+  <defs>
+    <radialGradient id="glowTop" cx="50%" cy="-8%" r="75%">
+      <stop offset="0%" stop-color="#c8a24a" stop-opacity="0.16"/>
+      <stop offset="55%" stop-color="#c8a24a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBot" cx="78%" cy="115%" r="80%">
+      <stop offset="0%" stop-color="#9c3a2c" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#9c3a2c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="essence" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6c47a"/>
+      <stop offset="100%" stop-color="#9c3a2c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ground -->
+  <rect width="1200" height="630" fill="#14100b"/>
+  <rect width="1200" height="630" fill="url(#glowTop)"/>
+  <rect width="1200" height="630" fill="url(#glowBot)"/>
+  <!-- frame -->
+  <rect x="22" y="22" width="1156" height="586" fill="none" stroke="#c8a24a" stroke-opacity="0.32" stroke-width="1.5"/>
+  <rect x="30" y="30" width="1140" height="570" fill="none" stroke="#c8a24a" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- small alchemical flask mark, top-right (clear of the wordmark) -->
+  <g transform="translate(1012 64)" fill="none" stroke="#c8a24a" stroke-opacity="0.5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 6 h36 M48 6 v30 l34 60 a52 52 0 1 1 -68 0 l34 -60 v-30"/>
+    <path d="M22 108 a52 52 0 0 0 52 14 a52 52 0 0 0 28 -14 z" fill="url(#essence)" stroke="none" opacity="0.7"/>
+  </g>
+
+  <!-- copy, left -->
+  <text x="92" y="150" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="24" letter-spacing="7" fill="#c8a24a">PATH OF EXILE 2 · BUILD META</text>
+
+  <text x="88" y="320" font-family="'Cinzel', Georgia, 'Times New Roman', serif" font-weight="700" font-size="150" letter-spacing="4" fill="#ece3d0">TINCTURE<tspan fill="#c25140">.</tspan></text>
+
+  <text x="92" y="392" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="40" fill="#b6aa90">the meta, distilled from the ladder —</text>
+  <text x="92" y="446" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="40" fill="#b6aa90">ranked, tiered, visualized, decanted.</text>
+
+  <line x1="92" y1="498" x2="1108" y2="498" stroke="#c8a24a" stroke-opacity="0.18" stroke-width="1"/>
+  <text x="92" y="548" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="23" letter-spacing="3" fill="#877a62">tincturepoe2.com</text>
+  <text x="1108" y="548" text-anchor="end" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="23" letter-spacing="3" fill="#877a62">refreshed hourly · no tracking</text>
+</svg>
