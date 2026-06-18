@@ -116,6 +116,35 @@ ASC_TO_CLASS = {
     "Oracle": "Druid",
 }
 
+# EDITORIAL, not derived from ladder data. A short, present-tense archetype description
+# per ascendancy — purely so live ledger rows aren't blank. These describe how a build
+# FEELS, never how it ranks (no "best"/"meta"/"S-tier"). Mirrors the Standard CURATED
+# tags. Unknown ascendancies fall back to "" and the front end degrades gracefully.
+ASC_TAGS = {
+    "Martial Artist": "Combo melee striker — high mobility, high skill ceiling",
+    "Invoker": "Elemental strike monk — fast, dodge-heavy",
+    "Acolyte of Chayula": "Chaos/darkness monk — sustains through leech",
+    "Spirit Walker": "Spear-and-spirit hybrid — clears fast, bosses fine",
+    "Amazon": "Spear skirmisher — crit and mobility",
+    "Ritualist": "Ailment-stacking huntress — damage over time",
+    "Deadeye": "Classic bow / projectiles — fast clear, league-start friendly",
+    "Pathfinder": "Flask-driven mapper — tanky, sustained",
+    "Titan": "Slow, tanky slam melee — very forgiving",
+    "Warbringer": "Warcry-driven warrior — bursty, group-friendly",
+    "Smith of Kitava": "Armour-stacking warrior — durable frontline",
+    "Infernalist": "Hands-off minion summoner — beginner-friendly",
+    "Blood Mage": "Life-fuelled spellcaster — high risk, high burst",
+    "Lich": "Chaos / energy-shield caster — strong burst",
+    "Abyssal Lich": "Darkness-scaling caster — sustained chaos damage",
+    "Stormweaver": "Elemental spellcaster — strong bossing",
+    "Chronomancer": "Time-bending caster — spike-cast glass cannon",
+    "Disciple of Varashta": "Ailment caster — control and scaling damage",
+    "Witchhunter": "Crossbow generalist — flexible, anti-caster",
+    "Gemling Legionnaire": "Gem-stacking shell — scales with investment",
+    "Tactician": "Tactical crossbow — utility and team play",
+    "Oracle": "Hybrid druid — adaptable, summon/transform flex",
+}
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_PATH = os.path.join(ROOT, "data.json")
 REQUEST_TIMEOUT = 20
@@ -205,13 +234,21 @@ def normalize_one(league_obj):
             pop = float(pop)
         except (TypeError, ValueError):
             continue
+        cls = ASC_TO_CLASS.get(asc, "")
+        if not cls:
+            # Observability: a new/renamed ascendancy a future patch adds before it's
+            # mapped will still render (in "All") but won't get a class chip. Surface it
+            # in the Action log instead of degrading silently.
+            print(f"[warn] unmapped ascendancy {asc!r} -> class left blank (add it to ASC_TO_CLASS)")
         out.append({
-            "cls": ASC_TO_CLASS.get(asc, ""),
+            "cls": cls,
             "asc": str(asc),
             "skill": "",  # build-index-state does not expose a dominant skill
             "pop": round(pop, 1),
+            # n is DERIVED (share x league total) from the source's unrounded percentage,
+            # not a measured per-ascendancy headcount. The front end labels it "~"/"est.".
             "n": round(total * pop / 100.0) if total else 0,
-            "tag": "",
+            "tag": ASC_TAGS.get(asc, ""),  # editorial archetype note; "" if unknown
         })
     return out, total
 
@@ -251,11 +288,18 @@ def prev_builds_for(previous, url):
 
 
 def apply_trends(builds, prev_builds):
-    """delta = current share - share an hour ago; 0 on first run / new builds."""
-    prev_map = {key_of(pb): pb.get("pop", 0.0) for pb in (prev_builds or [])}
+    """delta = current share - the matching share in the previous snapshot.
+
+    Honest about history: a build with NO matching previous value (first run for this
+    league, or a newly-appearing ascendancy) gets delta=None — "no baseline yet" — not
+    a fabricated 0.0. Only a build with a real prior value gets a number (which CAN be
+    0.0, meaning genuinely flat). The front end renders None as an empty/baseline cell
+    and only shows trend arrows once some delta is actually non-zero.
+    """
+    prev_map = {key_of(pb): pb.get("pop") for pb in (prev_builds or [])}
     for b in builds:
         old = prev_map.get(key_of(b))
-        b["delta"] = round(b["pop"] - old, 1) if old is not None else 0.0
+        b["delta"] = round(b["pop"] - old, 1) if old is not None else None
     return builds
 
 
@@ -355,9 +399,19 @@ def run_demo():
     write_data(payload)
     print("\nTop of the ledger:")
     for b in sc["builds"][:5]:
-        arrow = "▲" if b["delta"] > 0 else "▼" if b["delta"] < 0 else "—"
+        d = b["delta"]
+        # delta is None when there's no matching previous snapshot (the honest "no
+        # baseline yet" state) — render it safely rather than comparing None to int.
+        if d is None:
+            trend = "baseline"
+        elif d > 0:
+            trend = f"▲{d:.1f}"
+        elif d < 0:
+            trend = f"▼{abs(d):.1f}"
+        else:
+            trend = "— 0.0"
         print(f"  {b['rank']:>2}. [{b['tier']}] {b['asc']:<20} {b['skill']:<18} "
-              f"{b['pop']:>5.1f}%  {arrow}{abs(b['delta']):.1f}")
+              f"{b['pop']:>5.1f}%  {trend}")
 
 
 def run_live():

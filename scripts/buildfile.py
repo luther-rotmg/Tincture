@@ -12,6 +12,7 @@ repo roadmap). The serializer below is complete and tested via `--selftest`.
 """
 
 import json
+import re
 import sys
 
 # Ascendancy display name -> .build code ("{Class}{slot}").
@@ -84,12 +85,36 @@ def make_skill(gem, *, supports=None, min_level=1, max_level=100):
     }
 
 
+# A real ascendancy code is "{Class}{slot}", e.g. "Monk1" — letters then a digit.
+_CODE_RE = re.compile(r"^[A-Za-z]+[0-9]$")
+
+
+def resolve_ascendancy(ascendancy):
+    """Display name -> confirmed code, or accept an already code-shaped value.
+
+    Refuses an UNMAPPED display name (e.g. 'Stormweaver') rather than passing it through
+    as the code. A display name in the `ascendancy` field is structurally valid but the
+    game silently refuses to load it — exactly the failure we must never ship. Only
+    confirmed names (in ASCENDANCY_CODES) or code-shaped strings get through.
+    """
+    if ascendancy in ASCENDANCY_CODES:
+        return ASCENDANCY_CODES[ascendancy]
+    if ascendancy and (ascendancy in ASCENDANCY_CODES.values() or _CODE_RE.match(ascendancy)):
+        return ascendancy
+    raise ValueError(
+        f"ascendancy {ascendancy!r} has no confirmed .build code. Mapped: "
+        f"{sorted(ASCENDANCY_CODES)}. Emitting it would produce a file the game "
+        f"silently refuses — confirm the code from a real export first."
+    )
+
+
 def serialize_build(*, author, ascendancy, name, items=None, passives=None, skills=None):
     """
-    Build a `.build` dict. `ascendancy` may be a display name (mapped via
-    ASCENDANCY_CODES) or an already-resolved code like 'Monk1'.
+    Build a `.build` dict. `ascendancy` may be a confirmed display name (mapped via
+    ASCENDANCY_CODES) or an already-resolved code like 'Monk1'. An unmapped display
+    name raises (see resolve_ascendancy) — we never emit an unloadable file.
     """
-    code = ASCENDANCY_CODES.get(ascendancy, ascendancy)
+    code = resolve_ascendancy(ascendancy)
     return {
         "author": author,
         "ascendancy": code,
@@ -139,6 +164,23 @@ def validate(build):
     return errs
 
 
+CONFIRMED_CODES = set(ASCENDANCY_CODES.values())
+
+
+def is_loadable(build):
+    """Stricter than validate(): a build is LOADABLE in-game only if it is structurally
+    valid AND its ascendancy is a CONFIRMED code AND it has at least one passive node.
+    Aggregate meta stats can't satisfy this — which is the point. Use this (not just
+    validate()) to gate anything that claims to produce a real, loadable .build."""
+    if validate(build):
+        return False
+    if build.get("ascendancy") not in CONFIRMED_CODES:
+        return False
+    if not build.get("passives"):
+        return False
+    return True
+
+
 def _selftest():
     build = serialize_build(
         author="Tincture",
@@ -169,7 +211,29 @@ def _selftest():
     # also confirm it survives a JSON round-trip
     assert json.loads(to_text(build)) == build
     print("round-trip     : OK")
-    return 0 if not errs else 1
+
+    ok = not errs
+    # no-fabrication guard: an unmapped display name must REFUSE to serialize
+    try:
+        serialize_build(author="x", ascendancy="Stormweaver", name="nope")
+        print("unmapped guard : FAIL (unmapped ascendancy did not raise)"); ok = False
+    except ValueError:
+        print("unmapped guard : OK (refused unconfirmed ascendancy)")
+    # the front-end meta-template shape must NOT pass as a real .build
+    template = {"_tool": "tincture", "_kind": "meta-template",
+                "ascendancy": "Martial Artist", "class": "Monk"}
+    if validate(template):
+        print("template guard : OK (meta-template rejected by validate)")
+    else:
+        print("template guard : FAIL (meta-template passed validate)"); ok = False
+    # is_loadable: the confirmed sample build qualifies; a no-passives build does not
+    print("is_loadable    :", "OK" if is_loadable(build) else "FAIL"); ok = ok and is_loadable(build)
+    bare = serialize_build(author="x", ascendancy="Monk1", name="bare", passives=[])
+    if is_loadable(bare):
+        print("loadable guard : FAIL (empty-passives build marked loadable)"); ok = False
+    else:
+        print("loadable guard : OK (empty-passives build not loadable)")
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":
