@@ -129,9 +129,10 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] Ledger enrichment — editorial playstyle tags, sample-confidence cue, honest "baseline" trends, top-N coverage footnote
 - [x] **Honest Decant** — exports a labelled meta template (`.txt`), never a fabricated `.build`; serves a real `.build` automatically once one exists
 - [x] Test suite + CI — stdlib invariants (`scripts/test_distill.py`), and the hourly distill validates its output before committing
-- [ ] **Real Decant content** — pull a representative public ladder character via GGG's Character API, run it through the serializer, and commit `builds/<slug>.build` (the page already fetches those first, falling back to the template)
-- [ ] Complete the ascendancy → `.build` code table (only `Martial Artist → Monk1` is confirmed)
-- [ ] **Direct GGG ladder cross-check** — a second source so the meta isn't single-sourced
+- [x] **Passive node-id → `.build` slug map** — derived from GGG's official skill-tree export (`scripts/treedata.py`); no GGPK extraction needed
+- [x] **Ascendancy → `.build` code table** — completed and cross-confirmed from the same export (`scripts/buildfile.py`; `treedata.py --check` re-verifies per patch)
+- [ ] **Loadable Decant = "export *my* character"** — wire a logged-in user's own GGG character (passives → slugs via `treedata`) into a real `.build`. GGG's `account:characters` is self-only and the ladder API is summary-only, so decanting an *arbitrary* ladder player's build is not possible — the aggregate meta stays an honest template. Remaining: the gem → metadata path mapping (needs one real character export) and a registered GGG OAuth client (see [docs/owner-actions.md](docs/owner-actions.md))
+- [ ] **Direct GGG ladder cross-check** — a second, official source for ascendancy shares (scaffolded in `scripts/ggg.py`; needs the OAuth client). Summary-only, so it validates shares, not build content
 - [ ] A guide directory — link out to the best community guide for each meta build
 
 ---
