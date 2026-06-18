@@ -1,123 +1,508 @@
 {
-  "league": "Runes of Aldur",
   "patch": "0.5.0",
-  "mode": "Softcore",
-  "updated": "2026-06-18T02:22:52+00:00",
-  "totals": {
-    "characters": 124248,
-    "sources": 1,
-    "ascendancies": 10
-  },
-  "builds": [
+  "updated": "2026-06-18T02:47:34+00:00",
+  "sources": 1,
+  "default": "runesofaldur",
+  "leagues": [
     {
-      "rank": 1,
-      "tier": "S",
-      "cls": "Monk",
-      "asc": "Martial Artist",
-      "skill": "",
-      "pop": 24.5,
-      "delta": 0.0,
-      "n": 30491,
-      "tag": ""
+      "url": "runesofaldur",
+      "name": "Runes of Aldur",
+      "mode": "Softcore",
+      "label": "Runes of Aldur · Softcore",
+      "totals": {
+        "characters": 124250,
+        "ascendancies": 10
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "tier": "S",
+          "cls": "Monk",
+          "asc": "Martial Artist",
+          "skill": "",
+          "pop": 24.5,
+          "delta": 0.0,
+          "n": 30491,
+          "tag": ""
+        },
+        {
+          "rank": 2,
+          "tier": "S",
+          "cls": "Huntress",
+          "asc": "Spirit Walker",
+          "skill": "",
+          "pop": 17.9,
+          "delta": 0.0,
+          "n": 22277,
+          "tag": ""
+        },
+        {
+          "rank": 3,
+          "tier": "S",
+          "cls": "Ranger",
+          "asc": "Deadeye",
+          "skill": "",
+          "pop": 11.3,
+          "delta": 0.0,
+          "n": 14067,
+          "tag": ""
+        },
+        {
+          "rank": 4,
+          "tier": "A",
+          "cls": "Mercenary",
+          "asc": "Gemling Legionnaire",
+          "skill": "",
+          "pop": 5.7,
+          "delta": 0.0,
+          "n": 7110,
+          "tag": ""
+        },
+        {
+          "rank": 5,
+          "tier": "A",
+          "cls": "Druid",
+          "asc": "Oracle",
+          "skill": "",
+          "pop": 5.2,
+          "delta": 0.0,
+          "n": 6441,
+          "tag": ""
+        },
+        {
+          "rank": 6,
+          "tier": "B",
+          "cls": "Sorceress",
+          "asc": "Disciple of Varashta",
+          "skill": "",
+          "pop": 3.9,
+          "delta": 0.0,
+          "n": 4838,
+          "tag": ""
+        },
+        {
+          "rank": 7,
+          "tier": "B",
+          "cls": "Sorceress",
+          "asc": "Stormweaver",
+          "skill": "",
+          "pop": 3.9,
+          "delta": 0.0,
+          "n": 4828,
+          "tag": ""
+        },
+        {
+          "rank": 8,
+          "tier": "B",
+          "cls": "Witch",
+          "asc": "Blood Mage",
+          "skill": "",
+          "pop": 3.5,
+          "delta": 0.0,
+          "n": 4293,
+          "tag": ""
+        },
+        {
+          "rank": 9,
+          "tier": "B",
+          "cls": "Witch",
+          "asc": "Abyssal Lich",
+          "skill": "",
+          "pop": 2.9,
+          "delta": 0.0,
+          "n": 3546,
+          "tag": ""
+        },
+        {
+          "rank": 10,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Tactician",
+          "skill": "",
+          "pop": 2.8,
+          "delta": 0.0,
+          "n": 3465,
+          "tag": ""
+        }
+      ]
     },
     {
-      "rank": 2,
-      "tier": "S",
-      "cls": "Huntress",
-      "asc": "Spirit Walker",
-      "skill": "",
-      "pop": 17.9,
-      "delta": 0.0,
-      "n": 22277,
-      "tag": ""
+      "url": "runesofaldurhc",
+      "name": "Runes of Aldur",
+      "mode": "Hardcore",
+      "label": "Runes of Aldur · Hardcore",
+      "totals": {
+        "characters": 6791,
+        "ascendancies": 10
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "tier": "S",
+          "cls": "Monk",
+          "asc": "Martial Artist",
+          "skill": "",
+          "pop": 18.5,
+          "delta": 0.0,
+          "n": 1253,
+          "tag": ""
+        },
+        {
+          "rank": 2,
+          "tier": "S",
+          "cls": "Sorceress",
+          "asc": "Disciple of Varashta",
+          "skill": "",
+          "pop": 14.7,
+          "delta": 0.0,
+          "n": 996,
+          "tag": ""
+        },
+        {
+          "rank": 3,
+          "tier": "S",
+          "cls": "Huntress",
+          "asc": "Spirit Walker",
+          "skill": "",
+          "pop": 14.1,
+          "delta": 0.0,
+          "n": 960,
+          "tag": ""
+        },
+        {
+          "rank": 4,
+          "tier": "A",
+          "cls": "Witch",
+          "asc": "Lich",
+          "skill": "",
+          "pop": 5.8,
+          "delta": 0.0,
+          "n": 394,
+          "tag": ""
+        },
+        {
+          "rank": 5,
+          "tier": "A",
+          "cls": "Ranger",
+          "asc": "Deadeye",
+          "skill": "",
+          "pop": 5.2,
+          "delta": 0.0,
+          "n": 350,
+          "tag": ""
+        },
+        {
+          "rank": 6,
+          "tier": "A",
+          "cls": "Druid",
+          "asc": "Oracle",
+          "skill": "",
+          "pop": 4.5,
+          "delta": 0.0,
+          "n": 308,
+          "tag": ""
+        },
+        {
+          "rank": 7,
+          "tier": "B",
+          "cls": "Warrior",
+          "asc": "Titan",
+          "skill": "",
+          "pop": 4.3,
+          "delta": 0.0,
+          "n": 291,
+          "tag": ""
+        },
+        {
+          "rank": 8,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Witchhunter",
+          "skill": "",
+          "pop": 3.8,
+          "delta": 0.0,
+          "n": 260,
+          "tag": ""
+        },
+        {
+          "rank": 9,
+          "tier": "B",
+          "cls": "Sorceress",
+          "asc": "Chronomancer",
+          "skill": "",
+          "pop": 3.8,
+          "delta": 0.0,
+          "n": 257,
+          "tag": ""
+        },
+        {
+          "rank": 10,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Gemling Legionnaire",
+          "skill": "",
+          "pop": 3.5,
+          "delta": 0.0,
+          "n": 238,
+          "tag": ""
+        }
+      ]
     },
     {
-      "rank": 3,
-      "tier": "S",
-      "cls": "Ranger",
-      "asc": "Deadeye",
-      "skill": "",
-      "pop": 11.3,
-      "delta": 0.0,
-      "n": 14066,
-      "tag": ""
+      "url": "runesofaldurssf",
+      "name": "Runes of Aldur",
+      "mode": "SSF",
+      "label": "Runes of Aldur · SSF",
+      "totals": {
+        "characters": 10525,
+        "ascendancies": 10
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "tier": "S",
+          "cls": "Monk",
+          "asc": "Martial Artist",
+          "skill": "",
+          "pop": 23.2,
+          "delta": 0.0,
+          "n": 2447,
+          "tag": ""
+        },
+        {
+          "rank": 2,
+          "tier": "S",
+          "cls": "Huntress",
+          "asc": "Spirit Walker",
+          "skill": "",
+          "pop": 16.0,
+          "delta": 0.0,
+          "n": 1683,
+          "tag": ""
+        },
+        {
+          "rank": 3,
+          "tier": "A",
+          "cls": "Sorceress",
+          "asc": "Disciple of Varashta",
+          "skill": "",
+          "pop": 7.7,
+          "delta": 0.0,
+          "n": 807,
+          "tag": ""
+        },
+        {
+          "rank": 4,
+          "tier": "A",
+          "cls": "Ranger",
+          "asc": "Deadeye",
+          "skill": "",
+          "pop": 7.0,
+          "delta": 0.0,
+          "n": 741,
+          "tag": ""
+        },
+        {
+          "rank": 5,
+          "tier": "A",
+          "cls": "Druid",
+          "asc": "Oracle",
+          "skill": "",
+          "pop": 6.6,
+          "delta": 0.0,
+          "n": 693,
+          "tag": ""
+        },
+        {
+          "rank": 6,
+          "tier": "A",
+          "cls": "Warrior",
+          "asc": "Titan",
+          "skill": "",
+          "pop": 4.5,
+          "delta": 0.0,
+          "n": 473,
+          "tag": ""
+        },
+        {
+          "rank": 7,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Witchhunter",
+          "skill": "",
+          "pop": 4.3,
+          "delta": 0.0,
+          "n": 450,
+          "tag": ""
+        },
+        {
+          "rank": 8,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Gemling Legionnaire",
+          "skill": "",
+          "pop": 4.1,
+          "delta": 0.0,
+          "n": 434,
+          "tag": ""
+        },
+        {
+          "rank": 9,
+          "tier": "B",
+          "cls": "Mercenary",
+          "asc": "Tactician",
+          "skill": "",
+          "pop": 4.0,
+          "delta": 0.0,
+          "n": 419,
+          "tag": ""
+        },
+        {
+          "rank": 10,
+          "tier": "B",
+          "cls": "Witch",
+          "asc": "Lich",
+          "skill": "",
+          "pop": 3.9,
+          "delta": 0.0,
+          "n": 406,
+          "tag": ""
+        }
+      ]
     },
     {
-      "rank": 4,
-      "tier": "A",
-      "cls": "Mercenary",
-      "asc": "Gemling Legionnaire",
-      "skill": "",
-      "pop": 5.7,
-      "delta": 0.0,
-      "n": 7110,
-      "tag": ""
+      "url": "runesofaldurhcssf",
+      "name": "Runes of Aldur",
+      "mode": "HC SSF",
+      "label": "Runes of Aldur · HC SSF",
+      "totals": {
+        "characters": 4364,
+        "ascendancies": 10
+      },
+      "builds": [
+        {
+          "rank": 1,
+          "tier": "S",
+          "cls": "Monk",
+          "asc": "Martial Artist",
+          "skill": "",
+          "pop": 17.1,
+          "delta": 0.0,
+          "n": 745,
+          "tag": ""
+        },
+        {
+          "rank": 2,
+          "tier": "S",
+          "cls": "Sorceress",
+          "asc": "Disciple of Varashta",
+          "skill": "",
+          "pop": 14.1,
+          "delta": 0.0,
+          "n": 615,
+          "tag": ""
+        },
+        {
+          "rank": 3,
+          "tier": "S",
+          "cls": "Huntress",
+          "asc": "Spirit Walker",
+          "skill": "",
+          "pop": 12.6,
+          "delta": 0.0,
+          "n": 551,
+          "tag": ""
+        },
+        {
+          "rank": 4,
+          "tier": "A",
+          "cls": "Witch",
+          "asc": "Lich",
+          "skill": "",
+          "pop": 5.9,
+          "delta": 0.0,
+          "n": 257,
+          "tag": ""
+        },
+        {
+          "rank": 5,
+          "tier": "A",
+          "cls": "Warrior",
+          "asc": "Smith of Kitava",
+          "skill": "",
+          "pop": 5.4,
+          "delta": 0.0,
+          "n": 234,
+          "tag": ""
+        },
+        {
+          "rank": 6,
+          "tier": "A",
+          "cls": "Warrior",
+          "asc": "Titan",
+          "skill": "",
+          "pop": 5.2,
+          "delta": 0.0,
+          "n": 225,
+          "tag": ""
+        },
+        {
+          "rank": 7,
+          "tier": "A",
+          "cls": "Mercenary",
+          "asc": "Gemling Legionnaire",
+          "skill": "",
+          "pop": 4.9,
+          "delta": 0.0,
+          "n": 213,
+          "tag": ""
+        },
+        {
+          "rank": 8,
+          "tier": "A",
+          "cls": "Sorceress",
+          "asc": "Chronomancer",
+          "skill": "",
+          "pop": 4.9,
+          "delta": 0.0,
+          "n": 212,
+          "tag": ""
+        },
+        {
+          "rank": 9,
+          "tier": "A",
+          "cls": "Druid",
+          "asc": "Oracle",
+          "skill": "",
+          "pop": 4.6,
+          "delta": 0.0,
+          "n": 199,
+          "tag": ""
+        },
+        {
+          "rank": 10,
+          "tier": "B",
+          "cls": "Ranger",
+          "asc": "Deadeye",
+          "skill": "",
+          "pop": 3.9,
+          "delta": 0.0,
+          "n": 171,
+          "tag": ""
+        }
+      ]
     },
     {
-      "rank": 5,
-      "tier": "A",
-      "cls": "Druid",
-      "asc": "Oracle",
-      "skill": "",
-      "pop": 5.2,
-      "delta": 0.0,
-      "n": 6441,
-      "tag": ""
-    },
-    {
-      "rank": 6,
-      "tier": "B",
-      "cls": "Sorceress",
-      "asc": "Disciple of Varashta",
-      "skill": "",
-      "pop": 3.9,
-      "delta": 0.0,
-      "n": 4838,
-      "tag": ""
-    },
-    {
-      "rank": 7,
-      "tier": "B",
-      "cls": "Sorceress",
-      "asc": "Stormweaver",
-      "skill": "",
-      "pop": 3.9,
-      "delta": 0.0,
-      "n": 4828,
-      "tag": ""
-    },
-    {
-      "rank": 8,
-      "tier": "B",
-      "cls": "Witch",
-      "asc": "Blood Mage",
-      "skill": "",
-      "pop": 3.5,
-      "delta": 0.0,
-      "n": 4293,
-      "tag": ""
-    },
-    {
-      "rank": 9,
-      "tier": "B",
-      "cls": "Witch",
-      "asc": "Abyssal Lich",
-      "skill": "",
-      "pop": 2.9,
-      "delta": 0.0,
-      "n": 3546,
-      "tag": ""
-    },
-    {
-      "rank": 10,
-      "tier": "B",
-      "cls": "Mercenary",
-      "asc": "Tactician",
-      "skill": "",
-      "pop": 2.8,
-      "delta": 0.0,
-      "n": 3465,
-      "tag": ""
+      "url": "standard",
+      "name": "Standard",
+      "mode": "Standard",
+      "label": "Standard",
+      "totals": {
+        "characters": 75622,
+        "ascendancies": 0
+      },
+      "builds": [],
+      "note": "poe.ninja doesn't publish a ranked build breakdown for permanent leagues. Pick a Runes of Aldur league for the live meta."
     }
   ]
 }
