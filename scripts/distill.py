@@ -10,11 +10,11 @@ Design notes
 * Stdlib only (urllib + json). No pip install needed, so the GitHub Action stays
   dependency-free and this runs anywhere Python 3.9+ exists.
 * poe.ninja's PoE2 endpoints are UNDOCUMENTED and rate-limited (~12 req / 5 min),
-  so we make only a couple of calls per run and cache nothing client-side.
-* The exact *builds* endpoint + response shape are the one thing that must be
-  confirmed against a live response (see README → "Confirm the builds endpoint",
-  or run this script with --probe). Everything downstream of normalize_builds()
-  is finished and tested via --demo.
+  so we make only one call per run and cache nothing client-side.
+* The builds source is the confirmed GET /poe2/api/data/build-index-state. It
+  returns every current league's top ascendancies with a share-of-ladder % and a
+  -1/0/1 trend flag. Verified live and reachable from a bare request, so the
+  GitHub Action (Python urllib, datacenter IP) can fetch it. See --probe.
 * Fails safe: if the live fetch errors or returns an unexpected shape, we keep the
   existing data.json untouched and exit 0, so a bad upstream response never breaks
   the deployed site.
@@ -29,7 +29,6 @@ Usage
 import json
 import sys
 import os
-import time
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -51,15 +50,27 @@ USER_AGENT = "Tincture/0.1 (+https://github.com/luther-rotmg/Tincture; PoE2 meta
 # Tier cutoffs by share-of-ladder (%). Tuned so the headline builds read as S.
 TIERS = [("S", 9.0), ("A", 4.5), ("B", 2.5), ("C", 0.0)]
 
-# poe.ninja builds endpoint: UNCONFIRMED. These are ordered guesses based on the
-# confirmed /poe2/api/ base. --probe will tell us which (if any) responds; the real
-# one is trivial to grab from the Network tab on poe.ninja/poe2/builds (see README).
-BUILDS_ENDPOINT_CANDIDATES = [
-    f"{POE2_API}/builds/overview",
-    f"{POE2_API}/builds",
-    f"{POE2_API}/build/overview",
-    f"{POE2_API}/character/overview",
-]
+# poe.ninja builds source — CONFIRMED live. GET, no auth, reachable from a bare
+# request (so the GitHub Action can fetch it). Returns every current league's top
+# ascendancies with a share-of-ladder % and a -1/0/1 trend flag.
+BUILD_INDEX_URL = f"{POE2_API}/data/build-index-state"
+
+# Our league's url key inside that payload (softcore trade — not the HC / SSF rows).
+LEAGUE_URL = "runesofaldur"
+
+# poe.ninja ranks at the ascendancy level (its "class" field is the ascendancy name)
+# and exposes no dominant skill here. Map each ascendancy to its base class for the
+# front end's class filter + sub-line; ascendancies not listed fall back to "".
+ASC_TO_CLASS = {
+    "Titan": "Warrior", "Warbringer": "Warrior", "Smith of Kitava": "Warrior",
+    "Infernalist": "Witch", "Blood Mage": "Witch", "Lich": "Witch", "Abyssal Lich": "Witch",
+    "Deadeye": "Ranger", "Pathfinder": "Ranger",
+    "Invoker": "Monk", "Acolyte of Chayula": "Monk", "Martial Artist": "Monk",
+    "Witchhunter": "Mercenary", "Gemling Legionnaire": "Mercenary", "Tactician": "Mercenary",
+    "Stormweaver": "Sorceress", "Chronomancer": "Sorceress", "Disciple of Varashta": "Sorceress",
+    "Spirit Walker": "Huntress", "Amazon": "Huntress", "Ritualist": "Huntress",
+    "Oracle": "Druid",
+}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_PATH = os.path.join(ROOT, "data.json")
@@ -92,6 +103,9 @@ def http_get_json(url, params=None):
     req = urllib.request.Request(url, headers={
         "User-Agent": USER_AGENT,
         "Accept": "application/json",
+        # Not required today (the endpoint answers bare requests), but it mirrors the
+        # browser and future-proofs us if poe.ninja tightens its Cloudflare rules.
+        "Referer": "https://poe.ninja/poe2/builds",
     })
     with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
         raw = resp.read().decode("utf-8")
@@ -100,87 +114,82 @@ def http_get_json(url, params=None):
 # ----------------------------------------------------------------------------- #
 # Source: poe.ninja builds
 # ----------------------------------------------------------------------------- #
-def fetch_poeninja_builds(league):
-    """
-    Return a list of raw build dicts from poe.ninja, or None on failure.
-
-    NOTE: endpoint + field names are UNCONFIRMED. normalize_builds() does the
-    mapping and logs the raw keys if it can't find what it expects, so the first
-    live run tells us exactly how to finish this.
-    """
-    last_err = None
-    for url in BUILDS_ENDPOINT_CANDIDATES:
-        try:
-            data = http_get_json(url, {"league": league, "overview": league})
-            print(f"[poe.ninja] {url} -> 200")
-            return data
-        except urllib.error.HTTPError as e:
-            print(f"[poe.ninja] {url} -> HTTP {e.code}")
-            last_err = e
-        except Exception as e:  # noqa: BLE001
-            print(f"[poe.ninja] {url} -> {type(e).__name__}: {e}")
-            last_err = e
-        time.sleep(2)  # be polite; well under the 12-per-5-min limit
-    print(f"[poe.ninja] all candidate endpoints failed ({last_err})")
+def fetch_poeninja_builds():
+    """Return the parsed build-index-state payload, or None on any failure."""
+    try:
+        data = http_get_json(BUILD_INDEX_URL)
+        n = len(data.get("leagueBuilds", [])) if isinstance(data, dict) else 0
+        print(f"[poe.ninja] {BUILD_INDEX_URL} -> 200 ({n} leagues)")
+        return data
+    except urllib.error.HTTPError as e:
+        print(f"[poe.ninja] {BUILD_INDEX_URL} -> HTTP {e.code}")
+    except Exception as e:  # noqa: BLE001
+        print(f"[poe.ninja] {BUILD_INDEX_URL} -> {type(e).__name__}: {e}")
     return None
+
+
+def _select_league(leagues):
+    """Pick our softcore trade league by url key, with a display-name fallback."""
+    by_url = next((l for l in leagues if l.get("leagueUrl") == LEAGUE_URL), None)
+    if by_url is not None:
+        return by_url
+    return next((l for l in leagues if l.get("leagueName") == LEAGUE), None)
 
 
 def normalize_builds(raw):
     """
-    Map poe.ninja's response into our internal shape:
+    Map poe.ninja's build-index-state into our internal shape:
         {cls, asc, skill, pop (float %), n (int)}
 
-    poe.ninja aggregates at the ascendancy level with a popularity percentage and
-    the dominant skills. The exact field names below are placeholders keyed off the
-    likely structure ('lines' of character/ascendancy stats). Adjust the four
-    PICK_* lookups once --probe shows the real keys — nothing else needs to change.
-    """
-    if raw is None:
-        return None
+    Confirmed live shape:
+        {"leagueBuilds": [
+            {"leagueName": "Runes of Aldur", "leagueUrl": "runesofaldur",
+             "total": 124248,
+             "statistics": [{"class": "Martial Artist", "percentage": 24.5, "trend": -1}, ...]},
+            ... (HC / SSF variants) ]}
 
-    # poe.ninja overviews are usually under "lines" (sometimes the root list).
-    rows = raw.get("lines") if isinstance(raw, dict) else raw
-    if not isinstance(rows, list) or not rows:
+    poe.ninja ranks ascendancies (its "class" field) and gives no dominant skill, so
+    `skill` is left blank and the front end shows the ascendancy as the headline.
+    `n` is reconstructed from the league total and each ascendancy's share.
+    """
+    if not isinstance(raw, dict):
+        return None
+    leagues = raw.get("leagueBuilds")
+    if not isinstance(leagues, list) or not leagues:
         print("[normalize] unexpected shape; top-level keys =",
               list(raw.keys()) if isinstance(raw, dict) else type(raw).__name__)
         return None
 
-    def pick(d, *keys, default=None):
-        for k in keys:
-            if k in d and d[k] not in (None, ""):
-                return d[k]
-        return default
+    league = _select_league(leagues)
+    if league is None:
+        print(f"[normalize] league {LEAGUE_URL!r} not found in",
+              [l.get("leagueUrl") for l in leagues])
+        return None
 
+    total = int(league.get("total") or 0)
     out = []
-    for r in rows:
-        if not isinstance(r, dict):
+    for s in league.get("statistics") or []:
+        if not isinstance(s, dict):
             continue
-        asc = pick(r, "ascendancy", "ascendancyName", "subclass", "name")
-        cls = pick(r, "class", "className", "characterClass", default="")
-        # "top skill" may be a list of {name, ...} or a flat field
-        skill = pick(r, "mainSkill", "skill", "topSkill")
-        if isinstance(skill, list) and skill:
-            s0 = skill[0]
-            skill = s0.get("name") if isinstance(s0, dict) else s0
-        pop = pick(r, "percentage", "popularity", "share", default=None)
-        n = pick(r, "count", "characters", "sampleSize", default=0)
-        if asc is None or pop is None:
+        asc = s.get("class")
+        pop = s.get("percentage")
+        if not asc or pop is None:
             continue
         try:
-            out.append({
-                "cls": str(cls or ""),
-                "asc": str(asc),
-                "skill": str(skill or "—"),
-                "pop": round(float(pop), 1),
-                "n": int(n or 0),
-                "tag": "",
-            })
+            pop = float(pop)
         except (TypeError, ValueError):
             continue
+        out.append({
+            "cls": ASC_TO_CLASS.get(asc, ""),
+            "asc": str(asc),
+            "skill": "",  # build-index-state does not expose a dominant skill
+            "pop": round(pop, 1),
+            "n": round(total * pop / 100.0) if total else 0,
+            "tag": "",
+        })
 
     if not out:
-        print("[normalize] matched 0 rows — sample row keys =",
-              list(rows[0].keys()) if isinstance(rows[0], dict) else type(rows[0]).__name__)
+        print("[normalize] matched 0 ascendancies in", league.get("leagueName"))
         return None
     return out
 
@@ -221,18 +230,18 @@ def apply_trends(builds, previous):
     return builds
 
 
-def distill(raw_builds, previous):
+def distill(raw_builds, previous, total=None):
     builds = [b for b in raw_builds if b.get("pop", 0) > 0]
     builds.sort(key=lambda b: b["pop"], reverse=True)
     for i, b in enumerate(builds, start=1):
         b["rank"] = i
         b["tier"] = tier_for(b["pop"])
-        if not b.get("tag"):
-            b["tag"] = f"{b['cls']} · {b['skill']}"
     apply_trends(builds, previous)
 
     ascendancies = len({b["asc"] for b in builds})
-    characters = sum(int(b.get("n", 0)) for b in builds)
+    # Prefer the source's real league population; fall back to summing the shown
+    # builds (the demo path has no separate total).
+    characters = int(total) if total else sum(int(b.get("n", 0)) for b in builds)
 
     return {
         "league": LEAGUE,
@@ -262,20 +271,24 @@ def write_data(payload):
 # Modes
 # ----------------------------------------------------------------------------- #
 def run_probe():
-    print(f"Probing poe.ninja PoE2 builds endpoints for league '{LEAGUE}'...\n")
-    for url in BUILDS_ENDPOINT_CANDIDATES:
-        try:
-            data = http_get_json(url, {"league": LEAGUE, "overview": LEAGUE})
-            keys = list(data.keys()) if isinstance(data, dict) else f"list[{len(data)}]"
-            print(f"  OK   {url}\n       top-level: {keys}\n")
-        except urllib.error.HTTPError as e:
-            print(f"  {e.code}  {url}")
-        except Exception as e:  # noqa: BLE001
-            print(f"  ERR  {url} -> {type(e).__name__}: {e}")
-        time.sleep(2)
-    print("\nIf none worked: open https://poe.ninja/poe2/builds in your browser, open\n"
-          "DevTools → Network → Fetch/XHR, reload, and find the request whose response\n"
-          "is the build list. Paste its URL + a snippet of the JSON and I'll finalize the mapping.")
+    print(f"Probing poe.ninja build-index-state:\n  {BUILD_INDEX_URL}\n")
+    try:
+        data = http_get_json(BUILD_INDEX_URL)
+    except Exception as e:  # noqa: BLE001
+        print(f"  failed: {type(e).__name__}: {e}")
+        return
+    leagues = data.get("leagueBuilds", []) if isinstance(data, dict) else []
+    print(f"  OK — {len(leagues)} leagues returned:")
+    for l in leagues:
+        mark = "  <-- ours" if l.get("leagueUrl") == LEAGUE_URL else ""
+        print(f"    {str(l.get('leagueUrl')):<22} {str(l.get('leagueName')):<24} "
+              f"total={l.get('total'):>7}  ascendancies={len(l.get('statistics') or [])}{mark}")
+    ours = _select_league(leagues)
+    if ours:
+        print(f"\n  Top of {ours.get('leagueName')}:")
+        for s in (ours.get('statistics') or [])[:5]:
+            print(f"    {str(s.get('class')):<22} {float(s.get('percentage', 0)):.1f}%  "
+                  f"trend={s.get('trend')}")
 
 
 def run_demo():
@@ -293,13 +306,16 @@ def run_demo():
 def run_live():
     print(f"LIVE run — distilling '{LEAGUE}' ({MODE}, {PATCH})\n")
     previous = load_previous()
-    raw = fetch_poeninja_builds(LEAGUE)
+    raw = fetch_poeninja_builds()
     builds = normalize_builds(raw)
     if not builds:
         print("\n[live] no usable build data this run — keeping the existing data.json. "
               "Exiting 0 so the site stays up.")
         return 0
-    payload = distill(builds, previous)
+    leagues = raw.get("leagueBuilds", []) if isinstance(raw, dict) else []
+    league = _select_league(leagues)
+    total = int(league.get("total") or 0) if league else 0
+    payload = distill(builds, previous, total=total or None)
     write_data(payload)
     return 0
 

@@ -594,10 +594,10 @@ function buildFile(b){
     _note: "Placeholder structure — final schema set when live serialization lands.",
     version: 1,
     league: DATA.league,
-    name: `${b.asc} — ${b.skill}`,
+    name: b.skill ? `${b.asc} — ${b.skill}` : b.asc,
     class: b.cls,
     ascendancy: b.asc,
-    primarySkill: b.skill,
+    primarySkill: b.skill || null,
     metaShare: b.pop,
     trend24h: b.delta,
     distilledFrom: b.n
@@ -655,7 +655,7 @@ async function decant(b){
       const fh = await dirHandle.getFileHandle(name, { create:true });
       const w = await fh.createWritable();
       await w.write(file); await w.close();
-      toast(`Decanted <b>${b.asc} · ${b.skill}</b> into BuildPlanner. Open the planner in-game to follow it.`, "ok");
+      toast(`Decanted <b>${b.skill ? `${b.asc} · ${b.skill}` : b.asc}</b> into BuildPlanner. Open the planner in-game to follow it.`, "ok");
       return;
     }catch(err){
       return downloadFallback(file, name, true);
@@ -673,7 +673,7 @@ function downloadFallback(file, name, silentReason){
 
 /* ----- render ----- */
 function classList(){
-  const set = ["All", ...Array.from(new Set(DATA.builds.map(b=>b.cls)))];
+  const set = ["All", ...Array.from(new Set(DATA.builds.map(b=>b.cls).filter(Boolean)))];
   return set;
 }
 function renderChips(){
@@ -710,9 +710,9 @@ function renderRows(){
         <div class="top">
           <span class="tier ${tierClass}">${b.tier}</span>
           <span class="asc-name">${b.asc}</span>
-          <span class="skill-name">${b.skill}</span>
+          ${b.skill ? `<span class="skill-name">${b.skill}</span>` : ""}
         </div>
-        <div class="sub"><span class="cls">${b.cls}</span> · ${b.tag} · ${fmt(b.n)} characters</div>
+        <div class="sub">${[b.cls && `<span class="cls">${b.cls}</span>`, b.tag, `${fmt(b.n)} characters`].filter(Boolean).join(" · ")}</div>
       </div>
       <div class="pop">${b.pop.toFixed(1)}<small>%</small></div>
       ${trendHTML(b.delta)}
@@ -728,7 +728,7 @@ function renderRows(){
 }
 function renderHero(){
   const top = DATA.builds.slice().sort((a,b)=>b.pop-a.pop)[0];
-  $("#essenceName").innerHTML = `<span class="asc">${top.asc}</span><span class="skill">${top.skill}</span>`;
+  $("#essenceName").innerHTML = `<span class="asc">${top.asc}</span>${top.skill ? `<span class="skill">${top.skill}</span>` : ""}`;
   $("#essenceSub").innerHTML =
     `The clearest signal in <b>${DATA.league}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — distilled from <span class="figure">${fmt(top.n)}</span> characters.`;
   $("#heroChars").textContent = fmt(DATA.totals.characters);

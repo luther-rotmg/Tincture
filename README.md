@@ -66,7 +66,7 @@ No dependencies. Python 3.9+.
 # Full pipeline on bundled sample data (no network) — writes data.json:
 python scripts/distill.py --demo
 
-# Confirm the live poe.ninja builds endpoint (see below):
+# Probe the live source — prints the leagues + top ascendancies it returns:
 python scripts/distill.py --probe
 
 # A real run (what the Action does):
@@ -92,21 +92,29 @@ python -m http.server 8000   # then open http://localhost:8000
 
 ---
 
-## Finishing the live data (one thing to confirm)
+## The live data source
 
-poe.ninja's PoE 2 endpoints are **undocumented**, so the exact *builds* URL needs a 30-second confirmation:
+The meta comes from poe.ninja's (undocumented but stable) PoE 2 endpoint
+**`GET /poe2/api/data/build-index-state`**, wired up in `scripts/distill.py`. It
+returns each current league's most-played ascendancies with a share-of-ladder %
+and a trend flag. `distill.py` picks the softcore **Runes of Aldur** league
+(`leagueUrl: runesofaldur`), maps each ascendancy to its base class, reconstructs
+per-ascendancy character counts from the league total, tiers them, and diffs
+against the previous snapshot for the 24-hour trend arrows. It needs no auth and
+answers bare requests, so the GitHub Action fetches it directly.
 
-1. Run `python scripts/distill.py --probe`. If one of the candidate endpoints returns JSON, you're done — note its top-level keys.
-2. If not: open <https://poe.ninja/poe2/builds>, open **DevTools → Network → Fetch/XHR**, reload, and click the request whose response is the build list. Copy its URL and a snippet of the JSON.
+Run `python scripts/distill.py --probe` to see exactly what it returns.
 
-Then update `BUILDS_ENDPOINT_CANDIDATES` and the four field lookups in `normalize_builds()` to match — everything downstream is already done and tested.
+> poe.ninja ranks **ascendancies**, not individual skills, so the ledger headlines
+> the ascendancy; the per-build "signature skill" arrives with the GGG character
+> pull (below).
 
 ---
 
 ## Roadmap
 
 - [x] Decode the `.build` format ([SCHEMA.md](SCHEMA.md)) + a validated serializer (`scripts/buildfile.py`)
-- [ ] Confirm the poe.ninja builds endpoint + field mapping
+- [x] Live meta from poe.ninja's `build-index-state` (ascendancy shares + 24h trend)
 - [ ] **Real Decant content** — pull a representative public ladder character via GGG's Character API, run it through the serializer, and commit `builds/<slug>.build` (the page already fetches those, falling back to a placeholder)
 - [ ] Complete the ascendancy → code table
 - [ ] **Direct GGG ladder cross-check** — a second source so the meta isn't single-sourced
