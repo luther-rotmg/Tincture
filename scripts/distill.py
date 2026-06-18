@@ -361,6 +361,31 @@ def build_payload(leagues):
     }
 
 
+BUILDS_DIR = os.path.join(ROOT, "builds")
+MANIFEST_PATH = os.path.join(BUILDS_DIR, "index.json")
+
+
+def write_builds_manifest():
+    """Refresh builds/index.json — the slugs that have a real, loadable .build file.
+
+    The front end fetches this first and only attempts builds/<slug>.build for listed
+    slugs, so it never pays a guaranteed 404 while none exist yet. Empty list today;
+    it populates itself the moment real builds are committed to builds/. Fails safe —
+    a filesystem hiccup here must never break a distill run."""
+    try:
+        slugs = []
+        if os.path.isdir(BUILDS_DIR):
+            slugs = sorted(name[:-len(".build")] for name in os.listdir(BUILDS_DIR)
+                           if name.endswith(".build"))
+        os.makedirs(BUILDS_DIR, exist_ok=True)
+        with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
+            json.dump(slugs, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        print(f"[write] {MANIFEST_PATH} — {len(slugs)} loadable build(s)")
+    except OSError as e:  # noqa: BLE001
+        print(f"[warn] could not write builds manifest: {e}")
+
+
 def write_data(payload):
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
@@ -368,6 +393,7 @@ def write_data(payload):
     leagues = payload.get("leagues", [])
     nb = sum(len(l.get("builds", [])) for l in leagues)
     print(f"[write] {OUT_PATH} — {len(leagues)} leagues, {nb} builds total")
+    write_builds_manifest()
 
 # ----------------------------------------------------------------------------- #
 # Modes

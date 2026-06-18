@@ -15,6 +15,7 @@ import json
 import os
 import sys
 import unittest
+from datetime import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -108,6 +109,17 @@ class DataJson(unittest.TestCase):
             self.assertIn(k, self.data)
         self.assertIsInstance(self.data["leagues"], list)
         self.assertTrue(self.data["leagues"])
+        self.assertIsInstance(self.data["sources"], int)        # a source count, never a string
+        datetime.fromisoformat(self.data["updated"])            # must be a parseable ISO timestamp
+        urls = {L.get("url") for L in self.data["leagues"]}
+        self.assertIn(self.data["default"], urls, "default must name an existing league")
+
+    def test_trend_keys_unique_per_league(self):
+        # apply_trends keys the previous snapshot on asc|skill; a duplicate key would
+        # silently drop a build's baseline, so each league's (asc, skill) must be unique.
+        for L in self.data["leagues"]:
+            keys = [(b["asc"], b.get("skill", "")) for b in L["builds"]]
+            self.assertEqual(len(keys), len(set(keys)), f"{L['url']} has duplicate (asc,skill) keys")
 
     def test_league_and_build_schema(self):
         for L in self.data["leagues"]:
