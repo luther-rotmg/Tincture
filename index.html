@@ -121,6 +121,7 @@
   }
   .league-select:hover, .league-select:focus-visible{color:var(--gold-bright);}
   .league-select option{background:var(--ink-2); color:var(--bone); text-transform:none; letter-spacing:normal;}
+  .decant:disabled, .decant[disabled]{opacity:.4; cursor:not-allowed; box-shadow:none; filter:grayscale(.5);}
   .updated{
     font-family:var(--fmono); font-size:11px; letter-spacing:.08em; color:var(--muted);
   }
@@ -392,7 +393,6 @@
     <div class="meta-right">
       <span class="league-badge">
         <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
-        <span class="sep"></span><span id="leagueMode">Softcore</span>
         <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
       </span>
       <button class="folder" id="folderBtn" title="Connect your Path of Exile 2 BuildPlanner folder so builds save in one click">
@@ -793,7 +793,6 @@ function renderHero(){
 function renderMeta(){
   const L = curLeague();
   const sel = $("#leagueSelect"); if (sel) sel.value = activeUrl;
-  const lm = $("#leagueMode"); if (lm) lm.textContent = L.mode || "";
   $("#patch").textContent = DATA.patch;
   const rt = relTime(DATA.updated);
   $("#updatedText").textContent = "refreshed " + rt;
