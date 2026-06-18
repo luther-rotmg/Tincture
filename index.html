@@ -196,6 +196,7 @@
   .decant.lg{padding:16px 30px; font-size:15px;}
   .ghost-link{font-family:var(--fmono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--bone-dim);}
   .ghost-link:hover{color:var(--gold-bright);}
+  .cta-note{font-family:var(--fmono); font-size:11px; letter-spacing:.02em; color:var(--muted); margin:16px 0 0; max-width:56ch; line-height:1.6;}
 
   /* ---------------- controls ---------------- */
   .controls{
@@ -426,6 +427,220 @@
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
   }
+
+  /* ============================================================
+     ADDED — ledger honesty bits, The Assay (analytics), The Cellar
+     (data access). All derived from the same design tokens above;
+     no new colors, no libraries. Inline SVG only.
+     ============================================================ */
+
+  /* ---- sample-confidence meter (in the pop cell) ---- */
+  .conf{display:flex; flex-direction:column; align-items:flex-end; gap:4px; margin-top:5px;}
+  .conf-bars{display:inline-flex; gap:2px; align-items:flex-end; height:10px;}
+  .conf-bars i{width:3px; background:var(--hair-strong); border-radius:1px; display:block;}
+  .conf-bars i:nth-child(1){height:5px;} .conf-bars i:nth-child(2){height:8px;} .conf-bars i:nth-child(3){height:10px;}
+  .conf-bars i.on{background:var(--gold);}
+  .conf-lab{font-family:var(--fmono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .conf.ref .conf-lab{color:var(--verdigris);}
+
+  /* ---- ledger footnote + tier-legend tooltip ---- */
+  .ledger-foot{
+    padding:14px 18px 0; margin:2px 0 0; color:var(--muted);
+    font-family:var(--fmono); font-size:11px; line-height:1.7; letter-spacing:.02em;
+  }
+  .ledger-foot b{color:var(--bone-dim); font-weight:500;}
+  .ledger-head .hint{ position:relative; cursor:help; border-bottom:1px dotted var(--hair-strong); }
+  .ledger-head .hint:hover::after, .ledger-head .hint:focus::after{
+    content:attr(data-tip); position:absolute; left:0; top:140%; z-index:30; width:230px;
+    font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; text-transform:none; line-height:1.6;
+    color:var(--bone-dim); background:#1d1711; border:1px solid var(--hair-strong); border-radius:3px;
+    padding:9px 11px; box-shadow:0 18px 44px -18px rgba(0,0,0,.8);
+  }
+  .trend.base{color:var(--muted); font-size:11px; letter-spacing:.06em;}
+
+  /* ---- shared section frame for Assay + Cellar ---- */
+  .section-frame{ margin:78px 0 0; padding:52px 0 30px; border-top:1px solid var(--hair-strong); }
+  .section-head{ margin:0 0 30px; }
+  .section-head .eyebrow{ display:block; margin-bottom:14px; }
+  .section-head h2{ font-family:var(--ftext); font-weight:600; font-size:30px; line-height:1.12; margin:0 0 12px; color:var(--bone); }
+  .section-head .sub{ color:var(--bone-dim); font-size:16px; max-width:60ch; margin:0; }
+  .section-head .sub .figure{ font-family:var(--fmono); color:var(--gold-bright); }
+
+  /* panel card — reuses the .apparatus look */
+  .panel{
+    border:1px solid var(--hair); border-radius:3px;
+    background:linear-gradient(180deg, rgba(200,162,74,.04), rgba(0,0,0,.18));
+    padding:24px 22px; display:flex; flex-direction:column; gap:16px; min-width:0;
+  }
+  .panel-eyebrow{ font-family:var(--fmono); font-size:10px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); }
+  .panel-title{ font-family:var(--ftext); font-weight:600; font-size:18px; color:var(--bone); margin:2px 0 0; line-height:1.2; }
+  .panel-note{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; color:var(--muted); line-height:1.6; }
+
+  /* ---- The Assay grid ---- */
+  .assay-grid{ display:grid; grid-template-columns:1fr 1.25fr; gap:22px; }
+  .panel-diversity, .panel-tiers{ grid-column:auto; }
+  .assay-row2{ display:grid; grid-template-columns:1fr 1fr; gap:22px; grid-column:1 / -1; }
+  .panel-cross{ grid-column:1 / -1; }
+
+  /* donut */
+  .donut-wrap{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
+  .donut-svg{ width:150px; height:150px; flex:none; }
+  .donut-center-k{ font-family:var(--fmono); font-size:19px; fill:var(--bone); }
+  .donut-center-l{ font-family:var(--fmono); font-size:8.5px; letter-spacing:.16em; fill:var(--muted); text-transform:uppercase; }
+  .donut-legend{ display:flex; flex-direction:column; gap:7px; min-width:0; flex:1; }
+  .donut-legend li{ display:flex; align-items:center; gap:9px; font-family:var(--fmono); font-size:12px; color:var(--bone-dim); }
+  .donut-legend .sw{ width:10px; height:10px; border-radius:2px; flex:none; }
+  .donut-legend .nm{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--bone-dim); }
+  .donut-legend .pc{ color:var(--bone); }
+
+  /* share bars */
+  .bars{ display:flex; flex-direction:column; gap:11px; }
+  .bar-row{ display:grid; grid-template-columns:138px 1fr 78px; align-items:center; gap:12px; }
+  .bar-lab{ min-width:0; }
+  .bar-lab .a{ font-family:var(--ftext); font-weight:600; font-size:14.5px; color:var(--bone); display:block; line-height:1.2; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bar-lab .c{ font-family:var(--fmono); font-size:10px; letter-spacing:.04em; color:var(--muted); text-transform:uppercase; }
+  .bar-track{ position:relative; height:14px; background:rgba(200,162,74,.06); border:1px solid var(--hair); border-radius:2px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:1px; transition:width .7s cubic-bezier(.2,.8,.2,1); }
+  .assay-grid:not(.grown) .bar-fill{ width:0 !important; }
+  .bar-fill.s{ background:linear-gradient(90deg, rgba(156,58,44,.5), var(--oxblood-bright)); }
+  .bar-fill.a{ background:linear-gradient(90deg, rgba(200,162,74,.4), var(--gold)); }
+  .bar-fill.b{ background:linear-gradient(90deg, rgba(91,138,126,.4), var(--verdigris)); }
+  .bar-fill.c{ background:var(--muted); }
+  .bar-avg{ position:absolute; top:-3px; bottom:-3px; width:1px; background:var(--bone-dim); opacity:.5; }
+  .bar-val{ text-align:right; font-family:var(--fmono); }
+  .bar-val .pc{ font-size:14px; color:var(--bone); display:block; line-height:1.1; }
+  .bar-val .n{ font-size:10px; color:var(--muted); }
+
+  /* diversity stat grid */
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px 24px; }
+  .stat-readout .num{ font-family:var(--fmono); font-size:27px; font-weight:500; color:var(--gold-bright); line-height:1; letter-spacing:-.01em; }
+  .stat-readout .num small{ font-size:14px; color:var(--bone-dim); }
+  .stat-readout .lab{ font-family:var(--fmono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:7px; }
+  .stat-readout .sub{ font-family:var(--fmono); font-size:10.5px; color:var(--muted); margin-top:3px; letter-spacing:.02em; text-transform:none; }
+
+  /* tier strip */
+  .tier-strip{ display:flex; height:34px; border:1px solid var(--hair); border-radius:3px; overflow:hidden; }
+  .tier-seg{ display:flex; align-items:center; justify-content:center; gap:6px; min-width:42px; font-family:var(--fmono); font-size:12px; color:#1a120c; font-weight:600; transition:flex-grow .7s ease; }
+  .tier-seg.s{ background:var(--oxblood-bright); } .tier-seg.a{ background:var(--gold); }
+  .tier-seg.b{ background:var(--verdigris); } .tier-seg.c{ background:var(--muted); }
+  .tier-seg .tl{ opacity:.7; font-weight:500; }
+  .tier-legend{ display:flex; gap:16px; font-family:var(--fmono); font-size:10.5px; color:var(--muted); letter-spacing:.04em; flex-wrap:wrap; }
+  .tier-legend i{ width:8px; height:8px; border-radius:2px; display:inline-block; margin-right:6px; vertical-align:middle; }
+
+  /* cross-league small multiples */
+  .cross-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+  .cross-panel{ border:1px solid var(--hair); border-radius:3px; padding:16px 16px 14px; background:rgba(0,0,0,.12); }
+  .cross-panel h4{ font-family:var(--ftext); font-weight:600; font-size:15px; color:var(--bone); margin:0 0 12px; }
+  .cross-row{ display:grid; grid-template-columns:62px 1fr 50px; align-items:center; gap:10px; margin:0 0 8px; }
+  .cross-row .ml{ font-family:var(--fmono); font-size:10px; letter-spacing:.06em; color:var(--muted); text-transform:uppercase; }
+  .cross-row.active .ml{ color:var(--gold-bright); }
+  .cross-track{ height:9px; background:rgba(200,162,74,.05); border:1px solid var(--hair); border-radius:2px; overflow:hidden; }
+  .cross-fill{ height:100%; }
+  .cross-fill.sc{ background:var(--gold); } .cross-fill.hc{ background:var(--oxblood-bright); }
+  .cross-row.active .cross-track{ outline:1px solid var(--gold); outline-offset:1px; }
+  .cross-val{ text-align:right; font-family:var(--fmono); font-size:11px; color:var(--bone-dim); }
+  .cross-val.absent{ color:var(--muted); }
+
+  .section-caveat{
+    margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
+    font-family:var(--fmono); font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.8; max-width:88ch;
+  }
+  .section-caveat b{ color:var(--bone-dim); font-weight:500; }
+
+  /* ---- The Cellar (data access) ---- */
+  .arch-toolbar{ display:flex; align-items:flex-end; justify-content:space-between; gap:18px; padding:0 0 14px; flex-wrap:wrap; }
+  .arch-filters{ display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end; }
+  .arch-field{ display:flex; flex-direction:column; gap:5px; }
+  .arch-field > span{ font-family:var(--fmono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .arch-select{
+    appearance:none; -webkit-appearance:none; font:inherit; font-family:var(--fmono); font-size:12px;
+    color:var(--bone); background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:2px;
+    padding:8px 30px 8px 11px; cursor:pointer; letter-spacing:.02em;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23c8a24a' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 11px center; background-size:9px 6px;
+  }
+  .arch-select:hover, .arch-select:focus-visible{ border-color:var(--gold); color:var(--gold-bright); }
+  .arch-sort-m{ display:none; }
+  .arch-export{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .arch-count{ font-family:var(--fmono); font-size:11px; color:var(--muted); letter-spacing:.04em; }
+  .arch-btn{
+    font-family:var(--fmono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--bone-dim);
+    background:none; cursor:pointer; border:1px solid var(--hair); border-radius:2px; padding:7px 12px;
+    display:inline-flex; align-items:center; gap:7px; transition:color .18s, border-color .18s, background .18s;
+  }
+  .arch-btn:hover{ color:var(--gold-bright); border-color:var(--gold); background:linear-gradient(180deg,rgba(200,162,74,.08),transparent); }
+  .arch-btn svg{ width:13px; height:13px; }
+  .arch-disclaimer{
+    margin:0 0 12px; padding:9px 0 9px 12px; border-left:2px solid var(--gold);
+    font-family:var(--fmono); font-size:11px; line-height:1.7; letter-spacing:.02em; color:var(--muted);
+  }
+  .arch-thead, .arch-row{ display:grid; grid-template-columns:150px 1fr 96px 92px 92px 96px; align-items:center; gap:14px; }
+  .arch-thead{ padding:0 14px 11px; border-bottom:1px solid var(--hair-strong); }
+  .arch-th{
+    font-family:var(--fmono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+    background:none; border:none; cursor:pointer; padding:0; text-align:left; display:inline-flex; align-items:center; gap:5px;
+  }
+  .arch-th.ar{ justify-content:flex-end; text-align:right; }
+  .arch-th:hover{ color:var(--bone-dim); }
+  .arch-th.sorted{ color:var(--gold-bright); }
+  .arch-th.sorted::after{ content:"▾"; font-size:9px; }
+  .arch-th.sorted.asc::after{ content:"▴"; }
+  .arch-row{ padding:12px 14px; border-bottom:1px solid var(--hair); transition:background .18s; }
+  .arch-row:hover{ background:var(--ink-3); }
+  .arch-league{ font-family:var(--fmono); font-size:12px; color:var(--bone-dim); }
+  .arch-league .md{ color:var(--muted); }
+  .arch-build{ font-family:var(--ftext); font-size:15px; color:var(--bone); display:flex; align-items:center; gap:8px; flex-wrap:wrap; min-width:0; }
+  .arch-cls{ font-family:var(--fmono); font-size:12px; color:var(--muted); }
+  .arch-num{ font-family:var(--fmono); font-size:13px; text-align:right; color:var(--bone); }
+  .arch-null{ color:var(--muted); }
+  .curated-pill{ font-family:var(--fmono); font-size:9px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--verdigris); border:1px solid currentColor; border-radius:2px; padding:1px 5px; }
+  .arch-k{ display:none; }
+  .arch-empty{ padding:36px 14px; color:var(--muted); font-family:var(--fmono); font-size:13px; }
+
+  .arch-raw, .arch-api{ margin-top:30px; }
+  .raw-head{ display:flex; align-items:center; gap:14px; border-top:1px solid var(--hair); flex-wrap:wrap; }
+  .raw-toggle{ display:flex; align-items:center; gap:14px; flex:1; min-width:220px; text-align:left; background:none; border:none; cursor:pointer; padding:20px 0; color:var(--bone); font:inherit; }
+  .raw-toggle .gt-title{ flex:1; }
+  .raw-actions{ display:flex; gap:9px; margin-left:auto; }
+  .raw-body{ display:none; padding:0 0 8px; }
+  .arch-raw.open .raw-body{ display:block; }
+  .arch-raw.open .gt-chevron{ transform:rotate(180deg); }
+  .raw-pre{ font-family:var(--fmono); font-size:11.5px; line-height:1.55; color:var(--bone-dim); background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:3px; padding:14px 16px; max-height:60vh; overflow:auto; white-space:pre; margin:0; }
+  .arch-api{ border-top:1px solid var(--hair); padding-top:26px; }
+  .arch-api .eyebrow{ display:block; margin-bottom:12px; }
+  .arch-api h3{ font-family:var(--ftext); font-weight:600; font-size:19px; color:var(--bone); margin:0 0 12px; }
+  .arch-api .lede{ color:var(--bone-dim); font-size:15px; max-width:62ch; margin:0 0 16px; }
+  .schema{ display:grid; grid-template-columns:auto 1fr; gap:6px 18px; margin:14px 0 0; }
+  .schema dt{ font-family:var(--fmono); font-size:12px; color:var(--gold-bright); }
+  .schema dd{ font-family:var(--fmono); font-size:12px; color:var(--bone-dim); margin:0; line-height:1.5; }
+  .arch-api-foot{ margin:18px 0 0; font-family:var(--fmono); font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.8; max-width:84ch; }
+
+  /* responsive — Assay + Cellar */
+  @media (max-width:880px){
+    .assay-grid{ grid-template-columns:1fr; }
+    .assay-row2{ grid-template-columns:1fr; }
+    .donut-wrap{ flex-direction:column; align-items:stretch; }
+    .donut-svg{ margin:0 auto; }
+    .donut-legend{ width:100%; }
+    .arch-thead{ display:none; }
+    .arch-sort-m{ display:block; }
+    .arch-row{
+      grid-template-columns:1fr auto; gap:6px 14px;
+      grid-template-areas:"build share" "league trend" "cls sample";
+      padding:14px 6px;
+    }
+    .arch-c-build{ grid-area:build; } .arch-c-share{ grid-area:share; text-align:right; }
+    .arch-c-league{ grid-area:league; } .arch-c-trend{ grid-area:trend; text-align:right; }
+    .arch-c-cls{ grid-area:cls; } .arch-c-sample{ grid-area:sample; text-align:right; }
+    .arch-k{ display:inline-block; font-family:var(--fmono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-right:7px; }
+    .schema{ grid-template-columns:1fr; gap:2px 0; }
+    .schema dt{ margin-top:8px; }
+  }
+  @media (max-width:480px){
+    .panel{ padding:20px 16px; }
+    .bar-row{ grid-template-columns:108px 1fr 64px; gap:8px; }
+    .stat-grid{ gap:16px; }
+  }
 </style>
 </head>
 <body>
@@ -442,7 +657,7 @@
         <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
         <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
       </span>
-      <button class="folder" id="folderBtn" title="Connect your Path of Exile 2 BuildPlanner folder so builds save in one click">
+      <button class="folder" id="folderBtn" title="Connect your BuildPlanner folder — loadable builds will save here in one click once they ship (roadmap)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         <span id="folderLabel">Connect BuildPlanner folder</span>
       </button>
@@ -466,8 +681,10 @@
             Decant the essence
           </button>
           <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
-          <a href="#ledger" class="ghost-link">browse all builds ↓</a>
+          <a href="#assay" class="ghost-link">see the analysis ↓</a>
+          <a href="#archive" class="ghost-link">access all the data ↓</a>
         </div>
+        <p class="cta-note">Decant exports a labelled meta template — a starting point, not a loadable build yet. One-click loadable builds are on the roadmap.</p>
       </div>
       <aside class="hero-side" aria-label="League data summary">
         <div class="stat-row"><span class="k">Characters read</span><span class="v" id="heroChars">—</span></div>
@@ -482,41 +699,36 @@
   <section class="guide" id="guide" aria-label="How decanting works">
     <button class="guide-toggle" id="guideToggle" aria-expanded="false" aria-controls="guideBody">
       <span class="gt-eyebrow">New here?</span>
-      <span class="gt-title">How to Decant a build into your game</span>
+      <span class="gt-title">What Decant gives you — today, and what's next</span>
       <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
     </button>
     <div class="guide-body" id="guideBody">
-      <p class="lede"><b>Decant</b> drops a ready-made build into Path of&nbsp;Exile&nbsp;2's in-game <b>Build Planner</b> — no copy-paste, no spreadsheets. It works in <em>any</em> browser; the only difference is whether the file saves automatically or you move it once by hand.</p>
-
-      <p class="path-label">Every build lives in one folder:</p>
-      <code class="path-box">Documents\My Games\Path of Exile 2\BuildPlanner</code>
-      <p class="hint">Don't see that folder? Path of&nbsp;Exile&nbsp;2 creates it automatically the first time you open the in-game Build Planner.</p>
+      <p class="lede">Tincture reads what the live ladder is actually playing and lets you grab any pick in one click. Right now that pick comes as a <b>labelled meta template</b> — the fastest way to see the consensus and start a build. A <em>loadable</em> build, the kind that drops straight into PoE&nbsp;2's in-game Build Planner, needs per-character passive, gem and item data that the public meta doesn't expose yet — so we don't fake one. That's the next milestone.</p>
 
       <ol class="steps">
         <li class="step">
           <span class="step-num">1</span>
           <div>
-            <h3>Decant a build</h3>
-            <p>Press <b>Decant</b> on the headline build or any row in the ledger below. Tincture turns it into a <code>.build</code> file.</p>
+            <h3>Decant a meta pick</h3>
+            <p>Press <b>Decant</b> on the headline build or any ledger row. Tincture saves a small <code>.txt</code> template — the ascendancy, its share of the ladder, the sample behind it, the playstyle, and a guide pointer.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">2</span>
           <div>
-            <h3>Get it into the folder</h3>
-            <p><b>Chrome, Edge, Brave, Opera:</b> click <b>Connect BuildPlanner folder</b> (top-right) once and pick the folder above — after that, every Decant saves straight in.</p>
-            <p><b>Firefox, Safari, or any other browser:</b> no problem — the <code>.build</code> file simply <b>downloads</b> instead. Just drag it from your Downloads into that BuildPlanner folder. That's the whole trick.</p>
+            <h3>Use it as a starting point</h3>
+            <p>Pair the template with a community guide for that ascendancy to flesh out passives and gems. It's an honest pointer — <b>not</b> a loadable build file, so don't rename it to <code>.build</code> (the game would silently refuse it).</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">3</span>
           <div>
-            <h3>Open it in-game</h3>
-            <p>Launch Path of&nbsp;Exile&nbsp;2, open the <b>Build Planner</b>, and your build is waiting — follow it node by node as you level.</p>
+            <h3>Loadable builds <span class="once">roadmap</span></h3>
+            <p>When the GGG character pull lands, Decant will write a real <code>.build</code> straight into <code>Documents\My Games\Path of Exile 2\BuildPlanner</code> via the <b>Connect BuildPlanner folder</b> button — already wired, just waiting on the data.</p>
           </div>
         </li>
       </ol>
-      <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser.</p>
+      <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser. GGG does not curate or rank builds; judge any pick on its merits.</p>
     </div>
   </section>
 
@@ -537,10 +749,50 @@
       <span>#</span>
       <span>Build</span>
       <span class="ar">Of the ladder</span>
-      <span class="ar">24&nbsp;hrs</span>
+      <span class="ar"><span class="hint" tabindex="0" data-tip="Change in share over 24 hours. Reads ‘baseline’ until enough hourly snapshots accumulate.">Trend</span></span>
       <span class="ar">Decant</span>
     </div>
     <div class="rows" id="rows"></div>
+  </section>
+
+  <!-- ===================== THE ASSAY (analytics) ===================== -->
+  <section class="section-frame assay" id="assay" aria-label="Meta composition analytics">
+    <header class="section-head">
+      <span class="eyebrow">The Assay</span>
+      <h2>What the cauldron is made of</h2>
+      <p class="sub" id="assaySub"></p>
+    </header>
+    <div class="assay-grid" id="assayGrid">
+      <article class="panel panel-composition">
+        <div><span class="panel-eyebrow">Composition</span><div class="panel-title">The base metals</div></div>
+        <div class="donut-wrap"><div id="assayDonut"></div><ul class="donut-legend" id="assayLegend" aria-label="Class composition — share of the published ladder"></ul></div>
+        <div class="panel-note">Share of the published ladder, grouped by class — with the long tail as one slice.</div>
+      </article>
+      <article class="panel panel-shares">
+        <div><span class="panel-eyebrow">Shares</span><div class="panel-title">Ascendancy by weight</div></div>
+        <div class="bars" id="assayBars"></div>
+        <div class="panel-note">Bars scaled to the leading ascendancy · n = characters read (est., share × ladder size)</div>
+      </article>
+      <div class="assay-row2">
+        <article class="panel panel-diversity">
+          <div><span class="panel-eyebrow">Purity</span><div class="panel-title">How concentrated the brew is</div></div>
+          <div class="stat-grid" id="assayStats"></div>
+          <div class="panel-note">HHI = Σ(share²) over published shares, 0–10000. Higher = a few builds dominate. The unlisted tail can only lower it.</div>
+        </article>
+        <article class="panel panel-tiers">
+          <div><span class="panel-eyebrow">Tiers</span><div class="panel-title">Sorted by play rate</div></div>
+          <div class="tier-strip" id="assayTiers"></div>
+          <div class="tier-legend" id="assayTierLegend"></div>
+          <div class="panel-note">Tiers count how many run a build, not how strong it is.</div>
+        </article>
+      </div>
+      <article class="panel panel-cross" id="assayCrossPanel">
+        <div><span class="panel-eyebrow">Across the leagues</span><div class="panel-title">The same essence, four vessels</div></div>
+        <p class="panel-note" style="max-width:66ch">How the headline ascendancies shift between Softcore, Hardcore, SSF and HC SSF — like-for-like published shares, no curation. League populations differ up to ~30×, so smaller leagues are noisier. <span style="color:var(--gold)">Gold = softcore</span>, <span style="color:var(--oxblood-bright)">oxblood = hardcore</span>.</p>
+        <div class="cross-grid" id="assayCross"></div>
+      </article>
+    </div>
+    <p class="section-caveat" id="assayCaveat"></p>
   </section>
 
   <!-- ===================== THE STILL (signature) ===================== -->
@@ -596,10 +848,80 @@
         <div class="counters">
           <div class="counter"><div class="num" id="cChars" data-count="0">0</div><div class="lab">Characters read</div></div>
           <div class="counter"><div class="num" id="cBuilds" data-count="0" data-suffix=" distilled">0</div><div class="lab">Meta builds served</div></div>
-          <div class="counter"><div class="num" id="cAsc" data-count="0">0</div><div class="lab">Ascendancies mapped</div></div>
+          <div class="counter"><div class="num" id="cAsc" data-count="0">0</div><div class="lab">Ascendancies ranked</div></div>
           <div class="counter"><div class="num" data-count="60" data-prefix="every " data-suffix=" min">0</div><div class="lab">Refresh cadence</div></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE CELLAR (data access) ===================== -->
+  <section class="section-frame archive" id="archive" aria-label="All data, every league">
+    <header class="section-head">
+      <span class="eyebrow">Every drop, on the shelf</span>
+      <h2>The Cellar</h2>
+      <p class="sub">Tincture hides nothing — every build in every league we track, the raw file underneath, and the address you can read it from yourself.</p>
+    </header>
+
+    <div class="arch-toolbar">
+      <div class="arch-filters">
+        <label class="arch-field"><span>League</span><select id="archLeague" class="arch-select" aria-label="Filter by league"></select></label>
+        <label class="arch-field"><span>Class</span><select id="archClass" class="arch-select" aria-label="Filter by class"></select></label>
+        <label class="arch-field arch-sort-m"><span>Sort</span><select id="archSortM" class="arch-select" aria-label="Sort builds"></select></label>
+      </div>
+      <div class="arch-export">
+        <span class="arch-count" id="archCount"></span>
+        <button class="arch-btn" id="archCsv" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Export CSV</button>
+        <button class="arch-btn" id="archJson" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Export JSON</button>
+      </div>
+    </div>
+    <p class="arch-disclaimer" id="archDisclaimer"></p>
+
+    <div class="arch-table" role="table" aria-label="All builds across leagues">
+      <div class="arch-thead" role="row">
+        <button class="arch-th" data-key="league" role="columnheader">League</button>
+        <button class="arch-th" data-key="asc" role="columnheader">Build</button>
+        <button class="arch-th" data-key="cls" role="columnheader">Class</button>
+        <button class="arch-th ar" data-key="pop" role="columnheader">Share</button>
+        <button class="arch-th ar" data-key="delta" role="columnheader">Trend</button>
+        <button class="arch-th ar" data-key="n" role="columnheader">Sample</button>
+      </div>
+      <div id="archRows"></div>
+    </div>
+
+    <div class="arch-raw" id="archRaw">
+      <div class="raw-head">
+        <button class="raw-toggle" id="archRawToggle" aria-expanded="false" aria-controls="archRawBody">
+          <span class="gt-eyebrow">Raw</span>
+          <span class="gt-title">data.json — the file itself</span>
+          <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <span class="raw-actions">
+          <button class="arch-btn" id="archCopy" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy</button>
+          <button class="arch-btn" id="archDownload" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>Download</button>
+        </span>
+      </div>
+      <div class="raw-body" id="archRawBody"><pre class="raw-pre" id="archRawPre"></pre></div>
+    </div>
+
+    <div class="arch-api">
+      <span class="eyebrow">Draw from the source</span>
+      <h3>data.json is the API</h3>
+      <p class="lede">There's no secret backend. The same file this page reads is public and static — fetch it, script it, chart it.</p>
+      <code class="path-box" id="archEndpoint">https://tincturepoe2.com/data.json</code>
+      <dl class="schema">
+        <dt>patch</dt><dd>game patch, e.g. "0.5.0"</dd>
+        <dt>updated</dt><dd>ISO timestamp of the last distillation</dd>
+        <dt>sources</dt><dd>independent sources backing the data (1 = poe.ninja only)</dd>
+        <dt>default</dt><dd>the league shown first</dd>
+        <dt>leagues[]</dt><dd>{ url, name, mode, label, totals{characters, ascendancies}, builds[], note?, curated? }</dd>
+        <dt>builds[]</dt><dd>{ rank, tier, cls, asc, skill, pop, delta, n, tag } — pop/delta/n are null on curated rows</dd>
+      </dl>
+      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. Ascendancy-level only: no per-skill data (<code>skill</code> is intentionally blank), and 24-hour trends sit at baseline until snapshots accumulate. <code>n</code> is derived (share × league total), not a measured headcount. No key, no rate limit beyond the host's — please don't hammer it; it only changes once an hour. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
     </div>
   </section>
 
@@ -611,7 +933,7 @@
     </div>
     <div class="cols">
       <div>Distilled hourly · <span id="footUpdated">—</span></div>
-      <div><a href="#still">how the essence is drawn</a></div>
+      <div><a href="#assay">the assay</a> · <a href="#archive">the open data</a> · <a href="#still">how the essence is drawn</a></div>
     </div>
   </footer>
 
@@ -691,10 +1013,117 @@ let activeClass = "All";
 let activeSort = "pop";
 
 const $ = (s, r=document) => r.querySelector(s);
-const fmt = n => n.toLocaleString("en-US");
+const fmt = n => (n == null ? "—" : Number(n).toLocaleString("en-US"));
+/* escape any text injected via innerHTML (values come from our own pipeline, but be safe) */
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* EDITORIAL playstyle one-liners, keyed by ascendancy. These DESCRIBE the archetype's
+   feel — they are NOT ladder-derived and never rank or compare. They fill the blank
+   `tag` the ascendancy-level source leaves empty. Mirrors the Standard CURATED tags. */
+const ASC_TAGS = {
+  "Martial Artist":"Combo melee striker — high mobility, high skill ceiling",
+  "Invoker":"Elemental strike monk — fast, dodge-heavy",
+  "Acolyte of Chayula":"Chaos/darkness monk — sustains through leech",
+  "Spirit Walker":"Spear-and-spirit hybrid — clears fast, bosses fine",
+  "Amazon":"Spear skirmisher — crit and mobility",
+  "Ritualist":"Ailment-stacking huntress — damage over time",
+  "Deadeye":"Classic bow / projectiles — fast clear, league-start friendly",
+  "Pathfinder":"Flask-driven mapper — tanky, sustained",
+  "Titan":"Slow, tanky slam melee — very forgiving",
+  "Warbringer":"Warcry-driven warrior — bursty, group-friendly",
+  "Smith of Kitava":"Armour-stacking warrior — durable frontline",
+  "Infernalist":"Hands-off minion summoner — beginner-friendly",
+  "Blood Mage":"Life-fuelled spellcaster — high risk, high burst",
+  "Lich":"Chaos / energy-shield caster — strong burst",
+  "Abyssal Lich":"Darkness-scaling caster — sustained chaos damage",
+  "Stormweaver":"Elemental spellcaster — strong bossing",
+  "Chronomancer":"Time-bending caster — spike-cast glass cannon",
+  "Disciple of Varashta":"Ailment caster — control and scaling damage",
+  "Witchhunter":"Crossbow generalist — flexible, anti-caster",
+  "Gemling Legionnaire":"Gem-stacking shell — scales with investment",
+  "Tactician":"Tactical crossbow — utility and team play",
+  "Oracle":"Hybrid druid — adaptable, summon/transform flex",
+};
+const tagFor = b => b.tag || ASC_TAGS[b.asc] || "";
+
+/* SAMPLE-CONFIDENCE — how solidly the ladder backs an entry, from sample size n and
+   share pop. This is a SAMPLE-SIZE statement, never a build-power rating. Curated rows
+   (n null) get no score. Returns {level, label, bars} or null. */
+function confidence(b){
+  if (b == null || !Number.isFinite(b.n) || b.n <= 0) return null;
+  const s = Math.max(0, Math.min(1, Math.log10(b.n) / Math.log10(2000)));   // sample size, N_REF=2000
+  const r = (b.pop!=null) ? Math.max(0, Math.min(1, b.pop / 8)) : 0;        // representativeness
+  const c = (b.pop!=null) ? 0.7*s + 0.3*r : s;
+  if (c >= 0.80) return { level:"high",   label:"solid sample", bars:3 };
+  if (c >= 0.55) return { level:"medium", label:"fair sample",  bars:2 };
+  return                  { level:"low",    label:"thin sample",  bars:1 };
+}
+
+/* ----- derived stats (all client-side, from existing data.json fields) ----- */
+const shownBuilds = L => (L && L.builds || []).filter(b => b.pop != null);
+function anyTrendData(){ return leagues().some(L => shownBuilds(L).some(b => b.delta != null && b.delta !== 0)); }
+
+/* class composition for The Assay donut — sums pop by class, plus an honest long-tail
+   slice so the ring is part-to-whole of the FULL ladder, not just the shown classes. */
+const CLASS_ORDER = ["Warrior","Ranger","Witch","Monk","Mercenary","Sorceress","Huntress","Druid"];
+function classComposition(L){
+  const m = new Map();
+  let sum = 0;
+  shownBuilds(L).forEach(b => { const c = b.cls || "Other"; m.set(c, (m.get(c)||0) + b.pop); sum += b.pop; });
+  const slices = [...m.entries()]
+    .sort((a,b)=> b[1]-a[1])
+    .map(([name,pop]) => ({ name, pop:Math.round(pop*10)/10 }));
+  // compute the tail from the ROUNDED slice total so the rounded arcs + tail always
+  // close the ring at exactly 100% (no sub-degree gap/overlap)
+  const shownRounded = slices.reduce((a, s) => a + s.pop, 0);
+  const tail = Math.round((100 - shownRounded) * 10) / 10;
+  if (tail > 0.05) slices.push({ name:"Other (long tail)", pop:tail, tail:true });
+  return slices;
+}
+function diversityStats(L){
+  const pops = shownBuilds(L).map(b=>b.pop);
+  const shown = pops.length;
+  const shownTotal = pops.reduce((a,b)=>a+b,0);
+  const sorted = [...pops].sort((a,b)=>b-a);
+  const top3 = sorted.slice(0,3).reduce((a,b)=>a+b,0);
+  const hhi = pops.reduce((a,p)=>a + p*p, 0);
+  const effAsc = hhi > 0 ? 10000/hhi : 0;
+  const ascShown = new Set(shownBuilds(L).map(b=>b.asc)).size;
+  return {
+    shown, ascShown,
+    longTail: Math.round((100 - shownTotal)*10)/10,
+    top3: Math.round(top3*10)/10,
+    hhi: Math.round(hhi),
+    effAsc: Math.round(effAsc*10)/10,
+    onLadder: (L.totals && L.totals.ascendancies) || ascShown,
+  };
+}
+function tierCounts(L){
+  const t = { S:0, A:0, B:0, C:0 };
+  shownBuilds(L).forEach(b => { if (t[b.tier] != null) t[b.tier]++; });
+  return t;
+}
+const ladderLeaguesList = () => leagues().filter(L => !L.curated && shownBuilds(L).length);
+function crossMatrix(){
+  const lg = ladderLeaguesList();
+  const head = [];
+  lg.forEach(L => shownBuilds(L).sort((a,b)=>b.pop-a.pop).slice(0,3).forEach(b => { if (!head.includes(b.asc)) head.push(b.asc); }));
+  let globalMax = 0;
+  const rows = head.map(asc => {
+    const byLeague = lg.map(L => {
+      const hit = (L.builds||[]).find(b => b.asc === asc && b.pop != null);
+      const share = hit ? hit.pop : null;
+      if (share != null) globalMax = Math.max(globalMax, share);
+      return { mode:L.mode, url:L.url, hardcore:/Hardcore|HC/.test(L.mode), share };
+    });
+    return { asc, byLeague };
+  });
+  return { rows, globalMax: globalMax || 1, leagues: lg };
+}
 
 const leagues = () => (DATA && DATA.leagues) || [];
 const curLeague = () => leagues().find(l => l.url === activeUrl) || leagues()[0] || {builds:[], totals:{}};
+const defaultLeague = () => leagues().find(l => l.url === (DATA && DATA.default)) || leagues()[0] || {builds:[], totals:{}};
 
 /* ----- relative time ----- */
 function relTime(iso){
@@ -719,27 +1148,36 @@ function trendHTML(d){
   return `<span class="trend ${up?'up':'down'}">${up?'▲':'▼'} ${Math.abs(d).toFixed(1)}</span>`;
 }
 
-/* ----- build a .build payload -----
-   NOTE: structured stub pending exact GGG schema confirmation.
-   The decant MECHANISM (folder write / download) is real; the
-   field layout is finalized when the pipeline serializes real
-   character data into the official .build JSON. */
-function buildFile(b){
-  return JSON.stringify({
+/* ----- meta template (NOT a loadable .build) -----
+   The data is ascendancy-level only — there are no passive slugs, gem paths or items
+   to build a loadable .build from yet, and a malformed .build is silently refused by
+   the game (worse than an honest pointer). So Decant exports a clearly-labeled meta
+   TEMPLATE: ascendancy, ladder share, sample and a guide pointer. When the GGG
+   character pull lands, real builds/<slug>.build files are served instead (decant()
+   fetches those first) and the wording flips to loadable. */
+const slugOf = b => `${b.asc}-${b.skill||""}`.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+function templateText(b){
+  const banner =
+"# Tincture meta template — NOT a loadable Path of Exile 2 .build.\n" +
+"# A labelled starting point: ascendancy, ladder share and sample size.\n" +
+"# Loadable builds (passives, gems, items) arrive once the GGG character pull lands.\n" +
+"# Do NOT rename this to .build — the game silently refuses a file it can't parse.\n";
+  const body = JSON.stringify({
     _tool: "tincture",
-    _note: "Placeholder structure — final schema set when live serialization lands.",
-    version: 1,
-    league: curLeague().name,
-    name: b.skill ? `${b.asc} — ${b.skill}` : b.asc,
-    class: b.cls,
+    _kind: "meta-template",
+    _note: "A META POINTER, not a loadable .build. It carries the ascendancy and its ladder share/sample only. A loadable file needs passive slugs, gem paths, items and an ascendancy code — none of which exist in aggregate meta stats yet.",
+    league: curLeague().label || curLeague().name,
     ascendancy: b.asc,
-    primarySkill: b.skill || null,
-    metaShare: b.pop ?? null,
+    class: b.cls || null,
+    playstyle: tagFor(b) || null,
+    metaSharePct: b.pop ?? null,
+    estCharacters: b.n ?? null,        // derived: share × league total, not a measured count
     trend24h: b.delta ?? null,
-    distilledFrom: b.n ?? null
+    source: "poe.ninja-derived ascendancy share (hourly)",
+    guide: `Search a community guide for "${b.asc}${b.cls?` (${b.cls})`:""} PoE2 0.5.0".`,
   }, null, 2);
+  return banner + "\n" + body + "\n";
 }
-const safeName = b => `${b.asc}-${b.skill}`.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") + ".build";
 
 /* ----- toasts ----- */
 function toast(html, kind="ok", ms=5200){
@@ -763,7 +1201,7 @@ async function connectFolder(){
     dirHandle = await window.showDirectoryPicker({ mode:"readwrite", id:"poe2-buildplanner" });
     $("#folderBtn").classList.add("connected");
     $("#folderLabel").textContent = "BuildPlanner connected";
-    toast(`Folder connected. Every <b>Decant</b> now drops straight into your game.`, "ok");
+    toast(`Folder connected. Loadable builds will save straight here once they ship — for now Decant exports a meta template.`, "ok");
     return true;
   }catch(err){
     if (err && err.name === "AbortError") return false; // user cancelled
@@ -772,39 +1210,40 @@ async function connectFolder(){
   }
 }
 
-/* ----- decant a build ----- */
+/* ----- decant -----
+   If a real loadable build has been committed (builds/<slug>.build), serve it as a
+   true .build (folder write / download). Otherwise export an honest meta TEMPLATE as
+   .txt — never the game's .build slot, so a non-loadable file can never be silently
+   refused in-game. */
 async function decant(b){
-  const name = safeName(b);
-
-  // Prefer a real, pipeline-generated build file if one exists; otherwise use the
-  // placeholder. Once scripts generate builds/<slug>.build, this serves them as-is.
-  let file = null;
+  const slug = slugOf(b);
+  let real = null;
   try {
-    const res = await fetch("builds/" + name, { cache: "no-store" });
-    if (res.ok) file = await res.text();
-  } catch (_) { /* not generated yet */ }
-  if (file == null) file = buildFile(b);
-
-  if (hasFSA()){
-    try{
-      if (!dirHandle){ const ok = await connectFolder(); if (!ok) { return downloadFallback(file, name, true); } }
-      const fh = await dirHandle.getFileHandle(name, { create:true });
-      const w = await fh.createWritable();
-      await w.write(file); await w.close();
-      toast(`Decanted <b>${b.skill ? `${b.asc} · ${b.skill}` : b.asc}</b> into BuildPlanner. Open the planner in-game to follow it.`, "ok");
-      return;
-    }catch(err){
-      return downloadFallback(file, name, true);
-    }
-  }
-  downloadFallback(file, name, false);
+    const res = await fetch("builds/" + slug + ".build", { cache: "no-store" });
+    // Only treat it as a real build if it actually 200s AND isn't an HTML fallback page
+    // (some static hosts serve index.html with 200 for unknown paths — that must NOT be
+    // saved as a .build). A real .build is JSON/octet-stream, never text/html.
+    const ct = (res.headers.get("content-type") || "").toLowerCase();
+    if (res.ok && !ct.includes("text/html")) real = await res.text();
+  } catch (_) { /* none generated yet */ }
+  if (real != null) return saveRealBuild(b, real, slug + ".build");
+  // honest path today: a meta template, downloaded, clearly not a loadable build
+  saveBlob(templateText(b), slug + "-tincture-template.txt", "text/plain;charset=utf-8");
+  toast(`Saved <b>${esc(b.asc)}</b> as a meta template (.txt) — a starting pointer, not a loadable build yet. Full passive, gem and item data arrives with the character pull; pair it with a community guide for now.`, "ok", 7000);
 }
 
-function downloadFallback(file, name, silentReason){
-  const url = URL.createObjectURL(new Blob([file], {type:"application/json"}));
-  const a = document.createElement("a"); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url), 1500);
-  toast(`<b>${name}</b> downloaded. Move it to <span class="path">…\\My Games\\Path of Exile 2\\BuildPlanner</span> to use it in-game.`, "warn", 7000);
+async function saveRealBuild(b, file, name){
+  if (hasFSA()){
+    try{
+      if (!dirHandle){ const ok = await connectFolder(); if (!ok){ saveBlob(file, name, "application/json"); toast(`<b>${name}</b> downloaded. Move it into <span class="path">…\\My Games\\Path of Exile 2\\BuildPlanner</span> to load it in-game.`, "warn", 7000); return; } }
+      const fh = await dirHandle.getFileHandle(name, { create:true });
+      const w = await fh.createWritable(); await w.write(file); await w.close();
+      toast(`Decanted <b>${esc(b.asc)}</b> into BuildPlanner. Open the planner in-game to follow it.`, "ok");
+      return;
+    }catch(_){ /* fall through to download */ }
+  }
+  saveBlob(file, name, "application/json");
+  toast(`<b>${name}</b> downloaded. Move it into <span class="path">…\\My Games\\Path of Exile 2\\BuildPlanner</span> to load it in-game.`, "warn", 7000);
 }
 
 /* ----- render ----- */
@@ -833,7 +1272,7 @@ function renderRows(){
   const rows = $("#rows"); rows.innerHTML = "";
   const L = curLeague();
   if (!(L.builds||[]).length){
-    rows.innerHTML = `<div style="padding:44px 20px;color:var(--bone-dim);font-family:var(--fmono);font-size:13px;line-height:1.8;max-width:680px">${L.note || ("No ranked build data for " + (L.name||"this league") + ".")}</div>`;
+    rows.innerHTML = `<div style="padding:44px 20px;color:var(--bone-dim);font-family:var(--fmono);font-size:13px;line-height:1.8;max-width:680px">${esc(L.note) || ("No ranked build data for " + esc(L.name||"this league") + ".")}</div>`;
     return;
   }
   if (L.curated && L.note){
@@ -850,21 +1289,39 @@ function renderRows(){
     rows.appendChild(d);
     return;
   }
+  const trendsReady = anyTrendData();
   list.forEach((b, i)=>{
     const tierClass = b.tier ? b.tier.toLowerCase() : "";
     const row = document.createElement("div");
     row.className = `row ${tierClass==='s'?'s':tierClass==='a'?'a':''}`;
-    const tierBadge = b.tier ? `<span class="tier ${tierClass}">${b.tier}</span>` : "";
-    const subBits = [b.cls && `<span class="cls">${b.cls}</span>`, b.tag, (b.n!=null ? `${fmt(b.n)} characters` : null)].filter(Boolean);
-    const popCell = (b.pop!=null) ? `<div class="pop">${b.pop.toFixed(1)}<small>%</small></div>` : `<div class="pop"></div>`;
-    const trendCell = (b.delta!=null) ? trendHTML(b.delta) : `<span class="trend flat"></span>`;
+    const tierBadge = b.tier ? `<span class="tier ${tierClass}" title="Popularity tier — how many players run it, not how strong it is">${b.tier}</span>` : "";
+    const tag = tagFor(b);
+    const subBits = [
+      b.cls && `<span class="cls">${esc(b.cls)}</span>`,
+      tag && esc(tag),
+      (b.n!=null ? `~${fmt(b.n)} characters` : null),
+    ].filter(Boolean);
+    const conf = confidence(b);
+    const confHTML = conf
+      ? `<span class="conf" title="How many ladder characters back this entry (n=${fmt(b.n)}${b.pop!=null?`, ${b.pop.toFixed(1)}% share`:""}) — a sample-size cue, not a power rating" aria-label="${conf.label}, about ${fmt(b.n)} characters">
+           <span class="conf-bars" aria-hidden="true">${[1,2,3].map(k=>`<i class="${k<=conf.bars?'on':''}"></i>`).join("")}</span>
+           <span class="conf-lab">${conf.label}</span>
+         </span>`
+      : (b.n==null ? `<span class="conf ref"><span class="conf-lab">reference</span></span>` : "");
+    const popCell = (b.pop!=null)
+      ? `<div class="pop">${b.pop.toFixed(1)}<small>%</small>${confHTML}</div>`
+      : `<div class="pop">${confHTML}</div>`;
+    let trendCell;
+    if (b.delta == null) trendCell = `<span class="trend flat"></span>`;
+    else if (!trendsReady) trendCell = `<span class="trend base" title="24-hour trends appear once enough hourly snapshots accumulate">baseline</span>`;
+    else trendCell = trendHTML(b.delta);
     row.innerHTML = `
       <div class="rank">${roman(i+1)}</div>
       <div class="build-cell">
         <div class="top">
           ${tierBadge}
-          <span class="asc-name">${b.asc}</span>
-          ${b.skill ? `<span class="skill-name">${b.skill}</span>` : ""}
+          <span class="asc-name">${esc(b.asc)}</span>
+          ${b.skill ? `<span class="skill-name">${esc(b.skill)}</span>` : ""}
         </div>
         <div class="sub">${subBits.join(" · ")}</div>
       </div>
@@ -879,6 +1336,15 @@ function renderRows(){
     row.querySelector(".decant").onclick = ()=> decant(b);
     rows.appendChild(row);
   });
+  if (!L.curated){
+    const sb = shownBuilds(L);
+    const cover = Math.round(sb.reduce((a,x)=>a+x.pop,0));
+    const foot = document.createElement("div");
+    foot.className = "ledger-foot";
+    foot.innerHTML = `Top <b>${sb.length}</b> ascendancies shown — together about <b>${cover}%</b> of the ladder; the rest is the long tail. ` +
+      (trendsReady ? `Trend = 24-hour change in share.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
+    rows.appendChild(foot);
+  }
 }
 function renderHero(){
   const L = curLeague();
@@ -887,17 +1353,20 @@ function renderHero(){
   if (!ranked.length){
     const curated = L.curated && (L.builds||[]).length;
     $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No ranked data"}</span>`;
-    $("#essenceSub").innerHTML = L.note || `poe.ninja doesn't publish a build breakdown for ${L.name}.`;
-    $("#heroChars").textContent = (L.totals && L.totals.characters) ? fmt(L.totals.characters) : "—";
+    $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}.`;
+    // Don't show a curated league's whole-population total as "characters read" — the
+    // picks are hand-chosen, not a ladder sample. A real (non-curated) empty league keeps
+    // its honest ladder total.
+    $("#heroChars").textContent = curated ? "—" : ((L.totals && L.totals.characters) ? fmt(L.totals.characters) : "—");
     $("#heroBuilds").textContent = String((L.builds||[]).length);
     $("#heroShare").innerHTML = `—`;
     if (hd){ hd.disabled = true; hd.onclick = null; }
     return;
   }
   const top = ranked[0];
-  $("#essenceName").innerHTML = `<span class="asc">${top.asc}</span>${top.skill ? `<span class="skill">${top.skill}</span>` : ""}`;
+  $("#essenceName").innerHTML = `<span class="asc">${esc(top.asc)}</span>${top.skill ? `<span class="skill">${esc(top.skill)}</span>` : ""}`;
   $("#essenceSub").innerHTML =
-    `The clearest signal in <b>${L.name}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — distilled from <span class="figure">${fmt(top.n)}</span> characters.`;
+    `The clearest signal in <b>${esc(L.name)}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — about <span class="figure">~${fmt(top.n)}</span> characters (share × ladder size).`;
   $("#heroChars").textContent = fmt((L.totals && L.totals.characters) || 0);
   $("#heroBuilds").textContent = ranked.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
@@ -910,11 +1379,15 @@ function renderMeta(){
   const rt = relTime(DATA.updated);
   $("#updatedText").textContent = "refreshed " + rt;
   $("#footUpdated").textContent = "last refreshed " + rt;
-  // feed The Still's counters from the active league's totals
-  const t = L.totals || {};
+  // The Still is a fixed brand statement about the LIVE Runes of Aldur ladder, and its
+  // prose names that ladder — so pin its counters to the default (SC challenge) league
+  // regardless of the dropdown. This avoids the curated Standard population (a whole-league
+  // total, NOT a sample behind the hand-picked picks) ever showing as "characters read".
+  const still = defaultLeague();
+  const t = (still && still.totals) || {};
   const setCount = (id, val) => { const el = document.getElementById(id); if (el) el.dataset.count = val; };
   setCount("cChars", t.characters || 0);
-  setCount("cBuilds", (L.builds || []).length);
+  setCount("cBuilds", (still && still.builds || []).filter(b => b.pop != null).length);
   setCount("cAsc", t.ascendancies || 0);
   syncCounters();
 }
@@ -940,8 +1413,303 @@ function setupLeaguePicker(){
   sel.onchange = ()=>{
     activeUrl = sel.value;
     activeClass = "All";
-    renderMeta(); renderHero(); renderChips(); renderRows();
+    renderMeta(); renderHero(); renderChips(); renderRows(); renderAssay();
   };
+}
+
+/* ============================================================
+   THE ASSAY — hand-rolled SVG/CSS analytics, no libraries.
+   League-DEPENDENT panels (composition, shares, purity, tiers)
+   rebuild from curLeague(); the cross-league panel is built once
+   and just re-highlights the active league on switch.
+   ============================================================ */
+const CLASS_COLORS = {
+  Warrior:"var(--oxblood-bright)", Monk:"var(--gold)", Huntress:"var(--gold-bright)",
+  Ranger:"var(--rise)", Witch:"var(--verdigris)", Sorceress:"var(--oxblood)",
+  Mercenary:"var(--bone-dim)", Druid:"var(--fall)",
+};
+const classColor = name => /^Other/.test(name) ? "var(--muted)" : (CLASS_COLORS[name] || "var(--muted)");
+
+function svgDonut(slices){
+  const R = 38, C = 2 * Math.PI * R;
+  let acc = 0;
+  const arcs = slices.map(s => {
+    const seg = (s.pop/100) * C;
+    const el = `<circle cx="50" cy="50" r="${R}" fill="none" stroke="${classColor(s.name)}" stroke-width="15"
+      stroke-dasharray="${seg.toFixed(2)} ${(C-seg).toFixed(2)}" stroke-dashoffset="${(-acc).toFixed(2)}"
+      ${s.tail?'opacity="0.55"':''}></circle>`;
+    acc += seg;
+    return el;
+  }).join("");
+  const lead = slices[0] || {name:"—", pop:0};
+  // the ring is decorative for assistive tech — the adjacent legend carries the numbers
+  return `<svg class="donut-svg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <g transform="rotate(-90 50 50)">${arcs}</g>
+    <text class="donut-center-k" x="50" y="49" text-anchor="middle">${lead.pop.toFixed(0)}%</text>
+    <text class="donut-center-l" x="50" y="60" text-anchor="middle">${esc((lead.name||"").split(" ")[0].toUpperCase())}</text>
+  </svg>`;
+}
+
+function barRowsHTML(builds, maxPop, avg){
+  return builds.map(b=>{
+    const w = maxPop>0 ? (b.pop/maxPop*100) : 0;
+    const tc = (b.tier||"").toLowerCase();
+    const avgPct = maxPop>0 ? (avg/maxPop*100) : 0;
+    return `<div class="bar-row">
+      <div class="bar-lab"><span class="a">${esc(b.asc)}</span><span class="c">${esc(b.cls||"")}</span></div>
+      <div class="bar-track" role="img" aria-label="${esc(b.asc)}, ${b.pop.toFixed(1)} percent, about ${fmt(b.n)} characters">
+        <div class="bar-fill ${tc}" style="width:${w.toFixed(1)}%"></div>
+        <div class="bar-avg" style="left:${avgPct.toFixed(1)}%" title="league average ${avg.toFixed(1)}%"></div>
+      </div>
+      <div class="bar-val"><span class="pc">${b.pop.toFixed(1)}%</span><span class="n">n ${fmt(b.n)}</span></div>
+    </div>`;
+  }).join("");
+}
+
+function tierStripHTML(counts){
+  const total = counts.S+counts.A+counts.B+counts.C || 1;
+  const order = ["S","A","B","C"];
+  const segs = order.filter(t=>counts[t]>0).map(t=>{
+    const pct = counts[t]/total*100;
+    return `<div class="tier-seg ${t.toLowerCase()}" style="flex-grow:${counts[t]}" title="${counts[t]} ${t}-tier"><span>${t}</span><span class="tl">${counts[t]}</span></div>`;
+  }).join("");
+  const legend = order.map(t=>`<span><i class="tier-seg ${t.toLowerCase()}" style="display:inline-block;width:8px;height:8px"></i>${t} · ${counts[t]}</span>`).join("");
+  return { segs, legend };
+}
+
+function statCell(num, lab, sub){
+  return `<div class="stat-readout"><div class="num">${num}</div><div class="lab">${esc(lab)}</div>${sub?`<div class="sub">${esc(sub)}</div>`:""}</div>`;
+}
+
+let crossBuilt = false;
+function buildCrossOnce(){
+  if (crossBuilt) return;
+  const wrap = $("#assayCross"); if (!wrap) return;
+  const { rows, globalMax, leagues:lg } = crossMatrix();
+  if (!rows.length || lg.length < 2){ $("#assayCrossPanel").hidden = true; crossBuilt = true; return; }
+  wrap.innerHTML = rows.map(r=>{
+    const bars = r.byLeague.map(c=>{
+      const present = c.share != null;
+      const w = present ? (c.share/globalMax*100) : 0;
+      const cls = c.hardcore ? "hc" : "sc";
+      return `<div class="cross-row" data-url="${esc(c.url)}">
+        <span class="ml">${esc(c.mode)}</span>
+        <div class="cross-track">${present?`<div class="cross-fill ${cls}" style="width:${w.toFixed(1)}%"></div>`:""}</div>
+        <span class="cross-val ${present?"":"absent"}">${present?c.share.toFixed(1)+"%":"—"}</span>
+      </div>`;
+    }).join("");
+    return `<div class="cross-panel"><h4>${esc(r.asc)}</h4>${bars}</div>`;
+  }).join("");
+  crossBuilt = true;
+}
+
+function highlightCross(){
+  document.querySelectorAll("#assayCross .cross-row").forEach(el=>{
+    el.classList.toggle("active", el.dataset.url === activeUrl);
+  });
+}
+
+function renderAssay(){
+  const sec = $("#assay"); if (!sec) return;
+  buildCrossOnce();
+  highlightCross();
+  const L = curLeague();
+  const sb = shownBuilds(L);
+  const grid = $("#assayGrid");
+  // league-dependent panels exist only for ranked ladder leagues
+  const leaguePanels = ["panel-composition","panel-shares","assay-row2"];
+  const show = !L.curated && sb.length;
+  leaguePanels.forEach(c=>{ const el = grid.querySelector("."+c); if (el) el.hidden = !show; });
+
+  if (!show){
+    $("#assaySub").textContent = `${L.name} isn't ranked by poe.ninja, so there's nothing to assay here — pick a Runes of Aldur league to see the composition.`;
+  } else {
+    const d = diversityStats(L);
+    $("#assaySub").innerHTML = `In <b>${esc(L.label||L.name)}</b>, the three leading ascendancies hold <span class="figure">${d.top3.toFixed(1)}%</span> of the published ladder — <span class="figure">${d.longTail.toFixed(1)}%</span> settles into the long tail.`;
+    // composition donut + legend
+    const slices = classComposition(L);
+    $("#assayDonut").innerHTML = svgDonut(slices);
+    $("#assayLegend").innerHTML = slices.map(s=>`<li><span class="sw" style="background:${classColor(s.name)};${s.tail?'opacity:.55':''}"></span><span class="nm">${esc(s.name)}</span><span class="pc">${s.pop.toFixed(1)}%</span></li>`).join("");
+    // share bars
+    const ranked = sb.slice().sort((a,b)=>b.pop-a.pop);
+    const maxPop = ranked[0].pop;
+    const avg = ranked.reduce((a,b)=>a+b.pop,0)/ranked.length;
+    $("#assayBars").innerHTML = barRowsHTML(ranked, maxPop, avg);
+    // diversity stats
+    $("#assayStats").innerHTML =
+      statCell(`${d.top3.toFixed(1)}<small>%</small>`, "Top-3 share") +
+      statCell(`${fmt(d.hhi)}`, "Concentration · HHI", `≈ ${d.effAsc.toFixed(1)} effective ascendancies`) +
+      statCell(`${d.longTail.toFixed(1)}<small>%</small>`, "Long tail (unlisted)") +
+      statCell(`${d.ascShown}`, "Ascendancies shown", `the most-played, ranked by share`);
+    // tiers
+    const tc = tierCounts(L);
+    const ts = tierStripHTML(tc);
+    $("#assayTiers").innerHTML = ts.segs;
+    $("#assayTierLegend").innerHTML = ts.legend;
+  }
+  $("#assayCaveat").innerHTML = `These shares cover the most-played ascendancies poe.ninja publishes; they don't sum to 100% — the rest is the long tail. Character counts are <b>derived</b> from share × league total, not a measured headcount. Curated leagues (Standard) are left out of the assay. Ascendancy-level only — no per-skill data.`;
+  // grow-in once visible
+  watchAssay();
+}
+
+let assayWatched = false;
+function watchAssay(){
+  if (assayWatched) return; assayWatched = true;
+  const grid = $("#assayGrid"); if (!grid) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce){ grid.classList.add("grown"); return; }
+  const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if (e.isIntersecting){ grid.classList.add("grown"); io.disconnect(); } }); }, { threshold:0.18 });
+  io.observe(grid);
+}
+
+/* ============================================================
+   THE CELLAR — access all the data. Cross-league table, raw
+   data.json, CSV/JSON export, open-data docs. No storage, no deps.
+   ============================================================ */
+function saveBlob(text, filename, mime){
+  const url = URL.createObjectURL(new Blob([text], { type: mime || "application/octet-stream" }));
+  const a = document.createElement("a"); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1500);
+}
+function copyFallback(text){
+  try{
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly","");
+    ta.style.cssText = "position:fixed;top:-1000px;left:-1000px;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand("copy"); ta.remove();
+    toast(ok ? `Copied <b>data.json</b> to your clipboard.` : `Couldn't copy automatically — use <b>Download</b> instead.`, ok?"ok":"warn", ok?5200:7000);
+  }catch(_){ toast(`Couldn't copy automatically — use <b>Download</b> instead.`, "warn", 7000); }
+}
+function copyText(text){
+  if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=> toast(`Copied <b>data.json</b> to your clipboard.`, "ok"), ()=> copyFallback(text));
+  } else copyFallback(text);
+}
+
+let archLeague="all", archClass="all", archSortKey="pop", archSortDir="desc", rawCache=null;
+function archAllRows(){
+  const out = [];
+  leagues().forEach(L=>{
+    (L.builds||[]).forEach(b=>{
+      out.push({
+        leagueUrl:L.url, leagueLabel:L.label||L.name, mode:L.mode, curated:!!L.curated,
+        tier:b.tier||"", cls:b.cls||"", asc:b.asc||"", skill:b.skill||"",
+        pop:b.pop==null?null:b.pop, delta:b.delta==null?null:b.delta, n:b.n==null?null:b.n, tag:tagFor(b),
+      });
+    });
+  });
+  return out;
+}
+function archFiltered(){
+  let list = archAllRows();
+  if (archLeague!=="all") list = list.filter(r=>r.leagueUrl===archLeague);
+  if (archClass!=="all")  list = list.filter(r=>r.cls===archClass);
+  const k = archSortKey, dir = archSortDir==="asc"?1:-1;
+  const textKey = (k==="asc"||k==="cls"||k==="league");
+  list.sort((a,b)=>{
+    if (textKey){
+      const av=(k==="league"?a.leagueLabel:a[k]||"").toLowerCase(), bv=(k==="league"?b.leagueLabel:b[k]||"").toLowerCase();
+      return av<bv?-dir:av>bv?dir:0;
+    }
+    if (a[k]==null && b[k]==null) return 0;          // both null → equal (avoid Inf-Inf=NaN)
+    const sentinel = archSortDir==="asc"?Infinity:-Infinity;
+    const av = a[k]==null?sentinel:a[k], bv = b[k]==null?sentinel:b[k];
+    return (av-bv)*dir;
+  });
+  return list;
+}
+function archRender(){
+  const rowsEl = $("#archRows"); if (!rowsEl) return;
+  const list = archFiltered();
+  $("#archCount").textContent = `${list.length} build${list.length===1?"":"s"}`;
+  document.querySelectorAll(".arch-th").forEach(th=>{
+    const on = th.dataset.key===archSortKey;
+    th.classList.toggle("sorted", on);
+    th.classList.toggle("asc", on && archSortDir==="asc");
+    if (on) th.setAttribute("aria-sort", archSortDir==="asc"?"ascending":"descending"); else th.removeAttribute("aria-sort");
+  });
+  const trendsReady = anyTrendData();
+  if (!list.length){ rowsEl.innerHTML = `<div class="arch-empty">No builds match that filter.</div>`; return; }
+  rowsEl.innerHTML = list.map(r=>{
+    const tier = r.tier ? `<span class="tier ${r.tier.toLowerCase()}">${r.tier}</span>` : "";
+    const cur = r.curated ? `<span class="curated-pill">curated</span>` : "";
+    const num = (v, pct) => v==null ? `<span class="arch-null">—</span>` : (pct?v.toFixed(1)+"%":fmt(v));
+    const trend = r.delta==null ? `<span class="arch-null">—</span>` : (trendsReady ? trendHTML(r.delta) : `<span class="arch-null">baseline</span>`);
+    return `<div class="arch-row" role="row">
+      <div class="arch-league arch-c-league"><span class="arch-k">League</span>${esc(r.leagueLabel)}</div>
+      <div class="arch-build arch-c-build"><span class="arch-k">Build</span>${tier}<span>${esc(r.asc)}</span>${cur}</div>
+      <div class="arch-cls arch-c-cls"><span class="arch-k">Class</span>${esc(r.cls||"—")}</div>
+      <div class="arch-num arch-c-share"><span class="arch-k">Share</span>${num(r.pop,true)}</div>
+      <div class="arch-num arch-c-trend"><span class="arch-k">Trend</span>${trend}</div>
+      <div class="arch-num arch-c-sample"><span class="arch-k">Sample</span>${num(r.n)}</div>
+    </div>`;
+  }).join("");
+}
+function csvCell(v){ if (v==null) return ""; const s = String(v); return /[",\n\r]/.test(s) ? `"${s.replace(/"/g,'""')}"` : s; }
+function archToCSV(){
+  const provenance = "# Tincture — poe.ninja-derived ascendancy shares (ascendancy-level, hourly). "
+    + "sample_n is DERIVED (share x league total), not a measured headcount. "
+    + "curated rows are hand-picked archetypes (blank stats), not ladder data. "
+    + "Not a .build and not an official GGG API export.";
+  const head = ["league","mode","class","ascendancy","skill","tier","share_pct","trend_24h","sample_n","curated","tag"];
+  const rows = archFiltered().map(r=>[
+    r.leagueLabel.split(" · ")[0], r.mode, r.cls, r.asc, r.skill, r.tier,
+    r.pop==null?"":r.pop, r.delta==null?"":r.delta, r.n==null?"":r.n, r.curated?"true":"false", r.tag,
+  ].map(csvCell).join(","));
+  return [provenance, head.join(","), ...rows].join("\r\n");
+}
+function archToJSON(){
+  const list = archFiltered();
+  return JSON.stringify({
+    _tool:"tincture", _export:"filtered build view",
+    source:"poe.ninja-derived ascendancy shares (ascendancy-level, hourly)",
+    note:"Tincture's distilled meta data (shares/counts) — NOT a game-ready .build file and NOT an official GGG API export. n is derived from share × league total.",
+    patch:DATA.patch, updated:DATA.updated,
+    filter:{ league:archLeague, class:archClass }, count:list.length, builds:list,
+  }, null, 2);
+}
+function archFilename(ext){
+  const lg = archLeague==="all"?"all-leagues":archLeague;
+  const cl = archClass==="all"?"":"-"+archClass.toLowerCase();
+  return `tincture-${lg}${cl}.${ext}`;
+}
+function rawJSON(){ if (rawCache==null) rawCache = JSON.stringify(DATA, null, 2); return rawCache; }
+
+function setupArchive(){
+  const secL = $("#archLeague"); if (!secL) return;
+  secL.innerHTML = `<option value="all">All leagues</option>` + leagues().map(L=>`<option value="${esc(L.url)}">${esc(L.label||L.name)}</option>`).join("");
+  const classes = [...new Set(archAllRows().map(r=>r.cls).filter(Boolean))].sort();
+  $("#archClass").innerHTML = `<option value="all">All classes</option>` + classes.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  $("#archSortM").innerHTML = [["pop|desc","Share"],["delta|desc","Rising"],["n|desc","Sample"],["asc|asc","Name"],["league|asc","League"],["cls|asc","Class"]]
+    .map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("#archDisclaimer").innerHTML = `Live ladder shares from poe.ninja, refreshed hourly. 24-hour trends read <b>baseline</b> until enough snapshots accumulate. Standard rows are curated archetypes (—), not ladder data. Counts are derived (share × ladder size).`;
+  secL.value = archLeague; $("#archClass").value = archClass;
+  secL.onchange = ()=>{ archLeague = secL.value; archRender(); };
+  $("#archClass").onchange = e=>{ archClass = e.target.value; archRender(); };
+  $("#archSortM").onchange = e=>{ const [k,d]=e.target.value.split("|"); archSortKey=k; archSortDir=d; archRender(); };
+  document.querySelectorAll(".arch-th").forEach(th=>{
+    th.onclick = ()=>{
+      const k = th.dataset.key;
+      if (k===archSortKey) archSortDir = archSortDir==="asc"?"desc":"asc";
+      else { archSortKey=k; archSortDir=(k==="asc"||k==="cls"||k==="league")?"asc":"desc"; }
+      $("#archSortM").value = `${archSortKey}|${archSortDir}`;
+      archRender();
+    };
+  });
+  $("#archCsv").onclick  = ()=>{ const n=archFiltered().length; saveBlob(archToCSV(), archFilename("csv"), "text/csv;charset=utf-8"); toast(`Exported <b>${n}</b> builds as CSV.`, "ok"); };
+  $("#archJson").onclick = ()=>{ const n=archFiltered().length; saveBlob(archToJSON(), archFilename("json"), "application/json"); toast(`Exported <b>${n}</b> builds as JSON.`, "ok"); };
+  const raw = $("#archRaw"), rawToggle = $("#archRawToggle");
+  rawToggle.onclick = ()=>{
+    const open = !raw.classList.contains("open");
+    raw.classList.toggle("open", open);
+    rawToggle.setAttribute("aria-expanded", open?"true":"false");
+    if (open) $("#archRawPre").textContent = rawJSON();
+  };
+  $("#archCopy").onclick = e=>{ e.stopPropagation(); copyText(rawJSON()); };
+  $("#archDownload").onclick = e=>{ e.stopPropagation(); saveBlob(rawJSON(), "data.json", "application/json"); toast(`<b>data.json</b> downloaded.`, "ok"); };
+  archRender();
 }
 
 /* ----- animated counters in The Still ----- */
@@ -994,6 +1762,8 @@ async function boot(){
   renderHero();
   renderChips();
   renderRows();
+  renderAssay();
+  setupArchive();
   watchStill();
 
   $("#folderBtn").onclick = connectFolder;
