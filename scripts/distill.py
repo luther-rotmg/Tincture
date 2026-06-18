@@ -43,9 +43,12 @@ PATCH = "0.5.0"
 
 POE2_API = "https://poe.ninja/poe2/api"
 
-# A descriptive User-Agent is required by GGG and is good manners for poe.ninja.
-# Put a real contact in here when you publish (GGG asks for one).
-USER_AGENT = "Tincture/0.1 (+https://github.com/luther-rotmg/Tincture; PoE2 meta distiller)"
+# A descriptive, contactable User-Agent — good manners for poe.ninja (which has no public
+# terms or rate-limit headers, so politeness is the only signal we can send). Names the
+# project, its purpose, cadence, and a real contact so the maintainer can reach us rather
+# than just block the IP. Mirrors GGG's documented UA convention minus the OAuth prefix.
+USER_AGENT = ("Tincture/0.5.0 (+https://github.com/luther-rotmg/Tincture; "
+             "contact: ryan.duke360@gmail.com) PoE2 meta distiller, hourly, stdlib-urllib")
 
 # Tier cutoffs by share-of-ladder (%). Tuned so the headline builds read as S.
 TIERS = [("S", 9.0), ("A", 4.5), ("B", 2.5), ("C", 0.0)]
