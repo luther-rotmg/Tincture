@@ -309,22 +309,28 @@ const normMod = m => cleanMod(m).replace(/\d+(\.\d+)?/g, '#').replace(/\s+/g, ' 
 // would otherwise dominate a small sample at ~100%); runes are real Rune/Soul Core socketables
 // (not socketed skills). frameType: 1=magic, 2=rare, 3=unique, 5=rune.
 function aggregateGear(chars) {
-  const modChars = {}, runeChars = {};
+  // Affixes are counted PER GEAR PIECE (% of the sample's rare/magic items carrying each) —
+  // counting per-character saturates at 100% (everyone has resistances/life somewhere).
+  // Runes are counted per character (% of sampled builds socketing each weapon rune).
+  const modItems = {}, runeChars = {};
+  let rareItems = 0;
   for (const ch of chars) {
-    const mods = new Set(), runes = new Set();
+    const runes = new Set();
     for (const it of (ch.items || [])) {
       const d = it.itemData || it;
       if (d.frameType === 1 || d.frameType === 2) {
-        (d.explicitMods || []).forEach(m => { const k = normMod(m); if (k.length > 6 && k.length < 56) mods.add(k); });
+        rareItems++;
+        const seen = new Set();
+        (d.explicitMods || []).forEach(m => { const k = normMod(m); if (k.length > 6 && k.length < 56 && !seen.has(k)) { seen.add(k); modItems[k] = (modItems[k] || 0) + 1; } });
       }
       if (/^Weapon/.test(d.inventoryId || '')) (d.socketedItems || []).forEach(soc => { const nm = soc.typeLine || soc.baseType; if (nm && /\bRune\b|Soul Core/i.test(nm)) runes.add(nm); });
     }
-    mods.forEach(m => modChars[m] = (modChars[m] || 0) + 1);
     runes.forEach(r => runeChars[r] = (runeChars[r] || 0) + 1);
   }
-  const n = chars.length || 1;
-  const top = (obj, k) => Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, k).map(([name, c]) => ({ name, pct: Math.round(c / n * 1000) / 10 }));
-  return { gear: top(modChars, 8), runes: top(runeChars, 6), sampled: chars.length };
+  const ri = rareItems || 1, n = chars.length || 1;
+  const topMods = Object.entries(modItems).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([name, c]) => ({ name, pct: Math.round(c / ri * 1000) / 10 }));
+  const topRunes = Object.entries(runeChars).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([name, c]) => ({ name, pct: Math.round(c / n * 1000) / 10 }));
+  return { gear: topMods, runes: topRunes, sampled: chars.length };
 }
 
 // parsed search → meta-detail shape: top skills / supports / notables / uniques / anointments / weapon + stats

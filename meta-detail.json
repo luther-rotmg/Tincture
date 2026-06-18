@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18T21:25:50.678Z",
+  "updated": "2026-06-18T22:17:57.549Z",
   "league": "runesofaldur",
   "version": "2036-20260618-34455",
   "total": 124262,
@@ -163,42 +163,62 @@
     },
     "gear": [
       {
-        "name": "+#% to Lightning Resistance",
-        "pct": 89.1
+        "name": "+# to maximum Energy Shield",
+        "pct": 23.5
       },
       {
         "name": "+#% to Fire Resistance",
-        "pct": 89.1
+        "pct": 22.6
+      },
+      {
+        "name": "+# to maximum Mana",
+        "pct": 22.5
       },
       {
         "name": "+#% to Cold Resistance",
-        "pct": 88
+        "pct": 21.9
       },
       {
         "name": "+# to maximum Life",
-        "pct": 82.6
+        "pct": 21.9
       },
       {
-        "name": "+# to maximum Energy Shield",
-        "pct": 69.6
+        "name": "+#% to Lightning Resistance",
+        "pct": 20.1
       },
       {
-        "name": "+#% to all Elemental Resistances",
-        "pct": 67.4
+        "name": "#% increased Energy Shield",
+        "pct": 19.8
+      },
+      {
+        "name": "#% increased Rarity of Items found",
+        "pct": 15.6
       }
     ],
     "runes": [
       {
-        "name": "Saqawal's Rune of the Sky",
+        "name": "Hedgewitch Assandra's Rune of Wisdom",
         "pct": 30.4
       },
       {
-        "name": "Hedgewitch Assandra's Rune of Wisdom",
-        "pct": 29.3
+        "name": "Saqawal's Rune of the Sky",
+        "pct": 27
       },
       {
         "name": "Perfect Iron Rune",
-        "pct": 23.9
+        "pct": 23.5
+      },
+      {
+        "name": "Soul Core of Quipolatl",
+        "pct": 12.2
+      },
+      {
+        "name": "Countess Seske's Rune of Archery",
+        "pct": 12.2
+      },
+      {
+        "name": "Perfect Vision Rune",
+        "pct": 9.6
       }
     ]
   },
@@ -365,34 +385,58 @@
       },
       "gear": [
         {
-          "name": "+#% to all Elemental Resistances",
-          "pct": 100
+          "name": "+#% to Chaos Resistance",
+          "pct": 35.7
         },
         {
-          "name": "#% increased Evasion Rating",
-          "pct": 100
+          "name": "#% increased Evasion and Energy Shield",
+          "pct": 28.6
+        },
+        {
+          "name": "+# to Evasion Rating",
+          "pct": 25
+        },
+        {
+          "name": "+#% to Cold Resistance",
+          "pct": 25
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 21.4
+        },
+        {
+          "name": "Gain Deflection Rating equal to #% of Evasion Rating",
+          "pct": 21.4
         },
         {
           "name": "#% increased Rarity of Items found",
-          "pct": 100
+          "pct": 21.4
         },
         {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "name": "+#% to Critical Hit Chance",
+          "pct": 21.4
         }
       ],
       "runes": [
         {
           "name": "Soul Core of Quipolatl",
-          "pct": 100
+          "pct": 80
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 100
+          "pct": 80
         },
         {
           "name": "Farrul's Rune of the Hunt",
-          "pct": 50
+          "pct": 40
+        },
+        {
+          "name": "Countess Seske's Rune of Archery",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Iron Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -568,42 +612,58 @@
       },
       "gear": [
         {
-          "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "name": "#% increased Energy Shield",
+          "pct": 34.1
         },
         {
-          "name": "#% increased Energy Shield",
-          "pct": 100
+          "name": "+# to maximum Energy Shield",
+          "pct": 29.3
         },
         {
           "name": "+# to maximum Mana",
-          "pct": 100
-        },
-        {
-          "name": "+# to Intelligence",
-          "pct": 100
+          "pct": 29.3
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 29.3
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 26.8
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 22
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 17.1
+        },
+        {
+          "name": "#% increased Cast Speed",
+          "pct": 17.1
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 75
+          "pct": 80
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Ancient Rune of Discovery",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Xopec's Soul Core of Power",
+          "pct": 20
+        },
+        {
+          "name": "Saqawal's Rune of the Sky",
+          "pct": 20
         }
       ],
       "source": {
@@ -779,34 +839,42 @@
       },
       "gear": [
         {
-          "name": "+# to Spirit",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Life",
-          "pct": 100
-        },
-        {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 51.7
+        },
+        {
+          "name": "+# to maximum Mana",
+          "pct": 34.5
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
+          "pct": 27.6
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 24.1
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 24.1
+        },
+        {
+          "name": "#% increased Armour and Energy Shield",
+          "pct": 17.2
+        },
+        {
+          "name": "+# to maximum Life",
+          "pct": 17.2
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 13.8
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -983,49 +1051,61 @@
       "gear": [
         {
           "name": "+# to maximum Life",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 28.2
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 25.6
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 20.5
+        },
+        {
+          "name": "Adds # to # Physical Damage to Attacks",
+          "pct": 20.5
+        },
+        {
+          "name": "+# to Level of all Projectile Skills",
+          "pct": 17.9
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 17.9
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 17.9
         },
         {
           "name": "Adds # to # Lightning damage to Attacks",
-          "pct": 75
-        },
-        {
-          "name": "+# to Strength",
-          "pct": 75
-        },
-        {
-          "name": "+#% to all Elemental Resistances",
-          "pct": 75
+          "pct": 15.4
         }
       ],
       "runes": [
         {
           "name": "Perfect Iron Rune",
-          "pct": 75
+          "pct": 60
         },
         {
           "name": "Countess Seske's Rune of Archery",
-          "pct": 50
+          "pct": 60
+        },
+        {
+          "name": "Ancient Rune of Splinters",
+          "pct": 40
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Fenumus' Rune of Agony",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Greater Iron Rune",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -1201,28 +1281,36 @@
       },
       "gear": [
         {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
-        },
-        {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 28.9
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 28.9
         },
         {
-          "name": "#% increased Physical Damage",
-          "pct": 100
+          "name": "+# to Level of all Projectile Skills",
+          "pct": 23.7
         },
         {
-          "name": "+# to Evasion Rating",
-          "pct": 100
+          "name": "+#% to Fire Resistance",
+          "pct": 21.1
+        },
+        {
+          "name": "Adds # to # Fire damage to Attacks",
+          "pct": 15.8
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 15.8
+        },
+        {
+          "name": "Adds # to # Cold damage to Attacks",
+          "pct": 15.8
+        },
+        {
+          "name": "#% increased Rarity of Items found",
+          "pct": 15.8
         }
       ],
       "runes": [
@@ -1232,15 +1320,15 @@
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 50
-        },
-        {
-          "name": "Ancient Rune of Splinters",
-          "pct": 25
+          "pct": 40
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 40
+        },
+        {
+          "name": "Ancient Rune of Splinters",
+          "pct": 20
         }
       ],
       "source": {
@@ -1417,53 +1505,61 @@
       "gear": [
         {
           "name": "+# to maximum Life",
-          "pct": 100
+          "pct": 70
         },
         {
           "name": "#% increased Armour",
-          "pct": 100
+          "pct": 36.7
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 26.7
         },
         {
           "name": "+#% of Armour also applies to Elemental Damage",
-          "pct": 100
+          "pct": 26.7
         },
         {
-          "name": "+# to Strength",
-          "pct": 100
+          "name": "+# to Level of all Melee Skills",
+          "pct": 26.7
         },
         {
           "name": "#% increased Rarity of Items found",
-          "pct": 75
+          "pct": 23.3
         },
         {
-          "name": "+#% to all Elemental Resistances",
-          "pct": 75
+          "name": "Adds # to # Physical Damage to Attacks",
+          "pct": 20
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 20
         }
       ],
       "runes": [
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 75
+          "pct": 60
         },
         {
           "name": "Greater Rune of Alacrity",
-          "pct": 75
+          "pct": 60
         },
         {
           "name": "Farrul's Rune of the Hunt",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Soul Core of Azcapa",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Fenumus' Rune of Agony",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -1639,42 +1735,58 @@
       },
       "gear": [
         {
-          "name": "#% increased Armour",
-          "pct": 100
+          "name": "+# to maximum Life",
+          "pct": 55.8
         },
         {
-          "name": "+# to maximum Life",
-          "pct": 100
+          "name": "#% increased Armour",
+          "pct": 34.9
         },
         {
           "name": "+#% of Armour also applies to Elemental Damage",
-          "pct": 100
-        },
-        {
-          "name": "#% increased Movement Speed",
-          "pct": 100
+          "pct": 30.2
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 25.6
         },
         {
-          "name": "+# to Stun Threshold",
-          "pct": 100
+          "name": "#% increased Rarity of Items found",
+          "pct": 23.3
+        },
+        {
+          "name": "+# to Accuracy Rating",
+          "pct": 18.6
+        },
+        {
+          "name": "+# to Level of all Melee Skills",
+          "pct": 18.6
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 18.6
         }
       ],
       "runes": [
         {
           "name": "Perfect Iron Rune",
-          "pct": 75
+          "pct": 60
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Greater Rune of Alacrity",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Soul Core of Jiquani",
+          "pct": 20
+        },
+        {
+          "name": "Soul Core of Azcapa",
+          "pct": 20
         }
       ],
       "source": {
@@ -1851,49 +1963,57 @@
       "gear": [
         {
           "name": "+# to maximum Life",
-          "pct": 100
+          "pct": 56.7
+        },
+        {
+          "name": "#% increased Armour",
+          "pct": 33.3
+        },
+        {
+          "name": "+# to Level of all Melee Skills",
+          "pct": 33.3
+        },
+        {
+          "name": "+#% of Armour also applies to Elemental Damage",
+          "pct": 30
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 26.7
+        },
+        {
+          "name": "Adds # to # Physical Damage to Attacks",
+          "pct": 23.3
         },
         {
           "name": "+#% to Chaos Resistance",
-          "pct": 100
-        },
-        {
-          "name": "#% increased Rarity of Items found",
-          "pct": 100
+          "pct": 23.3
         },
         {
           "name": "+# to Armour",
-          "pct": 100
-        },
-        {
-          "name": "Legacy of Silver",
-          "pct": 75
+          "pct": 23.3
         }
       ],
       "runes": [
         {
           "name": "Farrul's Rune of the Hunt",
-          "pct": 50
+          "pct": 60
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Fenumus' Rune of Agony",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Soul Core of Quipolatl",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -2069,38 +2189,62 @@
       },
       "gear": [
         {
-          "name": "+# to Intelligence",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
           "name": "+# to maximum Life",
-          "pct": 100
+          "pct": 36.6
         },
         {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
+          "name": "#% increased Rarity of Items found",
+          "pct": 26.8
         },
         {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "name": "+# to maximum Mana",
+          "pct": 24.4
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 75
+          "pct": 22
+        },
+        {
+          "name": "+#% to Cold Resistance",
+          "pct": 22
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 22
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 17.1
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 17.1
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 50
+          "pct": 60
         },
         {
           "name": "Guatelitzi's Soul Core of Endurance",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Perfect Stone Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Inspiration Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Iron Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Vision Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -2276,28 +2420,36 @@
       },
       "gear": [
         {
+          "name": "+# to maximum Mana",
+          "pct": 42.9
+        },
+        {
           "name": "#% increased Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 25
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 21.4
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 21.4
+        },
+        {
+          "name": "+# to Level of all Spell Skills",
+          "pct": 17.9
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 17.9
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 17.9
         },
         {
           "name": "#% increased Cast Speed",
-          "pct": 100
+          "pct": 14.3
         }
       ],
       "runes": [
@@ -2307,11 +2459,23 @@
         },
         {
           "name": "Greater Robust Rune",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 50
+          "pct": 40
+        },
+        {
+          "name": "Greater Resolve Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Glacial Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Desert Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -2487,34 +2651,42 @@
       },
       "gear": [
         {
-          "name": "#% increased Mana Regeneration Rate",
-          "pct": 100
+          "name": "+# to maximum Mana",
+          "pct": 40.5
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 35.1
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 27
+        },
+        {
+          "name": "#% increased Mana Regeneration Rate",
+          "pct": 24.3
+        },
+        {
+          "name": "#% increased Energy Shield",
+          "pct": 21.6
         },
         {
           "name": "+# to maximum Life",
-          "pct": 100
+          "pct": 21.6
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 21.6
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 100
-        },
-        {
-          "name": "#% increased Lightning Damage",
-          "pct": 75
+          "pct": 21.6
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -2690,46 +2862,58 @@
       },
       "gear": [
         {
-          "name": "Gain #% of Damage as Extra Fire Damage",
-          "pct": 100
-        },
-        {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 32.4
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 32.4
         },
         {
           "name": "#% increased Rarity of Items found",
-          "pct": 100
+          "pct": 21.6
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 18.9
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 18.9
+        },
+        {
+          "name": "+# to maximum Mana",
+          "pct": 13.5
+        },
+        {
+          "name": "+#% to all Elemental Resistances",
+          "pct": 13.5
+        },
+        {
+          "name": "+#% to Chaos Resistance",
+          "pct": 10.8
         }
       ],
       "runes": [
         {
+          "name": "Perfect Iron Rune",
+          "pct": 60
+        },
+        {
+          "name": "Soul Core of Quipolatl",
+          "pct": 60
+        },
+        {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Greater Storm Rune",
-          "pct": 50
-        },
-        {
-          "name": "Perfect Iron Rune",
-          "pct": 50
+          "pct": 40
         }
       ],
       "source": {
@@ -2906,27 +3090,35 @@
       "gear": [
         {
           "name": "+# to maximum Mana",
-          "pct": 100
-        },
-        {
-          "name": "#% increased Critical Hit Chance",
-          "pct": 100
-        },
-        {
-          "name": "#% increased Cast Speed",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 40
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
+          "pct": 31.4
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 28.6
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 25.7
+        },
+        {
+          "name": "+# to Level of all Spell Skills",
+          "pct": 20
+        },
+        {
+          "name": "+#% to Cold Resistance",
+          "pct": 20
+        },
+        {
+          "name": "#% increased Cast Speed",
+          "pct": 20
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 17.1
         }
       ],
       "runes": [
@@ -2936,7 +3128,19 @@
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 75
+          "pct": 60
+        },
+        {
+          "name": "Greater Storm Rune",
+          "pct": 20
+        },
+        {
+          "name": "Perfect Mind Rune",
+          "pct": 20
+        },
+        {
+          "name": "Xopec's Soul Core of Power",
+          "pct": 20
         }
       ],
       "source": {
@@ -3112,34 +3316,42 @@
       },
       "gear": [
         {
-          "name": "+# to maximum Mana",
-          "pct": 100
-        },
-        {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 44.1
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+# to Stun Threshold",
-          "pct": 100
+          "pct": 38.2
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 32.4
+        },
+        {
+          "name": "+# to maximum Mana",
+          "pct": 29.4
+        },
+        {
+          "name": "+# to maximum Life",
+          "pct": 23.5
+        },
+        {
+          "name": "+# to Stun Threshold",
+          "pct": 17.6
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 14.7
+        },
+        {
+          "name": "#% increased Movement Speed",
+          "pct": 11.8
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 25
+          "pct": 40
         }
       ],
       "source": {
@@ -3315,42 +3527,58 @@
       },
       "gear": [
         {
+          "name": "+# to maximum Mana",
+          "pct": 39.1
+        },
+        {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 37
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
+          "pct": 37
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 30.4
         },
         {
-          "name": "+# to maximum Mana",
-          "pct": 100
+          "name": "+#% to Cold Resistance",
+          "pct": 28.3
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 26.1
+        },
+        {
+          "name": "+# to Level of all Minion Skills",
+          "pct": 15.2
+        },
+        {
+          "name": "#% increased Rarity of Items found",
+          "pct": 15.2
         }
       ],
       "runes": [
         {
           "name": "Xipocado's Soul Core of Dominion",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 25
+          "pct": 40
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Perfect Vision Rune",
+          "pct": 20
+        },
+        {
+          "name": "Greater Iron Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -3526,46 +3754,58 @@
       },
       "gear": [
         {
-          "name": "#% increased Evasion Rating",
-          "pct": 100
+          "name": "+# to maximum Life",
+          "pct": 34.6
         },
         {
-          "name": "+# to maximum Life",
-          "pct": 100
+          "name": "+# to Evasion Rating",
+          "pct": 23.1
+        },
+        {
+          "name": "+# to maximum Mana",
+          "pct": 19.2
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 19.2
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 19.2
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 75
+          "pct": 19.2
         },
         {
-          "name": "Legacy of Jade",
-          "pct": 75
+          "name": "+# to Strength",
+          "pct": 15.4
         },
         {
-          "name": "Legacy of Quicksilver",
-          "pct": 75
-        },
-        {
-          "name": "Legacy of Silver",
-          "pct": 75
+          "name": "+#% to all Elemental Resistances",
+          "pct": 15.4
         }
       ],
       "runes": [
         {
           "name": "Soul Core of Topotante",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Perfect Storm Rune",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Soul Core of Cholotl",
+          "pct": 20
         }
       ],
       "source": {
@@ -3741,54 +3981,62 @@
       },
       "gear": [
         {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Life",
-          "pct": 100
-        },
-        {
           "name": "+#% to Fire Resistance",
-          "pct": 100
+          "pct": 32.3
         },
         {
           "name": "+#% to all Elemental Resistances",
-          "pct": 100
+          "pct": 25.8
         },
         {
-          "name": "Adds # to # Lightning damage to Attacks",
-          "pct": 75
+          "name": "+#% to Chaos Resistance",
+          "pct": 25.8
+        },
+        {
+          "name": "#% increased Evasion Rating",
+          "pct": 22.6
+        },
+        {
+          "name": "+# to Armour",
+          "pct": 22.6
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 19.4
+        },
+        {
+          "name": "+#% to Cold Resistance",
+          "pct": 19.4
+        },
+        {
+          "name": "#% increased Rarity of Items found",
+          "pct": 19.4
         }
       ],
       "runes": [
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 50
+          "pct": 60
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Greater Rune of Alacrity",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Soul Core of Azcapa",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Perfect Rebirth Rune",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Guatelitzi's Soul Core of Endurance",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -3964,42 +4212,62 @@
       },
       "gear": [
         {
+          "name": "+# to maximum Mana",
+          "pct": 31
+        },
+        {
+          "name": "#% increased Energy Shield",
+          "pct": 27.6
+        },
+        {
+          "name": "+# to maximum Energy Shield",
+          "pct": 27.6
+        },
+        {
           "name": "+#% to all Elemental Resistances",
-          "pct": 100
+          "pct": 20.7
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 20.7
         },
         {
-          "name": "Legacy of Quicksilver",
-          "pct": 100
+          "name": "+# to maximum Life",
+          "pct": 20.7
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 20.7
         },
         {
           "name": "#% increased Rarity of Items found",
-          "pct": 75
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 75
-        },
-        {
-          "name": "#% increased Movement Speed",
-          "pct": 75
+          "pct": 13.8
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 75
+          "pct": 80
+        },
+        {
+          "name": "Fenumus' Rune of Agony",
+          "pct": 60
+        },
+        {
+          "name": "Perfect Vision Rune",
+          "pct": 40
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Greater Resolve Rune",
-          "pct": 50
+          "pct": 40
+        },
+        {
+          "name": "Thane Girt's Rune of Wildness",
+          "pct": 40
         }
       ],
       "source": {
@@ -4175,46 +4443,54 @@
       },
       "gear": [
         {
-          "name": "+#% to Fire Resistance",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "name": "+# to maximum Life",
+          "pct": 38.7
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 38.7
         },
         {
-          "name": "+# to Accuracy Rating",
-          "pct": 100
+          "name": "+#% to Fire Resistance",
+          "pct": 32.3
         },
         {
-          "name": "#% increased Physical Damage",
-          "pct": 75
+          "name": "+#% to Lightning Resistance",
+          "pct": 32.3
+        },
+        {
+          "name": "+# to Level of all Projectile Skills",
+          "pct": 22.6
         },
         {
           "name": "Adds # to # Physical Damage to Attacks",
-          "pct": 75
+          "pct": 16.1
+        },
+        {
+          "name": "Adds # to # Fire damage to Attacks",
+          "pct": 12.9
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 12.9
         }
       ],
       "runes": [
         {
           "name": "Perfect Vision Rune",
-          "pct": 75
+          "pct": 80
         },
         {
           "name": "Ancient Rune of Splinters",
-          "pct": 50
+          "pct": 60
         },
         {
           "name": "Countess Seske's Rune of Archery",
-          "pct": 50
+          "pct": 60
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -4390,46 +4666,54 @@
       },
       "gear": [
         {
-          "name": "+# to maximum Life",
-          "pct": 100
+          "name": "+#% to Cold Resistance",
+          "pct": 32.4
         },
         {
-          "name": "+# to Strength",
-          "pct": 100
+          "name": "+#% to Lightning Resistance",
+          "pct": 32.4
         },
         {
-          "name": "+# to Dexterity",
-          "pct": 100
+          "name": "#% increased Rarity of Items found",
+          "pct": 26.5
         },
         {
-          "name": "+#% to all Elemental Resistances",
-          "pct": 100
+          "name": "+# to Evasion Rating",
+          "pct": 26.5
         },
         {
           "name": "#% increased Attack Speed",
-          "pct": 100
+          "pct": 23.5
         },
         {
-          "name": "+#% to Cold Resistance",
-          "pct": 100
+          "name": "+# to maximum Energy Shield",
+          "pct": 23.5
+        },
+        {
+          "name": "+# to maximum Life",
+          "pct": 20.6
+        },
+        {
+          "name": "+#% to Fire Resistance",
+          "pct": 17.6
         }
       ],
       "runes": [
         {
           "name": "Soul Core of Quipolatl",
-          "pct": 75
+          "pct": 80
         },
         {
           "name": "Opiloti's Soul Core of Assault",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 40
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -4605,38 +4889,50 @@
       },
       "gear": [
         {
-          "name": "#% increased Energy Shield",
-          "pct": 100
+          "name": "+# to maximum Energy Shield",
+          "pct": 29.2
         },
         {
-          "name": "+# to maximum Life",
-          "pct": 100
+          "name": "#% increased Energy Shield",
+          "pct": 29.2
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 29.2
+        },
+        {
+          "name": "+# to maximum Life",
+          "pct": 20.8
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 100
+          "pct": 20.8
         },
         {
-          "name": "+# to maximum Energy Shield",
-          "pct": 75
+          "name": "#% increased Movement Speed",
+          "pct": 16.7
         },
         {
-          "name": "+# to maximum Mana",
-          "pct": 75
+          "name": "+#% to Fire Resistance",
+          "pct": 16.7
+        },
+        {
+          "name": "#% increased Rarity of Items found",
+          "pct": 16.7
         }
       ],
       "runes": [
         {
           "name": "Countess Seske's Rune of Archery",
-          "pct": 50
+          "pct": 40
         },
         {
           "name": "Ancient Rune of Splinters",
-          "pct": 50
+          "pct": 40
+        },
+        {
+          "name": "Perfect Storm Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -4812,28 +5108,36 @@
       },
       "gear": [
         {
+          "name": "+# to maximum Mana",
+          "pct": 60.5
+        },
+        {
           "name": "+# to maximum Energy Shield",
-          "pct": 100
+          "pct": 31.6
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Mana",
-          "pct": 100
+          "pct": 28.9
         },
         {
           "name": "+# to Intelligence",
-          "pct": 100
+          "pct": 28.9
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 100
+          "pct": 23.7
         },
         {
-          "name": "Reflects opposite Ring",
-          "pct": 100
+          "name": "+#% to Fire Resistance",
+          "pct": 21.1
+        },
+        {
+          "name": "+# to Level of all Spell Skills",
+          "pct": 15.8
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 15.8
         }
       ],
       "runes": [
@@ -4842,12 +5146,20 @@
           "pct": 100
         },
         {
+          "name": "Perfect Iron Rune",
+          "pct": 40
+        },
+        {
+          "name": "Perfect Vision Rune",
+          "pct": 40
+        },
+        {
           "name": "Greater Mind Rune",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 20
         }
       ],
       "source": {
@@ -5023,42 +5335,62 @@
       },
       "gear": [
         {
-          "name": "#% increased Energy Shield",
-          "pct": 100
-        },
-        {
-          "name": "+# to maximum Life",
-          "pct": 100
-        },
-        {
-          "name": "+#% to Chaos Resistance",
-          "pct": 100
+          "name": "+# to maximum Energy Shield",
+          "pct": 45.5
         },
         {
           "name": "+# to maximum Mana",
-          "pct": 100
+          "pct": 42.4
         },
         {
-          "name": "Legacy of Quicksilver",
-          "pct": 75
+          "name": "#% increased Energy Shield",
+          "pct": 33.3
+        },
+        {
+          "name": "+#% to Chaos Resistance",
+          "pct": 21.2
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 75
+          "pct": 21.2
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 21.2
+        },
+        {
+          "name": "#% increased Cast Speed",
+          "pct": 21.2
+        },
+        {
+          "name": "+# to Intelligence",
+          "pct": 21.2
         }
       ],
       "runes": [
         {
           "name": "Perfect Mind Rune",
-          "pct": 75
+          "pct": 80
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 25
+          "pct": 20
         },
         {
           "name": "Fenumus' Rune of Agony",
-          "pct": 25
+          "pct": 20
+        },
+        {
+          "name": "Farrul's Rune of the Hunt",
+          "pct": 20
+        },
+        {
+          "name": "Hedgewitch Assandra's Rune of Wisdom",
+          "pct": 20
+        },
+        {
+          "name": "Greater Vision Rune",
+          "pct": 20
         }
       ],
       "source": {
@@ -5072,6 +5404,5 @@
         "items": 9
       }
     }
-  },
-  "note": "gear affixes from rare/magic items, runes from weapon sockets, aggregated from a small per-ascendancy sample; refined weekly"
+  }
 }
