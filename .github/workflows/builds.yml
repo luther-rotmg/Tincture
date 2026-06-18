@@ -30,17 +30,17 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Reconstruct loadable builds (one per meta ascendancy)
-        run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur --max 80
+      - name: Reconstruct builds + meta breakdown (one pass per ascendancy)
+        run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur
 
-      - name: Commit refreshed builds
+      - name: Commit refreshed builds + meta
         run: |
           git config user.name  "tincture-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- builds/; then
-            echo "No change in the reconstructed builds this run."
+          if git diff --quiet -- builds/ meta-detail.json; then
+            echo "No change this run."
           else
-            git add builds/
-            git commit -m "Builds: refresh reconstructed meta builds ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git add builds/ meta-detail.json
+            git commit -m "Builds: refresh reconstructed builds + meta ($(date -u '+%Y-%m-%d %H:%M UTC'))"
             git push
           fi

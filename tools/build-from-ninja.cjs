@@ -277,22 +277,42 @@ function pbFields(b) {
   }
   return out;
 }
-// returns ranked [[account, name], ...] for a search snapshot (top ~100 ladder characters)
-async function searchPairs(sv) {
-  const buf = await get(`https://poe.ninja/poe2/api/builds/${sv.version}/search?overview=${sv.snapshotName}`, true);
+const strf = (ff, f) => { const d = (ff.find(x => x.f === f && x.wt === 2) || {}).data; return d ? d.toString('utf8') : null; };
+const numf = (ff, f) => (ff.find(x => x.f === f && x.wt === 0) || {}).v || 0;
+const searchBase = sv => `https://poe.ninja/poe2/api/builds/${sv.version}/search?overview=${sv.snapshotName}`;
+
+// full /search protobuf parse → { total, dims{id:[{key,count}]}, dicts{id:hash}, vls{id:[str]} }
+function parseSearch(buf) {
   const result = (pbFields(buf).find(x => x.f === 1 && x.wt === 2) || {}).data;
-  if (!result) return [];
-  const lists = pbFields(result).filter(x => x.f === 5 && x.wt === 2).map(vl => {
-    const ff = pbFields(vl.data);
-    const id = (ff.find(x => x.f === 1 && x.wt === 2) || {}).data;
-    const strings = ff.filter(x => x.f === 2 && x.wt === 2).map(v => {
-      const s = (pbFields(v.data).find(x => x.f === 1 && x.wt === 2) || {}).data; return s ? s.toString('utf8') : null;
-    });
-    return { id: id ? id.toString('utf8') : '?', strings };
-  });
-  const names = (lists.find(l => l.id === 'name') || {}).strings || [];
-  const accts = (lists.find(l => l.id === 'account') || {}).strings || [];
-  return names.map((nm, k) => [accts[k], nm]).filter(p => p[0] && p[1]);
+  if (!result) return null;
+  const rf = pbFields(result), dims = {}, dicts = {}, vls = {};
+  rf.filter(x => x.f === 2 && x.wt === 2).forEach(d => { const ff = pbFields(d.data); const id = strf(ff, 1); if (id) dims[id] = ff.filter(x => x.f === 3 && x.wt === 2).map(c => { const cf = pbFields(c.data); return { key: numf(cf, 1), count: numf(cf, 2) }; }); });
+  rf.filter(x => x.f === 6 && x.wt === 2).forEach(d => { const ff = pbFields(d.data); const id = strf(ff, 1); if (id) dicts[id] = strf(ff, 2); });
+  rf.filter(x => x.f === 5 && x.wt === 2).forEach(d => { const ff = pbFields(d.data); const id = strf(ff, 1); if (id) vls[id] = ff.filter(x => x.f === 2 && x.wt === 2).map(v => strf(pbFields(v.data), 1)); });
+  return { total: numf(rf, 1), dims, dicts, vls };
+}
+
+const _dictCache = {};
+async function dictNames(hash) { if (!hash) return []; if (_dictCache[hash]) return _dictCache[hash]; const b = await get(`https://poe.ninja/poe2/api/builds/dictionary/${hash}`, true); _dictCache[hash] = pbFields(b).filter(x => x.f === 2 && x.wt === 2).map(x => x.data.toString('utf8')); return _dictCache[hash]; }
+
+const _num = s => { if (!s) return null; const m = String(s).match(/([\d.]+)\s*([km])?/i); return m ? Math.round(parseFloat(m[1]) * (m[2] ? (m[2].toLowerCase() === 'm' ? 1e6 : 1e3) : 1)) : null; };
+const _median = a => { const n = (a || []).map(_num).filter(x => x != null).sort((x, y) => x - y); return n.length ? n[Math.floor(n.length / 2)] : null; };
+
+// parsed search → meta-detail shape: top skills / supports / notables / uniques + stat snapshot
+async function extractMeta(s, gem) {
+  const gemD = await dictNames(s.dicts.gem), kpD = await dictNames(s.dicts.keypassive), itD = await dictNames(s.dicts.item);
+  const pct = c => Math.round(c / s.total * 1000) / 10;
+  const topN = (dim, names, n, filt) => (s.dims[dim] || []).map(c => ({ name: names[c.key], pct: pct(c.count) })).filter(x => x.name && (!filt || filt(x.name))).sort((a, b) => b.pct - a.pct).slice(0, n);
+  const isSupport = nm => /\/SupportGem/i.test(gem[nm] || '');
+  return {
+    sample: s.total,
+    skills: topN('skills', gemD, 6),
+    supports: topN('allskills', gemD, 6, isSupport),
+    notables: topN('keypassives', kpD, 6),
+    uniques: topN('items', itD, 6, nm => !/^(Rare|Magic) /.test(nm)),
+    stats: { ehp: _median(s.vls.ehp), dps: _median(s.vls.dps) },
+    top: { account: (s.vls.account || [])[0], name: (s.vls.name || [])[0] },
+  };
 }
 
 function writeBuild(slug, build) {
@@ -329,32 +349,46 @@ async function main() {
   const slugMap = slugMapFromTree(tree);
   const gem = gemMapFromLua(await cached('Gems.lua', GEMS_URL));
 
-  // ENUMERATE: pull top ladder characters, one cohesive build per meta ascendancy
+  // ENUMERATE: class-driven — per ascendancy, one class-filtered search gives the meta
+  // breakdown (top skills/supports/notables/uniques/stats) AND the top character, which we
+  // reconstruct into a loadable build. Produces builds/*.build + meta-detail.json. Covers
+  // niche ascendancies too (each is found via its own class filter).
   if (opt.enumerate) {
     const sv = await getSnapshot(league);
-    const pairs = await searchPairs(sv);
-    console.log(`search snapshot ${sv.version} (${sv.snapshotName}) — ${pairs.length} top characters`);
-    const targets = new Set(Object.keys(ASCENDANCY_CODES));
-    const done = new Set(), results = [];
-    const cap = Number(opt.max) || 45;
-    for (let k = 0; k < pairs.length && k < cap && done.size < targets.size; k++) {
-      const [account, name] = pairs[k];
-      let char;
-      try { char = JSON.parse(await get(charUrl(sv, account, name))); } catch (e) { console.log(`  - ${name}: fetch ${e.message}`); await sleep(300); continue; }
-      const asc = char.class;
-      if (!targets.has(asc) || done.has(asc)) { await sleep(300); continue; }
+    console.log(`snapshot ${sv.version} (${sv.snapshotName})`);
+    const meta = { updated: new Date().toISOString(), league, version: sv.version, total: 0, global: null, byAsc: {} };
+    try { const g = parseSearch(await get(searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
+    catch (e) { console.log('global meta failed:', e.message); }
+    await sleep(700);
+    let builds = 0;
+    for (const asc of Object.keys(ASCENDANCY_CODES)) {
       const slug = slugify(asc);
-      try {
-        const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
-        if (!report.ok) { console.log(`  x ${asc} <- ${name}: QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`); await sleep(300); continue; }
-        writeBuild(slug, build);
-        done.add(asc); results.push({ asc, slug, name, account, ...report.stats });
-        console.log(`  + ${asc.padEnd(20)} <- ${name} (${account})  [${report.stats.sharedUnique}p ${report.stats.ws1 + report.stats.ws2}ws ${report.stats.skills}s ${report.stats.items}i]`);
-      } catch (e) { console.log(`  x ${asc} <- ${name}: ${e.message}`); }
-      await sleep(700); // be polite to poe.ninja (it throttles bursts)
+      let s;
+      try { s = parseSearch(await get(searchBase(sv) + '&class=' + encodeURIComponent(asc), true)); }
+      catch (e) { console.log(`  - ${asc}: search ${e.message}`); await sleep(600); continue; }
+      if (!s || s.total < 30) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); await sleep(500); continue; }
+      const md = await extractMeta(s, gem);
+      meta.byAsc[slug] = { asc, ...md };
+      await sleep(600);
+      const { account, name } = md.top;
+      if (!opt['no-builds'] && account && name) {
+        try {
+          const char = JSON.parse(await get(charUrl(sv, account, name)));
+          const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
+          if (report.ok) {
+            writeBuild(slug, build); builds++;
+            meta.byAsc[slug].source = { account, name, level: char.level || null };
+            meta.byAsc[slug].build = { passives: report.stats.sharedUnique, skills: report.stats.skills, items: report.stats.items };
+            if (char.level) md.stats.level = char.level;
+            console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · build <- ${name} (${account})`);
+          } else console.log(`  x ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
+        } catch (e) { console.log(`  x ${asc}: char ${e.message}`); }
+      }
+      await sleep(700); // be polite to poe.ninja
     }
     const slugs = refreshManifest();
-    console.log(`\nGenerated ${results.length} loadable builds. Manifest (${slugs.length}): ${slugs.join(', ')}`);
+    fs.writeFileSync(path.join(REPO, 'meta-detail.json'), JSON.stringify(meta, null, 2) + '\n');
+    console.log(`\n${builds} builds · meta-detail.json for ${Object.keys(meta.byAsc).length} ascendancies · manifest (${slugs.length})`);
     return;
   }
 

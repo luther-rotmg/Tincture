@@ -1,0 +1,2791 @@
+{
+  "updated": "2026-06-18T20:54:09.313Z",
+  "league": "runesofaldur",
+  "version": "1810-20260618-28554",
+  "total": 124266,
+  "global": {
+    "sample": 124266,
+    "skills": [
+      {
+        "name": "Herald of Ice",
+        "pct": 29.4
+      },
+      {
+        "name": "Barrage",
+        "pct": 23
+      },
+      {
+        "name": "Hollow Focus",
+        "pct": 20
+      },
+      {
+        "name": "Wild Protector",
+        "pct": 17.4
+      },
+      {
+        "name": "Herald of Thunder",
+        "pct": 16.5
+      },
+      {
+        "name": "Freezing Mark",
+        "pct": 15.3
+      }
+    ],
+    "supports": [
+      {
+        "name": "Magnified Area II",
+        "pct": 88.8
+      },
+      {
+        "name": "Prolonged Duration II",
+        "pct": 83.9
+      },
+      {
+        "name": "Cooldown Recovery II",
+        "pct": 80.9
+      },
+      {
+        "name": "Rapid Casting II",
+        "pct": 52.6
+      },
+      {
+        "name": "Elemental Armament II",
+        "pct": 51.5
+      },
+      {
+        "name": "Blind II",
+        "pct": 47.2
+      }
+    ],
+    "notables": [
+      {
+        "name": "Way of the Stonefist",
+        "pct": 24.5
+      },
+      {
+        "name": "Chaos Inoculation",
+        "pct": 22.8
+      },
+      {
+        "name": "Runic Meridians",
+        "pct": 21.5
+      },
+      {
+        "name": "Hollow Focus Technique",
+        "pct": 19.8
+      },
+      {
+        "name": "Wild Protector",
+        "pct": 17.6
+      },
+      {
+        "name": "Dance with Death",
+        "pct": 13.9
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Heart of the Well",
+        "pct": 67.8
+      },
+      {
+        "name": "Nascent Hope",
+        "pct": 59.7
+      },
+      {
+        "name": "Lavianga's Spirits",
+        "pct": 55.5
+      },
+      {
+        "name": "The Fall of the Axe",
+        "pct": 39.9
+      },
+      {
+        "name": "Rite of Passage",
+        "pct": 31.4
+      },
+      {
+        "name": "Beira's Anguish",
+        "pct": 24.5
+      }
+    ],
+    "stats": {
+      "ehp": 31000,
+      "dps": 164000
+    },
+    "top": {
+      "account": "heygyus-0416",
+      "name": "ResurrectGodAura"
+    }
+  },
+  "byAsc": {
+    "martial-artist": {
+      "asc": "Martial Artist",
+      "sample": 30527,
+      "skills": [
+        {
+          "name": "Hollow Focus",
+          "pct": 81.5
+        },
+        {
+          "name": "Rend",
+          "pct": 55.9
+        },
+        {
+          "name": "Hollow Form",
+          "pct": 54
+        },
+        {
+          "name": "Pounce",
+          "pct": 43.5
+        },
+        {
+          "name": "Tempest Bell",
+          "pct": 37
+        },
+        {
+          "name": "Devour",
+          "pct": 34.3
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 97.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 92.2
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 91.5
+        },
+        {
+          "name": "Blind II",
+          "pct": 84.8
+        },
+        {
+          "name": "Rage III",
+          "pct": 83.6
+        },
+        {
+          "name": "Blazing Critical",
+          "pct": 78.1
+        }
+      ],
+      "notables": [
+        {
+          "name": "Way of the Stonefist",
+          "pct": 99.5
+        },
+        {
+          "name": "Runic Meridians",
+          "pct": 87.3
+        },
+        {
+          "name": "Hollow Focus Technique",
+          "pct": 80.4
+        },
+        {
+          "name": "Hollow Form Technique",
+          "pct": 52.6
+        },
+        {
+          "name": "Chaos Inoculation",
+          "pct": 47.1
+        },
+        {
+          "name": "Hollow Resonance Technique",
+          "pct": 23.6
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 79.2
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 69.9
+        },
+        {
+          "name": "Lochtonial Caress",
+          "pct": 47
+        },
+        {
+          "name": "Amor Mandragora",
+          "pct": 45.5
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 44.8
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 30.8
+        }
+      ],
+      "stats": {
+        "ehp": 43000,
+        "dps": 52000
+      },
+      "top": {
+        "account": "heygyus-0416",
+        "name": "ResurrectGodAura"
+      }
+    },
+    "invoker": {
+      "asc": "Invoker",
+      "sample": 271,
+      "skills": [
+        {
+          "name": "Charged Staff",
+          "pct": 44.3
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 42.1
+        },
+        {
+          "name": "Herald of Thunder",
+          "pct": 40.2
+        },
+        {
+          "name": "Profane Ritual",
+          "pct": 30.3
+        },
+        {
+          "name": "Whirling Assault",
+          "pct": 29.2
+        },
+        {
+          "name": "Flicker Strike",
+          "pct": 29.2
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 87.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 86
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 71.6
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 69.7
+        },
+        {
+          "name": "Pinpoint Critical",
+          "pct": 66.1
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 60.5
+        }
+      ],
+      "notables": [
+        {
+          "name": "Sunder my Enemies...",
+          "pct": 88.2
+        },
+        {
+          "name": "Lead me through Grace...",
+          "pct": 82.3
+        },
+        {
+          "name": "I am the Thunder...",
+          "pct": 59.8
+        },
+        {
+          "name": "I am the Blizzard...",
+          "pct": 54.2
+        },
+        {
+          "name": "The Soul Springs Eternal",
+          "pct": 51.3
+        },
+        {
+          "name": "Chaos Inoculation",
+          "pct": 38
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 75.6
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 63.1
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 43.9
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 40.6
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 25.8
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 21.4
+        }
+      ],
+      "stats": {
+        "ehp": 23000,
+        "dps": 260000
+      },
+      "top": {
+        "account": "Tomnus-1549",
+        "name": "PoTayToms"
+      }
+    },
+    "acolyte-of-chayula": {
+      "asc": "Acolyte of Chayula",
+      "sample": 1511,
+      "skills": [
+        {
+          "name": "Despair",
+          "pct": 41.6
+        },
+        {
+          "name": "Archon of Chayula",
+          "pct": 38.1
+        },
+        {
+          "name": "Refutation",
+          "pct": 23.9
+        },
+        {
+          "name": "Pain Offering",
+          "pct": 21.6
+        },
+        {
+          "name": "Freezing Mark",
+          "pct": 17
+        },
+        {
+          "name": "Comet",
+          "pct": 16.9
+        }
+      ],
+      "supports": [
+        {
+          "name": "Harmonic Remnants II",
+          "pct": 95.7
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 88.4
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 87.3
+        },
+        {
+          "name": "Remnant Potency III",
+          "pct": 85
+        },
+        {
+          "name": "Khatal's Rejuvenation",
+          "pct": 75.9
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 74.1
+        }
+      ],
+      "notables": [
+        {
+          "name": "Waking Dream",
+          "pct": 96.6
+        },
+        {
+          "name": "Lucid Dreaming",
+          "pct": 94
+        },
+        {
+          "name": "Chayula's Gift",
+          "pct": 84.6
+        },
+        {
+          "name": "Choice of Power",
+          "pct": 77.6
+        },
+        {
+          "name": "Archon of Chayula",
+          "pct": 43.8
+        },
+        {
+          "name": "Inner Turmoil",
+          "pct": 22.8
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Nascent Hope",
+          "pct": 45.9
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 42.4
+        },
+        {
+          "name": "From Nothing",
+          "pct": 38.3
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 36.3
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 33.4
+        },
+        {
+          "name": "Alpha's Howl",
+          "pct": 31
+        }
+      ],
+      "stats": {
+        "ehp": 28000,
+        "dps": 28000
+      },
+      "top": {
+        "account": "Bellyshock66-2221",
+        "name": "Dojshy"
+      }
+    },
+    "deadeye": {
+      "asc": "Deadeye",
+      "sample": 13904,
+      "skills": [
+        {
+          "name": "Herald of Ice",
+          "pct": 90.3
+        },
+        {
+          "name": "Ice Shot",
+          "pct": 86.5
+        },
+        {
+          "name": "Tornado Shot",
+          "pct": 83.9
+        },
+        {
+          "name": "Barrage",
+          "pct": 80.5
+        },
+        {
+          "name": "Freezing Mark",
+          "pct": 79.2
+        },
+        {
+          "name": "Snipe",
+          "pct": 65.4
+        }
+      ],
+      "supports": [
+        {
+          "name": "Elemental Armament II",
+          "pct": 99.6
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 98.5
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 94.8
+        },
+        {
+          "name": "Deliberation",
+          "pct": 93
+        },
+        {
+          "name": "Elemental Focus",
+          "pct": 91.1
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 90.9
+        }
+      ],
+      "notables": [
+        {
+          "name": "Gathering Winds",
+          "pct": 97.7
+        },
+        {
+          "name": "Projectile Proximity Specialisation",
+          "pct": 91
+        },
+        {
+          "name": "Endless Munitions",
+          "pct": 90.2
+        },
+        {
+          "name": "Mirage Deadeye",
+          "pct": 87.8
+        },
+        {
+          "name": "Point Blank",
+          "pct": 85.4
+        },
+        {
+          "name": "Called Shots",
+          "pct": 12.1
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 88
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 75.4
+        },
+        {
+          "name": "Cadiro's Gambit",
+          "pct": 74.6
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 69.6
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 63.1
+        },
+        {
+          "name": "Headhunter",
+          "pct": 36.5
+        }
+      ],
+      "stats": {
+        "ehp": 26000,
+        "dps": 308000
+      },
+      "top": {
+        "account": "lua_dipaa-4786",
+        "name": "AESPA_LEMONADE"
+      }
+    },
+    "pathfinder": {
+      "asc": "Pathfinder",
+      "sample": 2048,
+      "skills": [
+        {
+          "name": "Ice Shot",
+          "pct": 64.5
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 63.8
+        },
+        {
+          "name": "Tornado Shot",
+          "pct": 63.1
+        },
+        {
+          "name": "Barrage",
+          "pct": 53.4
+        },
+        {
+          "name": "Freezing Mark",
+          "pct": 38.5
+        },
+        {
+          "name": "Pounce",
+          "pct": 24.6
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 90.1
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 87.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 85.4
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 71.3
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 70.5
+        },
+        {
+          "name": "Blind II",
+          "pct": 69.8
+        }
+      ],
+      "notables": [
+        {
+          "name": "Path Seeker",
+          "pct": 98.9
+        },
+        {
+          "name": "Relentless Pursuit",
+          "pct": 96.8
+        },
+        {
+          "name": "Path of the Sorceress",
+          "pct": 90.4
+        },
+        {
+          "name": "Running Assault",
+          "pct": 86.9
+        },
+        {
+          "name": "Traveller's Wisdom",
+          "pct": 85.6
+        },
+        {
+          "name": "Chaos Inoculation",
+          "pct": 15.1
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 82.9
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 75.2
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 67.9
+        },
+        {
+          "name": "Cadiro's Gambit",
+          "pct": 60.4
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 53.4
+        },
+        {
+          "name": "Headhunter",
+          "pct": 40
+        }
+      ],
+      "stats": {
+        "ehp": 30000,
+        "dps": 511000
+      },
+      "top": {
+        "account": "Aengus-2685",
+        "name": "stillAengus"
+      }
+    },
+    "titan": {
+      "asc": "Titan",
+      "sample": 3453,
+      "skills": [
+        {
+          "name": "Infernal Cry",
+          "pct": 28.4
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 24.4
+        },
+        {
+          "name": "Mace Strike",
+          "pct": 22.9
+        },
+        {
+          "name": "Earthshatter",
+          "pct": 21.7
+        },
+        {
+          "name": "Shield Wall",
+          "pct": 21.2
+        },
+        {
+          "name": "Leap Slam",
+          "pct": 20
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 88.4
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 79.6
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 64.7
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 52.8
+        },
+        {
+          "name": "Raging Cry",
+          "pct": 52.8
+        },
+        {
+          "name": "Heft",
+          "pct": 51
+        }
+      ],
+      "notables": [
+        {
+          "name": "Colossal Capacity",
+          "pct": 98.7
+        },
+        {
+          "name": "Hulking Form",
+          "pct": 98.6
+        },
+        {
+          "name": "Mysterious Lineage",
+          "pct": 51.7
+        },
+        {
+          "name": "Stone Skin",
+          "pct": 51.4
+        },
+        {
+          "name": "Earthbreaker",
+          "pct": 34.7
+        },
+        {
+          "name": "Ancestral Empowerment",
+          "pct": 31.5
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 77.5
+        },
+        {
+          "name": "Constricting Command",
+          "pct": 51.6
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 46.8
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 41.9
+        },
+        {
+          "name": "From Nothing",
+          "pct": 37.6
+        },
+        {
+          "name": "The Brass Dome",
+          "pct": 31.2
+        }
+      ],
+      "stats": {
+        "ehp": 29000,
+        "dps": 181000
+      },
+      "top": {
+        "account": "methanman-2640",
+        "name": "goodnerfing"
+      }
+    },
+    "warbringer": {
+      "asc": "Warbringer",
+      "sample": 670,
+      "skills": [
+        {
+          "name": "Ancestral Spirits",
+          "pct": 66.6
+        },
+        {
+          "name": "Voltaic Grenade",
+          "pct": 62.2
+        },
+        {
+          "name": "Crossbow Shot",
+          "pct": 23.3
+        },
+        {
+          "name": "Oil Grenade",
+          "pct": 19.3
+        },
+        {
+          "name": "Infernal Cry",
+          "pct": 17.5
+        },
+        {
+          "name": "Fortifying Cry",
+          "pct": 15.7
+        }
+      ],
+      "supports": [
+        {
+          "name": "Prolonged Duration II",
+          "pct": 88.4
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 76.7
+        },
+        {
+          "name": "Fire Attunement",
+          "pct": 73
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 69.9
+        },
+        {
+          "name": "Lightning Attunement",
+          "pct": 64.5
+        },
+        {
+          "name": "Multishot II",
+          "pct": 64
+        }
+      ],
+      "notables": [
+        {
+          "name": "Anvil's Weight",
+          "pct": 94.8
+        },
+        {
+          "name": "Blood Magic",
+          "pct": 78.8
+        },
+        {
+          "name": "Jade Heritage",
+          "pct": 75.7
+        },
+        {
+          "name": "Answered Call",
+          "pct": 66.7
+        },
+        {
+          "name": "Wooden Wall",
+          "pct": 65.2
+        },
+        {
+          "name": "Iron Reflexes",
+          "pct": 33.3
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 75.4
+        },
+        {
+          "name": "Fireflower",
+          "pct": 53
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 51
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 36
+        },
+        {
+          "name": "Megalomaniac",
+          "pct": 23.4
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 21.3
+        }
+      ],
+      "stats": {
+        "ehp": 17000,
+        "dps": 12000
+      },
+      "top": {
+        "account": "ConanDestylator-6965",
+        "name": "StrangledAngel"
+      }
+    },
+    "smith-of-kitava": {
+      "asc": "Smith of Kitava",
+      "sample": 793,
+      "skills": [
+        {
+          "name": "Infernal Cry",
+          "pct": 67
+        },
+        {
+          "name": "Shield Wall",
+          "pct": 50.1
+        },
+        {
+          "name": "Fortifying Cry",
+          "pct": 48.4
+        },
+        {
+          "name": "Leap Slam",
+          "pct": 32.9
+        },
+        {
+          "name": "Sunder",
+          "pct": 29.1
+        },
+        {
+          "name": "Resonating Shield",
+          "pct": 28.9
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 90.2
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 84.5
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 76.2
+        },
+        {
+          "name": "Raging Cry",
+          "pct": 73.6
+        },
+        {
+          "name": "Rage III",
+          "pct": 69.5
+        },
+        {
+          "name": "Tireless",
+          "pct": 64.9
+        }
+      ],
+      "notables": [
+        {
+          "name": "Smith's Masterwork",
+          "pct": 95.3
+        },
+        {
+          "name": "Kitavan Engraving",
+          "pct": 83
+        },
+        {
+          "name": "Coal Stoker",
+          "pct": 71.1
+        },
+        {
+          "name": "Flowing Metal",
+          "pct": 70.5
+        },
+        {
+          "name": "Dedication to Kitava",
+          "pct": 69.7
+        },
+        {
+          "name": "Molten Symbol",
+          "pct": 68.7
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Normal Body Armour",
+          "pct": 95.3
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 66
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 38.2
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 34.2
+        },
+        {
+          "name": "Constricting Command",
+          "pct": 32.4
+        },
+        {
+          "name": "For Utopia",
+          "pct": 30.4
+        }
+      ],
+      "stats": {
+        "ehp": 48000,
+        "dps": 76000
+      },
+      "top": {
+        "account": "Prec0cious-1317",
+        "name": "xxTheWizardOfOsu"
+      }
+    },
+    "infernalist": {
+      "asc": "Infernalist",
+      "sample": 2626,
+      "skills": [
+        {
+          "name": "Elemental Weakness",
+          "pct": 47.7
+        },
+        {
+          "name": "Frost Bomb",
+          "pct": 34.7
+        },
+        {
+          "name": "Summon Infernal Hound",
+          "pct": 30.9
+        },
+        {
+          "name": "Pain Offering",
+          "pct": 25.1
+        },
+        {
+          "name": "Comet",
+          "pct": 23.1
+        },
+        {
+          "name": "Sigil of Power",
+          "pct": 22
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 88.5
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 73.3
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 73.3
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 67.8
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 65.3
+        },
+        {
+          "name": "Heightened Curse",
+          "pct": 57.3
+        }
+      ],
+      "notables": [
+        {
+          "name": "Altered Flesh",
+          "pct": 81
+        },
+        {
+          "name": "Beidat's Will",
+          "pct": 71.6
+        },
+        {
+          "name": "Grinning Immolation",
+          "pct": 60.1
+        },
+        {
+          "name": "Pain Attunement",
+          "pct": 43.1
+        },
+        {
+          "name": "Demonic Possession",
+          "pct": 37.2
+        },
+        {
+          "name": "Pyromantic Pact",
+          "pct": 33.1
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 52.1
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 45.5
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 40.7
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 36.4
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 32.7
+        },
+        {
+          "name": "Coward's Legacy",
+          "pct": 29
+        }
+      ],
+      "stats": {
+        "ehp": 18000,
+        "dps": 51000
+      },
+      "top": {
+        "account": "fwoggy-4424",
+        "name": "Mahree"
+      }
+    },
+    "blood-mage": {
+      "asc": "Blood Mage",
+      "sample": 4405,
+      "skills": [
+        {
+          "name": "Spark",
+          "pct": 42.9
+        },
+        {
+          "name": "Comet",
+          "pct": 40.5
+        },
+        {
+          "name": "Sigil of Power",
+          "pct": 40.1
+        },
+        {
+          "name": "Elemental Weakness",
+          "pct": 33.6
+        },
+        {
+          "name": "Orb of Storms",
+          "pct": 32.3
+        },
+        {
+          "name": "Frost Bomb",
+          "pct": 23.7
+        }
+      ],
+      "supports": [
+        {
+          "name": "Harmonic Remnants II",
+          "pct": 97.9
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 81.3
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 78.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 70.3
+        },
+        {
+          "name": "Remnant Potency I",
+          "pct": 62.4
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 62.1
+        }
+      ],
+      "notables": [
+        {
+          "name": "Sanguimancy",
+          "pct": 100
+        },
+        {
+          "name": "Grasping Wounds",
+          "pct": 98.1
+        },
+        {
+          "name": "Sunder the Flesh",
+          "pct": 85.1
+        },
+        {
+          "name": "Crimson Power",
+          "pct": 82.1
+        },
+        {
+          "name": "Vitality Siphon",
+          "pct": 74.3
+        },
+        {
+          "name": "Mind Over Matter",
+          "pct": 43.5
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 72
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 60.3
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 51.4
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 43.3
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 34.9
+        },
+        {
+          "name": "Kalandra's Touch",
+          "pct": 28.5
+        }
+      ],
+      "stats": {
+        "ehp": 17000,
+        "dps": 353000
+      },
+      "top": {
+        "account": "BansheesVeil-4479",
+        "name": "sotsunakuwRoA"
+      }
+    },
+    "lich": {
+      "asc": "Lich",
+      "sample": 1924,
+      "skills": [
+        {
+          "name": "Despair",
+          "pct": 48.3
+        },
+        {
+          "name": "Contagion",
+          "pct": 37.3
+        },
+        {
+          "name": "Essence Drain",
+          "pct": 36.4
+        },
+        {
+          "name": "Dark Effigy",
+          "pct": 36.2
+        },
+        {
+          "name": "Pain Offering",
+          "pct": 31.7
+        },
+        {
+          "name": "Wolf Pack",
+          "pct": 28.6
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 92.6
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 88
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 81.3
+        },
+        {
+          "name": "Heightened Curse",
+          "pct": 73.4
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 68.6
+        },
+        {
+          "name": "Ritualistic Curse",
+          "pct": 67.9
+        }
+      ],
+      "notables": [
+        {
+          "name": "Crystalline Phylactery",
+          "pct": 83.4
+        },
+        {
+          "name": "Soulless Form",
+          "pct": 70.9
+        },
+        {
+          "name": "Necromantic Conduit",
+          "pct": 68
+        },
+        {
+          "name": "Eternal Life",
+          "pct": 62.6
+        },
+        {
+          "name": "Whispers of Doom",
+          "pct": 55.7
+        },
+        {
+          "name": "Rupture the Soul",
+          "pct": 48.6
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Nascent Hope",
+          "pct": 57.5
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 44.7
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 33.2
+        },
+        {
+          "name": "Atziri's Disdain",
+          "pct": 32.6
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 30.5
+        },
+        {
+          "name": "Bones of Ullr",
+          "pct": 26.3
+        }
+      ],
+      "stats": {
+        "ehp": 33000,
+        "dps": 28000
+      },
+      "top": {
+        "account": "chuckzjj-2689",
+        "name": "三角是只小阿比巫妖"
+      }
+    },
+    "abyssal-lich": {
+      "asc": "Abyssal Lich",
+      "sample": 3492,
+      "skills": [
+        {
+          "name": "Entangle",
+          "pct": 51.1
+        },
+        {
+          "name": "Thunderstorm",
+          "pct": 50.7
+        },
+        {
+          "name": "Thrashing Vines",
+          "pct": 50.5
+        },
+        {
+          "name": "Bonestorm",
+          "pct": 47.8
+        },
+        {
+          "name": "Barrage",
+          "pct": 40.8
+        },
+        {
+          "name": "Whirling Slash",
+          "pct": 40.8
+        }
+      ],
+      "supports": [
+        {
+          "name": "Prolonged Duration II",
+          "pct": 95.3
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 82.3
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 81.1
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 71.6
+        },
+        {
+          "name": "Ritualistic Curse",
+          "pct": 64.6
+        },
+        {
+          "name": "Execute III",
+          "pct": 56.8
+        }
+      ],
+      "notables": [
+        {
+          "name": "Crystalline Phylactery",
+          "pct": 98.5
+        },
+        {
+          "name": "Rupture the Soul",
+          "pct": 83.1
+        },
+        {
+          "name": "Soulless Form",
+          "pct": 62.8
+        },
+        {
+          "name": "Eternal Life",
+          "pct": 61.4
+        },
+        {
+          "name": "Pain Attunement",
+          "pct": 52.6
+        },
+        {
+          "name": "Wildsurge Incantation",
+          "pct": 50.8
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Nascent Hope",
+          "pct": 78.5
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 67.3
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 67.1
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 64.4
+        },
+        {
+          "name": "Atziri's Disdain",
+          "pct": 53.4
+        },
+        {
+          "name": "Nightscale",
+          "pct": 48.5
+        }
+      ],
+      "stats": {
+        "ehp": 24000,
+        "dps": 250000
+      },
+      "top": {
+        "account": "Kaku167-1951",
+        "name": "Bawon"
+      }
+    },
+    "stormweaver": {
+      "asc": "Stormweaver",
+      "sample": 4840,
+      "skills": [
+        {
+          "name": "Spark",
+          "pct": 92.2
+        },
+        {
+          "name": "Frost Bomb",
+          "pct": 88.7
+        },
+        {
+          "name": "Comet",
+          "pct": 83.1
+        },
+        {
+          "name": "Elemental Storm",
+          "pct": 54.6
+        },
+        {
+          "name": "Elemental Weakness",
+          "pct": 52.4
+        },
+        {
+          "name": "Orb of Storms",
+          "pct": 46.7
+        }
+      ],
+      "supports": [
+        {
+          "name": "Efficiency II",
+          "pct": 97.1
+        },
+        {
+          "name": "Harmonic Remnants II",
+          "pct": 96.9
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 91.7
+        },
+        {
+          "name": "Pinpoint Critical",
+          "pct": 91.5
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 90.4
+        },
+        {
+          "name": "Spell Cascade",
+          "pct": 88.8
+        }
+      ],
+      "notables": [
+        {
+          "name": "Storm's Recollection",
+          "pct": 93.4
+        },
+        {
+          "name": "Refracted Infusion",
+          "pct": 72.4
+        },
+        {
+          "name": "Constant Gale",
+          "pct": 58.1
+        },
+        {
+          "name": "Tempest Caller",
+          "pct": 50.2
+        },
+        {
+          "name": "Strike Twice",
+          "pct": 48.8
+        },
+        {
+          "name": "Chaos Inoculation",
+          "pct": 40.7
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Maligaro's Virtuosity",
+          "pct": 82
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 66.6
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 57.2
+        },
+        {
+          "name": "From Nothing",
+          "pct": 48.4
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 47.4
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 47.1
+        }
+      ],
+      "stats": {
+        "ehp": 17000,
+        "dps": 160000
+      },
+      "top": {
+        "account": "Olsen1-5361",
+        "name": "LetsGetDoryaniTonight_"
+      }
+    },
+    "chronomancer": {
+      "asc": "Chronomancer",
+      "sample": 2127,
+      "skills": [
+        {
+          "name": "Frost Bomb",
+          "pct": 68.6
+        },
+        {
+          "name": "Frost Wall",
+          "pct": 61.4
+        },
+        {
+          "name": "Comet",
+          "pct": 60.3
+        },
+        {
+          "name": "Elemental Weakness",
+          "pct": 55.4
+        },
+        {
+          "name": "Sigil of Power",
+          "pct": 50.5
+        },
+        {
+          "name": "Ice Nova",
+          "pct": 42.2
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 97.1
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 94.6
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 87.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 82.8
+        },
+        {
+          "name": "Spell Cascade",
+          "pct": 77.1
+        },
+        {
+          "name": "Harmonic Remnants II",
+          "pct": 75.6
+        }
+      ],
+      "notables": [
+        {
+          "name": "Phased Form",
+          "pct": 90.9
+        },
+        {
+          "name": "Quicksand Hourglass",
+          "pct": 83.8
+        },
+        {
+          "name": "Now and Again",
+          "pct": 70.7
+        },
+        {
+          "name": "Whispers of Doom",
+          "pct": 55.9
+        },
+        {
+          "name": "Apex of the Moment",
+          "pct": 54.6
+        },
+        {
+          "name": "Footprints in the Sand",
+          "pct": 34.8
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 66.3
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 47.2
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 45.5
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 39.4
+        },
+        {
+          "name": "Olroth's Resolve",
+          "pct": 34.5
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 28.5
+        }
+      ],
+      "stats": {
+        "ehp": 23000,
+        "dps": 215000
+      },
+      "top": {
+        "account": "HoodwinkTheSlayer-7436",
+        "name": "сильнейшийнегр"
+      }
+    },
+    "disciple-of-varashta": {
+      "asc": "Disciple of Varashta",
+      "sample": 4822,
+      "skills": [
+        {
+          "name": "Kelari, the Tainted Sands",
+          "pct": 83.4
+        },
+        {
+          "name": "Kelari's Brutality",
+          "pct": 83.4
+        },
+        {
+          "name": "Kelari's Deception",
+          "pct": 79.5
+        },
+        {
+          "name": "Navira, the Last Mirage",
+          "pct": 51.5
+        },
+        {
+          "name": "Navira's Embrace",
+          "pct": 51.5
+        },
+        {
+          "name": "Ruzhan, the Blazing Sword",
+          "pct": 42.5
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 86.2
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 85.2
+        },
+        {
+          "name": "Kurgal's Leash",
+          "pct": 80.4
+        },
+        {
+          "name": "Muster",
+          "pct": 79.5
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 73.3
+        },
+        {
+          "name": "Last Gasp",
+          "pct": 66.9
+        }
+      ],
+      "notables": [
+        {
+          "name": "Chaos Inoculation",
+          "pct": 90.2
+        },
+        {
+          "name": "The Fourth Teaching",
+          "pct": 84.5
+        },
+        {
+          "name": "Barya of Kelari",
+          "pct": 82.8
+        },
+        {
+          "name": "Kelari's Deception",
+          "pct": 79.6
+        },
+        {
+          "name": "Sacred Rituals",
+          "pct": 65.9
+        },
+        {
+          "name": "Barya of Navira",
+          "pct": 51.2
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Nascent Hope",
+          "pct": 65.3
+        },
+        {
+          "name": "From Nothing",
+          "pct": 48.2
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 45.4
+        },
+        {
+          "name": "Evergrasping Ring",
+          "pct": 43.3
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 30.9
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 26
+        }
+      ],
+      "stats": {
+        "ehp": 38000,
+        "dps": 146000
+      },
+      "top": {
+        "account": "AssenVIK-6874",
+        "name": "vikgamersecret"
+      }
+    },
+    "tactician": {
+      "asc": "Tactician",
+      "sample": 3362,
+      "skills": [
+        {
+          "name": "Galvanic Shards",
+          "pct": 61.2
+        },
+        {
+          "name": "Stormblast Bolts",
+          "pct": 61
+        },
+        {
+          "name": "Crossbow Shot",
+          "pct": 56.8
+        },
+        {
+          "name": "Herald of Thunder",
+          "pct": 54.1
+        },
+        {
+          "name": "Gemini Surge",
+          "pct": 15
+        },
+        {
+          "name": "Supporting Fire",
+          "pct": 14.5
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 93.8
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 88.2
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 77.8
+        },
+        {
+          "name": "Vitality II",
+          "pct": 75.7
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 74.2
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 68.8
+        }
+      ],
+      "notables": [
+        {
+          "name": "A Solid Plan",
+          "pct": 99.6
+        },
+        {
+          "name": "Polish That Gear",
+          "pct": 90.7
+        },
+        {
+          "name": "Suppressing Fire",
+          "pct": 75.6
+        },
+        {
+          "name": "Right Where We Want Them",
+          "pct": 74.9
+        },
+        {
+          "name": "Sacrifice of Flesh",
+          "pct": 40.3
+        },
+        {
+          "name": "Giant's Blood",
+          "pct": 16.7
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 71.7
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 62.7
+        },
+        {
+          "name": "Morior Invictus",
+          "pct": 61.5
+        },
+        {
+          "name": "Painter's Servant",
+          "pct": 60.7
+        },
+        {
+          "name": "Alpha's Howl",
+          "pct": 54
+        },
+        {
+          "name": "Against the Darkness",
+          "pct": 47
+        }
+      ],
+      "stats": {
+        "ehp": 25000,
+        "dps": 98000
+      },
+      "top": {
+        "account": "Ezerielblade-1569",
+        "name": "TTV_etojemals"
+      }
+    },
+    "witchhunter": {
+      "asc": "Witchhunter",
+      "sample": 2754,
+      "skills": [
+        {
+          "name": "Explosive Grenade",
+          "pct": 45.3
+        },
+        {
+          "name": "Freezing Mark",
+          "pct": 40.4
+        },
+        {
+          "name": "Cluster Grenade",
+          "pct": 39.4
+        },
+        {
+          "name": "Flash Grenade",
+          "pct": 37.9
+        },
+        {
+          "name": "Explosive Shot",
+          "pct": 36.5
+        },
+        {
+          "name": "Herald of Thunder",
+          "pct": 26.9
+        }
+      ],
+      "supports": [
+        {
+          "name": "Elemental Armament II",
+          "pct": 92
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 88.1
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 84.3
+        },
+        {
+          "name": "Blind II",
+          "pct": 69.9
+        },
+        {
+          "name": "Cold Mastery",
+          "pct": 68.9
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 67.8
+        }
+      ],
+      "notables": [
+        {
+          "name": "Obsessive Rituals",
+          "pct": 97.6
+        },
+        {
+          "name": "Ceremonial Ablution",
+          "pct": 96.3
+        },
+        {
+          "name": "Pitiless Killer",
+          "pct": 52.2
+        },
+        {
+          "name": "Witchbane",
+          "pct": 45.3
+        },
+        {
+          "name": "Zealous Inquisition",
+          "pct": 44.1
+        },
+        {
+          "name": "No Mercy",
+          "pct": 43.1
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 82.4
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 80.4
+        },
+        {
+          "name": "Hyrri's Ire",
+          "pct": 62.6
+        },
+        {
+          "name": "Constricting Command",
+          "pct": 54.6
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 33.9
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 32.2
+        }
+      ],
+      "stats": {
+        "ehp": 30000,
+        "dps": 81000
+      },
+      "top": {
+        "account": "tanya-8762",
+        "name": "magmafromhere"
+      }
+    },
+    "gemling-legionnaire": {
+      "asc": "Gemling Legionnaire",
+      "sample": 7485,
+      "skills": [
+        {
+          "name": "Ember Fusillade",
+          "pct": 19.5
+        },
+        {
+          "name": "Herald of Thunder",
+          "pct": 16.9
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 16.6
+        },
+        {
+          "name": "Explosive Grenade",
+          "pct": 14.4
+        },
+        {
+          "name": "Entangle",
+          "pct": 14.3
+        },
+        {
+          "name": "Cluster Grenade",
+          "pct": 13.2
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 90.1
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 75.6
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 75.1
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 59.5
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 53.2
+        },
+        {
+          "name": "Armour Demolisher II",
+          "pct": 44.6
+        }
+      ],
+      "notables": [
+        {
+          "name": "Essence of Virtue",
+          "pct": 99.9
+        },
+        {
+          "name": "Advanced Thaumaturgy",
+          "pct": 99.4
+        },
+        {
+          "name": "Gem Studded",
+          "pct": 87.3
+        },
+        {
+          "name": "Implanted Gems",
+          "pct": 81.1
+        },
+        {
+          "name": "Neurological Implants",
+          "pct": 35.4
+        },
+        {
+          "name": "Bolstering Implants",
+          "pct": 27.7
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 73.8
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 65.8
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 49.2
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 44.3
+        },
+        {
+          "name": "Split Personality",
+          "pct": 42.5
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 40.9
+        }
+      ],
+      "stats": {
+        "ehp": 22000,
+        "dps": 337000
+      },
+      "top": {
+        "account": "heygyus-0416",
+        "name": "ResurrectResurrected"
+      }
+    },
+    "amazon": {
+      "asc": "Amazon",
+      "sample": 1198,
+      "skills": [
+        {
+          "name": "Herald of Thunder",
+          "pct": 49.2
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 38.6
+        },
+        {
+          "name": "Whirling Slash",
+          "pct": 34.9
+        },
+        {
+          "name": "Ice Shot",
+          "pct": 30
+        },
+        {
+          "name": "Tornado Shot",
+          "pct": 28.4
+        },
+        {
+          "name": "Barrage",
+          "pct": 28.1
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 89.3
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 85.6
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 83.9
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 78.5
+        },
+        {
+          "name": "Elemental Focus",
+          "pct": 62.2
+        },
+        {
+          "name": "Fork",
+          "pct": 60.2
+        }
+      ],
+      "notables": [
+        {
+          "name": "Predatory Instinct",
+          "pct": 92.9
+        },
+        {
+          "name": "Critical Strike",
+          "pct": 73.4
+        },
+        {
+          "name": "Stalking Panther",
+          "pct": 59.8
+        },
+        {
+          "name": "Penetrate",
+          "pct": 56.6
+        },
+        {
+          "name": "In for the Kill",
+          "pct": 48.6
+        },
+        {
+          "name": "Azmeri Brew",
+          "pct": 37
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 81
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 50.6
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 44.9
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 43.2
+        },
+        {
+          "name": "From Nothing",
+          "pct": 42.2
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 32.8
+        }
+      ],
+      "stats": {
+        "ehp": 25000,
+        "dps": 381000
+      },
+      "top": {
+        "account": "darkjerem-5946",
+        "name": "GGramRotA"
+      }
+    },
+    "spirit-walker": {
+      "asc": "Spirit Walker",
+      "sample": 22030,
+      "skills": [
+        {
+          "name": "Wild Protector",
+          "pct": 97.7
+        },
+        {
+          "name": "Vivid Stampede",
+          "pct": 54.2
+        },
+        {
+          "name": "Whirling Slash",
+          "pct": 52.6
+        },
+        {
+          "name": "Twister",
+          "pct": 52.4
+        },
+        {
+          "name": "Barrage",
+          "pct": 52
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 39.8
+        }
+      ],
+      "supports": [
+        {
+          "name": "Rage III",
+          "pct": 92.7
+        },
+        {
+          "name": "Romira's Requital",
+          "pct": 87.6
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 84.7
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 80.2
+        },
+        {
+          "name": "Magnified Area II",
+          "pct": 76.5
+        },
+        {
+          "name": "Hulking Minions",
+          "pct": 75
+        }
+      ],
+      "notables": [
+        {
+          "name": "Wild Protector",
+          "pct": 99.3
+        },
+        {
+          "name": "Vivid Stampede",
+          "pct": 56.6
+        },
+        {
+          "name": "Primal Bounty",
+          "pct": 56.1
+        },
+        {
+          "name": "The Mhacha's Gift",
+          "pct": 54.1
+        },
+        {
+          "name": "Sacred Unity",
+          "pct": 53
+        },
+        {
+          "name": "Dance with Death",
+          "pct": 50.6
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 67.8
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 55.4
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 53.8
+        },
+        {
+          "name": "The Taming",
+          "pct": 51.2
+        },
+        {
+          "name": "From Nothing",
+          "pct": 40.6
+        },
+        {
+          "name": "The Ordained",
+          "pct": 39.7
+        }
+      ],
+      "stats": {
+        "ehp": 25000,
+        "dps": 202000
+      },
+      "top": {
+        "account": "Aeone1-0564",
+        "name": "SnusInMyBlood"
+      }
+    },
+    "ritualist": {
+      "asc": "Ritualist",
+      "sample": 1961,
+      "skills": [
+        {
+          "name": "Spark",
+          "pct": 27.9
+        },
+        {
+          "name": "Barrage",
+          "pct": 24.3
+        },
+        {
+          "name": "Herald of Ice",
+          "pct": 22.9
+        },
+        {
+          "name": "Ice Shot",
+          "pct": 17.5
+        },
+        {
+          "name": "Herald of Thunder",
+          "pct": 16.9
+        },
+        {
+          "name": "Tornado Shot",
+          "pct": 16.4
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 87.1
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 83.1
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 77.5
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 58
+        },
+        {
+          "name": "Elemental Armament II",
+          "pct": 48.4
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 37.6
+        }
+      ],
+      "notables": [
+        {
+          "name": "Mystic Attunement",
+          "pct": 99.8
+        },
+        {
+          "name": "Unfurled Finger",
+          "pct": 99.8
+        },
+        {
+          "name": "Intricate Sigils",
+          "pct": 71.4
+        },
+        {
+          "name": "Mind Phylacteries",
+          "pct": 51.4
+        },
+        {
+          "name": "Chaos Inoculation",
+          "pct": 46.1
+        },
+        {
+          "name": "Corrupted Lifeforce",
+          "pct": 32.8
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 74.7
+        },
+        {
+          "name": "Nascent Hope",
+          "pct": 58.1
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 48
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 47.5
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 45
+        },
+        {
+          "name": "Andvarius",
+          "pct": 44.8
+        }
+      ],
+      "stats": {
+        "ehp": 19000,
+        "dps": 44000
+      },
+      "top": {
+        "account": "oopssl-6209",
+        "name": "oopssist"
+      }
+    },
+    "oracle": {
+      "asc": "Oracle",
+      "sample": 6454,
+      "skills": [
+        {
+          "name": "Entangle",
+          "pct": 68.3
+        },
+        {
+          "name": "Mana Tempest",
+          "pct": 31.4
+        },
+        {
+          "name": "Thunderstorm",
+          "pct": 29.2
+        },
+        {
+          "name": "Elemental Weakness",
+          "pct": 28.5
+        },
+        {
+          "name": "Thrashing Vines",
+          "pct": 27.6
+        },
+        {
+          "name": "Sigil of Power",
+          "pct": 26.7
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 90.2
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 90
+        },
+        {
+          "name": "Rapid Casting II",
+          "pct": 79.1
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 62
+        },
+        {
+          "name": "Clarity II",
+          "pct": 59.7
+        },
+        {
+          "name": "Cooldown Recovery II",
+          "pct": 55
+        }
+      ],
+      "notables": [
+        {
+          "name": "The Unseen Path",
+          "pct": 99.8
+        },
+        {
+          "name": "The Lesser Harm",
+          "pct": 99.5
+        },
+        {
+          "name": "Forced Outcome",
+          "pct": 94.8
+        },
+        {
+          "name": "Entwined Realities",
+          "pct": 64.2
+        },
+        {
+          "name": "Ancestral Bond",
+          "pct": 58.6
+        },
+        {
+          "name": "Wildsurge Incantation",
+          "pct": 39.9
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Nascent Hope",
+          "pct": 61.6
+        },
+        {
+          "name": "Heart of the Well",
+          "pct": 55.7
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 54.5
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 49.8
+        },
+        {
+          "name": "Rite of Passage",
+          "pct": 31.7
+        },
+        {
+          "name": "Nightscale",
+          "pct": 18.9
+        }
+      ],
+      "stats": {
+        "ehp": 19000,
+        "dps": 16000
+      },
+      "top": {
+        "account": "Whiteyang123456-2065",
+        "name": "看看你的牛治"
+      }
+    },
+    "shaman": {
+      "asc": "Shaman",
+      "sample": 1601,
+      "skills": [
+        {
+          "name": "Walking Calamity",
+          "pct": 39.7
+        },
+        {
+          "name": "Maul",
+          "pct": 37
+        },
+        {
+          "name": "Rampage",
+          "pct": 34
+        },
+        {
+          "name": "Furious Slam",
+          "pct": 32
+        },
+        {
+          "name": "Shockwave Totem",
+          "pct": 28.6
+        },
+        {
+          "name": "Pounce",
+          "pct": 25
+        }
+      ],
+      "supports": [
+        {
+          "name": "Magnified Area II",
+          "pct": 86.3
+        },
+        {
+          "name": "Prolonged Duration II",
+          "pct": 82.6
+        },
+        {
+          "name": "Efficiency II",
+          "pct": 78.2
+        },
+        {
+          "name": "Clarity II",
+          "pct": 58.2
+        },
+        {
+          "name": "Rapid Attacks II",
+          "pct": 53.2
+        },
+        {
+          "name": "Concentrated Area",
+          "pct": 50
+        }
+      ],
+      "notables": [
+        {
+          "name": "Wisdom of the Maji",
+          "pct": 83.1
+        },
+        {
+          "name": "Druidic Champion",
+          "pct": 77.5
+        },
+        {
+          "name": "Furious Wellspring",
+          "pct": 68.7
+        },
+        {
+          "name": "Reactive Growth",
+          "pct": 66.3
+        },
+        {
+          "name": "Sacred Flow",
+          "pct": 47.7
+        },
+        {
+          "name": "Lord of the Wilds",
+          "pct": 36.4
+        }
+      ],
+      "uniques": [
+        {
+          "name": "Heart of the Well",
+          "pct": 67.3
+        },
+        {
+          "name": "From Nothing",
+          "pct": 53.2
+        },
+        {
+          "name": "Lavianga's Spirits",
+          "pct": 51.3
+        },
+        {
+          "name": "Prism of Belief",
+          "pct": 33.8
+        },
+        {
+          "name": "Morior Invictus",
+          "pct": 31.2
+        },
+        {
+          "name": "The Fall of the Axe",
+          "pct": 27.8
+        }
+      ],
+      "stats": {
+        "ehp": 25000,
+        "dps": 134000
+      },
+      "top": {
+        "account": "Yorkerk-4812",
+        "name": "WhichMonstersTasteGood"
+      }
+    }
+  }
+}

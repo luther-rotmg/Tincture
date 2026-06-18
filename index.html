@@ -597,6 +597,30 @@
   .cru-ramp i{ width:22px; height:100%; display:inline-block; }
   .cru-leg-empty i{ display:inline-block; width:11px; height:11px; vertical-align:middle; border:1px dashed rgba(135,122,98,.4); background-image:repeating-linear-gradient(45deg, transparent 0 3px, rgba(200,162,74,.06) 3px 4px); margin-right:5px; }
 
+  /* ---- per-build meta detail (expandable ledger row) + global breakdown ---- */
+  .row.has-detail{ cursor:pointer; }
+  .row.has-detail .asc-name::after{ content:"▸"; font-family:var(--fmono); font-size:10px; color:var(--muted); margin-left:9px; display:inline-block; transition:transform .2s ease, color .2s; }
+  .row.has-detail.open .asc-name::after{ transform:rotate(90deg); color:var(--gold); }
+  .skills-line{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; color:var(--muted); margin-top:4px; }
+  .skills-line b{ color:var(--bone-dim); font-weight:500; }
+  .skills-line .sk{ color:var(--bone-dim); }
+  .row-detail{ display:none; padding:16px 14px 20px 70px; border-bottom:1px solid var(--hair); background:linear-gradient(180deg, rgba(200,162,74,.035), transparent); }
+  .row-detail.open{ display:block; }
+  .meta-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:18px 26px; }
+  .meta-col h5{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 0 11px; font-weight:500; }
+  .meta-item{ margin:0 0 9px; }
+  .meta-item .r1{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .meta-item .nm{ font-family:var(--ftext); font-size:13px; color:var(--bone); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
+  .meta-item .pc{ font-family:var(--fmono); font-size:10px; color:var(--bone-dim); flex:none; }
+  .meta-item .track{ height:3px; background:rgba(200,162,74,.09); border-radius:2px; overflow:hidden; margin-top:3px; }
+  .meta-item .fill{ height:100%; background:linear-gradient(90deg, rgba(200,162,74,.35), var(--gold)); border-radius:2px; }
+  .meta-stats{ font-family:var(--fmono); font-size:11px; color:var(--bone-dim); margin:16px 0 0; display:flex; gap:18px; flex-wrap:wrap; align-items:baseline; }
+  .meta-stats b{ color:var(--gold-bright); }
+  .meta-stats .smp{ color:var(--muted); }
+  .meta-src{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; }
+  .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
+  .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+
   .section-caveat{
     margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
     font-family:var(--fmono); font-size:11px; letter-spacing:.02em; color:var(--muted); line-height:1.8; max-width:88ch;
@@ -880,6 +904,11 @@
         <p class="panel-note" style="max-width:66ch">How the headline ascendancies shift between Softcore, Hardcore, SSF and HC SSF — like-for-like published shares, no curation. League populations differ up to ~30×, so smaller leagues are noisier. <span style="color:var(--gold)">Gold = softcore variants</span>, <span style="color:var(--oxblood-bright)">oxblood = hardcore variants</span> (SSF shares its trade league's colour; the mode label tells them apart).</p>
         <div class="cross-grid" id="assayCross"></div>
       </article>
+      <article class="panel panel-meta panel-cross" id="assayMetaPanel" hidden>
+        <div><span class="panel-eyebrow">The Dispensary</span><div class="panel-title">What the whole ladder is running</div></div>
+        <div class="meta-grid" id="assayMetaGrid"></div>
+        <p class="panel-note" id="assayMetaNote" style="max-width:74ch">Share of every published character this league running each — skills, support gems, passive notables and unique items, aggregated from poe.ninja. Expand any ledger row above for the same breakdown on a single ascendancy.</p>
+      </article>
     </div>
     <p class="section-caveat" id="assayCaveat"></p>
   </section>
@@ -1099,6 +1128,7 @@ function normalizeData(json){
 
 let DATA = normalizeData(SAMPLE_DATA);
 let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
+let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
@@ -1399,6 +1429,26 @@ function guideUrl(b){
   return "https://www.google.com/search?q=" + encodeURIComponent(q);
 }
 
+/* ----- per-build meta detail (from meta-detail.json) ----- */
+const metaFor = b => (META && META.byAsc) ? META.byAsc[slugOf(b)] : null;
+function skillsLine(md){
+  if (!md || !(md.skills||[]).length) return "";
+  return `<div class="skills-line"><b>commonly plays</b> <span class="sk">${md.skills.slice(0,3).map(s=>esc(s.name)).join(" · ")}</span></div>`;
+}
+function metaCol(title, arr){
+  if (!arr || !arr.length) return "";
+  const items = arr.map(x=>`<div class="meta-item"><div class="r1"><span class="nm">${esc(x.name)}</span><span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`).join("");
+  return `<div class="meta-col"><h5>${esc(title)}</h5>${items}</div>`;
+}
+function metaDetailHTML(md){
+  const grid = `<div class="meta-grid">${metaCol("Top skills",md.skills)}${metaCol("Top supports",md.supports)}${metaCol("Top notables",md.notables)}${metaCol("Top uniques",md.uniques)}</div>`;
+  const st = md.stats||{};
+  const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters</span></div>` : "";
+  const src = md.source ? `<div class="meta-src">Decant reconstructs the top public-ladder build — character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a></div>` : "";
+  return grid + stats + src;
+}
+
 function renderRows(){
   const rows = $("#rows"); rows.innerHTML = "";
   const L = curLeague();
@@ -1447,6 +1497,7 @@ function renderRows(){
     if (b.delta == null) trendCell = `<span class="trend flat"></span>`;
     else if (!trendsReady) trendCell = `<span class="trend base" title="24-hour trends appear once enough hourly snapshots accumulate">baseline</span>`;
     else trendCell = trendHTML(b.delta);
+    const md = metaFor(b);
     row.innerHTML = `
       <div class="rank">${roman(i+1)}</div>
       <div class="build-cell">
@@ -1456,6 +1507,7 @@ function renderRows(){
           ${b.skill ? `<span class="skill-name">${esc(b.skill)}</span>` : ""}
         </div>
         <div class="sub">${subBits.join(" · ")}</div>
+        ${skillsLine(md)}
       </div>
       ${popCell}
       ${trendCell}
@@ -1465,8 +1517,22 @@ function renderRows(){
           Decant
         </button>
       </div>`;
-    row.querySelector(".decant").onclick = ()=> decant(b);
+    row.querySelector(".decant").onclick = e => { e.stopPropagation(); decant(b); };
     rows.appendChild(row);
+    if (md){
+      row.classList.add("has-detail");
+      row.setAttribute("aria-expanded", "false");
+      const detail = document.createElement("div");
+      detail.className = "row-detail";
+      detail.innerHTML = metaDetailHTML(md);
+      row.addEventListener("click", e => {
+        if (e.target.closest(".decant, .guide-link, a")) return;   // let actions/links work
+        const open = detail.classList.toggle("open");
+        row.classList.toggle("open", open);
+        row.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      rows.appendChild(detail);
+    }
   });
   if (!L.curated){
     const sb = shownBuilds(L);
@@ -1851,7 +1917,17 @@ function renderAssay(){
     $("#assayTiers").innerHTML = ts.segs;
     $("#assayTierLegend").innerHTML = ts.legend;
   }
-  $("#assayCaveat").innerHTML = `These shares cover the most-played ascendancies poe.ninja publishes; they don't sum to 100% — the rest is the long tail. Character counts are <b>derived</b> from share × league total, not a measured headcount. Curated leagues (Standard) are left out of the assay. Ascendancy-level only — no per-skill data.`;
+  // The Dispensary — what the whole ladder runs (global skills/supports/notables/uniques)
+  const metaPanel = $("#assayMetaPanel");
+  if (metaPanel){
+    if (META && META.global){
+      $("#assayMetaGrid").innerHTML =
+        metaCol("Top skills", META.global.skills) + metaCol("Top supports", META.global.supports) +
+        metaCol("Top notables", META.global.notables) + metaCol("Top uniques", META.global.uniques);
+      metaPanel.hidden = false;
+    } else metaPanel.hidden = true;
+  }
+  $("#assayCaveat").innerHTML = `Ascendancy shares cover the most-played ascendancies poe.ninja publishes; they don't sum to 100% — the rest is the long tail. Character counts are <b>derived</b> from share × league total, not a measured headcount. Curated leagues (Standard) are left out of the assay. <b>Skill / support / notable / unique popularity</b> (The Dispensary, and each expanded ledger row) is the share of published characters running each, aggregated from poe.ninja's build index.`;
   // grow-in once visible
   watchAssay();
 }
@@ -2061,6 +2137,9 @@ async function boot(){
     if (norm) DATA = norm;
     else dataState = "sample";   // missing (e.g. 404) or malformed — keep SAMPLE_DATA, but say so
   }catch(_){ dataState = "sample"; /* offline / file:// — sample stands in */ }
+
+  // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
+  try{ const mr = await fetch("meta-detail.json", { cache:"no-store" }); if (mr.ok) META = await mr.json(); }catch(_){ /* enrichment only — fine if absent */ }
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
