@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 
+
+# node build-generator data cache (GGG/PoB data — fetched at runtime, never vendored)
+tools/.cache/
