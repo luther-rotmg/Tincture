@@ -2,7 +2,7 @@
 
 **The current Path of Exile 2 meta, distilled from the ladder and decanted into your game with one click.**
 
-Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, and lets you drop any build straight into your in-game Build Planner — no alt-tabbing, no copy-paste, no spreadsheets. It auto-refreshes every hour, so it's never out of date.
+Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, and lets you export any pick as a labelled starting template in one click. It auto-refreshes every hour, so it's never out of date. (Loadable one-click builds — straight into your in-game Build Planner — are the next milestone; we don't fake a `.build` the game would silently refuse.)
 
 > Built for the **Runes of Aldur** league (PoE 2 patch 0.5.0). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
 
@@ -15,11 +15,13 @@ Tincture reads what the top of the live ladder is actually playing, boils thousa
 
 ## Why it's different
 
-The big sites are planners and raw stat dashboards. Tincture is a **discovery** tool with one job: get you from "what should I play?" to *playing it* in a single click.
+The big sites are planners and raw stat dashboards. Tincture is a **discovery** tool with one job: get you from "what should I play?" to a confident starting point, fast — and it's honest about exactly what it knows.
 
-- **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, with 24-hour trend arrows so you can see what's rising before everyone else.
-- **One-click Decant.** Connect your `BuildPlanner` folder once, and every build writes straight into it via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API). The game picks it up automatically. (Other sites just hand you a download to move yourself.)
-- **Never stale.** A scheduled job re-distills the meta every hour and commits the result. The page just reads it.
+- **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with 24-hour trend arrows that light up once a day of snapshots has accumulated.
+- **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, and a cross-league comparison — all hand-rolled SVG, no libraries, computed in your browser.
+- **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The same static file the page reads is the public "API" — no backend, no key.
+- **One-click Decant (honest about it).** Decant exports a labelled meta template — ascendancy, ladder share, sample, playstyle, guide pointer — via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API) or a download. It's a starting pointer, **not** a loadable `.build`; the game silently refuses malformed files, so we don't fabricate one. Loadable builds land with the GGG character pull.
+- **Never stale.** A scheduled job re-distills the meta every hour, **validates** the result, and commits only if it passes. The page just reads it.
 
 ---
 
@@ -48,10 +50,12 @@ Tincture/
 ├── SCHEMA.md                   # the reverse-engineered .build file format
 ├── scripts/
 │   ├── distill.py              # the distillation engine (meta -> data.json)
-│   ├── buildfile.py            # .build serializer + validator
+│   ├── buildfile.py            # .build serializer + validator (+ is_loadable guard)
+│   ├── test_distill.py         # stdlib unit tests — the honesty invariants
 │   └── ggg.py                  # GGG API client: ladder character -> .build
 ├── .github/workflows/
-│   └── distill.yml             # hourly refresh + commit
+│   ├── distill.yml             # hourly refresh — validates, then commits if it passes
+│   └── test.yml                # runs the test suite on code changes
 ├── LICENSE
 └── README.md
 ```
@@ -71,6 +75,10 @@ python scripts/distill.py --probe
 
 # A real run (what the Action does):
 python scripts/distill.py
+
+# Run the test suite (stdlib unittest — no network, no pip):
+python scripts/test_distill.py
+python scripts/buildfile.py --selftest
 ```
 
 To view the site, serve the folder and open it (the File System Access API needs `http`/`https`, not `file://`):
@@ -115,11 +123,16 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 
 - [x] Decode the `.build` format ([SCHEMA.md](SCHEMA.md)) + a validated serializer (`scripts/buildfile.py`)
 - [x] Live meta from poe.ninja's `build-index-state` (ascendancy shares + 24h trend)
-- [ ] **Real Decant content** — pull a representative public ladder character via GGG's Character API, run it through the serializer, and commit `builds/<slug>.build` (the page already fetches those, falling back to a placeholder)
-- [ ] Complete the ascendancy → code table
+- [x] League switcher — Softcore / Hardcore / SSF / HC SSF + Standard (dropdown)
+- [x] **The Assay** — class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, cross-league comparison (hand-rolled SVG)
+- [x] **The Cellar** — every build across every league in one sortable table, raw `data.json` view, CSV/JSON export, open-data docs
+- [x] Ledger enrichment — editorial playstyle tags, sample-confidence cue, honest "baseline" trends, top-N coverage footnote
+- [x] **Honest Decant** — exports a labelled meta template (`.txt`), never a fabricated `.build`; serves a real `.build` automatically once one exists
+- [x] Test suite + CI — stdlib invariants (`scripts/test_distill.py`), and the hourly distill validates its output before committing
+- [ ] **Real Decant content** — pull a representative public ladder character via GGG's Character API, run it through the serializer, and commit `builds/<slug>.build` (the page already fetches those first, falling back to the template)
+- [ ] Complete the ascendancy → `.build` code table (only `Martial Artist → Monk1` is confirmed)
 - [ ] **Direct GGG ladder cross-check** — a second source so the meta isn't single-sourced
 - [ ] A guide directory — link out to the best community guide for each meta build
-- [x] League switcher — Softcore / Hardcore / SSF / HC SSF + Standard (dropdown)
 
 ---
 
