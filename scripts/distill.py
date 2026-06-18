@@ -72,6 +72,24 @@ NO_BREAKDOWN_NOTE = (
     "Pick a Runes of Aldur league for the live meta."
 )
 
+# poe.ninja doesn't rank Standard, so instead of an empty tab we surface a short,
+# hand-picked set of evergreen archetypes. These are NOT live ladder data (no %, no
+# trend) — just classic, beginner-friendly starting points. Edit freely.
+CURATED_NOTE = (
+    "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen "
+    "archetypes — classic, beginner-friendly starting points, not live ladder data."
+)
+CURATED = {
+    "standard": [
+        {"cls": "Witch",     "asc": "Infernalist", "tag": "Evergreen minion summoner — hands-off, beginner-friendly"},
+        {"cls": "Ranger",    "asc": "Deadeye",     "tag": "Classic bow / projectiles — fast clear"},
+        {"cls": "Warrior",   "asc": "Titan",       "tag": "Slow, tanky slam melee — very forgiving"},
+        {"cls": "Sorceress", "asc": "Stormweaver", "tag": "Elemental spellcaster — strong bossing"},
+        {"cls": "Monk",      "asc": "Invoker",     "tag": "Elemental strike melee — high mobility"},
+        {"cls": "Mercenary", "asc": "Witchhunter", "tag": "Crossbow generalist — flexible, anti-caster"},
+    ],
+}
+
 
 def target_leagues():
     """The leagues we surface, in dropdown order: challenge variants then permanent."""
@@ -271,6 +289,24 @@ def distill_league(raw_builds, prev_builds, total, meta):
     return league
 
 
+def curated_league(meta, total):
+    """A non-ladder, hand-picked archetype list for a league poe.ninja doesn't rank.
+    Builds carry no pop/delta/tier (null) so the front end renders them as a labeled
+    reference list, not a ranked ledger."""
+    picks = CURATED.get(meta["url"], [])
+    builds = [{
+        "rank": i, "tier": "", "cls": c["cls"], "asc": c["asc"],
+        "skill": "", "pop": None, "delta": None, "n": None, "tag": c["tag"],
+    } for i, c in enumerate(picks, start=1)]
+    return {
+        "url": meta["url"], "name": meta["name"], "mode": meta["mode"], "label": meta["label"],
+        "curated": True,
+        "note": CURATED_NOTE,
+        "totals": {"characters": int(total or 0), "ascendancies": len({c["asc"] for c in picks})},
+        "builds": builds,
+    }
+
+
 def build_payload(leagues):
     return {
         "patch": PATCH,
@@ -340,13 +376,19 @@ def run_live():
             print(f"[live] {meta['url']} not in feed — skipping")
             continue
         rows, total = normalize_one(league_obj)
-        league = distill_league(rows, prev_builds_for(previous, meta["url"]), total, meta)
-        print(f"[live] {meta['label']:<28} {len(league['builds']):>2} builds, "
+        if rows:
+            league = distill_league(rows, prev_builds_for(previous, meta["url"]), total, meta)
+        elif meta["url"] in CURATED:
+            league = curated_league(meta, total)
+        else:
+            league = distill_league([], prev_builds_for(previous, meta["url"]), total, meta)
+        kind = "curated" if league.get("curated") else "builds"
+        print(f"[live] {meta['label']:<28} {len(league['builds']):>2} {kind}, "
               f"{league['totals']['characters']:>7,} characters")
         leagues_out.append(league)
 
-    if not any(l["builds"] for l in leagues_out):
-        print("\n[live] no league had usable build data — keeping the existing data.json. "
+    if not any(l["builds"] for l in leagues_out if not l.get("curated")):
+        print("\n[live] no ranked league had usable build data — keeping the existing data.json. "
               "Exiting 0 so the site stays up.")
         return 0
 

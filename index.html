@@ -122,6 +122,11 @@
   .league-select:hover, .league-select:focus-visible{color:var(--gold-bright);}
   .league-select option{background:var(--ink-2); color:var(--bone); text-transform:none; letter-spacing:normal;}
   .decant:disabled, .decant[disabled]{opacity:.4; cursor:not-allowed; box-shadow:none; filter:grayscale(.5);}
+  .ledger-note{
+    padding:15px 18px; margin:0 0 4px; color:var(--bone-dim);
+    font-family:var(--fmono); font-size:12px; line-height:1.7; letter-spacing:.02em;
+    border-left:2px solid var(--gold); background:linear-gradient(90deg, rgba(200,162,74,.06), transparent);
+  }
   .updated{
     font-family:var(--fmono); font-size:11px; letter-spacing:.08em; color:var(--muted);
   }
@@ -567,8 +572,16 @@ const SAMPLE_DATA = {
     },
     {
       url:"standard", name:"Standard", mode:"Standard", label:"Standard",
-      totals:{ characters:75622, ascendancies:0 }, builds:[],
-      note:"poe.ninja doesn't publish a ranked build breakdown for permanent leagues. Pick a Runes of Aldur league for the live meta."
+      curated:true, totals:{ characters:75622, ascendancies:6 },
+      note:"Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
+      builds:[
+        { rank:1, tier:"", cls:"Witch",     asc:"Infernalist", skill:"", pop:null, delta:null, n:null, tag:"Evergreen minion summoner — hands-off, beginner-friendly" },
+        { rank:2, tier:"", cls:"Ranger",    asc:"Deadeye",     skill:"", pop:null, delta:null, n:null, tag:"Classic bow / projectiles — fast clear" },
+        { rank:3, tier:"", cls:"Warrior",   asc:"Titan",       skill:"", pop:null, delta:null, n:null, tag:"Slow, tanky slam melee — very forgiving" },
+        { rank:4, tier:"", cls:"Sorceress", asc:"Stormweaver", skill:"", pop:null, delta:null, n:null, tag:"Elemental spellcaster — strong bossing" },
+        { rank:5, tier:"", cls:"Monk",      asc:"Invoker",     skill:"", pop:null, delta:null, n:null, tag:"Elemental strike melee — high mobility" },
+        { rank:6, tier:"", cls:"Mercenary", asc:"Witchhunter", skill:"", pop:null, delta:null, n:null, tag:"Crossbow generalist — flexible, anti-caster" }
+      ]
     }
   ]
 };
@@ -636,9 +649,9 @@ function buildFile(b){
     class: b.cls,
     ascendancy: b.asc,
     primarySkill: b.skill || null,
-    metaShare: b.pop,
-    trend24h: b.delta,
-    distilledFrom: b.n
+    metaShare: b.pop ?? null,
+    trend24h: b.delta ?? null,
+    distilledFrom: b.n ?? null
   }, null, 2);
 }
 const safeName = b => `${b.asc}-${b.skill}`.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") + ".build";
@@ -726,8 +739,9 @@ function renderChips(){
 function currentBuilds(){
   let list = (curLeague().builds||[]).slice();
   if (activeClass !== "All") list = list.filter(b=>b.cls===activeClass);
-  if (activeSort === "trend") list.sort((a,b)=> b.delta - a.delta);
-  else list.sort((a,b)=> b.pop - a.pop);
+  const num = v => (v==null ? -Infinity : v);  // curated builds have null pop/delta
+  if (activeSort === "trend") list.sort((a,b)=> num(b.delta) - num(a.delta));
+  else list.sort((a,b)=> num(b.pop) - num(a.pop));
   return list;
 }
 function renderRows(){
@@ -737,27 +751,40 @@ function renderRows(){
     rows.innerHTML = `<div style="padding:44px 20px;color:var(--bone-dim);font-family:var(--fmono);font-size:13px;line-height:1.8;max-width:680px">${L.note || ("No ranked build data for " + (L.name||"this league") + ".")}</div>`;
     return;
   }
+  if (L.curated && L.note){
+    const banner = document.createElement("div");
+    banner.className = "ledger-note";
+    banner.textContent = L.note;
+    rows.appendChild(banner);
+  }
   const list = currentBuilds();
   if (!list.length){
-    rows.innerHTML = `<div style="padding:40px 18px;color:var(--muted);font-family:var(--fmono);font-size:13px">No ${activeClass} builds in the current distillation. Pick another class above.</div>`;
+    const d = document.createElement("div");
+    d.style.cssText = "padding:40px 18px;color:var(--muted);font-family:var(--fmono);font-size:13px";
+    d.textContent = `No ${activeClass} builds in the current distillation. Pick another class above.`;
+    rows.appendChild(d);
     return;
   }
   list.forEach((b, i)=>{
-    const tierClass = b.tier.toLowerCase();
+    const tierClass = b.tier ? b.tier.toLowerCase() : "";
     const row = document.createElement("div");
     row.className = `row ${tierClass==='s'?'s':tierClass==='a'?'a':''}`;
+    const tierBadge = b.tier ? `<span class="tier ${tierClass}">${b.tier}</span>` : "";
+    const subBits = [b.cls && `<span class="cls">${b.cls}</span>`, b.tag, (b.n!=null ? `${fmt(b.n)} characters` : null)].filter(Boolean);
+    const popCell = (b.pop!=null) ? `<div class="pop">${b.pop.toFixed(1)}<small>%</small></div>` : `<div class="pop"></div>`;
+    const trendCell = (b.delta!=null) ? trendHTML(b.delta) : `<span class="trend flat"></span>`;
     row.innerHTML = `
       <div class="rank">${roman(i+1)}</div>
       <div class="build-cell">
         <div class="top">
-          <span class="tier ${tierClass}">${b.tier}</span>
+          ${tierBadge}
           <span class="asc-name">${b.asc}</span>
           ${b.skill ? `<span class="skill-name">${b.skill}</span>` : ""}
         </div>
-        <div class="sub">${[b.cls && `<span class="cls">${b.cls}</span>`, b.tag, `${fmt(b.n)} characters`].filter(Boolean).join(" · ")}</div>
+        <div class="sub">${subBits.join(" · ")}</div>
       </div>
-      <div class="pop">${b.pop.toFixed(1)}<small>%</small></div>
-      ${trendHTML(b.delta)}
+      ${popCell}
+      ${trendCell}
       <div class="row-actions">
         <button class="decant sm" data-rank="${b.rank}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
@@ -770,23 +797,24 @@ function renderRows(){
 }
 function renderHero(){
   const L = curLeague();
-  const blds = (L.builds||[]).slice().sort((a,b)=>b.pop-a.pop);
+  const ranked = (L.builds||[]).filter(b=>b.pop!=null).sort((a,b)=>b.pop-a.pop);
   const hd = $("#heroDecant");
-  if (!blds.length){
-    $("#essenceName").innerHTML = `<span class="asc">No ranked data</span>`;
+  if (!ranked.length){
+    const curated = L.curated && (L.builds||[]).length;
+    $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No ranked data"}</span>`;
     $("#essenceSub").innerHTML = L.note || `poe.ninja doesn't publish a build breakdown for ${L.name}.`;
     $("#heroChars").textContent = (L.totals && L.totals.characters) ? fmt(L.totals.characters) : "—";
-    $("#heroBuilds").textContent = "0";
+    $("#heroBuilds").textContent = String((L.builds||[]).length);
     $("#heroShare").innerHTML = `—`;
     if (hd){ hd.disabled = true; hd.onclick = null; }
     return;
   }
-  const top = blds[0];
+  const top = ranked[0];
   $("#essenceName").innerHTML = `<span class="asc">${top.asc}</span>${top.skill ? `<span class="skill">${top.skill}</span>` : ""}`;
   $("#essenceSub").innerHTML =
     `The clearest signal in <b>${L.name}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — distilled from <span class="figure">${fmt(top.n)}</span> characters.`;
   $("#heroChars").textContent = fmt((L.totals && L.totals.characters) || 0);
-  $("#heroBuilds").textContent = blds.length;
+  $("#heroBuilds").textContent = ranked.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
   if (hd){ hd.disabled = false; hd.onclick = ()=> decant(top); }
 }
