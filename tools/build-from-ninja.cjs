@@ -333,6 +333,28 @@ function aggregateGear(chars) {
   return { gear: topMods, runes: topRunes, sampled: chars.length };
 }
 
+// readable skill setups for ONE character: [{skill, supports[]}] in display names, dps-sorted
+function readableSkills(char) {
+  return (char.skills || [])
+    .map(g => {
+      const gems = (g.allGems || []).map(x => x.name).filter(Boolean);
+      const dps = Array.isArray(g.dps) ? Math.max(0, ...g.dps.map(d => Number(d && d.dps) || 0)) : 0;
+      return gems.length ? { skill: gems[0], supports: gems.slice(1), dps } : null;
+    })
+    .filter(Boolean).sort((a, b) => b.dps - a.dps).slice(0, 6)
+    .map(({ skill, supports }) => ({ skill, supports }));
+}
+// the character's equipped items (readable) in the .build's slots
+function buildItems(char) {
+  const out = [];
+  for (const it of (char.items || [])) {
+    const d = it.itemData || it;
+    if (!SLOT_MAP[d.inventoryId]) continue;
+    out.push({ slot: SLOT_MAP[d.inventoryId], name: d.name || d.typeLine || d.baseType || 'Item', unique: d.frameType === 3 });
+  }
+  return out;
+}
+
 // parsed search → meta-detail shape: top skills / supports / notables / uniques / anointments / weapon + stats
 async function extractMeta(s, gem) {
   const gemD = await dictNames(s.dicts.gem), kpD = await dictNames(s.dicts.keypassive), itD = await dictNames(s.dicts.item);
@@ -357,6 +379,11 @@ function writeBuild(slug, build) {
   const outDir = path.join(REPO, 'builds');
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, slug + '.build'), JSON.stringify(build, null, 2) + '\n');
+}
+// the poe.ninja-supplied Path of Building import code, served on demand (kept out of
+// meta-detail.json — it's ~12KB each — and fetched only when the user clicks "copy PoB").
+function writePob(slug, code) {
+  if (code) fs.writeFileSync(path.join(REPO, 'builds', slug + '.pob'), code);
 }
 function refreshManifest() {
   const outDir = path.join(REPO, 'builds');
@@ -411,23 +438,30 @@ async function main() {
       meta.byAsc[slug] = { asc, ...md };
       await sleep(600);
       if (SAMPLE > 0) {
-        // pull a small sample of top characters for gear/rune aggregation; build from the #1
-        const pairs = (s.vls.name || []).slice(0, SAMPLE).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm })).filter(p => p.account && p.name);
+        // pull a small sample of top characters: aggregate gear/runes, and build from a
+        // BALANCED-strong pick (good EHP and DPS, level 85+) rather than the raw #1 outlier.
+        const pairs = (s.vls.name || []).slice(0, SAMPLE).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm, ehp: _num((s.vls.ehp || [])[i]), dps: _num((s.vls.dps || [])[i]) })).filter(p => p.account && p.name);
         const pulled = [];
         for (const p of pairs) { try { pulled.push({ ...p, char: JSON.parse(await get(charUrl(sv, p.account, p.name))) }); } catch (e) {} await sleep(650); }
         if (pulled.length) {
           const ga = aggregateGear(pulled.map(p => p.char));
           meta.byAsc[slug].gear = ga.gear; meta.byAsc[slug].runes = ga.runes;
           pulled.forEach(p => globalChars.push(p.char));
-          const { account, name, char } = pulled[0];
+          const cands = pulled.filter(p => (p.char.level || 0) >= 85).length ? pulled.filter(p => (p.char.level || 0) >= 85) : pulled;
+          const maxE = Math.max(1, ...cands.map(p => p.ehp || 0)), maxD = Math.max(1, ...cands.map(p => p.dps || 0));
+          cands.sort((a, b) => Math.min((b.ehp || 0) / maxE, (b.dps || 0) / maxD) - Math.min((a.ehp || 0) / maxE, (a.dps || 0) / maxD));
+          const { account, name, char } = cands[0];
           try {
             const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
             if (report.ok) {
-              writeBuild(slug, build); builds++;
+              writeBuild(slug, build); writePob(slug, char.pathOfBuildingExport); builds++;
               meta.byAsc[slug].source = { account, name, level: char.level || null };
               meta.byAsc[slug].build = { passives: report.stats.sharedUnique, skills: report.stats.skills, items: report.stats.items };
+              meta.byAsc[slug].skillSetups = readableSkills(char);
+              meta.byAsc[slug].buildItems = buildItems(char);
+              meta.byAsc[slug].pob = !!char.pathOfBuildingExport;
               if (char.level) meta.byAsc[slug].stats.level = char.level;
-              console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name}`);
+              console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name} (L${char.level || '?'}, EHP ${cands[0].ehp || '?'}, DPS ${cands[0].dps || '?'})`);
             } else console.log(`  x ${asc.padEnd(20)} build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
           } catch (e) { console.log(`  x ${asc}: build ${e.message}`); }
         } else console.log(`  · ${asc}: no characters pulled`);

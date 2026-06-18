@@ -599,8 +599,6 @@
 
   /* ---- per-build meta detail (expandable ledger row) + global breakdown ---- */
   .row.has-detail{ cursor:pointer; }
-  .row.has-detail .asc-name::after{ content:"▸"; font-family:var(--fmono); font-size:10px; color:var(--muted); margin-left:9px; display:inline-block; transition:transform .2s ease, color .2s; }
-  .row.has-detail.open .asc-name::after{ transform:rotate(90deg); color:var(--gold); }
   .skills-line{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; color:var(--muted); margin-top:4px; }
   .skills-line b{ color:var(--bone-dim); font-weight:500; }
   .skills-line .sk{ color:var(--bone-dim); }
@@ -625,6 +623,23 @@
   .meta-gear h5{ color:var(--gold-bright); }
   .meta-gear-note{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; max-width:78ch; }
   .meta-gear-note b{ color:var(--bone-dim); font-weight:500; }
+  /* readable build view (console-friendly) + the expand toggle */
+  .row-toggle{ background:none; border:none; cursor:pointer; color:var(--muted); font-family:var(--fmono); font-size:11px; padding:2px 4px; margin-left:6px; line-height:1; transition:transform .2s ease, color .2s; }
+  .row-toggle:hover{ color:var(--gold); }
+  .row.open .row-toggle{ transform:rotate(90deg); color:var(--gold); }
+  .build-view{ margin-top:18px; padding-top:16px; border-top:1px solid var(--hair); }
+  .bv-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:13px; }
+  .bv-head h5{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-bright); margin:0; font-weight:500; }
+  .bv-cap{ font-family:var(--fmono); font-size:10px; color:var(--muted); }
+  .build-view h6{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin:0 0 10px; font-weight:500; }
+  .bv-skill{ margin:0 0 9px; line-height:1.35; }
+  .bv-main{ font-family:var(--ftext); font-size:14px; font-weight:600; color:var(--bone); }
+  .bv-sup{ font-family:var(--fmono); font-size:10.5px; color:var(--bone-dim); }
+  .bv-item{ display:flex; gap:9px; align-items:baseline; margin:0 0 6px; }
+  .bv-slot{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); min-width:72px; flex:none; }
+  .bv-name{ font-family:var(--ftext); font-size:13.5px; color:var(--bone-dim); }
+  .bv-name.uniq{ color:var(--gold-bright); }
+  .bv-actions{ margin-top:15px; }
 
   .section-caveat{
     margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
@@ -1453,12 +1468,23 @@ function metaGearGrid(md){
   return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear)}${metaCol("Weapon runes",md.runes)}</div>`
     + `<p class="meta-gear-note">Affixes = share of the sampled builds' <b>rare gear pieces</b> carrying each; runes = share of <b>sampled builds</b> socketing each. A small sample of top characters, so read it as a guide.</p>`;
 }
-function metaDetailHTML(md){
+// readable view of the one reconstructed build — skill setups + gear + a Copy-PoB button,
+// so console players (no file import) and anyone without the planner can replicate it by hand.
+function buildViewHTML(md, slug){
+  if (!md.source) return "";
+  const skills = (md.skillSetups||[]).map(s=>`<div class="bv-skill"><span class="bv-main">${esc(s.skill)}</span>${(s.supports||[]).length?` <span class="bv-sup">+ ${s.supports.map(esc).join(" · ")}</span>`:""}</div>`).join("");
+  const items = (md.buildItems||[]).map(it=>`<div class="bv-item"><span class="bv-slot">${esc(String(it.slot).replace(/[0-9]+$/,""))}</span><span class="bv-name${it.unique?" uniq":""}">${esc(it.name)}</span></div>`).join("");
+  if (!skills && !items) return "";
+  const pob = md.pob ? `<div class="bv-actions"><button class="arch-btn bv-pob" type="button" data-pob="${esc(slug)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5a1.5 1.5 0 0 1 1.5-1.5H15"/></svg> Copy Path of Building code</button></div>` : "";
+  return `<div class="build-view"><div class="bv-head"><h5>The build</h5><span class="bv-cap">The exact reconstructed setup — replicate by hand (console / no file import), or load the .build / PoB code.</span></div>`
+    + `<div class="meta-grid">${skills?`<div class="meta-col"><h6>Skill setups</h6>${skills}</div>`:""}${items?`<div class="meta-col"><h6>Gear</h6>${items}</div>`:""}</div>${pob}</div>`;
+}
+function metaDetailHTML(md, slug){
   const st = md.stats||{};
   const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
-  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters${md.gear&&md.gear.length?` · gear/runes from a sample of the top`:""}</span></div>` : "";
-  const src = md.source ? `<div class="meta-src">Decant reconstructs the top public-ladder build — character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a></div>` : "";
-  return metaCoreGrid(md) + metaGearGrid(md) + stats + src;
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters</span></div>` : "";
+  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a></div>` : "";
+  return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
 
 function renderRows(){
@@ -1517,6 +1543,7 @@ function renderRows(){
           ${tierBadge}
           <span class="asc-name">${esc(b.asc)}</span>
           ${b.skill ? `<span class="skill-name">${esc(b.skill)}</span>` : ""}
+          ${md ? `<button class="row-toggle" type="button" aria-expanded="false" aria-label="Show the meta breakdown and build for ${esc(b.asc)}">▸</button>` : ""}
         </div>
         <div class="sub">${subBits.join(" · ")}</div>
         ${skillsLine(md)}
@@ -1533,15 +1560,23 @@ function renderRows(){
     rows.appendChild(row);
     if (md){
       row.classList.add("has-detail");
-      row.setAttribute("aria-expanded", "false");
       const detail = document.createElement("div");
       detail.className = "row-detail";
-      detail.innerHTML = metaDetailHTML(md);
+      detail.innerHTML = metaDetailHTML(md, slugOf(b));
+      const toggleBtn = row.querySelector(".row-toggle");
       row.addEventListener("click", e => {
         if (e.target.closest(".decant, .guide-link, a")) return;   // let actions/links work
         const open = detail.classList.toggle("open");
         row.classList.toggle("open", open);
-        row.setAttribute("aria-expanded", open ? "true" : "false");
+        if (toggleBtn) toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");  // keyboard: the button bubbles its click to here
+      });
+      const pobBtn = detail.querySelector(".bv-pob");
+      if (pobBtn) pobBtn.addEventListener("click", async ()=>{
+        try {
+          const code = (await (await fetch("builds/"+pobBtn.dataset.pob+".pob", {cache:"no-store"})).text()).trim();
+          await navigator.clipboard.writeText(code);
+          toast(`Path of Building code copied — in PoB choose <b>Import build → From string</b> and paste.`, "ok", 6000);
+        } catch(_) { toast(`Couldn't copy the PoB code here.`, "warn"); }
       });
       rows.appendChild(detail);
     }

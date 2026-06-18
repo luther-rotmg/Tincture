@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-18T22:17:57.549Z",
+  "updated": "2026-06-18T23:07:54.865Z",
   "league": "runesofaldur",
   "version": "2036-20260618-34455",
   "total": 124262,
@@ -440,15 +440,130 @@
         }
       ],
       "source": {
-        "account": "heygyus-0416",
-        "name": "ResurrectGodAura",
+        "account": "Korezz-5129",
+        "name": "SLAVIK",
         "level": 100
       },
       "build": {
-        "passives": 100,
-        "skills": 14,
+        "passives": 104,
+        "skills": 15,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Twister",
+          "supports": [
+            "Retreat III",
+            "Projectile Acceleration III",
+            "Garukhan's Resolve",
+            "Elemental Armament II",
+            "Rakiata's Flow"
+          ]
+        },
+        {
+          "skill": "Whirling Slash",
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III",
+            "Rigwald's Ferocity",
+            "Magnified Area II",
+            "Blazing Critical"
+          ]
+        },
+        {
+          "skill": "Hollow Focus",
+          "supports": [
+            "Magnified Area II",
+            "Cooldown Recovery II",
+            "Overabundance II",
+            "Close Combat II",
+            "Execute II"
+          ]
+        },
+        {
+          "skill": "Spear Stab",
+          "supports": [
+            "Prolonged Duration II",
+            "Perpetual Charge",
+            "Rapid Attacks III",
+            "Hit and Run",
+            "Rage III"
+          ]
+        },
+        {
+          "skill": "Barrage",
+          "supports": [
+            "Olroth's Conviction",
+            "Rapid Casting III",
+            "Cooldown Recovery II",
+            "Heightened Charges",
+            "Perpetual Charge"
+          ]
+        },
+        {
+          "skill": "Herald of Ice",
+          "supports": [
+            "Magnified Area II",
+            "Elemental Armament II",
+            "Longshot II",
+            "Cold Mastery",
+            "Ambush"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring2",
+          "name": "Pain Twirl",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "The Taming",
+          "unique": true
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Empyrean Fist",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Behemoth Shelter",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Havoc Trail",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "The Ordained",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Skysliver",
+          "unique": true
+        },
+        {
+          "slot": "Helm1",
+          "name": "The Black Insignia",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Blight Beads",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "invoker": {
       "asc": "Invoker",
@@ -604,7 +719,7 @@
       "stats": {
         "ehp": 24000,
         "dps": 302000,
-        "level": 100
+        "level": 98
       },
       "top": {
         "account": "Tomnus-1549",
@@ -667,15 +782,130 @@
         }
       ],
       "source": {
-        "account": "Tomnus-1549",
-        "name": "PoTayToms",
-        "level": 100
+        "account": "Tmodlex-6935",
+        "name": "Endurok",
+        "level": 98
       },
       "build": {
-        "passives": 102,
+        "passives": 101,
         "skills": 12,
-        "items": 9
-      }
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Tul's Stillness",
+            "Pinpoint Critical",
+            "Concentrated Area",
+            "Efficiency II"
+          ]
+        },
+        {
+          "skill": "Cast on Elemental Ailment",
+          "supports": [
+            "Arc",
+            "Esh's Radiance",
+            "Pinpoint Critical",
+            "Arbiter's Ignition",
+            "Deliberation"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Considered Casting",
+            "Pierce III",
+            "Projectile Acceleration III",
+            "Pinpoint Critical",
+            "Ice Bite II"
+          ]
+        },
+        {
+          "skill": "Orb of Storms",
+          "supports": [
+            "Harmonic Remnants II",
+            "Efficiency II",
+            "Pinpoint Critical",
+            "Overabundance I",
+            "Unleash"
+          ]
+        },
+        {
+          "skill": "Frost Bomb",
+          "supports": [
+            "Harmonic Remnants II",
+            "Potent Exposure",
+            "Cooldown Recovery II",
+            "Magnified Area II",
+            "Rapid Casting I"
+          ]
+        },
+        {
+          "skill": "Sigil of Power",
+          "supports": [
+            "Cooldown Recovery II",
+            "Prolonged Duration II",
+            "Second Wind III",
+            "Magnified Area II",
+            "Rapid Casting II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Boots1",
+          "name": "Dragon Road",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Maligaro's Virtuosity",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Viper Shell",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Hypnotic Charm",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Vortex Weaver",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Adonia's Ego",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Dragon Knot",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Dread Hold",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Helm1",
+          "name": "Gale Cowl",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "acolyte-of-chayula": {
       "asc": "Acolyte of Chayula",
@@ -878,15 +1108,127 @@
         }
       ],
       "source": {
-        "account": "Bellyshock66-2221",
-        "name": "Dojshy",
+        "account": "1_mana_left-5237",
+        "name": "LukaChonkic",
         "level": 99
       },
       "build": {
-        "passives": 120,
-        "skills": 8,
-        "items": 9
-      }
+        "passives": 125,
+        "skills": 12,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Spell Cascade",
+            "Energy Retention",
+            "Efficiency II",
+            "Rakiata's Flow"
+          ]
+        },
+        {
+          "skill": "Firestorm",
+          "supports": [
+            "Fire Penetration II",
+            "Considered Casting",
+            "Ignite III",
+            "Arbiter's Ignition"
+          ]
+        },
+        {
+          "skill": "Spellslinger",
+          "supports": [
+            "Flame Wall",
+            "Orb of Storms",
+            "Efficiency II",
+            "Overabundance II",
+            "Elemental Focus"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Prolonged Duration II",
+            "Vilenta's Propulsion",
+            "Efficiency II",
+            "Pinpoint Critical",
+            "Trickster's Shard"
+          ]
+        },
+        {
+          "skill": "Ball Lightning",
+          "supports": [
+            "Multishot II",
+            "Projectile Acceleration III",
+            "Lightning Exposure",
+            "Innervate"
+          ]
+        },
+        {
+          "skill": "Pounce",
+          "supports": [
+            "Uhtred's Rite",
+            "Rapid Attacks III",
+            "Cooldown Recovery II",
+            "Holy Descent"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Helm1",
+          "name": "Doom Ward",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Beast Claw",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Sol Sanctuary",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Rage Twine",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Spirit League",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Loath Charm",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Dragon Band",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Heavy Changeling Talisman of the Pupil",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Sol Rosary",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "deadeye": {
       "asc": "Deadeye",
@@ -1109,15 +1451,124 @@
         }
       ],
       "source": {
-        "account": "lua_dipaa-4786",
-        "name": "AESPA_LEMONADE",
+        "account": "DukeBarr-4283",
+        "name": "HarambeIceshot",
         "level": 100
       },
       "build": {
-        "passives": 103,
-        "skills": 8,
+        "passives": 102,
+        "skills": 10,
         "items": 9
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Ice Shot",
+          "supports": [
+            "Garukhan's Resolve",
+            "Elemental Armament II",
+            "Rakiata's Flow",
+            "Freeze",
+            "Cold Attunement"
+          ]
+        },
+        {
+          "skill": "Tornado Shot",
+          "supports": [
+            "Prolonged Duration II",
+            "Overabundance II",
+            "Durability",
+            "Blind II"
+          ]
+        },
+        {
+          "skill": "Snipe",
+          "supports": [
+            "Elemental Armament II",
+            "Elemental Focus",
+            "Concentrated Area",
+            "Window of Opportunity II",
+            "Close Combat II"
+          ]
+        },
+        {
+          "skill": "Mirage Deadeye",
+          "supports": [
+            "Ice Shot",
+            "Rapid Attacks II",
+            "Elemental Armament II",
+            "Deliberation",
+            "Cooldown Recovery II"
+          ]
+        },
+        {
+          "skill": "Herald of Ice",
+          "supports": [
+            "Elemental Armament II",
+            "Magnified Area II",
+            "Longshot II",
+            "Elemental Focus",
+            "Cold Penetration"
+          ]
+        },
+        {
+          "skill": "Blasphemy",
+          "supports": [
+            "Repulsion",
+            "Magnified Area II",
+            "Ritualistic Curse",
+            "Living Lightning II",
+            "Blind II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Amulet1",
+          "name": "Vengeance Rosary",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Skull Sole",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Damnation Sanctuary",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Sorrow Crest",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Golem Grasp",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Kraken Wing",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Maelström Circle",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Gloom Hold",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "pathfinder": {
       "asc": "Pathfinder",
@@ -1340,7 +1791,120 @@
         "passives": 110,
         "skills": 10,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Ice Shot",
+          "supports": [
+            "Rakiata's Flow",
+            "Garukhan's Resolve",
+            "Elemental Armament II",
+            "Nova Projectiles I",
+            "Fork"
+          ]
+        },
+        {
+          "skill": "Tornado Shot",
+          "supports": [
+            "Overabundance II",
+            "Durability",
+            "Rapid Attacks II",
+            "Concentrated Area",
+            "Blind II"
+          ]
+        },
+        {
+          "skill": "Pounce",
+          "supports": [
+            "Freezing Mark",
+            "Eternal Mark",
+            "Charged Mark",
+            "Rapid Attacks III",
+            "Prolonged Duration II"
+          ]
+        },
+        {
+          "skill": "Herald of Thunder",
+          "supports": [
+            "Elemental Armament II",
+            "Concentrated Area",
+            "Elemental Focus",
+            "Lightning Penetration",
+            "Lightning Mastery"
+          ]
+        },
+        {
+          "skill": "Herald of Ice",
+          "supports": [
+            "Magnified Area II",
+            "Elemental Focus",
+            "Elemental Armament II",
+            "Longshot II",
+            "Cold Penetration"
+          ]
+        },
+        {
+          "skill": "Eternal Rage",
+          "supports": [
+            "Her Declaration",
+            "Atziri's Communion",
+            "Dialla's Desire"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Amulet1",
+          "name": "Corruption Locket",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Maelström Knuckle",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Woe Stinger",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Honour Stride",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Oblivion Ward",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Doom Shell",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Rift Hand",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Hysseg's Claw",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Horror Spiral",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        }
+      ],
+      "pob": true
     },
     "titan": {
       "asc": "Titan",
@@ -1563,15 +2127,130 @@
         }
       ],
       "source": {
-        "account": "methanman-2640",
-        "name": "goodnerfing",
+        "account": "flyinghigh42-0275",
+        "name": "STICKYBEARZ",
         "level": 100
       },
       "build": {
-        "passives": 102,
-        "skills": 9,
+        "passives": 105,
+        "skills": 11,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Rampage",
+          "supports": [
+            "Atalui's Bloodletting",
+            "Garukhan's Resolve",
+            "Rakiata's Flow",
+            "Uul-Netol's Embrace",
+            "Rigwald's Ferocity"
+          ]
+        },
+        {
+          "skill": "Maul",
+          "supports": [
+            "Rage III",
+            "Rapid Attacks II",
+            "Volcanic Eruption",
+            "Close Combat II",
+            "Concentrated Area"
+          ]
+        },
+        {
+          "skill": "Lunar Assault",
+          "supports": [
+            "Rapid Attacks II",
+            "Close Combat II",
+            "Freeze",
+            "Bhatair's Vengeance",
+            "Prolonged Duration II"
+          ]
+        },
+        {
+          "skill": "Pounce",
+          "supports": [
+            "Mark for Death",
+            "Momentum",
+            "Holy Descent",
+            "Rapid Attacks II",
+            "Brutus' Brain"
+          ]
+        },
+        {
+          "skill": "Walking Calamity",
+          "supports": [
+            "Prolonged Duration II",
+            "Elemental Armament II",
+            "Fire Penetration II",
+            "Concentrated Area",
+            "Execute II"
+          ]
+        },
+        {
+          "skill": "Ferocious Roar",
+          "supports": [
+            "Raging Cry",
+            "Lifetap",
+            "Enraged Warcry II",
+            "Cooldown Recovery II",
+            "Exposing Cry"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon2",
+          "name": "Otherworldly Spirit",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Constricting Command",
+          "unique": true
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Morior Invictus",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Plague Spur",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Horror Coil",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Amor Mandragora",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Polcirkeln",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Woe Beads",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Tempest Claw",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "warbringer": {
       "asc": "Warbringer",
@@ -1727,7 +2406,7 @@
       "stats": {
         "ehp": 17000,
         "dps": 11000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "ConanDestylator-6965",
@@ -1790,15 +2469,119 @@
         }
       ],
       "source": {
-        "account": "ConanDestylator-6965",
-        "name": "StrangledAngel",
-        "level": 100
+        "account": "y01488-7457",
+        "name": "FucqmanG",
+        "level": 99
       },
       "build": {
-        "passives": 105,
-        "skills": 12,
-        "items": 10
-      }
+        "passives": 121,
+        "skills": 10,
+        "items": 9
+      },
+      "skillSetups": [
+        {
+          "skill": "Shield Wall",
+          "supports": [
+            "Vorana's Siege",
+            "Atalui's Bloodletting",
+            "Rapid Attacks II",
+            "Life Leech III",
+            "Heft"
+          ]
+        },
+        {
+          "skill": "Leap Slam",
+          "supports": [
+            "Rage III",
+            "Fist of War III",
+            "Rapid Attacks III"
+          ]
+        },
+        {
+          "skill": "Infernal Cry",
+          "supports": [
+            "Corrupting Cry II",
+            "Raging Cry",
+            "Tireless",
+            "Armour Break III",
+            "Vruun's Aftermath"
+          ]
+        },
+        {
+          "skill": "Fortifying Cry",
+          "supports": [
+            "Rage III",
+            "Heft",
+            "Corrupting Cry II",
+            "Uruk's Smelting",
+            "Brutality III"
+          ]
+        },
+        {
+          "skill": "Herald of Ash",
+          "supports": [
+            "Arbiter's Reach",
+            "Magnified Area II",
+            "Cannibalism I",
+            "Precision I"
+          ]
+        },
+        {
+          "skill": "Mace Strike",
+          "supports": [
+            "Rage I",
+            "Brutality III"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Boots1",
+          "name": "Trampletoe",
+          "unique": true
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Viper Nail",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Pandemonium Ram",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Golem Rosary",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Gale Vise",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Rage Circle",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Thrillsteel",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Phoenix Carapace",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "smith-of-kitava": {
       "asc": "Smith of Kitava",
@@ -1954,7 +2737,7 @@
       "stats": {
         "ehp": 49000,
         "dps": 82000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "Prec0cious-1317",
@@ -2017,15 +2800,120 @@
         }
       ],
       "source": {
-        "account": "Prec0cious-1317",
-        "name": "xxTheWizardOfOsu",
-        "level": 100
+        "account": "wiwa110-3997",
+        "name": "aleximaloenlol",
+        "level": 99
       },
       "build": {
-        "passives": 105,
+        "passives": 111,
         "skills": 10,
         "items": 9
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Shield Wall",
+          "supports": [
+            "Rapid Attacks II",
+            "Kaom's Madness",
+            "Ahn's Citadel",
+            "Uul-Netol's Embrace",
+            "Atalui's Bloodletting"
+          ]
+        },
+        {
+          "skill": "Raise Shield",
+          "supports": [
+            "Rapid Attacks III",
+            "Cadence",
+            "Close Combat II"
+          ]
+        },
+        {
+          "skill": "Leap Slam",
+          "supports": [
+            "Medved's Felling",
+            "Rapid Attacks III",
+            "Cadence"
+          ]
+        },
+        {
+          "skill": "Shield Charge",
+          "supports": [
+            "Rapid Attacks III",
+            "Rage III",
+            "Hit and Run",
+            "Cadence"
+          ]
+        },
+        {
+          "skill": "Infernal Cry",
+          "supports": [
+            "Raging Cry",
+            "Enraged Warcry II",
+            "Tireless",
+            "Cooldown Recovery II",
+            "Echoing Cry"
+          ]
+        },
+        {
+          "skill": "Fortifying Cry",
+          "supports": [
+            "Raging Cry",
+            "Heavy Swing",
+            "Enraged Warcry II",
+            "Brutality III",
+            "Heft"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon1",
+          "name": "Woe Blunt",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Rapture Stride",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Dusk Visage",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Carrion Mitts",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Plague Medallion",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Behemoth Turn",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Exceptional Warlord Cuirass",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "infernalist": {
       "asc": "Infernalist",
@@ -2181,7 +3069,7 @@
       "stats": {
         "ehp": 18000,
         "dps": 54000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "fwoggy-4424",
@@ -2248,15 +3136,129 @@
         }
       ],
       "source": {
-        "account": "fwoggy-4424",
-        "name": "Mahree",
-        "level": 100
+        "account": "KoblyCZ-4782",
+        "name": "FullmetalInfernalist",
+        "level": 99
       },
       "build": {
-        "passives": 126,
-        "skills": 11,
-        "items": 9
-      }
+        "passives": 103,
+        "skills": 14,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Firestorm",
+          "supports": [
+            "Concentrated Area",
+            "Considered Casting",
+            "Fire Mastery",
+            "Excise",
+            "Arbiter's Ignition"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Fork",
+            "Projectile Acceleration III",
+            "Considered Casting",
+            "Rakiata's Flow"
+          ]
+        },
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Boundless Energy II",
+            "Energy Retention",
+            "Spell Cascade",
+            "Inhibitor"
+          ]
+        },
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Powered by Verisium",
+            "Comet",
+            "Boundless Energy II",
+            "Energy Retention",
+            "Inhibitor"
+          ]
+        },
+        {
+          "skill": "Explosive Transmutation",
+          "supports": [
+            "Magnified Area II",
+            "Spell Cascade",
+            "Armour Break III",
+            "Runic Extraction",
+            "Armour Demolisher II"
+          ]
+        },
+        {
+          "skill": "Powered by Verisium",
+          "supports": [
+            "Uhtred's Constellation",
+            "Cooldown Recovery II",
+            "Efficiency II",
+            "Uruk's Smelting",
+            "Lifetap"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon2",
+          "name": "Vortex Branch",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Beast Paw",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Runeseeker's Call",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Gale Turn",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Alpha's Howl",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Oblivion Circle",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Reverie",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Tempest Tread",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Pain Beads",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        }
+      ],
+      "pob": true
     },
     "blood-mage": {
       "asc": "Blood Mage",
@@ -2487,7 +3489,121 @@
         "passives": 126,
         "skills": 11,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Coiling Bolts",
+          "supports": [
+            "Chaos Mastery",
+            "Zenith II",
+            "Deliberation",
+            "Considered Casting",
+            "Esh's Radiance"
+          ]
+        },
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Living Bomb",
+            "Spell Cascade",
+            "Boundless Energy II",
+            "Atalui's Bloodletting"
+          ]
+        },
+        {
+          "skill": "Despair",
+          "supports": [
+            "Chaos Mastery",
+            "Doedre's Undoing",
+            "Spell Cascade",
+            "Armour Break III",
+            "Withering Touch"
+          ]
+        },
+        {
+          "skill": "Explosive Transmutation",
+          "supports": [
+            "Physical Mastery",
+            "Armour Break III",
+            "Uruk's Smelting",
+            "Magnified Area II",
+            "Spell Cascade"
+          ]
+        },
+        {
+          "skill": "Blasphemy",
+          "supports": [
+            "Repulsion",
+            "Temporal Chains",
+            "Elemental Weakness",
+            "Enfeeble",
+            "Ritualistic Curse"
+          ]
+        },
+        {
+          "skill": "Impurity",
+          "supports": [
+            "Clarity II",
+            "Vitality II",
+            "Seraph's Heart",
+            "Her Declaration"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "BodyArmour1",
+          "name": "Atziri's Splendour",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Blood Noose",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Skull Sole",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Gale Claw",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Dusk Keep",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Liminal Coil",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Cataclysm Circle",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Grim Mast",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "lich": {
       "asc": "Lich",
@@ -2698,7 +3814,117 @@
         "passives": 104,
         "skills": 12,
         "items": 9
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Boundless Energy II",
+            "Uhtred's Augury",
+            "Execute III",
+            "Dialla's Desire"
+          ]
+        },
+        {
+          "skill": "Cast on Elemental Ailment",
+          "supports": [
+            "Comet",
+            "Living Bomb",
+            "Energy Retention",
+            "Magnified Area II",
+            "Spell Cascade"
+          ]
+        },
+        {
+          "skill": "Chaos Bolt",
+          "supports": [
+            "Withering Touch",
+            "Tul's Stillness",
+            "Searing Flame II",
+            "Frostfire",
+            "Ignite III"
+          ]
+        },
+        {
+          "skill": "Living Bomb",
+          "supports": [
+            "Ignite III",
+            "Fire Penetration II",
+            "Fire Exposure",
+            "Harmonic Remnants II",
+            "Freeze"
+          ]
+        },
+        {
+          "skill": "Wolf Pack",
+          "supports": [
+            "Romira's Requital",
+            "Amanamu's Tithe",
+            "Essence Harvest",
+            "Minion Instability",
+            "Poison III"
+          ]
+        },
+        {
+          "skill": "Despair",
+          "supports": [
+            "Kalisa's Crescendo",
+            "Cursed Ground",
+            "Decaying Hex",
+            "Arcane Surge",
+            "Chaotic Freeze"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring2",
+          "name": "Snakepit",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Dire Knot",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Dusk Talons",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Entropy Locket",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Golem Salvation",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Behemoth Hoof",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Dire Thirst",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Storm Shroud",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Headhunter",
+          "unique": true
+        }
+      ],
+      "pob": true
     },
     "abyssal-lich": {
       "asc": "Abyssal Lich",
@@ -2925,7 +4151,122 @@
         "passives": 101,
         "skills": 9,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Atziri's Communion",
+            "Detonate Dead",
+            "Energy Retention",
+            "Clarity II",
+            "Efficiency II"
+          ]
+        },
+        {
+          "skill": "Reap",
+          "supports": [
+            "Concentrated Area",
+            "Physical Mastery",
+            "Execute III",
+            "Zenith II",
+            "Rapid Casting II"
+          ]
+        },
+        {
+          "skill": "Thrashing Vines",
+          "supports": [
+            "Heft",
+            "Execute III",
+            "Zenith II",
+            "Blindside",
+            "Considered Casting"
+          ]
+        },
+        {
+          "skill": "Entangle",
+          "supports": [
+            "Accelerated Growth II",
+            "Branching Fissures II",
+            "Trickster's Shard",
+            "Execute III",
+            "Uul-Netol's Embrace"
+          ]
+        },
+        {
+          "skill": "Bonestorm",
+          "supports": [
+            "Heft",
+            "Execute III",
+            "Burgeon II",
+            "Rapid Casting II",
+            "Efficiency II"
+          ]
+        },
+        {
+          "skill": "Thunderstorm",
+          "supports": [
+            "Overabundance II",
+            "Rapid Casting II",
+            "Prolonged Duration II",
+            "Living Lightning II",
+            "Shock"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon1",
+          "name": "Soul Bane",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Soul Medallion",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Nightscale",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Grim Shell",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Corpse Call",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Victory Coil",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Vortex Nail",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Phoenix Track",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Atziri's Disdain",
+          "unique": true
+        }
+      ],
+      "pob": true
     },
     "stormweaver": {
       "asc": "Stormweaver",
@@ -3081,7 +4422,7 @@
       "stats": {
         "ehp": 17000,
         "dps": 174000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "Olsen1-5361",
@@ -3144,15 +4485,130 @@
         }
       ],
       "source": {
-        "account": "Olsen1-5361",
-        "name": "LetsGetDoryaniTonight_",
-        "level": 100
+        "account": "Pkmost-9836",
+        "name": "cobright",
+        "level": 99
       },
       "build": {
-        "passives": 101,
-        "skills": 14,
-        "items": 9
-      }
+        "passives": 113,
+        "skills": 12,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Boundless Energy II",
+            "Execute III",
+            "Efficiency II",
+            "Zenith II"
+          ]
+        },
+        {
+          "skill": "Firestorm",
+          "supports": [
+            "Overabundance II",
+            "Bounty II",
+            "Cooldown Recovery II",
+            "Deliberation",
+            "Mobility"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Pierce III",
+            "Zenith II",
+            "Execute III",
+            "Efficiency II",
+            "Vilenta's Propulsion"
+          ]
+        },
+        {
+          "skill": "Frost Bomb",
+          "supports": [
+            "Spell Cascade",
+            "Harmonic Remnants II",
+            "Overabundance I",
+            "Short Fuse II",
+            "Cooldown Recovery II"
+          ]
+        },
+        {
+          "skill": "Elemental Weakness",
+          "supports": [
+            "Magnified Area II",
+            "Slow Potency",
+            "Cursed Ground",
+            "Prolonged Duration II",
+            "Kalisa's Crescendo"
+          ]
+        },
+        {
+          "skill": "Explosive Transmutation",
+          "supports": [
+            "Efficiency II",
+            "Spell Cascade",
+            "Zenith II",
+            "Arbiter's Ignition",
+            "Magnified Area II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring1",
+          "name": "Phoenix Band",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Demon Weaver",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Brood League",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Wrath Bane",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Corruption Vise",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Behemoth Veil",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Bramble Cowl",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Vortex Heart",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "chronomancer": {
       "asc": "Chronomancer",
@@ -3355,15 +4811,130 @@
         }
       ],
       "source": {
-        "account": "HoodwinkTheSlayer-7436",
-        "name": "сильнейшийнегр",
+        "account": "Gangrena-7224",
+        "name": "AncientGangrena",
         "level": 99
       },
       "build": {
-        "passives": 124,
+        "passives": 100,
         "skills": 12,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Pinpoint Critical",
+            "Efficiency II",
+            "Living Bomb",
+            "Dialla's Desire"
+          ]
+        },
+        {
+          "skill": "Spellslinger",
+          "supports": [
+            "Comet",
+            "Pinpoint Critical",
+            "Boundless Energy II",
+            "Efficiency II",
+            "Energy Retention"
+          ]
+        },
+        {
+          "skill": "Frostbolt",
+          "supports": [
+            "Vilenta's Propulsion",
+            "Sione's Temper",
+            "Zenith II",
+            "Magnified Area II",
+            "Pinpoint Critical"
+          ]
+        },
+        {
+          "skill": "Cast on Elemental Ailment",
+          "supports": [
+            "Comet",
+            "Spell Cascade",
+            "Efficiency II",
+            "Living Bomb",
+            "Pinpoint Critical"
+          ]
+        },
+        {
+          "skill": "Frost Bomb",
+          "supports": [
+            "Prolonged Duration II",
+            "Short Fuse II",
+            "Potent Exposure",
+            "Cooldown Recovery II",
+            "Magnified Area II"
+          ]
+        },
+        {
+          "skill": "Frost Wall",
+          "supports": [
+            "Pinpoint Critical",
+            "Fortress II",
+            "Ice Bite II",
+            "Second Wind III",
+            "Cooldown Recovery II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Amulet1",
+          "name": "Brimstone Pendant",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Corpse Clasp",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Apocalypse Jack",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Chimeric Turn",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Snakepit",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Bramble Scratch",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Dire Sole",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Kraken Horn",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Maligaro's Virtuosity",
+          "unique": true
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Storm Beam",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "disciple-of-varashta": {
       "asc": "Disciple of Varashta",
@@ -3582,15 +5153,130 @@
         }
       ],
       "source": {
-        "account": "AssenVIK-6874",
-        "name": "vikgamersecret",
+        "account": "KingFud-1121",
+        "name": "KingFud_Varashta_RoA",
         "level": 100
       },
       "build": {
-        "passives": 126,
-        "skills": 14,
-        "items": 9
-      }
+        "passives": 101,
+        "skills": 11,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Boundless Energy II",
+            "Pinpoint Critical",
+            "Spell Cascade",
+            "Rakiata's Flow"
+          ]
+        },
+        {
+          "skill": "Orb of Storms",
+          "supports": [
+            "Unleash",
+            "Pinpoint Critical",
+            "Zenith II",
+            "Arbiter's Ignition",
+            "Overabundance II"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Esh's Radiance",
+            "Pinpoint Critical",
+            "Considered Casting",
+            "Pierce III",
+            "Projectile Acceleration III"
+          ]
+        },
+        {
+          "skill": "Frost Wall",
+          "supports": [
+            "Spell Cascade",
+            "Fortress II",
+            "Pinpoint Critical",
+            "Zenith II",
+            "Verglas"
+          ]
+        },
+        {
+          "skill": "Temporal Chains",
+          "supports": [
+            "Heightened Curse",
+            "Cursed Ground",
+            "Magnified Area II",
+            "Slow Potency",
+            "Efficiency II"
+          ]
+        },
+        {
+          "skill": "Arctic Armour",
+          "supports": [
+            "Cold Mastery",
+            "Pinpoint Critical",
+            "Embitter",
+            "Freeze",
+            "Cold Penetration"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Helm1",
+          "name": "Gloom Keep",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Hypnotic Bind",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Maligaro's Virtuosity",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kraken Loop",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Rage Pillar",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Brood Hoof",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Pain Salvation",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Beast Hold",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Victory Locket",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Glyph Pillar",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "tactician": {
       "asc": "Tactician",
@@ -3746,7 +5432,7 @@
       "stats": {
         "ehp": 26000,
         "dps": 98000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "Ezerielblade-1569",
@@ -3809,15 +5495,125 @@
         }
       ],
       "source": {
-        "account": "Ezerielblade-1569",
-        "name": "TTV_etojemals",
-        "level": 100
+        "account": "Exoxit-0276",
+        "name": "Exoxit_PooTwo",
+        "level": 99
       },
       "build": {
-        "passives": 124,
-        "skills": 11,
+        "passives": 105,
+        "skills": 14,
         "items": 9
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Crossbow Shot",
+          "supports": [
+            "Rapid Attacks II",
+            "Elemental Armament II",
+            "Longshot II",
+            "Elemental Focus",
+            "Pinpoint Critical"
+          ]
+        },
+        {
+          "skill": "Crossbow Shot",
+          "supports": [
+            "Thrill of the Kill",
+            "Atalui's Bloodletting",
+            "Magnified Area II",
+            "Potent Exposure",
+            "Rigwald's Ferocity"
+          ]
+        },
+        {
+          "skill": "Stormblast Bolts",
+          "supports": [
+            "Elemental Armament II",
+            "Deliberation",
+            "Blindside",
+            "Close Combat II",
+            "Concentrated Area"
+          ]
+        },
+        {
+          "skill": "Galvanic Shards",
+          "supports": [
+            "Elemental Armament II",
+            "Fork",
+            "Garukhan's Resolve",
+            "Dominus' Grasp",
+            "Nova Projectiles I"
+          ]
+        },
+        {
+          "skill": "Mirage Archer",
+          "supports": [
+            "Explosive Shot",
+            "Prolonged Duration II",
+            "Cooldown Recovery II",
+            "Magnified Area II",
+            "Blind II"
+          ]
+        },
+        {
+          "skill": "Wind Dancer",
+          "supports": [
+            "Blind II",
+            "Elemental Armament II",
+            "Close Combat II",
+            "Ambush",
+            "Magnified Area II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon2",
+          "name": "Foe Core",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Eagle Idol",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Sol Brow",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Painter's Servant",
+          "unique": true
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Ring2",
+          "name": "Vengeance Grip",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Morior Invictus",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Woe Trail",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "witchhunter": {
       "asc": "Witchhunter",
@@ -3972,8 +5768,7 @@
       ],
       "stats": {
         "ehp": 31000,
-        "dps": 81000,
-        "level": 99
+        "dps": 81000
       },
       "top": {
         "account": "tanya-8762",
@@ -4038,17 +5833,7 @@
           "name": "Guatelitzi's Soul Core of Endurance",
           "pct": 20
         }
-      ],
-      "source": {
-        "account": "tanya-8762",
-        "name": "magmafromhere",
-        "level": 99
-      },
-      "build": {
-        "passives": 124,
-        "skills": 11,
-        "items": 9
-      }
+      ]
     },
     "gemling-legionnaire": {
       "asc": "Gemling Legionnaire",
@@ -4204,7 +5989,7 @@
       "stats": {
         "ehp": 22000,
         "dps": 337000,
-        "level": 100
+        "level": 99
       },
       "top": {
         "account": "heygyus-0416",
@@ -4271,15 +6056,128 @@
         }
       ],
       "source": {
-        "account": "heygyus-0416",
-        "name": "ResurrectResurrected",
-        "level": 100
+        "account": "Sticker45-4455",
+        "name": "Venereable",
+        "level": 99
       },
       "build": {
-        "passives": 110,
-        "skills": 14,
-        "items": 9
-      }
+        "passives": 127,
+        "skills": 12,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Comet",
+            "Supercritical",
+            "Efficiency II",
+            "Rakiata's Flow",
+            "Powered by Verisium"
+          ]
+        },
+        {
+          "skill": "Orb of Storms",
+          "supports": [
+            "Overabundance II",
+            "Chain I",
+            "Overcharge",
+            "Zenith II",
+            "Lightning Exposure"
+          ]
+        },
+        {
+          "skill": "Spark",
+          "supports": [
+            "Rapid Casting II",
+            "Zenith II",
+            "Efficiency II",
+            "Vilenta's Propulsion",
+            "Pierce III"
+          ]
+        },
+        {
+          "skill": "Frost Bomb",
+          "supports": [
+            "Spell Echo",
+            "Spell Cascade",
+            "Cooldown Recovery II",
+            "Overabundance I",
+            "Short Fuse II"
+          ]
+        },
+        {
+          "skill": "The Stars Answer",
+          "supports": [
+            "Efficiency II",
+            "Zenith II",
+            "Execute II",
+            "Deliberation"
+          ]
+        },
+        {
+          "skill": "Arctic Armour",
+          "supports": [
+            "Execute III",
+            "Zenith II",
+            "Uhtred's Augury",
+            "Corrosion"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring2",
+          "name": "Viper Loop",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Runeseeker's Call",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Rune Spark",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Corpse Pole",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Vengeance Glance",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Dread Clasp",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Morbid Clutches",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Pandemonium Sanctuary",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "amazon": {
       "asc": "Amazon",
@@ -4494,15 +6392,124 @@
         }
       ],
       "source": {
-        "account": "darkjerem-5946",
-        "name": "GGramRotA",
+        "account": "Hkxd-5898",
+        "name": "xdhk",
         "level": 99
       },
       "build": {
-        "passives": 100,
-        "skills": 10,
+        "passives": 125,
+        "skills": 13,
         "items": 9
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Lightning Spear",
+          "supports": [
+            "Minion Pact II",
+            "Fork",
+            "Elemental Armament II",
+            "Rakiata's Flow",
+            "Garukhan's Resolve"
+          ]
+        },
+        {
+          "skill": "Spear Throw",
+          "supports": [
+            "Rapid Attacks II",
+            "Lightning Attunement",
+            "Minion Pact II",
+            "Lightning Exposure"
+          ]
+        },
+        {
+          "skill": "Primal Strikes",
+          "supports": [
+            "Concentrated Area",
+            "Elemental Armament II",
+            "Rage III",
+            "Lightning Attunement",
+            "Close Combat II"
+          ]
+        },
+        {
+          "skill": "Explosive Spear",
+          "supports": [
+            "Elemental Armament II",
+            "Fire Penetration II",
+            "Deliberation",
+            "Short Fuse I",
+            "Minion Pact II"
+          ]
+        },
+        {
+          "skill": "Storm Lance",
+          "supports": [
+            "Blazing Critical",
+            "Shock",
+            "Multishot II",
+            "Innervate",
+            "Minion Pact II"
+          ]
+        },
+        {
+          "skill": "Herald of Thunder",
+          "supports": [
+            "Elemental Armament II",
+            "Magnified Area II",
+            "Embitter",
+            "Cold Attunement",
+            "Longshot II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring2",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Torment Carapace",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Onslaught Edge",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Soul Knot",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Essentia Sanguis",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Hypnotic Locket",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Phoenix Peak",
+          "unique": false
+        },
+        {
+          "slot": "Boots1",
+          "name": "Dire Goad",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "spirit-walker": {
       "asc": "Spirit Walker",
@@ -4717,15 +6724,129 @@
         }
       ],
       "source": {
-        "account": "Aeone1-0564",
-        "name": "SnusInMyBlood",
+        "account": "ccjzzang-7575",
+        "name": "천주천주",
         "level": 100
       },
       "build": {
-        "passives": 101,
-        "skills": 16,
+        "passives": 103,
+        "skills": 17,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Twister",
+          "supports": [
+            "Garukhan's Resolve",
+            "Rakiata's Flow",
+            "Projectile Acceleration III",
+            "Prolonged Duration II",
+            "Elemental Armament II"
+          ]
+        },
+        {
+          "skill": "Whirling Slash",
+          "supports": [
+            "Rage III",
+            "Rapid Attacks III",
+            "Knockback",
+            "Blazing Critical",
+            "Rigwald's Ferocity"
+          ]
+        },
+        {
+          "skill": "Righteous Descent",
+          "supports": [
+            "Rapid Attacks III",
+            "Elemental Armament II",
+            "Magnified Area II",
+            "Momentum"
+          ]
+        },
+        {
+          "skill": "Wild Protector",
+          "supports": [
+            "Meat Shield II",
+            "Hulking Minions",
+            "Elemental Army",
+            "Romira's Requital",
+            "Minion Mastery"
+          ]
+        },
+        {
+          "skill": "Vivid Stampede",
+          "supports": [
+            "Magnified Area II",
+            "Elemental Armament II",
+            "Shock",
+            "Lightning Attunement",
+            "Stormfire"
+          ]
+        },
+        {
+          "skill": "Herald of Ice",
+          "supports": [
+            "Magnified Area II",
+            "Elemental Armament II",
+            "Longshot II",
+            "Embitter",
+            "Cold Mastery"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Weapon2",
+          "name": "The Ordained",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Andvarius",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Brimstone Tread",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Hate Paw",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Loath Curtain",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Brimstone Edge",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "The Taming",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Corruption Collar",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Helm1",
+          "name": "Brood Cowl",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "ritualist": {
       "asc": "Ritualist",
@@ -4944,7 +7065,119 @@
         "passives": 128,
         "skills": 11,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Vine Arrow",
+          "supports": [
+            "Magnified Area II",
+            "Swift Affliction II",
+            "Prolonged Duration II",
+            "Rapid Attacks II"
+          ]
+        },
+        {
+          "skill": "Bow Shot",
+          "supports": [
+            "Bleed III",
+            "Magnified Area II",
+            "Deadly Poison II"
+          ]
+        },
+        {
+          "skill": "Poisonburst Arrow",
+          "supports": [
+            "Ambush",
+            "Fork",
+            "Bursting Plague",
+            "Deadly Poison II",
+            "Tacati's Ire"
+          ]
+        },
+        {
+          "skill": "Toxic Growth",
+          "supports": [
+            "Arakaali's Lust",
+            "Concentrated Area",
+            "Execute III",
+            "Efficiency II",
+            "Long Fuse II"
+          ]
+        },
+        {
+          "skill": "Gas Arrow",
+          "supports": [
+            "Persistent Ground III",
+            "Ambush",
+            "Pinpoint Critical",
+            "Escalating Poison",
+            "Deadly Poison II"
+          ]
+        },
+        {
+          "skill": "Maul",
+          "supports": [
+            "Bursting Plague",
+            "Magnified Area I",
+            "Execute III",
+            "Pinpoint Critical",
+            "Bleed III"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring2",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Rage Bane",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Kraken Hold",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Heavy Changeling Talisman of Impact",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Helm1",
+          "name": "Scold's Bridle",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Sierran Inheritance",
+          "unique": true
+        },
+        {
+          "slot": "Ring1",
+          "name": "Ming's Heart",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Glyph League",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Dire Idol",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "oracle": {
       "asc": "Oracle",
@@ -5171,7 +7404,117 @@
         "passives": 104,
         "skills": 9,
         "items": 10
-      }
+      },
+      "skillSetups": [
+        {
+          "skill": "Ember Fusillade",
+          "supports": [
+            "Compressed Duration II",
+            "Swift Affliction III",
+            "Rakiata's Flow",
+            "Sione's Temper",
+            "Zenith II"
+          ]
+        },
+        {
+          "skill": "Cast on Critical",
+          "supports": [
+            "Living Bomb",
+            "Comet",
+            "Efficiency II",
+            "Zenith II",
+            "Dialla's Desire"
+          ]
+        },
+        {
+          "skill": "Spellslinger",
+          "supports": [
+            "Orb of Storms",
+            "Magnified Area II",
+            "Harmonic Remnants II",
+            "Boundless Energy II",
+            "Overabundance I"
+          ]
+        },
+        {
+          "skill": "Disengage",
+          "supports": [
+            "Rapid Attacks III",
+            "Cooldown Recovery II",
+            "Bleed III",
+            "Charge Profusion II"
+          ]
+        },
+        {
+          "skill": "Temporal Chains",
+          "supports": [
+            "Slow Potency",
+            "Deliberation",
+            "Inhibitor",
+            "Mobility"
+          ]
+        },
+        {
+          "skill": "Remnants of Kalguur",
+          "supports": [
+            "Harmonic Remnants II",
+            "Remnant Potency III"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Helm1",
+          "name": "Brood Visage",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Storm Bane",
+          "unique": false
+        },
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Victory Claw",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Skysliver",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Rage Span",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Vortex Gyre",
+          "unique": false
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Atziri's Splendour",
+          "unique": true
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Oblivion Beads",
+          "unique": false
+        }
+      ],
+      "pob": true
     },
     "shaman": {
       "asc": "Shaman",
@@ -5327,7 +7670,7 @@
       "stats": {
         "ehp": 25000,
         "dps": 133000,
-        "level": 99
+        "level": 98
       },
       "top": {
         "account": "Yorkerk-4812",
@@ -5394,15 +7737,127 @@
         }
       ],
       "source": {
-        "account": "Yorkerk-4812",
-        "name": "WhichMonstersTasteGood",
-        "level": 99
+        "account": "Gscrikle-7404",
+        "name": "Gscrikle_TTTT",
+        "level": 98
       },
       "build": {
-        "passives": 102,
-        "skills": 11,
-        "items": 9
-      }
+        "passives": 99,
+        "skills": 12,
+        "items": 10
+      },
+      "skillSetups": [
+        {
+          "skill": "Flame Wall",
+          "supports": [
+            "Fortress I",
+            "Fire Mastery",
+            "Magnified Area II",
+            "Efficiency II",
+            "Prolonged Duration II"
+          ]
+        },
+        {
+          "skill": "Resonating Shield",
+          "supports": [
+            "Minion Pact I",
+            "Vanguard II",
+            "Knockback",
+            "Elemental Armament I"
+          ]
+        },
+        {
+          "skill": "Wolf Pack",
+          "supports": [
+            "Minion Instability",
+            "Romira's Requital",
+            "Essence Harvest",
+            "Amanamu's Tithe"
+          ]
+        },
+        {
+          "skill": "Spell Totem",
+          "supports": [
+            "Spark",
+            "Urgent Totems III",
+            "Execute III",
+            "Vilenta's Propulsion",
+            "Rakiata's Flow"
+          ]
+        },
+        {
+          "skill": "Elemental Weakness",
+          "supports": [
+            "Prolonged Duration II",
+            "Efficiency II",
+            "Heightened Curse",
+            "Fire Mastery",
+            "Magnified Area II"
+          ]
+        },
+        {
+          "skill": "Archmage",
+          "supports": [
+            "Atziri's Communion",
+            "Her Declaration",
+            "Warm Blooded",
+            "Clarity II"
+          ]
+        }
+      ],
+      "buildItems": [
+        {
+          "slot": "Ring1",
+          "name": "Kalandra's Touch",
+          "unique": true
+        },
+        {
+          "slot": "Boots1",
+          "name": "Dread Sole",
+          "unique": false
+        },
+        {
+          "slot": "Helm1",
+          "name": "Hypnotic Visage",
+          "unique": false
+        },
+        {
+          "slot": "Ring2",
+          "name": "Pandemonium Finger",
+          "unique": false
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Rift Claw",
+          "unique": false
+        },
+        {
+          "slot": "Weapon1",
+          "name": "Morbid Cry",
+          "unique": false
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Pain Locket",
+          "unique": false
+        },
+        {
+          "slot": "Weapon2",
+          "name": "Runeseeker's Call",
+          "unique": true
+        },
+        {
+          "slot": "BodyArmour1",
+          "name": "Soul Carapace",
+          "unique": false
+        },
+        {
+          "slot": "Belt1",
+          "name": "Darkness Enthroned",
+          "unique": true
+        }
+      ],
+      "pob": true
     }
   }
 }
