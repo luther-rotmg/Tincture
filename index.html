@@ -158,6 +158,12 @@
     animation:pulse 2.6s ease-out infinite;
   }
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(140,170,102,.5);}70%{box-shadow:0 0 0 7px rgba(140,170,102,0);}100%{box-shadow:0 0 0 0 rgba(140,170,102,0);}}
+  /* shown only when the page is falling back to bundled sample data (never on the live site) */
+  .updated.is-sample{ color:var(--fall); }
+  .updated.is-sample .pulse{ background:var(--fall); animation:none; box-shadow:none; }
+  /* per-build "find a guide" pointer — a neutral web search, not an endorsed guide */
+  .guide-link{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.06em; color:var(--muted); text-decoration:none; white-space:nowrap; transition:color .18s; }
+  .guide-link:hover{ color:var(--gold-bright); }
 
   /* folder pill */
   .folder{
@@ -748,6 +754,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
             Decant the essence
           </button>
+          <a class="ghost-link" id="heroGuide" target="_blank" rel="noopener noreferrer" hidden>find a build guide ↗</a>
           <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
           <a href="#assay" class="ghost-link">see the analysis ↓</a>
           <a href="#archive" class="ghost-link">access all the data ↓</a>
@@ -1091,6 +1098,7 @@ function normalizeData(json){
 }
 
 let DATA = normalizeData(SAMPLE_DATA);
+let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
@@ -1382,6 +1390,15 @@ function currentBuilds(){
   else list.sort((a,b)=> num(b.pop) - num(a.pop));
   return list;
 }
+/* ----- guide pointer -----
+   Tincture doesn't host or rank build guides — this opens a neutral web search for
+   community guides for the picked ascendancy (patch-specific). An honest "find a guide",
+   not a "best guide" we can't substantiate. */
+function guideUrl(b){
+  const q = `${b.asc}${b.skill ? " " + b.skill : ""} Path of Exile 2 ${DATA.patch || "0.5.0"} build guide`;
+  return "https://www.google.com/search?q=" + encodeURIComponent(q);
+}
+
 function renderRows(){
   const rows = $("#rows"); rows.innerHTML = "";
   const L = curLeague();
@@ -1414,6 +1431,7 @@ function renderRows(){
       b.cls && `<span class="cls">${esc(b.cls)}</span>`,
       tag && esc(tag),
       (b.n!=null ? `~${fmt(b.n)} characters` : null),
+      `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${guideUrl(b)}" title="Open a web search for community build guides — Tincture doesn't host or endorse guides">guide ↗</a>`,
     ].filter(Boolean);
     const conf = confidence(b);
     const confHTML = conf
@@ -1463,8 +1481,9 @@ function renderRows(){
 function renderHero(){
   const L = curLeague();
   const ranked = (L.builds||[]).filter(b=>b.pop!=null).sort((a,b)=>b.pop-a.pop);
-  const hd = $("#heroDecant");
+  const hd = $("#heroDecant"), hg = $("#heroGuide");
   if (!ranked.length){
+    if (hg){ hg.hidden = true; hg.removeAttribute("href"); }
     const curated = L.curated && (L.builds||[]).length;
     $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No ranked data"}</span>`;
     $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}.`;
@@ -1485,18 +1504,28 @@ function renderHero(){
   $("#heroBuilds").textContent = ranked.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
   if (hd){ hd.disabled = false; hd.onclick = ()=> decant(top); }
+  if (hg){ hg.hidden = false; hg.href = guideUrl(top); }
 }
 function renderMeta(){
   const L = curLeague();
   const sel = $("#leagueSelect"); if (sel) sel.value = activeUrl;
   $("#patch").textContent = DATA.patch;
-  const rt = relTime(DATA.updated);
-  const abs = absTime(DATA.updated);
-  const upd = $("#updatedText"), foot = $("#footUpdated");
-  upd.textContent = "refreshed " + rt;
-  foot.textContent = "last refreshed " + rt;
-  // expose the precise instant to crawlers + screen readers, and on hover
-  [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC"; } });
+  const upd = $("#updatedText"), foot = $("#footUpdated"), updWrap = document.querySelector(".updated");
+  if (dataState !== "live"){
+    // showing the bundled sample — be honest about it; never render its baked timestamp
+    // as a live "refreshed X ago".
+    upd.textContent = "sample data — live feed unavailable";
+    foot.textContent = "showing bundled sample data";
+    [upd, foot].forEach(el => { if (el){ el.removeAttribute("datetime"); el.removeAttribute("title"); } });
+    if (updWrap) updWrap.classList.add("is-sample");
+  } else {
+    const rt = relTime(DATA.updated), abs = absTime(DATA.updated);
+    upd.textContent = "refreshed " + rt;
+    foot.textContent = "last refreshed " + rt;
+    // expose the precise instant to crawlers + screen readers, and on hover
+    [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC"; } });
+    if (updWrap) updWrap.classList.remove("is-sample");
+  }
   // The Still is a fixed brand statement about the LIVE Runes of Aldur ladder, and its
   // prose names that ladder — so pin its counters to the default (SC challenge) league
   // regardless of the dropdown. This avoids the curated Standard population (a whole-league
@@ -2022,14 +2051,16 @@ function watchStill(){
 
 /* ----- boot ----- */
 async function boot(){
-  // try live data; fall back to sample silently
+  // Try live data; fall back to the bundled sample. Distinguish a genuine fetch failure
+  // (offline / not deployed — the sample is the intended graceful fallback) from a
+  // fetched-but-unparseable response, so we NEVER pass bundled sample numbers off as the
+  // live meta (renderMeta surfaces a "sample data" marker whenever dataState !== "live").
   try{
     const res = await fetch("data.json", { cache:"no-store" });
-    if (res.ok){
-      const norm = normalizeData(await res.json());
-      if (norm) DATA = norm;
-    }
-  }catch(_){ /* offline / not deployed yet — sample stands in */ }
+    const norm = res.ok ? normalizeData(await res.json()) : null;
+    if (norm) DATA = norm;
+    else dataState = "sample";   // missing (e.g. 404) or malformed — keep SAMPLE_DATA, but say so
+  }catch(_){ dataState = "sample"; /* offline / file:// — sample stands in */ }
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
