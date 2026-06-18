@@ -1,0 +1,35 @@
+name: Tests
+
+# Runs the stdlib test suite on code changes. Intentionally NOT triggered by the
+# hourly data.json commits (the distill workflow validates its own output before
+# committing — see distill.yml), so this doesn't fire every hour.
+on:
+  push:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/test.yml"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: .build serializer selftest
+        run: python scripts/buildfile.py --selftest
+
+      - name: Pipeline + data.json invariants
+        run: python scripts/test_distill.py
+
+      - name: distill --demo runs offline (fail-safe path)
+        run: python scripts/distill.py --demo

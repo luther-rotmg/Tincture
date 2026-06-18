@@ -30,6 +30,12 @@ jobs:
       - name: Distill the current-league meta
         run: python scripts/distill.py
 
+      # Gate the commit on the honesty invariants: if the freshly-written data.json is
+      # malformed or inflated, this fails the job and the commit step never runs, so the
+      # live site keeps the last good data.json. Fail-safe by construction.
+      - name: Validate the distilled data
+        run: python scripts/test_distill.py
+
       - name: Commit refreshed data
         run: |
           git config user.name  "tincture-bot"
