@@ -1,0 +1,135 @@
+{
+  "_seed": true,
+  "league": "Runes of Aldur",
+  "patch": "0.5.0",
+  "mode": "Softcore",
+  "updated": "2026-06-17T21:54:13+00:00",
+  "totals": {
+    "characters": 12847,
+    "sources": 1,
+    "ascendancies": 24
+  },
+  "builds": [
+    {
+      "rank": 1,
+      "tier": "S",
+      "cls": "Huntress",
+      "asc": "Spirit Walker",
+      "skill": "Whirling Slash",
+      "pop": 13.8,
+      "delta": 2.4,
+      "n": 1772,
+      "tag": "Does a bit of everything — clears fast, bosses fine"
+    },
+    {
+      "rank": 2,
+      "tier": "S",
+      "cls": "Monk",
+      "asc": "Martial Artist",
+      "skill": "Tempest Flurry",
+      "pop": 11.1,
+      "delta": 1.0,
+      "n": 1424,
+      "tag": "Highest ceiling once geared"
+    },
+    {
+      "rank": 3,
+      "tier": "S",
+      "cls": "Ranger",
+      "asc": "Deadeye",
+      "skill": "Lightning Arrow",
+      "pop": 9.7,
+      "delta": -0.9,
+      "n": 1245,
+      "tag": "The league-start default"
+    },
+    {
+      "rank": 4,
+      "tier": "A",
+      "cls": "Witch",
+      "asc": "Infernalist",
+      "skill": "Skeletal Storm Mages",
+      "pop": 8.3,
+      "delta": 0.6,
+      "n": 1066,
+      "tag": "Hands-off minion comfort"
+    },
+    {
+      "rank": 5,
+      "tier": "A",
+      "cls": "Sorceress",
+      "asc": "Stormweaver",
+      "skill": "Frost Bomb",
+      "pop": 6.9,
+      "delta": 1.7,
+      "n": 886,
+      "tag": "Deletes pinnacle bosses"
+    },
+    {
+      "rank": 6,
+      "tier": "A",
+      "cls": "Ranger",
+      "asc": "Pathfinder",
+      "skill": "Ice-Tipped Arrows",
+      "pop": 5.4,
+      "delta": -0.4,
+      "n": 693,
+      "tag": "Tanky, flask-driven mapper"
+    },
+    {
+      "rank": 7,
+      "tier": "A",
+      "cls": "Warrior",
+      "asc": "Titan",
+      "skill": "Earthshatter",
+      "pop": 4.8,
+      "delta": 0.2,
+      "n": 616,
+      "tag": "Slow, unkillable, heavy hits"
+    },
+    {
+      "rank": 8,
+      "tier": "B",
+      "cls": "Witch",
+      "asc": "Lich",
+      "skill": "Galvanic Shards",
+      "pop": 4.1,
+      "delta": 0.9,
+      "n": 526,
+      "tag": "Crossbow caster, strong burst"
+    },
+    {
+      "rank": 9,
+      "tier": "B",
+      "cls": "Monk",
+      "asc": "Invoker",
+      "skill": "Tempest Bell",
+      "pop": 3.6,
+      "delta": -0.5,
+      "n": 462,
+      "tag": "Combo melee, high skill floor"
+    },
+    {
+      "rank": 10,
+      "tier": "B",
+      "cls": "Mercenary",
+      "asc": "Gemling Legionnaire",
+      "skill": "Galvanic Field",
+      "pop": 3.0,
+      "delta": 0.1,
+      "n": 385,
+      "tag": "Flexible gem-stacking shell"
+    },
+    {
+      "rank": 11,
+      "tier": "C",
+      "cls": "Sorceress",
+      "asc": "Chronomancer",
+      "skill": "Comet",
+      "pop": 2.4,
+      "delta": 0.7,
+      "n": 308,
+      "tag": "Spike-cast glass cannon"
+    }
+  ]
+}

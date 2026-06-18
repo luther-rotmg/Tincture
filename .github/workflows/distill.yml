@@ -1,0 +1,43 @@
+name: Distill the meta
+
+# Runs hourly and on demand. Free-tier scheduled runs can be delayed by GitHub
+# and will pause after ~60 days with no repo activity — push a commit or hit
+# "Run workflow" to wake it back up.
+on:
+  schedule:
+    - cron: "7 * * * *"   # a few minutes past the hour, every hour
+  workflow_dispatch:        # lets you trigger a refresh manually from the Actions tab
+
+permissions:
+  contents: write           # needed to commit the refreshed data.json
+
+concurrency:
+  group: distill
+  cancel-in-progress: false
+
+jobs:
+  distill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Distill the current-league meta
+        run: python scripts/distill.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "tincture-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data.json; then
+            echo "No change in the meta this run."
+          else
+            git add data.json
+            git commit -m "Distill: refresh meta ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
