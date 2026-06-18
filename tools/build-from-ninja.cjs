@@ -54,7 +54,7 @@ function get(url, binary, attempt) {
   attempt = attempt || 0;
   return new Promise((res, rej) => {
     const u = new URL(url);
-    https.get({ hostname:u.hostname, path:u.pathname+u.search, headers:{ 'User-Agent':UA, 'Accept':'*/*', 'Referer':'https://poe.ninja/poe2/builds' } }, r => {
+    const req = https.get({ hostname:u.hostname, path:u.pathname+u.search, headers:{ 'User-Agent':UA, 'Accept':'*/*', 'Referer':'https://poe.ninja/poe2/builds' } }, r => {
       if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) return get(new URL(r.headers.location, url).href, binary, attempt).then(res, rej);
       const ch = []; r.on('data', c => ch.push(c)); r.on('end', () => {
         const b = Buffer.concat(ch);
@@ -65,7 +65,9 @@ function get(url, binary, attempt) {
         if (r.statusCode !== 200) return rej(new Error('HTTP ' + r.statusCode));
         res(binary ? b : b.toString('utf8'));
       });
-    }).on('error', rej);
+    });
+    req.on('error', rej);
+    req.setTimeout(25000, () => req.destroy(new Error('request timeout')));   // never hang a run
   });
 }
 
@@ -298,11 +300,39 @@ async function dictNames(hash) { if (!hash) return []; if (_dictCache[hash]) ret
 const _num = s => { if (!s) return null; const m = String(s).match(/([\d.]+)\s*([km])?/i); return m ? Math.round(parseFloat(m[1]) * (m[2] ? (m[2].toLowerCase() === 'm' ? 1e6 : 1e3) : 1)) : null; };
 const _median = a => { const n = (a || []).map(_num).filter(x => x != null).sort((x, y) => x - y); return n.length ? n[Math.floor(n.length / 2)] : null; };
 
-// parsed search → meta-detail shape: top skills / supports / notables / uniques + stat snapshot
+// strip poe.ninja's [tag|Display] / [Tag] markup; normalise an affix to its TYPE (numbers -> #)
+const cleanMod = m => String(m).replace(/\[[^\]|]+\|([^\]]+)\]/g, '$1').replace(/\[([^\]]+)\]/g, '$1');
+const normMod = m => cleanMod(m).replace(/\d+(\.\d+)?/g, '#').replace(/\s+/g, ' ').trim();
+
+// aggregate a sample of /character objects -> "values to chase" (top gear affixes) + top runes.
+// Affixes are taken from RARE/MAGIC items only (uniques have fixed mods you don't roll, and
+// would otherwise dominate a small sample at ~100%); runes are real Rune/Soul Core socketables
+// (not socketed skills). frameType: 1=magic, 2=rare, 3=unique, 5=rune.
+function aggregateGear(chars) {
+  const modChars = {}, runeChars = {};
+  for (const ch of chars) {
+    const mods = new Set(), runes = new Set();
+    for (const it of (ch.items || [])) {
+      const d = it.itemData || it;
+      if (d.frameType === 1 || d.frameType === 2) {
+        (d.explicitMods || []).forEach(m => { const k = normMod(m); if (k.length > 6 && k.length < 56) mods.add(k); });
+      }
+      if (/^Weapon/.test(d.inventoryId || '')) (d.socketedItems || []).forEach(soc => { const nm = soc.typeLine || soc.baseType; if (nm && /\bRune\b|Soul Core/i.test(nm)) runes.add(nm); });
+    }
+    mods.forEach(m => modChars[m] = (modChars[m] || 0) + 1);
+    runes.forEach(r => runeChars[r] = (runeChars[r] || 0) + 1);
+  }
+  const n = chars.length || 1;
+  const top = (obj, k) => Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, k).map(([name, c]) => ({ name, pct: Math.round(c / n * 1000) / 10 }));
+  return { gear: top(modChars, 8), runes: top(runeChars, 6), sampled: chars.length };
+}
+
+// parsed search → meta-detail shape: top skills / supports / notables / uniques / anointments / weapon + stats
 async function extractMeta(s, gem) {
   const gemD = await dictNames(s.dicts.gem), kpD = await dictNames(s.dicts.keypassive), itD = await dictNames(s.dicts.item);
+  const anD = await dictNames(s.dicts.anointed), wmD = await dictNames(s.dicts.weaponmode);
   const pct = c => Math.round(c / s.total * 1000) / 10;
-  const topN = (dim, names, n, filt) => (s.dims[dim] || []).map(c => ({ name: names[c.key], pct: pct(c.count) })).filter(x => x.name && (!filt || filt(x.name))).sort((a, b) => b.pct - a.pct).slice(0, n);
+  const topN = (dim, names, n, filt) => (s.dims[dim] || []).map(c => ({ name: names[c.key], pct: pct(c.count) })).filter(x => x.name && x.name !== 'Unknown' && (!filt || filt(x.name))).sort((a, b) => b.pct - a.pct).slice(0, n);
   const isSupport = nm => /\/SupportGem/i.test(gem[nm] || '');
   return {
     sample: s.total,
@@ -310,6 +340,8 @@ async function extractMeta(s, gem) {
     supports: topN('allskills', gemD, 6, isSupport),
     notables: topN('keypassives', kpD, 6),
     uniques: topN('items', itD, 6, nm => !/^(Rare|Magic) /.test(nm)),
+    anointments: topN('anointed', anD, 5),
+    weapons: topN('weaponmode', wmD, 5),
     stats: { ehp: _median(s.vls.ehp), dps: _median(s.vls.dps) },
     top: { account: (s.vls.account || [])[0], name: (s.vls.name || [])[0] },
   };
@@ -360,7 +392,9 @@ async function main() {
     try { const g = parseSearch(await get(searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
     catch (e) { console.log('global meta failed:', e.message); }
     await sleep(700);
+    const SAMPLE = opt['no-builds'] ? 0 : (Number(opt.sample) || 5);   // chars pulled per ascendancy (gear/rune sample; build is the #1)
     let builds = 0;
+    const globalChars = [];
     for (const asc of Object.keys(ASCENDANCY_CODES)) {
       const slug = slugify(asc);
       let s;
@@ -370,22 +404,31 @@ async function main() {
       const md = await extractMeta(s, gem);
       meta.byAsc[slug] = { asc, ...md };
       await sleep(600);
-      const { account, name } = md.top;
-      if (!opt['no-builds'] && account && name) {
-        try {
-          const char = JSON.parse(await get(charUrl(sv, account, name)));
-          const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
-          if (report.ok) {
-            writeBuild(slug, build); builds++;
-            meta.byAsc[slug].source = { account, name, level: char.level || null };
-            meta.byAsc[slug].build = { passives: report.stats.sharedUnique, skills: report.stats.skills, items: report.stats.items };
-            if (char.level) md.stats.level = char.level;
-            console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · build <- ${name} (${account})`);
-          } else console.log(`  x ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
-        } catch (e) { console.log(`  x ${asc}: char ${e.message}`); }
+      if (SAMPLE > 0) {
+        // pull a small sample of top characters for gear/rune aggregation; build from the #1
+        const pairs = (s.vls.name || []).slice(0, SAMPLE).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm })).filter(p => p.account && p.name);
+        const pulled = [];
+        for (const p of pairs) { try { pulled.push({ ...p, char: JSON.parse(await get(charUrl(sv, p.account, p.name))) }); } catch (e) {} await sleep(650); }
+        if (pulled.length) {
+          const ga = aggregateGear(pulled.map(p => p.char));
+          meta.byAsc[slug].gear = ga.gear; meta.byAsc[slug].runes = ga.runes;
+          pulled.forEach(p => globalChars.push(p.char));
+          const { account, name, char } = pulled[0];
+          try {
+            const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
+            if (report.ok) {
+              writeBuild(slug, build); builds++;
+              meta.byAsc[slug].source = { account, name, level: char.level || null };
+              meta.byAsc[slug].build = { passives: report.stats.sharedUnique, skills: report.stats.skills, items: report.stats.items };
+              if (char.level) meta.byAsc[slug].stats.level = char.level;
+              console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name}`);
+            } else console.log(`  x ${asc.padEnd(20)} build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
+          } catch (e) { console.log(`  x ${asc}: build ${e.message}`); }
+        } else console.log(`  · ${asc}: no characters pulled`);
       }
-      await sleep(700); // be polite to poe.ninja
+      await sleep(500); // be polite to poe.ninja
     }
+    if (globalChars.length && meta.global) { const gg = aggregateGear(globalChars); meta.global.gear = gg.gear; meta.global.runes = gg.runes; }
     const slugs = refreshManifest();
     fs.writeFileSync(path.join(REPO, 'meta-detail.json'), JSON.stringify(meta, null, 2) + '\n');
     console.log(`\n${builds} builds · meta-detail.json for ${Object.keys(meta.byAsc).length} ascendancies · manifest (${slugs.length})`);

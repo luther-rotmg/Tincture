@@ -620,6 +620,9 @@
   .meta-src{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
+  .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
+  .meta-gear .nm{ white-space:normal; line-height:1.3; }
+  .meta-gear h5{ color:var(--gold-bright); }
 
   .section-caveat{
     margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
@@ -906,7 +909,7 @@
       </article>
       <article class="panel panel-meta panel-cross" id="assayMetaPanel" hidden>
         <div><span class="panel-eyebrow">The Dispensary</span><div class="panel-title">What the whole ladder is running</div></div>
-        <div class="meta-grid" id="assayMetaGrid"></div>
+        <div id="assayMetaGrid"></div>
         <p class="panel-note" id="assayMetaNote" style="max-width:74ch">Share of every published character this league running each — skills, support gems, passive notables and unique items, aggregated from poe.ninja. Expand any ledger row above for the same breakdown on a single ascendancy.</p>
       </article>
     </div>
@@ -1440,13 +1443,19 @@ function metaCol(title, arr){
   const items = arr.map(x=>`<div class="meta-item"><div class="r1"><span class="nm">${esc(x.name)}</span><span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`).join("");
   return `<div class="meta-col"><h5>${esc(title)}</h5>${items}</div>`;
 }
+function metaCoreGrid(md){
+  return `<div class="meta-grid">${metaCol("Top skills",md.skills)}${metaCol("Top supports",md.supports)}${metaCol("Top notables",md.notables)}${metaCol("Weapon",md.weapons)}${metaCol("Top anointments",md.anointments)}${metaCol("Top uniques",md.uniques)}</div>`;
+}
+function metaGearGrid(md){
+  if (!((md.gear||[]).length || (md.runes||[]).length)) return "";
+  return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear)}${metaCol("Weapon runes",md.runes)}</div>`;
+}
 function metaDetailHTML(md){
-  const grid = `<div class="meta-grid">${metaCol("Top skills",md.skills)}${metaCol("Top supports",md.supports)}${metaCol("Top notables",md.notables)}${metaCol("Top uniques",md.uniques)}</div>`;
   const st = md.stats||{};
   const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
-  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters</span></div>` : "";
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters${md.gear&&md.gear.length?` · gear/runes from a sample of the top`:""}</span></div>` : "";
   const src = md.source ? `<div class="meta-src">Decant reconstructs the top public-ladder build — character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a></div>` : "";
-  return grid + stats + src;
+  return metaCoreGrid(md) + metaGearGrid(md) + stats + src;
 }
 
 function renderRows(){
@@ -1921,9 +1930,7 @@ function renderAssay(){
   const metaPanel = $("#assayMetaPanel");
   if (metaPanel){
     if (META && META.global){
-      $("#assayMetaGrid").innerHTML =
-        metaCol("Top skills", META.global.skills) + metaCol("Top supports", META.global.supports) +
-        metaCol("Top notables", META.global.notables) + metaCol("Top uniques", META.global.uniques);
+      $("#assayMetaGrid").innerHTML = metaCoreGrid(META.global) + metaGearGrid(META.global);
       metaPanel.hidden = false;
     } else metaPanel.hidden = true;
   }

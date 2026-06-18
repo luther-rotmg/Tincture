@@ -790,22 +790,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemEternalRage",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemGhostDance",
       "level_interval": [
         1,
@@ -830,6 +814,13 @@
     },
     {
       "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
+      "level_interval": [
+        1,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
         1,
         100

@@ -654,6 +654,13 @@
       ],
       "support_skills": [
         {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
           "level_interval": [
             1,
@@ -668,7 +675,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
           "level_interval": [
             1,
             100
@@ -676,13 +683,6 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemFork",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
             1,
             100

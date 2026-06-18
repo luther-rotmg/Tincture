@@ -47,6 +47,9 @@
       "id": "jewel_slot1969"
     },
     {
+      "id": "glory13"
+    },
+    {
       "id": "armour_and_evasion53"
     },
     {
@@ -110,6 +113,9 @@
       "id": "banners16"
     },
     {
+      "id": "banners25"
+    },
+    {
       "id": "strength67"
     },
     {
@@ -132,9 +138,6 @@
     },
     {
       "id": "strength64"
-    },
-    {
-      "id": "glory5"
     },
     {
       "id": "strength85"
@@ -164,6 +167,9 @@
       "id": "attributes14"
     },
     {
+      "id": "glory9"
+    },
+    {
       "id": "strength76"
     },
     {
@@ -171,9 +177,6 @@
     },
     {
       "id": "AscendancyMercenary1Small3"
-    },
-    {
-      "id": "auras22"
     },
     {
       "id": "strength79"
@@ -191,9 +194,6 @@
       "id": "energy_shield46_"
     },
     {
-      "id": "glory1"
-    },
-    {
       "id": "energy_shield22"
     },
     {
@@ -203,7 +203,7 @@
       "id": "strength44"
     },
     {
-      "id": "intelligence101_"
+      "id": "banners20"
     },
     {
       "id": "strength47"
@@ -222,6 +222,9 @@
     },
     {
       "id": "attributes79"
+    },
+    {
+      "id": "glory14"
     },
     {
       "id": "auras26"
@@ -252,9 +255,6 @@
     },
     {
       "id": "strength54"
-    },
-    {
-      "id": "passive_keystone_whispers_of_doom"
     },
     {
       "id": "intelligence8"
@@ -317,9 +317,6 @@
       "id": "strength80"
     },
     {
-      "id": "glory4"
-    },
-    {
       "id": "jewel_slot1971"
     },
     {
@@ -378,6 +375,9 @@
     },
     {
       "id": "intelligence58"
+    },
+    {
+      "id": "glory15"
     },
     {
       "id": "strength68"
@@ -477,13 +477,6 @@
             1,
             100
           ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
-          "level_interval": [
-            1,
-            100
-          ]
         }
       ]
     },
@@ -557,14 +550,23 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemMoltenCrash",
+      "id": "Metadata/Items/Gems/SkillGemDiscipline",
       "level_interval": [
         1,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemDiscipline",
+      "id": "Metadata/Items/Gems/SkillGemMoltenCrash",
       "level_interval": [
         1,
         100
