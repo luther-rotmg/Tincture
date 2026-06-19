@@ -182,3 +182,14 @@ test('parsePobDefence decodes a PoB export into a defence layer (and fails safe)
   assert.equal(T.parsePobDefence(''), null);
   assert.equal(T.parsePobDefence(null), null);
 });
+
+test('variantIsDistinct keeps only meaningfully-different variants (vs ALL accepted)', () => {
+  const primary = { name: 'Monk — Tempest Flurry', ehp: 30000 };
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Falling Thunder', ehp: 30500 }, [primary]), true);   // different skill
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 33000 }, [primary]), false);   // same skill, within 30% EHP
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 45000 }, [primary]), true);    // same skill, >30% tankier
+  const accepted = [primary, { name: 'Monk — Tempest Flurry', ehp: 45000 }];
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 46000 }, accepted), false);    // near an ACCEPTED variant, not just the primary
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 60000 }, accepted), true);     // far from both
+  assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 0 }, [primary]), false);       // same skill, EHP unknown → treat as dup
+});

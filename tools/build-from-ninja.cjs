@@ -534,7 +534,7 @@ async function extractMeta(s, gem) {
     uniques: topN('items', itD, 6, nm => !/^(Rare|Magic) /.test(nm)),
     anointments: topN('anointed', anD, 5),
     weapons: topN('weaponmode', wmD, 5),
-    stats: { ehp: _median(s.vls.ehp), dps: _median(s.vls.dps) },
+    stats: { ehp: _median(s.vls.ehp), dps: _median(s.vls.dps), sample: (s.vls.ehp || []).filter(x => _num(x) != null).length || null },
     top: { account: (s.vls.account || [])[0], name: (s.vls.name || [])[0] },
   };
 }
@@ -708,16 +708,15 @@ async function main() {
               // already-pulled (on-meta, L85+) candidate pool — a different main skill, or a
               // notably tankier/glassier EHP. Zero extra network (chars already fetched). Written
               // as <slug>-2/-3.build (manifest auto-includes them); summaries go in .variants.
-              const variants = [], seenNames = new Set([build.name]), primEhp = cands[0].ehp || 0;
+              const variants = [], accepted = [{ name: build.name, ehp: cands[0].ehp || 0 }];
               for (const cand of cands.slice(1)) {
                 if (variants.length >= 2) break;
                 try {
                   const r = buildOne(cand.char, { gem, account: cand.account, name: cand.name, league, tree, slugMap, baseItems, md, weaponClass, quiet: true });
                   if (!r.report.ok) continue;
-                  const diffSkill = !seenNames.has(r.build.name);
-                  const diffEhp = primEhp && cand.ehp && Math.abs(cand.ehp - primEhp) / primEhp > 0.3;
-                  if (!diffSkill && !diffEhp) continue;   // not meaningfully different from what we have
-                  seenNames.add(r.build.name);
+                  const rec = { name: r.build.name, ehp: cand.ehp || 0 };
+                  if (!variantIsDistinct(rec, accepted)) continue;   // distinct from the primary AND every accepted variant
+                  accepted.push(rec);
                   const vslug = `${slug}-${variants.length + 2}`;
                   writeBuild(vslug, r.build); writePob(vslug, cand.char.pathOfBuildingExport);
                   variants.push({
@@ -731,6 +730,13 @@ async function main() {
                 } catch (_) {}
               }
               if (variants.length) meta.byAsc[slug].variants = variants;
+              // prune stale higher-numbered variant files left by a previous run (e.g. was 3, now 2),
+              // so builds/ stays in lockstep with the manifest for this rebuilt primary.
+              for (let k = variants.length + 2; k <= 9; k++)
+                for (const ext of ['.build', '.pob']) {
+                  const fp = path.join(REPO, 'builds', `${slug}-${k}${ext}`);
+                  try { if (fs.existsSync(fp)) fs.unlinkSync(fp); } catch (_) {}
+                }
               console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name} (L${char.level || '?'}, EHP ${cands[0].ehp || '?'}, DPS ${cands[0].dps || '?'})${variants.length ? ` · +${variants.length} variant(s)` : ''}`);
             } else console.log(`  x ${asc.padEnd(20)} build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
           } catch (e) { console.log(`  x ${asc}: build ${e.message}`); }
@@ -764,6 +770,17 @@ async function main() {
   console.log('wrote builds/' + opt.slug + '.build', `(${build.passives.length} passives, ${build.skills.length} skills, ${build.inventory_slots.length} items)`);
   refreshManifest();
 }
+// a variant is worth keeping only if it's meaningfully different from the primary AND every
+// already-accepted variant: a different main skill, or an EHP that differs by >30%. (Comparing
+// only to the primary let two near-identical same-skill variants both ship.)
+function variantIsDistinct(cand, accepted) {
+  return accepted.every(a => {
+    const diffSkill = a.name !== cand.name;
+    const diffEhp = a.ehp && cand.ehp && Math.abs(cand.ehp - a.ehp) / a.ehp > 0.3;
+    return diffSkill || diffEhp;
+  });
+}
+
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, variantIsDistinct };
