@@ -363,6 +363,45 @@ class HistoryAndSEO(unittest.TestCase):
         self.assertIn("not affiliated", h)                   # honesty disclaimer
         self.assertNotIn('http-equiv="refresh"', h)          # NOT an auto-redirect doorway
 
+    def test_landing_skips_curated_only_ascendancies(self):
+        payload = {"default": "sc", "leagues": [
+            {"url": "sc", "name": "SC", "builds": [{"asc": "Deadeye", "cls": "Ranger", "tag": "bow"}]},
+            {"url": "standard", "curated": True, "builds": [
+                {"asc": "Infernalist", "cls": "Witch", "tag": "minions"},
+                {"asc": "Deadeye", "cls": "Ranger", "tag": "bow"}]},
+        ]}
+        info = distill._landing_ascendancies(payload)
+        self.assertIn("Deadeye", info)            # present in a live league
+        self.assertNotIn("Infernalist", info)     # curated-only -> no "live share" page
+
+    def test_landing_html_escapes_untrusted_name(self):
+        h = distill.landing_html("Evil</script><b>x", "Witch", "t", ["Spark"], ["Heart of the Well"], ["Eldritch Battery"], "Wand / Focus")
+        self.assertNotIn("Evil</script>", h)      # neither JSON-LD nor body emits the raw injection
+        self.assertIn("Heart of the Well", h)     # enrichment: signature uniques
+        self.assertIn("Eldritch Battery", h)      # enrichment: notables
+        self.assertIn("Wand / Focus", h)          # enrichment: weapon
+
+
+class ArtifactLockstep(unittest.TestCase):
+    def test_manifest_matches_build_files_and_variants_resolve(self):
+        builds_dir = os.path.join(ROOT, "builds")
+        mani_path = os.path.join(builds_dir, "index.json")
+        if not os.path.exists(mani_path):
+            self.skipTest("no manifest")
+        with open(mani_path, encoding="utf-8") as f:
+            manifest = set(json.load(f))
+        files = {n[:-len(".build")] for n in os.listdir(builds_dir) if n.endswith(".build")}
+        self.assertEqual(manifest, files, "builds/index.json must list exactly the .build files (no orphans)")
+        mdp = os.path.join(ROOT, "meta-detail.json")
+        if os.path.exists(mdp):
+            with open(mdp, encoding="utf-8") as f:
+                md = json.load(f)
+            for _slug, e in (md.get("byAsc") or {}).items():
+                for v in (e.get("variants") or []):
+                    self.assertIn(v["slug"], manifest, f"variant {v['slug']} not in manifest")
+                    self.assertTrue(os.path.exists(os.path.join(builds_dir, v["slug"] + ".build")),
+                                    f"variant {v['slug']} has no .build file")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

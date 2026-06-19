@@ -527,25 +527,27 @@ def _esc(s):
     return _html.escape(str(s), quote=True)
 
 
-def landing_html(asc, cls, tag, skills):
+def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon=None):
     """A real-content (not doorway) SEO page for one ascendancy: class, playstyle, common skills,
-    a self-canonical, JSON-LD, and a link into the live SPA deep link. Stable content (no volatile
-    share) so it doesn't churn hourly."""
+    signature uniques, key notables, a self-canonical, JSON-LD, and a link into the live SPA deep
+    link. Stable content (no volatile share) so it doesn't churn hourly. Only called for
+    ascendancies present in a NON-curated (live) league."""
     slug = slugify_asc(asc)
     url = f"{SITE}/b/{slug}.html"
     deep = f"{SITE}/#asc={slug}"
     title = f"{asc} build meta — Path of Exile 2 (Runes of Aldur) | Tincture"
+    wbit = f" Typically a {weapon} build." if weapon else ""
     desc = (f"{asc}" + (f" ({cls})" if cls else "") + " in Path of Exile 2 0.5.0 — "
-            + (tag or "a current ladder ascendancy")
-            + ". See its live ladder share, popular skills, and a loadable build on Tincture.")
+            + (tag or "a current ladder ascendancy") + "." + wbit
+            + " See its live ladder share, popular skills and uniques, and a loadable build on Tincture.")
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc,
         "url": url, "isPartOf": {"@type": "WebSite", "name": "Tincture", "url": SITE + "/"},
         "about": {"@type": "Thing", "name": f"{asc} (Path of Exile 2 ascendancy)"},
-    }, ensure_ascii=False)
-    skills_html = ""
-    if skills:
-        skills_html = "<h2>Commonly plays</h2>\n<ul>" + "".join(f"<li>{_esc(s)}</li>" for s in skills[:6]) + "</ul>"
+    }, ensure_ascii=False).replace("<", "\\u003c")   # neutralize any literal </script> in upstream names
+    def ul(heading, items):
+        items = [i for i in (items or []) if i][:6]
+        return ("<h2>" + heading + "</h2>\n<ul>" + "".join(f"<li>{_esc(i)}</li>" for i in items) + "</ul>") if items else ""
     parts = [
         "<!DOCTYPE html>", '<html lang="en"><head>', '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -565,9 +567,12 @@ def landing_html(asc, cls, tag, skills):
         f'<p><a href="{SITE}/" style="color:#c8a24a;text-decoration:none">&#8592; Tincture</a> '
         '&middot; the Path of Exile&nbsp;2 build meta, distilled</p>',
         f'<h1 style="color:#e6c47a">{_esc(asc)}</h1>',
-        f"<p><b>Class:</b> {_esc(cls or 'unknown')} &middot; Path of Exile&nbsp;2 0.5.0 (Runes of Aldur)</p>",
+        f"<p><b>Class:</b> {_esc(cls or 'unknown')} &middot; Path of Exile&nbsp;2 0.5.0 (Runes of Aldur)"
+        + (f" &middot; <b>{_esc(weapon)}</b>" if weapon else "") + "</p>",
         (f"<p><i>{_esc(tag)}</i></p>" if tag else ""),
-        skills_html,
+        ul("Commonly plays", skills),
+        ul("Signature uniques", uniques),
+        ul("Key passive notables", notables),
         f'<p style="margin-top:26px"><a href="{_esc(deep)}" style="color:#5b8a7e;font-size:18px">'
         f"See the live {_esc(asc)} meta &mdash; ladder share, trend, and a loadable build on Tincture &#8594;</a></p>",
         '<p style="color:#877a62;font-size:13px;margin-top:34px">Tincture is an independent fan project, '
@@ -578,38 +583,60 @@ def landing_html(asc, cls, tag, skills):
     return "\n".join(p for p in parts if p) + "\n"
 
 
+def _landing_ascendancies(payload):
+    """asc -> (cls, tag) for every ascendancy in a NON-curated (live ladder) league. Curated picks
+    carry no live share/trend, so they get no landing page — a 'live ladder share' page for a
+    curated-only ascendancy would be false and its deep link would land on a null curated row."""
+    info = {}
+    for l in payload.get("leagues", []):
+        if l.get("curated"):
+            continue
+        for b in l.get("builds", []):
+            a = b.get("asc")
+            if a and a not in info:
+                info[a] = (b.get("cls") or "", b.get("tag") or ASC_TAGS.get(a, ""))
+    return info
+
+
 def generate_landing_pages(payload):
     """Emit one real-content static page per ascendancy under /b/ for long-tail SEO the SPA can't
     rank for. Content from data.json (class, tag) + meta-detail.json (common skills) when present.
     Returns the slug list (for the sitemap). Fail-safe."""
     try:
-        info = {}
-        for l in payload.get("leagues", []):
-            for b in l.get("builds", []):
-                a = b.get("asc")
-                if a and a not in info:
-                    info[a] = (b.get("cls") or "", b.get("tag") or ASC_TAGS.get(a, ""))
-        skills_by = {}
+        info = _landing_ascendancies(payload)
+        meta_by = {}
         mdp = os.path.join(ROOT, "meta-detail.json")
         if os.path.exists(mdp):
             try:
                 with open(mdp, encoding="utf-8") as f:
                     md = json.load(f)
                 for _slug, e in (md.get("byAsc") or {}).items():
-                    nm = e.get("asc")
-                    if nm:
-                        skills_by[nm] = [s.get("name") for s in (e.get("skills") or [])[:6] if s.get("name")]
+                    if e.get("asc"):
+                        meta_by[e["asc"]] = e
             except Exception:  # noqa: BLE001
                 pass
+        names = lambda arr: [x.get("name") for x in (arr or []) if isinstance(x, dict) and x.get("name")]
         os.makedirs(LANDING_DIR, exist_ok=True)
         slugs = []
         for asc, (cls, tag) in sorted(info.items()):
             slug = slugify_asc(asc)
+            e = meta_by.get(asc) or {}
+            weapon = (e.get("weapons") or [{}])[0].get("name") if e.get("weapons") else None
+            page = landing_html(asc, cls, tag, names(e.get("skills")), names(e.get("uniques")), names(e.get("notables")), weapon)
             tmp = os.path.join(LANDING_DIR, slug + ".html.tmp")
             with open(tmp, "w", encoding="utf-8") as f:
-                f.write(landing_html(asc, cls, tag, skills_by.get(asc, [])))
+                f.write(page)
             os.replace(tmp, os.path.join(LANDING_DIR, slug + ".html"))
             slugs.append(slug)
+        # prune landing pages whose ascendancy dropped out of the live leagues (e.g. a curated-only
+        # Infernalist/Invoker) so a stale page can't keep promising "live ladder share".
+        keep = set(slugs)
+        for fn in os.listdir(LANDING_DIR):
+            if fn.endswith(".html") and fn[:-len(".html")] not in keep:
+                try:
+                    os.remove(os.path.join(LANDING_DIR, fn))
+                except OSError:
+                    pass
         print(f"[write] {LANDING_DIR} — {len(slugs)} landing pages")
         return slugs
     except Exception as e:  # noqa: BLE001
