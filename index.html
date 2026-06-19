@@ -658,13 +658,23 @@
   .tip-rar.r-normal{ color:var(--bone-dim); }
   .tip-corr{ font-family:var(--fmono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--oxblood-bright); }
   .tip-base{ font-family:var(--fmono); font-size:10px; color:var(--muted); }
-  .tip-sect{ font-family:var(--ftext); font-size:12px; line-height:1.5; color:var(--bone-dim); padding:4px 0; border-top:1px solid var(--hair); }
-  .tip-sect:first-of-type{ border-top:none; padding-top:1px; }
-  .tip-impl{ color:var(--verdigris); }
-  .tip-ench{ color:var(--gold); }
-  .tip-expl div{ color:var(--bone); }
-  .tip-sockets{ color:var(--gold-bright); font-family:var(--fmono); font-size:11px; }
-  .tip-lbl{ display:block; font-size:8.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
+  /* affix groups — each mod is its own marked row */
+  .tip-grp{ padding:5px 0; border-top:1px solid var(--hair); }
+  .tip-grp:first-of-type{ border-top:none; padding-top:1px; }
+  .tip-lbl{ display:block; font-family:var(--fmono); font-size:8px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin:0 0 3px; }
+  .tip-mod{ position:relative; font-family:var(--ftext); font-size:12px; line-height:1.35; color:var(--bone-dim); padding:2.5px 0 2.5px 13px; }
+  .tip-mod + .tip-mod{ border-top:1px solid rgba(200,162,74,.05); }
+  .tip-mod::before{ content:""; position:absolute; left:3px; top:9px; width:3px; height:3px; border-radius:50%; background:var(--hair-strong); }
+  .tip-num{ color:var(--bone); font-weight:600; }
+  .tip-impl .tip-mod{ color:var(--verdigris); }
+  .tip-impl .tip-mod::before{ background:var(--verdigris); }
+  .tip-impl .tip-num{ color:var(--verdigris); filter:brightness(1.25); }
+  .tip-ench .tip-mod{ color:var(--gold); }
+  .tip-ench .tip-mod::before{ background:var(--gold); }
+  .tip-ench .tip-num{ color:var(--gold-bright); }
+  .tip-expl .tip-mod{ color:var(--bone-dim); }
+  .tip-sockets .tip-mod{ color:var(--gold-bright); font-family:var(--fmono); font-size:11px; padding-top:3px; padding-bottom:3px; }
+  .tip-sockets .tip-mod::before{ background:var(--gold-bright); }
   .bv-actions{ margin-top:15px; }
 
   .section-caveat{
@@ -1504,10 +1514,14 @@ function metaGearGrid(md){
 }
 // hover/focus tooltip for one equipped item: rarity + base + item level, then the affix
 // lines (enchant / implicit / explicit) and any socketed augments — the in-game item card.
+// Each mod is its own marked row, grouped + labelled, with rolled values highlighted, so it
+// reads as a stat sheet rather than a blob of text.
 function itemTip(it){
-  const sect = (arr, cls) => (arr&&arr.length) ? `<div class="tip-sect ${cls}">${arr.map(m=>`<div>${esc(m)}</div>`).join("")}</div>` : "";
-  const sockets = (it.sockets&&it.sockets.length) ? `<div class="tip-sect tip-sockets"><span class="tip-lbl">socketed</span>${it.sockets.map(s=>`<div>${esc(s)}</div>`).join("")}</div>` : "";
-  const body = sect(it.enchants,"tip-ench") + sect(it.implicits,"tip-impl") + sect(it.explicits,"tip-expl") + sockets;
+  const fmtMod = m => esc(m).replace(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/g, '<span class="tip-num">$1</span>');
+  const rows = arr => (arr||[]).map(m=>`<div class="tip-mod">${fmtMod(m)}</div>`).join("");
+  const group = (label, arr, cls) => (arr&&arr.length) ? `<div class="tip-grp ${cls||""}">${label?`<div class="tip-lbl">${label}</div>`:""}${rows(arr)}</div>` : "";
+  const sockets = (it.sockets&&it.sockets.length) ? `<div class="tip-grp tip-sockets"><div class="tip-lbl">Socketed</div>${it.sockets.map(s=>`<div class="tip-mod">${esc(s)}</div>`).join("")}</div>` : "";
+  const body = group("Enchant", it.enchants, "tip-ench") + group("Implicit", it.implicits, "tip-impl") + group("", it.explicits, "tip-expl") + sockets;
   const head = [ it.base?esc(it.base):"", it.ilvl?`item level ${it.ilvl}`:"" ].filter(Boolean).join(" · ");
   if (!body && !head && !it.corrupted) return "";
   const rcls = (it.rarity||"rare").toLowerCase();
