@@ -178,48 +178,58 @@ function convert(char, { slug, gem, account, name, league }) {
   pushNodes(char.passiveSelectionSet1, 1);
   pushNodes(char.passiveSelectionSet2, 2);
 
+  // the plain character-Level requirement (poe.ninja itemData.requirements type 62, NOT the
+  // "(gem)" row); gates when a gem/item appears in the in-game leveling guide. 1 when absent.
+  const levelReq = itemData => {
+    const r = ((itemData || {}).requirements || []).find(q => (q.type === 62 || q.name === 'Level') && !/\(gem\)/.test(q.suffix || ''));
+    const n = parseInt(r && r.values && r.values[0] && r.values[0][0], 10);
+    return Number.isInteger(n) && n > 1 ? n : 1;
+  };
+
   // skills: each group = one active SkillGem + its SupportGems. Track the highest-DPS
   // group's gem as the headline "main skill" for naming (ascendancy buffs like Hollow
   // Focus report ~0 dps, so they won't be mistaken for the main skill).
-  const skills = [];
+  const skills = [], dpsOf = [], byActive = {};
   let mainSkillName = '', bestDps = -1;
   (char.skills || []).forEach(group => {
-    // level_interval [min,100] = "this gem appears in the leveling plan from character
-    // level min". Use the gem's REAL Level requirement (poe.ninja itemData.requirements,
-    // type 62 — the plain char-level row, not the "(gem)" one) so the plan stops slotting
-    // endgame gems at level 1. Honest: this gates by the snapshot gem's own requirement;
-    // we never invent a leveling path. Support gems report only attribute reqs (no Level
-    // row in this payload) → they fall back to [1,100].
-    const reqLevel = g => {
-      const r = ((g.itemData || {}).requirements || []).find(q => (q.type === 62 || q.name === 'Level') && !/\(gem\)/.test(q.suffix || ''));
-      const n = parseInt(r && r.values && r.values[0] && r.values[0][0], 10);
-      return Number.isInteger(n) && n > 1 ? n : 1;
-    };
-    const gems = (group.allGems || []).map(g => ({ name: g.name, level: g.level, id: gem[g.name], req: reqLevel(g) })).filter(g => g.id);
+    // level_interval [min,100] = "appears in the leveling plan from character level min".
+    // Gate by each gem's REAL Level requirement so the plan stops slotting endgame gems at
+    // level 1. Honest: gates by the snapshot gem's own requirement; we never invent a path.
+    // Supports report only attribute reqs (no Level row) → fall back to [1,100].
+    const gems = (group.allGems || []).map(g => ({ name: g.name, level: g.level, id: gem[g.name], req: levelReq(g.itemData) })).filter(g => g.id);
     const active = gems.find(g => /\/SkillGem/i.test(g.id));
     if (!active) return; // a group with no resolvable active skill is dropped
     if (/PlayerDefault/i.test(active.id)) return; // innate/default attack, not a real build gem
-    if (skills.some(sk => sk.id === active.id)) return; // dedupe repeated active gems
     const supports = gems.filter(g => g !== active && /\/SupportGem/i.test(g.id));
     const skill = { id: active.id, level_interval: [active.req, 100] };
     if (supports.length) skill.support_skills = supports.map(s => ({ id: s.id, level_interval: [s.req, 100] }));
-    skills.push(skill);
     // group.dps is an array of {name, dps, ...}; take the group's peak dps
     const dps = Array.isArray(group.dps) ? Math.max(0, ...group.dps.map(d => Number(d && d.dps) || 0)) : (Number(group.dps) || 0);
+    // dedupe repeated active gems, keeping the HIGHER-DPS configuration — PoE2 can run the
+    // same skill twice with different supports, so don't let an inferior first-seen copy win.
+    const prev = byActive[active.id];
+    if (prev !== undefined) { if (dps > dpsOf[prev]) { skills[prev] = skill; dpsOf[prev] = dps; } }
+    else { byActive[active.id] = skills.length; skills.push(skill); dpsOf.push(dps); }
     if (dps > bestDps) { bestDps = dps; mainSkillName = active.name; }
   });
 
-  // inventory: equipment in the main weapon set (skip runes / 2nd-set offhands)
-  const inv = [];
+  // inventory: equipment in the main weapon set (skip runes / 2nd-set offhands). First item
+  // per destination slot wins (dedupe, mirroring the gem/passive dedupe). Rare/magic gear
+  // gates by its own required level so endgame gear isn't shown from level 1 in the guide.
+  const inv = [], seenSlot = {};
   (char.items || []).forEach(it => {
     const d = it.itemData || it;
     const dest = SLOT_MAP[d.inventoryId];
-    if (!dest) return;
+    if (!dest || seenSlot[dest]) return;
+    seenSlot[dest] = true;
     if (d.frameType === 3 && d.name) inv.push({ inventory_id: dest, unique_name: d.name, slot_x: 0, slot_y: 0 });
-    else inv.push({ inventory_id: dest, additional_text: itemText(d), level_interval: [1, 100], slot_x: 0, slot_y: 0 });
+    else inv.push({ inventory_id: dest, additional_text: itemText(d), level_interval: [levelReq(d), 100], slot_x: 0, slot_y: 0 });
   });
 
   const buildName = `${ascName}${mainSkillName ? ' — ' + mainSkillName : ''} (public ladder)`;
+  // Exactly these seven top-level keys are served (name/author/description/ascendancy/
+  // passives/skills/inventory_slots). The game tolerates `description`; do NOT add other
+  // top-level keys (provenance lives in author/description + the meta-detail sidecar).
   return {
     name: buildName,
     author: `Tincture — reconstructed from public ladder character "${name}" (${account})`,
@@ -231,7 +241,6 @@ function convert(char, { slug, gem, account, name, league }) {
     passives,
     skills,
     inventory_slots: inv,
-    _tincture: { source: 'poe.ninja public ladder', account, character: name, league, level: char.level || null, slug },
   };
 }
 
@@ -522,7 +531,6 @@ function refreshManifest() {
 
 function buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet }) {
   const build = convert(char, { slug: slugMap, gem, account, name, league });
-  delete build._tincture;
   const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass });
   if (!quiet) { console.log('=== QA', JSON.stringify(report.stats)); report.issues.forEach(i => console.log(`  [${i.sev}] ${i.m}`)); }
   return { build, report };
@@ -552,6 +560,9 @@ async function main() {
     baseItems = new Set(Object.keys(bi));
     weaponClass = {}; for (const v of Object.values(bi)) if (v && v.name && v.item_class) weaponClass[v.name] = v.item_class;
   } catch (e) { console.log('base_items.json unavailable — skipping gem-id validation & meta-weapon pick:', e.message); }
+  // In --enumerate the result is committed for serving, so a missing base_items.json must NOT
+  // silently disable the gem-id + meta-weapon QA (that could publish an off-meta build). Fatal.
+  if (opt.enumerate && (!baseItems || !weaponClass)) throw new Error('base_items.json required for --enumerate (gem-id + meta-weapon QA) — refusing to write unvalidated builds');
 
   // ENUMERATE: class-driven — per ascendancy, one class-filtered search gives the meta
   // breakdown (top skills/supports/notables/uniques/stats) AND the top character, which we
@@ -574,7 +585,11 @@ async function main() {
     const hit = f => fs.existsSync(path.join(cacheDir, f));   // was this already on disk? (check BEFORE cached() writes it)
     let netReqs = 0;
     const onMiss = async (ms) => { if (cacheOnly) return; netReqs++; await sleep(ms); if (netReqs % 45 === 0) { console.log(`  … ${netReqs} live requests — cooling down 120s to respect poe.ninja's window`); await sleep(120000); } };
-    const meta = { updated: new Date().toISOString(), league, version: sv.version, total: 0, global: null, byAsc: {} };
+    // `updated` describes the META BREAKDOWN's age. In --cache-only the breakdown is reused from
+    // the prior meta-detail.json (only builds are rebuilt), so carry its timestamp forward rather
+    // than overstating freshness; `buildsUpdated` always records when builds were last rebuilt.
+    const nowIso = new Date().toISOString();
+    const meta = { updated: cacheOnly ? (priorDetail.updated || nowIso) : nowIso, buildsUpdated: nowIso, league, version: sv.version, total: 0, global: null, byAsc: {} };
     const gf = `s-${sv.version}-_global.bin`, gHit = hit(gf);
     if (cacheOnly) { meta.total = priorDetail.total; meta.global = priorDetail.global; console.log(`global: ${meta.total} chars [meta reused from meta-detail.json]`); }
     else {
@@ -591,9 +606,13 @@ async function main() {
       const sf = `s-${sv.version}-${slug}.bin`, sHit = hit(sf);
       try { s = parseSearch(await cached(sf, searchBase(sv) + '&class=' + encodeURIComponent(asc), true)); }
       catch (e) { console.log(`  - ${asc}: search ${e.message}`); if (!sHit) await onMiss(600); continue; }
-      if (!s || s.total < 30) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); if (!sHit) await onMiss(500); continue; }
+      if (!s || s.total < 8) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); if (!sHit) await onMiss(500); continue; }
       const md = cacheOnly ? priorDetail.byAsc[slug] : await extractMeta(s, gem);
       if (!md) { console.log(`  · ${asc}: no prior meta-detail entry — skipping (cache-only)`); continue; }
+      // <30 chars: the aggregate percentages (gear/notables/uniques) are statistical noise, but a
+      // single real QA'd character is still a valid build — keep building it, flagged low-sample
+      // (the UI already shows the sample count). Above 30 the breakdown is published normally.
+      if (s.total < 30) md.lowSample = true;
       meta.byAsc[slug] = { asc, ...md };
       if (!sHit) await onMiss(600);
       if (SAMPLE > 0) {
@@ -604,7 +623,10 @@ async function main() {
         const metaWep = md.weapons && md.weapons[0] && md.weapons[0].name;
         const metaFam = weaponClass && metaWeaponFamily(metaWep);
         const onMetaWeapon = char => !!metaFam && charWeaponFamily(char, weaponClass) === metaFam;
-        const MAXSAMPLE = Math.max(SAMPLE, Number(opt['max-sample']) || 15);
+        // default 25 (was 15): a sparse #1 meta weapon (e.g. Ritualist's ~19% Wand/Focus) often
+        // isn't on an L85+ char within 15 pulls, leaving the ascendancy with no build. The disk
+        // cache makes deeper scans nearly free on re-run; the cooldown bounds the live cost.
+        const MAXSAMPLE = Math.max(SAMPLE, Number(opt['max-sample']) || 25);
         const ranked = (s.vls.name || []).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm, ehp: _num((s.vls.ehp || [])[i]), dps: _num((s.vls.dps || [])[i]) })).filter(p => p.account && p.name);
         const pulled = [];
         let metaFound = false;
@@ -612,7 +634,8 @@ async function main() {
           if (pulled.length >= MAXSAMPLE) break;
           if (pulled.length >= SAMPLE && (!metaFam || metaFound)) break;
           const cf = `c-${sv.version}-${san(p.account)}-${san(p.name)}.json`, cHit = hit(cf);
-          try { const char = JSON.parse(await cached(cf, charUrl(sv, p.account, p.name))); pulled.push({ ...p, char }); if (metaFam && (char.level || 0) >= 85 && onMetaWeapon(char)) metaFound = true; } catch (e) {}
+          try { const char = JSON.parse(await cached(cf, charUrl(sv, p.account, p.name))); pulled.push({ ...p, char }); if (metaFam && (char.level || 0) >= 85 && onMetaWeapon(char)) metaFound = true; }
+          catch (e) { if (!cacheOnly) console.log(`    · ${asc}: skip ${p.account}/${p.name} — ${e.message}`); }  // surface throttle/404 instead of silent coverage loss
           if (!cHit) await onMiss(650);
         }
         if (pulled.length) {
@@ -637,7 +660,7 @@ async function main() {
             if (report.ok) {
               writeBuild(slug, build); writePob(slug, char.pathOfBuildingExport); builds++;
               meta.byAsc[slug].source = { account, name, level: char.level || null };
-              meta.byAsc[slug].build = { passives: report.stats.sharedUnique, skills: report.stats.skills, items: report.stats.items };
+              meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items };
               meta.byAsc[slug].skillSetups = readableSkills(char);
               meta.byAsc[slug].buildItems = buildItems(char);
               meta.byAsc[slug].pob = !!char.pathOfBuildingExport;
@@ -664,7 +687,11 @@ async function main() {
     if (!opt.account || !opt.name) throw new Error('--account and --name required (or --from-cache / --enumerate)');
     char = JSON.parse(await get(charUrl(await getSnapshot(league), account, name)));
   }
-  const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems });
+  // run the meta-weapon QA in the single path too (when meta-detail.json has an entry for this
+  // slug) so a hand-generated build committed for serving can't quietly contradict the stats panel.
+  let md = null;
+  try { md = (JSON.parse(fs.readFileSync(path.join(REPO, 'meta-detail.json'), 'utf8')).byAsc || {})[opt.slug] || null; } catch (_) {}
+  const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass });
   console.log('QA verdict:', report.ok ? 'PASS' : 'FAIL');
   if (!report.ok) { console.log('Refusing to write an incohesive build.'); process.exit(1); }
   writeBuild(opt.slug, build);
