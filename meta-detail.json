@@ -1,8 +1,8 @@
 {
-  "updated": "2026-06-19T13:29:39.040Z",
-  "buildsUpdated": "2026-06-19T13:29:39.040Z",
+  "updated": "2026-06-19T14:14:23.035Z",
+  "buildsUpdated": "2026-06-19T14:14:23.035Z",
   "league": "runesofaldur",
-  "version": "1059-20260619-05372",
+  "version": "1324-20260619-23507",
   "total": 124264,
   "global": {
     "sample": 124264,
@@ -484,7 +484,15 @@
       "build": {
         "passives": 157,
         "skills": 13,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 9,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -996,7 +1004,15 @@
       "build": {
         "passives": 134,
         "skills": 11,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 98,
+          "sample": 9,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -1473,7 +1489,15 @@
       "build": {
         "passives": 135,
         "skills": 12,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 3
+        }
       },
       "skillSetups": [
         {
@@ -1957,7 +1981,15 @@
       "build": {
         "passives": 160,
         "skills": 10,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -2430,7 +2462,15 @@
       "build": {
         "passives": 168,
         "skills": 10,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -2940,7 +2980,15 @@
       "build": {
         "passives": 160,
         "skills": 10,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -3448,7 +3496,15 @@
       "build": {
         "passives": 136,
         "skills": 6,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -3914,7 +3970,15 @@
       "build": {
         "passives": 145,
         "skills": 10,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 98,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -4391,7 +4455,15 @@
       "build": {
         "passives": 160,
         "skills": 13,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -4904,7 +4976,15 @@
       "build": {
         "passives": 156,
         "skills": 12,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -5364,7 +5444,15 @@
       "build": {
         "passives": 161,
         "skills": 12,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -5860,7 +5948,15 @@
       "build": {
         "passives": 157,
         "skills": 9,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -6367,7 +6463,15 @@
       "build": {
         "passives": 150,
         "skills": 12,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -6856,7 +6960,15 @@
       "build": {
         "passives": 158,
         "skills": 7,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -7353,7 +7465,15 @@
       "build": {
         "passives": 135,
         "skills": 13,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -7832,7 +7952,15 @@
       "build": {
         "passives": 155,
         "skills": 11,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -8316,7 +8444,15 @@
       "build": {
         "passives": 151,
         "skills": 10,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -8809,7 +8945,15 @@
       "build": {
         "passives": 136,
         "skills": 12,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -9313,7 +9457,15 @@
       "build": {
         "passives": 132,
         "skills": 8,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -9763,7 +9915,15 @@
       "build": {
         "passives": 161,
         "skills": 14,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -10269,7 +10429,15 @@
       "build": {
         "passives": 137,
         "skills": 10,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": null,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 2
+        }
       },
       "skillSetups": [
         {
@@ -10763,7 +10931,15 @@
       "build": {
         "passives": 161,
         "skills": 8,
-        "items": 10
+        "items": 10,
+        "quality": {
+          "level": 100,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
@@ -11267,7 +11443,15 @@
       "build": {
         "passives": 159,
         "skills": 11,
-        "items": 9
+        "items": 9,
+        "quality": {
+          "level": 99,
+          "sample": 5,
+          "onMetaWeapon": true,
+          "gemsValid": true,
+          "treeConnected": false,
+          "warnings": 1
+        }
       },
       "skillSetups": [
         {
