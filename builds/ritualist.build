@@ -420,7 +420,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemBearMaul",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -464,14 +464,14 @@
     {
       "id": "Metadata/Items/Gem/SkillGemToxicGrowth",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemArakaalisLust",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -508,7 +508,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -552,7 +552,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemPoisonBurstArrow",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -587,7 +587,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemTacatisIre",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -596,7 +596,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemGasArrow",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -640,7 +640,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemConvalescence",
       "level_interval": [
-        1,
+        58,
         100
       ],
       "support_skills": [
@@ -677,7 +677,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemVineArrow",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
@@ -714,14 +714,14 @@
     {
       "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
-        1,
+        58,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -742,39 +742,9 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultBow",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemLacerateThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemDeadlyPoisonTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemWolfPounce",
       "level_interval": [
-        1,
+        6,
         100
       ],
       "support_skills": [
@@ -797,7 +767,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemHeraldOfPlague",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -822,7 +792,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Obliterator Bow\n1. 50% reduced Projectile Range\n2. Adds 37 to 49 [Physical|Physical] Damage\n3. +3 to Level of all [Projectile] Skills\n4. +31 to [Dexterity|Dexterity]\n5. Bow [Attack|Attacks] fire an additional Arrow\n6. +50% [SurpassChance|Surpassing] chance to fire an additional Arrow\n7. [ShamanOnlyMods|Bonded]: 50% increased [Projectile] Speed",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "slot_x": 0,
@@ -832,7 +802,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Sirenscale Gloves\n1. +60 to maximum [EnergyShield|Energy Shield]\n2. 33% increased [EnergyShield|Energy Shield]\n3. +37 to maximum Life\n4. 14% increased [Attack] Speed\n5. +36% to [Resistances|Cold Resistance]\n6. [ManaLeech|Leech] 8.74% of [Physical] [Attack] Damage as Mana\n7. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -842,7 +812,7 @@
       "inventory_id": "Weapon2",
       "additional_text": "Changeling Talisman\n1. 47% increased [Physical] Damage\n2. 12% increased [Stun|Stun] Duration",
       "level_interval": [
-        1,
+        4,
         100
       ],
       "slot_x": 0,
@@ -876,7 +846,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. +59 to maximum [EnergyShield|Energy Shield]\n3. +39% to [Resistances|Cold Resistance]\n4. 8% increased Movement Speed\n5. 32% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. 16% increased Movement Speed when on [LowLife|Low Life]\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n9. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -886,7 +856,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Solar Amulet\n1. +15 to [Spirit|Spirit]\n2. +3 to Level of all [Projectile] Skills\n3. 37% increased [Critical|Critical Hit] Chance\n4. +22 to all [Attributes|Attributes]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,

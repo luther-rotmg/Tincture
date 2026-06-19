@@ -44,9 +44,6 @@
       "id": "attributes115"
     },
     {
-      "id": "spell_criticals14"
-    },
-    {
       "id": "bear4"
     },
     {
@@ -158,9 +155,6 @@
       "id": "intelligence56"
     },
     {
-      "id": "infusion19_"
-    },
-    {
       "id": "armour_and_evasion22"
     },
     {
@@ -251,9 +245,6 @@
       "id": "intelligence51"
     },
     {
-      "id": "infusion23"
-    },
-    {
       "id": "witch_sorceress_notable1"
     },
     {
@@ -290,6 +281,9 @@
       "id": "jewel_slot1971"
     },
     {
+      "id": "maximum_resistances3_"
+    },
+    {
       "id": "intelligence16"
     },
     {
@@ -324,6 +318,12 @@
     },
     {
       "id": "jewel_slot1961"
+    },
+    {
+      "id": "maximum_resistances21"
+    },
+    {
+      "id": "maximum_resistances2"
     },
     {
       "id": "attributes6"
@@ -889,6 +889,36 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemRunicReprieve",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDeadlyResolve",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSteadfastTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
       "level_interval": [
         90,
@@ -942,29 +972,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemSiphonElements",
-      "level_interval": [
-        78,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
         58,
@@ -994,7 +1001,7 @@
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "Massive Mitts\n1. +152 to [Armour|Armour]\n2. Adds 16 to 28 [Fire] damage to [Attack|Attacks]\n3. +2 to Level of all [Projectile] Skills\n4. +39% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. Can roll Marksman modifiers\n6. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage",
+      "additional_text": "Massive Mitts\n1. +152 to [Armour|Armour]\n2. Adds 16 to 28 [Fire] damage to [Attack|Attacks]\n3. +2 to Level of all [Projectile] Skills\n4. +39% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. +40% of [Armour] also applies to [Fire|Fire Damage]\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage",
       "level_interval": [
         80,
         100
