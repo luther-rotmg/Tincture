@@ -537,7 +537,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemAscendancyMirageDeadeye",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -574,7 +574,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -618,14 +618,14 @@
     {
       "id": "Metadata/Items/Gem/SkillGemIceShot",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -639,7 +639,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -662,7 +662,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemBlasphemy",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -699,7 +699,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemFreezingMark",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -736,7 +736,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemSnipe",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -780,7 +780,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemTornadoShot",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
@@ -817,7 +817,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
-        1,
+        66,
         100
       ],
       "support_skills": [
@@ -838,14 +838,14 @@
         {
           "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
         {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -854,7 +854,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -884,7 +884,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemGhostDance",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [

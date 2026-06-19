@@ -559,53 +559,9 @@
   ],
   "skills": [
     {
-      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -649,21 +605,21 @@
     {
       "id": "Metadata/Items/Gem/SkillGemIceShot",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
         {
           "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -693,7 +649,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemWolfPounce",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
@@ -730,7 +686,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemTornadoShot",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -774,7 +730,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
-        1,
+        58,
         100
       ],
       "support_skills": [
@@ -788,6 +744,36 @@
         {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemAnimusExchange",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemSecondWindTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
             1,
             100
           ]
@@ -797,14 +783,14 @@
     {
       "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
-        1,
+        66,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -827,7 +813,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -848,7 +834,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -857,12 +843,19 @@
     {
       "id": "Metadata/Items/Gems/SkillGemGhostDance",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDireStrike",
           "level_interval": [
             1,
             100
@@ -873,7 +866,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemHyenaCackle",
       "level_interval": [
-        1,
+        64,
         100
       ]
     }
@@ -911,7 +904,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Daggerfoot Shoes\n1. +75 to [Evasion] Rating\n2. +23 to maximum [EnergyShield|Energy Shield]\n3. 100% increased [Evasion] and [EnergyShield|Energy Shield]\n4. +24% to [Resistances|Chaos Resistance]\n5. 8% increased Movement Speed\n6. 16% increased Movement Speed when on [LowLife|Low Life]\n7. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Runeforged Daggerfoot Shoes\n1. +75 to [Evasion] Rating\n2. +23 to maximum [EnergyShield|Energy Shield]\n3. 100% increased [Evasion] and [EnergyShield|Energy Shield]\n4. +24% to [Resistances|Chaos Resistance]\n5. 8% increased Movement Speed\n6. 16% increased Movement Speed when on [LowLife|Low Life]\n7. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         1,
         100
@@ -931,7 +924,7 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Falconer's Jacket\n1. 5% increased Movement Speed\n2. +48 to [Evasion] Rating\n3. +14 to maximum [EnergyShield|Energy Shield]\n4. 40% increased [Evasion] and [EnergyShield|Energy Shield]\n5. +44% to [Resistances|Fire Resistance]\n6. +41% to [Resistances|Cold Resistance]\n7. +41% to [Resistances|Lightning Resistance]\n8. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n9. 12% increased [ItemRarity|Rarity of Items] found\n10. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n11. [ShamanOnlyMods|Bonded]: +60 to maximum Mana\n12. [ShamanOnlyMods|Bonded]: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "additional_text": "Runeforged Falconer's Jacket\n1. 5% increased Movement Speed\n2. 110% increased [Evasion] and [EnergyShield|Energy Shield]\n3. +42% to [Resistances|Fire Resistance]\n4. +41% to [Resistances|Cold Resistance]\n5. +42% to [Resistances|Lightning Resistance]\n6. 80% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +80 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +80 to maximum Mana",
       "level_interval": [
         1,
         100

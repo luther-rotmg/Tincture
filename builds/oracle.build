@@ -540,7 +540,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemSpellslinger",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -577,7 +577,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemEmberFusillade",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -598,14 +598,14 @@
         {
           "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
         {
           "id": "Metadata/Items/Gem/SupportGemWildshardsThree",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -621,7 +621,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -642,7 +642,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -651,7 +651,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemTemporalChains",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -688,7 +688,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemDisengage",
       "level_interval": [
-        1,
+        14,
         100
       ],
       "support_skills": [
@@ -725,7 +725,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -748,7 +748,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -771,7 +771,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemElementalConflux",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -782,13 +782,6 @@
             100
           ]
         }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
-      "level_interval": [
-        1,
-        100
       ]
     }
   ],

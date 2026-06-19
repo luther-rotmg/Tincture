@@ -537,7 +537,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
@@ -572,39 +572,9 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemImpetusTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemInhibitor",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -648,14 +618,14 @@
     {
       "id": "Metadata/Items/Gems/SkillGemPoweredByVerisium",
       "level_interval": [
-        1,
+        22,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemUhtredsConstellation",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -692,7 +662,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemFirestorm",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -727,7 +697,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemArbitersIgnition",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -736,7 +706,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemAscendancyDemonForm",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -773,7 +743,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemTheStarsAnswer",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -810,7 +780,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemSigilOfLife",
       "level_interval": [
-        1,
+        72,
         100
       ],
       "support_skills": [
@@ -847,7 +817,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -884,7 +854,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemSpark",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -912,7 +882,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -921,7 +891,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -951,7 +921,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
       "level_interval": [
-        1,
+        66,
         100
       ],
       "support_skills": [
@@ -974,7 +944,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemSiphonElements",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "support_skills": [
@@ -997,7 +967,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
-        1,
+        58,
         100
       ],
       "support_skills": [

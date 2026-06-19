@@ -540,7 +540,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemAscendancyVividStampede",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -584,7 +584,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemWildProtector",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -612,7 +612,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -628,21 +628,21 @@
     {
       "id": "Metadata/Items/Gem/SkillGemTwister",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
         {
           "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -672,7 +672,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -751,7 +751,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -760,7 +760,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemBarrage",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -795,7 +795,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemUhtredsConstellation",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -804,7 +804,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemRighteousDescent",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -841,7 +841,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -878,7 +878,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemFreezingMark",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -915,7 +915,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -952,14 +952,14 @@
     {
       "id": "Metadata/Items/Gem/SkillGemPrimalBounty",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
         {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -968,7 +968,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemTrinity",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "support_skills": [
@@ -982,23 +982,7 @@
         {
           "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
           "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemSalvo",
-          "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -1007,7 +991,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemCombatFrenzy",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -1023,7 +1007,7 @@
     {
       "id": "Metadata/Items/Gems/SkillGemGhostDance",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "support_skills": [
@@ -1034,20 +1018,6 @@
             100
           ]
         }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
-      "level_interval": [
-        1,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemPlayerDefaultSpearThrow",
-      "level_interval": [
-        1,
-        100
       ]
     }
   ],
@@ -1060,7 +1030,11 @@
     },
     {
       "inventory_id": "Ring1",
-      "unique_name": "Andvarius",
+      "additional_text": "Breach Ring\n1. +20% to Maximum [Quality]\n2. Adds 25 to 48 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 4 to 113 [Lightning] damage to [Attack|Attacks]\n4. +16% to all [ElementalDamage|Elemental] [Resistances]\n5. +37% to [Resistances|Lightning Resistance]",
+      "level_interval": [
+        1,
+        100
+      ],
       "slot_x": 0,
       "slot_y": 0
     },
