@@ -667,7 +667,17 @@ async function main() {
             if (report.ok) {
               writeBuild(slug, build); writePob(slug, char.pathOfBuildingExport); builds++;
               meta.byAsc[slug].source = { account, name, level: char.level || null };
-              meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items };
+              // persist a compact QA verdict (the report is otherwise discarded) as an honest,
+              // additive trust signal the front end renders; old readers ignore the new field.
+              meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items,
+                quality: {
+                  level: char.level || null,
+                  sample: pulled.length,
+                  onMetaWeapon: metaFam ? onMetaWeapon(char) : null,   // null = no clear dominant weapon to check
+                  gemsValid: !report.issues.some(i => i.sev === 'fail' && /BaseItemTypes/.test(i.m)),
+                  treeConnected: !report.issues.some(i => /orphan/.test(i.m)),
+                  warnings: report.issues.filter(i => i.sev === 'warn').length,
+                } };
               meta.byAsc[slug].skillSetups = readableSkills(char);
               meta.byAsc[slug].buildItems = buildItems(char);
               meta.byAsc[slug].pob = !!char.pathOfBuildingExport;

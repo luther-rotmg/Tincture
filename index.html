@@ -620,6 +620,10 @@
   .meta-stats .smp{ color:var(--muted); }
   .meta-src{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; }
   .row-share{ margin-top:14px; padding-top:12px; border-top:1px solid var(--hair); }
+  .bv-quality{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; margin:2px 0 14px; }
+  .bv-quality .bvq-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .bv-quality .bvq{ font-family:var(--fmono); font-size:10px; letter-spacing:.02em; }
+  .bv-quality .bvq.ok{ color:var(--rise); }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1594,6 +1598,20 @@ function itemTip(it){
 }
 // readable view of the one reconstructed build — skill setups + gear + a Copy-PoB button,
 // so console players (no file import) and anyone without the planner can replicate it by hand.
+// an honest reconstruction-quality badge from the QA verdict the reconstructor now persists.
+// Shows only RELIABLE positive guarantees (the meta-weapon invariant, gem ids resolve in-game,
+// a real high-level source character). The heuristic tree-connectivity warn is intentionally
+// NOT surfaced — it false-positives on valid ladder builds. Absent field -> no chip (fail-safe).
+function qualityChip(md){
+  const q = md.build && md.build.quality;
+  if (!q) return "";
+  const items = [];
+  if (q.onMetaWeapon === true) items.push("runs the dominant meta weapon");
+  if (q.gemsValid) items.push("all gems resolve in-game");
+  if (q.level) items.push(`reconstructed from a level&nbsp;${q.level} ladder character`);
+  if (!items.length) return "";
+  return `<div class="bv-quality"><span class="bvq-h">QA</span>${items.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")}</div>`;
+}
 function buildViewHTML(md, slug){
   if (!md.source) return "";
   const skills = (md.skillSetups||[]).map(s=>`<div class="bv-skill"><span class="bv-main">${esc(s.skill)}</span>${(s.supports||[]).length?` <span class="bv-sup">+ ${s.supports.map(esc).join(" · ")}</span>`:""}</div>`).join("");
@@ -1604,6 +1622,7 @@ function buildViewHTML(md, slug){
   if (!skills && !items) return "";
   const pob = md.pob ? `<div class="bv-actions"><button class="arch-btn bv-pob" type="button" data-pob="${esc(slug)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5a1.5 1.5 0 0 1 1.5-1.5H15"/></svg> Copy Path of Building code</button></div>` : "";
   return `<div class="build-view"><div class="bv-head"><h5>The build</h5><span class="bv-cap">The exact reconstructed setup — replicate by hand (console / no file import), or load the .build / PoB code.</span></div>`
+    + qualityChip(md)
     + `<div class="meta-grid">${skills?`<div class="meta-col"><h6>Skill setups</h6>${skills}</div>`:""}${items?`<div class="meta-col"><h6>Gear</h6>${items}</div>`:""}</div>${pob}</div>`;
 }
 function metaDetailHTML(md, slug){
@@ -2505,21 +2524,30 @@ function route(){
   if (p.asc) openAsc(p.asc, true);
 }
 
+// fetch JSON with a hard timeout so a hung/slow response can't stall boot — it falls to the
+// honest sample marker instead of hanging. Returns null on any failure (abort/non-200/parse).
+async function fetchJSON(url, ms){
+  const ctl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+  const t = ctl ? setTimeout(()=>ctl.abort(), ms || 8000) : null;
+  try { const r = await fetch(url, { cache:"no-store", signal: ctl && ctl.signal }); if (!r.ok) return null; return await r.json(); }
+  catch(_){ return null; }
+  finally { if (t) clearTimeout(t); }
+}
+
 /* ----- boot ----- */
 async function boot(){
   // Try live data; fall back to the bundled sample. Distinguish a genuine fetch failure
   // (offline / not deployed — the sample is the intended graceful fallback) from a
   // fetched-but-unparseable response, so we NEVER pass bundled sample numbers off as the
   // live meta (renderMeta surfaces a "sample data" marker whenever dataState !== "live").
-  try{
-    const res = await fetch("data.json", { cache:"no-store" });
-    const norm = res.ok ? normalizeData(await res.json()) : null;
-    if (norm) DATA = norm;
-    else dataState = "sample";   // missing (e.g. 404) or malformed — keep SAMPLE_DATA, but say so
-  }catch(_){ dataState = "sample"; /* offline / file:// — sample stands in */ }
+  const raw = await fetchJSON("data.json", 8000);
+  const norm = raw ? normalizeData(raw) : null;       // normalizeData returns null on a bad/unknown shape
+  if (norm) DATA = norm;
+  else dataState = "sample";   // missing / timed out / malformed — keep SAMPLE_DATA, but say so
 
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
-  try{ const mr = await fetch("meta-detail.json", { cache:"no-store" }); if (mr.ok) META = await mr.json(); }catch(_){ /* enrichment only — fine if absent */ }
+  const m = await fetchJSON("meta-detail.json", 8000);
+  if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
   // preload the loadable-build manifest so the quiz can label loadable-vs-template honestly
   try { await buildsManifest(); } catch(_){}
 
