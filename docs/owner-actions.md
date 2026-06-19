@@ -114,9 +114,48 @@ identity/tax/Stripe onboarding to actually receive money.
 
 ---
 
+## 7. Turn on "Export my character"  — *moderate; needs items 1 + 5 first*
+
+The whole **front-end** for this is already built and verified, but it ships **dormant**:
+`index.html` has `const SELF_EXPORT_ENABLED = false`, so the "export my own character" link
+stays hidden and the `#decant-mine` return route no-ops. Nothing about it touches the live
+site until you flip that flag. The flow it drives: sign in with your PoE account → pick one
+of **your own** characters (a small dialog) → the worker fetches it → the page saves a
+loadable `.build` **only if the worker returns a real one** (it never fabricates a `.build`).
+
+To enable it, in order:
+
+1. **Register the GGG OAuth client** (item 1) with `authorization_code` + PKCE and the
+   `account:characters` scope, and set the redirect URI to
+   `https://tincturepoe2.com/api/oauth/callback`.
+2. **Deploy the Cloudflare Worker** (`cloudflare/worker.js`, see `cloudflare/README.md`):
+   - Route it at `tincturepoe2.com/api/*` (so the site and the API share an origin — the
+     front-end calls relative `/api/...` paths).
+   - `wrangler secret put GGG_CLIENT_ID GGG_CLIENT_SECRET COOKIE_SECRET`.
+   - Set `SITE_ORIGIN` and `REDIRECT_URI` vars in `wrangler.toml`.
+3. **Finish the conversion** (item 5): the worker's `/api/character` currently proxies the
+   **raw** GGG character JSON. Use one real `--character` response to confirm the
+   `gem → Metadata/Items/Gem(s)/…` paths (and the slug underscore variants), then have the
+   worker return a serialized `.build` (reuse `buildfile.py`'s serializer logic) instead of
+   raw JSON. Until this step, the front-end shows an honest "not enabled yet" message rather
+   than saving anything — so flipping the flag early degrades gracefully, it doesn't lie.
+4. **Verify**, then flip the flag: with the worker live, `GET /api/characters` should return
+   `401 {"error":"not authenticated"}` (a JSON 401, not an HTML 404). Walk the flow once on
+   the live site. When `/api/character` returns a genuine `.build`, set
+   `SELF_EXPORT_ENABLED = true` in `index.html` and commit.
+
+> The page distinguishes a real `.build` from JSON purely by `Content-Type` (anything that
+> isn't `application/json`/`text/html` and is non-empty is treated as a build), matching how
+> `decant()` already guards the public reconstructions. Keep the worker's success response
+> `Content-Type` accordingly.
+
+---
+
 ### Already done for you (code side)
 - `buildfile.py` — full, cross-confirmed ascendancy-code table.
 - `treedata.py` — derives the passive slug map + ascendancy codes from the GGG export (`--slugs` / `--codes` / `--check`).
 - `ggg.py` — corrected endpoints/scopes/auth model, honest self-only/ladder-summary framing, wired to `treedata`.
+- `cloudflare/worker.js` — PKCE OAuth flow + self-only character proxy, hardened (constant-time cookie HMAC, token-lifetime cookies, generic errors). Untested against live GGG (no client yet) — see `cloudflare/README.md`.
+- `index.html` — the **dormant** "export my character" front-end: login link, character picker, and save-only-a-real-`.build` flow, all behind `SELF_EXPORT_ENABLED` (item 7). Verified locally with a mocked worker.
 - `distill.py` — contactable User-Agent for poe.ninja.
-- Social card (`docs/og.png`), `robots.txt`, `sitemap.xml`, OG/Twitter/JSON-LD meta.
+- Social card (`docs/og.png`), `docs/demo.svg`, `robots.txt`, `sitemap.xml`, OG/Twitter/JSON-LD meta.

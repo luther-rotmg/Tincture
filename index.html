@@ -425,6 +425,25 @@
   .toast.warn{border-left-color:var(--fall);}
   .toast b{color:var(--gold-bright); font-weight:600;}
   .toast .path{color:var(--bone-dim);}
+  .toast a{color:var(--gold-bright); text-decoration:underline;}
+
+  /* "export my character" picker (native <dialog>) — dormant until the OAuth path is enabled */
+  dialog.char-pick{
+    color:var(--bone); background:var(--ink-2); border:1px solid var(--hair-strong);
+    border-radius:4px; padding:24px 26px; max-width:min(92vw,420px); width:100%;
+    box-shadow:0 28px 70px -24px rgba(0,0,0,.85);
+  }
+  dialog.char-pick::backdrop{background:rgba(10,8,5,.66);}
+  dialog.char-pick h3{font-family:var(--fdisplay); font-weight:600; margin:0 0 6px; color:var(--gold-bright); font-size:20px;}
+  dialog.char-pick .cp-sub{color:var(--bone-dim); font-size:14px; margin:0 0 16px;}
+  dialog.char-pick .cp-list{display:flex; flex-direction:column; gap:8px; margin-bottom:16px;}
+  dialog.char-pick .cp-item{
+    text-align:left; font-family:var(--ftext); font-size:16px; color:var(--bone);
+    background:var(--ink-3); border:1px solid var(--hair); border-radius:3px; padding:10px 14px; cursor:pointer;
+  }
+  dialog.char-pick .cp-item:hover{border-color:var(--hair-strong); color:var(--gold-bright);}
+  dialog.char-pick .cp-item small{color:var(--muted); font-family:var(--fmono); font-size:11px;}
+  dialog.char-pick .cp-close{background:none; border:none; cursor:pointer;}
 
   :focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px; border-radius:2px;}
   /* skip-to-content: visually hidden until focused */
@@ -925,6 +944,7 @@
             Decant the essence
           </button>
           <a class="ghost-link" id="heroGuide" target="_blank" rel="noopener noreferrer" hidden>find a build guide ↗</a>
+          <a class="ghost-link" id="exportMine" href="/api/oauth/login" hidden>export my own character ↗</a>
           <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
           <a href="#prescription" class="ghost-link" id="rxHeroLink">match me to a build ↓</a>
           <a href="#assay" class="ghost-link">see the analysis ↓</a>
@@ -1573,6 +1593,81 @@ async function saveRealBuild(b, file, name){
   }
   saveBlob(file, name, "application/json");
   toast(`<b>${name}</b> downloaded. Move it into <span class="path">…\\My Games\\Path of Exile 2\\BuildPlanner</span> to load it in-game.`, "warn", 7000);
+}
+
+/* ----- Export my own character (self-only GGG OAuth) --------------------------------
+   DORMANT BY DEFAULT (SELF_EXPORT_ENABLED = false). This wires the front half of
+   "export MY OWN PoE2 character as a loadable .build" against the Cloudflare worker
+   (cloudflare/worker.js): sign in with your Path of Exile account → list YOUR characters
+   → fetch one. GGG's account:characters scope is self-only, so this only ever exports the
+   signed-in user's own character — never another ladder player (that path is the public
+   poe.ninja reconstruction in tools/build-from-ninja.cjs).
+
+   Why it ships dormant: the worker returns the GGG character payload, but turning that into
+   a loadable .build is finished SERVER-SIDE and still needs a registered GGG OAuth client
+   plus one real --character response to confirm the gem→metadata path mapping
+   (see docs/owner-actions.md). Until then the link stays hidden and #decant-mine no-ops, so
+   nothing about this surfaces on the live site. The flow below saves a .build ONLY if the
+   worker returns a real one; it NEVER fabricates a .build (the project's no-fabrication rule),
+   and shows an honest message for every other state. To enable: deploy the worker, register
+   the client, verify the conversion, then set SELF_EXPORT_ENABLED = true. */
+const SELF_EXPORT_ENABLED = false;
+
+const charSlug = s => (String(s||"").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")) || "character";
+
+// 1) list the signed-in user's own characters (worker proxies GGG /character/poe2)
+async function decantMine(){
+  let chars;
+  try {
+    const r = await fetch("/api/characters", { cache: "no-store" });
+    if (r.status === 401){ toast(`Sign in to export your own character — <a href="/api/oauth/login">connect your Path of Exile account</a>.`, "warn", 8000); return; }
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    chars = Array.isArray(j) ? j : (j && Array.isArray(j.characters) ? j.characters : []);
+  } catch(_){ toast("Couldn't reach the export service. Please try again shortly.", "warn", 6000); return; }
+  if (!chars.length){ toast("No Path of Exile 2 characters found on your account.", "warn", 6000); return; }
+  pickCharacter(chars);
+}
+
+// 2) a minimal native-<dialog> picker (falls back to the first character if <dialog> is absent)
+function pickCharacter(chars){
+  const nameOf = c => (typeof c === "string" ? c : (c && (c.name || c.id))) || "";
+  const metaOf = c => { if (typeof c === "string" || !c) return ""; const bits=[c.class||c.ascendancy, c.level!=null?("lvl "+c.level):null].filter(Boolean); return bits.length?` <small>· ${esc(bits.join(" · "))}</small>`:""; };
+  if (typeof HTMLDialogElement === "undefined"){ exportCharacter(nameOf(chars[0])); return; }
+  const dlg = document.createElement("dialog");
+  dlg.className = "char-pick";
+  dlg.innerHTML = `<h3>Export your character</h3>`
+    + `<p class="cp-sub">Pick a character to decant as a loadable <code>.build</code>. Only your own characters are listed.</p>`
+    + `<div class="cp-list">` + chars.map(c=>`<button type="button" class="cp-item" data-name="${esc(nameOf(c))}">${esc(nameOf(c))}${metaOf(c)}</button>`).join("") + `</div>`
+    + `<button type="button" class="cp-close ghost-link">cancel</button>`;
+  document.body.appendChild(dlg);
+  dlg.addEventListener("click", e=>{
+    const item = e.target.closest(".cp-item");
+    if (item){ dlg.close(); dlg.remove(); exportCharacter(item.dataset.name); }
+    else if (e.target.closest(".cp-close") || e.target === dlg){ dlg.close(); dlg.remove(); }
+  });
+  dlg.addEventListener("cancel", ()=> dlg.remove());
+  dlg.showModal();
+}
+
+// 3) fetch one character and save it — a real .build ONLY if the worker produced one
+async function exportCharacter(name){
+  if (!name) return;
+  toast(`Fetching <b>${esc(name)}</b> from your account…`, "ok", 4000);
+  let res;
+  try { res = await fetch("/api/character?name=" + encodeURIComponent(name), { cache: "no-store" }); }
+  catch(_){ toast("Couldn't fetch that character. Please try again shortly.", "warn", 6000); return; }
+  if (res.status === 401){ toast(`Your session expired — <a href="/api/oauth/login">sign in again</a>.`, "warn", 8000); return; }
+  if (!res.ok){ toast("Couldn't fetch that character. Please try again shortly.", "warn", 6000); return; }
+  const ct = (res.headers.get("content-type") || "").toLowerCase();
+  const body = await res.text();
+  // Save a real .build ONLY if the worker returns one: non-empty, and NOT json/html (the current
+  // worker proxies raw character JSON; converting it to a loadable .build is the documented
+  // server-side step). We never fabricate a .build here.
+  if (body.trim() && !ct.includes("json") && !ct.includes("html")){
+    return saveRealBuild({ asc: name }, body, charSlug(name) + ".build");
+  }
+  toast(`Connected to your account and fetched <b>${esc(name)}</b>. Turning a character into a loadable <code>.build</code> is still being verified against live data and isn't enabled yet — see the project notes.`, "warn", 9000);
 }
 
 /* ----- render ----- */
@@ -2643,6 +2738,8 @@ function openAsc(slug, scroll){
 function route(){
   const h = (location.hash || "").replace(/^#/, "");
   if (!h) return;
+  // the OAuth worker bounces back to #decant-mine after consent; no-op while the feature is dormant
+  if (h === "decant-mine"){ if (SELF_EXPORT_ENABLED) decantMine(); return; }
   const p = {};
   const dec = s => { try { return decodeURIComponent(s); } catch(_) { return null; } };   // a malformed %-escape must no-op, not throw out of boot
   h.split("&").forEach(kv=>{ const i=kv.indexOf("="); if(i>0){ const v=dec(kv.slice(i+1)); if(v!=null) p[kv.slice(0,i)]=v; } });
@@ -2776,6 +2873,10 @@ async function boot(){
     const heroLink = $("#guideHeroLink");
     if (heroLink) heroLink.onclick = e => { e.preventDefault(); setGuide(true); guide.scrollIntoView({behavior:"smooth", block:"start"}); };
   }
+
+  // "export my own character" — revealed only when the self-only OAuth path is enabled
+  // (worker deployed + conversion verified); dormant otherwise, so the live site is unaffected.
+  if (SELF_EXPORT_ENABLED){ const em = $("#exportMine"); if (em) em.hidden = false; }
 
   // deep links: open the pick / league / quiz named in the URL, and react to later hash changes
   window.addEventListener("hashchange", route);

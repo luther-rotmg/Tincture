@@ -39,16 +39,25 @@ wrangler deploy
 | `GET /api/logout` | Clear the session. |
 
 ## Wiring into Tincture
-Add an "Export **my** character" button that links to `/api/oauth/login`. After consent the
-user lands back on the site (`/#decant-mine`); call `/api/characters`, let them pick one, fetch
-`/api/character?name=…`, then convert the returned GGG JSON to a `.build` with the **same
-logic** as `tools/build-from-ninja.cjs` (`convert()` + the cohesion QA — the passive→slug and
-gem→metadata maps already exist there). Two reasonable shapes:
-- **Worker-side convert** (recommended): port `convert()`/`qa()` into the Worker and have it
-  fetch the GGG tree export + PoB2 `Gems.lua` once (cache in a KV namespace), so `/api/character`
-  returns a ready `.build`. Keeps the heavy maps off the client.
+**The front-end is already built** (in `index.html`) and ships **dormant** behind
+`const SELF_EXPORT_ENABLED = false`: an "export my own character" link → `/api/oauth/login`,
+and on return to `/#decant-mine` it calls `/api/characters`, shows a picker, fetches
+`/api/character?name=…`, and saves the result **only if it's a real `.build`** (never
+fabricated). So the only thing left is to make the Worker *return* a `.build`, then flip the
+flag (full checklist: `../docs/owner-actions.md` §7).
+
+The conversion should reuse the **same logic** as `tools/build-from-ninja.cjs` (`convert()` +
+the cohesion QA — the passive→slug and gem→metadata maps already exist there). Two shapes:
+- **Worker-side convert** (recommended, and what the front-end expects): port `convert()`/`qa()`
+  into the Worker and have it fetch the GGG tree export + PoB2 `Gems.lua` once (cache in a KV
+  namespace), so `/api/character` returns a ready `.build` (success `Content-Type` anything but
+  `application/json`/`text/html` — that's how the page tells a build from raw JSON). Keeps the
+  heavy maps off the client.
 - **Client-side convert**: return raw GGG JSON and convert in the browser (needs the slug/gem
-  maps loaded client-side — larger download).
+  maps loaded client-side — larger download; the front-end would need a converter added).
+
+Until the Worker converts, the page degrades honestly: it tells the user the loadable export
+isn't enabled yet rather than saving raw JSON as a (non-loadable) `.build`.
 
 ## Security notes
 - The `client_secret` lives only as a Worker secret, never in the static site or this repo.
