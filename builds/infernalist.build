@@ -572,6 +572,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemSpark",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemFork",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAccelerationThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemRunicExtraction",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
       "level_interval": [
         90,
@@ -600,7 +644,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemRunicExtraction",
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
           "level_interval": [
             1,
             100
@@ -846,43 +890,6 @@
           "id": "Metadata/Items/Gems/SupportGemDemolisherTwo",
           "level_interval": [
             1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemSpark",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemFork",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemAccelerationThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
             100
           ]
         }

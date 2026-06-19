@@ -89,9 +89,6 @@
       "id": "criticals54_"
     },
     {
-      "id": "spell_criticals15"
-    },
-    {
       "id": "remnant1"
     },
     {
@@ -200,9 +197,6 @@
       "id": "mana34"
     },
     {
-      "id": "spell_criticals18"
-    },
-    {
       "id": "jewel_slot1976"
     },
     {
@@ -302,6 +296,9 @@
       "id": "shadow_monk_notable1"
     },
     {
+      "id": "mana23"
+    },
+    {
       "id": "AscendancyMonk3Notable5"
     },
     {
@@ -318,6 +315,9 @@
     },
     {
       "id": "mana_leech20"
+    },
+    {
+      "id": "mana19"
     },
     {
       "id": "triggers17"
@@ -339,9 +339,6 @@
     },
     {
       "id": "lightning_penetration27"
-    },
-    {
-      "id": "spell_criticals12_"
     },
     {
       "id": "dexterity6"
@@ -395,13 +392,16 @@
       "id": "jewel_slot1961"
     },
     {
-      "id": "spell_criticals17_"
-    },
-    {
       "id": "intelligence58"
     },
     {
       "id": "remnant5"
+    },
+    {
+      "id": "mana14"
+    },
+    {
+      "id": "monkchakra24"
     },
     {
       "id": "lightning20__"
@@ -839,16 +839,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Belt1",
-      "additional_text": "Fine Belt\n1. Has 3 [Charm] Slots\n2. [Flask|Flasks] gain 0.17 charges per Second\n3. +119 to maximum Life\n4. +111 to maximum Mana\n5. +33% to [Resistances|Lightning Resistance]\n6. 15% of Damage is taken from Mana before Life",
-      "level_interval": [
-        62,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Boots1",
       "additional_text": "Runeforged Cryptic Leggings\n1. +120 to maximum Mana\n2. +45% to [Resistances|Cold Resistance]\n3. 40% increased Skill Effect Duration\n4. 5% increased Movement Speed\n5. Can roll Chronomancy modifiers\n6. [ShamanOnlyMods|Bonded]: 20% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
@@ -861,6 +851,12 @@
     {
       "inventory_id": "Ring1",
       "unique_name": "Kalandra's Touch",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Belt1",
+      "unique_name": "Headhunter",
       "slot_x": 0,
       "slot_y": 0
     },

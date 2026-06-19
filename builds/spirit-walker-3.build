@@ -143,10 +143,10 @@
       "id": "attributes10"
     },
     {
-      "id": "AscendancyHuntress2Notable2"
+      "id": "dexterity20"
     },
     {
-      "id": "dexterity20"
+      "id": "AscendancyHuntress2Notable9"
     },
     {
       "id": "ranger_huntress_notable2"
@@ -201,6 +201,9 @@
     },
     {
       "id": "spear12"
+    },
+    {
+      "id": "AscendancyHuntress2Small3"
     },
     {
       "id": "dexterity80"
@@ -317,7 +320,7 @@
       "id": "AscendancyHuntress2Small5"
     },
     {
-      "id": "AscendancyHuntress2Small2_"
+      "id": "AscendancyHuntress2Notable3"
     },
     {
       "id": "evasion_and_energy_shield35_"
@@ -565,6 +568,50 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemLightningInfusion",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWildProtector",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemEnormity",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemElementalArmy",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMeatShieldTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMinionMastery",
           "level_interval": [
             1,
             100

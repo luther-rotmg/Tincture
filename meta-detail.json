@@ -1,11 +1,11 @@
 {
-  "updated": "2026-06-19T16:54:19.967Z",
-  "buildsUpdated": "2026-06-19T16:54:19.967Z",
+  "updated": "2026-06-19T17:49:28.675Z",
+  "buildsUpdated": "2026-06-19T17:49:28.675Z",
   "league": "runesofaldur",
-  "version": "1529-20260619-31612",
-  "total": 124258,
+  "version": "1734-20260619-53834",
+  "total": 124269,
   "global": {
-    "sample": 124258,
+    "sample": 124269,
     "skills": [
       {
         "name": "Herald of Ice",
@@ -17,11 +17,11 @@
       },
       {
         "name": "Hollow Focus",
-        "pct": 18.9
+        "pct": 19
       },
       {
         "name": "Wild Protector",
-        "pct": 18.6
+        "pct": 18.4
       },
       {
         "name": "Herald of Thunder",
@@ -29,13 +29,13 @@
       },
       {
         "name": "Freezing Mark",
-        "pct": 15.7
+        "pct": 15.6
       }
     ],
     "supports": [
       {
         "name": "Magnified Area II",
-        "pct": 88.2
+        "pct": 88.3
       },
       {
         "name": "Prolonged Duration II",
@@ -47,7 +47,7 @@
       },
       {
         "name": "Rapid Casting II",
-        "pct": 53.5
+        "pct": 53.4
       },
       {
         "name": "Elemental Armament II",
@@ -55,29 +55,29 @@
       },
       {
         "name": "Blind II",
-        "pct": 46.8
+        "pct": 46.9
       }
     ],
     "notables": [
       {
         "name": "Way of the Stonefist",
-        "pct": 23.2
+        "pct": 23.4
       },
       {
         "name": "Chaos Inoculation",
-        "pct": 22.2
+        "pct": 22.4
       },
       {
         "name": "Runic Meridians",
-        "pct": 20.5
+        "pct": 20.6
       },
       {
         "name": "Hollow Focus Technique",
-        "pct": 18.7
+        "pct": 18.8
       },
       {
         "name": "Wild Protector",
-        "pct": 18.7
+        "pct": 18.6
       },
       {
         "name": "Dance with Death",
@@ -87,27 +87,27 @@
     "uniques": [
       {
         "name": "Heart of the Well",
-        "pct": 67.3
+        "pct": 67.6
       },
       {
         "name": "Nascent Hope",
-        "pct": 59.5
+        "pct": 59.8
       },
       {
         "name": "Lavianga's Spirits",
-        "pct": 55.6
+        "pct": 55.7
       },
       {
         "name": "The Fall of the Axe",
-        "pct": 39.9
+        "pct": 40.1
       },
       {
         "name": "Rite of Passage",
-        "pct": 33
+        "pct": 33.3
       },
       {
         "name": "Beira's Anguish",
-        "pct": 24.7
+        "pct": 24.8
       }
     ],
     "anointments": [
@@ -117,25 +117,25 @@
       },
       {
         "name": "Zarokh's Gift",
-        "pct": 6.4
-      },
-      {
-        "name": "Serrated Edges",
-        "pct": 6
+        "pct": 6.5
       },
       {
         "name": "Dominion",
+        "pct": 6
+      },
+      {
+        "name": "Serrated Edges",
         "pct": 5.9
       },
       {
         "name": "Thaumaturgic Generator",
-        "pct": 5
+        "pct": 5.1
       }
     ],
     "weapons": [
       {
         "name": "Quarterstaff",
-        "pct": 16
+        "pct": 16.1
       },
       {
         "name": "Spear",
@@ -147,7 +147,7 @@
       },
       {
         "name": "Unknown / Sceptre",
-        "pct": 8.7
+        "pct": 8.6
       },
       {
         "name": "Staff",
@@ -156,7 +156,8 @@
     ],
     "stats": {
       "ehp": 30000,
-      "dps": 154000
+      "dps": 162000,
+      "sample": 100
     },
     "top": {
       "account": "heygyus-0416",
@@ -165,49 +166,49 @@
     "gear": [
       {
         "name": "+# to maximum Energy Shield",
-        "pct": 23,
+        "pct": 22.9,
         "lo": 47,
         "hi": 80
       },
       {
         "name": "+#% to Cold Resistance",
-        "pct": 22.6,
+        "pct": 22.9,
         "lo": 33,
         "hi": 42
       },
       {
         "name": "+#% to Fire Resistance",
-        "pct": 22.2,
-        "lo": 32,
+        "pct": 22.3,
+        "lo": 33,
         "hi": 42
       },
       {
         "name": "+# to maximum Mana",
-        "pct": 22.1,
-        "lo": 56,
+        "pct": 21.9,
+        "lo": 45,
         "hi": 173
       },
       {
         "name": "+#% to Lightning Resistance",
-        "pct": 20.9,
+        "pct": 20.6,
         "lo": 34,
         "hi": 43
       },
       {
         "name": "+# to maximum Life",
-        "pct": 20.2,
-        "lo": 85,
+        "pct": 20.5,
+        "lo": 88,
         "hi": 147
       },
       {
         "name": "#% increased Energy Shield",
-        "pct": 19.6,
+        "pct": 18.9,
         "lo": 80,
         "hi": 110
       },
       {
         "name": "#% increased Rarity of Items found",
-        "pct": 15.4,
+        "pct": 15,
         "lo": 17,
         "hi": 18
       }
@@ -215,34 +216,34 @@
     "runes": [
       {
         "name": "Saqawal's Rune of the Sky",
-        "pct": 28.1
+        "pct": 29.2
       },
       {
         "name": "Hedgewitch Assandra's Rune of Wisdom",
-        "pct": 28.1
+        "pct": 28.3
       },
       {
         "name": "Perfect Iron Rune",
-        "pct": 21.5
+        "pct": 21.7
       },
       {
         "name": "Soul Core of Quipolatl",
-        "pct": 14
+        "pct": 15
       },
       {
         "name": "Countess Seske's Rune of Archery",
-        "pct": 11.6
+        "pct": 11.7
       },
       {
         "name": "Farrul's Rune of the Hunt",
-        "pct": 9.9
+        "pct": 9.2
       }
     ]
   },
   "byAsc": {
     "martial-artist": {
       "asc": "Martial Artist",
-      "sample": 29002,
+      "sample": 29183,
       "skills": [
         {
           "name": "Hollow Focus",
@@ -250,11 +251,11 @@
         },
         {
           "name": "Rend",
-          "pct": 56.4
+          "pct": 56.3
         },
         {
           "name": "Hollow Form",
-          "pct": 53.8
+          "pct": 53.7
         },
         {
           "name": "Pounce",
@@ -262,7 +263,7 @@
         },
         {
           "name": "Tempest Bell",
-          "pct": 36
+          "pct": 36.1
         },
         {
           "name": "Devour",
@@ -276,7 +277,7 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 92.3
+          "pct": 92.2
         },
         {
           "name": "Cooldown Recovery II",
@@ -284,15 +285,15 @@
         },
         {
           "name": "Blind II",
-          "pct": 85.2
+          "pct": 85.1
         },
         {
           "name": "Rage III",
-          "pct": 83.5
+          "pct": 83.4
         },
         {
           "name": "Blazing Critical",
-          "pct": 78.8
+          "pct": 78.7
         }
       ],
       "notables": [
@@ -310,7 +311,7 @@
         },
         {
           "name": "Hollow Form Technique",
-          "pct": 52.5
+          "pct": 52.3
         },
         {
           "name": "Chaos Inoculation",
@@ -318,33 +319,33 @@
         },
         {
           "name": "Hollow Resonance Technique",
-          "pct": 23.2
+          "pct": 23.3
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 80.1
+          "pct": 80.2
         },
         {
           "name": "Nascent Hope",
-          "pct": 71.1
+          "pct": 71.2
         },
         {
           "name": "Lochtonial Caress",
-          "pct": 47
+          "pct": 46.9
         },
         {
           "name": "Amor Mandragora",
-          "pct": 45.6
+          "pct": 45.7
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 45.5
+          "pct": 45.6
         },
         {
           "name": "Rite of Passage",
-          "pct": 32.7
+          "pct": 32.9
         }
       ],
       "anointments": [
@@ -354,7 +355,7 @@
         },
         {
           "name": "Overwhelming Strike",
-          "pct": 7.3
+          "pct": 7.4
         },
         {
           "name": "Thaumaturgic Generator",
@@ -372,7 +373,7 @@
       "weapons": [
         {
           "name": "Quarterstaff",
-          "pct": 63.6
+          "pct": 63.5
         },
         {
           "name": "Spear",
@@ -392,8 +393,9 @@
         }
       ],
       "stats": {
-        "ehp": 43000,
-        "dps": 120000,
+        "ehp": 45000,
+        "dps": 66000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -778,105 +780,105 @@
     },
     "invoker": {
       "asc": "Invoker",
-      "sample": 250,
+      "sample": 259,
       "skills": [
         {
           "name": "Charged Staff",
           "pct": 43.2
         },
         {
-          "name": "Herald of Ice",
-          "pct": 41.6
+          "name": "Herald of Thunder",
+          "pct": 40.9
         },
         {
-          "name": "Herald of Thunder",
-          "pct": 41.2
+          "name": "Herald of Ice",
+          "pct": 40.5
         },
         {
           "name": "Profane Ritual",
-          "pct": 30
+          "pct": 29.7
         },
         {
           "name": "Flicker Strike",
-          "pct": 28.4
+          "pct": 28.6
         },
         {
           "name": "Whirling Assault",
-          "pct": 26.8
+          "pct": 26.6
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 88.4
+          "pct": 88.8
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 84.4
+          "pct": 86.5
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 73.6
+          "pct": 74.5
         },
         {
           "name": "Elemental Armament II",
-          "pct": 67.2
+          "pct": 66.4
         },
         {
           "name": "Pinpoint Critical",
-          "pct": 64.4
+          "pct": 64.9
         },
         {
           "name": "Efficiency II",
-          "pct": 61.6
+          "pct": 61.8
         }
       ],
       "notables": [
         {
           "name": "Sunder my Enemies...",
-          "pct": 85.2
+          "pct": 85.3
         },
         {
           "name": "Lead me through Grace...",
-          "pct": 82.8
+          "pct": 82.6
         },
         {
           "name": "I am the Thunder...",
-          "pct": 60
+          "pct": 60.2
         },
         {
           "name": "I am the Blizzard...",
-          "pct": 55.2
+          "pct": 54.1
         },
         {
           "name": "The Soul Springs Eternal",
-          "pct": 51.2
+          "pct": 51.7
         },
         {
           "name": "Chaos Inoculation",
-          "pct": 38.8
+          "pct": 38.6
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 78.8
+          "pct": 78.4
         },
         {
           "name": "Nascent Hope",
-          "pct": 63.6
+          "pct": 64.9
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 47.6
+          "pct": 46.7
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 40.4
+          "pct": 40.5
         },
         {
           "name": "Rite of Passage",
-          "pct": 30.4
+          "pct": 30.5
         },
         {
           "name": "Prism of Belief",
@@ -890,46 +892,47 @@
         },
         {
           "name": "Barbaric Strength",
-          "pct": 6
+          "pct": 6.2
         },
         {
           "name": "Ancestral Reach",
-          "pct": 6
+          "pct": 6.2
         },
         {
           "name": "Tribal Fury",
-          "pct": 4.4
+          "pct": 4.6
         },
         {
           "name": "Stormcharged",
-          "pct": 4.4
+          "pct": 4.6
         }
       ],
       "weapons": [
         {
           "name": "Quarterstaff",
-          "pct": 46
+          "pct": 45.9
         },
         {
           "name": "Wand / Buckler",
-          "pct": 10.4
+          "pct": 10.8
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 8.8
+          "pct": 9.3
         },
         {
           "name": "Spear",
-          "pct": 6
+          "pct": 5.8
         },
         {
           "name": "Staff",
-          "pct": 5.2
+          "pct": 5
         }
       ],
       "stats": {
         "ehp": 23000,
-        "dps": 254000,
+        "dps": 247000,
+        "sample": 100,
         "level": 98
       },
       "top": {
@@ -939,73 +942,73 @@
       "gear": [
         {
           "name": "+#% to Cold Resistance",
-          "pct": 40,
+          "pct": 42.6,
           "lo": 33,
           "hi": 42
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 32.7,
+          "pct": 36.2,
           "lo": 47,
-          "hi": 80
+          "hi": 72
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 27.3,
+          "pct": 27.7,
           "lo": 32,
-          "hi": 43
+          "hi": 41
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 25.5,
-          "lo": 42,
+          "pct": 23.4,
+          "lo": 41,
           "hi": 128
         },
         {
-          "name": "+# to maximum Mana",
-          "pct": 21.8,
-          "lo": 87,
-          "hi": 180
-        },
-        {
-          "name": "+# to Intelligence",
-          "pct": 20,
-          "lo": 28,
-          "hi": 32
-        },
-        {
           "name": "+#% to Lightning Resistance",
-          "pct": 20,
+          "pct": 23.4,
           "lo": 31,
           "hi": 42
         },
         {
+          "name": "+# to Intelligence",
+          "pct": 19.1,
+          "lo": 29,
+          "hi": 32
+        },
+        {
+          "name": "+# to maximum Mana",
+          "pct": 17,
+          "lo": 87,
+          "hi": 205
+        },
+        {
           "name": "#% increased Rarity of Items found",
-          "pct": 18.2,
+          "pct": 17,
           "lo": 15,
-          "hi": 18
+          "hi": 17
         }
       ],
       "runes": [
         {
           "name": "Hedgewitch Assandra's Rune of Wisdom",
-          "pct": 42.9
+          "pct": 33.3
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 28.6
+          "pct": 33.3
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 14.3
+          "pct": 16.7
         },
         {
           "name": "Soul Core of Quipolatl",
-          "pct": 14.3
+          "pct": 16.7
         },
         {
           "name": "Farrul's Rune of the Hunt",
-          "pct": 14.3
+          "pct": 16.7
         }
       ],
       "source": {
@@ -1035,7 +1038,7 @@
         },
         "quality": {
           "level": 98,
-          "sample": 7,
+          "sample": 6,
           "onMetaWeapon": true,
           "gemsValid": true,
           "treeConnected": false,
@@ -1299,23 +1302,23 @@
       "skills": [
         {
           "name": "Despair",
-          "pct": 40.8
+          "pct": 41.2
         },
         {
           "name": "Archon of Chayula",
-          "pct": 40.8
+          "pct": 40.6
         },
         {
           "name": "Refutation",
-          "pct": 25.3
+          "pct": 25.2
         },
         {
           "name": "Pain Offering",
-          "pct": 20.9
+          "pct": 21.3
         },
         {
           "name": "Freezing Mark",
-          "pct": 17.3
+          "pct": 17.5
         },
         {
           "name": "Comet",
@@ -1337,15 +1340,15 @@
         },
         {
           "name": "Remnant Potency III",
-          "pct": 84.9
+          "pct": 85.6
         },
         {
           "name": "Khatal's Rejuvenation",
-          "pct": 76.5
+          "pct": 76.4
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 75.2
+          "pct": 75.3
         }
       ],
       "notables": [
@@ -1355,19 +1358,19 @@
         },
         {
           "name": "Lucid Dreaming",
-          "pct": 93.2
+          "pct": 93.4
         },
         {
           "name": "Chayula's Gift",
-          "pct": 85.9
+          "pct": 86.4
         },
         {
           "name": "Choice of Power",
-          "pct": 77.1
+          "pct": 77.3
         },
         {
           "name": "Archon of Chayula",
-          "pct": 46.2
+          "pct": 46.4
         },
         {
           "name": "Mind Over Matter",
@@ -1377,55 +1380,55 @@
       "uniques": [
         {
           "name": "Nascent Hope",
-          "pct": 45.3
+          "pct": 45.9
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 43
+          "pct": 43.8
         },
         {
           "name": "From Nothing",
-          "pct": 40.6
+          "pct": 40.8
         },
         {
           "name": "Heart of the Well",
-          "pct": 37.1
+          "pct": 37.3
         },
         {
           "name": "Prism of Belief",
-          "pct": 32.2
+          "pct": 32.4
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 31
+          "pct": 31.3
         }
       ],
       "anointments": [
         {
           "name": "Dominion",
-          "pct": 28.1
+          "pct": 28.3
         },
         {
           "name": "Cooked",
-          "pct": 7.7
+          "pct": 7.8
         },
         {
           "name": "Warlord Leader",
-          "pct": 7.5
+          "pct": 7.4
         },
         {
           "name": "Avoiding Deflection",
-          "pct": 5.7
+          "pct": 5.8
         },
         {
           "name": "Enhanced Reflexes",
-          "pct": 3.9
+          "pct": 4
         }
       ],
       "weapons": [
         {
           "name": "Sceptre / Buckler",
-          "pct": 14.9
+          "pct": 15.2
         },
         {
           "name": "Sceptre / Focus",
@@ -1433,7 +1436,7 @@
         },
         {
           "name": "Quarterstaff",
-          "pct": 11.7
+          "pct": 11.1
         },
         {
           "name": "Dual Mace",
@@ -1441,12 +1444,13 @@
         },
         {
           "name": "Staff",
-          "pct": 8.7
+          "pct": 8.5
         }
       ],
       "stats": {
         "ehp": 28000,
         "dps": 29000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -1456,51 +1460,51 @@
       "gear": [
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 48.3,
-          "lo": 53,
+          "pct": 46.4,
+          "lo": 57,
           "hi": 86
         },
         {
           "name": "+# to maximum Mana",
-          "pct": 37.9,
-          "lo": 34,
+          "pct": 35.7,
+          "lo": 28,
           "hi": 159
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 27.6,
-          "lo": 99,
-          "hi": 136
+          "pct": 32.1,
+          "lo": 94,
+          "hi": 124
         },
         {
           "name": "+# to Intelligence",
-          "pct": 27.6,
+          "pct": 28.6,
           "lo": 23,
-          "hi": 32
+          "hi": 33
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 24.1,
+          "pct": 25,
           "lo": 24,
           "hi": 39
         },
         {
+          "name": "#% increased Cast Speed",
+          "pct": 17.9,
+          "lo": 23,
+          "hi": 26
+        },
+        {
+          "name": "+#% to Cold Resistance",
+          "pct": 17.9,
+          "lo": 31,
+          "hi": 37
+        },
+        {
           "name": "#% increased Armour and Energy Shield",
-          "pct": 17.2,
+          "pct": 14.3,
           "lo": 98,
           "hi": 131
-        },
-        {
-          "name": "+# to maximum Life",
-          "pct": 17.2,
-          "lo": 35,
-          "hi": 119
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 13.8,
-          "lo": 33,
-          "hi": 40
         }
       ],
       "runes": [
@@ -1519,20 +1523,20 @@
         "skills": 12,
         "items": 10,
         "defence": {
-          "ehp": 16537,
-          "life": 1855,
+          "ehp": 16875,
+          "life": 1868,
           "es": 0,
           "ward": null,
           "resists": {
             "fire": 75,
             "cold": 75,
             "lightning": 75,
-            "chaos": 85
+            "chaos": 76
           },
           "evade": 0,
           "pdr": 1,
           "block": null,
-          "crit": 68
+          "crit": 66
         },
         "quality": {
           "level": 99,
@@ -1667,25 +1671,6 @@
           ]
         },
         {
-          "slot": "Belt1",
-          "name": "Rage Twine",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Fine Belt",
-          "ilvl": 80,
-          "implicits": [
-            "Has 3 Charm Slots",
-            "Flasks gain 0.17 charges per Second"
-          ],
-          "explicits": [
-            "+119 to maximum Life",
-            "+111 to maximum Mana",
-            "+33% to Lightning Resistance",
-            "15% of Damage is taken from Mana before Life",
-            "+22% to Chaos Resistance"
-          ]
-        },
-        {
           "slot": "Boots1",
           "name": "Horror Slippers",
           "unique": false,
@@ -1712,6 +1697,28 @@
           "ilvl": 80,
           "explicits": [
             "Reflects opposite Ring"
+          ]
+        },
+        {
+          "slot": "Belt1",
+          "name": "Headhunter",
+          "unique": true,
+          "rarity": "Unique",
+          "base": "Heavy Belt",
+          "ilvl": 80,
+          "corrupted": true,
+          "enchants": [
+            "+23% to Lightning Resistance"
+          ],
+          "implicits": [
+            "22% increased Stun Threshold",
+            "Has 3 Charm Slots"
+          ],
+          "explicits": [
+            "+59 to maximum Life",
+            "+36 to Strength",
+            "+32 to Dexterity",
+            "When you kill a Rare monster, you gain its Modifiers for 60 seconds"
           ]
         },
         {
@@ -1915,7 +1922,7 @@
     },
     "deadeye": {
       "asc": "Deadeye",
-      "sample": 13932,
+      "sample": 13915,
       "skills": [
         {
           "name": "Herald of Ice",
@@ -1923,7 +1930,7 @@
         },
         {
           "name": "Ice Shot",
-          "pct": 86
+          "pct": 86.1
         },
         {
           "name": "Tornado Shot",
@@ -1931,7 +1938,7 @@
         },
         {
           "name": "Barrage",
-          "pct": 81
+          "pct": 80.9
         },
         {
           "name": "Freezing Mark",
@@ -1939,7 +1946,7 @@
         },
         {
           "name": "Snipe",
-          "pct": 64.2
+          "pct": 64
         }
       ],
       "supports": [
@@ -1957,7 +1964,7 @@
         },
         {
           "name": "Deliberation",
-          "pct": 93.1
+          "pct": 93
         },
         {
           "name": "Elemental Focus",
@@ -1975,15 +1982,15 @@
         },
         {
           "name": "Projectile Proximity Specialisation",
-          "pct": 90.5
+          "pct": 90.4
         },
         {
           "name": "Endless Munitions",
-          "pct": 89.7
+          "pct": 89.6
         },
         {
           "name": "Mirage Deadeye",
-          "pct": 87.3
+          "pct": 87.2
         },
         {
           "name": "Point Blank",
@@ -1991,47 +1998,47 @@
         },
         {
           "name": "Called Shots",
-          "pct": 12.7
+          "pct": 12.8
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 88.1
+          "pct": 88.3
         },
         {
           "name": "Nascent Hope",
-          "pct": 76
+          "pct": 76.3
         },
         {
           "name": "Cadiro's Gambit",
-          "pct": 74.3
+          "pct": 74.5
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 69.8
+          "pct": 69.9
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 63.3
+          "pct": 63.4
         },
         {
           "name": "Headhunter",
-          "pct": 38.2
+          "pct": 38.4
         }
       ],
       "anointments": [
         {
           "name": "Serrated Edges",
-          "pct": 43.6
+          "pct": 43.5
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 10
+          "pct": 10.2
         },
         {
           "name": "Climate Change",
-          "pct": 7
+          "pct": 7.2
         },
         {
           "name": "Thin Ice",
@@ -2067,6 +2074,7 @@
       "stats": {
         "ehp": 27000,
         "dps": 309000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -2556,37 +2564,37 @@
     },
     "pathfinder": {
       "asc": "Pathfinder",
-      "sample": 2069,
+      "sample": 2079,
       "skills": [
         {
           "name": "Ice Shot",
-          "pct": 66.4
+          "pct": 66.2
         },
         {
           "name": "Herald of Ice",
-          "pct": 65.7
+          "pct": 65.4
         },
         {
           "name": "Tornado Shot",
-          "pct": 65.3
+          "pct": 65
         },
         {
           "name": "Barrage",
-          "pct": 55.4
+          "pct": 54.8
         },
         {
           "name": "Freezing Mark",
-          "pct": 39.3
+          "pct": 39.5
         },
         {
           "name": "Pounce",
-          "pct": 26.1
+          "pct": 25.8
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 90.3
+          "pct": 90.2
         },
         {
           "name": "Cooldown Recovery II",
@@ -2594,19 +2602,19 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 86.3
+          "pct": 86
         },
         {
           "name": "Rapid Casting II",
-          "pct": 73.1
+          "pct": 72.5
         },
         {
           "name": "Elemental Armament II",
-          "pct": 72.4
+          "pct": 72.3
         },
         {
           "name": "Blind II",
-          "pct": 71.5
+          "pct": 71.2
         }
       ],
       "notables": [
@@ -2616,7 +2624,7 @@
         },
         {
           "name": "Relentless Pursuit",
-          "pct": 96.7
+          "pct": 96.8
         },
         {
           "name": "Path of the Sorceress",
@@ -2624,15 +2632,15 @@
         },
         {
           "name": "Running Assault",
-          "pct": 87.1
+          "pct": 87.3
         },
         {
           "name": "Traveller's Wisdom",
-          "pct": 86.1
+          "pct": 86
         },
         {
           "name": "Chaos Inoculation",
-          "pct": 13.5
+          "pct": 13.8
         }
       ],
       "uniques": [
@@ -2642,7 +2650,7 @@
         },
         {
           "name": "Nascent Hope",
-          "pct": 77
+          "pct": 76.9
         },
         {
           "name": "Lavianga's Spirits",
@@ -2650,21 +2658,21 @@
         },
         {
           "name": "Cadiro's Gambit",
-          "pct": 62.3
+          "pct": 62.1
         },
         {
           "name": "Rite of Passage",
-          "pct": 56.5
+          "pct": 56.3
         },
         {
           "name": "Headhunter",
-          "pct": 43.7
+          "pct": 43.3
         }
       ],
       "anointments": [
         {
           "name": "Zarokh's Gift",
-          "pct": 33.8
+          "pct": 33.9
         },
         {
           "name": "Climate Change",
@@ -2672,42 +2680,43 @@
         },
         {
           "name": "Serrated Edges",
-          "pct": 14.7
+          "pct": 14.6
         },
         {
           "name": "Lasting Trauma",
-          "pct": 4.9
+          "pct": 5
         },
         {
           "name": "Overwhelming Strike",
-          "pct": 3.1
+          "pct": 3.3
         }
       ],
       "weapons": [
         {
           "name": "Bow / Quiver",
-          "pct": 72.3
+          "pct": 71.8
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 5.2
+          "pct": 5.1
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 4.6
+          "pct": 5
         },
         {
           "name": "Crossbow",
-          "pct": 3.6
+          "pct": 3.8
         },
         {
           "name": "Wand / Focus",
-          "pct": 2.6
+          "pct": 2.5
         }
       ],
       "stats": {
         "ehp": 31000,
         "dps": 483000,
+        "sample": 99,
         "level": 100
       },
       "top": {
@@ -3153,82 +3162,12 @@
               ]
             }
           ]
-        },
-        {
-          "slug": "pathfinder-3",
-          "name": "Pathfinder — Ice Shot (public ladder)",
-          "source": {
-            "account": "TimethiefxD-4568",
-            "name": "BadforJakub",
-            "level": 99
-          },
-          "ehp": 31000,
-          "dps": 368000,
-          "defence": {
-            "ehp": 31426,
-            "life": 1635,
-            "es": 2592,
-            "ward": null,
-            "resists": {
-              "fire": 75,
-              "cold": 76,
-              "lightning": 75,
-              "chaos": 69
-            },
-            "evade": 60,
-            "pdr": 0,
-            "block": null,
-            "crit": 36
-          },
-          "pob": true,
-          "skillSetups": [
-            {
-              "skill": "Ice Shot",
-              "supports": [
-                "Elemental Armament II",
-                "Nova Projectiles I",
-                "Fork",
-                "Garukhan's Resolve",
-                "Rakiata's Flow"
-              ]
-            },
-            {
-              "skill": "Tornado Shot",
-              "supports": [
-                "Rapid Attacks II",
-                "Overabundance II",
-                "Durability",
-                "Blind II",
-                "Concentrated Area"
-              ]
-            },
-            {
-              "skill": "Pounce",
-              "supports": [
-                "Freezing Mark",
-                "Eternal Mark",
-                "Charged Mark",
-                "Prolonged Duration II",
-                "Rapid Attacks III"
-              ]
-            },
-            {
-              "skill": "Mirage Deadeye",
-              "supports": [
-                "Ice Shot",
-                "Elemental Armament II",
-                "Rapid Attacks II",
-                "Deliberation",
-                "Cooldown Recovery II"
-              ]
-            }
-          ]
         }
       ]
     },
     "titan": {
       "asc": "Titan",
-      "sample": 3485,
+      "sample": 3476,
       "skills": [
         {
           "name": "Infernal Cry",
@@ -3236,23 +3175,23 @@
         },
         {
           "name": "Mace Strike",
-          "pct": 22.6
+          "pct": 22.5
         },
         {
           "name": "Herald of Ice",
-          "pct": 22.4
+          "pct": 22.3
         },
         {
           "name": "Shield Wall",
-          "pct": 21.3
+          "pct": 21.4
         },
         {
           "name": "Earthshatter",
-          "pct": 20.5
+          "pct": 20.7
         },
         {
           "name": "Whirling Assault",
-          "pct": 20.2
+          "pct": 20.1
         }
       ],
       "supports": [
@@ -3262,49 +3201,49 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 79.8
+          "pct": 79.5
         },
         {
           "name": "Rapid Attacks II",
-          "pct": 63.3
+          "pct": 62.7
         },
         {
           "name": "Raging Cry",
-          "pct": 54.2
+          "pct": 53.8
         },
         {
           "name": "Heft",
-          "pct": 51.9
+          "pct": 51.8
         },
         {
           "name": "Elemental Armament II",
-          "pct": 50.2
+          "pct": 49.8
         }
       ],
       "notables": [
         {
           "name": "Colossal Capacity",
-          "pct": 98.8
+          "pct": 98.9
         },
         {
           "name": "Hulking Form",
-          "pct": 98.7
+          "pct": 98.8
         },
         {
           "name": "Mysterious Lineage",
-          "pct": 52.8
+          "pct": 53.3
         },
         {
           "name": "Stone Skin",
-          "pct": 50.3
+          "pct": 50.5
         },
         {
           "name": "Earthbreaker",
-          "pct": 33.7
+          "pct": 33.3
         },
         {
           "name": "Ancestral Empowerment",
-          "pct": 30.2
+          "pct": 30
         }
       ],
       "uniques": [
@@ -3314,33 +3253,33 @@
         },
         {
           "name": "Constricting Command",
-          "pct": 50.1
+          "pct": 50
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 46.6
+          "pct": 46.8
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 41.3
+          "pct": 42
         },
         {
           "name": "From Nothing",
-          "pct": 37.6
+          "pct": 37.9
         },
         {
           "name": "Rite of Passage",
-          "pct": 32.7
+          "pct": 32.9
         }
       ],
       "anointments": [
         {
           "name": "Cooked",
-          "pct": 8.9
+          "pct": 9.1
         },
         {
           "name": "Paragon",
-          "pct": 8.5
+          "pct": 8.6
         },
         {
           "name": "Thaumaturgic Generator",
@@ -3348,21 +3287,21 @@
         },
         {
           "name": "Low Tolerance",
-          "pct": 5.7
+          "pct": 6
         },
         {
           "name": "Acceleration",
-          "pct": 5
+          "pct": 5.1
         }
       ],
       "weapons": [
         {
           "name": "Quarterstaff",
-          "pct": 18.2
+          "pct": 18.1
         },
         {
           "name": "Mace / Shield",
-          "pct": 17.2
+          "pct": 17.3
         },
         {
           "name": "Mace",
@@ -3373,13 +3312,14 @@
           "pct": 7.7
         },
         {
-          "name": "Dual Mace",
-          "pct": 5.7
+          "name": "Staff",
+          "pct": 6
         }
       ],
       "stats": {
-        "ehp": 29000,
+        "ehp": 30000,
         "dps": 181000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -3840,7 +3780,7 @@
           "ehp": 29000,
           "dps": 106000,
           "defence": {
-            "ehp": 29431,
+            "ehp": 29953,
             "life": 3148,
             "es": 245,
             "ward": null,
@@ -3848,7 +3788,7 @@
               "fire": 79,
               "cold": 74,
               "lightning": 74,
-              "chaos": 71
+              "chaos": 74
             },
             "evade": 0,
             "pdr": 69,
@@ -3899,119 +3839,119 @@
     },
     "warbringer": {
       "asc": "Warbringer",
-      "sample": 683,
+      "sample": 672,
       "skills": [
         {
           "name": "Ancestral Spirits",
-          "pct": 66.5
+          "pct": 66.4
         },
         {
           "name": "Voltaic Grenade",
-          "pct": 60
+          "pct": 59.5
         },
         {
           "name": "Crossbow Shot",
-          "pct": 22.7
+          "pct": 22.6
         },
         {
           "name": "Oil Grenade",
-          "pct": 19
+          "pct": 19.2
         },
         {
           "name": "Infernal Cry",
-          "pct": 18.6
+          "pct": 18.3
         },
         {
           "name": "Fortifying Cry",
-          "pct": 17.3
+          "pct": 17.6
         }
       ],
       "supports": [
         {
           "name": "Prolonged Duration II",
-          "pct": 88.9
+          "pct": 88.7
         },
         {
           "name": "Elemental Armament II",
-          "pct": 76.4
+          "pct": 76.2
         },
         {
           "name": "Fire Attunement",
-          "pct": 73.2
+          "pct": 72.9
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 71.2
+          "pct": 70.5
         },
         {
           "name": "Lightning Attunement",
-          "pct": 62.7
+          "pct": 62.8
         },
         {
           "name": "Payload",
-          "pct": 61.5
+          "pct": 61
         }
       ],
       "notables": [
         {
           "name": "Anvil's Weight",
-          "pct": 95.3
+          "pct": 95.4
         },
         {
           "name": "Blood Magic",
-          "pct": 78.9
+          "pct": 78.7
         },
         {
           "name": "Jade Heritage",
-          "pct": 74.4
+          "pct": 74.3
         },
         {
           "name": "Answered Call",
-          "pct": 66.9
+          "pct": 66.7
         },
         {
           "name": "Wooden Wall",
-          "pct": 64.3
+          "pct": 64
         },
         {
           "name": "Iron Reflexes",
-          "pct": 31.3
+          "pct": 30.8
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 75.1
-        },
-        {
-          "name": "Fireflower",
-          "pct": 51.5
+          "pct": 74.6
         },
         {
           "name": "Prism of Belief",
-          "pct": 51.4
+          "pct": 52.1
+        },
+        {
+          "name": "Fireflower",
+          "pct": 51
         },
         {
           "name": "Rite of Passage",
-          "pct": 36.3
+          "pct": 37.4
         },
         {
           "name": "Megalomaniac",
-          "pct": 25
+          "pct": 25.6
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 22.1
+          "pct": 21.4
         }
       ],
       "anointments": [
         {
           "name": "Grenadier",
-          "pct": 32.1
+          "pct": 31.7
         },
         {
           "name": "Heavy Ammunition",
-          "pct": 24.6
+          "pct": 24.7
         },
         {
           "name": "Volatile Grenades",
@@ -4019,38 +3959,39 @@
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 6
+          "pct": 6.3
         },
         {
           "name": "Lay Siege",
-          "pct": 4.7
+          "pct": 4.5
         }
       ],
       "weapons": [
         {
           "name": "Crossbow",
-          "pct": 41.3
+          "pct": 40.5
         },
         {
           "name": "Mace / Shield",
-          "pct": 16.8
+          "pct": 17.1
         },
         {
           "name": "Mace / Unknown",
-          "pct": 12.4
+          "pct": 12.6
         },
         {
           "name": "Dual Unknown",
-          "pct": 5.3
+          "pct": 5.2
         },
         {
           "name": "Two Handed Mace / Shield",
-          "pct": 4.1
+          "pct": 4.2
         }
       ],
       "stats": {
-        "ehp": 16000,
+        "ehp": 17000,
         "dps": 12000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -4089,12 +4030,6 @@
           "hi": 19
         },
         {
-          "name": "+# to Accuracy Rating",
-          "pct": 19,
-          "lo": 134,
-          "hi": 249
-        },
-        {
           "name": "+# to Level of all Melee Skills",
           "pct": 19,
           "lo": 2,
@@ -4105,6 +4040,12 @@
           "pct": 19,
           "lo": 35,
           "hi": 49
+        },
+        {
+          "name": "+# to Stun Threshold",
+          "pct": 16.7,
+          "lo": 95,
+          "hi": 204
         }
       ],
       "runes": [
@@ -4236,6 +4177,28 @@
           ]
         },
         {
+          "slot": "Weapon2",
+          "name": "Foe Core",
+          "unique": false,
+          "rarity": "Rare",
+          "base": "Siege Crossbow",
+          "ilvl": 81,
+          "corrupted": true,
+          "implicits": [
+            "Grenade Skills Fire an additional Projectile"
+          ],
+          "explicits": [
+            "Adds 55 to 89 Physical Damage",
+            "Adds 84 to 118 Fire Damage",
+            "Gain 51 Life per enemy killed",
+            "+5 to Level of all Projectile Skills"
+          ],
+          "sockets": [
+            "Perfect Iron Rune",
+            "Saqawal's Rune of the Sky"
+          ]
+        },
+        {
           "slot": "Ring2",
           "name": "Horror Finger",
           "unique": false,
@@ -4250,28 +4213,6 @@
             "Adds 34 to 54 Fire damage to Attacks",
             "+105 to maximum Life",
             "18% increased Rarity of Items found"
-          ]
-        },
-        {
-          "slot": "Weapon2",
-          "name": "Corpse Core",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Siege Crossbow",
-          "ilvl": 81,
-          "implicits": [
-            "Grenade Skills Fire an additional Projectile"
-          ],
-          "explicits": [
-            "42% increased Physical Damage",
-            "Adds 49 to 94 Physical Damage",
-            "+134 to Accuracy Rating",
-            "15% increased Light Radius",
-            "+5 to Level of all Projectile Skills"
-          ],
-          "sockets": [
-            "Perfect Iron Rune",
-            "Saqawal's Rune of the Sky"
           ]
         },
         {
@@ -4459,63 +4400,63 @@
     },
     "smith-of-kitava": {
       "asc": "Smith of Kitava",
-      "sample": 799,
+      "sample": 802,
       "skills": [
         {
           "name": "Infernal Cry",
-          "pct": 65.8
+          "pct": 66.1
         },
         {
           "name": "Shield Wall",
-          "pct": 50.9
+          "pct": 51
         },
         {
           "name": "Fortifying Cry",
-          "pct": 49.1
+          "pct": 49.4
         },
         {
           "name": "Leap Slam",
-          "pct": 34.8
-        },
-        {
-          "name": "Sunder",
-          "pct": 30.4
+          "pct": 34.2
         },
         {
           "name": "Resonating Shield",
-          "pct": 30.4
+          "pct": 30.8
+        },
+        {
+          "name": "Sunder",
+          "pct": 30.3
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 89.5
+          "pct": 89.4
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 87.5
+          "pct": 87.7
         },
         {
           "name": "Rapid Attacks II",
-          "pct": 77.5
+          "pct": 77.1
         },
         {
           "name": "Raging Cry",
-          "pct": 72.3
+          "pct": 73.1
         },
         {
           "name": "Rage III",
-          "pct": 68.8
+          "pct": 69
         },
         {
           "name": "Tireless",
-          "pct": 65.8
+          "pct": 65.7
         }
       ],
       "notables": [
         {
           "name": "Smith's Masterwork",
-          "pct": 96
+          "pct": 95.8
         },
         {
           "name": "Kitavan Engraving",
@@ -4523,55 +4464,55 @@
         },
         {
           "name": "Flowing Metal",
-          "pct": 71.5
+          "pct": 71.2
         },
         {
           "name": "Coal Stoker",
-          "pct": 71
-        },
-        {
-          "name": "Dedication to Kitava",
-          "pct": 69.3
+          "pct": 70.6
         },
         {
           "name": "Heatproofing",
-          "pct": 68.6
+          "pct": 69.6
+        },
+        {
+          "name": "Molten Symbol",
+          "pct": 69.2
         }
       ],
       "uniques": [
         {
           "name": "Normal Body Armour",
-          "pct": 96
+          "pct": 95.8
         },
         {
           "name": "Heart of the Well",
-          "pct": 66.3
+          "pct": 67
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 37.5
+          "pct": 38.9
         },
         {
           "name": "Prism of Belief",
-          "pct": 35
+          "pct": 35.3
         },
         {
           "name": "For Utopia",
-          "pct": 31.2
+          "pct": 31.5
         },
         {
           "name": "Constricting Command",
-          "pct": 29.5
+          "pct": 29.8
         }
       ],
       "anointments": [
         {
           "name": "Acceleration",
-          "pct": 12.3
+          "pct": 12.1
         },
         {
           "name": "Thaumaturgic Generator",
-          "pct": 8
+          "pct": 7.9
         },
         {
           "name": "Lay Siege",
@@ -4579,38 +4520,39 @@
         },
         {
           "name": "Bestial Rage",
-          "pct": 4.6
+          "pct": 4.9
         },
         {
           "name": "Spiked Shield",
-          "pct": 4.5
+          "pct": 4.6
         }
       ],
       "weapons": [
         {
           "name": "Mace / Shield",
-          "pct": 35
+          "pct": 34.9
         },
         {
           "name": "Two Handed Mace / Shield",
-          "pct": 18.1
+          "pct": 18.2
         },
         {
           "name": "Talisman",
-          "pct": 12.9
+          "pct": 13
         },
         {
           "name": "Dual Mace",
-          "pct": 10.5
+          "pct": 10.6
         },
         {
           "name": "Quarterstaff",
-          "pct": 5.3
+          "pct": 4.9
         }
       ],
       "stats": {
-        "ehp": 49000,
-        "dps": 73000,
+        "ehp": 46000,
+        "dps": 63000,
+        "sample": 100,
         "level": 98
       },
       "top": {
@@ -5101,15 +5043,15 @@
     },
     "infernalist": {
       "asc": "Infernalist",
-      "sample": 2542,
+      "sample": 2549,
       "skills": [
         {
           "name": "Elemental Weakness",
-          "pct": 46.9
+          "pct": 46.6
         },
         {
           "name": "Frost Bomb",
-          "pct": 33.6
+          "pct": 33.5
         },
         {
           "name": "Summon Infernal Hound",
@@ -5117,7 +5059,7 @@
         },
         {
           "name": "Pain Offering",
-          "pct": 25.8
+          "pct": 25.5
         },
         {
           "name": "Comet",
@@ -5125,39 +5067,39 @@
         },
         {
           "name": "Sigil of Power",
-          "pct": 22.5
+          "pct": 22.4
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 89.1
+          "pct": 88.9
         },
         {
           "name": "Rapid Casting II",
-          "pct": 74.4
+          "pct": 74
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 73.5
+          "pct": 73
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 69.4
+          "pct": 68.8
         },
         {
           "name": "Efficiency II",
-          "pct": 67.6
+          "pct": 67.4
         },
         {
           "name": "Heightened Curse",
-          "pct": 56.3
+          "pct": 56.4
         }
       ],
       "notables": [
         {
           "name": "Altered Flesh",
-          "pct": 81.2
+          "pct": 81.1
         },
         {
           "name": "Beidat's Will",
@@ -5169,51 +5111,51 @@
         },
         {
           "name": "Pain Attunement",
-          "pct": 42.8
+          "pct": 42.6
         },
         {
           "name": "Demonic Possession",
-          "pct": 37.5
+          "pct": 37.6
         },
         {
           "name": "Mind Over Matter",
-          "pct": 32.7
+          "pct": 33.1
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 51.4
+          "pct": 51.6
         },
         {
           "name": "Nascent Hope",
-          "pct": 46.1
+          "pct": 46.5
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 41
+          "pct": 41.1
         },
         {
           "name": "Prism of Belief",
-          "pct": 37
+          "pct": 37.4
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 32.7
+          "pct": 32.9
         },
         {
-          "name": "Coward's Legacy",
-          "pct": 27.7
+          "name": "Blood of the Warrior",
+          "pct": 27.4
         }
       ],
       "anointments": [
         {
           "name": "Barbaric Strength",
-          "pct": 12.4
+          "pct": 12.3
         },
         {
           "name": "Warlord Leader",
-          "pct": 11.6
+          "pct": 11.4
         },
         {
           "name": "The Soul Meridian",
@@ -5221,11 +5163,11 @@
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 5.5
+          "pct": 5.6
         },
         {
           "name": "Cooked",
-          "pct": 4.7
+          "pct": 4.8
         }
       ],
       "weapons": [
@@ -5235,24 +5177,25 @@
         },
         {
           "name": "Wand / Focus",
-          "pct": 18.6
+          "pct": 18.5
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 15.5
+          "pct": 15.3
+        },
+        {
+          "name": "Staff",
+          "pct": 11.3
         },
         {
           "name": "Sceptre / Shield",
           "pct": 11.3
-        },
-        {
-          "name": "Staff",
-          "pct": 11.2
         }
       ],
       "stats": {
         "ehp": 18000,
-        "dps": 62000,
+        "dps": 60000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -5386,6 +5329,7 @@
             "Fork",
             "Projectile Acceleration III",
             "Considered Casting",
+            "Runic Extraction",
             "Rakiata's Flow"
           ]
         },
@@ -5403,7 +5347,7 @@
           "skill": "Cast on Critical",
           "supports": [
             "Powered by Verisium",
-            "Comet",
+            "Refutation",
             "Boundless Energy II",
             "Energy Retention",
             "Inhibitor"
@@ -5415,7 +5359,7 @@
             "Magnified Area II",
             "Spell Cascade",
             "Armour Break III",
-            "Runic Extraction",
+            "Efficiency II",
             "Armour Demolisher II"
           ]
         },
@@ -5777,7 +5721,7 @@
     },
     "blood-mage": {
       "asc": "Blood Mage",
-      "sample": 4308,
+      "sample": 4321,
       "skills": [
         {
           "name": "Spark",
@@ -5785,7 +5729,7 @@
         },
         {
           "name": "Comet",
-          "pct": 41.9
+          "pct": 41.7
         },
         {
           "name": "Sigil of Power",
@@ -5793,15 +5737,15 @@
         },
         {
           "name": "Elemental Weakness",
-          "pct": 34.6
+          "pct": 33.8
         },
         {
           "name": "Orb of Storms",
-          "pct": 32
+          "pct": 32.4
         },
         {
           "name": "Frost Bomb",
-          "pct": 24.1
+          "pct": 24
         }
       ],
       "supports": [
@@ -5811,7 +5755,7 @@
         },
         {
           "name": "Efficiency II",
-          "pct": 82.6
+          "pct": 82.5
         },
         {
           "name": "Magnified Area II",
@@ -5819,15 +5763,15 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 70.9
+          "pct": 70.8
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 63.4
+          "pct": 63.5
         },
         {
           "name": "Remnant Potency I",
-          "pct": 63.2
+          "pct": 63.1
         }
       ],
       "notables": [
@@ -5841,85 +5785,85 @@
         },
         {
           "name": "Sunder the Flesh",
-          "pct": 86.6
+          "pct": 86.3
         },
         {
           "name": "Crimson Power",
-          "pct": 82.2
+          "pct": 82.3
         },
         {
           "name": "Vitality Siphon",
-          "pct": 75.4
+          "pct": 75.3
         },
         {
           "name": "Mind Over Matter",
-          "pct": 45.6
+          "pct": 45.5
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 71.9
+          "pct": 72.4
         },
         {
           "name": "Nascent Hope",
-          "pct": 59.9
+          "pct": 60.4
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 51.8
+          "pct": 51.9
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 42.9
+          "pct": 43
         },
         {
           "name": "Rite of Passage",
-          "pct": 36.9
+          "pct": 37.3
         },
         {
           "name": "Kalandra's Touch",
-          "pct": 29.5
+          "pct": 29.8
         }
       ],
       "anointments": [
         {
           "name": "Barbaric Strength",
-          "pct": 21.4
+          "pct": 21.5
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 14.6
+          "pct": 14.9
         },
         {
           "name": "Cooked",
-          "pct": 12.8
+          "pct": 12.5
         },
         {
           "name": "Invigorating Grandeur",
-          "pct": 8.6
+          "pct": 8.7
         },
         {
-          "name": "Thaumaturgic Generator",
-          "pct": 4.4
+          "name": "Lasting Trauma",
+          "pct": 4.5
         }
       ],
       "weapons": [
         {
           "name": "Staff",
-          "pct": 35.9
+          "pct": 35.7
         },
         {
           "name": "Wand / Unknown",
-          "pct": 16.8
+          "pct": 16.9
         },
         {
           "name": "Wand / Focus",
-          "pct": 14
+          "pct": 14.1
         },
         {
           "name": "Wand / Buckler",
-          "pct": 7.2
+          "pct": 7.1
         },
         {
           "name": "Wand / Sceptre",
@@ -5928,7 +5872,8 @@
       ],
       "stats": {
         "ehp": 17000,
-        "dps": 312000,
+        "dps": 351000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -6281,41 +6226,41 @@
     },
     "lich": {
       "asc": "Lich",
-      "sample": 1915,
+      "sample": 1914,
       "skills": [
         {
           "name": "Despair",
-          "pct": 47
+          "pct": 46.9
         },
         {
           "name": "Contagion",
-          "pct": 35.7
+          "pct": 35.5
         },
         {
           "name": "Essence Drain",
-          "pct": 34.7
+          "pct": 34.5
         },
         {
           "name": "Dark Effigy",
-          "pct": 34.3
+          "pct": 34
         },
         {
           "name": "Pain Offering",
-          "pct": 32.4
+          "pct": 32.5
         },
         {
           "name": "Wolf Pack",
-          "pct": 30
+          "pct": 30.3
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 92.3
+          "pct": 92.2
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 87.3
+          "pct": 87.1
         },
         {
           "name": "Rapid Casting II",
@@ -6327,7 +6272,7 @@
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 66.6
+          "pct": 66.9
         },
         {
           "name": "Ritualistic Curse",
@@ -6337,27 +6282,27 @@
       "notables": [
         {
           "name": "Crystalline Phylactery",
-          "pct": 84.1
+          "pct": 83.6
         },
         {
           "name": "Soulless Form",
-          "pct": 69.8
+          "pct": 69.4
         },
         {
           "name": "Necromantic Conduit",
-          "pct": 69.1
+          "pct": 69.4
         },
         {
           "name": "Eternal Life",
-          "pct": 60.9
+          "pct": 60.7
         },
         {
           "name": "Whispers of Doom",
-          "pct": 54.7
+          "pct": 54.5
         },
         {
           "name": "Rupture the Soul",
-          "pct": 48.4
+          "pct": 48.9
         }
       ],
       "uniques": [
@@ -6367,19 +6312,19 @@
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 44.4
+          "pct": 44.7
         },
         {
           "name": "Prism of Belief",
-          "pct": 33.4
-        },
-        {
-          "name": "Atziri's Disdain",
-          "pct": 30.5
+          "pct": 33.2
         },
         {
           "name": "The Fall of the Axe",
           "pct": 30.3
+        },
+        {
+          "name": "Atziri's Disdain",
+          "pct": 29.8
         },
         {
           "name": "Bones of Ullr",
@@ -6389,33 +6334,33 @@
       "anointments": [
         {
           "name": "Warlord Leader",
-          "pct": 22.5
+          "pct": 22.6
         },
         {
           "name": "The Soul Meridian",
-          "pct": 8.9
+          "pct": 9.1
         },
         {
           "name": "Spiral into Insanity",
+          "pct": 4.7
+        },
+        {
+          "name": "Zarokh's Gift",
           "pct": 4.5
         },
         {
           "name": "Spaghettification",
-          "pct": 4.5
-        },
-        {
-          "name": "Zarokh's Gift",
-          "pct": 4.3
+          "pct": 4.4
         }
       ],
       "weapons": [
         {
           "name": "Wand / Focus",
-          "pct": 34
+          "pct": 33.5
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 30.5
+          "pct": 30.8
         },
         {
           "name": "Sceptre / Shield",
@@ -6423,7 +6368,7 @@
         },
         {
           "name": "Staff",
-          "pct": 12.6
+          "pct": 12.8
         },
         {
           "name": "Wand / Sceptre",
@@ -6431,8 +6376,9 @@
         }
       ],
       "stats": {
-        "ehp": 32000,
-        "dps": 36000,
+        "ehp": 33000,
+        "dps": 24000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -6785,97 +6731,97 @@
     },
     "abyssal-lich": {
       "asc": "Abyssal Lich",
-      "sample": 3498,
+      "sample": 3502,
       "skills": [
         {
           "name": "Entangle",
-          "pct": 46.3
-        },
-        {
-          "name": "Barrage",
-          "pct": 46
-        },
-        {
-          "name": "Twister",
-          "pct": 45.8
+          "pct": 46.5
         },
         {
           "name": "Thunderstorm",
-          "pct": 45.8
-        },
-        {
-          "name": "Whirling Slash",
-          "pct": 45.7
+          "pct": 46.1
         },
         {
           "name": "Thrashing Vines",
-          "pct": 45.7
+          "pct": 46
+        },
+        {
+          "name": "Barrage",
+          "pct": 45.6
+        },
+        {
+          "name": "Twister",
+          "pct": 45.4
+        },
+        {
+          "name": "Whirling Slash",
+          "pct": 45.3
         }
       ],
       "supports": [
         {
           "name": "Prolonged Duration II",
-          "pct": 94.8
+          "pct": 94.9
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 80.2
+          "pct": 80
         },
         {
           "name": "Magnified Area II",
-          "pct": 79.2
+          "pct": 79.7
         },
         {
           "name": "Rapid Casting II",
-          "pct": 69.3
+          "pct": 69.4
         },
         {
           "name": "Ritualistic Curse",
-          "pct": 60.3
+          "pct": 60.5
         },
         {
           "name": "Execute III",
-          "pct": 52.1
+          "pct": 52.5
         }
       ],
       "notables": [
         {
           "name": "Crystalline Phylactery",
-          "pct": 98.6
+          "pct": 98.7
         },
         {
           "name": "Rupture the Soul",
-          "pct": 81.2
+          "pct": 81.3
         },
         {
           "name": "Soulless Form",
-          "pct": 58.1
+          "pct": 58.6
         },
         {
           "name": "Eternal Life",
-          "pct": 56.6
+          "pct": 57.1
         },
         {
           "name": "Necromantic Conduit",
-          "pct": 50.4
+          "pct": 50.1
         },
         {
           "name": "Pain Attunement",
-          "pct": 47.9
+          "pct": 48.2
         }
       ],
       "uniques": [
         {
           "name": "Nascent Hope",
-          "pct": 78.5
+          "pct": 78.7
         },
         {
           "name": "Heart of the Well",
-          "pct": 69.4
+          "pct": 69.3
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 68.6
+          "pct": 69
         },
         {
           "name": "Lavianga's Spirits",
@@ -6883,11 +6829,11 @@
         },
         {
           "name": "Atziri's Disdain",
-          "pct": 48.7
+          "pct": 49
         },
         {
           "name": "The Taming",
-          "pct": 45.8
+          "pct": 45.3
         }
       ],
       "anointments": [
@@ -6897,29 +6843,29 @@
         },
         {
           "name": "Lord of Horrors",
-          "pct": 18.8
+          "pct": 19
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 11.9
+          "pct": 12.4
         },
         {
           "name": "Stimulants",
-          "pct": 11.1
+          "pct": 10.7
         },
         {
           "name": "The Soul Meridian",
-          "pct": 10.7
+          "pct": 10.6
         }
       ],
       "weapons": [
         {
           "name": "Staff",
-          "pct": 45.3
+          "pct": 45.7
         },
         {
           "name": "Spear",
-          "pct": 42.5
+          "pct": 42.1
         },
         {
           "name": "Wand / Focus",
@@ -6927,16 +6873,17 @@
         },
         {
           "name": "Spear / Sceptre",
-          "pct": 3.4
+          "pct": 3.3
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 1.6
+          "pct": 1.5
         }
       ],
       "stats": {
         "ehp": 25000,
-        "dps": 254000,
+        "dps": 250000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -7316,15 +7263,15 @@
     },
     "stormweaver": {
       "asc": "Stormweaver",
-      "sample": 4659,
+      "sample": 4680,
       "skills": [
         {
           "name": "Spark",
-          "pct": 92.1
+          "pct": 92.2
         },
         {
           "name": "Frost Bomb",
-          "pct": 87.7
+          "pct": 87.6
         },
         {
           "name": "Comet",
@@ -7332,15 +7279,15 @@
         },
         {
           "name": "Elemental Storm",
-          "pct": 55
+          "pct": 54.9
         },
         {
           "name": "Elemental Weakness",
-          "pct": 49.5
+          "pct": 49.4
         },
         {
           "name": "Firestorm",
-          "pct": 46.9
+          "pct": 46.8
         }
       ],
       "supports": [
@@ -7350,7 +7297,7 @@
         },
         {
           "name": "Efficiency II",
-          "pct": 96.7
+          "pct": 96.6
         },
         {
           "name": "Cooldown Recovery II",
@@ -7362,51 +7309,51 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 91.1
+          "pct": 91
         },
         {
           "name": "Spell Cascade",
-          "pct": 87.9
+          "pct": 87.8
         }
       ],
       "notables": [
         {
           "name": "Storm's Recollection",
-          "pct": 93.2
+          "pct": 93.3
         },
         {
           "name": "Refracted Infusion",
-          "pct": 73.4
+          "pct": 73.6
         },
         {
           "name": "Constant Gale",
-          "pct": 57.5
+          "pct": 57.6
         },
         {
           "name": "Tempest Caller",
-          "pct": 50.2
+          "pct": 50
         },
         {
           "name": "Strike Twice",
-          "pct": 48.9
+          "pct": 48.7
         },
         {
           "name": "Chaos Inoculation",
-          "pct": 39.2
+          "pct": 39.5
         }
       ],
       "uniques": [
         {
           "name": "Maligaro's Virtuosity",
-          "pct": 81.8
+          "pct": 81.6
         },
         {
           "name": "Heart of the Well",
-          "pct": 68
+          "pct": 68.4
         },
         {
           "name": "Nascent Hope",
-          "pct": 57.5
+          "pct": 57.8
         },
         {
           "name": "From Nothing",
@@ -7414,7 +7361,7 @@
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 46.6
+          "pct": 46.8
         },
         {
           "name": "The Fall of the Axe",
@@ -7436,7 +7383,7 @@
         },
         {
           "name": "Conservative Casting",
-          "pct": 3.8
+          "pct": 3.9
         },
         {
           "name": "Archon of the Storm",
@@ -7446,7 +7393,7 @@
       "weapons": [
         {
           "name": "Unknown / Sceptre",
-          "pct": 40.4
+          "pct": 40.5
         },
         {
           "name": "Staff",
@@ -7454,11 +7401,11 @@
         },
         {
           "name": "Wand / Focus",
-          "pct": 8.5
+          "pct": 8.7
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 7.4
+          "pct": 7.2
         },
         {
           "name": "Unknown / Focus",
@@ -7466,8 +7413,9 @@
         }
       ],
       "stats": {
-        "ehp": 16000,
-        "dps": 170000,
+        "ehp": 17000,
+        "dps": 209000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -7483,21 +7431,21 @@
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 31.4,
-          "lo": 97,
+          "pct": 34.3,
+          "lo": 99,
           "hi": 110
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 28.6,
+          "pct": 25.7,
           "lo": 73,
           "hi": 94
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 25.7,
-          "lo": 37,
-          "hi": 43
+          "pct": 22.9,
+          "lo": 39,
+          "hi": 44
         },
         {
           "name": "+# to Level of all Spell Skills",
@@ -7508,7 +7456,7 @@
         {
           "name": "+#% to Cold Resistance",
           "pct": 20,
-          "lo": 39,
+          "lo": 41,
           "hi": 45
         },
         {
@@ -7520,8 +7468,8 @@
         {
           "name": "+#% to Lightning Resistance",
           "pct": 17.1,
-          "lo": 31,
-          "hi": 41
+          "lo": 35,
+          "hi": 44
         }
       ],
       "runes": [
@@ -7974,11 +7922,11 @@
     },
     "chronomancer": {
       "asc": "Chronomancer",
-      "sample": 2196,
+      "sample": 2189,
       "skills": [
         {
           "name": "Frost Bomb",
-          "pct": 70.2
+          "pct": 70
         },
         {
           "name": "Frost Wall",
@@ -7986,25 +7934,25 @@
         },
         {
           "name": "Comet",
-          "pct": 62.6
+          "pct": 62.5
         },
         {
           "name": "Elemental Weakness",
-          "pct": 56.6
+          "pct": 56.4
         },
         {
           "name": "Sigil of Power",
-          "pct": 51.5
+          "pct": 51.3
         },
         {
           "name": "Ice Nova",
-          "pct": 45.5
+          "pct": 45.2
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 97.5
+          "pct": 97.4
         },
         {
           "name": "Cooldown Recovery II",
@@ -8012,19 +7960,19 @@
         },
         {
           "name": "Efficiency II",
-          "pct": 88.4
+          "pct": 88.5
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 82.8
+          "pct": 82.7
         },
         {
           "name": "Harmonic Remnants II",
-          "pct": 78.5
+          "pct": 78.6
         },
         {
           "name": "Spell Cascade",
-          "pct": 77.6
+          "pct": 77.8
         }
       ],
       "notables": [
@@ -8034,7 +7982,7 @@
         },
         {
           "name": "Quicksand Hourglass",
-          "pct": 84.9
+          "pct": 84.6
         },
         {
           "name": "Now and Again",
@@ -8042,51 +7990,51 @@
         },
         {
           "name": "Whispers of Doom",
-          "pct": 57.4
+          "pct": 56.9
         },
         {
           "name": "Apex of the Moment",
-          "pct": 55.5
+          "pct": 55.1
         },
         {
           "name": "Footprints in the Sand",
-          "pct": 33.7
+          "pct": 34.5
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 66.6
+          "pct": 66.7
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 47.5
+          "pct": 47.8
         },
         {
           "name": "Nascent Hope",
-          "pct": 43.8
+          "pct": 44.3
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 38.3
+          "pct": 38.8
         },
         {
           "name": "Olroth's Resolve",
-          "pct": 37.6
+          "pct": 37.5
         },
         {
           "name": "Alpha's Howl",
-          "pct": 30.4
+          "pct": 29.9
         }
       ],
       "anointments": [
         {
           "name": "Infusion of Power",
-          "pct": 12.5
+          "pct": 12.4
         },
         {
           "name": "Thaumaturgic Generator",
-          "pct": 8.3
+          "pct": 8.5
         },
         {
           "name": "Cooked",
@@ -8094,38 +8042,39 @@
         },
         {
           "name": "Conservative Casting",
-          "pct": 5.6
+          "pct": 5.5
         },
         {
           "name": "Dominion",
-          "pct": 5.1
+          "pct": 5.2
         }
       ],
       "weapons": [
         {
           "name": "Staff",
-          "pct": 60.2
+          "pct": 59.7
         },
         {
           "name": "Wand / Focus",
-          "pct": 16.4
+          "pct": 16.5
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 11.1
+          "pct": 11.2
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 4.8
+          "pct": 4.9
         },
         {
           "name": "Sceptre / Shield",
-          "pct": 1.1
+          "pct": 1.2
         }
       ],
       "stats": {
         "ehp": 24000,
         "dps": 215000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -8135,51 +8084,51 @@
       "gear": [
         {
           "name": "+# to maximum Mana",
-          "pct": 44.1,
-          "lo": 102,
-          "hi": 183
-        },
-        {
-          "name": "#% increased Energy Shield",
-          "pct": 41.2,
-          "lo": 83,
-          "hi": 122
+          "pct": 43.8,
+          "lo": 41,
+          "hi": 178
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 26.5,
-          "lo": 74,
-          "hi": 90
+          "pct": 34.4,
+          "lo": 64,
+          "hi": 96
+        },
+        {
+          "name": "#% increased Energy Shield",
+          "pct": 34.4,
+          "lo": 40,
+          "hi": 122
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 23.5,
-          "lo": 32,
-          "hi": 37
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 17.6,
-          "lo": 34,
-          "hi": 43
-        },
-        {
-          "name": "#% increased Movement Speed",
-          "pct": 14.7,
+          "pct": 25,
           "lo": 35,
-          "hi": 35
+          "hi": 39
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 14.7,
-          "lo": 39,
+          "pct": 21.9,
+          "lo": 36,
           "hi": 40
         },
         {
+          "name": "#% increased Movement Speed",
+          "pct": 15.6,
+          "lo": 30,
+          "hi": 35
+        },
+        {
           "name": "+# to Intelligence",
-          "pct": 14.7,
+          "pct": 15.6,
           "lo": 20,
-          "hi": 29
+          "hi": 33
+        },
+        {
+          "name": "+# to maximum Life",
+          "pct": 15.6,
+          "lo": 48,
+          "hi": 146
         }
       ],
       "runes": [
@@ -8188,38 +8137,34 @@
           "pct": 60
         },
         {
-          "name": "Perfect Iron Rune",
-          "pct": 20
-        },
-        {
-          "name": "Greater Iron Rune",
+          "name": "Saqawal's Rune of the Sky",
           "pct": 20
         }
       ],
       "source": {
-        "account": "huangwb-8517",
-        "name": "IronChronomancer",
+        "account": "Vendervraile-7664",
+        "name": "VraileChrono",
         "level": 99
       },
       "build": {
-        "passives": 158,
-        "skills": 7,
-        "items": 10,
+        "passives": 133,
+        "skills": 12,
+        "items": 9,
         "defence": {
-          "ehp": 27856,
+          "ehp": 64032,
           "life": 1,
-          "es": 8245,
+          "es": 9175,
           "ward": null,
           "resists": {
-            "fire": 75,
-            "cold": 75,
-            "lightning": 75,
+            "fire": 81,
+            "cold": 76,
+            "lightning": 81,
             "chaos": 0
           },
-          "evade": 0,
+          "evade": 47,
           "pdr": 0,
           "block": null,
-          "crit": 79
+          "crit": 100
         },
         "quality": {
           "level": 99,
@@ -8227,7 +8172,7 @@
           "onMetaWeapon": true,
           "gemsValid": true,
           "treeConnected": false,
-          "warnings": 1
+          "warnings": 2
         }
       },
       "skillSetups": [
@@ -8236,95 +8181,76 @@
           "supports": [
             "Comet",
             "Living Bomb",
-            "Dialla's Desire",
-            "Concentrated Area",
+            "Boundless Energy II",
+            "Pinpoint Critical",
             "Efficiency II"
+          ]
+        },
+        {
+          "skill": "Comet",
+          "supports": [
+            "Zarokh's Refrain",
+            "Pinpoint Critical",
+            "Zenith II",
+            "Elemental Focus",
+            "Rapid Casting II"
           ]
         },
         {
           "skill": "Frostbolt",
           "supports": [
-            "Deliberation",
             "Vilenta's Propulsion",
-            "Zenith II",
+            "Pinpoint Critical",
+            "Sione's Temper",
             "Considered Casting",
-            "Sione's Temper"
+            "Arcane Surge"
           ]
         },
         {
           "skill": "Frost Wall",
           "supports": [
-            "Spell Cascade",
-            "Zenith II",
-            "Considered Casting",
             "Pinpoint Critical",
-            "Cooldown Recovery II"
+            "Efficiency II",
+            "Cooldown Recovery II",
+            "Spell Cascade",
+            "Rapid Casting II"
+          ]
+        },
+        {
+          "skill": "Frost Bomb",
+          "supports": [
+            "Long Fuse II",
+            "Potent Exposure",
+            "Efficiency II",
+            "Rapid Casting II"
           ]
         },
         {
           "skill": "Elemental Weakness",
           "supports": [
-            "Doedre's Undoing",
-            "Prolonged Duration II",
-            "Efficiency II",
             "Heightened Curse",
-            "Ritualistic Curse"
-          ]
-        },
-        {
-          "skill": "Sigil of Power",
-          "supports": [
-            "Rapid Casting II",
+            "Efficiency II",
             "Prolonged Duration II",
-            "Cooldown Recovery II",
-            "Magnified Area II"
-          ]
-        },
-        {
-          "skill": "Convalescence",
-          "supports": [
-            "Clarity II",
-            "Cooldown Recovery II",
-            "Prolonged Duration II",
-            "Mysticism I"
+            "Rapid Casting II"
           ]
         }
       ],
       "buildItems": [
         {
-          "slot": "Boots1",
-          "name": "Rage Sole",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Sandsworn Sandals",
-          "ilvl": 82,
-          "explicits": [
-            "35% increased Movement Speed",
-            "97% increased Energy Shield",
-            "+41% to Cold Resistance",
-            "+34% to Lightning Resistance",
-            "+42% to Fire Resistance"
-          ],
-          "sockets": [
-            "Farrul's Rune of the Chase",
-            "Perfect Iron Rune"
-          ]
-        },
-        {
           "slot": "Weapon1",
-          "name": "Dragon Mast",
+          "name": "Corruption Spire",
           "unique": false,
           "rarity": "Rare",
           "base": "Chiming Staff",
           "ilvl": 81,
           "explicits": [
-            "Gain 60% of Damage as Extra Cold Damage",
-            "Gain 58% of Damage as Extra Lightning Damage",
-            "+7 to Level of all Cold Spell Skills"
+            "166% increased Spell Damage",
+            "+7 to Level of all Cold Spell Skills",
+            "Gain 56% of Damage as Extra Cold Damage"
           ],
           "sockets": [
+            "Saqawal's Rune of the Sky",
             "Hedgewitch Assandra's Rune of Wisdom",
-            "Perfect Iron Rune",
             "Sigil of Power"
           ]
         },
@@ -8334,17 +8260,13 @@
           "unique": true,
           "rarity": "Unique",
           "base": "Pearl Ring",
-          "ilvl": 79,
-          "corrupted": true,
-          "enchants": [
-            "21% increased Damage"
-          ],
+          "ilvl": 80,
           "implicits": [
             "12% increased Cast Speed"
           ],
           "explicits": [
-            "30% increased Spell Damage",
-            "12% increased Cast Speed",
+            "36% increased Spell Damage",
+            "18% increased Cast Speed",
             "Left ring slot: Projectiles from Spells cannot Chain",
             "Left ring slot: Projectiles from Spells Fork",
             "Right ring slot: Projectiles from Spells Chain +1 times",
@@ -8353,114 +8275,83 @@
           ]
         },
         {
-          "slot": "Ring2",
-          "name": "Torment Grasp",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Breach Ring",
-          "ilvl": 79,
-          "implicits": [
-            "+20% to Maximum Quality"
-          ],
-          "explicits": [
-            "54% increased Spell Damage",
-            "+161 to maximum Mana",
-            "30% increased Cast Speed",
-            "41% increased Mana Cost Efficiency of Spells",
-            "40% increased Critical Spell Damage Bonus"
-          ]
-        },
-        {
-          "slot": "BodyArmour1",
-          "name": "Woe Wrap",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Vile Robe",
-          "ilvl": 80,
-          "corrupted": true,
-          "explicits": [
-            "+85 to maximum Energy Shield",
-            "107% increased Energy Shield",
-            "+32% to Fire Resistance",
-            "+39% to Lightning Resistance"
-          ],
-          "sockets": [
-            "Perfect Iron Rune",
-            "Perfect Iron Rune"
-          ]
-        },
-        {
           "slot": "Gloves1",
-          "name": "Rapture Caress",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Vaal Gloves",
-          "ilvl": 80,
+          "name": "Maligaro's Virtuosity",
+          "unique": true,
+          "rarity": "Unique",
+          "base": "Fine Bracers",
+          "ilvl": 69,
           "explicits": [
-            "97% increased Energy Shield",
-            "+102 to maximum Mana",
-            "+60 to maximum Energy Shield"
+            "73% increased Evasion Rating",
+            "30% increased Critical Hit Chance",
+            "5% increased Attack Speed",
+            "+11 to Dexterity",
+            "Your Critical Hit Chance cannot be Rerolled",
+            "Your Critical Damage Bonus is 250%"
           ],
           "sockets": [
-            "Thane Grannell's Rune of Mastery",
-            "Fenumus' Rune of Spinning"
+            "Cadigan's Epiphany",
+            "Maelström Joy"
           ]
         },
         {
           "slot": "Helm1",
-          "name": "Brimstone Glance",
+          "name": "Agony Keep",
           "unique": false,
           "rarity": "Rare",
           "base": "Ancestral Tiara",
           "ilvl": 80,
+          "corrupted": true,
           "enchants": [
-            "Allocates Mind Eraser"
+            "18% increased Energy Shield"
           ],
           "explicits": [
-            "139% increased Energy Shield",
-            "+187 to maximum Mana",
-            "31% increased Critical Hit Chance",
-            "+33 to Intelligence"
+            "+73 to maximum Energy Shield",
+            "41% increased Energy Shield",
+            "+35 to maximum Mana",
+            "+33 to Intelligence",
+            "+39% to Fire Resistance"
           ],
           "sockets": [
-            "Raven-Touched Shard",
             "Jiquani's Thesis"
           ]
         },
         {
-          "slot": "Weapon2",
-          "name": "Loath Pile",
+          "slot": "BodyArmour1",
+          "name": "Brimstone Jack",
           "unique": false,
           "rarity": "Rare",
-          "base": "Chiming Staff",
+          "base": "Sleek Jacket",
           "ilvl": 81,
+          "corrupted": true,
           "explicits": [
-            "+25 to Intelligence"
+            "+152 to Evasion Rating",
+            "+48 to maximum Energy Shield",
+            "+52 to Spirit",
+            "+31% to Cold Resistance",
+            "+40% to Lightning Resistance",
+            "60% reduced Duration of Bleeding on You"
           ],
           "sockets": [
             "Greater Iron Rune",
-            "Sigil of Power"
+            "Greater Iron Rune"
           ]
         },
         {
-          "slot": "Amulet1",
-          "name": "Rune Choker",
+          "slot": "Boots1",
+          "name": "Maelström Tread",
           "unique": false,
           "rarity": "Rare",
-          "base": "Lunar Amulet",
-          "ilvl": 79,
-          "enchants": [
-            "Allocates Arcane Intensity"
-          ],
-          "implicits": [
-            "+27 to maximum Energy Shield"
-          ],
+          "base": "Quickslip Shoes",
+          "ilvl": 81,
           "explicits": [
-            "+178 to maximum Mana",
-            "6% increased maximum Mana",
-            "+4 to Level of all Spell Skills",
-            "+14 to all Attributes",
-            "+44 to Spirit"
+            "25% increased Movement Speed",
+            "99% increased Evasion and Energy Shield",
+            "+108 to maximum Mana",
+            "+37% to Cold Resistance"
+          ],
+          "sockets": [
+            "Perfect Iron Rune"
           ]
         },
         {
@@ -8469,17 +8360,54 @@
           "unique": true,
           "rarity": "Unique",
           "base": "Utility Belt",
-          "ilvl": 80,
+          "ilvl": 81,
           "implicits": [
-            "Has 3 Charm Slots",
+            "Has 2 Charm Slots",
             "20% of Flask Recovery applied Instantly"
           ],
           "explicits": [
-            "Legacy of Quicksilver",
+            "Legacy of Topaz",
             "Legacy of Bismuth",
-            "Legacy of Sulphur",
-            "Legacy of Diamond",
-            "All Mage's Legacies have 26% increased effect per duplicate Mage's Legacy you have"
+            "Legacy of Ruby",
+            "Legacy of Quicksilver",
+            "All Mage's Legacies have 37% increased effect per duplicate Mage's Legacy you have"
+          ]
+        },
+        {
+          "slot": "Ring2",
+          "name": "Corpse Turn",
+          "unique": false,
+          "rarity": "Rare",
+          "base": "Gold Ring",
+          "ilvl": 83,
+          "implicits": [
+            "14% increased Rarity of Items found"
+          ],
+          "explicits": [
+            "+178 to maximum Mana",
+            "33% increased Rarity of Items found",
+            "+36% to Cold Resistance"
+          ]
+        },
+        {
+          "slot": "Amulet1",
+          "name": "Beast Choker",
+          "unique": false,
+          "rarity": "Rare",
+          "base": "Amber Amulet",
+          "ilvl": 82,
+          "enchants": [
+            "Allocates Subterfuge Mask"
+          ],
+          "implicits": [
+            "+11 to Strength"
+          ],
+          "explicits": [
+            "+103 to maximum Energy Shield",
+            "57% increased maximum Energy Shield",
+            "+46 to Spirit",
+            "+2 to Level of all Spell Skills",
+            "+30 to Dexterity"
           ]
         }
       ],
@@ -8487,27 +8415,27 @@
     },
     "disciple-of-varashta": {
       "asc": "Disciple of Varashta",
-      "sample": 5116,
+      "sample": 5072,
       "skills": [
         {
           "name": "Kelari, the Tainted Sands",
-          "pct": 84.5
+          "pct": 84.3
         },
         {
           "name": "Kelari's Brutality",
-          "pct": 84.5
+          "pct": 84.3
         },
         {
           "name": "Kelari's Deception",
-          "pct": 80.8
+          "pct": 80.7
         },
         {
           "name": "Navira, the Last Mirage",
-          "pct": 54.3
+          "pct": 54.6
         },
         {
           "name": "Navira's Embrace",
-          "pct": 54.3
+          "pct": 54.6
         },
         {
           "name": "Wolf Pack",
@@ -8517,19 +8445,19 @@
       "supports": [
         {
           "name": "Rapid Casting II",
-          "pct": 85.7
+          "pct": 85.5
         },
         {
           "name": "Magnified Area II",
-          "pct": 85.3
+          "pct": 85.4
         },
         {
           "name": "Kurgal's Leash",
-          "pct": 81.2
+          "pct": 81
         },
         {
           "name": "Muster",
-          "pct": 81
+          "pct": 80.9
         },
         {
           "name": "Prolonged Duration II",
@@ -8537,69 +8465,69 @@
         },
         {
           "name": "Last Gasp",
-          "pct": 68.4
+          "pct": 68.3
         }
       ],
       "notables": [
         {
           "name": "Chaos Inoculation",
-          "pct": 90.2
-        },
-        {
-          "name": "Barya of Kelari",
-          "pct": 84.1
+          "pct": 90.4
         },
         {
           "name": "The Fourth Teaching",
           "pct": 83.9
         },
         {
+          "name": "Barya of Kelari",
+          "pct": 83.9
+        },
+        {
           "name": "Kelari's Deception",
-          "pct": 81
+          "pct": 80.9
         },
         {
           "name": "Sacred Rituals",
-          "pct": 65.4
+          "pct": 65.2
         },
         {
           "name": "Barya of Navira",
-          "pct": 53.6
+          "pct": 53.7
         }
       ],
       "uniques": [
         {
           "name": "Nascent Hope",
-          "pct": 66.3
+          "pct": 66.5
         },
         {
           "name": "From Nothing",
-          "pct": 48.6
+          "pct": 49
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 45.7
+          "pct": 46
         },
         {
           "name": "Evergrasping Ring",
-          "pct": 44.5
+          "pct": 44.3
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 30.8
+          "pct": 31
         },
         {
           "name": "Rite of Passage",
-          "pct": 26.7
+          "pct": 26.8
         }
       ],
       "anointments": [
         {
           "name": "Dominion",
-          "pct": 65.8
+          "pct": 66.1
         },
         {
           "name": "Warlord Leader",
-          "pct": 6
+          "pct": 6.1
         },
         {
           "name": "Zarokh's Gift",
@@ -8607,7 +8535,7 @@
         },
         {
           "name": "Gigantic Following",
-          "pct": 2.4
+          "pct": 2.3
         },
         {
           "name": "Conservative Casting",
@@ -8621,11 +8549,11 @@
         },
         {
           "name": "Staff / Focus",
-          "pct": 20.5
+          "pct": 20.6
         },
         {
           "name": "Sceptre / Shield",
-          "pct": 2.5
+          "pct": 2.4
         },
         {
           "name": "Staff",
@@ -8637,8 +8565,9 @@
         }
       ],
       "stats": {
-        "ehp": 38000,
-        "dps": 141000,
+        "ehp": 37000,
+        "dps": 145000,
+        "sample": 99,
         "level": 100
       },
       "top": {
@@ -9061,19 +8990,19 @@
     },
     "tactician": {
       "asc": "Tactician",
-      "sample": 3221,
+      "sample": 3200,
       "skills": [
         {
           "name": "Galvanic Shards",
-          "pct": 59.3
+          "pct": 59.5
         },
         {
           "name": "Stormblast Bolts",
-          "pct": 58.9
+          "pct": 59.1
         },
         {
           "name": "Crossbow Shot",
-          "pct": 55.6
+          "pct": 55.9
         },
         {
           "name": "Herald of Thunder",
@@ -9081,7 +9010,7 @@
         },
         {
           "name": "Supporting Fire",
-          "pct": 16
+          "pct": 15.9
         },
         {
           "name": "Wolf Pack",
@@ -9091,7 +9020,7 @@
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 93.2
+          "pct": 93.4
         },
         {
           "name": "Prolonged Duration II",
@@ -9099,7 +9028,7 @@
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 76.7
+          "pct": 77
         },
         {
           "name": "Vitality II",
@@ -9111,7 +9040,7 @@
         },
         {
           "name": "Rapid Attacks II",
-          "pct": 67.3
+          "pct": 67.4
         }
       ],
       "notables": [
@@ -9121,11 +9050,11 @@
         },
         {
           "name": "Polish That Gear",
-          "pct": 90.5
+          "pct": 90.6
         },
         {
           "name": "Suppressing Fire",
-          "pct": 74.1
+          "pct": 74
         },
         {
           "name": "Right Where We Want Them",
@@ -9133,7 +9062,7 @@
         },
         {
           "name": "Sacrifice of Flesh",
-          "pct": 38.7
+          "pct": 39.3
         },
         {
           "name": "Giant's Blood",
@@ -9143,33 +9072,33 @@
       "uniques": [
         {
           "name": "Lavianga's Spirits",
-          "pct": 70.8
+          "pct": 71.2
         },
         {
           "name": "Heart of the Well",
-          "pct": 61.6
+          "pct": 62
         },
         {
           "name": "Morior Invictus",
-          "pct": 59.5
+          "pct": 60.2
         },
         {
           "name": "Painter's Servant",
-          "pct": 58.7
+          "pct": 58.9
         },
         {
           "name": "Alpha's Howl",
-          "pct": 51.4
+          "pct": 52.1
         },
         {
           "name": "Against the Darkness",
-          "pct": 46
+          "pct": 46.4
         }
       ],
       "anointments": [
         {
           "name": "Grace of the Ancestors",
-          "pct": 21.9
+          "pct": 22.2
         },
         {
           "name": "Imbibed Power",
@@ -9185,13 +9114,13 @@
         },
         {
           "name": "Barbaric Strength",
-          "pct": 3.9
+          "pct": 4
         }
       ],
       "weapons": [
         {
           "name": "Crossbow",
-          "pct": 70.8
+          "pct": 70.7
         },
         {
           "name": "Two Handed Mace / Sceptre",
@@ -9199,20 +9128,21 @@
         },
         {
           "name": "Talisman / Sceptre",
-          "pct": 4.3
+          "pct": 4.4
         },
         {
           "name": "Unknown / Sceptre",
-          "pct": 2
+          "pct": 1.9
         },
         {
           "name": "Sceptre / Shield",
-          "pct": 1.6
+          "pct": 1.7
         }
       ],
       "stats": {
         "ehp": 26000,
-        "dps": 98000,
+        "dps": 100000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -9567,37 +9497,37 @@
     },
     "witchhunter": {
       "asc": "Witchhunter",
-      "sample": 3483,
+      "sample": 3359,
       "skills": [
         {
           "name": "Explosive Grenade",
-          "pct": 47.5
+          "pct": 46.9
         },
         {
           "name": "Freezing Mark",
-          "pct": 41.7
+          "pct": 41.6
         },
         {
           "name": "Cluster Grenade",
-          "pct": 41.3
+          "pct": 41.1
         },
         {
           "name": "Flash Grenade",
-          "pct": 39.8
+          "pct": 39.4
         },
         {
           "name": "Explosive Shot",
-          "pct": 37.2
+          "pct": 37.1
         },
         {
           "name": "Herald of Ice",
-          "pct": 25.9
+          "pct": 26
         }
       ],
       "supports": [
         {
           "name": "Elemental Armament II",
-          "pct": 92.7
+          "pct": 92.6
         },
         {
           "name": "Magnified Area II",
@@ -9605,25 +9535,25 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 84.4
+          "pct": 84.3
         },
         {
           "name": "Cold Mastery",
-          "pct": 68.9
+          "pct": 69.2
         },
         {
           "name": "Blind II",
-          "pct": 68.6
+          "pct": 69
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 67.2
+          "pct": 67.4
         }
       ],
       "notables": [
         {
           "name": "Obsessive Rituals",
-          "pct": 98.4
+          "pct": 98.3
         },
         {
           "name": "Ceremonial Ablution",
@@ -9631,33 +9561,33 @@
         },
         {
           "name": "Pitiless Killer",
-          "pct": 50.5
+          "pct": 50.8
         },
         {
           "name": "Witchbane",
-          "pct": 46.5
+          "pct": 46.2
         },
         {
           "name": "No Mercy",
-          "pct": 44.5
+          "pct": 44.1
         },
         {
           "name": "Zealous Inquisition",
-          "pct": 41.8
+          "pct": 42.4
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 80.6
+          "pct": 81.8
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 77.8
+          "pct": 78.7
         },
         {
           "name": "Hyrri's Ire",
-          "pct": 63.2
+          "pct": 63.5
         },
         {
           "name": "Constricting Command",
@@ -9665,43 +9595,43 @@
         },
         {
           "name": "Prism of Belief",
-          "pct": 31.6
+          "pct": 32.2
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 31.2
+          "pct": 32.2
         }
       ],
       "anointments": [
         {
           "name": "Beastial Skin",
-          "pct": 11.7
+          "pct": 12
         },
         {
           "name": "High Alert",
-          "pct": 8.1
+          "pct": 8.3
         },
         {
           "name": "Imbibed Power",
-          "pct": 7.1
-        },
-        {
-          "name": "Primal Sundering",
-          "pct": 6
+          "pct": 7.2
         },
         {
           "name": "Hunting Companion",
+          "pct": 6
+        },
+        {
+          "name": "Primal Sundering",
           "pct": 5.9
         }
       ],
       "weapons": [
         {
           "name": "Crossbow",
-          "pct": 87.8
+          "pct": 87.5
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 5.2
+          "pct": 5.3
         },
         {
           "name": "Spear",
@@ -9712,13 +9642,14 @@
           "pct": 0.7
         },
         {
-          "name": "Mace / Shield",
-          "pct": 0.3
+          "name": "Talisman",
+          "pct": 0.4
         }
       ],
       "stats": {
-        "ehp": 27000,
-        "dps": 67000,
+        "ehp": 29000,
+        "dps": 71000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -9730,50 +9661,52 @@
           "name": "+#% to Fire Resistance",
           "pct": 32.3,
           "lo": 30,
-          "hi": 45
+          "hi": 44
         },
         {
           "name": "+#% to Lightning Resistance",
-          "pct": 22.6,
-          "lo": 37,
+          "pct": 25.8,
+          "lo": 38,
           "hi": 48
         },
         {
+          "name": "#% increased Evasion Rating",
+          "pct": 25.8,
+          "lo": 68,
+          "hi": 136
+        },
+        {
+          "name": "Adds # to # Cold damage to Attacks",
+          "pct": 22.6
+        },
+        {
+          "name": "+# to Evasion Rating",
+          "pct": 19.4,
+          "lo": 172,
+          "hi": 226
+        },
+        {
           "name": "+# to Armour",
-          "pct": 22.6,
+          "pct": 19.4,
           "lo": 178,
           "hi": 218
         },
         {
-          "name": "+#% to all Elemental Resistances",
-          "pct": 22.6,
-          "lo": 13,
-          "hi": 18
-        },
-        {
-          "name": "Adds # to # Lightning damage to Attacks",
+          "name": "Adds # to # Fire damage to Attacks",
           "pct": 19.4
-        },
-        {
-          "name": "#% increased Evasion Rating",
-          "pct": 19.4,
-          "lo": 52,
-          "hi": 127
         },
         {
           "name": "+#% to Cold Resistance",
           "pct": 19.4,
           "lo": 42,
           "hi": 44
-        },
-        {
-          "name": "+#% to Chaos Resistance",
-          "pct": 19.4,
-          "lo": 19,
-          "hi": 23
         }
       ],
       "runes": [
+        {
+          "name": "Soul Core of Quipolatl",
+          "pct": 40
+        },
         {
           "name": "Saqawal's Rune of the Sky",
           "pct": 40
@@ -9793,24 +9726,20 @@
         {
           "name": "Perfect Rebirth Rune",
           "pct": 20
-        },
-        {
-          "name": "Guatelitzi's Soul Core of Endurance",
-          "pct": 20
         }
       ],
       "source": {
-        "account": "edmortem-9589",
-        "name": "Letitbleed",
+        "account": "spidercide-3000",
+        "name": "spidercide",
         "level": 99
       },
       "build": {
-        "passives": 151,
-        "skills": 10,
+        "passives": 157,
+        "skills": 11,
         "items": 9,
         "defence": {
-          "ehp": 23544,
-          "life": 2059,
+          "ehp": 41879,
+          "life": 1572,
           "es": 0,
           "ward": null,
           "resists": {
@@ -9819,8 +9748,8 @@
             "lightning": 75,
             "chaos": 75
           },
-          "evade": 49,
-          "pdr": 10,
+          "evade": 60,
+          "pdr": 0,
           "block": null,
           "crit": 5
         },
@@ -9835,246 +9764,247 @@
       },
       "skillSetups": [
         {
-          "skill": "Crossbow Shot",
+          "skill": "Explosive Shot",
           "supports": [
-            "Innervate",
-            "Concentrated Area",
-            "Elemental Armament II",
-            "Deliberation",
-            "Projectile Acceleration III"
-          ]
-        },
-        {
-          "skill": "Crossbow Shot",
-          "supports": [
-            "Lightning Penetration",
-            "Rapid Attacks II",
-            "Shock",
-            "Innervate",
-            "Elemental Armament II"
-          ]
-        },
-        {
-          "skill": "Stormblast Bolts",
-          "supports": [
-            "Rapid Attacks II",
-            "Elemental Armament II",
-            "Close Combat II",
-            "Rigwald's Ferocity",
+            "Multishot II",
+            "Arjun's Medal",
+            "Defy II",
+            "Ratha's Assault",
             "Rakiata's Flow"
           ]
         },
         {
-          "skill": "Galvanic Shards",
+          "skill": "Explosive Grenade",
           "supports": [
-            "Dominus' Grasp",
-            "Ratha's Assault",
-            "Arjun's Medal",
-            "Mobility",
-            "Elemental Armament II"
+            "Defy II",
+            "Rageforged II",
+            "Elemental Armament II",
+            "Multishot II",
+            "Lightning Penetration"
           ]
         },
         {
-          "skill": "Mirage Archer",
+          "skill": "Voltaic Grenade",
           "supports": [
-            "Explosive Shot",
-            "Rapid Attacks II",
-            "Cooldown Recovery II",
+            "Defy II",
+            "Lightning Penetration",
+            "Elemental Armament II",
+            "Thrill of the Kill II",
+            "Short Fuse I"
+          ]
+        },
+        {
+          "skill": "Cluster Grenade",
+          "supports": [
             "Magnified Area II",
-            "Prolonged Duration II"
+            "Lightning Penetration",
+            "Defy II",
+            "Thrill of the Kill II",
+            "Atziri's Impatience"
           ]
         },
         {
           "skill": "Herald of Thunder",
           "supports": [
-            "Blind II",
-            "Elemental Armament II",
             "Elemental Focus",
-            "Concentrated Area",
-            "Longshot II"
+            "Elemental Armament II",
+            "Longshot II",
+            "Magnified Area II",
+            "Lightning Penetration"
+          ]
+        },
+        {
+          "skill": "Voltaic Mark",
+          "supports": [
+            "Prolonged Duration II",
+            "Mark of Siphoning II",
+            "Charged Mark",
+            "Efficiency II"
           ]
         }
       ],
       "buildItems": [
-        {
-          "slot": "Boots1",
-          "name": "Victory Pace",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Cavalry Boots",
-          "ilvl": 83,
-          "explicits": [
-            "+166 to Evasion Rating",
-            "80% increased Evasion Rating",
-            "+45% to Fire Resistance",
-            "+37% to Lightning Resistance",
-            "35% increased Movement Speed"
-          ],
-          "sockets": [
-            "Farrul's Rune of the Chase",
-            "Perfect Iron Rune"
-          ]
-        },
         {
           "slot": "BodyArmour1",
           "name": "Hyrri's Ire",
           "unique": true,
           "rarity": "Unique",
           "base": "Armoured Vest",
-          "ilvl": 81,
+          "ilvl": 80,
           "corrupted": true,
           "enchants": [
-            "+40 to maximum Life"
+            "+16% to Chaos Resistance"
           ],
           "implicits": [
             "33% increased Elemental Ailment Threshold"
           ],
           "explicits": [
-            "150% increased Evasion Rating",
-            "Gain 20% of Damage as Extra Cold Damage",
-            "+38 to Dexterity",
+            "147% increased Evasion Rating",
+            "Gain 17% of Damage as Extra Cold Damage",
+            "+37 to Dexterity",
             "25% increased Freeze Duration on Enemies",
             "Evasion Rating is doubled if you have not been Hit Recently"
           ],
           "sockets": [
-            "Tecrod's Gaze",
-            "Rabbit Idol"
+            "Perfect Iron Rune",
+            "Perfect Iron Rune",
+            "Soul Core of Tacati"
           ]
         },
         {
-          "slot": "Amulet1",
-          "name": "Havoc Clasp",
+          "slot": "Weapon2",
+          "name": "Mind Core",
           "unique": false,
           "rarity": "Rare",
-          "base": "Gold Amulet",
+          "base": "Siege Crossbow",
           "ilvl": 81,
-          "enchants": [
-            "Allocates Wild Storm"
-          ],
           "implicits": [
-            "19% increased Rarity of Items found"
+            "Grenade Skills Fire an additional Projectile"
           ],
           "explicits": [
-            "56% increased Evasion Rating",
-            "19% increased Rarity of Items found",
-            "+3 to Level of all Projectile Skills",
-            "+13% to all Elemental Resistances",
-            "+50 to Spirit"
-          ]
-        },
-        {
-          "slot": "Ring1",
-          "name": "Plague Knot",
-          "unique": false,
-          "rarity": "Rare",
-          "base": "Ruby Ring",
-          "ilvl": 80,
-          "implicits": [
-            "+30% to Fire Resistance"
+            "Adds 33 to 904 Lightning Damage"
           ],
-          "explicits": [
-            "+116 to maximum Life",
-            "16% increased Rarity of Items found",
-            "+12% to all Elemental Resistances",
-            "+23% to Chaos Resistance",
-            "Adds 21 to 37 Physical Damage to Attacks"
+          "sockets": [
+            "Ancient Rune of Detonation",
+            "Ire of Aldur"
           ]
         },
         {
           "slot": "Ring2",
-          "name": "Doom Circle",
+          "name": "Brood Loop",
           "unique": false,
           "rarity": "Rare",
-          "base": "Prismatic Ring",
-          "ilvl": 81,
-          "implicits": [
-            "+12% to all Elemental Resistances"
-          ],
-          "explicits": [
-            "Adds 15 to 24 Physical Damage to Attacks",
-            "Adds 1 to 70 Lightning damage to Attacks",
-            "32% increased Lightning Damage",
-            "+18% to all Elemental Resistances"
-          ]
-        },
-        {
-          "slot": "Belt1",
-          "name": "Headhunter",
-          "unique": true,
-          "rarity": "Unique",
-          "base": "Heavy Belt",
-          "ilvl": 81,
+          "base": "Amethyst Ring",
+          "ilvl": 79,
           "corrupted": true,
-          "enchants": [
-            "19% increased Armour"
-          ],
           "implicits": [
-            "22% increased Stun Threshold",
-            "Has 2 Charm Slots"
+            "+11% to Chaos Resistance"
           ],
           "explicits": [
-            "+59 to maximum Life",
-            "+36 to Strength",
-            "+35 to Dexterity",
-            "When you kill a Rare monster, you gain its Modifiers for 60 seconds"
+            "Adds 3 to 69 Lightning damage to Attacks",
+            "+132 to Evasion Rating",
+            "+16% to all Elemental Resistances",
+            "+30% to Fire Resistance",
+            "+48% to Lightning Resistance"
           ]
         },
         {
-          "slot": "Gloves1",
-          "name": "Rapture Touch",
+          "slot": "Ring1",
+          "name": "Sol Grasp",
           "unique": false,
           "rarity": "Rare",
-          "base": "Knightly Mitts",
+          "base": "Gold Ring",
           "ilvl": 82,
-          "corrupted": true,
-          "explicits": [
-            "+180 to Armour",
-            "+119 to maximum Life",
-            "14% increased Attack Speed",
-            "+19% to Chaos Resistance"
+          "implicits": [
+            "11% increased Rarity of Items found"
           ],
-          "sockets": [
-            "Thane Grannell's Rune of Mastery",
-            "Idol of Sirrius"
+          "explicits": [
+            "Adds 14 to 22 Fire damage to Attacks",
+            "Adds 16 to 27 Cold damage to Attacks",
+            "Adds 3 to 84 Lightning damage to Attacks",
+            "+41% to Cold Resistance"
           ]
         },
         {
           "slot": "Helm1",
-          "name": "Alpha's Howl",
+          "name": "Constricting Command",
           "unique": true,
           "rarity": "Unique",
-          "base": "Armoured Cap",
-          "ilvl": 79,
+          "base": "Viper Cap",
+          "ilvl": 80,
           "corrupted": true,
           "enchants": [
-            "+30 to Spirit"
+            "+23 to Spirit"
           ],
           "explicits": [
-            "98% increased Evasion Rating",
-            "+100 to Spirit",
-            "+66% to Cold Resistance",
-            "Presence Radius is doubled"
+            "+89 to maximum Life",
+            "+12 to all Attributes",
+            "11.9 Life Regeneration per second",
+            "Require 4 fewer enemies to be Surrounded"
           ],
           "sockets": [
-            "Tzamoto's Soul Core of Ferocity"
+            "Tzamoto's Soul Core of Ferocity",
+            "Soul Core of Tacati"
           ]
         },
         {
-          "slot": "Weapon1",
-          "name": "Woe Core",
+          "slot": "Amulet1",
+          "name": "Skull Collar",
           "unique": false,
           "rarity": "Rare",
-          "base": "Desolate Crossbow",
-          "ilvl": 82,
+          "base": "Absent Amulet",
+          "ilvl": 79,
+          "enchants": [
+            "Allocates Beastial Skin"
+          ],
+          "implicits": [
+            "-1 Prefix Modifier allowed",
+            "-1 Suffix Modifier allowed"
+          ],
           "explicits": [
-            "164% increased Physical Damage",
-            "Adds 14 to 252 Lightning Damage",
-            "17% increased Attack Speed",
-            "+5 to Level of all Projectile Skills"
+            "+3 to Level of all Projectile Skills",
+            "+39% to Fire Resistance"
           ],
           "sockets": [
-            "Saqawal's Rune of the Sky",
-            "Farrul's Rune of the Hunt"
+            "Eternal Rage"
+          ]
+        },
+        {
+          "slot": "Belt1",
+          "name": "Mageblood",
+          "unique": true,
+          "rarity": "Unique",
+          "base": "Utility Belt",
+          "ilvl": 82,
+          "implicits": [
+            "Has 2 Charm Slots",
+            "20% of Flask Recovery applied Instantly"
+          ],
+          "explicits": [
+            "Legacy of Bismuth",
+            "Legacy of Silver",
+            "Legacy of Jade",
+            "Legacy of Quicksilver",
+            "All Mage's Legacies have 35% increased effect per duplicate Mage's Legacy you have"
+          ]
+        },
+        {
+          "slot": "Gloves1",
+          "name": "Plague Vise",
+          "unique": false,
+          "rarity": "Rare",
+          "base": "Polished Bracers",
+          "ilvl": 81,
+          "explicits": [
+            "Adds 15 to 24 Fire damage to Attacks",
+            "Adds 11 to 18 Cold damage to Attacks",
+            "39% increased Projectile Damage",
+            "+56% Surpassing chance to fire an additional Projectile",
+            "+2 to Level of all Projectile Skills"
+          ],
+          "sockets": [
+            "Kolr's Hunt",
+            "Soul Core of Tacati"
+          ]
+        },
+        {
+          "slot": "Boots1",
+          "name": "Brimstone Track",
+          "unique": false,
+          "rarity": "Rare",
+          "base": "Dragonscale Boots",
+          "ilvl": 84,
+          "corrupted": true,
+          "explicits": [
+            "35% increased Movement Speed",
+            "16% increased Rarity of Items found",
+            "Gain Deflection Rating equal to 23% of Evasion Rating",
+            "52% reduced Chill Duration on you"
+          ],
+          "sockets": [
+            "Farrul's Rune of the Chase",
+            "Perfect Glacial Rune",
+            "Guatelitzi's Thesis"
           ]
         }
       ],
@@ -10082,70 +10012,70 @@
       "variants": [
         {
           "slug": "witchhunter-2",
-          "name": "Witchhunter — Explosive Shot (public ladder)",
+          "name": "Witchhunter — Stormblast Bolts (public ladder)",
           "source": {
-            "account": "spidercide-3000",
-            "name": "spidercide",
+            "account": "tanya-8762",
+            "name": "magmafromhere",
             "level": 99
           },
-          "ehp": 41000,
-          "dps": 64000,
+          "ehp": 21000,
+          "dps": 33000,
           "defence": {
-            "ehp": 41879,
-            "life": 1572,
+            "ehp": 21790,
+            "life": 1673,
             "es": 0,
             "ward": null,
             "resists": {
               "fire": 75,
               "cold": 75,
               "lightning": 75,
-              "chaos": 75
+              "chaos": 43
             },
-            "evade": 60,
-            "pdr": 0,
+            "evade": 43,
+            "pdr": 25,
             "block": null,
-            "crit": 5
+            "crit": 9
           },
           "pob": true,
           "skillSetups": [
             {
-              "skill": "Explosive Shot",
+              "skill": "Crossbow Shot",
               "supports": [
-                "Multishot II",
-                "Arjun's Medal",
-                "Defy II",
+                "Elemental Armament II",
+                "Brutality III",
+                "Bleed I",
+                "Armour Break I",
+                "Defy II"
+              ]
+            },
+            {
+              "skill": "Stormblast Bolts",
+              "supports": [
+                "Lightning Penetration",
+                "Elemental Armament II",
+                "Concentrated Area",
+                "Close Combat II",
+                "Lightning Attunement"
+              ]
+            },
+            {
+              "skill": "Galvanic Shards",
+              "supports": [
                 "Ratha's Assault",
-                "Rakiata's Flow"
+                "Dominus' Grasp",
+                "Innervate",
+                "Fork",
+                "Elemental Armament II"
               ]
             },
             {
-              "skill": "Explosive Grenade",
+              "skill": "Mortar Cannon",
               "supports": [
-                "Defy II",
-                "Rageforged II",
-                "Elemental Armament II",
-                "Multishot II",
-                "Lightning Penetration"
-              ]
-            },
-            {
-              "skill": "Voltaic Grenade",
-              "supports": [
-                "Defy II",
-                "Lightning Penetration",
-                "Elemental Armament II",
-                "Thrill of the Kill II",
-                "Short Fuse I"
-              ]
-            },
-            {
-              "skill": "Cluster Grenade",
-              "supports": [
+                "Explosive Grenade",
+                "Urgent Totems III",
+                "Short Fuse II",
                 "Magnified Area II",
-                "Lightning Penetration",
-                "Defy II",
-                "Thrill of the Kill II",
-                "Atziri's Impatience"
+                "Multishot II"
               ]
             }
           ]
@@ -10154,11 +10084,11 @@
     },
     "gemling-legionnaire": {
       "asc": "Gemling Legionnaire",
-      "sample": 7316,
+      "sample": 7406,
       "skills": [
         {
           "name": "Ember Fusillade",
-          "pct": 19.3
+          "pct": 19.5
         },
         {
           "name": "Herald of Ice",
@@ -10170,7 +10100,7 @@
         },
         {
           "name": "Explosive Grenade",
-          "pct": 14.7
+          "pct": 14.5
         },
         {
           "name": "Entangle",
@@ -10178,7 +10108,7 @@
         },
         {
           "name": "Cluster Grenade",
-          "pct": 13.1
+          "pct": 12.8
         }
       ],
       "supports": [
@@ -10188,23 +10118,23 @@
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 76.3
+          "pct": 75.9
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 74.9
+          "pct": 74.6
         },
         {
           "name": "Efficiency II",
-          "pct": 61.2
+          "pct": 61.3
         },
         {
           "name": "Elemental Armament II",
-          "pct": 51.6
+          "pct": 51.2
         },
         {
           "name": "Armour Demolisher II",
-          "pct": 44.7
+          "pct": 44.3
         }
       ],
       "notables": [
@@ -10222,37 +10152,37 @@
         },
         {
           "name": "Implanted Gems",
-          "pct": 80.8
+          "pct": 80.9
         },
         {
           "name": "Neurological Implants",
-          "pct": 36.1
+          "pct": 36.2
         },
         {
           "name": "Bolstering Implants",
-          "pct": 26.5
+          "pct": 26.6
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 73.7
+          "pct": 73.8
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 65.7
+          "pct": 65.8
         },
         {
           "name": "Nascent Hope",
-          "pct": 50.8
+          "pct": 51.2
         },
         {
           "name": "Split Personality",
-          "pct": 44.6
+          "pct": 44.9
         },
         {
           "name": "Prism of Belief",
-          "pct": 42.9
+          "pct": 42.7
         },
         {
           "name": "Rite of Passage",
@@ -10262,11 +10192,11 @@
       "anointments": [
         {
           "name": "Paragon",
-          "pct": 54.9
+          "pct": 55
         },
         {
           "name": "Thaumaturgic Generator",
-          "pct": 8.3
+          "pct": 8.4
         },
         {
           "name": "Zarokh's Gift",
@@ -10284,15 +10214,15 @@
       "weapons": [
         {
           "name": "Crossbow",
-          "pct": 19.9
+          "pct": 19.6
         },
         {
           "name": "Unknown / Sceptre",
-          "pct": 14.7
+          "pct": 14.8
         },
         {
           "name": "Wand / Sceptre",
-          "pct": 11.5
+          "pct": 11.7
         },
         {
           "name": "Spear",
@@ -10304,8 +10234,9 @@
         }
       ],
       "stats": {
-        "ehp": 22000,
-        "dps": 331000,
+        "ehp": 21000,
+        "dps": 316000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -10827,41 +10758,41 @@
     },
     "amazon": {
       "asc": "Amazon",
-      "sample": 1169,
+      "sample": 1177,
       "skills": [
         {
           "name": "Herald of Thunder",
-          "pct": 47.3
+          "pct": 46.8
         },
         {
           "name": "Herald of Ice",
-          "pct": 40.2
+          "pct": 40.4
         },
         {
           "name": "Whirling Slash",
-          "pct": 34.6
+          "pct": 34.3
         },
         {
           "name": "Ice Shot",
-          "pct": 31.5
+          "pct": 31.9
         },
         {
           "name": "Tornado Shot",
-          "pct": 29.7
+          "pct": 30.3
         },
         {
           "name": "Barrage",
-          "pct": 28.3
+          "pct": 28.4
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 90.1
+          "pct": 89.8
         },
         {
           "name": "Elemental Armament II",
-          "pct": 85.5
+          "pct": 85.6
         },
         {
           "name": "Cooldown Recovery II",
@@ -10869,21 +10800,21 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 80.9
+          "pct": 80.8
         },
         {
           "name": "Elemental Focus",
-          "pct": 63.7
+          "pct": 63.3
         },
         {
           "name": "Fork",
-          "pct": 61.9
+          "pct": 62.3
         }
       ],
       "notables": [
         {
           "name": "Predatory Instinct",
-          "pct": 92.7
+          "pct": 92.8
         },
         {
           "name": "Critical Strike",
@@ -10891,15 +10822,15 @@
         },
         {
           "name": "Stalking Panther",
-          "pct": 60.5
+          "pct": 60.4
         },
         {
           "name": "Penetrate",
-          "pct": 55.2
+          "pct": 55.1
         },
         {
           "name": "In for the Kill",
-          "pct": 48.4
+          "pct": 48.7
         },
         {
           "name": "Azmeri Brew",
@@ -10909,37 +10840,37 @@
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 79.8
+          "pct": 80.5
         },
         {
           "name": "Nascent Hope",
-          "pct": 51.2
+          "pct": 51.7
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 43.9
+          "pct": 44.3
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 43.1
+          "pct": 43.3
         },
         {
           "name": "From Nothing",
-          "pct": 42.4
+          "pct": 42.7
         },
         {
           "name": "Rite of Passage",
-          "pct": 35.7
+          "pct": 36.1
         }
       ],
       "anointments": [
         {
           "name": "Thaumaturgic Generator",
-          "pct": 25.6
+          "pct": 25.7
         },
         {
           "name": "Overflowing Power",
-          "pct": 11.5
+          "pct": 11.4
         },
         {
           "name": "Overwhelming Strike",
@@ -10947,25 +10878,25 @@
         },
         {
           "name": "Warlord Berserker",
-          "pct": 8.3
+          "pct": 8.2
         },
         {
           "name": "Serrated Edges",
-          "pct": 6.8
+          "pct": 6.9
         }
       ],
       "weapons": [
         {
           "name": "Spear / Sceptre",
-          "pct": 32.2
+          "pct": 32.8
         },
         {
           "name": "Bow / Quiver",
-          "pct": 31.7
+          "pct": 32.1
         },
         {
           "name": "Spear",
-          "pct": 15.7
+          "pct": 15
         },
         {
           "name": "Crossbow",
@@ -10977,8 +10908,9 @@
         }
       ],
       "stats": {
-        "ehp": 25000,
+        "ehp": 26000,
         "dps": 398000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -11329,7 +11261,7 @@
     },
     "spirit-walker": {
       "asc": "Spirit Walker",
-      "sample": 23450,
+      "sample": 23295,
       "skills": [
         {
           "name": "Wild Protector",
@@ -11337,23 +11269,23 @@
         },
         {
           "name": "Vivid Stampede",
-          "pct": 51.5
+          "pct": 51.9
         },
         {
           "name": "Whirling Slash",
-          "pct": 49.7
+          "pct": 50.2
         },
         {
           "name": "Twister",
-          "pct": 49.6
+          "pct": 50
         },
         {
           "name": "Barrage",
-          "pct": 49.2
+          "pct": 49.6
         },
         {
           "name": "Wolf Pack",
-          "pct": 38.5
+          "pct": 38.2
         }
       ],
       "supports": [
@@ -11363,7 +11295,7 @@
         },
         {
           "name": "Romira's Requital",
-          "pct": 87.5
+          "pct": 87.7
         },
         {
           "name": "Cooldown Recovery II",
@@ -11371,15 +11303,15 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 81.1
+          "pct": 81
         },
         {
           "name": "Magnified Area II",
-          "pct": 75.3
+          "pct": 75.4
         },
         {
           "name": "Hulking Minions",
-          "pct": 73.9
+          "pct": 74
         }
       ],
       "notables": [
@@ -11389,49 +11321,49 @@
         },
         {
           "name": "Vivid Stampede",
-          "pct": 53.5
+          "pct": 53.9
         },
         {
           "name": "Primal Bounty",
-          "pct": 52.8
+          "pct": 53.3
         },
         {
           "name": "The Mhacha's Gift",
-          "pct": 51.2
+          "pct": 51.6
         },
         {
           "name": "Sacred Unity",
-          "pct": 50.1
+          "pct": 50.5
         },
         {
           "name": "Dance with Death",
-          "pct": 47.9
+          "pct": 48.3
         }
       ],
       "uniques": [
         {
           "name": "Lavianga's Spirits",
-          "pct": 65.4
+          "pct": 65.9
         },
         {
           "name": "Nascent Hope",
-          "pct": 54.1
+          "pct": 54.5
         },
         {
           "name": "Heart of the Well",
-          "pct": 51.3
+          "pct": 51.7
         },
         {
           "name": "The Taming",
-          "pct": 48
+          "pct": 48.4
         },
         {
           "name": "From Nothing",
-          "pct": 40.5
+          "pct": 40.8
         },
         {
-          "name": "Sylvan's Effigy",
-          "pct": 37.3
+          "name": "The Ordained",
+          "pct": 37.7
         }
       ],
       "anointments": [
@@ -11440,12 +11372,12 @@
           "pct": 10.7
         },
         {
-          "name": "Vulgar Methods",
-          "pct": 7.8
+          "name": "Thaumaturgic Generator",
+          "pct": 7.9
         },
         {
-          "name": "Thaumaturgic Generator",
-          "pct": 7.7
+          "name": "Vulgar Methods",
+          "pct": 7.8
         },
         {
           "name": "Gigantic Following",
@@ -11453,17 +11385,17 @@
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 4.8
+          "pct": 4.9
         }
       ],
       "weapons": [
         {
           "name": "Spear",
-          "pct": 44.8
+          "pct": 45.1
         },
         {
           "name": "Unknown / Sceptre",
-          "pct": 30.8
+          "pct": 30.3
         },
         {
           "name": "Two Handed Mace / Sceptre",
@@ -11471,7 +11403,7 @@
         },
         {
           "name": "Spear / Sceptre",
-          "pct": 7.2
+          "pct": 7.3
         },
         {
           "name": "Talisman",
@@ -11481,6 +11413,7 @@
       "stats": {
         "ehp": 27000,
         "dps": 243000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -11931,7 +11864,7 @@
             "level": 100
           },
           "ehp": 19000,
-          "dps": 147000,
+          "dps": 151000,
           "defence": {
             "ehp": 19399,
             "life": 1695,
@@ -11971,6 +11904,16 @@
               ]
             },
             {
+              "skill": "Wild Protector",
+              "supports": [
+                "Romira's Requital",
+                "Hulking Minions",
+                "Elemental Army",
+                "Meat Shield II",
+                "Minion Mastery"
+              ]
+            },
+            {
               "skill": "Vivid Stampede",
               "supports": [
                 "Shock",
@@ -11979,16 +11922,6 @@
                 "Magnified Area II",
                 "Lightning Attunement"
               ]
-            },
-            {
-              "skill": "Barrage",
-              "supports": [
-                "Uhtred's Constellation",
-                "Heightened Charges",
-                "Rapid Casting II",
-                "Prolonged Duration II",
-                "Cooldown Recovery II"
-              ]
             }
           ]
         }
@@ -11996,7 +11929,7 @@
     },
     "ritualist": {
       "asc": "Ritualist",
-      "sample": 1863,
+      "sample": 1877,
       "skills": [
         {
           "name": "Spark",
@@ -12004,23 +11937,23 @@
         },
         {
           "name": "Barrage",
-          "pct": 26.1
+          "pct": 26.2
         },
         {
           "name": "Herald of Ice",
-          "pct": 24.5
+          "pct": 24.3
         },
         {
           "name": "Herald of Thunder",
-          "pct": 18.9
+          "pct": 18.7
         },
         {
           "name": "Ice Shot",
-          "pct": 18
+          "pct": 17.8
         },
         {
           "name": "Tornado Shot",
-          "pct": 16.8
+          "pct": 16.6
         }
       ],
       "supports": [
@@ -12030,23 +11963,23 @@
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 82.6
+          "pct": 82.5
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 77.7
+          "pct": 77.6
         },
         {
           "name": "Rapid Casting II",
-          "pct": 57.3
+          "pct": 56.8
         },
         {
           "name": "Elemental Armament II",
-          "pct": 49.5
+          "pct": 49.6
         },
         {
           "name": "Rapid Attacks II",
-          "pct": 36.8
+          "pct": 36.9
         }
       ],
       "notables": [
@@ -12068,17 +12001,17 @@
         },
         {
           "name": "Chaos Inoculation",
-          "pct": 45.4
+          "pct": 45.2
         },
         {
           "name": "Corrupted Lifeforce",
-          "pct": 33.9
+          "pct": 33.7
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 75
+          "pct": 74.9
         },
         {
           "name": "Nascent Hope",
@@ -12086,19 +12019,19 @@
         },
         {
           "name": "Rite of Passage",
-          "pct": 48.2
+          "pct": 48.4
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 48.1
+          "pct": 47.9
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 48.1
+          "pct": 47.6
         },
         {
           "name": "Andvarius",
-          "pct": 43.8
+          "pct": 43.6
         }
       ],
       "anointments": [
@@ -12108,15 +12041,15 @@
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 7.5
+          "pct": 7.4
         },
         {
           "name": "Overwhelming Strike",
-          "pct": 6.5
+          "pct": 6.6
         },
         {
           "name": "Warlord Leader",
-          "pct": 5.2
+          "pct": 5.1
         },
         {
           "name": "Thaumaturgic Generator",
@@ -12130,7 +12063,7 @@
         },
         {
           "name": "Bow / Quiver",
-          "pct": 17
+          "pct": 16.9
         },
         {
           "name": "Sceptre / Focus",
@@ -12138,16 +12071,17 @@
         },
         {
           "name": "Spear",
-          "pct": 10.5
+          "pct": 10.7
         },
         {
           "name": "Spear / Sceptre",
-          "pct": 8.9
+          "pct": 8.8
         }
       ],
       "stats": {
         "ehp": 20000,
         "dps": 45000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -12640,11 +12574,11 @@
     },
     "oracle": {
       "asc": "Oracle",
-      "sample": 6205,
+      "sample": 6243,
       "skills": [
         {
           "name": "Entangle",
-          "pct": 68
+          "pct": 67.7
         },
         {
           "name": "Mana Tempest",
@@ -12652,7 +12586,7 @@
         },
         {
           "name": "Thunderstorm",
-          "pct": 28.6
+          "pct": 28.4
         },
         {
           "name": "Elemental Weakness",
@@ -12660,11 +12594,11 @@
         },
         {
           "name": "Thrashing Vines",
-          "pct": 27.1
+          "pct": 26.9
         },
         {
           "name": "Sigil of Power",
-          "pct": 26
+          "pct": 25.9
         }
       ],
       "supports": [
@@ -12678,19 +12612,19 @@
         },
         {
           "name": "Rapid Casting II",
-          "pct": 79.3
+          "pct": 79.2
         },
         {
           "name": "Prolonged Duration II",
-          "pct": 62.1
+          "pct": 62.2
         },
         {
           "name": "Clarity II",
-          "pct": 60.9
+          "pct": 61
         },
         {
           "name": "Cooldown Recovery II",
-          "pct": 55.3
+          "pct": 55.5
         }
       ],
       "notables": [
@@ -12704,11 +12638,11 @@
         },
         {
           "name": "Forced Outcome",
-          "pct": 94.9
+          "pct": 95
         },
         {
           "name": "Entwined Realities",
-          "pct": 64
+          "pct": 64.3
         },
         {
           "name": "Ancestral Bond",
@@ -12716,51 +12650,51 @@
         },
         {
           "name": "Wildsurge Incantation",
-          "pct": 39.5
+          "pct": 39.3
         }
       ],
       "uniques": [
         {
           "name": "Nascent Hope",
-          "pct": 62.6
+          "pct": 62.5
         },
         {
           "name": "Heart of the Well",
-          "pct": 56.6
+          "pct": 56.8
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 55
+          "pct": 55.1
         },
         {
           "name": "The Fall of the Axe",
-          "pct": 50.1
+          "pct": 50.3
         },
         {
           "name": "Rite of Passage",
-          "pct": 34.9
+          "pct": 35.2
         },
         {
           "name": "Mageblood",
-          "pct": 19.3
+          "pct": 19.5
         }
       ],
       "anointments": [
         {
           "name": "Efficient Inscriptions",
-          "pct": 29.1
+          "pct": 29.2
         },
         {
           "name": "Cooked",
-          "pct": 11.1
-        },
-        {
-          "name": "Efficient Casting",
-          "pct": 5.6
+          "pct": 10.9
         },
         {
           "name": "Zarokh's Gift",
-          "pct": 5.4
+          "pct": 5.5
+        },
+        {
+          "name": "Efficient Casting",
+          "pct": 5.5
         },
         {
           "name": "Split Shot",
@@ -12770,7 +12704,7 @@
       "weapons": [
         {
           "name": "Wand / Sceptre",
-          "pct": 47.9
+          "pct": 47.7
         },
         {
           "name": "Wand / Focus",
@@ -12778,7 +12712,7 @@
         },
         {
           "name": "Staff",
-          "pct": 14.8
+          "pct": 14.6
         },
         {
           "name": "Talisman",
@@ -12786,12 +12720,13 @@
         },
         {
           "name": "Unknown / Sceptre",
-          "pct": 2.5
+          "pct": 2.6
         }
       ],
       "stats": {
         "ehp": 19000,
         "dps": 25000,
+        "sample": 100,
         "level": 100
       },
       "top": {
@@ -12801,51 +12736,51 @@
       "gear": [
         {
           "name": "+# to maximum Mana",
-          "pct": 48.7,
-          "lo": 43,
+          "pct": 60.5,
+          "lo": 45,
           "hi": 172
         },
         {
+          "name": "+# to maximum Energy Shield",
+          "pct": 31.6,
+          "lo": 58,
+          "hi": 90
+        },
+        {
           "name": "#% increased Energy Shield",
-          "pct": 35.9,
+          "pct": 28.9,
           "lo": 87,
           "hi": 100
         },
         {
-          "name": "+# to maximum Energy Shield",
-          "pct": 30.8,
-          "lo": 58,
-          "hi": 79
+          "name": "+# to Intelligence",
+          "pct": 28.9,
+          "lo": 30,
+          "hi": 33
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 25.6,
+          "pct": 23.7,
           "lo": 38,
-          "hi": 43
-        },
-        {
-          "name": "+# to Intelligence",
-          "pct": 23.1,
-          "lo": 30,
-          "hi": 32
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 20.5,
-          "lo": 36,
-          "hi": 40
-        },
-        {
-          "name": "+# to Spirit",
-          "pct": 17.9,
-          "lo": 44,
-          "hi": 60
+          "hi": 44
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 17.9,
-          "lo": 37,
-          "hi": 44
+          "pct": 21.1,
+          "lo": 38,
+          "hi": 45
+        },
+        {
+          "name": "+# to Level of all Spell Skills",
+          "pct": 15.8,
+          "lo": 4,
+          "hi": 4
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 15.8,
+          "lo": 30,
+          "hi": 40
         }
       ],
       "runes": [
@@ -12854,19 +12789,19 @@
           "pct": 100
         },
         {
+          "name": "Perfect Iron Rune",
+          "pct": 40
+        },
+        {
+          "name": "Perfect Vision Rune",
+          "pct": 40
+        },
+        {
           "name": "Greater Mind Rune",
           "pct": 20
         },
         {
           "name": "Saqawal's Rune of the Sky",
-          "pct": 20
-        },
-        {
-          "name": "Perfect Iron Rune",
-          "pct": 20
-        },
-        {
-          "name": "Perfect Vision Rune",
           "pct": 20
         }
       ],
@@ -13164,6 +13099,73 @@
       "variants": [
         {
           "slug": "oracle-2",
+          "name": "Oracle — Entangle (public ladder)",
+          "source": {
+            "account": "myfriendnotepad-5283",
+            "name": "Reallythisclassforspeed",
+            "level": 99
+          },
+          "ehp": 24000,
+          "dps": 555000,
+          "defence": {
+            "ehp": 24375,
+            "life": 1,
+            "es": 0,
+            "ward": null,
+            "resists": {
+              "fire": 75,
+              "cold": 75,
+              "lightning": 75,
+              "chaos": 0
+            },
+            "evade": 0,
+            "pdr": 0,
+            "block": null,
+            "crit": 65
+          },
+          "pob": true,
+          "skillSetups": [
+            {
+              "skill": "Entangle",
+              "supports": [
+                "Mórrigan's Insight",
+                "Living Lightning II",
+                "Branching Fissures II",
+                "Rapid Casting II",
+                "Magnified Area II"
+              ]
+            },
+            {
+              "skill": "Frost Bomb",
+              "supports": [
+                "Efficiency II",
+                "Long Fuse II",
+                "Potent Exposure",
+                "Cooldown Recovery II",
+                "Dialla's Desire"
+              ]
+            },
+            {
+              "skill": "Spell Totem",
+              "supports": [
+                "Grim Pillars",
+                "Rapid Casting II",
+                "Vorana's Siege",
+                "Rakiata's Flow",
+                "Urgent Totems III"
+              ]
+            },
+            {
+              "skill": "Archmage",
+              "supports": [
+                "Uhtred's Omen",
+                "Lightning Mastery"
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "oracle-3",
           "name": "Oracle — Thrashing Vines (public ladder)",
           "source": {
             "account": "morloxIC-1573",
@@ -13231,98 +13233,28 @@
               ]
             }
           ]
-        },
-        {
-          "slug": "oracle-3",
-          "name": "Oracle — Entangle (public ladder)",
-          "source": {
-            "account": "Pizdexx-5220",
-            "name": "FoxyRena",
-            "level": 100
-          },
-          "ehp": 23000,
-          "dps": 8300,
-          "defence": {
-            "ehp": 23787,
-            "life": 1,
-            "es": 10111,
-            "ward": null,
-            "resists": {
-              "fire": 75,
-              "cold": 75,
-              "lightning": 72,
-              "chaos": 0
-            },
-            "evade": 0,
-            "pdr": 0,
-            "block": null,
-            "crit": 100
-          },
-          "pob": true,
-          "skillSetups": [
-            {
-              "skill": "Entangle",
-              "supports": [
-                "Mórrigan's Insight",
-                "Rapid Casting II",
-                "Magnified Area II",
-                "Living Lightning II",
-                "Branching Fissures I"
-              ]
-            },
-            {
-              "skill": "Purity of Lightning",
-              "supports": [
-                "Her Declaration",
-                "Seraph's Heart",
-                "Clarity II",
-                "Mysticism II",
-                "Lightning Mastery"
-              ]
-            },
-            {
-              "skill": "Spell Totem",
-              "supports": [
-                "Grim Pillars",
-                "Rakiata's Flow",
-                "Vorana's Siege",
-                "Efficiency II",
-                "Urgent Totems III"
-              ]
-            },
-            {
-              "skill": "Blasphemy",
-              "supports": [
-                "Temporal Chains",
-                "Magnified Area II",
-                "Heightened Curse",
-                "Ritualistic Curse",
-                "Slow Potency"
-              ]
-            }
-          ]
         }
       ]
     },
     "shaman": {
       "asc": "Shaman",
-      "sample": 1571,
+      "sample": 1574,
       "skills": [
         {
           "name": "Walking Calamity",
-          "pct": 39
+          "pct": 38.8
         },
         {
           "name": "Maul",
-          "pct": 36.3
+          "pct": 36.1
         },
         {
           "name": "Rampage",
-          "pct": 33.5
+          "pct": 33.4
         },
         {
           "name": "Furious Slam",
-          "pct": 31.7
+          "pct": 31.4
         },
         {
           "name": "Shockwave Totem",
@@ -13330,13 +13262,13 @@
         },
         {
           "name": "Pounce",
-          "pct": 24.6
+          "pct": 24.8
         }
       ],
       "supports": [
         {
           "name": "Magnified Area II",
-          "pct": 86.5
+          "pct": 86.3
         },
         {
           "name": "Prolonged Duration II",
@@ -13344,77 +13276,77 @@
         },
         {
           "name": "Efficiency II",
-          "pct": 77.8
+          "pct": 78.2
         },
         {
           "name": "Clarity II",
-          "pct": 58.4
+          "pct": 58.8
         },
         {
           "name": "Rapid Attacks II",
-          "pct": 52.3
+          "pct": 52
         },
         {
-          "name": "Concentrated Area",
-          "pct": 48.9
+          "name": "Urgent Totems III",
+          "pct": 49
         }
       ],
       "notables": [
         {
           "name": "Wisdom of the Maji",
-          "pct": 83.8
+          "pct": 83.9
         },
         {
           "name": "Druidic Champion",
-          "pct": 75.6
-        },
-        {
-          "name": "Reactive Growth",
-          "pct": 66.8
+          "pct": 75.9
         },
         {
           "name": "Furious Wellspring",
           "pct": 66.6
         },
         {
+          "name": "Reactive Growth",
+          "pct": 66.3
+        },
+        {
           "name": "Sacred Flow",
-          "pct": 48.9
+          "pct": 49.6
         },
         {
           "name": "Lord of the Wilds",
-          "pct": 35.4
+          "pct": 35.1
         }
       ],
       "uniques": [
         {
           "name": "Heart of the Well",
-          "pct": 66.9
+          "pct": 67.5
         },
         {
           "name": "From Nothing",
-          "pct": 52.5
+          "pct": 53.5
         },
         {
           "name": "Lavianga's Spirits",
-          "pct": 50.5
+          "pct": 50.9
         },
         {
           "name": "Prism of Belief",
-          "pct": 33.5
+          "pct": 34
         },
         {
           "name": "Morior Invictus",
-          "pct": 31.3
+          "pct": 31.4
         },
         {
-          "name": "Rite of Passage",
-          "pct": 27.9
+          "name": "Runeseeker's Call",
+          "pct": 28.3
         }
       ],
       "anointments": [
         {
           "name": "Bestial Rage",
-          "pct": 16
+          "pct": 16.5
         },
         {
           "name": "Gem Enthusiast",
@@ -13422,25 +13354,25 @@
         },
         {
           "name": "Piercing Shot",
-          "pct": 7.2
+          "pct": 7.5
         },
         {
           "name": "Mental Perseverance",
-          "pct": 7.1
+          "pct": 7.2
         },
         {
           "name": "Ichlotl's Inferno",
-          "pct": 5.6
+          "pct": 5.4
         }
       ],
       "weapons": [
         {
           "name": "Talisman / Sceptre",
-          "pct": 32.2
+          "pct": 32
         },
         {
           "name": "Dual Unknown",
-          "pct": 18.5
+          "pct": 18.9
         },
         {
           "name": "Talisman",
@@ -13448,16 +13380,17 @@
         },
         {
           "name": "Unknown / Focus",
-          "pct": 5.9
+          "pct": 6.2
         },
         {
           "name": "Sceptre / Focus",
-          "pct": 5.7
+          "pct": 5.5
         }
       ],
       "stats": {
         "ehp": 26000,
-        "dps": 123000,
+        "dps": 118000,
+        "sample": 100,
         "level": 99
       },
       "top": {
@@ -13467,60 +13400,60 @@
       "gear": [
         {
           "name": "+# to maximum Mana",
-          "pct": 48.4,
+          "pct": 41.9,
           "lo": 115,
-          "hi": 219
+          "hi": 206
         },
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 35.5,
+          "pct": 29,
           "lo": 44,
-          "hi": 68
+          "hi": 59
         },
         {
           "name": "#% increased Energy Shield",
-          "pct": 29,
-          "lo": 70,
-          "hi": 93
+          "pct": 25.8,
+          "lo": 83,
+          "hi": 99
         },
         {
-          "name": "#% increased Cast Speed",
-          "pct": 29,
-          "lo": 21,
-          "hi": 37
-        },
-        {
-          "name": "+#% to Chaos Resistance",
-          "pct": 22.6,
-          "lo": 22,
-          "hi": 42
-        },
-        {
-          "name": "+#% to Lightning Resistance",
-          "pct": 22.6,
-          "lo": 35,
-          "hi": 44
+          "name": "+# to maximum Life",
+          "pct": 19.4,
+          "lo": 114,
+          "hi": 146
         },
         {
           "name": "+#% to Fire Resistance",
           "pct": 19.4,
           "lo": 35,
-          "hi": 40
+          "hi": 45
         },
         {
-          "name": "#% increased Mana Regeneration Rate",
+          "name": "#% increased Cast Speed",
+          "pct": 19.4,
+          "lo": 21,
+          "hi": 32
+        },
+        {
+          "name": "+#% to Chaos Resistance",
           "pct": 16.1,
-          "lo": 81,
-          "hi": 89
+          "lo": 22,
+          "hi": 42
+        },
+        {
+          "name": "+#% to Lightning Resistance",
+          "pct": 16.1,
+          "lo": 37,
+          "hi": 44
         }
       ],
       "runes": [
         {
           "name": "Perfect Mind Rune",
-          "pct": 80
+          "pct": 60
         },
         {
-          "name": "Greater Mind Rune",
+          "name": "Hedgewitch Assandra's Rune of Wisdom",
           "pct": 40
         },
         {
@@ -13536,7 +13469,7 @@
           "pct": 20
         },
         {
-          "name": "Hedgewitch Assandra's Rune of Wisdom",
+          "name": "Greater Vision Rune",
           "pct": 20
         }
       ],

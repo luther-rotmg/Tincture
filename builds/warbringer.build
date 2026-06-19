@@ -598,20 +598,20 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring2",
-      "additional_text": "Ruby Ring\n1. +29% to [Resistances|Fire Resistance]\n2. Adds 22 to 27 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 34 to 54 [Fire] damage to [Attack|Attacks]\n4. +105 to maximum Life\n5. 18% increased [ItemRarity|Rarity of Items] found",
+      "inventory_id": "Weapon2",
+      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. Adds 55 to 89 [Physical|Physical] Damage\n3. Adds 84 to 118 [Fire|Fire] Damage\n4. Gain 51 Life per enemy killed\n5. 20% increased [Physical] Damage\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]\n8. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
-        64,
+        79,
         100
       ],
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon2",
-      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. 42% increased [Physical] Damage\n3. Adds 49 to 94 [Physical|Physical] Damage\n4. +134 to [Accuracy|Accuracy] Rating\n5. 15% increased [LightRadius|Light Radius]\n6. 20% increased [Physical] Damage\n7. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n8. [ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "inventory_id": "Ring2",
+      "additional_text": "Ruby Ring\n1. +29% to [Resistances|Fire Resistance]\n2. Adds 22 to 27 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 34 to 54 [Fire] damage to [Attack|Attacks]\n4. +105 to maximum Life\n5. 18% increased [ItemRarity|Rarity of Items] found",
       "level_interval": [
-        79,
+        64,
         100
       ],
       "slot_x": 0,
