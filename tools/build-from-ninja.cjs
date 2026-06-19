@@ -55,6 +55,11 @@ async function diskCached(file, producer, bin) {
 // weapon FAMILY and compare those — substring matching against the raw strings silently
 // (a) rejects every mace/sword/axe build (multi-word item_class) and (b) accepts offhands.
 const OFFHAND = new Set(['Focus', 'Shield', 'Buckler', 'Quiver']); // never the "main weapon"
+// Only enforce the "build runs the dominant meta weapon" invariant when there IS a clear dominant
+// weapon. Below this share the ascendancy's weapon meta is fragmented (e.g. Ritualist ~19%
+// Wand/Focus with Spear close behind), so no single weapon defines it and any popular build is
+// representative — forcing a template there would hide a real build for no honesty gain.
+const DOMINANT_PCT = 30;
 const weaponFamily = cls => {
   if (!cls) return null;
   const f = String(cls).replace(/^(?:One|Two) Hand /, '');
@@ -324,9 +329,10 @@ function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
   // Hard-fails an off-weapon pick → honest template served instead of a misleading build.
   // Skipped when meta context is absent or the meta weapon is unclassifiable ("Unknown").
   if (md && weaponClass && md.weapons && md.weapons[0]) {
-    const metaFam = metaWeaponFamily(md.weapons[0].name);
+    const w0 = md.weapons[0];
+    const metaFam = (w0.pct || 0) >= DOMINANT_PCT ? metaWeaponFamily(w0.name) : null; // skip a fragmented meta
     const haveFam = charWeaponFamily(char, weaponClass);
-    if (metaFam && haveFam !== metaFam) fail(`build weapon ${haveFam || '?'} != dominant meta weapon ${md.weapons[0].name} [${md.weapons[0].pct}%] — stats/build mismatch`);
+    if (metaFam && haveFam !== metaFam) fail(`build weapon ${haveFam || '?'} != dominant meta weapon ${w0.name} [${w0.pct}%] — stats/build mismatch`);
   }
 
   return { ok: !issues.some(i => i.sev === 'fail'), issues, stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length } };
@@ -621,7 +627,8 @@ async function main() {
         // weapon. The top of the list is often off-meta high-DPS outliers (a spear Monk ahead of
         // the quarterstaff majority), so a fixed top-N can miss the meta entirely. Capped by MAXSAMPLE.
         const metaWep = md.weapons && md.weapons[0] && md.weapons[0].name;
-        const metaFam = weaponClass && metaWeaponFamily(metaWep);
+        const metaPct = (md.weapons && md.weapons[0] && md.weapons[0].pct) || 0;
+        const metaFam = (weaponClass && metaPct >= DOMINANT_PCT) ? metaWeaponFamily(metaWep) : null; // only filter on a clear dominant weapon
         const onMetaWeapon = char => !!metaFam && charWeaponFamily(char, weaponClass) === metaFam;
         // default 25 (was 15): a sparse #1 meta weapon (e.g. Ritualist's ~19% Wand/Focus) often
         // isn't on an L85+ char within 15 pulls, leaving the ascendancy with no build. The disk

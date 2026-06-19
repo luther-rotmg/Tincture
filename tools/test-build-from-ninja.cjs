@@ -139,15 +139,20 @@ test('qa hard-fails an off-meta-weapon build and passes an on-meta one', () => {
   const weaponClass = { 'Dueling Wand': 'Wand', 'Sage Robe': null };
   const ctx = { slug: SLUG, tree: { nodes: {} }, weaponClass };
 
-  const onMeta = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Wand / Sceptre', pct: 24 }] } });
-  assert.equal(onMeta.issues.some(i => /dominant meta weapon/.test(i.m)), false, 'wand build must satisfy a wand meta');
+  const onMeta = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Wand / Sceptre', pct: 40 }] } });
+  assert.equal(onMeta.issues.some(i => /dominant meta weapon/.test(i.m)), false, 'wand build must satisfy a clear wand meta');
 
   const offMeta = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Mace / Shield', pct: 35 }] } });
   const wepFail = offMeta.issues.find(i => /dominant meta weapon/.test(i.m));
-  assert.ok(wepFail, 'wand build must be flagged against a mace meta');
+  assert.ok(wepFail, 'wand build must be flagged against a clear mace meta');
   assert.equal(wepFail.sev, 'fail');
 
-  // and the invariant is skipped (no weapon issue) when the meta weapon is unclassifiable
-  const unknown = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Unknown / Sceptre', pct: 30 }] } });
+  // skipped when the meta weapon is unclassifiable ("Unknown")...
+  const unknown = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Unknown / Sceptre', pct: 35 }] } });
   assert.equal(unknown.issues.some(i => /dominant meta weapon/.test(i.m)), false);
+
+  // ...and skipped for a FRAGMENTED meta (top weapon < 30%): a Spear-vs-Wand mismatch is fine
+  // because no single weapon defines the ascendancy (this is the Ritualist case).
+  const fragmented = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Mace / Shield', pct: 19 }] } });
+  assert.equal(fragmented.issues.some(i => /dominant meta weapon/.test(i.m)), false, 'fragmented meta must not enforce a weapon');
 });
