@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img"
-     aria-label="Tincture — the current Path of Exile 2 meta, distilled and decanted. Demo coming soon.">
+     aria-label="Tincture — the current Path of Exile 2 meta, distilled and decanted into your game with one click.">
   <defs>
     <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#c8a24a"/>
@@ -40,37 +40,33 @@
   <text x="214" y="404" class="mono" font-size="18" fill="#c8a24a">01</text>
   <rect x="250" y="388" width="30" height="22" rx="4" fill="#9c3a2c"/>
   <text x="265" y="404" text-anchor="middle" class="mono" font-size="13" font-weight="600" fill="#ece3d0">S</text>
-  <text x="300" y="404" class="text" font-size="20" font-weight="600" fill="#ece3d0">Stormweaver — Spark</text>
-  <rect x="700" y="395" width="232" height="9" rx="4" fill="url(#bar)"/>
-  <text x="940" y="405" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">18.4%</text>
-  <text x="1066" y="405" text-anchor="end" class="mono" font-size="15" fill="#8caa66">&#9650; 2.1</text>
+  <text x="300" y="404" class="text" font-size="20" font-weight="600" fill="#ece3d0">Martial Artist</text>
+  <rect x="700" y="395" width="245" height="9" rx="4" fill="url(#bar)"/>
+  <text x="940" y="405" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">24.5%</text>
+  <text x="1066" y="405" text-anchor="end" class="mono" font-size="15" fill="#8caa66">&#9650; 1.8</text>
 
   <!-- row 2 -->
   <text x="214" y="456" class="mono" font-size="18" fill="#c8a24a">02</text>
   <rect x="250" y="440" width="30" height="22" rx="4" fill="#c8a24a"/>
   <text x="265" y="456" text-anchor="middle" class="mono" font-size="13" font-weight="600" fill="#14100b">A</text>
-  <text x="300" y="456" class="text" font-size="20" font-weight="600" fill="#ece3d0">Titan — Boneshatter</text>
-  <rect x="700" y="447" width="160" height="9" rx="4" fill="url(#bar)"/>
-  <text x="940" y="457" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">12.7%</text>
+  <text x="300" y="456" class="text" font-size="20" font-weight="600" fill="#ece3d0">Spirit Walker</text>
+  <rect x="700" y="447" width="177" height="9" rx="4" fill="url(#bar)"/>
+  <text x="940" y="457" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">17.7%</text>
   <text x="1066" y="457" text-anchor="end" class="mono" font-size="15" fill="#8caa66">&#9650; 0.6</text>
 
   <!-- row 3 -->
   <text x="214" y="508" class="mono" font-size="18" fill="#c8a24a">03</text>
   <rect x="250" y="492" width="30" height="22" rx="4" fill="#5b8a7e"/>
   <text x="265" y="508" text-anchor="middle" class="mono" font-size="13" font-weight="600" fill="#14100b">B</text>
-  <text x="300" y="508" class="text" font-size="20" font-weight="600" fill="#ece3d0">Deadeye — Lightning Arrow</text>
-  <rect x="700" y="499" width="118" height="9" rx="4" fill="url(#bar)"/>
-  <text x="940" y="509" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">9.3%</text>
+  <text x="300" y="508" class="text" font-size="20" font-weight="600" fill="#ece3d0">Deadeye</text>
+  <rect x="700" y="499" width="112" height="9" rx="4" fill="url(#bar)"/>
+  <text x="940" y="509" text-anchor="end" class="mono" font-size="18" fill="#ece3d0">11.2%</text>
   <text x="1066" y="509" text-anchor="end" class="mono" font-size="15" fill="#b9745c">&#9660; 1.2</text>
 
   <line x1="214" y1="540" x2="1066" y2="540" stroke="#877a62" stroke-opacity="0.18"/>
   <text x="214" y="572" class="mono" font-size="13" letter-spacing="2" fill="#877a62">DECANT ↳ writes builds/&lt;slug&gt;.build straight into your BuildPlanner folder</text>
 
-  <!-- play / coming-soon overlay -->
-  <g transform="translate(640,648)">
-    <rect x="-150" y="-26" width="300" height="44" rx="22" fill="#1b1610" stroke="#e6c47a" stroke-opacity="0.55"/>
-    <circle cx="-118" cy="-4" r="12" fill="none" stroke="#e6c47a" stroke-width="1.6"/>
-    <path d="M -122 -10 L -122 2 L -111 -4 Z" fill="#e6c47a"/>
-    <text x="14" y="1" text-anchor="middle" class="mono" font-size="15" letter-spacing="3" fill="#e6c47a">DEMO — COMING SOON</text>
-  </g>
+  <!-- live offerings strip -->
+  <text x="640" y="650" text-anchor="middle" class="mono" font-size="14" letter-spacing="3" fill="#e6c47a">RANKED META · LOADABLE DECANT · THE EXCHANGE · BUILD FINDER</text>
+  <text x="640" y="680" text-anchor="middle" class="mono" font-size="13" letter-spacing="4" fill="#877a62">tincturepoe2.com — live · hourly · no tracking</text>
 </svg>
