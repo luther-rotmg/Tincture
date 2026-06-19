@@ -153,8 +153,9 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] **Reconstruction-quality chip** — the QA verdict (meta-weapon match, gems resolve, real level-N source) shown as an honest trust badge
 - [x] In-app source attribution — each expanded build credits its source character/account with a live poe.ninja link (plus the file's own credit), and shows when it was reconstructed
 - [x] Guide pointers — a "find a guide" link on the headline and every ledger row opens a neutral, patch-specific web search for that ascendancy's community guides (honest search, not an endorsed "best guide")
+- [x] **The Exchange** — a live currency reference from poe.ninja's PoE 2 economy data: the most-traded currencies valued in Exalted Orbs with their 7-day movement, in The Assay (`economy.json`, refreshed hourly). The overview endpoint needs the `exchange/` path segment and the league *display* name — cracked and wired
 - [ ] Curated guide directory — hand-pick a specific best guide per meta build (needs manual curation each league)
-- [ ] **Economy / "can I afford it"** — a currency reference + per-build budget bands from poe.ninja's PoE 2 economy data. Blocked: the economy *overview* endpoint isn't yet discoverable (every probed URL shape 404s), so this stays an honest horizon — never fabricated until a real source is wired
+- [ ] **Per-build budget bands** — "can I afford it?" estimates layered onto each build from the economy data above. Future horizon; never fabricated until wired
 
 ---
 
