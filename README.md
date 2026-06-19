@@ -2,7 +2,7 @@
 
 **The current Path of Exile 2 meta, distilled from the ladder and decanted into your game with one click.**
 
-Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, breaks down the skills, supports and passives behind every ascendancy, and **Decants any meta pick as a real, loadable `.build`** — reconstructed from a top public-ladder character and dropped straight into your in-game Build Planner in one click. It auto-refreshes hourly, so it's never out of date.
+Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, breaks down the skills, supports and passives behind every ascendancy, and **Decants any meta pick as a real, loadable `.build`** — reconstructed from a top public-ladder character and dropped straight into your in-game Build Planner in one click. A scheduled job re-distills it hourly, and the page flags it if a refresh is ever overdue.
 
 > Built for the **Runes of Aldur** league (PoE 2 patch 0.5.0). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
 
@@ -19,7 +19,7 @@ The big sites are planners and raw stat dashboards. Tincture is a **discovery** 
 
 - **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with 24-hour trend arrows that light up once a day of snapshots has accumulated.
 - **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, a cross-league comparison, and **The Crucible** — an ascendancy × league-mode heatmap with a *Share* ⇄ *Vs. typical* (over/under-index) toggle. All hand-rolled SVG/CSS, no libraries, computed in your browser.
-- **The build behind the pick.** Expand any ledger row for that ascendancy's most popular skills, support gems, passive notables and unique items — with median EHP/DPS — aggregated from its whole ladder population. *The Dispensary* does the same for the entire meta at once.
+- **The build behind the pick.** Expand any ledger row for that ascendancy's most popular skills, support gems, passive notables and unique items — with median EHP/DPS where the source reports them — aggregated from poe.ninja's published build index for that ascendancy. *The Dispensary* does the same for the entire meta at once.
 - **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The static files the page reads (`data.json`, `meta-detail.json`, `builds/<slug>.build`) are the public "API" — no backend, no key.
 - **One-click Decant — real loadable builds.** Every meta pick now Decants a real, loadable `.build`, reconstructed from a top public-ladder character (credited in the file), straight into your in-game Build Planner via the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API) or a download. Picks not yet reconstructed fall back to an honest labelled template — never a fabricated build the game would silently refuse.
 - **Never stale.** A scheduled job re-distills the meta every hour, **validates** the result, and commits only if it passes. The page just reads it.
@@ -47,16 +47,26 @@ It's stdlib-only Python — no dependencies to install — and it **fails safe**
 ```
 Tincture/
 ├── index.html                  # the whole front end (HTML + CSS + JS, no build step)
-├── data.json                   # the distilled meta (committed by the pipeline)
+├── data.json                   # the distilled meta (committed hourly by the pipeline)
+├── meta-detail.json            # per-ascendancy skills/supports/notables/uniques + the reconstructed build (weekly)
+├── builds/                     # loadable <slug>.build + <slug>.pob exports + index.json manifest
 ├── SCHEMA.md                   # the reverse-engineered .build file format
 ├── scripts/
-│   ├── distill.py              # the distillation engine (meta -> data.json)
+│   ├── distill.py              # the distillation engine (meta -> data.json + sitemap)
 │   ├── buildfile.py            # .build serializer + validator (+ is_loadable guard)
+│   ├── treedata.py             # passive-slug + ascendancy-code maps from GGG's tree export
 │   ├── test_distill.py         # stdlib unit tests — the honesty invariants
-│   └── ggg.py                  # GGG API client: ladder character -> .build
+│   └── ggg.py                  # GGG API client (scaffold): self-only export + summary-only cross-check, not the meta path
+├── tools/
+│   ├── build-from-ninja.cjs    # the loadable-build reconstructor (poe.ninja public ladder -> .build)
+│   └── test-build-from-ninja.cjs  # offline `node --test` unit tests for the reconstructor
+├── cloudflare/                 # OAuth worker for the (not-yet-live) self-only "export my character"
+├── docs/                       # social card (og.*) + demo placeholder
 ├── .github/workflows/
-│   ├── distill.yml             # hourly refresh — validates, then commits if it passes
-│   └── test.yml                # runs the test suite on code changes
+│   ├── distill.yml             # hourly meta refresh — validates, then commits if it passes
+│   ├── builds.yml              # weekly build reconstruction — validates, then commits
+│   └── test.yml                # runs the Python + Node test suites on code changes
+├── sitemap.xml · robots.txt · CNAME · .nojekyll   # deploy + SEO
 ├── LICENSE
 └── README.md
 ```
@@ -134,7 +144,7 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] **Ascendancy → `.build` code table** — completed and cross-confirmed from the same export (`scripts/buildfile.py`; `treedata.py --check` re-verifies per patch)
 - [ ] **"Export *my* character"** — a logged-in user's own GGG character → a personal `.build` (the self-only OAuth path; complements the public-ladder reconstruction above). Needs a registered GGG OAuth client (see [docs/owner-actions.md](docs/owner-actions.md))
 - [ ] **Direct GGG ladder cross-check** — a second, official source for ascendancy shares (scaffolded in `scripts/ggg.py`; needs the OAuth client). Summary-only, so it validates shares, not build content
-- [ ] In-app source attribution — surface each reconstructed build's source character/account in the UI (it's already credited inside the file)
+- [x] In-app source attribution — each expanded build credits its source character/account with a live poe.ninja link (plus the file's own credit), and shows when it was reconstructed
 - [x] Guide pointers — a "find a guide" link on the headline and every ledger row opens a neutral, patch-specific web search for that ascendancy's community guides (honest search, not an endorsed "best guide")
 - [ ] Curated guide directory — hand-pick a specific best guide per meta build (needs manual curation each league)
 

@@ -7,29 +7,43 @@ or malformed text makes the game silently refuse to load the file.
 
 ## Top level
 
-Exactly six keys, present in every file:
+Six required keys, plus an optional `description` (the game tolerates it; Tincture's
+reconstructed builds use it for source attribution):
 
 ```jsonc
 {
   "author":          "string",   // build creator
   "ascendancy":      "Monk1",    // class-coded ascendancy (see below)
-  "name":            "string",   // display name; the game truncates around 40 chars
+  "name":            "string",   // display name; the game truncates the DISPLAY around 40 chars
+  "description":     "string",   // optional — Tincture credits the source character + poe.ninja here
   "inventory_slots": [ /* items */ ],
   "passives":        [ /* allocated passive nodes */ ],
   "skills":          [ /* skill gems + their supports */ ]
 }
 ```
 
+> `scripts/buildfile.py` emits the six required keys; the poe.ninja reconstructor
+> (`tools/build-from-ninja.cjs`) also writes `description`. Names aren't truncated at
+> write time — the game truncates only what it displays.
+
 ### `ascendancy`
 
-A class code plus the ascendancy's slot index, e.g. `Monk1`. Confirmed:
+A class code plus the ascendancy's slot index, e.g. `Monk1`. The complete map lives in
+`scripts/buildfile.py` `ASCENDANCY_CODES`, re-derived from GGG's official tree export by
+`scripts/treedata.py` (run `--check` to re-verify it):
 
-| Ascendancy      | Code    |
-| --------------- | ------- |
-| Martial Artist  | `Monk1` |
+| Class | Ascendancies (code) |
+| ----- | ------------------- |
+| Monk | Martial Artist `Monk1`, Invoker `Monk2`, Acolyte of Chayula `Monk3` |
+| Ranger | Deadeye `Ranger1`, Pathfinder `Ranger3` |
+| Warrior | Titan `Warrior1`, Warbringer `Warrior2`, Smith of Kitava `Warrior3` |
+| Witch | Infernalist `Witch1`, Blood Mage `Witch2`, Lich `Witch3`, Abyssal Lich `Witch3b` |
+| Sorceress | Stormweaver `Sorceress1`, Chronomancer `Sorceress2`, Disciple of Varashta `Sorceress3` |
+| Mercenary | Tactician `Mercenary1`, Witchhunter `Mercenary2`, Gemling Legionnaire `Mercenary3` |
+| Huntress | Amazon `Huntress1`, Spirit Walker `Huntress2`, Ritualist `Huntress3` |
+| Druid | Oracle `Druid1`, Shaman `Druid2` |
 
-> The rest of the table still needs confirmation — the quickest way is to export one
-> build per ascendancy from any planner and read the field. (Tracked in the repo TODO.)
+> Note the lettered variant `Witch3b` (Abyssal Lich) — not the usual `{Class}{digit}` shape.
 
 ### `inventory_slots[]`
 
@@ -79,6 +93,10 @@ Slugs follow loose families: `attack_speed*`, `attack_damage*`, `criticals*`,
 `intelligence*`, `dexterity*`, `attributes*`, and `*_notable*` / class-prefixed
 notables like `shadow_monk_notable1`.
 
+A node may also carry an optional `weapon_set` (`1` or `2`) for a weapon-set-specific
+allocation (PoE2's dual weapon-set trees); absent/null means the shared selection.
+The reconstructor emits these from the source character's `passiveSelectionSet1/2`.
+
 ### `skills[]`
 
 Each skill gem and its support gems, identified by **metadata path**:
@@ -120,6 +138,11 @@ counts from one real progression:
 ## Generating one
 
 Producing a **valid, loadable** `.build` requires real build data — passive slugs,
-gem metadata paths, item text, and the ascendancy code. That data comes from a real
-character (GGG's Character API) or an existing export; it is **not** present in
-aggregate meta stats. See `scripts/buildfile.py` for the serializer.
+gem metadata paths, item text, and the ascendancy code — which is **not** present in
+aggregate meta stats. Tincture's live generator is `tools/build-from-ninja.cjs`: it
+reconstructs a loadable build from a public-ladder character (passives via the GGG tree
+export, gems via PoB2 `Gems.lua`, items → text), cohesion-QA's it (including a check
+that the build runs the ascendancy's dominant meta weapon), and writes
+`builds/<slug>.build` plus a sibling `<slug>.pob` (Path of Building export). GGG's own
+Character API is a **self-only** "export *my* character" path (`scripts/ggg.py`), not
+the meta source. `scripts/buildfile.py` is the lower-level serializer/validator.
