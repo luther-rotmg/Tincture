@@ -111,9 +111,11 @@ function json(obj, status, env) { return new Response(JSON.stringify(obj), { sta
 // signed (HMAC) cookie so the verifier/token can't be tampered with; httpOnly + Secure
 async function hmac(secret, data) { const key = await crypto.subtle.importKey('raw', enc(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return b64url(await crypto.subtle.sign('HMAC', key, enc(data))); }
 async function signCookie(obj, secret, maxAge = 3600) { const p = b64url(enc(JSON.stringify(obj))); const sig = await hmac(secret, p); return `tinct=${p}.${sig}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${maxAge}`; }
+// constant-time compare so HMAC verification can't be probed via response timing
+function timingSafeEq(a, b) { if (a.length !== b.length) return false; let r = 0; for (let i = 0; i < a.length; i++) r |= a.charCodeAt(i) ^ b.charCodeAt(i); return r === 0; }
 async function readCookie(cookieHeader, secret) {
   const m = (cookieHeader || '').match(/tinct=([^;]+)/); if (!m) throw new Error('no cookie');
-  const [p, sig] = m[1].split('.'); if ((await hmac(secret, p)) !== sig) throw new Error('bad sig');
+  const [p, sig] = m[1].split('.'); if (!timingSafeEq(await hmac(secret, p), sig || '')) throw new Error('bad sig');
   return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(p.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0))));
 }
 const clearCookie = () => 'tinct=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0';
