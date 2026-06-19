@@ -27,6 +27,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const UA = 'Tincture/0.5.0 (+https://github.com/luther-rotmg/Tincture; contact: ryan.duke360@gmail.com) build-reconstructor';
 const TREE_URL = 'https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/0.5.2/data.json';
@@ -45,6 +46,26 @@ async function diskCached(file, producer, bin) {
   fs.mkdirSync(CACHE_DIR, { recursive: true });
   fs.writeFileSync(p, d);
   return d;
+}
+
+// ---- defence profile from the poe.ninja Path of Building export ----
+// The PoB import code is base64url(zlib-deflated XML) carrying <PlayerStat> rows. Pull a compact,
+// honest defence layer (life/ES split, the four resists, evade/PDR/block/crit, total EHP) to show
+// beside the source character's EHP/DPS. Fail-safe: any decode/parse problem returns null.
+function parsePobDefence(code) {
+  if (!code || typeof code !== 'string') return null;
+  let xml;
+  try { xml = zlib.inflateSync(Buffer.from(code.replace(/-/g, '+').replace(/_/g, '/'), 'base64')).toString('utf8'); }
+  catch (_) { try { xml = zlib.gunzipSync(Buffer.from(code, 'base64')).toString('utf8'); } catch (__) { return null; } }
+  if (!/PathOfBuilding/.test(xml)) return null;
+  const stat = name => { const m = xml.match(new RegExp(`<PlayerStat stat="${name}" value="(-?[0-9.]+)"`)); return m ? Math.round(parseFloat(m[1])) : null; };
+  const d = {
+    ehp: stat('TotalEHP'), life: stat('Life'), es: stat('EnergyShield'), ward: stat('Ward') || null,
+    resists: { fire: stat('FireResist'), cold: stat('ColdResist'), lightning: stat('LightningResist'), chaos: stat('ChaosResist') },
+    evade: stat('MeleeEvadeChance'), pdr: stat('PhysicalDamageReduction'), block: stat('BlockChance'), crit: stat('CritChance'),
+  };
+  const useful = [d.ehp, d.life, d.es, d.resists.fire, d.resists.cold, d.resists.lightning, d.resists.chaos].some(v => v != null);
+  return useful ? d : null;
 }
 
 // ---- meta-weapon matching ----
@@ -670,6 +691,7 @@ async function main() {
               // persist a compact QA verdict (the report is otherwise discarded) as an honest,
               // additive trust signal the front end renders; old readers ignore the new field.
               meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items,
+                defence: parsePobDefence(char.pathOfBuildingExport),   // from the source character's PoB export
                 quality: {
                   level: char.level || null,
                   sample: pulled.length,
@@ -717,4 +739,4 @@ async function main() {
 }
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence };

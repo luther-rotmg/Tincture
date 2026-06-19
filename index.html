@@ -624,6 +624,17 @@
   .bv-quality .bvq-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-quality .bvq{ font-family:var(--fmono); font-size:10px; letter-spacing:.02em; }
   .bv-quality .bvq.ok{ color:var(--rise); }
+  .bv-def{ margin:2px 0 16px; }
+  .bv-def-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .bv-def .def-row{ display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 6px; }
+  .def-res{ font-family:var(--fmono); font-size:10.5px; padding:3px 8px; border-radius:2px; border:1px solid var(--hair); color:var(--bone-dim); }
+  .def-res b{ color:var(--bone); }
+  .def-res.fire{ border-color:rgba(156,58,44,.5); } .def-res.cold{ border-color:rgba(91,138,126,.5); }
+  .def-res.lit{ border-color:rgba(200,162,74,.5); } .def-res.chaos{ border-color:rgba(150,108,176,.5); }
+  .def-res.capped b{ color:var(--gold-bright); } .def-res.neg b{ color:var(--fall); }
+  .bv-def .def-pools,.bv-def .def-extra{ font-family:var(--fmono); font-size:11px; color:var(--bone-dim); margin-top:3px; }
+  .bv-def .def-pools b,.bv-def .def-extra{ color:var(--bone-dim); } .bv-def .def-pools b{ color:var(--bone); }
+  .bv-def-note{ display:block; font-family:var(--fmono); font-size:9.5px; color:var(--muted); margin-top:6px; }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1612,6 +1623,30 @@ function qualityChip(md){
   if (!items.length) return "";
   return `<div class="bv-quality"><span class="bvq-h">QA</span>${items.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")}</div>`;
 }
+// honest defence layer from the source character's PoB export (reconstructor parsePobDefence).
+// Absent field -> nothing rendered (fail-safe for older meta-detail.json).
+function defenceHTML(md){
+  const d = md.build && md.build.defence;
+  if (!d) return "";
+  const res = d.resists || {};
+  const resPill = (lab,v,k) => v==null ? "" : `<span class="def-res ${k}${v>=75?' capped':(v<0?' neg':'')}">${lab} <b>${v}%</b></span>`;
+  const pools=[];
+  if (d.life!=null) pools.push(`Life <b>${fmt(d.life)}</b>`);
+  if (d.es!=null && d.es>0) pools.push(`ES <b>${fmt(d.es)}</b>`);
+  if (d.ward!=null && d.ward>0) pools.push(`Ward <b>${fmt(d.ward)}</b>`);
+  const extra=[];
+  if (d.evade) extra.push(`Evade ${d.evade}%`);
+  if (d.block) extra.push(`Block ${d.block}%`);
+  if (d.pdr) extra.push(`Phys&nbsp;reduc ${d.pdr}%`);
+  if (d.crit!=null) extra.push(`Crit ${d.crit}%`);
+  const resRow = resPill('Fire',res.fire,'fire')+resPill('Cold',res.cold,'cold')+resPill('Lightning',res.lightning,'lit')+resPill('Chaos',res.chaos,'chaos');
+  if (!resRow && !pools.length) return "";
+  return `<div class="bv-def"><span class="bv-def-h">Defences</span>`
+    + (resRow?`<div class="def-row">${resRow}</div>`:"")
+    + (pools.length?`<div class="def-pools">${pools.join(" · ")}</div>`:"")
+    + (extra.length?`<div class="def-extra">${extra.join(" · ")}</div>`:"")
+    + `<span class="bv-def-note">from the source character's Path of Building export</span></div>`;
+}
 function buildViewHTML(md, slug){
   if (!md.source) return "";
   const skills = (md.skillSetups||[]).map(s=>`<div class="bv-skill"><span class="bv-main">${esc(s.skill)}</span>${(s.supports||[]).length?` <span class="bv-sup">+ ${s.supports.map(esc).join(" · ")}</span>`:""}</div>`).join("");
@@ -1623,6 +1658,7 @@ function buildViewHTML(md, slug){
   const pob = md.pob ? `<div class="bv-actions"><button class="arch-btn bv-pob" type="button" data-pob="${esc(slug)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5a1.5 1.5 0 0 1 1.5-1.5H15"/></svg> Copy Path of Building code</button></div>` : "";
   return `<div class="build-view"><div class="bv-head"><h5>The build</h5><span class="bv-cap">The exact reconstructed setup — replicate by hand (console / no file import), or load the .build / PoB code.</span></div>`
     + qualityChip(md)
+    + defenceHTML(md)
     + `<div class="meta-grid">${skills?`<div class="meta-col"><h6>Skill setups</h6>${skills}</div>`:""}${items?`<div class="meta-col"><h6>Gear</h6>${items}</div>`:""}</div>${pob}</div>`;
 }
 function metaDetailHTML(md, slug){

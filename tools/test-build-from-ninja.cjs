@@ -10,6 +10,7 @@
  */
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const zlib = require('node:zlib');
 const T = require('./build-from-ninja.cjs');
 
 test('weaponFamily normalises base_items item_class to a poe.ninja family', () => {
@@ -155,4 +156,29 @@ test('qa hard-fails an off-meta-weapon build and passes an on-meta one', () => {
   // because no single weapon defines the ascendancy (this is the Ritualist case).
   const fragmented = T.qa(build, char, { ...ctx, md: { weapons: [{ name: 'Mace / Shield', pct: 19 }] } });
   assert.equal(fragmented.issues.some(i => /dominant meta weapon/.test(i.m)), false, 'fragmented meta must not enforce a weapon');
+});
+
+test('parsePobDefence decodes a PoB export into a defence layer (and fails safe)', () => {
+  const xml = '<?xml version="1.0"?><PathOfBuilding><Build>'
+    + '<PlayerStat stat="TotalEHP" value="31670.56"/>'
+    + '<PlayerStat stat="Life" value="1443"/>'
+    + '<PlayerStat stat="EnergyShield" value="5985"/>'
+    + '<PlayerStat stat="FireResist" value="75"/>'
+    + '<PlayerStat stat="ColdResist" value="75"/>'
+    + '<PlayerStat stat="LightningResist" value="60"/>'
+    + '<PlayerStat stat="ChaosResist" value="-12"/>'
+    + '<PlayerStat stat="MeleeEvadeChance" value="47"/>'
+    + '<PlayerStat stat="CritChance" value="94.0032"/>'
+    + '</Build></PathOfBuilding>';
+  const code = zlib.deflateSync(Buffer.from(xml, 'utf8')).toString('base64').replace(/\+/g, '-').replace(/\//g, '_');
+  const d = T.parsePobDefence(code);
+  assert.equal(d.ehp, 31671);                 // rounded
+  assert.equal(d.life, 1443);
+  assert.equal(d.es, 5985);
+  assert.deepEqual(d.resists, { fire: 75, cold: 75, lightning: 60, chaos: -12 });
+  assert.equal(d.evade, 47);
+  assert.equal(d.crit, 94);
+  assert.equal(T.parsePobDefence('not-valid-base64-$$$'), null);   // fail-safe on garbage
+  assert.equal(T.parsePobDefence(''), null);
+  assert.equal(T.parsePobDefence(null), null);
 });
