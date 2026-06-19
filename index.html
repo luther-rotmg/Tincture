@@ -786,6 +786,52 @@
     .cru-cell{ min-height:34px; font-size:10px; }
     .cru-rowh .a{ font-size:12.5px; }
   }
+
+  /* ---- The Prescription (guided build finder) ---- */
+  .prescription{ margin:34px 0; padding:30px 28px; border:1px solid var(--hair); border-radius:4px;
+    background:linear-gradient(180deg, rgba(200,162,74,.04), rgba(0,0,0,.18)); }
+  .rx{ display:grid; gap:18px; margin-top:22px; }
+  .rx-q .q{ font-family:var(--fmono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bone-dim); margin-bottom:9px; }
+  .rx-opts{ display:flex; flex-wrap:wrap; gap:8px; }
+  .rx-opt{ font-family:var(--ftext); font-size:14px; color:var(--bone-dim); background:rgba(0,0,0,.22); border:1px solid var(--hair); border-radius:3px;
+    padding:8px 13px; cursor:pointer; transition:border-color .16s, color .16s, background .16s; }
+  .rx-opt:hover{ color:var(--bone); border-color:var(--hair-strong); }
+  .rx-opt.sel{ color:var(--ink); background:var(--gold); border-color:var(--gold); font-weight:600; }
+  .rx-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:24px; }
+  .rx-results{ display:grid; gap:12px; margin-top:24px; }
+  .rx-results:empty{ margin-top:0; }
+  .rx-card{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px;
+    padding:15px 18px; border:1px solid var(--hair); border-radius:3px; background:var(--ink-2); }
+  .rx-card.top{ border-color:var(--hair-strong); box-shadow:inset 0 0 0 1px rgba(200,162,74,.12); }
+  .rx-rank{ font-family:var(--fdisplay); font-size:18px; color:var(--gold); width:30px; text-align:center; }
+  .rx-mid .rx-asc{ font-family:var(--fdisplay); font-size:17px; color:var(--bone); }
+  .rx-mid .rx-cls{ font-family:var(--fmono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-left:8px; }
+  .rx-mid .rx-why{ font-family:var(--fmono); font-size:11px; color:var(--bone-dim); margin-top:5px; line-height:1.5; }
+  .rx-mid .rx-why b{ color:var(--verdigris); font-weight:600; }
+  .rx-mid .rx-tag{ font-family:var(--ftext); font-style:italic; font-size:13px; color:var(--muted); margin-top:4px; }
+  .rx-acts{ display:flex; flex-direction:column; gap:7px; align-items:stretch; }
+  .rx-acts .decant.sm{ white-space:nowrap; }
+  .rx-acts a{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.04em; color:var(--verdigris); text-decoration:none; text-align:center; }
+  .rx-acts a:hover{ color:var(--gold-bright); }
+  .rx-loadable{ font-family:var(--fmono); font-size:9px; letter-spacing:.08em; text-transform:uppercase; }
+  .rx-loadable.yes{ color:var(--rise); } .rx-loadable.no{ color:var(--muted); }
+  .rx-note{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; color:var(--muted); line-height:1.6; margin:20px 0 0; max-width:78ch; }
+  @media (max-width:560px){
+    .prescription{ padding:22px 16px; }
+    .rx-card{ grid-template-columns:auto 1fr; }
+    .rx-acts{ grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; margin-top:6px; }
+  }
+  /* ---- print: an expanded build as a clean one-pager (console players) ---- */
+  @media print{
+    :root{ --ink:#fff; --ink-2:#fff; --ink-3:#fff; --bone:#1a1a1a; --bone-dim:#333; --muted:#555; --hair:#ccc; --hair-strong:#999; }
+    body{ background:#fff; color:#1a1a1a; }
+    header.masthead, .hero, .guide, .prescription, .controls, .assay, .still, .archive,
+    .row-actions, .row-share, .toast-wrap, #leagueSelect, .folder, .sort, .ledger-foot, noscript{ display:none !important; }
+    .row{ break-inside:avoid; border:none; }
+    .row:not(.open){ display:none !important; }    /* print only the build(s) you opened */
+    .row-detail{ display:block !important; break-inside:avoid; }
+    a[href]:after{ content:""; }
+  }
 </style>
 </head>
 <body>
@@ -840,6 +886,7 @@
           </button>
           <a class="ghost-link" id="heroGuide" target="_blank" rel="noopener noreferrer" hidden>find a build guide ↗</a>
           <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
+          <a href="#prescription" class="ghost-link">match me to a build ↓</a>
           <a href="#assay" class="ghost-link">see the analysis ↓</a>
           <a href="#archive" class="ghost-link">access all the data ↓</a>
         </div>
@@ -889,6 +936,26 @@
       </ol>
       <p class="guide-foot">No account, no login, nothing tracked — Tincture only ever writes to the one folder you choose, right in your browser. GGG does not curate or rank builds; judge any pick on its merits.</p>
     </div>
+  </section>
+
+  <!-- ===================== THE PRESCRIPTION (guided build finder) ===================== -->
+  <section class="prescription" id="prescription" aria-label="Guided build finder">
+    <header class="section-head">
+      <span class="eyebrow">Not sure what to play?</span>
+      <h2>The Prescription</h2>
+      <p class="sub">Answer a few questions and Tincture matches you to ascendancies that fit — ranked, each with an honest reason. Your answers live only in the link, so the result is shareable.</p>
+    </header>
+    <div class="rx" id="rxQuiz"></div>
+    <div class="rx-actions">
+      <button class="decant lg" id="rxRun" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
+        Prescribe a build
+      </button>
+      <button class="ghost-link" id="rxBeginner" type="button">new to PoE&nbsp;2? safe starters →</button>
+      <button class="ghost-link" id="rxReset" type="button" hidden>start over</button>
+    </div>
+    <div class="rx-results" id="rxResults" aria-live="polite"></div>
+    <p class="rx-note">Matching is editorial guidance — from the playstyle tags plus the meta's weapons and median EHP/DPS — a starting shortlist, not a power ranking. Every result links to the honest ledger row and Decant.</p>
   </section>
 
   <!-- ===================== CONTROLS ===================== -->
@@ -1218,6 +1285,7 @@ const ASC_TAGS = {
   "Gemling Legionnaire":"Gem-stacking shell — scales with investment",
   "Tactician":"Tactical crossbow — utility and team play",
   "Oracle":"Hybrid druid — adaptable, summon/transform flex",
+  "Shaman":"Totem-and-spirit druid — elemental, summon-leaning",
 };
 const tagFor = b => b.tag || ASC_TAGS[b.asc] || "";
 
@@ -2252,6 +2320,149 @@ function watchStill(){
   io.observe($("#still"));
 }
 
+/* ===== The Prescription — guided build finder (deterministic, client-side) =====
+   Scoring is editorial GUIDANCE, never a power ranking: it blends the playstyle tags
+   (ASC_TAGS) with the meta's dominant weapon and median EHP/DPS (meta-detail.json), and
+   surfaces the concrete reasons each pick matched. Answers live only in the URL (#quiz=). */
+let rxState = {};
+const QUIZ = [
+  { id:'dmg', q:'How do you want to deal damage?', opts:[
+    { k:'melee',  label:'Up close (melee)' },
+    { k:'ranged', label:'At range (bow / crossbow)' },
+    { k:'caster', label:'Spells & elements' },
+    { k:'minion', label:'Minions do the work' },
+  ]},
+  { id:'pace', q:'Preferred pace?', opts:[
+    { k:'fast',  label:'Fast, zoomy clear' },
+    { k:'tanky', label:'Slow & steady, tanky' },
+  ]},
+  { id:'risk', q:'Survivability vs damage?', opts:[
+    { k:'safe',  label:'Keep me alive' },
+    { k:'glass', label:'Glass cannon' },
+    { k:'bal',   label:'Balanced' },
+  ]},
+  { id:'xp', q:'Experience level?', opts:[
+    { k:'new', label:'New — keep it simple' },
+    { k:'vet', label:'Veteran — high ceiling is fine' },
+  ]},
+  { id:'cls', q:'Preferred class? (optional)', opts:[] },   // filled from the live data at render time
+];
+function rxClassOpts(){
+  const set=[];
+  leagues().forEach(L=>{ if(L.curated) return; (L.builds||[]).forEach(b=>{ if(b.cls && !set.includes(b.cls)) set.push(b.cls); }); });
+  return set.sort().map(c=>({ k:c.toLowerCase(), label:c }));
+}
+function rxClassifyWeapon(name){
+  // anchored exact-family match on the main-hand token — "Quarterstaff" must NOT fall into the
+  // caster bucket via a substring "Staff" match (the bug that ranked melee monks as casters).
+  const fam=(name||'').split('/')[0].trim();
+  if(/^(Quarterstaff|Mace|Sword|Axe|Spear|Flail|Claw|Dagger)$/i.test(fam)) return 'melee';
+  if(/^(Bow|Crossbow)$/i.test(fam)) return 'ranged';
+  if(/^(Wand|Sceptre|Staff|Focus|Talisman)$/i.test(fam)) return 'caster';
+  return null;
+}
+function rxCandidates(){
+  const byAsc={};
+  leagues().forEach(L=>{ if(L.curated) return; (L.builds||[]).forEach(b=>{ if(!byAsc[b.asc] || (b.pop||0)>(byAsc[b.asc].pop||0)) byAsc[b.asc]=b; }); });
+  const out=[], seen=new Set();
+  const add=(asc,b)=>{
+    if(seen.has(asc)) return; seen.add(asc);
+    const slug=slugOf({asc,skill:''});
+    const md=(META&&META.byAsc)?META.byAsc[slug]:null;
+    out.push({ asc, slug, b: b||{asc,skill:''}, cls:(b&&b.cls)||'', tier:(b&&b.tier)||'',
+      tag:(ASC_TAGS[asc]||(b&&b.tag)||'').toLowerCase(), pop:b?b.pop:null,
+      weapon: md&&md.weapons&&md.weapons[0] ? rxClassifyWeapon(md.weapons[0].name) : null,
+      ehp: md&&md.stats?md.stats.ehp:null, dps: md&&md.stats?md.stats.dps:null,
+      loadable: Array.isArray(_buildsManifest) ? _buildsManifest.includes(slug) : null });
+  };
+  Object.keys(byAsc).forEach(a=>add(a,byAsc[a]));
+  Object.keys(ASC_TAGS).forEach(a=>{ if(!seen.has(a)) add(a,null); });   // rank tagged ascendancies even if outside the ledger top-N
+  return out;
+}
+function rxScore(state){
+  const cands=rxCandidates();
+  const hi=(arr,p)=>{ const v=arr.filter(x=>x!=null).sort((a,b)=>a-b); return v.length?v[Math.floor(v.length*p)]:Infinity; };
+  const hiEhp=hi(cands.map(c=>c.ehp),0.6), hiDps=hi(cands.map(c=>c.dps),0.6);
+  cands.forEach(c=>{
+    let s=0; const why=[]; const t=c.tag;
+    if(state.dmg){
+      if(state.dmg==='minion'){ if(/minion|summon|skelet/.test(t)){ s+=4; why.push('minion-based'); } }
+      else if(c.weapon===state.dmg){ s+=4; why.push(state.dmg); }
+      else if(c.weapon){ s-=1; }
+      if(state.dmg==='caster'&&/caster|spell|element/.test(t)) s+=1;
+      if(state.dmg==='ranged'&&/bow|projectile|crossbow/.test(t)) s+=1;
+      if(state.dmg==='melee'&&/melee|strike|slam|spear|combo/.test(t)) s+=1;
+    }
+    if(state.pace==='fast'&&/fast|mobility|clear|zoom|dodge/.test(t)){ s+=2; why.push('fast clear'); }
+    if(state.pace==='tanky'&&/tanky|slow|durable|forgiving|frontline|sustain/.test(t)){ s+=2; why.push('slow & tanky'); }
+    if(state.risk==='safe'){ if(/tanky|forgiving|durable|frontline|sustain/.test(t)){ s+=2; why.push('survivable'); } if(c.ehp!=null&&c.ehp>=hiEhp){ s+=2; if(!why.includes('survivable')) why.push('high EHP'); } }
+    if(state.risk==='glass'){ if(/glass|burst|high risk|spike|crit/.test(t)){ s+=2; why.push('high burst'); } if(c.dps!=null&&c.dps>=hiDps){ s+=2; if(!why.includes('high burst')) why.push('top DPS'); } }
+    if(state.xp==='new'){ if(/beginner|forgiving|hands-off|league-start|simple|easy/.test(t)){ s+=3; why.push('beginner-friendly'); } if(c.loadable) s+=1; if(c.pop!=null&&c.pop>=5){ s+=1; if(!why.includes('beginner-friendly')) why.push('popular & proven'); } }
+    if(state.xp==='vet'&&/high skill|ceiling|combo|high floor|spike|micro/.test(t)){ s+=2; why.push('high ceiling'); }
+    if(state.cls&&c.cls&&c.cls.toLowerCase()===state.cls){ s+=3; why.push('your class'); }
+    c.score=s; c.why=why;
+  });
+  let ranked=cands.filter(c=>c.score>0).sort((a,b)=>(b.score-a.score)||((b.pop||0)-(a.pop||0)));
+  if(!ranked.length) ranked=cands.filter(c=>c.pop!=null).sort((a,b)=>(b.pop||0)-(a.pop||0)).map(c=>({...c,why:['most-played right now']}));
+  return ranked.slice(0,5);
+}
+function rxRenderResults(ranked){
+  const box=$("#rxResults"); if(!box) return;
+  if(!ranked.length){ box.innerHTML=`<p class="rx-note">No match — try a different combination.</p>`; return; }
+  box.innerHTML=ranked.map((c,i)=>{
+    const share=c.pop!=null?`${c.pop.toFixed(1)}% of the ladder`:'outside the current ladder top';
+    const load=c.loadable===true?`<span class="rx-loadable yes">· loadable build</span>`:(c.loadable===false?`<span class="rx-loadable no">· template only</span>`:'');
+    const why=c.why.length?`matched on ${c.why.map(w=>`<b>${esc(w)}</b>`).join(', ')}`:'a solid all-rounder';
+    return `<div class="rx-card${i===0?' top':''}">
+      <div class="rx-rank">${roman(i+1)}</div>
+      <div class="rx-mid">
+        <div><span class="rx-asc">${esc(c.asc)}</span>${c.cls?`<span class="rx-cls">${esc(c.cls)}</span>`:''}</div>
+        <div class="rx-tag">${esc(ASC_TAGS[c.asc]||'')}</div>
+        <div class="rx-why">${why} · ${esc(share)} ${load}</div>
+      </div>
+      <div class="rx-acts">
+        <button class="decant sm" type="button" data-asc="${esc(c.asc)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg> Decant</button>
+        <a href="#asc=${esc(c.slug)}" data-asc="${esc(c.asc)}" class="rx-view">view in ledger ↓</a>
+        <a href="${guideUrl(c.b)}" target="_blank" rel="noopener noreferrer">guide ↗</a>
+      </div>
+    </div>`;
+  }).join("");
+  box.querySelectorAll(".decant.sm").forEach(btn=> btn.onclick=()=>{ const c=ranked.find(x=>x.asc===btn.dataset.asc); if(c) decant(c.b); });
+  box.querySelectorAll(".rx-view").forEach(a=> a.onclick=e=>{ e.preventDefault(); const c=ranked.find(x=>x.asc===a.dataset.asc); if(c) openAsc(c.slug,true); });
+  const reset=$("#rxReset"); if(reset) reset.hidden=false;
+}
+function rxRenderQuiz(){
+  const box=$("#rxQuiz"); if(!box) return;
+  const cfg=QUIZ.map(q=> q.id==='cls' ? {...q, opts:rxClassOpts()} : q);
+  box.innerHTML=cfg.map(q=>`<div class="rx-q" data-q="${q.id}"><div class="q">${esc(q.q)}</div><div class="rx-opts">${
+    q.opts.map(o=>`<button class="rx-opt${rxState[q.id]===o.k?' sel':''}" type="button" data-q="${q.id}" data-k="${esc(o.k)}">${esc(o.label)}</button>`).join("")
+  }</div></div>`).join("");
+  box.querySelectorAll(".rx-opt").forEach(btn=> btn.onclick=()=>{
+    const qid=btn.dataset.q, k=btn.dataset.k, on=rxState[qid]!==k;
+    rxState[qid]= on?k:null;
+    btn.parentElement.querySelectorAll(".rx-opt").forEach(x=> x.classList.toggle("sel", on&&x===btn));
+  });
+}
+function rxWriteHash(){
+  const code=Object.entries(rxState).filter(([,v])=>v).map(([k,v])=>k+':'+v).join(',');
+  const base=location.pathname+location.search;
+  try{ history.replaceState(null,"", code? base+"#quiz="+encodeURIComponent(code) : base); }catch(_){}
+}
+function rxRun(writeHash){ rxRenderResults(rxScore(rxState)); if(writeHash!==false) rxWriteHash(); }
+// restore quiz answers from the #quiz= hash and show results (used by route())
+function openQuiz(code){
+  rxState={};
+  (code||"").split(",").forEach(pair=>{ const i=pair.indexOf(":"); if(i>0) rxState[pair.slice(0,i)]=pair.slice(i+1); });
+  rxRenderQuiz(); rxRun(false);
+  const sec=$("#prescription"); if(sec) sec.scrollIntoView({behavior:"smooth", block:"start"});
+}
+function setupQuiz(){
+  rxRenderQuiz();
+  const run=$("#rxRun"); if(run) run.onclick=()=>rxRun(true);
+  const reset=$("#rxReset"); if(reset) reset.onclick=()=>{ rxState={}; rxRenderQuiz(); $("#rxResults").innerHTML=""; reset.hidden=true; rxWriteHash(); };
+  const beg=$("#rxBeginner"); if(beg) beg.onclick=()=>{ rxState={ xp:'new', risk:'safe' }; rxRenderQuiz(); rxRun(true); const s=$("#prescription"); if(s) s.scrollIntoView({behavior:"smooth",block:"start"}); };
+}
+
 /* ----- deep links (hash routing; URL only — no storage, replaceState, fail-safe) ----- */
 function writeAscHash(slug){
   const base = location.pathname + location.search;
@@ -2309,6 +2520,8 @@ async function boot(){
 
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
   try{ const mr = await fetch("meta-detail.json", { cache:"no-store" }); if (mr.ok) META = await mr.json(); }catch(_){ /* enrichment only — fine if absent */ }
+  // preload the loadable-build manifest so the quiz can label loadable-vs-template honestly
+  try { await buildsManifest(); } catch(_){}
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
@@ -2317,6 +2530,7 @@ async function boot(){
   renderChips();
   renderRows();
   renderAssay();
+  setupQuiz();
   setupArchive();
   watchStill();
 
