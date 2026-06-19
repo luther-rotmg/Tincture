@@ -382,6 +382,32 @@ class HistoryAndSEO(unittest.TestCase):
         self.assertIn("Wand / Focus", h)          # enrichment: weapon
 
 
+class Economy(unittest.TestCase):
+    def test_economy_payload_shape(self):
+        raw = {
+            "core": {"primary": "divine", "secondary": "chaos", "rates": {"exalted": 208.5, "chaos": 8.55}},
+            "items": [{"id": "alch", "name": "Orb of Alchemy"}, {"id": "exalted", "name": "Exalted Orb"}],
+            "lines": [
+                {"id": "alch", "primaryValue": 0.0031, "volumePrimaryValue": 334.4, "sparkline": {"totalChange": 37.56}},
+                {"id": "exalted", "primaryValue": 0.0048, "volumePrimaryValue": 9000},
+                {"id": None},                         # malformed line is skipped
+            ],
+        }
+        p = distill._economy_payload(raw, "2026-06-19T00:00:00+00:00")
+        self.assertEqual(p["primary"], "divine")
+        self.assertEqual(p["rates"], {"exalted": 208.5, "chaos": 8.55})
+        self.assertEqual(len(p["currencies"]), 2)     # the None-id line dropped
+        alch = next(c for c in p["currencies"] if c["id"] == "alch")
+        self.assertEqual(alch["name"], "Orb of Alchemy")   # joined from items[]
+        self.assertEqual(alch["divine"], 0.0031)
+        self.assertEqual(alch["change7d"], 37.56)
+
+    def test_economy_payload_failsafe_on_empty(self):
+        p = distill._economy_payload({}, "2026-06-19T00:00:00+00:00")
+        self.assertEqual(p["currencies"], [])
+        self.assertEqual(p["rates"], {})
+
+
 class ArtifactLockstep(unittest.TestCase):
     def test_manifest_matches_build_files_and_variants_resolve(self):
         builds_dir = os.path.join(ROOT, "builds")

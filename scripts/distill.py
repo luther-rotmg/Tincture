@@ -60,6 +60,14 @@ TIERS = [("S", 9.0), ("A", 4.5), ("B", 2.5), ("C", 0.0)]
 # ascendancies with a share-of-ladder % and a -1/0/1 trend flag.
 BUILD_INDEX_URL = f"{POE2_API}/data/build-index-state"
 
+# poe.ninja currency EXCHANGE — CONFIRMED live (plain JSON, no auth). index-state gives the
+# current snapshot version + the economy league's DISPLAY name (the exchange endpoint requires
+# the display name, e.g. "Runes of Aldur", NOT the url slug). Then:
+#   GET /poe2/api/economy/exchange/{version}/overview?league={DisplayName}&type=Currency
+# -> {core:{rates,primary,secondary}, items:[{id,name}], lines:[{id,primaryValue(=Divine),
+#     volumePrimaryValue, sparkline:{totalChange,...}}]}.
+INDEX_STATE_URL = f"{POE2_API}/data/index-state"
+
 # The current challenge league family. Its variants share this url stem + a suffix.
 # When a new league launches, update these two lines and the rest follows.
 LEAGUE_FAMILY = "runesofaldur"
@@ -156,6 +164,7 @@ OUT_PATH = os.path.join(ROOT, "data.json")
 SITEMAP_PATH = os.path.join(ROOT, "sitemap.xml")
 SITE_URL = "https://tincturepoe2.com/"
 SITE = SITE_URL.rstrip("/")
+ECONOMY_PATH = os.path.join(ROOT, "economy.json")
 HISTORY_PATH = os.path.join(ROOT, "history.json")
 HISTORY_CAP = 240                       # ~10 days at hourly; append-only, deduped
 LANDING_DIR = os.path.join(ROOT, "b")   # per-ascendancy SEO landing pages
@@ -487,6 +496,81 @@ def _history_append(points, point, cap):
     return points[-cap:]
 
 
+def fetch_economy():
+    """Fetch the current-league currency exchange (CONFIRMED live JSON). index-state gives the
+    snapshot version + the economy league's DISPLAY name (the exchange endpoint requires the
+    display name, e.g. 'Runes of Aldur', NOT the url slug). Returns the raw overview, or None."""
+    try:
+        idx = http_get_json(INDEX_STATE_URL)
+        sv = idx.get("snapshotVersions") or []
+        ver = sv[0].get("version") if sv and isinstance(sv[0], dict) else None
+        league_name = None
+        for e in (idx.get("economyLeagues") or []):
+            if isinstance(e, dict) and e.get("url") == LEAGUE_FAMILY:
+                league_name = e.get("name") or e.get("displayName")
+                break
+        if not ver or not league_name:
+            print("[economy] no version / league name in index-state — skipping")
+            return None
+        q = urllib.parse.urlencode({"league": league_name, "type": "Currency"}, quote_via=urllib.parse.quote)
+        url = f"{POE2_API}/economy/exchange/{ver}/overview?{q}"
+        data = http_get_json(url)
+        print(f"[economy] {url} -> {len((data or {}).get('lines') or [])} currencies")
+        return data
+    except urllib.error.HTTPError as e:
+        print(f"[economy] HTTP {e.code}")
+    except Exception as e:  # noqa: BLE001
+        print(f"[economy] {type(e).__name__}: {e}")
+    return None
+
+
+def _economy_payload(raw, updated):
+    """Raw exchange overview -> compact economy.json: cross-rates + each currency's Divine value,
+    trade volume and 7-day change. Pure (testable)."""
+    core = (raw or {}).get("core") or {}
+    items = {it.get("id"): it for it in ((raw or {}).get("items") or []) if isinstance(it, dict) and it.get("id")}
+    currencies = []
+    for l in ((raw or {}).get("lines") or []):
+        if not isinstance(l, dict) or not l.get("id"):
+            continue
+        it = items.get(l["id"]) or {}
+        currencies.append({
+            "id": l["id"],
+            "name": it.get("name") or l["id"],
+            "divine": l.get("primaryValue"),               # value in Divine Orbs (primary reference)
+            "volume": l.get("volumePrimaryValue"),
+            "change7d": (l.get("sparkline") or {}).get("totalChange"),
+        })
+    return {
+        "updated": updated,
+        "league": FAMILY_NAME,
+        "primary": core.get("primary"),                    # "divine"
+        "secondary": core.get("secondary"),                # "chaos"
+        "rates": core.get("rates") or {},                  # units per 1 divine, e.g. {"exalted":208.5,"chaos":8.55}
+        "currencies": currencies,
+    }
+
+
+def write_economy():
+    """Fetch + write economy.json (currency exchange) — independent of the build meta and fail-safe:
+    a network/parse failure leaves the existing economy.json untouched. Atomic write."""
+    raw = fetch_economy()
+    if not raw or not raw.get("lines"):
+        return
+    payload = _economy_payload(raw, datetime.now(timezone.utc).isoformat(timespec="seconds"))
+    if not payload["currencies"]:
+        return
+    try:
+        tmp = ECONOMY_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+        os.replace(tmp, ECONOMY_PATH)
+        print(f"[write] {ECONOMY_PATH} — {len(payload['currencies'])} currencies")
+    except OSError as e:  # noqa: BLE001
+        print(f"[warn] could not write economy: {e}")
+
+
 def write_history(payload):
     """Append the DEFAULT (SC challenge) league's ascendancy shares to history.json so the front
     end can draw a real multi-day rise/fall chart. Lean (one league, deduped, capped), atomic,
@@ -709,6 +793,7 @@ def run_demo():
 def run_live():
     print(f"LIVE run — distilling {FAMILY_NAME} variants + Standard ({PATCH})\n")
     previous = load_previous()
+    write_economy()                 # currency exchange — independent of the build meta, fail-safe
     raw = fetch_poeninja_builds()
     if not isinstance(raw, dict):
         print("\n[live] no data this run — keeping the existing data.json. Exiting 0.")

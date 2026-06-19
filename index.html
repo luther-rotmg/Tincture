@@ -648,6 +648,13 @@
   .hist-legend{ display:flex; flex-wrap:wrap; gap:7px 14px; }
   .hist-leg{ font-family:var(--fmono); font-size:10.5px; color:var(--bone-dim); display:inline-flex; align-items:center; gap:5px; }
   .hist-leg i{ width:11px; height:2px; display:inline-block; } .hist-leg b{ color:var(--bone); }
+  .ex-rates{ font-family:var(--ftext); font-size:18px; color:var(--bone-dim); margin:14px 0 12px; }
+  .ex-rates b{ color:var(--gold-bright); }
+  .ex-list{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:7px 18px; }
+  .ex-row{ display:flex; align-items:baseline; gap:8px; font-family:var(--fmono); font-size:12px; border-bottom:1px solid var(--hair); padding-bottom:5px; }
+  .ex-name{ color:var(--bone-dim); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .ex-val{ color:var(--bone); } .ex-val small{ color:var(--muted); font-size:9px; }
+  .ex-chg{ font-size:10px; } .ex-chg.up{ color:var(--rise); } .ex-chg.down{ color:var(--fall); }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1078,6 +1085,12 @@
         <div class="hist-legend" id="histLegend"></div>
         <p class="panel-note" id="histNote" style="max-width:70ch">Each hourly distillation is appended to an open history — the longer Tincture runs, the further back this reaches. Lines track the most-played ascendancies' share of the Runes of Aldur ladder.</p>
       </article>
+      <article class="panel panel-cross panel-exchange" id="assayExchange" hidden>
+        <div><span class="panel-eyebrow">The Exchange</span><div class="panel-title">What the currency's worth</div></div>
+        <div class="ex-rates" id="exRates"></div>
+        <div class="ex-list" id="exList"></div>
+        <p class="panel-note" style="max-width:72ch">Live currency exchange for Runes of Aldur, via poe.ninja — the most-traded currencies, valued in Exalted Orbs, with their 7-day movement. <a href="https://poe.ninja/poe2/economy/runesofaldur/currency" target="_blank" rel="noopener noreferrer">Full prices on poe.ninja ↗</a></p>
+      </article>
     </div>
     <p class="section-caveat" id="assayCaveat"></p>
   </section>
@@ -1292,6 +1305,7 @@ let DATA = normalizeData(SAMPLE_DATA);
 let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
 let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
 let HISTORY = null;        // history.json: append-only per-snapshot ascendancy shares (the SC league)
+let ECONOMY = null;        // economy.json: live currency exchange (rates + per-currency value/volume/7d)
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
@@ -2668,6 +2682,28 @@ function renderHistory(){
   const note=$("#histNote"); if (note) note.textContent = `${pts.length} distinct snapshots so far · the most-played ascendancies' share of the Runes of Aldur ladder. The longer Tincture runs, the further back this reaches.`;
 }
 
+// The Exchange — live currency rates + most-traded currencies (from economy.json). Fail-safe:
+// hidden when economy.json is absent or empty. Values shown in Exalted (the league's base unit).
+function renderExchange(){
+  const panel = $("#assayExchange"); if (!panel) return;
+  const e = ECONOMY;
+  if (!e || !Array.isArray(e.currencies) || !e.currencies.length){ panel.hidden = true; return; }
+  panel.hidden = false;
+  const rates = e.rates || {}, exRate = rates.exalted, chRate = rates.chaos;
+  $("#exRates").innerHTML = `1 <b>Divine Orb</b>`
+    + (exRate ? ` = <b>${fmt(Math.round(exRate))}</b> Exalted` : "")
+    + (chRate ? ` &middot; <b>${chRate.toFixed(1)}</b> Chaos` : "");
+  const ref = new Set([e.primary, e.secondary, "exalted"]);   // skip the reference currencies themselves
+  const top = e.currencies.filter(c => !ref.has(c.id) && c.volume != null)
+    .sort((a, b) => (b.volume || 0) - (a.volume || 0)).slice(0, 8);
+  const exVal = d => { const v = (d || 0) * (exRate || 0); return v >= 1000 ? fmt(Math.round(v)) : v >= 1 ? String(Math.round(v)) : v.toFixed(2); };
+  $("#exList").innerHTML = top.map(c => {
+    const ch = c.change7d;
+    const badge = ch == null ? "" : `<span class="ex-chg ${ch >= 0 ? "up" : "down"}">${ch >= 0 ? "▲" : "▼"}${Math.abs(ch).toFixed(0)}%</span>`;
+    return `<div class="ex-row"><span class="ex-name">${esc(c.name)}</span><span class="ex-val">${exVal(c.divine)} <small>ex</small></span>${badge}</div>`;
+  }).join("");
+}
+
 // fetch JSON with a hard timeout so a hung/slow response can't stall boot — it falls to the
 // honest sample marker instead of hanging. Returns null on any failure (abort/non-200/parse).
 async function fetchJSON(url, ms){
@@ -2692,13 +2728,15 @@ async function boot(){
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
   // enrichment fetches run concurrently (independent of each other) so first render isn't serialized:
   // meta-detail, the history chart, and the loadable-build manifest (also speeds the quiz/first decant).
-  const [m, h] = await Promise.all([
+  const [m, h, ec] = await Promise.all([
     fetchJSON("meta-detail.json", 8000),
     fetchJSON("history.json", 8000),
+    fetchJSON("economy.json", 8000),
     buildsManifest().catch(() => null),
   ]);
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
   if (h && Array.isArray(h.points)) HISTORY = h;
+  if (ec && Array.isArray(ec.currencies)) ECONOMY = ec;
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
@@ -2708,6 +2746,7 @@ async function boot(){
   renderRows();
   renderAssay();
   renderHistory();
+  renderExchange();
   setupQuiz();
   setupArchive();
   watchStill();
