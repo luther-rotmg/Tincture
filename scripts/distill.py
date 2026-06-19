@@ -116,7 +116,7 @@ ASC_TO_CLASS = {
     "Witchhunter": "Mercenary", "Gemling Legionnaire": "Mercenary", "Tactician": "Mercenary",
     "Stormweaver": "Sorceress", "Chronomancer": "Sorceress", "Disciple of Varashta": "Sorceress",
     "Spirit Walker": "Huntress", "Amazon": "Huntress", "Ritualist": "Huntress",
-    "Oracle": "Druid",
+    "Oracle": "Druid", "Shaman": "Druid",
 }
 
 # EDITORIAL, not derived from ladder data. A short, present-tense archetype description
@@ -146,10 +146,13 @@ ASC_TAGS = {
     "Gemling Legionnaire": "Gem-stacking shell — scales with investment",
     "Tactician": "Tactical crossbow — utility and team play",
     "Oracle": "Hybrid druid — adaptable, summon/transform flex",
+    "Shaman": "Totem-and-spirit druid — elemental, summon-leaning",
 }
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_PATH = os.path.join(ROOT, "data.json")
+SITEMAP_PATH = os.path.join(ROOT, "sitemap.xml")
+SITE_URL = "https://tincturepoe2.com/"
 REQUEST_TIMEOUT = 20
 
 # ----------------------------------------------------------------------------- #
@@ -205,10 +208,23 @@ def fetch_poeninja_builds():
 
 
 def index_by_url(raw):
-    """{leagueUrl: league_obj} from a build-index-state payload."""
+    """{leagueUrl: league_obj} from a build-index-state payload. Skips entries with a falsy
+    leagueUrl (they'd collide under a None key) and warns rather than silently overwriting on a
+    duplicate, so a quirk in the feed can't make a league resolve to the wrong object."""
     if not isinstance(raw, dict):
         return {}
-    return {l.get("leagueUrl"): l for l in raw.get("leagueBuilds", []) if isinstance(l, dict)}
+    out = {}
+    for l in raw.get("leagueBuilds", []):
+        if not isinstance(l, dict):
+            continue
+        url = l.get("leagueUrl")
+        if not url:
+            continue
+        if url in out:
+            print(f"[warn] duplicate leagueUrl {url!r} in feed — keeping the first")
+            continue
+        out[url] = l
+    return out
 
 
 def normalize_one(league_obj):
@@ -224,7 +240,12 @@ def normalize_one(league_obj):
     `n` is reconstructed from the league total and each ascendancy's share. Permanent
     leagues return an empty statistics list -> we return ([], total).
     """
-    total = int(league_obj.get("total") or 0)
+    # Coerce defensively (mirror percentage): a non-numeric/odd upstream total ("124,248")
+    # should skip-to-0, not abort the whole run with a ValueError.
+    try:
+        total = int(float(league_obj.get("total") or 0))
+    except (TypeError, ValueError):
+        total = 0
     out = []
     for s in league_obj.get("statistics") or []:
         if not isinstance(s, dict):
@@ -248,12 +269,40 @@ def normalize_one(league_obj):
             "asc": str(asc),
             "skill": "",  # build-index-state does not expose a dominant skill
             "pop": round(pop, 1),
-            # n is DERIVED (share x league total) from the source's unrounded percentage,
-            # not a measured per-ascendancy headcount. The front end labels it "~"/"est.".
-            "n": round(total * pop / 100.0) if total else 0,
+            "_popf": pop,  # unrounded share, used only for the largest-remainder apportionment below
             "tag": ASC_TAGS.get(asc, ""),  # editorial archetype note; "" if unknown
         })
+    _apportion_n(out, total)
+    for r in out:
+        del r["_popf"]
     return out, total
+
+
+def _apportion_n(rows, total):
+    """Set each row's derived n = share x league total via LARGEST-REMAINDER rounding.
+
+    n is DERIVED (not a measured per-ascendancy headcount; the front end labels it "~"/"est.").
+    Rounding each row independently with round() biases upward, so the headcounts can sum ABOVE
+    the real population — a mild inflation the honesty ethos warns against. Largest-remainder
+    apportionment floors every row then hands the leftover characters to the largest fractional
+    remainders, so the derived counts never sum past the population while staying share-accurate.
+    """
+    if not rows:
+        return
+    if not total:
+        for r in rows:
+            r["n"] = 0
+        return
+    exacts = [total * r["_popf"] / 100.0 for r in rows]
+    floors = [int(e) for e in exacts]                 # int() == floor for non-negative shares
+    target = min(total, round(sum(exacts)))           # never exceed the real population
+    deficit = max(0, target - sum(floors))            # always < len(rows) (sum of fractions)
+    order = sorted(range(len(rows)), key=lambda i: exacts[i] - floors[i], reverse=True)
+    ns = floors[:]
+    for i in order[:deficit]:
+        ns[i] += 1
+    for r, n in zip(rows, ns):
+        r["n"] = n
 
 # ----------------------------------------------------------------------------- #
 # Distillation: tiers, trends, ranking — per league
@@ -277,7 +326,9 @@ def load_previous():
 
 
 def key_of(b):
-    return f"{b['asc']}|{b['skill']}".lower()
+    # .get() so a malformed/foreign previous data.json (a build row missing asc/skill) yields a
+    # harmless key and just loses its baseline (delta=None) instead of crashing the whole run.
+    return f"{b.get('asc', '')}|{b.get('skill', '')}".lower()
 
 
 def prev_builds_for(previous, url):
@@ -372,9 +423,9 @@ def write_builds_manifest():
     """Refresh builds/index.json — the slugs that have a real, loadable .build file.
 
     The front end fetches this first and only attempts builds/<slug>.build for listed
-    slugs, so it never pays a guaranteed 404 while none exist yet. Empty list today;
-    it populates itself the moment real builds are committed to builds/. Fails safe —
-    a filesystem hiccup here must never break a distill run."""
+    slugs, so it never pays a guaranteed 404 for a pick without one. Populated from the
+    committed builds/*.build files (the weekly builds.yml reconstructor writes them).
+    Fails safe — a filesystem hiccup here must never break a distill run."""
     try:
         slugs = []
         if os.path.isdir(BUILDS_DIR):
@@ -389,14 +440,42 @@ def write_builds_manifest():
         print(f"[warn] could not write builds manifest: {e}")
 
 
+def write_sitemap(updated_iso):
+    """Rewrite sitemap.xml with a <lastmod> matching data.json's update day, turning the
+    'refreshed hourly' claim into a verifiable crawler freshness signal. Date granularity keeps
+    the file (and its commits) from churning every hour. Fail-safe — a hiccup never breaks a run."""
+    lastmod = (updated_iso or "")[:10] or datetime.now(timezone.utc).date().isoformat()
+    def url_block(loc, prio):
+        return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
+                f"    <changefreq>hourly</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           + url_block(SITE_URL, "1.0") + url_block(SITE_URL + "data.json", "0.5")
+           + "</urlset>\n")
+    try:
+        tmp = SITEMAP_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            f.write(xml)
+        os.replace(tmp, SITEMAP_PATH)
+        print(f"[write] {SITEMAP_PATH} — lastmod {lastmod}")
+    except OSError as e:  # noqa: BLE001
+        print(f"[warn] could not write sitemap: {e}")
+
+
 def write_data(payload):
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    # Atomic write: serialize to a temp file then os.replace() so a crash mid-write (disk full,
+    # encoding error on an exotic upstream string, interrupted process) can NEVER truncate the
+    # live data.json the deployed site reads. The replace is atomic on the same filesystem.
+    tmp = OUT_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
         f.write("\n")
+    os.replace(tmp, OUT_PATH)
     leagues = payload.get("leagues", [])
     nb = sum(len(l.get("builds", [])) for l in leagues)
     print(f"[write] {OUT_PATH} — {len(leagues)} leagues, {nb} builds total")
     write_builds_manifest()
+    write_sitemap(payload.get("updated"))
 
 # ----------------------------------------------------------------------------- #
 # Modes
@@ -414,7 +493,7 @@ def run_probe():
     for l in leagues:
         mark = "  <-- surfaced" if l.get("leagueUrl") in targets else ""
         print(f"    {str(l.get('leagueUrl')):<22} {str(l.get('leagueName')):<26} "
-              f"total={l.get('total'):>7}  ascendancies={len(l.get('statistics') or [])}{mark}")
+              f"total={str(l.get('total')):>7}  ascendancies={len(l.get('statistics') or [])}{mark}")
 
 
 def run_demo():

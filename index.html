@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="The current PoE 2 meta, distilled from the public ladder via poe.ninja — ranked, visualized, exportable. Refreshed hourly." />
 <meta name="twitter:image" content="https://tincturepoe2.com/docs/og.png" />
 <!-- data.json is published as an open dataset (see The Cellar) -->
-<script type="application/ld+json">
+<script type="application/ld+json" id="ldDataset">
 {"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.0), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1705,6 +1705,10 @@ function renderMeta(){
     // expose the precise instant to crawlers + screen readers, and on hover
     [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC" + (stale ? " — the hourly refresh is overdue" : ""); } });
     if (updWrap){ updWrap.classList.remove("is-sample"); updWrap.classList.toggle("is-stale", !!stale); }
+    // mirror the live freshness into the JSON-LD Dataset for crawlers that render JS (the static
+    // sitemap.xml carries the server-side <lastmod>; this adds dateModified without churning the file)
+    const ld = document.getElementById("ldDataset");
+    if (ld && DATA.updated){ try { const j = JSON.parse(ld.textContent); j.dateModified = DATA.updated; ld.textContent = JSON.stringify(j); } catch(_){} }
   }
   // The Still is a fixed brand statement about the LIVE Runes of Aldur ladder, and its
   // prose names that ladder — so pin its counters to the default (SC challenge) league

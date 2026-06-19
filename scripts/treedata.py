@@ -65,7 +65,10 @@ def slug_map(export):
         slug, skill = node.get("id"), node.get("skill")
         if slug is None or skill is None:
             continue
-        out[int(skill)] = str(slug)
+        try:                       # one malformed node mustn't abort the whole map (mirrors hashes_to_slugs)
+            out[int(skill)] = str(slug)
+        except (TypeError, ValueError):
+            continue
     return out
 
 

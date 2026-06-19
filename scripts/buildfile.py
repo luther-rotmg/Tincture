@@ -157,7 +157,16 @@ def validate(build):
         errs.append(f"missing top-level keys: {sorted(missing)}")
     if not isinstance(build.get("ascendancy", ""), str) or not build.get("ascendancy"):
         errs.append("ascendancy must be a non-empty string")
-    for i, it in enumerate(build.get("inventory_slots", [])):
+    # validate() is the safety net is_loadable() and the tests rely on, so it must REPORT bad
+    # input, never throw on it: guard every collection and entry type before subscripting.
+    for key in ("inventory_slots", "passives", "skills"):
+        if key in build and not isinstance(build[key], list):
+            errs.append(f"{key} must be a list")
+    slots = build.get("inventory_slots") if isinstance(build.get("inventory_slots"), list) else []
+    for i, it in enumerate(slots):
+        if not isinstance(it, dict):
+            errs.append(f"inventory_slots[{i}] is not an object")
+            continue
         if it.get("inventory_id") not in VALID_SLOTS:
             errs.append(f"inventory_slots[{i}].inventory_id invalid: {it.get('inventory_id')!r}")
         is_unique = "unique_name" in it and "additional_text" not in it
@@ -167,10 +176,17 @@ def validate(build):
             li = it.get("level_interval")
             if not (isinstance(li, list) and len(li) == 2):
                 errs.append(f"inventory_slots[{i}].level_interval must be [min,max] for a stat item")
-    for i, p in enumerate(build.get("passives", [])):
-        if "id" not in p:
+    passives = build.get("passives") if isinstance(build.get("passives"), list) else []
+    for i, p in enumerate(passives):
+        if not isinstance(p, dict):
+            errs.append(f"passives[{i}] is not an object")
+        elif "id" not in p:
             errs.append(f"passives[{i}] missing id")
-    for i, s in enumerate(build.get("skills", [])):
+    skills = build.get("skills") if isinstance(build.get("skills"), list) else []
+    for i, s in enumerate(skills):
+        if not isinstance(s, dict):
+            errs.append(f"skills[{i}] is not an object")
+            continue
         if "id" not in s:
             errs.append(f"skills[{i}] missing id")
         if not isinstance(s.get("support_skills", []), list):

@@ -57,6 +57,11 @@ class AscMap(unittest.TestCase):
         for asc in distill.ASC_TO_CLASS:
             self.assertIn(asc, distill.ASC_TAGS, f"{asc!r} missing an editorial tag")
 
+    def test_class_and_tag_tables_cover_the_same_ascendancies(self):
+        # the two hand-maintained meta tables must stay in lockstep, so an ascendancy added to
+        # one but not the other (the Shaman/Druid drift the audit caught) trips a test.
+        self.assertEqual(set(distill.ASC_TO_CLASS), set(distill.ASC_TAGS))
+
     def test_tags_are_descriptive_not_rankings(self):
         for asc, tag in distill.ASC_TAGS.items():
             self.assertIsInstance(tag, str)
@@ -254,6 +259,79 @@ class TreeData(unittest.TestCase):
         for name, code in codes.items():
             self.assertEqual(buildfile.ASCENDANCY_CODES.get(name), code,
                              f"{name!r}: buildfile disagrees with the export")
+
+
+class FailSafe(unittest.TestCase):
+    """The pipeline's most important promise: a bad upstream NEVER breaks the deployed site.
+    These lock that contract (asserted only in prose before)."""
+
+    def _run_live_with_fetch(self, fake_fetch):
+        import io
+        import contextlib
+        before = None
+        if os.path.exists(DATA_PATH):
+            with open(DATA_PATH, "rb") as f:
+                before = f.read()
+        orig = distill.fetch_poeninja_builds
+        distill.fetch_poeninja_builds = fake_fetch
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                rc = distill.run_live()
+        finally:
+            distill.fetch_poeninja_builds = orig
+        after = None
+        if os.path.exists(DATA_PATH):
+            with open(DATA_PATH, "rb") as f:
+                after = f.read()
+        return rc, before, after
+
+    def test_failed_fetch_keeps_data_json_and_exits_zero(self):
+        rc, before, after = self._run_live_with_fetch(lambda: None)
+        self.assertEqual(rc, 0)
+        self.assertEqual(before, after, "a failed fetch must leave data.json byte-for-byte unchanged")
+
+    def test_empty_feed_keeps_data_json_and_exits_zero(self):
+        # parseable-but-useless upstream: no ranked league has builds -> keep the last good file
+        rc, before, after = self._run_live_with_fetch(lambda: {"leagueBuilds": []})
+        self.assertEqual(rc, 0)
+        self.assertEqual(before, after, "an empty feed must leave data.json byte-for-byte unchanged")
+
+
+class Apportion(unittest.TestCase):
+    def test_derived_n_never_sums_above_total(self):
+        # largest-remainder rounding: per-row round() can bias the headcounts above the real
+        # population; apportionment must keep sum(n) <= total while staying share-accurate.
+        league = {"total": 1000, "statistics": [
+            {"class": "Martial Artist", "percentage": 24.567},
+            {"class": "Deadeye", "percentage": 24.567},
+            {"class": "Titan", "percentage": 24.567},
+            {"class": "Lich", "percentage": 24.567},   # 4 x 24.567 = 98.268% -> naive round() inflates
+        ]}
+        rows, total = distill.normalize_one(league)
+        self.assertLessEqual(sum(r["n"] for r in rows), total)
+        for r in rows:                                  # each still within 1 of its exact share
+            self.assertLessEqual(abs(r["n"] - total * 24.567 / 100.0), 1.0)
+
+    def test_zero_total_yields_zero_n(self):
+        rows, _ = distill.normalize_one({"total": 0, "statistics": [{"class": "Titan", "percentage": 5.0}]})
+        self.assertEqual(rows[0]["n"], 0)
+
+
+class CrossLang(unittest.TestCase):
+    def test_js_ascendancy_codes_match_python(self):
+        # tools/build-from-ninja.cjs hand-maintains its own copy of ASCENDANCY_CODES; if it drifts
+        # from buildfile.py the reconstructor can emit a code the validator/front end rejects.
+        import re
+        cjs = os.path.join(ROOT, "tools", "build-from-ninja.cjs")
+        if not os.path.exists(cjs):
+            self.skipTest("reconstructor not present")
+        with open(cjs, encoding="utf-8") as f:
+            src = f.read()
+        m = re.search(r"const ASCENDANCY_CODES\s*=\s*\{(.*?)\}", src, re.S)
+        self.assertTrue(m, "could not find ASCENDANCY_CODES in the reconstructor")
+        js = dict(re.findall(r"'([^']+)'\s*:\s*'([^']+)'", m.group(1)))
+        self.assertEqual(js, buildfile.ASCENDANCY_CODES,
+                         "tools/build-from-ninja.cjs ASCENDANCY_CODES drifted from buildfile.py")
 
 
 if __name__ == "__main__":
