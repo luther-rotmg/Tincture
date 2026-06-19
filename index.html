@@ -619,6 +619,7 @@
   .meta-stats b{ color:var(--gold-bright); }
   .meta-stats .smp{ color:var(--muted); }
   .meta-src{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; }
+  .row-share{ margin-top:14px; padding-top:12px; border-top:1px solid var(--hair); }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1618,15 +1619,25 @@ function renderRows(){
     rows.appendChild(row);
     if (md){
       row.classList.add("has-detail");
+      row.dataset.slug = slugOf(b);
       const detail = document.createElement("div");
       detail.className = "row-detail";
-      detail.innerHTML = metaDetailHTML(md, slugOf(b));
+      detail.innerHTML = metaDetailHTML(md, slugOf(b))
+        + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(slugOf(b))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button></div>`;
       const toggleBtn = row.querySelector(".row-toggle");
       row.addEventListener("click", e => {
-        if (e.target.closest(".decant, .guide-link, a")) return;   // let actions/links work
+        if (e.target.closest(".decant, .guide-link, a, .row-copylink")) return;   // let actions/links work
         const open = detail.classList.toggle("open");
         row.classList.toggle("open", open);
         if (toggleBtn) toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");  // keyboard: the button bubbles its click to here
+        writeAscHash(open ? row.dataset.slug : null);   // shareable URL state (replaceState — no history spam)
+      });
+      const copyBtn = detail.querySelector(".row-copylink");
+      if (copyBtn) copyBtn.addEventListener("click", async e => {
+        e.stopPropagation();
+        const url = location.origin + location.pathname + "#asc=" + copyBtn.dataset.slug;
+        try { await navigator.clipboard.writeText(url); toast(`Link copied — points straight at <b>${esc(b.asc)}</b>.`, "ok"); }
+        catch(_){ toast(`Couldn't copy the link here.`, "warn"); }
       });
       const pobBtn = detail.querySelector(".bv-pob");
       if (pobBtn) pobBtn.addEventListener("click", async ()=>{
@@ -2241,6 +2252,48 @@ function watchStill(){
   io.observe($("#still"));
 }
 
+/* ----- deep links (hash routing; URL only — no storage, replaceState, fail-safe) ----- */
+function writeAscHash(slug){
+  const base = location.pathname + location.search;
+  try { history.replaceState(null, "", slug ? base + "#asc=" + slug : base); } catch(_){ /* file:// / sandboxed */ }
+}
+function leagueUrlForSlug(slug){
+  for (const L of leagues()) if ((L.builds||[]).some(b=>slugOf(b)===slug)) return L.url;
+  return null;
+}
+// open + scroll to an ascendancy's ledger row by slug, switching league / clearing the class
+// filter if needed. Returns true only if it landed on a real row; an unknown slug no-ops.
+function openAsc(slug, scroll){
+  if (!slug) return false;
+  const lu = leagueUrlForSlug(slug);
+  if (!lu) return false;
+  if (lu !== activeUrl){ activeUrl = lu; activeClass = "All"; const sel=$("#leagueSelect"); if(sel) sel.value=activeUrl; renderMeta(); renderHero(); renderChips(); renderRows(); renderAssay(); }
+  else if (activeClass !== "All"){ activeClass = "All"; renderChips(); renderRows(); }
+  const esc2 = (typeof CSS!=="undefined" && CSS.escape) ? CSS.escape(slug) : slug;
+  const row = document.querySelector(`#rows .row[data-slug="${esc2}"]`);
+  if (!row) return false;
+  const detail = (row.nextElementSibling && row.nextElementSibling.classList.contains("row-detail")) ? row.nextElementSibling : null;
+  if (detail && !detail.classList.contains("open")){
+    detail.classList.add("open"); row.classList.add("open");
+    const tb=row.querySelector(".row-toggle"); if(tb) tb.setAttribute("aria-expanded","true");
+  }
+  if (scroll) row.scrollIntoView({behavior:"smooth", block:"center"});
+  return true;
+}
+// dispatch the URL hash to the right view; every lookup guards so a junk hash just no-ops.
+function route(){
+  const h = (location.hash || "").replace(/^#/, "");
+  if (!h) return;
+  const p = {};
+  h.split("&").forEach(kv=>{ const i=kv.indexOf("="); if(i>0) p[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1)); });
+  if (p.league && p.league!==activeUrl && leagues().some(L=>L.url===p.league)){
+    activeUrl = p.league; activeClass="All"; const sel=$("#leagueSelect"); if(sel) sel.value=activeUrl;
+    renderMeta(); renderHero(); renderChips(); renderRows(); renderAssay();
+  }
+  if (p.quiz && typeof openQuiz==="function") openQuiz(p.quiz);   // restore quiz state when present
+  if (p.asc) openAsc(p.asc, true);
+}
+
 /* ----- boot ----- */
 async function boot(){
   // Try live data; fall back to the bundled sample. Distinguish a genuine fetch failure
@@ -2292,6 +2345,10 @@ async function boot(){
     const heroLink = $("#guideHeroLink");
     if (heroLink) heroLink.onclick = e => { e.preventDefault(); setGuide(true); guide.scrollIntoView({behavior:"smooth", block:"start"}); };
   }
+
+  // deep links: open the pick / league / quiz named in the URL, and react to later hash changes
+  window.addEventListener("hashchange", route);
+  route();
 
   // keep "x min ago" honest if the tab stays open
   setInterval(renderMeta, 60000);
