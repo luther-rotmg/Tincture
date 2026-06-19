@@ -6,10 +6,7 @@ Tincture reads what the top of the live ladder is actually playing, boils thousa
 
 > Built for the **Runes of Aldur** league (PoE 2 patch 0.5.0). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
 
-![Tincture — the live Path of Exile 2 meta, distilled and decanted](docs/demo.svg)
-
-<!-- Placeholder above. Record a short walkthrough, save it as docs/demo.gif,
-     and swap the line above to: ![Tincture](docs/demo.gif) -->
+![Tincture — the live Path of Exile 2 build meta, distilled and decanted](docs/shots/01-hero.png)
 
 ---
 
