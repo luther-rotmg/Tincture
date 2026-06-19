@@ -374,7 +374,6 @@
   .guide.open .guide-body{ display:block; }
   .guide .lede{ color:var(--bone-dim); font-size:16px; max-width:64ch; margin:0 0 22px; }
   .guide .lede em{ font-style:italic; color:var(--bone); }
-  .path-label{ color:var(--bone-dim); font-size:14px; margin:0 0 8px; }
   @media (max-width:560px){ .guide-toggle{ flex-wrap:wrap; gap:6px 14px; } .gt-title{ flex-basis:100%; } }
   .guide .lede b{ color:var(--bone); }
   .steps{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
@@ -860,7 +859,7 @@
     :root{ --ink:#fff; --ink-2:#fff; --ink-3:#fff; --bone:#1a1a1a; --bone-dim:#333; --muted:#555; --hair:#ccc; --hair-strong:#999; }
     body{ background:#fff; color:#1a1a1a; }
     header.masthead, .hero, .guide, .prescription, .controls, .assay, .still, .archive,
-    .row-actions, .row-share, .toast-wrap, #leagueSelect, .folder, .sort, .ledger-foot, noscript{ display:none !important; }
+    .row-actions, .row-share, #toasts, #leagueSelect, .folder, .sort, .ledger-foot, noscript{ display:none !important; }
     .row{ break-inside:avoid; border:none; }
     .row:not(.open){ display:none !important; }    /* print only the build(s) you opened */
     .row-detail{ display:block !important; break-inside:avoid; }
@@ -1539,7 +1538,7 @@ async function decant(b, slugOverride){
       // (some static hosts serve index.html with 200 for unknown paths — that must NOT be
       // saved as a .build). A real .build is JSON/octet-stream, never text/html.
       const ct = (res.headers.get("content-type") || "").toLowerCase();
-      if (res.ok && !ct.includes("text/html")) real = await res.text();
+      if (res.ok && !ct.includes("text/html")) { const t = await res.text(); if (t.trim()) real = t; }   // never save an empty/truncated response as a .build
     } catch (_) { /* not reconstructed */ }
   }
   if (real != null) return saveRealBuild(b, real, slug + ".build");
@@ -1660,9 +1659,10 @@ function defenceHTML(md){
   const res = d.resists || {};
   const resPill = (lab,v,k) => v==null ? "" : `<span class="def-res ${k}${v>=75?' capped':(v<0?' neg':'')}">${lab} <b>${v}%</b></span>`;
   const pools=[];
-  if (d.life!=null) pools.push(`Life <b>${fmt(d.life)}</b>`);
+  if (d.life!=null && d.life>1) pools.push(`Life <b>${fmt(d.life)}</b>`);   // PoB exports Life=1 for CI/pure-ES — not a real pool
   if (d.es!=null && d.es>0) pools.push(`ES <b>${fmt(d.es)}</b>`);
   if (d.ward!=null && d.ward>0) pools.push(`Ward <b>${fmt(d.ward)}</b>`);
+  if (!pools.length && d.ehp!=null) pools.push(`EHP <b>${fmt(d.ehp)}</b>`);   // ES/CI build with no shown pool → show EHP, never a lone "Life 1"
   const extra=[];
   if (d.evade) extra.push(`Evade ${d.evade}%`);
   if (d.block) extra.push(`Block ${d.block}%`);
@@ -1682,8 +1682,10 @@ function variantsHTML(md){
   const vs = md.variants;
   if (!vs || !vs.length) return "";
   const card = v => {
-    const skill = ((v.name||"").split(" — ")[1]||"").replace(" (public ladder)","") || (v.skillSetups&&v.skillSetups[0]&&v.skillSetups[0].skill) || "variant";
-    const stats = [v.ehp?`EHP ${fmt(v.ehp)}`:"", v.dps?`DPS ${fmt(v.dps)}`:""].filter(Boolean).join(" · ");
+    if (!v || !v.source) return "";   // fail-safe: never let a malformed variant break the build view
+    const skill = (v.skillSetups&&v.skillSetups[0]&&v.skillSetups[0].skill) || ((v.name||"").split(" — ")[1]||"").replace(" (public ladder)","") || "variant";
+    const ehp = (v.defence && v.defence.ehp) || v.ehp;   // prefer the PoB EHP so it matches the primary panel's basis
+    const stats = [ehp?`EHP ${fmt(ehp)}`:"", v.dps?`DPS ${fmt(v.dps)}`:""].filter(Boolean).join(" · ");
     const res = v.defence && v.defence.resists;
     const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":res[k]).join("/")} res` : "";
     return `<div class="bv-var">
@@ -1715,7 +1717,8 @@ function buildViewHTML(md, slug){
 function metaDetailHTML(md, slug){
   const st = md.stats||{};
   const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
-  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters</span></div>` : "";
+  const ss = md.stats && md.stats.sample;   // count behind the EHP/DPS median (the sampled set, NOT md.sample = full population)
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters</span></div>` : "";
   const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
   return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
@@ -1796,8 +1799,14 @@ function renderRows(){
       row.dataset.slug = slugOf(b);
       const detail = document.createElement("div");
       detail.className = "row-detail";
-      detail.innerHTML = metaDetailHTML(md, slugOf(b))
-        + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(slugOf(b))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button></div>`;
+      // fail-safe: a single malformed meta-detail entry must degrade to no-detail, never abort the
+      // whole ledger render (the rest of the rows after it).
+      try {
+        detail.innerHTML = metaDetailHTML(md, slugOf(b))
+          + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(slugOf(b))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button></div>`;
+      } catch (_) {
+        detail.innerHTML = `<div class="meta-src">Build details unavailable for ${esc(b.asc)}.</div>`;
+      }
       const toggleBtn = row.querySelector(".row-toggle");
       row.addEventListener("click", e => {
         if (e.target.closest(".decant, .guide-link, a, .arch-btn")) return;   // let actions/links/buttons work
@@ -2465,13 +2474,16 @@ function rxClassOpts(){
   return set.sort().map(c=>({ k:c.toLowerCase(), label:c }));
 }
 function rxClassifyWeapon(name){
-  // anchored exact-family match on the main-hand token — "Quarterstaff" must NOT fall into the
-  // caster bucket via a substring "Staff" match (the bug that ranked melee monks as casters).
-  const fam=(name||'').split('/')[0].trim();
-  if(/^(Quarterstaff|Mace|Sword|Axe|Spear|Flail|Claw|Dagger)$/i.test(fam)) return 'melee';
-  if(/^(Bow|Crossbow)$/i.test(fam)) return 'ranged';
-  if(/^(Wand|Sceptre|Staff|Focus|Talisman)$/i.test(fam)) return 'caster';
-  return null;
+  // word-BOUNDARY family match so multi-word labels classify ("Two Handed Mace" -> melee) while
+  // "Quarterstaff" still never matches \bStaff\b (no boundary inside the word). Check melee first.
+  const cls = tok => {
+    if(/\b(Quarterstaff|Mace|Sword|Axe|Spear|Flail|Claw|Dagger)\b/i.test(tok)) return 'melee';
+    if(/\b(Bow|Crossbow)\b/i.test(tok)) return 'ranged';
+    if(/\b(Wand|Sceptre|Staff|Focus|Talisman)\b/i.test(tok)) return 'caster';
+    return null;
+  };
+  const parts=(name||'').split('/').map(x=>x.trim());
+  return cls(parts[0]) || cls(parts[1]||'') || null;   // fall back to the offhand token when the main-hand is "Unknown"
 }
 function rxCandidates(){
   const byAsc={};
@@ -2618,7 +2630,8 @@ function route(){
   const h = (location.hash || "").replace(/^#/, "");
   if (!h) return;
   const p = {};
-  h.split("&").forEach(kv=>{ const i=kv.indexOf("="); if(i>0) p[kv.slice(0,i)]=decodeURIComponent(kv.slice(i+1)); });
+  const dec = s => { try { return decodeURIComponent(s); } catch(_) { return null; } };   // a malformed %-escape must no-op, not throw out of boot
+  h.split("&").forEach(kv=>{ const i=kv.indexOf("="); if(i>0){ const v=dec(kv.slice(i+1)); if(v!=null) p[kv.slice(0,i)]=v; } });
   if (p.league && p.league!==activeUrl && leagues().some(L=>L.url===p.league)){
     activeUrl = p.league; activeClass="All"; const sel=$("#leagueSelect"); if(sel) sel.value=activeUrl;
     renderMeta(); renderHero(); renderChips(); renderRows(); renderAssay();
@@ -2652,7 +2665,7 @@ function renderHistory(){
   }).join("");
   $("#histSvg").innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ascendancy share over time">${grid}${lines}</svg>`;
   $("#histLegend").innerHTML = series.map((s,si)=>`<span class="hist-leg"><i style="background:${colors[si%colors.length]}"></i>${esc(s.asc)} <b>${last[s.asc]!=null?last[s.asc].toFixed(1)+"%":""}</b></span>`).join("");
-  const note=$("#histNote"); if (note) note.textContent = `${pts.length} hourly snapshots so far · the most-played ascendancies' share of the Runes of Aldur ladder. The longer Tincture runs, the further back this reaches.`;
+  const note=$("#histNote"); if (note) note.textContent = `${pts.length} distinct snapshots so far · the most-played ascendancies' share of the Runes of Aldur ladder. The longer Tincture runs, the further back this reaches.`;
 }
 
 // fetch JSON with a hard timeout so a hung/slow response can't stall boot — it falls to the
@@ -2677,13 +2690,15 @@ async function boot(){
   else dataState = "sample";   // missing / timed out / malformed — keep SAMPLE_DATA, but say so
 
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
-  const m = await fetchJSON("meta-detail.json", 8000);
+  // enrichment fetches run concurrently (independent of each other) so first render isn't serialized:
+  // meta-detail, the history chart, and the loadable-build manifest (also speeds the quiz/first decant).
+  const [m, h] = await Promise.all([
+    fetchJSON("meta-detail.json", 8000),
+    fetchJSON("history.json", 8000),
+    buildsManifest().catch(() => null),
+  ]);
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
-  // optional: append-only meta history for the rise/fall chart (absent until the pipeline accrues it)
-  const h = await fetchJSON("history.json", 8000);
   if (h && Array.isArray(h.points)) HISTORY = h;
-  // preload the loadable-build manifest so the quiz can label loadable-vs-template honestly
-  try { await buildsManifest(); } catch(_){}
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
