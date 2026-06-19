@@ -144,9 +144,17 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 - [x] **Ascendancy → `.build` code table** — completed and cross-confirmed from the same export (`scripts/buildfile.py`; `treedata.py --check` re-verifies per patch)
 - [ ] **"Export *my* character"** — a logged-in user's own GGG character → a personal `.build` (the self-only OAuth path; complements the public-ladder reconstruction above). Needs a registered GGG OAuth client (see [docs/owner-actions.md](docs/owner-actions.md))
 - [ ] **Direct GGG ladder cross-check** — a second, official source for ascendancy shares (scaffolded in `scripts/ggg.py`; needs the OAuth client). Summary-only, so it validates shares, not build content
+- [x] **The Prescription** — a guided build-finder quiz: answer a few questions (damage style, pace, survivability, experience) and Tincture matches you to ascendancies with an honest "why this matched", deterministically scored client-side from the playstyle tags + the meta's weapons and median EHP/DPS
+- [x] **Shareable deep links** — `#asc=`, `#league=`, `#quiz=` hash routing (URL only, no storage) + a "copy link" on every expanded pick
+- [x] **Defence profile** — each build view decodes the source character's Path of Building export for a real resists / life-ES / evade / crit layer beside EHP/DPS
+- [x] **Loadable build variants** — up to two more meaningfully-different QA'd builds per ascendancy (`<slug>-2/-3.build`), each Decantable, in an "other strong builds" panel
+- [x] **The Lineage** — an append-only `history.json` (hourly) drives a rise/fall chart of ascendancy share over time
+- [x] **Per-ascendancy SEO landing pages** — real-content static pages under `/b/<slug>.html` (class, playstyle, common skills, JSON-LD, deep link), in the sitemap
+- [x] **Reconstruction-quality chip** — the QA verdict (meta-weapon match, gems resolve, real level-N source) shown as an honest trust badge
 - [x] In-app source attribution — each expanded build credits its source character/account with a live poe.ninja link (plus the file's own credit), and shows when it was reconstructed
 - [x] Guide pointers — a "find a guide" link on the headline and every ledger row opens a neutral, patch-specific web search for that ascendancy's community guides (honest search, not an endorsed "best guide")
 - [ ] Curated guide directory — hand-pick a specific best guide per meta build (needs manual curation each league)
+- [ ] **Economy / "can I afford it"** — a currency reference + per-build budget bands from poe.ninja's PoE 2 economy data. Blocked: the economy *overview* endpoint isn't yet discoverable (every probed URL shape 404s), so this stays an honest horizon — never fabricated until a real source is wired
 
 ---
 
