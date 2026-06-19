@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - "scripts/**"
+      - "tools/**"
       - ".github/workflows/test.yml"
   pull_request:
   workflow_dispatch:
@@ -25,6 +26,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: .build serializer selftest
         run: python scripts/buildfile.py --selftest
 
@@ -33,3 +39,8 @@ jobs:
 
       - name: distill --demo runs offline (fail-safe path)
         run: python scripts/distill.py --demo
+
+      - name: Reconstructor syntax + unit tests
+        run: |
+          node --check tools/build-from-ninja.cjs
+          node --test tools/test-build-from-ninja.cjs

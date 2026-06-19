@@ -28,10 +28,21 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Reconstruct builds + meta breakdown (one pass per ascendancy)
         run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur
+
+      # Gate the commit on the honesty invariants (mirrors distill.yml): every committed .build
+      # must pass buildfile.validate + is_loadable. If reconstruction wrote a bad file, this
+      # fails the job and nothing is committed, so the live site keeps the last good builds.
+      - name: Validate reconstructed builds
+        run: python scripts/test_distill.py
 
       - name: Commit refreshed builds + meta
         run: |
@@ -42,5 +53,7 @@ jobs:
           else
             git add builds/ meta-detail.json
             git commit -m "Builds: refresh reconstructed builds + meta ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            # the hourly distill bot pushes to the same branch — rebase to avoid a Monday race
+            git pull --rebase --autostash origin main
             git push
           fi

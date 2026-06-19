@@ -45,5 +45,7 @@ jobs:
           else
             git add data.json
             git commit -m "Distill: refresh meta ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            # the weekly builds bot pushes to the same branch — rebase to avoid a Monday race
+            git pull --rebase --autostash origin main
             git push
           fi
