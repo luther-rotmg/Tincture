@@ -817,8 +817,13 @@
   }
 
   /* ---- The Prescription (guided build finder) ---- */
-  .prescription{ margin:34px 0; padding:30px 28px; border:1px solid var(--hair); border-radius:4px;
+  .prescription{ margin:34px 0; padding:22px 28px; border:1px solid var(--hair); border-radius:4px;
     background:linear-gradient(180deg, rgba(200,162,74,.04), rgba(0,0,0,.18)); }
+  .prescription .guide-toggle{ padding:0; }            /* the panel already pads; collapse like the guide */
+  .prescription .gt-title{ font-family:var(--fdisplay); font-size:21px; }
+  .prescription .rx-body{ display:none; margin-top:20px; }
+  .prescription.open .rx-body{ display:block; }
+  .prescription.open .gt-chevron{ transform:rotate(180deg); }
   .rx{ display:grid; gap:18px; margin-top:22px; }
   .rx-q .q{ font-family:var(--fmono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bone-dim); margin-bottom:9px; }
   .rx-opts{ display:flex; flex-wrap:wrap; gap:8px; }
@@ -915,7 +920,7 @@
           </button>
           <a class="ghost-link" id="heroGuide" target="_blank" rel="noopener noreferrer" hidden>find a build guide ↗</a>
           <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
-          <a href="#prescription" class="ghost-link">match me to a build ↓</a>
+          <a href="#prescription" class="ghost-link" id="rxHeroLink">match me to a build ↓</a>
           <a href="#assay" class="ghost-link">see the analysis ↓</a>
           <a href="#archive" class="ghost-link">access all the data ↓</a>
         </div>
@@ -969,12 +974,14 @@
 
   <!-- ===================== THE PRESCRIPTION (guided build finder) ===================== -->
   <section class="prescription" id="prescription" aria-label="Guided build finder">
-    <header class="section-head">
-      <span class="eyebrow">Not sure what to play?</span>
-      <h2>The Prescription</h2>
+    <button class="guide-toggle" id="rxToggle" aria-expanded="false" aria-controls="rxBody">
+      <span class="gt-eyebrow">Not sure what to play?</span>
+      <span class="gt-title">The Prescription — match me to a build</span>
+      <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="rx-body" id="rxBody">
       <p class="sub">Answer a few questions and Tincture matches you to ascendancies that fit — ranked, each with an honest reason. Your answers live only in the link, so the result is shareable.</p>
-    </header>
-    <div class="rx" id="rxQuiz"></div>
+      <div class="rx" id="rxQuiz"></div>
     <div class="rx-actions">
       <button class="decant lg" id="rxRun" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
@@ -983,8 +990,9 @@
       <button class="ghost-link" id="rxBeginner" type="button">new to PoE&nbsp;2? safe starters →</button>
       <button class="ghost-link" id="rxReset" type="button" hidden>start over</button>
     </div>
-    <div class="rx-results" id="rxResults" aria-live="polite"></div>
-    <p class="rx-note">Matching is editorial guidance — from the playstyle tags plus the meta's weapons and median EHP/DPS — a starting shortlist, not a power ranking. Every result links to the honest ledger row and Decant.</p>
+      <div class="rx-results" id="rxResults" aria-live="polite"></div>
+      <p class="rx-note">Matching is editorial guidance — from the playstyle tags plus the meta's weapons and median EHP/DPS — a starting shortlist, not a power ranking. Every result links to the honest ledger row and Decant.</p>
+    </div>
   </section>
 
   <!-- ===================== CONTROLS ===================== -->
@@ -2558,10 +2566,20 @@ function openQuiz(code){
   rxState={};
   (code||"").split(",").forEach(pair=>{ const i=pair.indexOf(":"); if(i>0) rxState[pair.slice(0,i)]=pair.slice(i+1); });
   rxRenderQuiz(); rxRun(false);
+  setRx(true);   // a shared #quiz= link should land on an open quiz
   const sec=$("#prescription"); if(sec) sec.scrollIntoView({behavior:"smooth", block:"start"});
+}
+// collapse/expand the Prescription (same pattern as the guide)
+function setRx(open){
+  const s=$("#prescription"), t=$("#rxToggle");
+  if(!s||!t) return;
+  s.classList.toggle("open", open);
+  t.setAttribute("aria-expanded", open?"true":"false");
 }
 function setupQuiz(){
   rxRenderQuiz();
+  const tgl=$("#rxToggle"); if(tgl) tgl.onclick=()=>setRx(!$("#prescription").classList.contains("open"));
+  const hero=$("#rxHeroLink"); if(hero) hero.onclick=e=>{ e.preventDefault(); setRx(true); const s=$("#prescription"); if(s) s.scrollIntoView({behavior:"smooth",block:"start"}); };
   const run=$("#rxRun"); if(run) run.onclick=()=>rxRun(true);
   const reset=$("#rxReset"); if(reset) reset.onclick=()=>{ rxState={}; rxRenderQuiz(); $("#rxResults").innerHTML=""; reset.hidden=true; rxWriteHash(); };
   const beg=$("#rxBeginner"); if(beg) beg.onclick=()=>{ rxState={ xp:'new', risk:'safe' }; rxRenderQuiz(); rxRun(true); const s=$("#prescription"); if(s) s.scrollIntoView({behavior:"smooth",block:"start"}); };
