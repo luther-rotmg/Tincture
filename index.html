@@ -41,7 +41,7 @@
     --ink-3:#241d14;        /* row hover */
     --bone:#ece3d0;         /* primary text */
     --bone-dim:#b6aa90;     /* secondary text */
-    --muted:#877a62;        /* low-emphasis */
+    --muted:#9b8c6f;        /* low-emphasis (≥4.5:1 on raised panels for AA) */
     --gold:#c8a24a;         /* primary accent */
     --gold-bright:#e6c47a;  /* hover / glow */
     --oxblood:#9c3a2c;      /* the essence / S-tier */
@@ -161,6 +161,8 @@
   /* shown only when the page is falling back to bundled sample data (never on the live site) */
   .updated.is-sample{ color:var(--fall); }
   .updated.is-sample .pulse{ background:var(--fall); animation:none; box-shadow:none; }
+  .updated.is-stale{ color:var(--gold); }       /* live data, but the hourly refresh is overdue */
+  .updated.is-stale .pulse{ background:var(--gold); animation:none; box-shadow:none; }
   /* per-build "find a guide" pointer — a neutral web search, not an endorsed guide */
   .guide-link{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.06em; color:var(--muted); text-decoration:none; white-space:nowrap; transition:color .18s; }
   .guide-link:hover{ color:var(--gold-bright); }
@@ -589,6 +591,7 @@
   .cru-rowh .c{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); }
   .cru-cell{ position:relative; display:flex; align-items:center; justify-content:center; min-height:38px; border-radius:2px; font-family:var(--fmono); font-size:11px; border:1px solid var(--hair); transition:outline .12s; }
   .cru-cell:hover{ outline:1px solid var(--gold-bright); outline-offset:1px; }
+  .cru-corner{ border:none; background:none; }   /* top-left spacer cell of the heatmap grid */
   .cru-cell.empty{ color:var(--muted); background:var(--ink); border-style:dashed; border-color:rgba(135,122,98,.3); background-image:repeating-linear-gradient(45deg, transparent 0 4px, rgba(200,162,74,.05) 4px 5px); }
   .cru-cell.col-active{ outline:1px solid var(--gold); outline-offset:1px; }
   .cru-tick{ position:absolute; top:3px; right:4px; width:4px; height:4px; border-top:1.5px solid currentColor; border-right:1.5px solid currentColor; opacity:.6; }
@@ -799,7 +802,7 @@
         <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
         <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
       </span>
-      <button class="folder" id="folderBtn" aria-pressed="false" title="Connect your BuildPlanner folder — loadable builds will save here in one click once they ship (roadmap)">
+      <button class="folder" id="folderBtn" title="Connect your BuildPlanner folder — reconstructed picks save a loadable .build straight here in one click">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         <span id="folderLabel">Connect BuildPlanner folder</span>
       </button>
@@ -854,7 +857,7 @@
   <section class="guide" id="guide" aria-label="How decanting works">
     <button class="guide-toggle" id="guideToggle" aria-expanded="false" aria-controls="guideBody">
       <span class="gt-eyebrow">New here?</span>
-      <span class="gt-title">What Decant gives you — today, and what's next</span>
+      <span class="gt-title">What Decant gives you, and how to load it</span>
       <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
     </button>
     <div class="guide-body" id="guideBody">
@@ -864,22 +867,22 @@
         <li class="step">
           <span class="step-num">1</span>
           <div>
-            <h3>Decant a meta pick</h3>
-            <p>Press <b>Decant</b> on the headline build or any ledger row. Tincture saves a small <code>.txt</code> template — the ascendancy, its share of the ladder, the sample behind it, the playstyle, and a guide pointer.</p>
+            <h3>Decant a pick</h3>
+            <p>Press <b>Decant</b> on the headline build or any ledger row. For a reconstructed pick you get a real, loadable <code>.build</code> — passives, gems and items from a credited public-ladder character. For one we haven't reconstructed yet, you get a labelled <code>.txt</code> template: the ascendancy, its ladder share, the sample, the playstyle, and a guide pointer.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">2</span>
           <div>
-            <h3>Use it as a starting point</h3>
-            <p>Pair the template with a community guide for that ascendancy to flesh out passives and gems. It's an honest pointer — <b>not</b> a loadable build file, so don't rename it to <code>.build</code> (the game would silently refuse it).</p>
+            <h3>Load it in-game</h3>
+            <p>Connect your <b>BuildPlanner folder</b> once and the <code>.build</code> saves straight into <code>Documents\My Games\Path of Exile 2\BuildPlanner</code> — otherwise it downloads and you drop it in. Open the in-game Build Planner to follow it. A <code>.txt</code> template isn't loadable, so don't rename it to <code>.build</code> (the game would silently refuse it) — pair it with a community guide instead.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">3</span>
           <div>
-            <h3>Loadable builds <span class="once">roadmap</span></h3>
-            <p>When the GGG character pull lands, Decant will write a real <code>.build</code> straight into <code>Documents\My Games\Path of Exile 2\BuildPlanner</code> via the <b>Connect BuildPlanner folder</b> button — already wired, just waiting on the data.</p>
+            <h3>Always honest <span class="once">no fabrication</span></h3>
+            <p>Every reconstructed <code>.build</code> credits the exact source character, account and poe.ninja link — never bylined as ours. Picks without a real reconstruction fall back to the clearly-labelled template; Tincture never writes a fake <code>.build</code> the game would silently refuse.</p>
           </div>
         </li>
       </ol>
@@ -1169,16 +1172,9 @@ const SAMPLE_DATA = {
   ]
 };
 
-/* Accept the multi-league shape (or, defensively, an older single-league one). */
+/* The pipeline only ever emits the multi-league {leagues:[]} shape; accept it, else fall back. */
 function normalizeData(json){
   if (json && Array.isArray(json.leagues) && json.leagues.length) return json;
-  if (json && Array.isArray(json.builds)){
-    const t = json.totals || {};
-    return { patch:json.patch, updated:json.updated, sources:t.sources||1, default:json.league,
-      leagues:[{ url:json.league||"league", name:json.league||"League", mode:json.mode||"Softcore",
-        label:json.league||"League", totals:{characters:t.characters||0, ascendancies:t.ascendancies||0},
-        builds:json.builds }] };
-  }
   return null;
 }
 
@@ -1385,9 +1381,8 @@ async function connectFolder(){
   try{
     dirHandle = await window.showDirectoryPicker({ mode:"readwrite", id:"poe2-buildplanner" });
     $("#folderBtn").classList.add("connected");
-    $("#folderBtn").setAttribute("aria-pressed", "true");
     $("#folderLabel").textContent = "BuildPlanner connected";
-    toast(`Folder connected. Loadable builds will save straight here once they ship — for now Decant exports a meta template.`, "ok");
+    toast(`Folder connected. Reconstructed picks now save a loadable .build straight here; picks we haven't reconstructed export a labelled template.`, "ok");
     return true;
   }catch(err){
     if (err && err.name === "AbortError") return false; // user cancelled
@@ -1546,7 +1541,7 @@ function metaDetailHTML(md, slug){
   const st = md.stats||{};
   const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
   const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${fmt(md.sample)} ${esc(md.asc)} characters</span></div>` : "";
-  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a></div>` : "";
+  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
   return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
 
@@ -1636,7 +1631,13 @@ function renderRows(){
       const pobBtn = detail.querySelector(".bv-pob");
       if (pobBtn) pobBtn.addEventListener("click", async ()=>{
         try {
-          const code = (await (await fetch("builds/"+pobBtn.dataset.pob+".pob", {cache:"no-store"})).text()).trim();
+          const res = await fetch("builds/"+pobBtn.dataset.pob+".pob", {cache:"no-store"});
+          // guard the static-host "200 text/html fallback" hazard (same as decant()): a missing
+          // .pob must never be copied to the clipboard as a page of HTML.
+          const ct = (res.headers.get("content-type")||"").toLowerCase();
+          if (!res.ok || ct.includes("text/html")) throw new Error("not a pob export");
+          const code = (await res.text()).trim();
+          if (!code) throw new Error("empty pob export");
           await navigator.clipboard.writeText(code);
           toast(`Path of Building code copied — in PoB choose <b>Import build → From string</b> and paste.`, "ok", 6000);
         } catch(_) { toast(`Couldn't copy the PoB code here.`, "warn"); }
@@ -1693,14 +1694,17 @@ function renderMeta(){
     upd.textContent = "sample data — live feed unavailable";
     foot.textContent = "showing bundled sample data";
     [upd, foot].forEach(el => { if (el){ el.removeAttribute("datetime"); el.removeAttribute("title"); } });
-    if (updWrap) updWrap.classList.add("is-sample");
+    if (updWrap){ updWrap.classList.add("is-sample"); updWrap.classList.remove("is-stale"); }
   } else {
     const rt = relTime(DATA.updated), abs = absTime(DATA.updated);
+    // the page promises an hourly refresh; if the Action is delayed (>3h) flag it, rather than
+    // letting the honest-but-quiet "refreshed Nh ago" imply the hourly promise is still being met.
+    const stale = DATA.updated && (Date.now() - new Date(DATA.updated).getTime()) > 3*3600e3;
     upd.textContent = "refreshed " + rt;
-    foot.textContent = "last refreshed " + rt;
+    foot.textContent = "last refreshed " + rt + (stale ? " · hourly refresh delayed" : "");
     // expose the precise instant to crawlers + screen readers, and on hover
-    [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC"; } });
-    if (updWrap) updWrap.classList.remove("is-sample");
+    [upd, foot].forEach(el => { if (el && DATA.updated){ el.setAttribute("datetime", DATA.updated); if (abs) el.title = abs + " UTC" + (stale ? " — the hourly refresh is overdue" : ""); } });
+    if (updWrap){ updWrap.classList.remove("is-sample"); updWrap.classList.toggle("is-stale", !!stale); }
   }
   // The Still is a fixed brand statement about the LIVE Runes of Aldur ladder, and its
   // prose names that ladder — so pin its counters to the default (SC challenge) league
@@ -2035,7 +2039,7 @@ function renderAssay(){
       metaPanel.hidden = false;
     } else metaPanel.hidden = true;
   }
-  $("#assayCaveat").innerHTML = `Ascendancy shares cover the most-played ascendancies poe.ninja publishes; they don't sum to 100% — the rest is the long tail. Character counts are <b>derived</b> from share × league total, not a measured headcount. Curated leagues (Standard) are left out of the assay. <b>Skill / support / notable / unique popularity</b> (The Dispensary, and each expanded ledger row) is the share of published characters running each, aggregated from poe.ninja's build index.`;
+  $("#assayCaveat").innerHTML = `Ascendancy shares cover the most-played ascendancies poe.ninja publishes; they don't sum to 100% — the rest is the long tail. Character counts are <b>derived</b> from share × league total, not a measured headcount. Curated leagues (Standard) are left out of the assay. <b>Skill / support / notable / unique popularity</b> (The Dispensary, and each expanded ledger row) is the share of published characters running each, aggregated from poe.ninja's build index${META && META.updated ? `, reconstructed ${esc(relTime(META.updated))}` : ""}.`;
   // grow-in once visible
   watchAssay();
 }
