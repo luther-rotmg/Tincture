@@ -841,7 +841,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Lunar Amulet\n1. +33 to maximum [EnergyShield|Energy Shield]\n2. +42 to [Spirit|Spirit]\n3. +13% to all [ElementalDamage|Elemental] [Resistances]\n4. +36% to [Resistances|Fire Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -857,7 +857,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Drakeskin Boots\n1. 35% increased Movement Speed\n2. 99% increased [Evasion|Evasion] Rating\n3. +44% to [Resistances|Lightning Resistance]\n4. 8% increased Movement Speed\n5. 32% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -867,7 +867,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Polished Bracers\n1. Adds 7 to 10 [Physical|Physical] Damage to [Attack|Attacks]\n2. Adds 23 to 37 [Cold] damage to [Attack|Attacks]\n3. +44% to [Resistances|Fire Resistance]\n4. +37% to [Resistances|Cold Resistance]\n5. +39% to [Resistances|Lightning Resistance]\n6. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -877,7 +877,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Freebooter Cap\n1. +201 to [Evasion] Rating\n2. 95% increased [Evasion|Evasion] Rating\n3. +39% to [Resistances|Fire Resistance]\n4. +44% to [Resistances|Cold Resistance]\n5. +1 to [Accuracy] Rating per 1 [ItemEvasion|Item Evasion Rating] on Equipped Helmet",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -899,7 +899,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Vile Robe\n1. +29 to maximum [EnergyShield|Energy Shield]\n2. 41% increased [EnergyShield|Energy Shield]\n3. +25 to [Intelligence|Intelligence]\n4. +36% to [Resistances|Lightning Resistance]\n5. +27% to [Resistances|Chaos Resistance]\n6. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,

@@ -551,14 +551,7 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
             1,
             100
@@ -566,6 +559,13 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSuffuse",
           "level_interval": [
             1,
             100
@@ -884,7 +884,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Vaal Gloves\n1. +57 to maximum [EnergyShield|Energy Shield]\n2. Adds 1 to 45 [Lightning] damage to [Attack|Attacks]\n3. +33 to [Dexterity|Dexterity]\n4. +65% to [Resistances|Cold Resistance]\n5. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -894,7 +894,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Lament Amulet\n1. -1 Prefix Modifier allowed\n2. +5 to Level of all [Minion|Minion] Skills\n3. +33% to [Resistances|Fire Resistance]",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "slot_x": 0,
@@ -904,7 +904,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Rattling Sceptre\n1. 43% increased [Spirit|Spirit]\n2. [Allies|Allies] in your [Presence|Presence] deal 48% increased Damage\n3. [Allies|Allies] in your [Presence|Presence] have 29% increased [Critical|Critical Hit] Chance\n4. [Minion|Minions] deal 40% increased Damage with [Command] Skills",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "slot_x": 0,
@@ -914,7 +914,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Runeforged Sekhema Sandals\n1. 35% increased Movement Speed\n2. +46 to maximum [EnergyShield|Energy Shield]\n3. 42% increased [EnergyShield|Energy Shield]\n4. +27 to [Intelligence|Intelligence]\n5. +35% to [Resistances|Fire Resistance]\n6. +42% to [Resistances|Lightning Resistance]\n7. +136 to [StunThreshold|Stun Threshold]\n8. +15 to [Strength|Strength]\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n10. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -924,7 +924,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Ruby Ring\n1. +27% to [Resistances|Fire Resistance]\n2. +158 to maximum Mana\n3. +12% to all [ElementalDamage|Elemental] [Resistances]\n4. +36% to [Resistances|Cold Resistance]\n5. [Minion|Minions] deal 27% increased Damage\n6. [Minion|Minions] have 42% increased [Critical|Critical Hit Chance]",
       "level_interval": [
-        1,
+        56,
         100
       ],
       "slot_x": 0,
@@ -934,7 +934,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Unset Ring\n1. Grants 1 additional Skill Slot\n2. +119 to maximum Mana\n3. 13% increased [ItemRarity|Rarity of Items] found\n4. +37% to [Resistances|Lightning Resistance]\n5. [Minion|Minions] deal 27% increased Damage\n6. [Minion|Minions] have 40% increased [CriticalDamageBonus|Critical Damage Bonus]",
       "level_interval": [
-        1,
+        64,
         100
       ],
       "slot_x": 0,
@@ -944,7 +944,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Vile Robe\n1. +95 to maximum [EnergyShield|Energy Shield]\n2. +56 to [Spirit|Spirit]\n3. +28% to [Resistances|Cold Resistance]\n4. +31% to [Resistances|Lightning Resistance]\n5. 34.9 Life Regeneration per second\n6. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -954,7 +954,7 @@
       "inventory_id": "Belt1",
       "additional_text": "Heavy Belt\n1. 24% increased [StunThreshold|Stun Threshold]\n2. Has 3 [Charm] Slots\n3. +286 to [Armour]\n4. +65 to maximum Life\n5. +120 to maximum Mana\n6. +2 to Level of all [Minion|Minion] Skills\n7. +28% to [Resistances|Lightning Resistance]",
       "level_interval": [
-        1,
+        56,
         100
       ],
       "slot_x": 0,
@@ -964,7 +964,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Ancestral Tiara\n1. 40% increased [EnergyShield|Energy Shield]\n2. +42 to maximum Life\n3. 35% reduced [Attributes|Attribute] Requirements\n4. +2 to Level of all [Minion|Minion] Skills\n5. [RavenTouched|Raven-Touched]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,

@@ -1,5 +1,6 @@
 {
-  "updated": "2026-06-19T12:12:39.905Z",
+  "updated": "2026-06-19T13:16:31.960Z",
+  "buildsUpdated": "2026-06-19T13:16:31.960Z",
   "league": "runesofaldur",
   "version": "1059-20260619-05372",
   "total": 124258,
@@ -164,77 +165,77 @@
     "gear": [
       {
         "name": "+# to maximum Energy Shield",
-        "pct": 23.4,
-        "lo": 48,
+        "pct": 24.4,
+        "lo": 47,
         "hi": 82
       },
       {
         "name": "+#% to Fire Resistance",
-        "pct": 23,
+        "pct": 22.8,
         "lo": 32,
         "hi": 42
       },
       {
         "name": "+#% to Cold Resistance",
-        "pct": 22.2,
+        "pct": 22.3,
         "lo": 33,
         "hi": 42
       },
       {
-        "name": "+# to maximum Mana",
-        "pct": 21.6,
-        "lo": 46,
-        "hi": 168
-      },
-      {
         "name": "+#% to Lightning Resistance",
-        "pct": 21.1,
-        "lo": 33,
+        "pct": 22,
+        "lo": 34,
         "hi": 43
       },
       {
+        "name": "+# to maximum Mana",
+        "pct": 20.9,
+        "lo": 43,
+        "hi": 164
+      },
+      {
         "name": "+# to maximum Life",
-        "pct": 20.5,
-        "lo": 80,
+        "pct": 19.7,
+        "lo": 70,
         "hi": 146
       },
       {
         "name": "#% increased Energy Shield",
-        "pct": 19.5,
+        "pct": 19.7,
         "lo": 73,
         "hi": 121
       },
       {
         "name": "#% increased Rarity of Items found",
-        "pct": 15.9,
+        "pct": 16.6,
         "lo": 17,
         "hi": 18
       }
     ],
     "runes": [
       {
-        "name": "Hedgewitch Assandra's Rune of Wisdom",
-        "pct": 27.7
+        "name": "Saqawal's Rune of the Sky",
+        "pct": 25.9
       },
       {
-        "name": "Saqawal's Rune of the Sky",
-        "pct": 27
+        "name": "Hedgewitch Assandra's Rune of Wisdom",
+        "pct": 25.9
       },
       {
         "name": "Perfect Iron Rune",
-        "pct": 22.6
+        "pct": 21.1
       },
       {
         "name": "Countess Seske's Rune of Archery",
-        "pct": 13.9
+        "pct": 15
       },
       {
         "name": "Soul Core of Quipolatl",
-        "pct": 12.4
+        "pct": 12.2
       },
       {
         "name": "Farrul's Rune of the Hunt",
-        "pct": 8.8
+        "pct": 8.2
       }
     ]
   },
@@ -481,7 +482,7 @@
         "level": 100
       },
       "build": {
-        "passives": 104,
+        "passives": 157,
         "skills": 13,
         "items": 10
       },
@@ -993,7 +994,7 @@
         "level": 98
       },
       "build": {
-        "passives": 125,
+        "passives": 134,
         "skills": 11,
         "items": 10
       },
@@ -1470,7 +1471,7 @@
         "level": 99
       },
       "build": {
-        "passives": 124,
+        "passives": 132,
         "skills": 9,
         "items": 9
       },
@@ -1935,7 +1936,7 @@
         "level": 100
       },
       "build": {
-        "passives": 102,
+        "passives": 160,
         "skills": 10,
         "items": 9
       },
@@ -2408,7 +2409,7 @@
         "level": 100
       },
       "build": {
-        "passives": 110,
+        "passives": 168,
         "skills": 10,
         "items": 10
       },
@@ -2918,7 +2919,7 @@
         "level": 99
       },
       "build": {
-        "passives": 101,
+        "passives": 158,
         "skills": 9,
         "items": 10
       },
@@ -3418,7 +3419,7 @@
         "level": 99
       },
       "build": {
-        "passives": 127,
+        "passives": 136,
         "skills": 6,
         "items": 9
       },
@@ -3884,7 +3885,7 @@
         "level": 98
       },
       "build": {
-        "passives": 117,
+        "passives": 145,
         "skills": 10,
         "items": 9
       },
@@ -4361,7 +4362,7 @@
         "level": 99
       },
       "build": {
-        "passives": 103,
+        "passives": 160,
         "skills": 13,
         "items": 10
       },
@@ -4870,7 +4871,7 @@
         "level": 100
       },
       "build": {
-        "passives": 103,
+        "passives": 156,
         "skills": 12,
         "items": 9
       },
@@ -5330,7 +5331,7 @@
         "level": 100
       },
       "build": {
-        "passives": 104,
+        "passives": 161,
         "skills": 12,
         "items": 9
       },
@@ -5826,7 +5827,7 @@
         "level": 100
       },
       "build": {
-        "passives": 101,
+        "passives": 157,
         "skills": 9,
         "items": 10
       },
@@ -6329,7 +6330,7 @@
         "level": 99
       },
       "build": {
-        "passives": 113,
+        "passives": 150,
         "skills": 12,
         "items": 10
       },
@@ -6814,7 +6815,7 @@
         "level": 99
       },
       "build": {
-        "passives": 101,
+        "passives": 158,
         "skills": 7,
         "items": 10
       },
@@ -7311,7 +7312,7 @@
         "level": 100
       },
       "build": {
-        "passives": 126,
+        "passives": 135,
         "skills": 13,
         "items": 9
       },
@@ -7790,7 +7791,7 @@
         "level": 100
       },
       "build": {
-        "passives": 106,
+        "passives": 155,
         "skills": 11,
         "items": 9
       },
@@ -8274,7 +8275,7 @@
         "level": 99
       },
       "build": {
-        "passives": 110,
+        "passives": 151,
         "skills": 10,
         "items": 9
       },
@@ -8765,7 +8766,7 @@
         "level": 99
       },
       "build": {
-        "passives": 127,
+        "passives": 137,
         "skills": 10,
         "items": 9
       },
@@ -9247,7 +9248,7 @@
         "level": 99
       },
       "build": {
-        "passives": 100,
+        "passives": 157,
         "skills": 8,
         "items": 9
       },
@@ -9720,7 +9721,7 @@
         "level": 100
       },
       "build": {
-        "passives": 103,
+        "passives": 161,
         "skills": 14,
         "items": 10
       },
@@ -10150,49 +10151,49 @@
       "gear": [
         {
           "name": "+# to maximum Energy Shield",
-          "pct": 31.2,
-          "lo": 59,
-          "hi": 87
+          "pct": 34.8,
+          "lo": 48,
+          "hi": 85
         },
         {
-          "name": "#% increased Energy Shield",
-          "pct": 28.6,
-          "lo": 79,
-          "hi": 100
+          "name": "+#% to Lightning Resistance",
+          "pct": 30.3,
+          "lo": 32,
+          "hi": 40
         },
         {
           "name": "#% increased Rarity of Items found",
-          "pct": 27.3,
+          "pct": 28,
           "lo": 17,
           "hi": 19
         },
         {
-          "name": "+#% to Lightning Resistance",
-          "pct": 26,
-          "lo": 29,
-          "hi": 44
+          "name": "#% increased Energy Shield",
+          "pct": 26.5,
+          "lo": 55,
+          "hi": 100
         },
         {
           "name": "+#% to Cold Resistance",
-          "pct": 20.8,
+          "pct": 22,
           "lo": 30,
-          "hi": 40
+          "hi": 39
         },
         {
           "name": "+#% to Fire Resistance",
-          "pct": 18.2,
+          "pct": 18.9,
           "lo": 29,
-          "hi": 41
+          "hi": 40
         },
         {
           "name": "+# to maximum Mana",
-          "pct": 15.6,
+          "pct": 13.6,
           "lo": 29,
-          "hi": 129
+          "hi": 117
         },
         {
           "name": "+# to Level of all Projectile Skills",
-          "pct": 14.3,
+          "pct": 11.4,
           "lo": 2,
           "hi": 3
         }
@@ -10200,27 +10201,27 @@
       "runes": [
         {
           "name": "Countess Seske's Rune of Archery",
-          "pct": 46.7
+          "pct": 40
         },
         {
           "name": "Ancient Rune of Splinters",
-          "pct": 26.7
+          "pct": 24
         },
         {
           "name": "Perfect Iron Rune",
-          "pct": 20
+          "pct": 12
         },
         {
           "name": "Perfect Storm Rune",
-          "pct": 6.7
+          "pct": 8
+        },
+        {
+          "name": "Saqawal's Rune of the Sky",
+          "pct": 8
         },
         {
           "name": "Soul Core of Cholotl",
-          "pct": 6.7
-        },
-        {
-          "name": "Soul Core of Zantipi",
-          "pct": 6.7
+          "pct": 4
         }
       ]
     },
@@ -10462,7 +10463,7 @@
         "level": 100
       },
       "build": {
-        "passives": 104,
+        "passives": 161,
         "skills": 8,
         "items": 10
       },
@@ -10966,7 +10967,7 @@
         "level": 99
       },
       "build": {
-        "passives": 102,
+        "passives": 159,
         "skills": 11,
         "items": 9
       },

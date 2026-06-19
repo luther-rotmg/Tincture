@@ -796,7 +796,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Vile Robe\n1. +61 to [Spirit|Spirit]\n2. +39% to [Resistances|Cold Resistance]\n3. +25% to [Resistances|Chaos Resistance]\n4. 59% reduced [Poison|Poison] Duration on you\n5. 36% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -812,7 +812,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Sorcerous Tiara\n1. 121% increased [EnergyShield|Energy Shield]\n2. +200 to maximum Life\n3. +31% to [Resistances|Fire Resistance]\n4. +43% to [Resistances|Lightning Resistance]\n5. 3% increased maximum Mana\n6. 2% increased Experience gain\n7. [ShamanOnlyMods|Bonded]: +10% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        1,
+        70,
         100
       ],
       "slot_x": 0,
@@ -822,7 +822,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Gold Ring\n1. 9% increased [ItemRarity|Rarity of Items] found\n2. Adds 11 to 19 [Cold] damage to [Attack|Attacks]\n3. +210 to maximum Mana\n4. +30 to [Intelligence|Intelligence]\n5. +15% to all [ElementalDamage|Elemental] [Resistances]\n6. +35% to [Resistances|Fire Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -832,7 +832,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Sandsworn Sandals\n1. +35 to maximum [EnergyShield|Energy Shield]\n2. +102 to maximum Mana\n3. +37% to [Resistances|Cold Resistance]\n4. +37% to [Resistances|Lightning Resistance]\n5. 5% increased Movement Speed\n6. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -848,7 +848,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Breach Ring\n1. +20% to Maximum [Quality]\n2. +275 to maximum Mana\n3. +33 to [Dexterity|Dexterity]\n4. +14% to all [ElementalDamage|Elemental] [Resistances]\n5. +33% to [Resistances|Cold Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -864,7 +864,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Solar Amulet\n1. +13 to [Spirit|Spirit]\n2. +163 to maximum Mana\n3. +50 to [Spirit|Spirit]\n4. 25% increased Cast Speed",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,

@@ -899,7 +899,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Reaping Staff\n1. [Gain] 54% of Damage as Extra [Fire] Damage\n2. [Gain] 54% of Damage as Extra [Cold] Damage\n3. +7 to Level of all [Physical|Physical] [Spell|Spell] Skills\n4. +1 to Level of all [Spell|Spell] Skills\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: 12% chance when collecting an [ElementalInfusion|Elemental Infusion] to gain an\nadditional [ElementalInfusion|Elemental Infusion] of the same type\n7. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster",
       "level_interval": [
-        1,
+        84,
         100
       ],
       "slot_x": 0,
@@ -909,7 +909,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Stellar Amulet\n1. +5 to all [Attributes|Attributes]\n2. +77 to maximum [EnergyShield|Energy Shield]\n3. 7% increased maximum Life\n4. +4 to Level of all [Spell|Spell] Skills\n5. +24% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        1,
+        64,
         100
       ],
       "slot_x": 0,
@@ -925,7 +925,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Vile Robe\n1. +30 to maximum [EnergyShield|Energy Shield]\n2. 40% increased [EnergyShield|Energy Shield]\n3. +41% to [Resistances|Fire Resistance]\n4. +43% to [Resistances|Cold Resistance]\n5. +24% to [Resistances|Chaos Resistance]\n6. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -941,7 +941,7 @@
       "inventory_id": "Weapon2",
       "additional_text": "Chiming Staff\n1. 39% increased [Spell] Damage\n2. 99% increased [Lightning] Damage\n3. +227 to maximum Mana\n4. 36% increased [CriticalDamageBonus|Critical Spell Damage Bonus]\n5. 74% increased chance to [Shock]\n6. [Gain] 20% of Damage as Extra [Lightning] Damage\n7. [ShamanOnlyMods|Bonded]: 60% increased [BuffMagnitude|Magnitude] of [Shock|Shock] you inflict",
       "level_interval": [
-        1,
+        72,
         100
       ],
       "slot_x": 0,
@@ -951,7 +951,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Gold Ring\n1. 14% increased [ItemRarity|Rarity of Items] found\n2. 17% increased [ItemRarity|Rarity of Items] found\n3. 33% increased [CriticalDamageBonus|Critical Spell Damage Bonus]\n4. +29% to [Resistances|Lightning Resistance]\n5. 45% increased Mana Regeneration Rate\n6. 10% increased [Curse] [BuffMagnitude|Magnitudes]\n7. 45% increased [BuffEffect|effect] of [ArcaneSurge|Arcane Surge] on you",
       "level_interval": [
-        1,
+        64,
         100
       ],
       "slot_x": 0,
@@ -961,7 +961,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Prismatic Ring\n1. +7% to all [ElementalDamage|Elemental] [Resistances]\n2. 28% increased [Spell] Damage\n3. 30% increased [CriticalDamageBonus|Critical Spell Damage Bonus]\n4. 21% increased Cast Speed\n5. 28% increased Mana Cost [Efficiency] of [Spell|Spells]\n6. [Remnant|Remnants] can be collected from 20% further away",
       "level_interval": [
-        1,
+        61,
         100
       ],
       "slot_x": 0,
@@ -971,7 +971,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Bound Sandals\n1. 35% increased Movement Speed\n2. 36% increased [EnergyShield|Energy Shield]\n3. +85 to maximum Life\n4. +41% to [Resistances|Lightning Resistance]\n5. +77 to [StunThreshold|Stun Threshold]\n6. 8% increased Movement Speed\n7. 16% increased Movement Speed when on [LowLife|Low Life]\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,

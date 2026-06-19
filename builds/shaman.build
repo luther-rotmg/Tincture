@@ -951,7 +951,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Bound Cuffs\n1. Adds 14 to 24 [Physical|Physical] Damage to [Attack|Attacks]\n2. +2 to Level of all [Melee|Melee] Skills\n3. +120 to maximum Life\n4. 12% increased [Attack] Speed\n5. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n7. [ShamanOnlyMods|Bonded]: 32% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -967,7 +967,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Vaal Greaves\n1. +168 to [Armour|Armour]\n2. 85% increased [Armour|Armour]\n3. +40% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n4. 8% increased Movement Speed\n5. +120 to maximum Life\n6. [IronReflexes|Iron Reflexes]\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n9. [ShamanOnlyMods|Bonded]: 40% increased [AilmentThreshold|Elemental Ailment Threshold]\n10. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -977,7 +977,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Spiny Talisman\n1. Adds 120 to 182 [Fire|Fire] Damage\n2. Adds 84 to 150 [Cold|Cold] Damage\n3. +4.94% to [Critical|Critical Hit] Chance\n4. [Gain] 13% of Damage as Extra [Chaos] Damage\n5. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n8. [ShamanOnlyMods|Bonded]: [Gain] 8% of Damage as Extra [Physical] Damage\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
-        1,
+        67,
         100
       ],
       "slot_x": 0,
@@ -999,7 +999,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Gold Amulet\n1. 19% increased [ItemRarity|Rarity of Items] found\n2. +147 to maximum Life\n3. 6% increased maximum Life\n4. 32% increased [Critical|Critical Hit] Chance\n5. +22% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -1015,7 +1015,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Grasping Ring\n1. This item gains bonuses from Socketed Items as though it was Gloves\n2. Adds 12 to 24 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 31 to 54 [Fire] damage to [Attack|Attacks]\n4. +25 to [Dexterity|Dexterity]\n5. +35% to [Resistances|Fire Resistance]\n6. [LifeLeech|Leech] 8.41% of [Physical] [Attack] Damage as Life\n7. [Gain] 1% of Damage as [Gain|Extra] Damage of a random [ElementalDamage|Element] per\n[Rune] Socketed in [Equipped] Items\n8. [ShamanOnlyMods|Bonded]: 20% increased [ElementalDamage|Elemental Damage]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,

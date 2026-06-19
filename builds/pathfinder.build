@@ -876,7 +876,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Gold Amulet\n1. 20% increased [ItemRarity|Rarity of Items] found\n2. 65% increased maximum [EnergyShield|Energy Shield]\n3. +3 to Level of all [Projectile] Skills\n4. +20% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -886,7 +886,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Refined Breach Ring\n1. +25% to Maximum [Quality]\n2. Adds 31 to 51 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 41 to 72 [Fire] damage to [Attack|Attacks]\n4. +44% to [Resistances|Fire Resistance]\n5. +45% to [Resistances|Cold Resistance]\n6. +43% to [Resistances|Lightning Resistance]",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -896,7 +896,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Warmonger Bow\n1. 179% increased [Physical] Damage\n2. Adds 39 to 63 [Physical|Physical] Damage\n3. +24% to [CriticalDamageBonus|Critical Damage Bonus]\n4. +4 to Level of all [Projectile] Skills\n5. +198% [SurpassChance|Surpassing] chance to fire an additional Arrow\n6. +1 Suffix Modifier allowed\n7. Bow [Attack|Attacks] fire an additional Arrow\n8. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n9. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Speed\n10. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
-        1,
+        77,
         100
       ],
       "slot_x": 0,
@@ -906,7 +906,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Runeforged Daggerfoot Shoes\n1. +75 to [Evasion] Rating\n2. +23 to maximum [EnergyShield|Energy Shield]\n3. 100% increased [Evasion] and [EnergyShield|Energy Shield]\n4. +24% to [Resistances|Chaos Resistance]\n5. 8% increased Movement Speed\n6. 16% increased Movement Speed when on [LowLife|Low Life]\n7. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -916,7 +916,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Ancestral Tiara\n1. 141% increased [EnergyShield|Energy Shield]\n2. +36 to maximum Mana\n3. +45% to [Resistances|Cold Resistance]\n4. +41% to [Resistances|Lightning Resistance]\n5. +50 to all [Attributes]\n6. [RavenTouched|Raven-Touched]\n7. [ShamanOnlyMods|Bonded]: +1 Maximum Life per Level",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -926,7 +926,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Runeforged Falconer's Jacket\n1. 5% increased Movement Speed\n2. 110% increased [Evasion] and [EnergyShield|Energy Shield]\n3. +42% to [Resistances|Fire Resistance]\n4. +41% to [Resistances|Cold Resistance]\n5. +42% to [Resistances|Lightning Resistance]\n6. 80% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +80 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +80 to maximum Mana",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -936,7 +936,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Runeforged Secured Wraps\n1. Adds 1 to 69 [Lightning] damage to [Attack|Attacks]\n2. +2 to Level of all [Projectile] Skills\n3. 40% increased [Projectile] Damage\n4. 8% increased [Attack] Speed\n5. Can roll Marksman modifiers\n6. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n7. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -952,7 +952,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 26 to 44 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 40 to 60 [Fire] damage to [Attack|Attacks]\n4. 17% increased [ItemRarity|Rarity of Items] found\n5. +24% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,

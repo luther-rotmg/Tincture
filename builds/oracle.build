@@ -790,7 +790,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Ancestral Tiara\n1. +71 to maximum [EnergyShield|Energy Shield]\n2. 42% increased [EnergyShield|Energy Shield]\n3. +36 to maximum Mana\n4. +31 to [Intelligence|Intelligence]\n5. +38% to [Resistances|Cold Resistance]\n6. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n7. [RavenTouched|Raven-Touched]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -800,7 +800,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Dueling Wand\n1. [Gain] 27% of Damage as Extra [Fire] Damage\n2. +4 to Level of all [Spell|Spell] Skills\n3. +75 to maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. [ShamanOnlyMods|Bonded]: 5% increased maximum Mana\n6. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n7. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "slot_x": 0,
@@ -816,7 +816,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Vaal Gloves\n1. +44 to maximum [EnergyShield|Energy Shield]\n2. 100% increased [EnergyShield|Energy Shield]\n3. +40% to [Resistances|Lightning Resistance]\n4. +160 to maximum Mana\n5. [ShamanOnlyMods|Bonded]: +64 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +64 to maximum Mana",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -838,7 +838,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Sekhema Sandals\n1. 100% increased [EnergyShield|Energy Shield]\n2. +30 to [Intelligence|Intelligence]\n3. +43% to [Resistances|Cold Resistance]\n4. 8% increased Movement Speed\n5. +80 to maximum Mana\n6. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -848,7 +848,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Mnemonic Ring\n1. 8% increased maximum Mana\n2. +245 to maximum Mana\n3. +33 to [Intelligence|Intelligence]\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        1,
+        63,
         100
       ],
       "slot_x": 0,
@@ -864,7 +864,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Solar Amulet\n1. +14 to [Spirit|Spirit]\n2. +177 to maximum Mana\n3. 8% increased maximum Mana\n4. +50 to [Spirit|Spirit]\n5. +38% to [Resistances|Fire Resistance]\n6. 63% increased Mana Regeneration Rate",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,

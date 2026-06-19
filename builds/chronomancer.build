@@ -786,7 +786,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Sandsworn Sandals\n1. 35% increased Movement Speed\n2. 97% increased [EnergyShield|Energy Shield]\n3. +41% to [Resistances|Cold Resistance]\n4. +34% to [Resistances|Lightning Resistance]\n5. 5% increased Movement Speed\n6. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana\n9. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -796,7 +796,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Chiming Staff\n1. [Gain] 60% of Damage as Extra [Cold] Damage\n2. [Gain] 58% of Damage as Extra [Lightning] Damage\n3. 35% increased [Spell] Damage\n4. +1 to Level of all [Spell|Spell] Skills\n5. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n6. [ShamanOnlyMods|Bonded]: [ArmourBreak|Break] [Armour] on [Critical|Critical Hit] with [Spell|Spells] equal to 12% of [Physical|Physical] Damage dealt",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "slot_x": 0,
@@ -812,7 +812,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Breach Ring\n1. +20% to Maximum [Quality]\n2. 54% increased [Spell] Damage\n3. +161 to maximum Mana\n4. 30% increased Cast Speed\n5. 41% increased Mana Cost [Efficiency] of [Spell|Spells]",
       "level_interval": [
-        1,
+        61,
         100
       ],
       "slot_x": 0,
@@ -822,7 +822,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Vile Robe\n1. +85 to maximum [EnergyShield|Energy Shield]\n2. 107% increased [EnergyShield|Energy Shield]\n3. +32% to [Resistances|Fire Resistance]\n4. +39% to [Resistances|Lightning Resistance]\n5. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
-        1,
+        65,
         100
       ],
       "slot_x": 0,
@@ -832,7 +832,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Vaal Gloves\n1. 97% increased [EnergyShield|Energy Shield]\n2. +102 to maximum Mana\n3. 12% increased Cast Speed\n4. 48% increased [BuffMagnitude|Magnitude] of [NonDamagingAilments|Non-Damaging Ailments] you inflict\n5. [ShamanOnlyMods|Bonded]: 24% increased Duration of Elemental [Ailments] on Enemies\n6. [ShamanOnlyMods|Bonded]: 32% increased Mana Cost [Efficiency] while on [LowMana|Low Mana]",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -842,7 +842,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Ancestral Tiara\n1. 139% increased [EnergyShield|Energy Shield]\n2. +187 to maximum Mana\n3. 31% increased [Critical|Critical Hit] Chance\n4. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n5. [RavenTouched|Raven-Touched]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -852,7 +852,7 @@
       "inventory_id": "Weapon2",
       "additional_text": "Chiming Staff\n1. +25 to [Intelligence|Intelligence]\n2. 30% increased [Spell] Damage\n3. [ShamanOnlyMods|Bonded]: [ArmourBreak|Break] [Armour] on [Critical|Critical Hit] with [Spell|Spells] equal to 12% of [Physical|Physical] Damage dealt",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "slot_x": 0,
@@ -862,7 +862,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Lunar Amulet\n1. +27 to maximum [EnergyShield|Energy Shield]\n2. +178 to maximum Mana\n3. 6% increased maximum Mana\n4. +4 to Level of all [Spell|Spell] Skills\n5. +14 to all [Attributes|Attributes]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,

@@ -910,7 +910,7 @@
       "inventory_id": "Amulet1",
       "additional_text": "Solar Amulet\n1. +15 to [Spirit|Spirit]\n2. 70% increased maximum [EnergyShield|Energy Shield]\n3. +3 to Level of all [Projectile] Skills\n4. +12% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -920,7 +920,7 @@
       "inventory_id": "Boots1",
       "additional_text": "Daggerfoot Shoes\n1. 5% increased Movement Speed\n2. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        1,
+        80,
         100
       ],
       "slot_x": 0,
@@ -930,7 +930,7 @@
       "inventory_id": "BodyArmour1",
       "additional_text": "Slipstrike Vest\n1. 110% increased [Evasion|Evasion] Rating\n2. +207 to maximum Life\n3. +87% to [Resistances|Lightning Resistance]\n4. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n5. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
       "level_interval": [
-        1,
+        70,
         100
       ],
       "slot_x": 0,
@@ -940,7 +940,7 @@
       "inventory_id": "Helm1",
       "additional_text": "Kamasan Tiara\n1. 138% increased [EnergyShield|Energy Shield]\n2. +43 to maximum Life\n3. +43% to [Resistances|Fire Resistance]\n4. +43% to [Resistances|Lightning Resistance]\n5. +50 to all [Attributes]\n6. [RavenTouched|Raven-Touched]\n7. [ShamanOnlyMods|Bonded]: +1 Maximum Life per Level",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
@@ -950,7 +950,7 @@
       "inventory_id": "Ring1",
       "additional_text": "Sapphire Ring\n1. +29% to [Resistances|Cold Resistance]\n2. Adds 20 to 36 [Physical|Physical] Damage to [Attack|Attacks]\n3. +12% to all [ElementalDamage|Elemental] [Resistances]\n4. +39% to [Resistances|Fire Resistance]\n5. +39% to [Resistances|Cold Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -960,7 +960,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Obliterator Bow\n1. 50% reduced Projectile Range\n2. 257% increased [Physical] Damage\n3. +182 to [Accuracy|Accuracy] Rating\n4. 19% increased [Attack] Speed\n5. +4 to Level of all [Projectile] Skills\n6. +200% [SurpassChance|Surpassing] chance to fire an additional Arrow\n7. +1 Suffix Modifier allowed\n8. 40% increased [Physical] Damage\n9. [ShamanOnlyMods|Bonded]: 40% increased effect of [ArmourBreak|Fully Broken Armour]",
       "level_interval": [
-        1,
+        78,
         100
       ],
       "slot_x": 0,
@@ -976,7 +976,7 @@
       "inventory_id": "Ring2",
       "additional_text": "Amethyst Ring\n1. +12% to [Resistances|Chaos Resistance]\n2. Adds 5 to 96 [Lightning] damage to [Attack|Attacks]\n3. +64% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        1,
+        60,
         100
       ],
       "slot_x": 0,
@@ -986,7 +986,7 @@
       "inventory_id": "Gloves1",
       "additional_text": "Barbed Bracers\n1. Adds 11 to 26 [Physical|Physical] Damage to [Attack|Attacks]\n2. +2 to Level of all [Projectile] Skills\n3. 33% increased [Projectile] Damage\n4. 8% increased [Attack] Speed\n5. Can roll Marksman modifiers\n6. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n7. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
       "level_interval": [
-        1,
+        75,
         100
       ],
       "slot_x": 0,
