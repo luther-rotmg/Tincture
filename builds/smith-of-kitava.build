@@ -829,20 +829,20 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +14 to [Spirit|Spirit]\n2. 43% increased [Armour]\n3. +50 to [Spirit|Spirit]\n4. +14% to all [ElementalDamage|Elemental] [Resistances]",
+      "inventory_id": "BodyArmour1",
+      "additional_text": "Warlord Cuirass\n1. +23% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n2. +225 to maximum Life\n3. 50% reduced [BuffEffect|effect] of [Curse|Curses] on you\n4. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n5. [ShamanOnlyMods|Bonded]: +60 to maximum Mana\n6. [ShamanOnlyMods|Bonded]: 8% increased [Curse] [BuffMagnitude|Magnitudes]",
       "level_interval": [
-        60,
+        80,
         100
       ],
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "BodyArmour1",
-      "additional_text": "Warlord Cuirass\n1. +22% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n2. +225 to maximum Life\n3. 50% reduced [BuffEffect|effect] of [Curse|Curses] on you\n4. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n5. [ShamanOnlyMods|Bonded]: +60 to maximum Mana\n6. [ShamanOnlyMods|Bonded]: 8% increased [Curse] [BuffMagnitude|Magnitudes]",
+      "inventory_id": "Amulet1",
+      "additional_text": "Solar Amulet\n1. +14 to [Spirit|Spirit]\n2. 43% increased [Armour]\n3. +50 to [Spirit|Spirit]\n4. +14% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        80,
+        60,
         100
       ],
       "slot_x": 0,

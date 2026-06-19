@@ -1,0 +1,630 @@
+{
+  "name": "Acolyte of Chayula — Wolf Pack (public ladder)",
+  "author": "Tincture — reconstructed from public ladder character \"rota_dmgchao\" (babysoc-0117)",
+  "description": "A representative Acolyte of Chayula build from the public runesofaldur ladder (character \"rota_dmgchao\", account \"babysoc-0117\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/babysoc-0117/rota_dmgchao . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "ascendancy": "Monk3",
+  "passives": [
+    {
+      "id": "AscendancyMonk3Start"
+    },
+    {
+      "id": "energy_shield34_"
+    },
+    {
+      "id": "energy_shield11"
+    },
+    {
+      "id": "AscendancyMonk3Notable6"
+    },
+    {
+      "id": "AscendancyMonk3Small5"
+    },
+    {
+      "id": "intelligence49"
+    },
+    {
+      "id": "remnant14"
+    },
+    {
+      "id": "energy_shield_and_armour14"
+    },
+    {
+      "id": "energy_shield_and_armour31"
+    },
+    {
+      "id": "witch_sorceress_notable2"
+    },
+    {
+      "id": "jewel_slot1974"
+    },
+    {
+      "id": "energy_shield35"
+    },
+    {
+      "id": "attributes1"
+    },
+    {
+      "id": "strength70"
+    },
+    {
+      "id": "AscendancyMonk3Notable2"
+    },
+    {
+      "id": "intelligence81"
+    },
+    {
+      "id": "maximum_resistances10"
+    },
+    {
+      "id": "attributes51"
+    },
+    {
+      "id": "intelligence57"
+    },
+    {
+      "id": "energy_shield9"
+    },
+    {
+      "id": "energy_shield13"
+    },
+    {
+      "id": "jewel_slot1969"
+    },
+    {
+      "id": "attributes7"
+    },
+    {
+      "id": "intelligence6"
+    },
+    {
+      "id": "energy_shield37"
+    },
+    {
+      "id": "attributes50"
+    },
+    {
+      "id": "intelligence60"
+    },
+    {
+      "id": "attack_speed25"
+    },
+    {
+      "id": "attributes24"
+    },
+    {
+      "id": "energy_shield_and_armour30"
+    },
+    {
+      "id": "energy_shield_and_armour27"
+    },
+    {
+      "id": "focus6"
+    },
+    {
+      "id": "intelligence84"
+    },
+    {
+      "id": "AscendancyMonk3Small6"
+    },
+    {
+      "id": "focus10"
+    },
+    {
+      "id": "remnant1"
+    },
+    {
+      "id": "energy_shield_and_armour33"
+    },
+    {
+      "id": "strength2"
+    },
+    {
+      "id": "energy_shield10_"
+    },
+    {
+      "id": "intelligence4"
+    },
+    {
+      "id": "AscendancyMonk3Small1"
+    },
+    {
+      "id": "attributes16"
+    },
+    {
+      "id": "remnant18"
+    },
+    {
+      "id": "AscendancyMonk3Notable1"
+    },
+    {
+      "id": "energy_shield44"
+    },
+    {
+      "id": "energy_shield_and_armour20"
+    },
+    {
+      "id": "evasion_and_energy_shield26"
+    },
+    {
+      "id": "strength67"
+    },
+    {
+      "id": "auras12"
+    },
+    {
+      "id": "jewel_slot1979"
+    },
+    {
+      "id": "strength9"
+    },
+    {
+      "id": "strength11"
+    },
+    {
+      "id": "strength59_"
+    },
+    {
+      "id": "armour_and_evasion21"
+    },
+    {
+      "id": "energy_shield_and_armour19"
+    },
+    {
+      "id": "jewel_slot1956"
+    },
+    {
+      "id": "strength69"
+    },
+    {
+      "id": "strength85"
+    },
+    {
+      "id": "passive_keystone_iron_reflexes_"
+    },
+    {
+      "id": "intelligence56"
+    },
+    {
+      "id": "armour_and_evasion22"
+    },
+    {
+      "id": "attributes15"
+    },
+    {
+      "id": "attributes40"
+    },
+    {
+      "id": "intelligence38"
+    },
+    {
+      "id": "remnant2"
+    },
+    {
+      "id": "attributes14"
+    },
+    {
+      "id": "energy_shield_and_armour29_"
+    },
+    {
+      "id": "energy_shield_and_armour18"
+    },
+    {
+      "id": "intelligence34"
+    },
+    {
+      "id": "passive_keystone_conduit"
+    },
+    {
+      "id": "remnant3"
+    },
+    {
+      "id": "energy_shield46_"
+    },
+    {
+      "id": "energy_shield22"
+    },
+    {
+      "id": "energy_shield_and_armour17"
+    },
+    {
+      "id": "intelligence40"
+    },
+    {
+      "id": "intelligence17"
+    },
+    {
+      "id": "remnant4"
+    },
+    {
+      "id": "energy_shield7"
+    },
+    {
+      "id": "attributes39"
+    },
+    {
+      "id": "passive_keystone_resolute_technique"
+    },
+    {
+      "id": "energy_shield36"
+    },
+    {
+      "id": "intelligence2"
+    },
+    {
+      "id": "intelligence54"
+    },
+    {
+      "id": "intelligence37"
+    },
+    {
+      "id": "intelligence59"
+    },
+    {
+      "id": "attributes21"
+    },
+    {
+      "id": "intelligence52"
+    },
+    {
+      "id": "strength54"
+    },
+    {
+      "id": "AscendancyMonk3Small2"
+    },
+    {
+      "id": "energy_shield12"
+    },
+    {
+      "id": "attributes13"
+    },
+    {
+      "id": "shadow_monk_notable1"
+    },
+    {
+      "id": "intelligence33_"
+    },
+    {
+      "id": "AscendancyMonk3Notable5"
+    },
+    {
+      "id": "intelligence51"
+    },
+    {
+      "id": "intelligence39"
+    },
+    {
+      "id": "intelligence103"
+    },
+    {
+      "id": "strength10"
+    },
+    {
+      "id": "energy_shield_and_armour26"
+    },
+    {
+      "id": "evasion38_"
+    },
+    {
+      "id": "strength71"
+    },
+    {
+      "id": "strength61_"
+    },
+    {
+      "id": "AscendancyMonk3Notable6_Choice"
+    },
+    {
+      "id": "auras13"
+    },
+    {
+      "id": "attributes71"
+    },
+    {
+      "id": "armour_and_evasion13"
+    },
+    {
+      "id": "intelligence5"
+    },
+    {
+      "id": "strength83"
+    },
+    {
+      "id": "intelligence53_"
+    },
+    {
+      "id": "jewel_slot1971"
+    },
+    {
+      "id": "intelligence3"
+    },
+    {
+      "id": "strength8"
+    },
+    {
+      "id": "passive_keystone_chaos_inoculation"
+    },
+    {
+      "id": "intelligence16"
+    },
+    {
+      "id": "strength45_"
+    },
+    {
+      "id": "intelligence45"
+    },
+    {
+      "id": "maximum_resistances11"
+    },
+    {
+      "id": "attributes81"
+    },
+    {
+      "id": "remnant16_"
+    },
+    {
+      "id": "auras15_"
+    },
+    {
+      "id": "intelligence19"
+    },
+    {
+      "id": "intelligence69"
+    },
+    {
+      "id": "jewel_slot1972"
+    },
+    {
+      "id": "maximum_resistances21"
+    },
+    {
+      "id": "energy_shield33_"
+    },
+    {
+      "id": "energy_shield16"
+    },
+    {
+      "id": "attributes6"
+    },
+    {
+      "id": "intelligence58"
+    },
+    {
+      "id": "remnant5"
+    },
+    {
+      "id": "evasion_and_energy_shield35_"
+    },
+    {
+      "id": "strength68"
+    },
+    {
+      "id": "strength84"
+    },
+    {
+      "id": "auras17"
+    }
+  ],
+  "skills": [
+    {
+      "id": "Metadata/Items/Gems/SkillGemWolfPack",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
+          "level_interval": [
+            25,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFeedingFrenzy",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemMinionInstability",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInfernalLegion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemLoyalty",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemProfaneRitual",
+      "level_interval": [
+        66,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMobility",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemAscendancyIntoTheBreach",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemFigurehead",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
+      "level_interval": [
+        84,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBarkskin",
+      "level_interval": [
+        36,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "level_interval": [
+        58,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalCleric",
+      "level_interval": [
+        58,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSacrifice",
+      "level_interval": [
+        64,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemOverwhelmingPresence",
+      "level_interval": [
+        58,
+        100
+      ]
+    }
+  ],
+  "inventory_slots": [
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "Solar Amulet\n1. +10 to [Spirit|Spirit]\n2. 55% increased [Armour]\n3. +102 to maximum [EnergyShield|Energy Shield]\n4. +33 to [Intelligence|Intelligence]\n5. +14% to all [ElementalDamage|Elemental] [Resistances]\n6. +30% to [Resistances|Fire Resistance]",
+      "level_interval": [
+        64,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Belt1",
+      "unique_name": "Shavronne's Satchel",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "unique_name": "Alpha's Howl",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring2",
+      "unique_name": "Ventor's Gamble",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Boots1",
+      "additional_text": "Cryptic Leggings\n1. 35% increased Movement Speed\n2. 98% increased [Armour|Armour] and [EnergyShield|Energy Shield]\n3. 30% reduced [Attributes|Attribute] Requirements\n4. +33% to [Resistances|Cold Resistance]\n5. +38% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon1",
+      "unique_name": "Sacred Flame",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "unique_name": "Doryani's Prototype",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "Adherent Cuffs\n1. +79 to [Armour|Armour]\n2. +23 to maximum [EnergyShield|Energy Shield]\n3. 131% increased [Armour|Armour] and [EnergyShield|Energy Shield]\n4. +35 to maximum Life\n5. +31% to [Resistances|Cold Resistance]\n6. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring1",
+      "unique_name": "Ventor's Gamble",
+      "slot_x": 0,
+      "slot_y": 0
+    }
+  ]
+}
