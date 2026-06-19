@@ -35,6 +35,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      # gate the (expensive, ~10-min networked) reconstruction on the cjs unit tests so a broken
+      # edit fails fast here instead of writing bad builds.
+      - name: Reconstructor syntax + unit tests
+        run: |
+          node --check tools/build-from-ninja.cjs
+          node --test tools/test-build-from-ninja.cjs
+
       - name: Reconstruct builds + meta breakdown (one pass per ascendancy)
         run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur
 
