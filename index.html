@@ -635,6 +635,15 @@
   .bv-def .def-pools,.bv-def .def-extra{ font-family:var(--fmono); font-size:11px; color:var(--bone-dim); margin-top:3px; }
   .bv-def .def-pools b,.bv-def .def-extra{ color:var(--bone-dim); } .bv-def .def-pools b{ color:var(--bone); }
   .bv-def-note{ display:block; font-family:var(--fmono); font-size:9.5px; color:var(--muted); margin-top:6px; }
+  .bv-variants{ margin-top:16px; padding-top:14px; border-top:1px solid var(--hair); }
+  .bv-variants h6{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 10px; }
+  .bv-var{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid var(--hair); }
+  .bv-var:last-child{ border-bottom:none; }
+  .bv-var-skill{ font-family:var(--fdisplay); font-size:14px; color:var(--bone); }
+  .bv-var-meta{ font-family:var(--fmono); font-size:10.5px; color:var(--muted); margin-left:8px; }
+  .bv-var-acts{ display:flex; align-items:center; gap:8px; }
+  .bv-var-acts a{ font-family:var(--fmono); font-size:10px; color:var(--verdigris); text-decoration:none; }
+  .bv-var-acts a:hover{ color:var(--gold-bright); }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1425,7 +1434,7 @@ function templateText(b){
   const banner =
 "# Tincture meta template — NOT a loadable Path of Exile 2 .build.\n" +
 "# A labelled starting point: ascendancy, ladder share and sample size.\n" +
-"# Loadable builds (passives, gems, items) arrive once the GGG character pull lands.\n" +
+"# Loadable .build files are served for reconstructed picks; this ascendancy isn't reconstructed yet.\n" +
 "# Do NOT rename this to .build — the game silently refuses a file it can't parse.\n";
   const body = JSON.stringify({
     _tool: "tincture",
@@ -1497,8 +1506,8 @@ async function buildsManifest(){
   return _buildsManifest;
 }
 
-async function decant(b){
-  const slug = slugOf(b);
+async function decant(b, slugOverride){
+  const slug = slugOverride || slugOf(b);   // slugOverride lets a variant Decant fetch <slug>-N.build
   let real = null;
   const manifest = await buildsManifest();
   // attempt the .build fetch only when a manifest lists this slug — or when there's no
@@ -1511,12 +1520,12 @@ async function decant(b){
       // saved as a .build). A real .build is JSON/octet-stream, never text/html.
       const ct = (res.headers.get("content-type") || "").toLowerCase();
       if (res.ok && !ct.includes("text/html")) real = await res.text();
-    } catch (_) { /* none generated yet */ }
+    } catch (_) { /* not reconstructed */ }
   }
   if (real != null) return saveRealBuild(b, real, slug + ".build");
-  // honest path today: a meta template, downloaded, clearly not a loadable build
-  saveBlob(templateText(b), slug + "-tincture-template.txt", "text/plain;charset=utf-8");
-  toast(`Saved <b>${esc(b.asc)}</b> as a meta template (.txt) — a starting pointer, not a loadable build yet. Full passive, gem and item data arrives with the character pull; pair it with a community guide for now.`, "ok", 7000);
+  // honest fallback: a labelled meta template (.txt) — never the game's .build slot
+  saveBlob(templateText(b), slugOf(b) + "-tincture-template.txt", "text/plain;charset=utf-8");
+  toast(`Saved <b>${esc(b.asc)}</b> as a labelled meta template (.txt) — we haven't reconstructed a loadable build for this pick yet. Pair it with a community guide.`, "ok", 7000);
 }
 
 async function saveRealBuild(b, file, name){
@@ -1647,6 +1656,28 @@ function defenceHTML(md){
     + (extra.length?`<div class="def-extra">${extra.join(" · ")}</div>`:"")
     + `<span class="bv-def-note">from the source character's Path of Building export</span></div>`;
 }
+// loadable build VARIANTS — other strong, meaningfully-different characters for this ascendancy,
+// each a real QA'd .build (<slug>-N) you can Decant or copy as PoB. Absent field -> nothing.
+function variantsHTML(md){
+  const vs = md.variants;
+  if (!vs || !vs.length) return "";
+  const card = v => {
+    const skill = ((v.name||"").split(" — ")[1]||"").replace(" (public ladder)","") || (v.skillSetups&&v.skillSetups[0]&&v.skillSetups[0].skill) || "variant";
+    const stats = [v.ehp?`EHP ${fmt(v.ehp)}`:"", v.dps?`DPS ${fmt(v.dps)}`:""].filter(Boolean).join(" · ");
+    const res = v.defence && v.defence.resists;
+    const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":res[k]).join("/")} res` : "";
+    return `<div class="bv-var">
+      <div class="bv-var-info"><span class="bv-var-skill">${esc(skill)}</span>
+        <span class="bv-var-meta">${esc(v.source.name)} · L${v.source.level||"?"}${stats?" · "+esc(stats):""}${resStr?" · "+esc(resStr):""}</span></div>
+      <div class="bv-var-acts">
+        <button class="arch-btn bv-var-decant" type="button" data-slug="${esc(v.slug)}" data-asc="${esc(md.asc)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg> Decant</button>
+        ${v.pob?`<button class="arch-btn bv-pob" type="button" data-pob="${esc(v.slug)}">PoB</button>`:""}
+        <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(v.source.account)}/${encodeURIComponent(v.source.name)}" target="_blank" rel="noopener noreferrer">source ↗</a>
+      </div>
+    </div>`;
+  };
+  return `<div class="bv-variants"><h6>Other strong builds — also loadable</h6>${vs.map(card).join("")}</div>`;
+}
 function buildViewHTML(md, slug){
   if (!md.source) return "";
   const skills = (md.skillSetups||[]).map(s=>`<div class="bv-skill"><span class="bv-main">${esc(s.skill)}</span>${(s.supports||[]).length?` <span class="bv-sup">+ ${s.supports.map(esc).join(" · ")}</span>`:""}</div>`).join("");
@@ -1659,7 +1690,7 @@ function buildViewHTML(md, slug){
   return `<div class="build-view"><div class="bv-head"><h5>The build</h5><span class="bv-cap">The exact reconstructed setup — replicate by hand (console / no file import), or load the .build / PoB code.</span></div>`
     + qualityChip(md)
     + defenceHTML(md)
-    + `<div class="meta-grid">${skills?`<div class="meta-col"><h6>Skill setups</h6>${skills}</div>`:""}${items?`<div class="meta-col"><h6>Gear</h6>${items}</div>`:""}</div>${pob}</div>`;
+    + `<div class="meta-grid">${skills?`<div class="meta-col"><h6>Skill setups</h6>${skills}</div>`:""}${items?`<div class="meta-col"><h6>Gear</h6>${items}</div>`:""}</div>${pob}${variantsHTML(md)}</div>`;
 }
 function metaDetailHTML(md, slug){
   const st = md.stats||{};
@@ -1749,7 +1780,7 @@ function renderRows(){
         + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(slugOf(b))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button></div>`;
       const toggleBtn = row.querySelector(".row-toggle");
       row.addEventListener("click", e => {
-        if (e.target.closest(".decant, .guide-link, a, .row-copylink")) return;   // let actions/links work
+        if (e.target.closest(".decant, .guide-link, a, .arch-btn")) return;   // let actions/links/buttons work
         const open = detail.classList.toggle("open");
         row.classList.toggle("open", open);
         if (toggleBtn) toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");  // keyboard: the button bubbles its click to here
@@ -1762,8 +1793,9 @@ function renderRows(){
         try { await navigator.clipboard.writeText(url); toast(`Link copied — points straight at <b>${esc(b.asc)}</b>.`, "ok"); }
         catch(_){ toast(`Couldn't copy the link here.`, "warn"); }
       });
-      const pobBtn = detail.querySelector(".bv-pob");
-      if (pobBtn) pobBtn.addEventListener("click", async ()=>{
+      // PoB copy — primary AND each variant (querySelectorAll, keyed by data-pob slug)
+      detail.querySelectorAll(".bv-pob").forEach(pobBtn => pobBtn.addEventListener("click", async e=>{
+        e.stopPropagation();
         try {
           const res = await fetch("builds/"+pobBtn.dataset.pob+".pob", {cache:"no-store"});
           // guard the static-host "200 text/html fallback" hazard (same as decant()): a missing
@@ -1775,7 +1807,12 @@ function renderRows(){
           await navigator.clipboard.writeText(code);
           toast(`Path of Building code copied — in PoB choose <b>Import build → From string</b> and paste.`, "ok", 6000);
         } catch(_) { toast(`Couldn't copy the PoB code here.`, "warn"); }
-      });
+      }));
+      // Decant a loadable variant (<slug>-N.build) via the slug override
+      detail.querySelectorAll(".bv-var-decant").forEach(vb => vb.addEventListener("click", e=>{
+        e.stopPropagation();
+        decant({ asc: vb.dataset.asc, skill: "" }, vb.dataset.slug);
+      }));
       rows.appendChild(detail);
     }
   });

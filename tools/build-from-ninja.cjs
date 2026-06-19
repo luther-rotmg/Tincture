@@ -704,7 +704,34 @@ async function main() {
               meta.byAsc[slug].buildItems = buildItems(char);
               meta.byAsc[slug].pob = !!char.pathOfBuildingExport;
               if (char.level) meta.byAsc[slug].stats.level = char.level;
-              console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name} (L${char.level || '?'}, EHP ${cands[0].ehp || '?'}, DPS ${cands[0].dps || '?'})`);
+              // VARIANTS: keep up to 2 more QA-passing, meaningfully-different builds from the
+              // already-pulled (on-meta, L85+) candidate pool — a different main skill, or a
+              // notably tankier/glassier EHP. Zero extra network (chars already fetched). Written
+              // as <slug>-2/-3.build (manifest auto-includes them); summaries go in .variants.
+              const variants = [], seenNames = new Set([build.name]), primEhp = cands[0].ehp || 0;
+              for (const cand of cands.slice(1)) {
+                if (variants.length >= 2) break;
+                try {
+                  const r = buildOne(cand.char, { gem, account: cand.account, name: cand.name, league, tree, slugMap, baseItems, md, weaponClass, quiet: true });
+                  if (!r.report.ok) continue;
+                  const diffSkill = !seenNames.has(r.build.name);
+                  const diffEhp = primEhp && cand.ehp && Math.abs(cand.ehp - primEhp) / primEhp > 0.3;
+                  if (!diffSkill && !diffEhp) continue;   // not meaningfully different from what we have
+                  seenNames.add(r.build.name);
+                  const vslug = `${slug}-${variants.length + 2}`;
+                  writeBuild(vslug, r.build); writePob(vslug, cand.char.pathOfBuildingExport);
+                  variants.push({
+                    slug: vslug, name: r.build.name,
+                    source: { account: cand.account, name: cand.name, level: cand.char.level || null },
+                    ehp: cand.ehp || null, dps: cand.dps || null,
+                    defence: parsePobDefence(cand.char.pathOfBuildingExport),
+                    pob: !!cand.char.pathOfBuildingExport,
+                    skillSetups: readableSkills(cand.char).slice(0, 4),
+                  });
+                } catch (_) {}
+              }
+              if (variants.length) meta.byAsc[slug].variants = variants;
+              console.log(`  + ${asc.padEnd(20)} ${String(s.total).padStart(6)} chars · ${pulled.length} sampled · build <- ${name} (L${char.level || '?'}, EHP ${cands[0].ehp || '?'}, DPS ${cands[0].dps || '?'})${variants.length ? ` · +${variants.length} variant(s)` : ''}`);
             } else console.log(`  x ${asc.padEnd(20)} build QA FAIL (${report.issues.filter(i => i.sev === 'fail').map(i => i.m).join('; ')})`);
           } catch (e) { console.log(`  x ${asc}: build ${e.message}`); }
         } else console.log(`  · ${asc}: no characters pulled`);
