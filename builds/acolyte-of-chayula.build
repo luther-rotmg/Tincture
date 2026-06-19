@@ -185,13 +185,13 @@
       "id": "attributes61"
     },
     {
+      "id": "infusion19_"
+    },
+    {
       "id": "criticals87"
     },
     {
       "id": "attributes11"
-    },
-    {
-      "id": "remnant2"
     },
     {
       "id": "dexterity7"
@@ -311,6 +311,9 @@
       "id": "lightning70"
     },
     {
+      "id": "infusion23"
+    },
+    {
       "id": "intelligence25"
     },
     {
@@ -401,9 +404,6 @@
       "id": "remnant5"
     },
     {
-      "id": "monkchakra24"
-    },
-    {
       "id": "lightning20__"
     },
     {
@@ -419,6 +419,13 @@
       ],
       "support_skills": [
         {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
           "level_interval": [
             1,
@@ -426,14 +433,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemOverabundanceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
           "level_interval": [
             1,
             100
@@ -477,7 +477,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemTrickstersShard",
+          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
           "level_interval": [
             1,
             100
@@ -738,21 +738,21 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemArchmage",
+      "id": "Metadata/Items/Gem/SkillGemBlink",
       "level_interval": [
         1,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
           "level_interval": [
             1,
             100
@@ -768,14 +768,14 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "id": "Metadata/Items/Gem/SkillGemArchmage",
       "level_interval": [
         1,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
           "level_interval": [
             1,
             100
@@ -830,7 +830,7 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Feathered Raiment\n1. 10% of Damage is taken from Mana before Life\n2. +177 to maximum Life\n3. +159 to maximum Mana\n4. 19% increased maximum Mana\n5. +34% to [Resistances|Cold Resistance]\n6. +31% to Cold and Chaos Resistances\n7. 15% of Damage is taken from Mana before Life\n8. [Idol|Idols] socketed in this item gain the benefits of their [ShamanOnlyMods|Bonded] modifiers\n9. Can roll Soul modifiers\n10. [ShamanOnlyMods|Bonded]: 3% increased maximum Life\n11. [ShamanOnlyMods|Bonded]: 3% increased maximum Mana\n12. [ShamanOnlyMods|Bonded]: +5% to [Quality] of all Skills\n13. [ShamanOnlyMods|Bonded]: 8% of Maximum Life [StatConversion|Converted] to [EnergyShield|Energy Shield]",
+      "additional_text": "Feathered Raiment\n1. 10% of Damage is taken from Mana before Life\n2. +177 to maximum Life\n3. +159 to maximum Mana\n4. 19% increased maximum Mana\n5. +35% to [Resistances|Lightning Resistance]\n6. +31% to Lightning and Chaos Resistances\n7. 15% of Damage is taken from Mana before Life\n8. [Idol|Idols] socketed in this item gain the benefits of their [ShamanOnlyMods|Bonded] modifiers\n9. Can roll Soul modifiers\n10. [ShamanOnlyMods|Bonded]: 3% increased maximum Life\n11. [ShamanOnlyMods|Bonded]: 3% increased maximum Mana\n12. [ShamanOnlyMods|Bonded]: +5% to [Quality] of all Skills\n13. [ShamanOnlyMods|Bonded]: 8% of Maximum Life [StatConversion|Converted] to [EnergyShield|Energy Shield]",
       "level_interval": [
         1,
         100
@@ -850,7 +850,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. +60 to maximum [EnergyShield|Energy Shield]\n3. +101 to maximum Mana\n4. +34% to [Resistances|Lightning Resistance]\n5. 5% increased Movement Speed\n6. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Runeforged Cryptic Leggings\n1. +120 to maximum Mana\n2. +45% to [Resistances|Cold Resistance]\n3. 40% increased Skill Effect Duration\n4. 5% increased Movement Speed\n5. Can roll Chronomancy modifiers\n6. [ShamanOnlyMods|Bonded]: 20% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         1,
         100

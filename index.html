@@ -635,10 +635,36 @@
   .bv-skill{ margin:0 0 9px; line-height:1.35; }
   .bv-main{ font-family:var(--ftext); font-size:14px; font-weight:600; color:var(--bone); }
   .bv-sup{ font-family:var(--fmono); font-size:10.5px; color:var(--bone-dim); }
-  .bv-item{ display:flex; gap:9px; align-items:baseline; margin:0 0 6px; }
+  .bv-item{ position:relative; display:flex; gap:9px; align-items:baseline; margin:0 0 6px; }
   .bv-slot{ font-family:var(--fmono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); min-width:72px; flex:none; }
   .bv-name{ font-family:var(--ftext); font-size:13.5px; color:var(--bone-dim); }
   .bv-name.uniq{ color:var(--gold-bright); }
+  .bv-item.has-tip{ cursor:help; outline:none; }
+  .bv-item.has-tip .bv-name{ border-bottom:1px dotted var(--hair-strong); }
+  .bv-item.has-tip:hover .bv-name, .bv-item.has-tip:focus-visible .bv-name{ color:var(--bone); border-bottom-color:var(--gold); }
+  .bv-i{ width:11px; height:11px; flex:none; align-self:center; color:var(--muted); opacity:.6; transition:color .15s, opacity .15s; }
+  .bv-item.has-tip:hover .bv-i, .bv-item.has-tip:focus-visible .bv-i{ color:var(--gold); opacity:1; }
+  /* the item card itself */
+  .bv-tip{ display:none; position:absolute; left:72px; top:calc(100% + 6px); z-index:40;
+    width:max-content; max-width:300px; padding:9px 11px 10px;
+    background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:3px;
+    box-shadow:0 10px 30px rgba(0,0,0,.55); text-align:left; cursor:default; }
+  .bv-item.has-tip:hover .bv-tip, .bv-item.has-tip:focus-within .bv-tip{ display:block; }
+  .tip-head{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:7px; padding-bottom:6px; border-bottom:1px solid var(--hair); }
+  .tip-rar{ font-family:var(--fmono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; }
+  .tip-rar.r-unique{ color:var(--gold-bright); }
+  .tip-rar.r-rare{ color:var(--gold); }
+  .tip-rar.r-magic{ color:var(--verdigris); }
+  .tip-rar.r-normal{ color:var(--bone-dim); }
+  .tip-corr{ font-family:var(--fmono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--oxblood-bright); }
+  .tip-base{ font-family:var(--fmono); font-size:10px; color:var(--muted); }
+  .tip-sect{ font-family:var(--ftext); font-size:12px; line-height:1.5; color:var(--bone-dim); padding:4px 0; border-top:1px solid var(--hair); }
+  .tip-sect:first-of-type{ border-top:none; padding-top:1px; }
+  .tip-impl{ color:var(--verdigris); }
+  .tip-ench{ color:var(--gold); }
+  .tip-expl div{ color:var(--bone); }
+  .tip-sockets{ color:var(--gold-bright); font-family:var(--fmono); font-size:11px; }
+  .tip-lbl{ display:block; font-size:8.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
   .bv-actions{ margin-top:15px; }
 
   .section-caveat{
@@ -1455,25 +1481,48 @@ function skillsLine(md){
   if (!md || !(md.skills||[]).length) return "";
   return `<div class="skills-line"><b>commonly plays</b> <span class="sk">${md.skills.slice(0,3).map(s=>esc(s.name)).join(" · ")}</span></div>`;
 }
-function metaCol(title, arr){
+function metaCol(title, arr, fmtName){
   if (!arr || !arr.length) return "";
-  const items = arr.map(x=>`<div class="meta-item"><div class="r1"><span class="nm">${esc(x.name)}</span><span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`).join("");
+  const items = arr.map(x=>`<div class="meta-item"><div class="r1"><span class="nm">${fmtName?fmtName(x):esc(x.name)}</span><span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`).join("");
   return `<div class="meta-col"><h5>${esc(title)}</h5>${items}</div>`;
+}
+// affix label with the typical rolled-value range substituted in (e.g. "+30–40% to ...")
+function affixLabel(x){
+  if (x.lo!=null && x.hi!=null && /#/.test(x.name)){
+    const r = x.lo===x.hi ? String(x.lo) : `${x.lo}–${x.hi}`;
+    return esc(x.name.replace("#", r));
+  }
+  return esc(x.name);
 }
 function metaCoreGrid(md){
   return `<div class="meta-grid">${metaCol("Top skills",md.skills)}${metaCol("Top supports",md.supports)}${metaCol("Top notables",md.notables)}${metaCol("Weapon",md.weapons)}${metaCol("Top anointments",md.anointments)}${metaCol("Top uniques",md.uniques)}</div>`;
 }
 function metaGearGrid(md){
   if (!((md.gear||[]).length || (md.runes||[]).length)) return "";
-  return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear)}${metaCol("Weapon runes",md.runes)}</div>`
-    + `<p class="meta-gear-note">Affixes = share of the sampled builds' <b>rare gear pieces</b> carrying each; runes = share of <b>sampled builds</b> socketing each. A small sample of top characters, so read it as a guide.</p>`;
+  return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear,affixLabel)}${metaCol("Weapon augments",md.runes)}</div>`
+    + `<p class="meta-gear-note">Affixes = share of the sampled builds' <b>rare gear pieces</b> carrying each; augments = share of <b>sampled builds</b> socketing each. A small sample of top characters, so read it as a guide.</p>`;
+}
+// hover/focus tooltip for one equipped item: rarity + base + item level, then the affix
+// lines (enchant / implicit / explicit) and any socketed augments — the in-game item card.
+function itemTip(it){
+  const sect = (arr, cls) => (arr&&arr.length) ? `<div class="tip-sect ${cls}">${arr.map(m=>`<div>${esc(m)}</div>`).join("")}</div>` : "";
+  const sockets = (it.sockets&&it.sockets.length) ? `<div class="tip-sect tip-sockets"><span class="tip-lbl">socketed</span>${it.sockets.map(s=>`<div>${esc(s)}</div>`).join("")}</div>` : "";
+  const body = sect(it.enchants,"tip-ench") + sect(it.implicits,"tip-impl") + sect(it.explicits,"tip-expl") + sockets;
+  const head = [ it.base?esc(it.base):"", it.ilvl?`item level ${it.ilvl}`:"" ].filter(Boolean).join(" · ");
+  if (!body && !head && !it.corrupted) return "";
+  const rcls = (it.rarity||"rare").toLowerCase();
+  const tag = `<span class="tip-rar r-${esc(rcls)}">${esc(it.rarity||"Rare")}</span>${it.corrupted?`<span class="tip-corr">corrupted</span>`:""}`;
+  return `<div class="bv-tip" role="tooltip"><div class="tip-head">${tag}${head?`<span class="tip-base">${head}</span>`:""}</div>${body}</div>`;
 }
 // readable view of the one reconstructed build — skill setups + gear + a Copy-PoB button,
 // so console players (no file import) and anyone without the planner can replicate it by hand.
 function buildViewHTML(md, slug){
   if (!md.source) return "";
   const skills = (md.skillSetups||[]).map(s=>`<div class="bv-skill"><span class="bv-main">${esc(s.skill)}</span>${(s.supports||[]).length?` <span class="bv-sup">+ ${s.supports.map(esc).join(" · ")}</span>`:""}</div>`).join("");
-  const items = (md.buildItems||[]).map(it=>`<div class="bv-item"><span class="bv-slot">${esc(String(it.slot).replace(/[0-9]+$/,""))}</span><span class="bv-name${it.unique?" uniq":""}">${esc(it.name)}</span></div>`).join("");
+  const items = (md.buildItems||[]).map(it=>{
+    const tip = itemTip(it);
+    return `<div class="bv-item${tip?" has-tip":""}"${tip?' tabindex="0"':""}><span class="bv-slot">${esc(String(it.slot).replace(/[0-9]+$/,""))}</span><span class="bv-name${it.unique?" uniq":""}">${esc(it.name)}</span>${tip?`<svg class="bv-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.4"/></svg>`:""}${tip}</div>`;
+  }).join("");
   if (!skills && !items) return "";
   const pob = md.pob ? `<div class="bv-actions"><button class="arch-btn bv-pob" type="button" data-pob="${esc(slug)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5a1.5 1.5 0 0 1 1.5-1.5H15"/></svg> Copy Path of Building code</button></div>` : "";
   return `<div class="build-view"><div class="bv-head"><h5>The build</h5><span class="bv-cap">The exact reconstructed setup — replicate by hand (console / no file import), or load the .build / PoB code.</span></div>`

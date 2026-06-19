@@ -54,20 +54,26 @@ function get(url, binary, attempt) {
   attempt = attempt || 0;
   return new Promise((res, rej) => {
     const u = new URL(url);
+    let settled = false, hard;
+    const ok   = v => { if (settled) return; settled = true; clearTimeout(hard); res(v); };
+    const fail = e => { if (settled) return; settled = true; clearTimeout(hard); rej(e); };
+    const retry = wait => { if (settled) return; settled = true; clearTimeout(hard); setTimeout(() => get(url, binary, attempt + 1).then(res, rej), wait); };
     const req = https.get({ hostname:u.hostname, path:u.pathname+u.search, headers:{ 'User-Agent':UA, 'Accept':'*/*', 'Referer':'https://poe.ninja/poe2/builds' } }, r => {
-      if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) return get(new URL(r.headers.location, url).href, binary, attempt).then(res, rej);
+      if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) { if (settled) return; settled = true; clearTimeout(hard); return get(new URL(r.headers.location, url).href, binary, attempt).then(res, rej); }
       const ch = []; r.on('data', c => ch.push(c)); r.on('end', () => {
         const b = Buffer.concat(ch);
-        if (r.statusCode === 429 && attempt < 5) { // respect the throttle: back off and retry
-          const wait = (Number(r.headers['retry-after']) || 3 * (attempt + 1)) * 1000;
-          return setTimeout(() => get(url, binary, attempt + 1).then(res, rej), wait);
+        if (r.statusCode === 429 && attempt < 5) { // respect the throttle: capped backoff + retry
+          const ra = Number(r.headers['retry-after']);  // seconds (or NaN for an HTTP-date / absent)
+          return retry(Math.min(60000, (ra > 0 ? ra : 3 * (attempt + 1)) * 1000));  // CAP so a hostile Retry-After can't freeze the run for an hour
         }
-        if (r.statusCode !== 200) return rej(new Error('HTTP ' + r.statusCode));
-        res(binary ? b : b.toString('utf8'));
+        if (r.statusCode !== 200) return fail(new Error('HTTP ' + r.statusCode));
+        ok(binary ? b : b.toString('utf8'));
       });
     });
-    req.on('error', rej);
-    req.setTimeout(25000, () => req.destroy(new Error('request timeout')));   // never hang a run
+    req.on('error', fail);
+    // HARD wall-clock cap: req.setTimeout is socket-IDLE only, which a slow byte-drip dodges
+    // forever (the real cause of the 40-min freeze). This timer fires regardless of activity.
+    hard = setTimeout(() => { req.destroy(new Error('request timeout')); fail(new Error('request timeout')); }, 30000);
   });
 }
 
@@ -312,7 +318,7 @@ function aggregateGear(chars) {
   // Affixes are counted PER GEAR PIECE (% of the sample's rare/magic items carrying each) —
   // counting per-character saturates at 100% (everyone has resistances/life somewhere).
   // Runes are counted per character (% of sampled builds socketing each weapon rune).
-  const modItems = {}, runeChars = {};
+  const modItems = {}, modVals = {}, runeChars = {};
   let rareItems = 0;
   for (const ch of chars) {
     const runes = new Set();
@@ -321,14 +327,27 @@ function aggregateGear(chars) {
       if (d.frameType === 1 || d.frameType === 2) {
         rareItems++;
         const seen = new Set();
-        (d.explicitMods || []).forEach(m => { const k = normMod(m); if (k.length > 6 && k.length < 56 && !seen.has(k)) { seen.add(k); modItems[k] = (modItems[k] || 0) + 1; } });
+        (d.explicitMods || []).forEach(m => {
+          const k = normMod(m);
+          if (k.length > 6 && k.length < 56 && !seen.has(k)) {
+            seen.add(k); modItems[k] = (modItems[k] || 0) + 1;
+            // capture the rolled value only for single-number affixes (so we can show a range)
+            const nums = (cleanMod(m).match(/\d+(\.\d+)?/g) || []).map(Number);
+            if (nums.length === 1) (modVals[k] = modVals[k] || []).push(nums[0]);
+          }
+        });
       }
       if (/^Weapon/.test(d.inventoryId || '')) (d.socketedItems || []).forEach(soc => { const nm = soc.typeLine || soc.baseType; if (nm && /\bRune\b|Soul Core/i.test(nm)) runes.add(nm); });
     }
     runes.forEach(r => runeChars[r] = (runeChars[r] || 0) + 1);
   }
   const ri = rareItems || 1, n = chars.length || 1;
-  const topMods = Object.entries(modItems).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([name, c]) => ({ name, pct: Math.round(c / ri * 1000) / 10 }));
+  const topMods = Object.entries(modItems).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([name, c]) => {
+    const e = { name, pct: Math.round(c / ri * 1000) / 10 };
+    const vals = (modVals[name] || []).slice().sort((x, y) => x - y);
+    if (vals.length >= 3) { e.lo = vals[Math.floor(vals.length * 0.25)]; e.hi = vals[Math.floor(vals.length * 0.75)]; }  // interquartile range of rolled values
+    return e;
+  });
   const topRunes = Object.entries(runeChars).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([name, c]) => ({ name, pct: Math.round(c / n * 1000) / 10 }));
   return { gear: topMods, runes: topRunes, sampled: chars.length };
 }
@@ -344,13 +363,26 @@ function readableSkills(char) {
     .filter(Boolean).sort((a, b) => b.dps - a.dps).slice(0, 6)
     .map(({ skill, supports }) => ({ skill, supports }));
 }
-// the character's equipped items (readable) in the .build's slots
+// the character's equipped items (readable) in the .build's slots, WITH per-item detail
+// (base / item level / rarity / affixes / socketed augments) for the hover tooltip.
 function buildItems(char) {
+  const rar = ft => ft === 3 ? 'Unique' : ft === 1 ? 'Magic' : ft === 0 ? 'Normal' : 'Rare';
+  const clean = a => (a || []).map(cleanMod).filter(Boolean);
   const out = [];
   for (const it of (char.items || [])) {
     const d = it.itemData || it;
     if (!SLOT_MAP[d.inventoryId]) continue;
-    out.push({ slot: SLOT_MAP[d.inventoryId], name: d.name || d.typeLine || d.baseType || 'Item', unique: d.frameType === 3 });
+    const o = { slot: SLOT_MAP[d.inventoryId], name: d.name || d.typeLine || d.baseType || 'Item', unique: d.frameType === 3, rarity: rar(d.frameType) };
+    if (d.baseType && d.baseType !== o.name) o.base = d.baseType;
+    if (d.ilvl) o.ilvl = d.ilvl;
+    if (d.corrupted) o.corrupted = true;
+    const enc = clean(d.enchantMods), imp = clean(d.implicitMods), exp = clean(d.explicitMods).concat(clean(d.fracturedMods));
+    if (enc.length) o.enchants = enc;
+    if (imp.length) o.implicits = imp;
+    if (exp.length) o.explicits = exp;
+    const sockets = (d.socketedItems || []).map(s => s.name || s.typeLine || s.baseType).filter(Boolean);
+    if (sockets.length) o.sockets = sockets;
+    out.push(o);
   }
   return out;
 }
@@ -421,28 +453,43 @@ async function main() {
   if (opt.enumerate) {
     const sv = await getSnapshot(league);
     console.log(`snapshot ${sv.version} (${sv.snapshotName})`);
+    // poe.ninja throttles a fast burst (~60 live requests then a wall). Two defenses:
+    //  (1) DISK CACHE searches + character pulls (keyed by snapshot) so a throttled run can be
+    //      re-run and resume nearly free — no re-hammering. Failed fetches are NOT cached, so
+    //      they retry next run. Cache lives in tools/.cache (gitignored; the Action runs fresh).
+    //  (2) a periodic COOLDOWN every N live requests to let the rate-limit window refill.
+    const san = s => String(s).replace(/[^a-z0-9]+/gi, '_').slice(0, 48);
+    const hit = f => fs.existsSync(path.join(cacheDir, f));   // was this already on disk? (check BEFORE cached() writes it)
+    let netReqs = 0;
+    const onMiss = async (ms) => { netReqs++; await sleep(ms); if (netReqs % 45 === 0) { console.log(`  … ${netReqs} live requests — cooling down 120s to respect poe.ninja's window`); await sleep(120000); } };
     const meta = { updated: new Date().toISOString(), league, version: sv.version, total: 0, global: null, byAsc: {} };
-    try { const g = parseSearch(await get(searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
+    const gf = `s-${sv.version}-_global.bin`, gHit = hit(gf);
+    try { const g = parseSearch(await cached(gf, searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
     catch (e) { console.log('global meta failed:', e.message); }
-    await sleep(700);
+    if (!gHit) await onMiss(700);
     const SAMPLE = opt['no-builds'] ? 0 : (Number(opt.sample) || 5);   // chars pulled per ascendancy (gear/rune sample; build is the #1)
     let builds = 0;
     const globalChars = [];
     for (const asc of Object.keys(ASCENDANCY_CODES)) {
       const slug = slugify(asc);
       let s;
-      try { s = parseSearch(await get(searchBase(sv) + '&class=' + encodeURIComponent(asc), true)); }
-      catch (e) { console.log(`  - ${asc}: search ${e.message}`); await sleep(600); continue; }
-      if (!s || s.total < 30) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); await sleep(500); continue; }
+      const sf = `s-${sv.version}-${slug}.bin`, sHit = hit(sf);
+      try { s = parseSearch(await cached(sf, searchBase(sv) + '&class=' + encodeURIComponent(asc), true)); }
+      catch (e) { console.log(`  - ${asc}: search ${e.message}`); if (!sHit) await onMiss(600); continue; }
+      if (!s || s.total < 30) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); if (!sHit) await onMiss(500); continue; }
       const md = await extractMeta(s, gem);
       meta.byAsc[slug] = { asc, ...md };
-      await sleep(600);
+      if (!sHit) await onMiss(600);
       if (SAMPLE > 0) {
         // pull a small sample of top characters: aggregate gear/runes, and build from a
         // BALANCED-strong pick (good EHP and DPS, level 85+) rather than the raw #1 outlier.
         const pairs = (s.vls.name || []).slice(0, SAMPLE).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm, ehp: _num((s.vls.ehp || [])[i]), dps: _num((s.vls.dps || [])[i]) })).filter(p => p.account && p.name);
         const pulled = [];
-        for (const p of pairs) { try { pulled.push({ ...p, char: JSON.parse(await get(charUrl(sv, p.account, p.name))) }); } catch (e) {} await sleep(650); }
+        for (const p of pairs) {
+          const cf = `c-${sv.version}-${san(p.account)}-${san(p.name)}.json`, cHit = hit(cf);
+          try { pulled.push({ ...p, char: JSON.parse(await cached(cf, charUrl(sv, p.account, p.name))) }); } catch (e) {}
+          if (!cHit) await onMiss(650);
+        }
         if (pulled.length) {
           const ga = aggregateGear(pulled.map(p => p.char));
           meta.byAsc[slug].gear = ga.gear; meta.byAsc[slug].runes = ga.runes;
