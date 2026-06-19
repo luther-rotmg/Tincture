@@ -33,6 +33,15 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const ua = `OAuth ${env.GGG_CLIENT_ID}/${VERSION} (contact: ryan.duke360@gmail.com)`;
+    // CORS preflight: a credentialed cross-origin GET (e.g. from the *.workers.dev fallback
+    // origin) sends OPTIONS first, which must answer with the allowed methods/headers.
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders(env, {
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400',
+      }) });
+    }
     try {
       switch (url.pathname) {
         case '/api/oauth/login':    return login(url, env);
@@ -43,7 +52,9 @@ export default {
         default:                    return json({ error: 'not found' }, 404, env);
       }
     } catch (e) {
-      return json({ error: String(e && e.message || e) }, 500, env);
+      // never forward internal/upstream error detail to the client
+      console.error('worker error:', (e && e.stack) || e);
+      return json({ error: 'internal error' }, 500, env);
     }
   },
 };
@@ -53,7 +64,9 @@ async function login(url, env) {
   const verifier = b64url(crypto.getRandomValues(new Uint8Array(32)));
   const state = b64url(crypto.getRandomValues(new Uint8Array(16)));
   const challenge = b64url(new Uint8Array(await crypto.subtle.digest('SHA-256', enc(verifier))));
-  const cookie = await signCookie({ verifier, state }, env.COOKIE_SECRET);
+  // short TTL for the consent leg — an abandoned login shouldn't leave the verifier/state
+  // lingering for an hour; it's replaced by the session cookie on a successful callback.
+  const cookie = await signCookie({ verifier, state }, env.COOKIE_SECRET, 600);
   const authUrl = `${GGG_AUTHORIZE}?` + new URLSearchParams({
     client_id: env.GGG_CLIENT_ID, response_type: 'code', scope: SCOPE,
     state, redirect_uri: env.REDIRECT_URI, code_challenge: challenge, code_challenge_method: 'S256',
@@ -73,7 +86,9 @@ async function callback(request, url, env, ua) {
   const r = await fetch(GGG_TOKEN, { method: 'POST', headers: { 'User-Agent': ua, 'Content-Type': 'application/x-www-form-urlencoded' }, body });
   if (!r.ok) return json({ error: 'token exchange failed', status: r.status }, 502, env);
   const tok = await r.json();
-  const session = await signCookie({ access_token: tok.access_token, exp: Date.now() + (tok.expires_in || 3600) * 1000 }, env.COOKIE_SECRET);
+  // tie the cookie's Max-Age to the real token lifetime (clamped) so it doesn't outlive the token
+  const ttl = Math.max(60, Math.min(Number(tok.expires_in) || 3600, 86400));
+  const session = await signCookie({ access_token: tok.access_token, exp: Date.now() + ttl * 1000 }, env.COOKIE_SECRET, ttl);
   return new Response(null, { status: 302, headers: { Location: `${env.SITE_ORIGIN}/#decant-mine`, 'Set-Cookie': session } });
 }
 
@@ -82,19 +97,20 @@ async function proxy(request, env, ua, apiPath) {
   const sess = await readCookie(request.headers.get('Cookie'), env.COOKIE_SECRET).catch(() => null);
   if (!sess || !sess.access_token || (sess.exp && sess.exp < Date.now())) return json({ error: 'not authenticated' }, 401, env);
   const r = await fetch(GGG_API + apiPath, { headers: { 'User-Agent': ua, Authorization: `Bearer ${sess.access_token}`, Accept: 'application/json' } });
-  const text = await r.text();
-  return new Response(text, { status: r.status, headers: corsHeaders(env, { 'Content-Type': 'application/json' }) });
+  // forward the (needed) character JSON on success, but never the raw upstream error body/headers
+  if (!r.ok) return json({ error: 'upstream error', status: r.status }, r.status === 401 ? 401 : 502, env);
+  return new Response(await r.text(), { status: 200, headers: corsHeaders(env, { 'Content-Type': 'application/json' }) });
 }
 
 // ---- helpers ----
 const enc = s => new TextEncoder().encode(s);
 const b64url = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-function corsHeaders(env, extra) { return { 'Access-Control-Allow-Origin': env.SITE_ORIGIN, 'Access-Control-Allow-Credentials': 'true', ...(extra || {}) }; }
+function corsHeaders(env, extra) { return { 'Access-Control-Allow-Origin': env.SITE_ORIGIN, 'Access-Control-Allow-Credentials': 'true', 'Vary': 'Origin', ...(extra || {}) }; }
 function json(obj, status, env) { return new Response(JSON.stringify(obj), { status: status || 200, headers: corsHeaders(env, { 'Content-Type': 'application/json' }) }); }
 
 // signed (HMAC) cookie so the verifier/token can't be tampered with; httpOnly + Secure
 async function hmac(secret, data) { const key = await crypto.subtle.importKey('raw', enc(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return b64url(await crypto.subtle.sign('HMAC', key, enc(data))); }
-async function signCookie(obj, secret) { const p = b64url(enc(JSON.stringify(obj))); const sig = await hmac(secret, p); return `tinct=${p}.${sig}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=3600`; }
+async function signCookie(obj, secret, maxAge = 3600) { const p = b64url(enc(JSON.stringify(obj))); const sig = await hmac(secret, p); return `tinct=${p}.${sig}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${maxAge}`; }
 async function readCookie(cookieHeader, secret) {
   const m = (cookieHeader || '').match(/tinct=([^;]+)/); if (!m) throw new Error('no cookie');
   const [p, sig] = m[1].split('.'); if ((await hmac(secret, p)) !== sig) throw new Error('bad sig');
