@@ -644,6 +644,11 @@
   .bv-var-acts{ display:flex; align-items:center; gap:8px; }
   .bv-var-acts a{ font-family:var(--fmono); font-size:10px; color:var(--verdigris); text-decoration:none; }
   .bv-var-acts a:hover{ color:var(--gold-bright); }
+  .hist-svg{ margin:14px 0 8px; } .hist-svg svg{ width:100%; height:auto; display:block; }
+  .hist-svg text{ font-family:var(--fmono); }
+  .hist-legend{ display:flex; flex-wrap:wrap; gap:7px 14px; }
+  .hist-leg{ font-family:var(--fmono); font-size:10.5px; color:var(--bone-dim); display:inline-flex; align-items:center; gap:5px; }
+  .hist-leg i{ width:11px; height:2px; display:inline-block; } .hist-leg b{ color:var(--bone); }
   .meta-src b{ color:var(--bone-dim); font-weight:500; } .meta-src a{ color:var(--verdigris); }
   .panel-meta .meta-grid{ grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); }
   .meta-gear{ grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); margin-top:16px; padding-top:16px; border-top:1px solid var(--hair); }
@@ -1060,6 +1065,12 @@
         <div id="assayMetaGrid"></div>
         <p class="panel-note" id="assayMetaNote" style="max-width:74ch">Share of every published character this league running each — skills, support gems, passive notables and unique items, aggregated from poe.ninja. Expand any ledger row above for the same breakdown on a single ascendancy.</p>
       </article>
+      <article class="panel panel-cross panel-history" id="assayHistory" hidden>
+        <div><span class="panel-eyebrow">The Lineage</span><div class="panel-title">Ascendancy share over time</div></div>
+        <div class="hist-svg" id="histSvg"></div>
+        <div class="hist-legend" id="histLegend"></div>
+        <p class="panel-note" id="histNote" style="max-width:70ch">Each hourly distillation is appended to an open history — the longer Tincture runs, the further back this reaches. Lines track the most-played ascendancies' share of the Runes of Aldur ladder.</p>
+      </article>
     </div>
     <p class="section-caveat" id="assayCaveat"></p>
   </section>
@@ -1273,6 +1284,7 @@ function normalizeData(json){
 let DATA = normalizeData(SAMPLE_DATA);
 let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
 let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
+let HISTORY = null;        // history.json: append-only per-snapshot ascendancy shares (the SC league)
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
@@ -2597,6 +2609,34 @@ function route(){
   if (p.asc) openAsc(p.asc, true);
 }
 
+// The Lineage — a hand-rolled SVG line chart of the top ascendancies' share over the accumulated
+// history. Sparse-tolerant: hidden until there are >=2 snapshots, then it fills in over time.
+function renderHistory(){
+  const panel = $("#assayHistory"); if (!panel) return;
+  const pts = (HISTORY && Array.isArray(HISTORY.points)) ? HISTORY.points : [];
+  if (pts.length < 2){ panel.hidden = true; return; }
+  panel.hidden = false;
+  const last = pts[pts.length-1].shares || {};
+  const top = Object.keys(last).sort((a,b)=>(last[b]||0)-(last[a]||0)).slice(0,6);
+  const series = top.map(asc => ({ asc, vals: pts.map(p => { const v=(p.shares||{})[asc]; return typeof v==="number" ? v : null; }) }));
+  const allV = series.flatMap(s=>s.vals).filter(v=>v!=null);
+  const maxY = Math.max(5, Math.ceil(Math.max(...allV, 0)/5)*5);
+  const W=680,H=240,padL=30,padR=10,padT=12,padB=20;
+  const X = i => padL + (W-padL-padR) * (pts.length<=1 ? 0 : i/(pts.length-1));
+  const Y = v => H-padB - (H-padT-padB) * (v/maxY);
+  const colors = ["var(--gold)","var(--verdigris)","var(--oxblood-bright)","var(--rise)","var(--fall)","var(--bone-dim)"];
+  const grid = [0, Math.round(maxY/2), maxY].map(t =>
+    `<line x1="${padL}" y1="${Y(t).toFixed(1)}" x2="${W-padR}" y2="${Y(t).toFixed(1)}" stroke="var(--hair)" stroke-width="0.5"/>`
+    + `<text x="2" y="${(Y(t)+3).toFixed(1)}" fill="var(--muted)" font-size="9">${t}%</text>`).join("");
+  const lines = series.map((s,si)=>{
+    const p = s.vals.map((v,i)=> v==null ? null : `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).filter(Boolean).join(" ");
+    return p ? `<polyline fill="none" stroke="${colors[si%colors.length]}" stroke-width="1.6" points="${p}"/>` : "";
+  }).join("");
+  $("#histSvg").innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ascendancy share over time">${grid}${lines}</svg>`;
+  $("#histLegend").innerHTML = series.map((s,si)=>`<span class="hist-leg"><i style="background:${colors[si%colors.length]}"></i>${esc(s.asc)} <b>${last[s.asc]!=null?last[s.asc].toFixed(1)+"%":""}</b></span>`).join("");
+  const note=$("#histNote"); if (note) note.textContent = `${pts.length} hourly snapshots so far · the most-played ascendancies' share of the Runes of Aldur ladder. The longer Tincture runs, the further back this reaches.`;
+}
+
 // fetch JSON with a hard timeout so a hung/slow response can't stall boot — it falls to the
 // honest sample marker instead of hanging. Returns null on any failure (abort/non-200/parse).
 async function fetchJSON(url, ms){
@@ -2621,6 +2661,9 @@ async function boot(){
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
   const m = await fetchJSON("meta-detail.json", 8000);
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
+  // optional: append-only meta history for the rise/fall chart (absent until the pipeline accrues it)
+  const h = await fetchJSON("history.json", 8000);
+  if (h && Array.isArray(h.points)) HISTORY = h;
   // preload the loadable-build manifest so the quiz can label loadable-vs-template honestly
   try { await buildsManifest(); } catch(_){}
 
@@ -2631,6 +2674,7 @@ async function boot(){
   renderChips();
   renderRows();
   renderAssay();
+  renderHistory();
   setupQuiz();
   setupArchive();
   watchStill();

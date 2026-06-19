@@ -334,5 +334,35 @@ class CrossLang(unittest.TestCase):
                          "tools/build-from-ninja.cjs ASCENDANCY_CODES drifted from buildfile.py")
 
 
+class HistoryAndSEO(unittest.TestCase):
+    def test_history_append_dedupes_and_caps(self):
+        pts = []
+        p1 = {"t": "t1", "shares": {"A": 10.0}}
+        pts = distill._history_append(pts, p1, 3)
+        self.assertEqual(len(pts), 1)
+        pts = distill._history_append(pts, dict(p1), 3)        # same shares -> skipped
+        self.assertEqual(len(pts), 1)
+        pts = distill._history_append(pts, {"t": "t2", "shares": {"A": 11.0}}, 3)
+        pts = distill._history_append(pts, {"t": "t3", "shares": {"A": 12.0}}, 3)
+        pts = distill._history_append(pts, {"t": "t4", "shares": {"A": 13.0}}, 3)
+        self.assertEqual([p["t"] for p in pts], ["t2", "t3", "t4"])   # capped, oldest dropped
+        self.assertEqual(pts[-1]["shares"]["A"], 13.0)
+
+    def test_slugify_asc_matches_frontend_slugof(self):
+        self.assertEqual(distill.slugify_asc("Martial Artist"), "martial-artist")
+        self.assertEqual(distill.slugify_asc("Acolyte of Chayula"), "acolyte-of-chayula")
+        self.assertEqual(distill.slugify_asc("Smith of Kitava"), "smith-of-kitava")
+
+    def test_landing_page_is_real_content_not_a_doorway(self):
+        h = distill.landing_html("Martial Artist", "Monk", "Combo melee striker", ["Tempest Flurry", "Falling Thunder"])
+        self.assertIn("<title>", h)
+        self.assertIn("Martial Artist", h)
+        self.assertIn('rel="canonical" href="https://tincturepoe2.com/b/martial-artist.html"', h)
+        self.assertIn("#asc=martial-artist", h)              # links into the SPA deep link
+        self.assertIn("Tempest Flurry", h)                   # genuine content (common skills)
+        self.assertIn("not affiliated", h)                   # honesty disclaimer
+        self.assertNotIn('http-equiv="refresh"', h)          # NOT an auto-redirect doorway
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

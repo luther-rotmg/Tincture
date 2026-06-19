@@ -31,6 +31,8 @@ Usage
 import json
 import sys
 import os
+import re
+import html as _html
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -153,6 +155,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_PATH = os.path.join(ROOT, "data.json")
 SITEMAP_PATH = os.path.join(ROOT, "sitemap.xml")
 SITE_URL = "https://tincturepoe2.com/"
+SITE = SITE_URL.rstrip("/")
+HISTORY_PATH = os.path.join(ROOT, "history.json")
+HISTORY_CAP = 240                       # ~10 days at hourly; append-only, deduped
+LANDING_DIR = os.path.join(ROOT, "b")   # per-ascendancy SEO landing pages
 REQUEST_TIMEOUT = 20
 
 # ----------------------------------------------------------------------------- #
@@ -440,18 +446,21 @@ def write_builds_manifest():
         print(f"[warn] could not write builds manifest: {e}")
 
 
-def write_sitemap(updated_iso):
+def write_sitemap(updated_iso, asc_slugs=None):
     """Rewrite sitemap.xml with a <lastmod> matching data.json's update day, turning the
     'refreshed hourly' claim into a verifiable crawler freshness signal. Date granularity keeps
-    the file (and its commits) from churning every hour. Fail-safe — a hiccup never breaks a run."""
+    the file (and its commits) from churning every hour. Includes the per-ascendancy landing
+    pages. Fail-safe — a hiccup never breaks a run."""
     lastmod = (updated_iso or "")[:10] or datetime.now(timezone.utc).date().isoformat()
-    def url_block(loc, prio):
+    def url_block(loc, prio, freq="hourly"):
         return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
-                f"    <changefreq>hourly</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
+                f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
+    blocks = url_block(SITE_URL, "1.0") + url_block(SITE_URL + "data.json", "0.5")
+    for slug in sorted(asc_slugs or []):
+        blocks += url_block(f"{SITE_URL}b/{slug}.html", "0.6", "weekly")
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-           + url_block(SITE_URL, "1.0") + url_block(SITE_URL + "data.json", "0.5")
-           + "</urlset>\n")
+           + blocks + "</urlset>\n")
     try:
         tmp = SITEMAP_PATH + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
@@ -460,6 +469,152 @@ def write_sitemap(updated_iso):
         print(f"[write] {SITEMAP_PATH} — lastmod {lastmod}")
     except OSError as e:  # noqa: BLE001
         print(f"[warn] could not write sitemap: {e}")
+
+
+def slugify_asc(asc):
+    """Ascendancy -> the front end's blank-skill slug (matches index.html slugOf)."""
+    return re.sub(r"[^a-z0-9]+", "-", (str(asc) + "-").lower()).strip("-")
+
+
+def _history_append(points, point, cap):
+    """Pure: append `point` unless it duplicates the last snapshot's shares; cap the length.
+    Append-only history is honest (real accumulated data) — poe.ninja's timeMachine param is
+    ignored by build-index-state, so we can't backfill; history grows from now."""
+    points = list(points or [])
+    if points and points[-1].get("shares") == point.get("shares"):
+        return points                      # unchanged since last snapshot — skip the duplicate
+    points.append(point)
+    return points[-cap:]
+
+
+def write_history(payload):
+    """Append the DEFAULT (SC challenge) league's ascendancy shares to history.json so the front
+    end can draw a real multi-day rise/fall chart. Lean (one league, deduped, capped), atomic,
+    fail-safe — never breaks a run."""
+    try:
+        leagues = {l.get("url"): l for l in payload.get("leagues", [])}
+        dl = leagues.get(payload.get("default")) or (payload.get("leagues") or [None])[0]
+        if not dl or dl.get("curated"):
+            return
+        shares = {b["asc"]: b["pop"] for b in dl.get("builds", []) if b.get("pop") is not None}
+        if not shares:
+            return
+        point = {"t": payload.get("updated"),
+                 "total": (dl.get("totals") or {}).get("characters"),
+                 "shares": shares}
+        hist = {}
+        if os.path.exists(HISTORY_PATH):
+            try:
+                with open(HISTORY_PATH, encoding="utf-8") as f:
+                    loaded = json.load(f)
+                if isinstance(loaded, dict):
+                    hist = loaded
+            except Exception:  # noqa: BLE001 — a corrupt prior file just starts fresh
+                hist = {}
+        pts = _history_append(hist.get("points") if isinstance(hist.get("points"), list) else [], point, HISTORY_CAP)
+        out = {"league": dl.get("url"), "updated": payload.get("updated"), "points": pts}
+        tmp = HISTORY_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+        os.replace(tmp, HISTORY_PATH)
+        print(f"[write] {HISTORY_PATH} — {len(pts)} points")
+    except Exception as e:  # noqa: BLE001
+        print(f"[warn] could not write history: {e}")
+
+
+def _esc(s):
+    return _html.escape(str(s), quote=True)
+
+
+def landing_html(asc, cls, tag, skills):
+    """A real-content (not doorway) SEO page for one ascendancy: class, playstyle, common skills,
+    a self-canonical, JSON-LD, and a link into the live SPA deep link. Stable content (no volatile
+    share) so it doesn't churn hourly."""
+    slug = slugify_asc(asc)
+    url = f"{SITE}/b/{slug}.html"
+    deep = f"{SITE}/#asc={slug}"
+    title = f"{asc} build meta — Path of Exile 2 (Runes of Aldur) | Tincture"
+    desc = (f"{asc}" + (f" ({cls})" if cls else "") + " in Path of Exile 2 0.5.0 — "
+            + (tag or "a current ladder ascendancy")
+            + ". See its live ladder share, popular skills, and a loadable build on Tincture.")
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc,
+        "url": url, "isPartOf": {"@type": "WebSite", "name": "Tincture", "url": SITE + "/"},
+        "about": {"@type": "Thing", "name": f"{asc} (Path of Exile 2 ascendancy)"},
+    }, ensure_ascii=False)
+    skills_html = ""
+    if skills:
+        skills_html = "<h2>Commonly plays</h2>\n<ul>" + "".join(f"<li>{_esc(s)}</li>" for s in skills[:6]) + "</ul>"
+    parts = [
+        "<!DOCTYPE html>", '<html lang="en"><head>', '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        f"<title>{_esc(title)}</title>",
+        f'<meta name="description" content="{_esc(desc)}">',
+        f'<link rel="canonical" href="{_esc(url)}">',
+        '<meta name="robots" content="index,follow">',
+        f'<meta property="og:title" content="{_esc(title)}">',
+        f'<meta property="og:description" content="{_esc(desc)}">',
+        f'<meta property="og:url" content="{_esc(url)}">',
+        f'<meta property="og:image" content="{SITE}/docs/og.png">',
+        '<meta property="og:type" content="article">',
+        f'<script type="application/ld+json">{ld}</script>',
+        '</head>',
+        '<body style="font-family:Georgia,serif;max-width:680px;margin:40px auto;padding:0 18px;'
+        'background:#14100b;color:#ece3d0;line-height:1.65">',
+        f'<p><a href="{SITE}/" style="color:#c8a24a;text-decoration:none">&#8592; Tincture</a> '
+        '&middot; the Path of Exile&nbsp;2 build meta, distilled</p>',
+        f'<h1 style="color:#e6c47a">{_esc(asc)}</h1>',
+        f"<p><b>Class:</b> {_esc(cls or 'unknown')} &middot; Path of Exile&nbsp;2 0.5.0 (Runes of Aldur)</p>",
+        (f"<p><i>{_esc(tag)}</i></p>" if tag else ""),
+        skills_html,
+        f'<p style="margin-top:26px"><a href="{_esc(deep)}" style="color:#5b8a7e;font-size:18px">'
+        f"See the live {_esc(asc)} meta &mdash; ladder share, trend, and a loadable build on Tincture &#8594;</a></p>",
+        '<p style="color:#877a62;font-size:13px;margin-top:34px">Tincture is an independent fan project, '
+        'not affiliated with or endorsed by Grinding Gear Games. Build data is reconstructed from the '
+        'public poe.ninja ladder and credited to its source character.</p>',
+        "</body></html>",
+    ]
+    return "\n".join(p for p in parts if p) + "\n"
+
+
+def generate_landing_pages(payload):
+    """Emit one real-content static page per ascendancy under /b/ for long-tail SEO the SPA can't
+    rank for. Content from data.json (class, tag) + meta-detail.json (common skills) when present.
+    Returns the slug list (for the sitemap). Fail-safe."""
+    try:
+        info = {}
+        for l in payload.get("leagues", []):
+            for b in l.get("builds", []):
+                a = b.get("asc")
+                if a and a not in info:
+                    info[a] = (b.get("cls") or "", b.get("tag") or ASC_TAGS.get(a, ""))
+        skills_by = {}
+        mdp = os.path.join(ROOT, "meta-detail.json")
+        if os.path.exists(mdp):
+            try:
+                with open(mdp, encoding="utf-8") as f:
+                    md = json.load(f)
+                for _slug, e in (md.get("byAsc") or {}).items():
+                    nm = e.get("asc")
+                    if nm:
+                        skills_by[nm] = [s.get("name") for s in (e.get("skills") or [])[:6] if s.get("name")]
+            except Exception:  # noqa: BLE001
+                pass
+        os.makedirs(LANDING_DIR, exist_ok=True)
+        slugs = []
+        for asc, (cls, tag) in sorted(info.items()):
+            slug = slugify_asc(asc)
+            tmp = os.path.join(LANDING_DIR, slug + ".html.tmp")
+            with open(tmp, "w", encoding="utf-8") as f:
+                f.write(landing_html(asc, cls, tag, skills_by.get(asc, [])))
+            os.replace(tmp, os.path.join(LANDING_DIR, slug + ".html"))
+            slugs.append(slug)
+        print(f"[write] {LANDING_DIR} — {len(slugs)} landing pages")
+        return slugs
+    except Exception as e:  # noqa: BLE001
+        print(f"[warn] could not write landing pages: {e}")
+        return []
 
 
 def write_data(payload):
@@ -475,7 +630,9 @@ def write_data(payload):
     nb = sum(len(l.get("builds", [])) for l in leagues)
     print(f"[write] {OUT_PATH} — {len(leagues)} leagues, {nb} builds total")
     write_builds_manifest()
-    write_sitemap(payload.get("updated"))
+    slugs = generate_landing_pages(payload)
+    write_sitemap(payload.get("updated"), slugs)
+    write_history(payload)
 
 # ----------------------------------------------------------------------------- #
 # Modes
