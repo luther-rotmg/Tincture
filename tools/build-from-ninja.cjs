@@ -31,7 +31,53 @@ const path = require('path');
 const UA = 'Tincture/0.5.0 (+https://github.com/luther-rotmg/Tincture; contact: ryan.duke360@gmail.com) build-reconstructor';
 const TREE_URL = 'https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/0.5.2/data.json';
 const GEMS_URL = 'https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/dev/src/Data/Gems.lua';
+const BASEITEMS_URL = 'https://repoe-fork.github.io/poe2/base_items.json'; // live-game BaseItemTypes dump — authoritative gem-id keys for QA
 const REPO = path.resolve(__dirname, '..');
+const CACHE_DIR = path.join(__dirname, '.cache'); // gitignored; the Action runs fresh
+
+// disk cache for tools/.cache. `producer` is an async () => Buffer|string fetched on a miss.
+// Safe for CONTENT-ADDRESSED entries (snapshot-keyed searches, hash-keyed dictionaries) and the
+// rarely-changing data dumps — never for index-state (must stay live to detect new snapshots).
+async function diskCached(file, producer, bin) {
+  const p = path.join(CACHE_DIR, file);
+  if (fs.existsSync(p)) return bin ? fs.readFileSync(p) : fs.readFileSync(p, 'utf8');
+  const d = await producer();
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  fs.writeFileSync(p, d);
+  return d;
+}
+
+// ---- meta-weapon matching ----
+// poe.ninja's "weaponmode" is a "Main / Offhand" family name (e.g. "Mace / Shield",
+// "Quarterstaff", "Wand / Sceptre"); base_items' item_class splits a weapon by hand
+// ("One Hand Mace"/"Two Hand Mace") and calls the quarterstaff a "Warstaff". So to tell
+// whether a character runs the dominant meta weapon, normalise BOTH sides to a single
+// weapon FAMILY and compare those — substring matching against the raw strings silently
+// (a) rejects every mace/sword/axe build (multi-word item_class) and (b) accepts offhands.
+const OFFHAND = new Set(['Focus', 'Shield', 'Buckler', 'Quiver']); // never the "main weapon"
+const weaponFamily = cls => {
+  if (!cls) return null;
+  const f = String(cls).replace(/^(?:One|Two) Hand /, '');
+  return f === 'Warstaff' ? 'Quarterstaff' : f; // base_items name -> poe.ninja name
+};
+// poe.ninja weaponmode -> dominant MAIN-HAND family (token before " / "); null when the
+// source can't classify it ("Unknown") — we then DON'T enforce the meta-weapon invariant.
+const metaWeaponFamily = name => {
+  const main = String(name || '').split('/')[0].trim();
+  return !main || main === 'Unknown' ? null : weaponFamily(main);
+};
+// the character's main-hand weapon family (main set preferred, then the weapon swap); null
+// if the only weapon-slot item is an offhand or its base type doesn't map to a class.
+const charWeaponFamily = (char, weaponClass) => {
+  if (!weaponClass) return null;
+  const items = (char.items || []).map(it => it.itemData || it);
+  for (const id of ['Weapon', 'Weapon2']) { // exact slots — /^Weapon/ also caught the swap (Weapon2) out of order
+    const d = items.find(x => (x.inventoryId || '') === id && x.baseType);
+    const fam = d && weaponFamily(weaponClass[d.baseType]);
+    if (fam && !OFFHAND.has(fam)) return fam;
+  }
+  return null;
+};
 
 // ascendancy display name -> .build code (same table as scripts/buildfile.py ASCENDANCY_CODES)
 const ASCENDANCY_CODES = {
@@ -90,8 +136,17 @@ function gemMapFromLua(lua) {
   while ((x = re.exec(lua))) {
     const body = x[2];
     const name = (body.match(/name\s*=\s*"([^"]*)"/) || [])[1];
-    const gameId = (body.match(/gameId\s*=\s*"([^"]*)"/) || [])[1] || x[1];
-    if (name) m[name] = gameId;
+    const gameId = (body.match(/gameId\s*=\s*"([^"]*)"/) || [])[1];
+    // Copy gameId VERBATIM — it is the live game's BaseItemTypes id and is
+    // authoritative per gem. Verified against the BaseItemTypes dump
+    // (repoe-fork base_items.json): the singular/plural split (Items/Gem vs
+    // Items/Gems) is real and fixed per gem, AND the lowercase-`items` form
+    // (SkillGemStaffConsecrate / SkillGemStaffUnleash) is genuine game data, not a
+    // PoB typo. Normalizing either the casing or the plural makes the id miss the
+    // game's table, so the planner can't scope the skill and shows the FULL gem
+    // catalog. Never normalize. Only require that it's a real gem metadata path
+    // (either Items/items casing); never fall back to the Lua key x[1] (not loadable).
+    if (name && /^Metadata\/[Ii]tems\/Gems?\//.test(gameId || '')) m[name] = gameId;
   }
   return m;
 }
@@ -129,13 +184,25 @@ function convert(char, { slug, gem, account, name, league }) {
   const skills = [];
   let mainSkillName = '', bestDps = -1;
   (char.skills || []).forEach(group => {
-    const gems = (group.allGems || []).map(g => ({ name: g.name, level: g.level, id: gem[g.name] })).filter(g => g.id);
+    // level_interval [min,100] = "this gem appears in the leveling plan from character
+    // level min". Use the gem's REAL Level requirement (poe.ninja itemData.requirements,
+    // type 62 — the plain char-level row, not the "(gem)" one) so the plan stops slotting
+    // endgame gems at level 1. Honest: this gates by the snapshot gem's own requirement;
+    // we never invent a leveling path. Support gems report only attribute reqs (no Level
+    // row in this payload) → they fall back to [1,100].
+    const reqLevel = g => {
+      const r = ((g.itemData || {}).requirements || []).find(q => (q.type === 62 || q.name === 'Level') && !/\(gem\)/.test(q.suffix || ''));
+      const n = parseInt(r && r.values && r.values[0] && r.values[0][0], 10);
+      return Number.isInteger(n) && n > 1 ? n : 1;
+    };
+    const gems = (group.allGems || []).map(g => ({ name: g.name, level: g.level, id: gem[g.name], req: reqLevel(g) })).filter(g => g.id);
     const active = gems.find(g => /\/SkillGem/i.test(g.id));
     if (!active) return; // a group with no resolvable active skill is dropped
+    if (/PlayerDefault/i.test(active.id)) return; // innate/default attack, not a real build gem
+    if (skills.some(sk => sk.id === active.id)) return; // dedupe repeated active gems
     const supports = gems.filter(g => g !== active && /\/SupportGem/i.test(g.id));
-    const skill = { id: active.id };
-    if (active.level) skill.level_interval = [1, 100];
-    if (supports.length) skill.support_skills = supports.map(s => ({ id: s.id, level_interval: [1, 100] }));
+    const skill = { id: active.id, level_interval: [active.req, 100] };
+    if (supports.length) skill.support_skills = supports.map(s => ({ id: s.id, level_interval: [s.req, 100] }));
     skills.push(skill);
     // group.dps is an array of {name, dps, ...}; take the group's peak dps
     const dps = Array.isArray(group.dps) ? Math.max(0, ...group.dps.map(d => Number(d && d.dps) || 0)) : (Number(group.dps) || 0);
@@ -169,7 +236,7 @@ function convert(char, { slug, gem, account, name, league }) {
 }
 
 // ---- QA: catch conversion errors + cheap cohesion checks ----
-function qa(build, char, { slug, tree }) {
+function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
   const issues = [];
   const warn = m => issues.push({ sev: 'warn', m });
   const fail = m => issues.push({ sev: 'fail', m });
@@ -226,6 +293,13 @@ function qa(build, char, { slug, tree }) {
     const ids = sup.map(x => x.id.replace(/(One|Two|Three|Four|Five)$/, ''));
     if (new Set(ids).size !== ids.length) warn(`skill ${i} has duplicate supports`);
     sup.forEach(x => { if (!/\/SupportGem/i.test(x.id)) fail(`skill ${i} support is not a SupportGem: ${x.id}`); });
+    // every gem id must be a VERBATIM BaseItemTypes key, or the in-game planner can't
+    // resolve it and falls back to the full gem catalog. An unresolved ACTIVE skill gem
+    // breaks support scoping for the whole group → hard fail; a stray support → warn.
+    if (baseItems) {
+      if (!baseItems.has(s.id)) fail(`skill ${i} id not a live BaseItemTypes key (would not load): ${s.id}`);
+      sup.forEach(x => { if (!baseItems.has(x.id)) warn(`skill ${i} support id not a live BaseItemTypes key: ${x.id}`); });
+    }
   });
 
   // items
@@ -234,6 +308,17 @@ function qa(build, char, { slug, tree }) {
   single.forEach(sl => { if (slots.filter(s => s === sl).length > 1) fail(`slot ${sl} occupied more than once`); });
   if (slots.filter(s => s === 'Ring1' || s === 'Ring2').length > 2) fail('more than 2 rings');
   build.inventory_slots.forEach(s => { if (!Object.values(SLOT_MAP).includes(s.inventory_id)) fail(`unknown inventory slot ${s.inventory_id}`); });
+
+  // stats<->build overlap invariant: the served build MUST run the ascendancy's DOMINANT meta
+  // weapon (#1 weaponmode), so a .build never contradicts the stats panel (e.g. a spear Monk
+  // served for a 63%-quarterstaff ascendancy). Compared by weapon FAMILY (see weaponFamily).
+  // Hard-fails an off-weapon pick → honest template served instead of a misleading build.
+  // Skipped when meta context is absent or the meta weapon is unclassifiable ("Unknown").
+  if (md && weaponClass && md.weapons && md.weapons[0]) {
+    const metaFam = metaWeaponFamily(md.weapons[0].name);
+    const haveFam = charWeaponFamily(char, weaponClass);
+    if (metaFam && haveFam !== metaFam) fail(`build weapon ${haveFam || '?'} != dominant meta weapon ${md.weapons[0].name} [${md.weapons[0].pct}%] — stats/build mismatch`);
+  }
 
   return { ok: !issues.some(i => i.sev === 'fail'), issues, stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length } };
 }
@@ -272,6 +357,15 @@ async function getSnapshot(league) {
   const idx = JSON.parse(await get('https://poe.ninja/poe2/api/data/index-state'));
   return (idx.snapshotVersions || []).find(s => s.url === league) || idx.snapshotVersions[0];
 }
+// --cache-only: recover the snapshot id from the cached global-search filename
+// (s-<version>-_global.bin) so we never touch the network. snapshotName (the league overview)
+// is only used to build URLs, which cache-only never fetches, so the league value is fine.
+function snapshotFromCache(cacheDir, league) {
+  const f = fs.readdirSync(cacheDir).find(n => /^s-.*-_global\.bin$/.test(n));
+  const m = f && f.match(/^s-(.+)-_global\.bin$/);
+  if (!m) throw new Error('cache-only: no cached global search (run a live --enumerate first)');
+  return { version: m[1], snapshotName: league, url: league };
+}
 
 // minimal protobuf reader — enough to pull the named string value_lists from /search
 function pbFields(b) {
@@ -301,7 +395,9 @@ function parseSearch(buf) {
 }
 
 const _dictCache = {};
-async function dictNames(hash) { if (!hash) return []; if (_dictCache[hash]) return _dictCache[hash]; const b = await get(`https://poe.ninja/poe2/api/builds/dictionary/${hash}`, true); _dictCache[hash] = pbFields(b).filter(x => x.f === 2 && x.wt === 2).map(x => x.data.toString('utf8')); return _dictCache[hash]; }
+// dictionaries are content-addressed by hash → disk-cache them (dict-<hash>.bin) so a throttled
+// run resumes nearly free; without this, extractMeta re-fetched every dictionary on each run.
+async function dictNames(hash) { if (!hash) return []; if (_dictCache[hash]) return _dictCache[hash]; const b = await diskCached(`dict-${hash}.bin`, () => get(`https://poe.ninja/poe2/api/builds/dictionary/${hash}`, true), true); _dictCache[hash] = pbFields(b).filter(x => x.f === 2 && x.wt === 2).map(x => x.data.toString('utf8')); return _dictCache[hash]; }
 
 const _num = s => { if (!s) return null; const m = String(s).match(/([\d.]+)\s*([km])?/i); return m ? Math.round(parseFloat(m[1]) * (m[2] ? (m[2].toLowerCase() === 'm' ? 1e6 : 1e3) : 1)) : null; };
 const _median = a => { const n = (a || []).map(_num).filter(x => x != null).sort((x, y) => x - y); return n.length ? n[Math.floor(n.length / 2)] : null; };
@@ -424,10 +520,10 @@ function refreshManifest() {
   return slugs;
 }
 
-function buildOne(char, { gem, account, name, league, tree, slugMap, quiet }) {
+function buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet }) {
   const build = convert(char, { slug: slugMap, gem, account, name, league });
   delete build._tincture;
-  const report = qa(build, char, { slug: slugMap, tree });
+  const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass });
   if (!quiet) { console.log('=== QA', JSON.stringify(report.stats)); report.issues.forEach(i => console.log(`  [${i.sev}] ${i.m}`)); }
   return { build, report };
 }
@@ -440,19 +536,35 @@ async function main() {
   const league = opt.league || 'runesofaldur';
 
   // data maps (prefer local cache in tools/.cache for dev; else fetch — never committed)
-  const cacheDir = path.join(__dirname, '.cache');
-  const cached = (f, url, bin) => { const p = path.join(cacheDir, f); if (fs.existsSync(p)) return Promise.resolve(bin ? fs.readFileSync(p) : fs.readFileSync(p, 'utf8')); return get(url, bin).then(d => { fs.mkdirSync(cacheDir, { recursive: true }); fs.writeFileSync(p, d); return d; }); };
+  const cacheDir = CACHE_DIR;
+  // --cache-only: replay the last run's cached searches + character pulls with ZERO network
+  // (rejects every cache miss). Lets a throttled run be finished deterministically offline.
+  const cacheOnly = !!opt['cache-only'];
+  const cached = (f, url, bin) => { if (cacheOnly && !fs.existsSync(path.join(cacheDir, f))) return Promise.reject(new Error('cache-only miss: ' + f)); return diskCached(f, () => get(url, bin), bin); };
   const tree = JSON.parse(await cached('tree.json', TREE_URL));
   const slugMap = slugMapFromTree(tree);
   const gem = gemMapFromLua(await cached('Gems.lua', GEMS_URL));
+  // Authoritative live-game gem-id keys; QA rejects any emitted gem id missing here
+  // (it would not resolve in-game → full-catalog fallback). Fail-soft if unavailable.
+  let baseItems = null, weaponClass = null;
+  try {
+    const bi = JSON.parse(await cached('base_items.json', BASEITEMS_URL));
+    baseItems = new Set(Object.keys(bi));
+    weaponClass = {}; for (const v of Object.values(bi)) if (v && v.name && v.item_class) weaponClass[v.name] = v.item_class;
+  } catch (e) { console.log('base_items.json unavailable — skipping gem-id validation & meta-weapon pick:', e.message); }
 
   // ENUMERATE: class-driven — per ascendancy, one class-filtered search gives the meta
   // breakdown (top skills/supports/notables/uniques/stats) AND the top character, which we
   // reconstruct into a loadable build. Produces builds/*.build + meta-detail.json. Covers
   // niche ascendancies too (each is found via its own class filter).
   if (opt.enumerate) {
-    const sv = await getSnapshot(league);
-    console.log(`snapshot ${sv.version} (${sv.snapshotName})`);
+    // In --cache-only we can't ask poe.ninja for the live snapshot or the meta dictionaries, so
+    // recover the snapshot id from the cache and source per-asc meta from the existing
+    // meta-detail.json (extractMeta would hit the dictionary endpoint). Builds are still rebuilt
+    // from cached character pulls, so the fix takes effect; only the meta breakdown is reused.
+    const priorDetail = cacheOnly ? JSON.parse(fs.readFileSync(path.join(REPO, 'meta-detail.json'), 'utf8')) : null;
+    const sv = cacheOnly ? snapshotFromCache(cacheDir, league) : await getSnapshot(league);
+    console.log(`snapshot ${sv.version} (${sv.snapshotName})${cacheOnly ? ' [cache-only]' : ''}`);
     // poe.ninja throttles a fast burst (~60 live requests then a wall). Two defenses:
     //  (1) DISK CACHE searches + character pulls (keyed by snapshot) so a throttled run can be
     //      re-run and resume nearly free — no re-hammering. Failed fetches are NOT cached, so
@@ -461,12 +573,15 @@ async function main() {
     const san = s => String(s).replace(/[^a-z0-9]+/gi, '_').slice(0, 48);
     const hit = f => fs.existsSync(path.join(cacheDir, f));   // was this already on disk? (check BEFORE cached() writes it)
     let netReqs = 0;
-    const onMiss = async (ms) => { netReqs++; await sleep(ms); if (netReqs % 45 === 0) { console.log(`  … ${netReqs} live requests — cooling down 120s to respect poe.ninja's window`); await sleep(120000); } };
+    const onMiss = async (ms) => { if (cacheOnly) return; netReqs++; await sleep(ms); if (netReqs % 45 === 0) { console.log(`  … ${netReqs} live requests — cooling down 120s to respect poe.ninja's window`); await sleep(120000); } };
     const meta = { updated: new Date().toISOString(), league, version: sv.version, total: 0, global: null, byAsc: {} };
     const gf = `s-${sv.version}-_global.bin`, gHit = hit(gf);
-    try { const g = parseSearch(await cached(gf, searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
-    catch (e) { console.log('global meta failed:', e.message); }
-    if (!gHit) await onMiss(700);
+    if (cacheOnly) { meta.total = priorDetail.total; meta.global = priorDetail.global; console.log(`global: ${meta.total} chars [meta reused from meta-detail.json]`); }
+    else {
+      try { const g = parseSearch(await cached(gf, searchBase(sv), true)); meta.total = g.total; meta.global = await extractMeta(g, gem); console.log(`global: ${g.total} chars · top skill ${meta.global.skills[0] && meta.global.skills[0].name} ${meta.global.skills[0] && meta.global.skills[0].pct}%`); }
+      catch (e) { console.log('global meta failed:', e.message); }
+      if (!gHit) await onMiss(700);
+    }
     const SAMPLE = opt['no-builds'] ? 0 : (Number(opt.sample) || 5);   // chars pulled per ascendancy (gear/rune sample; build is the #1)
     let builds = 0;
     const globalChars = [];
@@ -477,29 +592,48 @@ async function main() {
       try { s = parseSearch(await cached(sf, searchBase(sv) + '&class=' + encodeURIComponent(asc), true)); }
       catch (e) { console.log(`  - ${asc}: search ${e.message}`); if (!sHit) await onMiss(600); continue; }
       if (!s || s.total < 30) { console.log(`  · ${asc}: ${s ? s.total : 0} chars — too few, skipping`); if (!sHit) await onMiss(500); continue; }
-      const md = await extractMeta(s, gem);
+      const md = cacheOnly ? priorDetail.byAsc[slug] : await extractMeta(s, gem);
+      if (!md) { console.log(`  · ${asc}: no prior meta-detail entry — skipping (cache-only)`); continue; }
       meta.byAsc[slug] = { asc, ...md };
       if (!sHit) await onMiss(600);
       if (SAMPLE > 0) {
-        // pull a small sample of top characters: aggregate gear/runes, and build from a
-        // BALANCED-strong pick (good EHP and DPS, level 85+) rather than the raw #1 outlier.
-        const pairs = (s.vls.name || []).slice(0, SAMPLE).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm, ehp: _num((s.vls.ehp || [])[i]), dps: _num((s.vls.dps || [])[i]) })).filter(p => p.account && p.name);
+        // Pull top characters for gear aggregation, then keep pulling DEEPER down poe.ninja's
+        // ranked list until we have an L85+ character running the ascendancy's DOMINANT meta
+        // weapon. The top of the list is often off-meta high-DPS outliers (a spear Monk ahead of
+        // the quarterstaff majority), so a fixed top-N can miss the meta entirely. Capped by MAXSAMPLE.
+        const metaWep = md.weapons && md.weapons[0] && md.weapons[0].name;
+        const metaFam = weaponClass && metaWeaponFamily(metaWep);
+        const onMetaWeapon = char => !!metaFam && charWeaponFamily(char, weaponClass) === metaFam;
+        const MAXSAMPLE = Math.max(SAMPLE, Number(opt['max-sample']) || 15);
+        const ranked = (s.vls.name || []).map((nm, i) => ({ account: (s.vls.account || [])[i], name: nm, ehp: _num((s.vls.ehp || [])[i]), dps: _num((s.vls.dps || [])[i]) })).filter(p => p.account && p.name);
         const pulled = [];
-        for (const p of pairs) {
+        let metaFound = false;
+        for (const p of ranked) {
+          if (pulled.length >= MAXSAMPLE) break;
+          if (pulled.length >= SAMPLE && (!metaFam || metaFound)) break;
           const cf = `c-${sv.version}-${san(p.account)}-${san(p.name)}.json`, cHit = hit(cf);
-          try { pulled.push({ ...p, char: JSON.parse(await cached(cf, charUrl(sv, p.account, p.name))) }); } catch (e) {}
+          try { const char = JSON.parse(await cached(cf, charUrl(sv, p.account, p.name))); pulled.push({ ...p, char }); if (metaFam && (char.level || 0) >= 85 && onMetaWeapon(char)) metaFound = true; } catch (e) {}
           if (!cHit) await onMiss(650);
         }
         if (pulled.length) {
           const ga = aggregateGear(pulled.map(p => p.char));
           meta.byAsc[slug].gear = ga.gear; meta.byAsc[slug].runes = ga.runes;
           pulled.forEach(p => globalChars.push(p.char));
-          const cands = pulled.filter(p => (p.char.level || 0) >= 85).length ? pulled.filter(p => (p.char.level || 0) >= 85) : pulled;
+          let cands = pulled.filter(p => (p.char.level || 0) >= 85);
+          if (!cands.length) cands = pulled;
+          // Narrow to candidates running the dominant meta weapon (computed above). The adaptive
+          // pull tries to ensure at least one exists; if none do, the off-weapon pick is kept but
+          // QA's stats<->build overlap check rejects it (honest template served instead).
+          if (metaFam) {
+            const onMeta = cands.filter(p => onMetaWeapon(p.char));
+            if (onMeta.length) cands = onMeta;
+            else console.log(`  ! ${asc}: no L85+ char running meta weapon ${metaWep} within ${pulled.length} pulls — QA will reject the off-weapon build`);
+          }
           const maxE = Math.max(1, ...cands.map(p => p.ehp || 0)), maxD = Math.max(1, ...cands.map(p => p.dps || 0));
           cands.sort((a, b) => Math.min((b.ehp || 0) / maxE, (b.dps || 0) / maxD) - Math.min((a.ehp || 0) / maxE, (a.dps || 0) / maxD));
           const { account, name, char } = cands[0];
           try {
-            const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, quiet: true });
+            const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet: true });
             if (report.ok) {
               writeBuild(slug, build); writePob(slug, char.pathOfBuildingExport); builds++;
               meta.byAsc[slug].source = { account, name, level: char.level || null };
@@ -513,7 +647,7 @@ async function main() {
           } catch (e) { console.log(`  x ${asc}: build ${e.message}`); }
         } else console.log(`  · ${asc}: no characters pulled`);
       }
-      await sleep(500); // be polite to poe.ninja
+      if (!cacheOnly) await sleep(500); // be polite to poe.ninja
     }
     if (globalChars.length && meta.global) { const gg = aggregateGear(globalChars); meta.global.gear = gg.gear; meta.global.runes = gg.runes; }
     const slugs = refreshManifest();
@@ -530,11 +664,13 @@ async function main() {
     if (!opt.account || !opt.name) throw new Error('--account and --name required (or --from-cache / --enumerate)');
     char = JSON.parse(await get(charUrl(await getSnapshot(league), account, name)));
   }
-  const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap });
+  const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems });
   console.log('QA verdict:', report.ok ? 'PASS' : 'FAIL');
   if (!report.ok) { console.log('Refusing to write an incohesive build.'); process.exit(1); }
   writeBuild(opt.slug, build);
   console.log('wrote builds/' + opt.slug + '.build', `(${build.passives.length} passives, ${build.skills.length} skills, ${build.inventory_slots.length} items)`);
   refreshManifest();
 }
-main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
+if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
+// exported for unit tests (importing the module must not run the CLI — hence the guard above)
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree };
