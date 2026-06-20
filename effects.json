@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-20T02:32:09.544Z",
+    "generated": "2026-06-20T06:31:43.689Z",
     "sources": [
       {
         "name": "poe.ninja",
@@ -616,6 +616,49 @@
       ],
       "flavour": "Power is a matter of perspective."
     },
+    "voices": {
+      "name": "Voices",
+      "base": "Sapphire",
+      "mods": [
+        "Allocates 2 Sinister Jewel sockets"
+      ],
+      "flavour": "Only a madman would ignore a god's instructions."
+    },
+    "from nothing": {
+      "name": "From Nothing",
+      "base": "Diamond",
+      "mods": [
+        "Passives in Radius of Conduit can be Allocated without being connected to your tree"
+      ],
+      "flavour": "They clawed their way up from the agonising depths of nonexistence, breathing deep with joy the exquisite light of meaning."
+    },
+    "the fall of the axe": {
+      "name": "The Fall of the Axe",
+      "base": "Silver Charm",
+      "mods": [
+        "Used when you are affected by a Slow",
+        "Grants Onslaught during effect"
+      ],
+      "flavour": "\"When the headsman's blade swings, your last moments stretch to eternity.\" - Vorm, the Twice-Pardoned"
+    },
+    "rite of passage": {
+      "name": "Rite of Passage",
+      "base": "Golden Charm",
+      "mods": [
+        "Used when you kill a Rare or Unique enemy",
+        "Possessed by Spirit Of The Stag for 20 seconds on use"
+      ],
+      "flavour": "To become a warrior and a hunter, each young Azmeri must prove themselves before the Spirit."
+    },
+    "lavianga s spirits": {
+      "name": "Lavianga's Spirits",
+      "base": "Gargantuan Mana Flask",
+      "mods": [
+        "This Flask cannot be Used but applies its Effect constantly",
+        "73% reduced Amount Recovered"
+      ],
+      "flavour": "\"How do I cope with what I witnessed on Wraeclast? Thank the Ancestors! My cup, it overflows.\" - Lavianga, former advisor to Kaom"
+    },
     "atziri s splendour": {
       "name": "Atziri's Splendour",
       "base": "Sacrificial Regalia",
@@ -653,6 +696,24 @@
         "All Mage's Legacies have 49% increased effect per duplicate Mage's Legacy you have"
       ],
       "flavour": "Rivers of power coursed through their veins. Now, that power is yours, for good or ill."
+    },
+    "megalomaniac": {
+      "name": "Megalomaniac",
+      "base": "Diamond",
+      "mods": [],
+      "flavour": "If you're going to act like you're better than everyone else, make sure you are."
+    },
+    "uhtred s chalice": {
+      "name": "Uhtred's Chalice",
+      "base": "Transcendent Mana Flask",
+      "mods": [
+        "299% increased Amount Recovered",
+        "70% reduced Recovery rate",
+        "53% reduced Charges",
+        "Lose 5% Life per second while you have no Runic Ward during Effect",
+        "Mana Recovery from Flasks can Overflow maximum Mana during Effect"
+      ],
+      "flavour": "Uhtred drank. Verisium burned through his veins. He gazed at death's face. With all his strength, he turned instead to the stars, and witnessed Truth."
     },
     "rise of the phoenix": {
       "name": "Rise of the Phoenix",
@@ -715,6 +776,44 @@
       ],
       "flavour": "God blesses those who bless themselves."
     },
+    "heroic tragedy": {
+      "name": "Heroic Tragedy",
+      "base": "Timeless Jewel",
+      "mods": [
+        "Remembrancing 4099 songworthy deeds by the line of Vorana Passives in radius are Conquered by the Kalguur",
+        "Historic"
+      ],
+      "flavour": "They believed themselves courageous and selfless, but that bravery became the doom at their door."
+    },
+    "against the darkness": {
+      "name": "Against the Darkness",
+      "base": "Time-Lost Diamond",
+      "mods": [
+        "Notable Passive Skills in Radius also grant +12 to Spirit",
+        "Notable Passive Skills in Radius also grant 3% increased Strength"
+      ],
+      "flavour": "After the fires, in the depths of the Winter of the World, all life in the Vastiri banded together. Whether serpent, hyena, human, or golem, hated enemies clasped hand to claw, built refuge, and fought side by side against the Abyssals. Thus, the Third Pact was born."
+    },
+    "the black cat": {
+      "name": "The Black Cat",
+      "base": "Grounding Charm",
+      "mods": [
+        "Used when you become Shocked",
+        "10% increased Duration",
+        "Lightning Damage of Enemies Hitting you is Unlucky during effect"
+      ],
+      "flavour": "The most beloved member of every Brinerot crew is the one that refuses to do any actual work."
+    },
+    "nascent hope": {
+      "name": "Nascent Hope",
+      "base": "Thawing Charm",
+      "mods": [
+        "Used when you become Frozen",
+        "22% Chance to gain a Charge when you kill an enemy",
+        "Energy Shield Recharge starts on use"
+      ],
+      "flavour": "\"Even in the face of the Winter of the World, life found a way. The Spirit always provides.\""
+    },
     "blistering bond": {
       "name": "Blistering Bond",
       "base": "Ruby Ring",
@@ -763,6 +862,38 @@
         "Gain 1 Druidic Prowess for every 20 total Rage spent"
       ],
       "flavour": "A sensitive few among the first settlers of Ezomyr followed the wisps by canoe. On a misty forested island, Cirel of Tarth stood waiting to greet them."
+    },
+    "split personality": {
+      "name": "Split Personality",
+      "base": "Ruby",
+      "mods": [
+        "Can Allocate Passive Skills from the Warrior's starting point"
+      ],
+      "flavour": "\"Try on another life. See how it fits. You'll find that your one life is utterly inadequate.\" - He of Many Names and Many Faces"
+    },
+    "prism of belief": {
+      "name": "Prism of Belief",
+      "base": "Diamond",
+      "mods": [
+        "+3 to Level of all Shield Wall Skills"
+      ],
+      "flavour": "Entropy can be reversed."
+    },
+    "heart of the well": {
+      "name": "Heart of the Well",
+      "base": "Diamond",
+      "mods": [],
+      "flavour": "Countless souls scream in agonising harmony, forever sinking under the weight of the newly dead."
+    },
+    "beira s anguish": {
+      "name": "Beira's Anguish",
+      "base": "Dousing Charm",
+      "mods": [
+        "Used when you become Ignited",
+        "23% Chance to gain a Charge when you kill an enemy",
+        "Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"
+      ],
+      "flavour": "They found a crying child tied to a frozen pyre. She was clad in ice, but the village was ash."
     },
     "headhunter": {
       "name": "Headhunter",
@@ -813,6 +944,16 @@
       ],
       "flavour": "May the Lightless drown in the violence of His devotion."
     },
+    "controlled metamorphosis": {
+      "name": "Controlled Metamorphosis",
+      "base": "Diamond",
+      "mods": [
+        "Only affects Passives in Medium-Large Ring",
+        "Passives in Radius can be Allocated without being connected to your tree",
+        "-6% to all Elemental Resistances"
+      ],
+      "flavour": "Our world was dying, but we chose to survive. We broke free from the chains within."
+    },
     "rathpith globe": {
       "name": "Rathpith Globe",
       "base": "Sacred Focus",
@@ -834,6 +975,23 @@
         "Skills have -1.96 seconds to Cooldown"
       ],
       "flavour": "The final element the tale-women mastered was Time itself."
+    },
+    "the adorned": {
+      "name": "The Adorned",
+      "base": "Diamond",
+      "mods": [
+        "129% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"
+      ],
+      "flavour": "At their height, the Vaal glittered under the sun. A decade, a century, an aeon of prosperity... now nothing more than a passing wonder."
+    },
+    "for utopia": {
+      "name": "For Utopia",
+      "base": "Stone Charm",
+      "mods": [
+        "Used when you become Stunned",
+        "Defend with 200% of Armour during effect"
+      ],
+      "flavour": "\"It may be centuries hence, but I still hold utmost faith. The Saviour will rise, and mankind will be free.\""
     },
     "morior invictus": {
       "name": "Morior Invictus",
@@ -896,6 +1054,16 @@
       ],
       "flavour": "He knew not why he was changing, only that he wanted to hold his family close..."
     },
+    "valako s roar": {
+      "name": "Valako's Roar",
+      "base": "Topaz Charm",
+      "mods": [
+        "Used when you take Lightning damage from a Hit",
+        "30% increased Charges gained",
+        "Grants a Frenzy Charge on use"
+      ],
+      "flavour": "The sea swells, the sky thunders; two ships tilt at odds. Flashes of light show only swinging axes... and a grin."
+    },
     "andvarius": {
       "name": "Andvarius",
       "base": "Gold Ring",
@@ -925,6 +1093,14 @@
         "Lose 2% of maximum Life on Kill"
       ],
       "flavour": "Wealth is not to be borne lightly."
+    },
+    "grand spectrum": {
+      "name": "Grand Spectrum",
+      "base": "Sapphire",
+      "mods": [
+        "+7% to all Elemental Resistances per socketed Grand Spectrum"
+      ],
+      "flavour": "Skin like steel tempered by bright flames."
     },
     "ventor s gamble": {
       "name": "Ventor's Gamble",
@@ -976,6 +1152,25 @@
         "Grants effect of Dreaming Gloom Shrine"
       ],
       "flavour": "\"We sometimes fail. We sometimes succeed. Who determines one from the other? I now know we can never be made One, if we are bore of differing desires. And yet, I have hope for a new truth. And I will see it... made real.\" - The Benevolent Dreamer"
+    },
+    "olroth s resolve": {
+      "name": "Olroth's Resolve",
+      "base": "Ultimate Life Flask",
+      "mods": [
+        "141% increased Charges per use",
+        "Regenerate 3.6% of maximum Runic Ward per second during Effect",
+        "Gain Guard equal to Current Runic Ward for 10 seconds when Effect ends"
+      ],
+      "flavour": "Olroth the Gallant, tireless and true, he fights for me, he fights for you!"
+    },
+    "flesh crucible": {
+      "name": "Flesh Crucible",
+      "base": "Diamond",
+      "mods": [
+        "16% less Damage",
+        "Iron Reflexes"
+      ],
+      "flavour": "\"Never mind the pain, it's only... making room. Unrelated fact, a person can live a normal life with just one kidney. Or just one lung. You never know what Vaal technology will cost you...\""
     },
     "hyrri s ire": {
       "name": "Hyrri's Ire",
@@ -1031,6 +1226,19 @@
       ],
       "flavour": ""
     },
+    "blood of the warrior": {
+      "name": "Blood of the Warrior",
+      "base": "Gargantuan Life Flask",
+      "mods": [
+        "90% less Life Recovered",
+        "Effect is not removed when Unreserved Life is Filled",
+        "20% of Damage taken during effect Recouped as Life",
+        "Gain 3 Rage when Hit by an Enemy during effect",
+        "No Inherent loss of Rage during effect",
+        "49% increased Duration"
+      ],
+      "flavour": "\"Tukohama may be asleep, but he still gives us his strength. A small needle, an offering, and a vial... drink deeply, my son, and you will more than survive the coming battle... you will thrive.\""
+    },
     "the unborn lich": {
       "name": "The Unborn Lich",
       "base": "Ravenous Staff",
@@ -1038,6 +1246,15 @@
         "80% increased Desecrated Modifier magnitudes"
       ],
       "flavour": "In ghastly pits beneath the world, Kulemak grows countless new bodies, each more powerful than the last. Not all of his abominations survive."
+    },
+    "undying hate": {
+      "name": "Undying Hate",
+      "base": "Timeless Jewel",
+      "mods": [
+        "Glorifying the defilement of 14390 souls in tribute to Amanamu Passives in radius are Conquered by the Abyssals Desecration makes this item unstable",
+        "Historic"
+      ],
+      "flavour": "They believed themselves driven by necessity, but that desperation made them monstrous."
     },
     "chernobog s pillar": {
       "name": "Chernobog's Pillar",
@@ -1081,6 +1298,16 @@
         "Projectiles from Spells cannot Pierce"
       ],
       "flavour": "They wrap around you until your blood turns as cold as theirs."
+    },
+    "sanguis heroum": {
+      "name": "Sanguis Heroum",
+      "base": "Staunching Charm",
+      "mods": [
+        "Used when you start Bleeding",
+        "Gains 0.20 Charges per Second",
+        "Creates Consecrated Ground on use"
+      ],
+      "flavour": "Wraeclast has known too few true heroes. It remembers those that stood in defiance."
     },
     "revered resin": {
       "name": "Revered Resin",
@@ -1328,6 +1555,16 @@
       ],
       "flavour": "The darkest clouds clashed and coupled, giving birth to four lightning children of hate."
     },
+    "ngamahu s chosen": {
+      "name": "Ngamahu's Chosen",
+      "base": "Ruby Charm",
+      "mods": [
+        "Used when you take Fire damage from a Hit",
+        "30% increased Charges",
+        "Grants up to your maximum Rage on use"
+      ],
+      "flavour": "Kaom was not known for his restraint."
+    },
     "doedre s damning": {
       "name": "Doedre's Damning",
       "base": "Lazuli Ring",
@@ -1363,6 +1600,20 @@
         "Cannot Immobilise enemies"
       ],
       "flavour": "Only once did Maligaro wonder if he'd gone too far. His greatest success took three entire legions to capture."
+    },
+    "opportunity": {
+      "name": "Opportunity",
+      "base": "Ultimate Life Flask",
+      "mods": [
+        "Effect is not removed when Unreserved Life is Filled",
+        "Cannot be Used manually",
+        "Used when you release a skill with Perfect Timing",
+        "Skills have 84% longer Perfect Timing window during effect",
+        "124% increased Amount Recovered",
+        "40% reduced Recovery rate",
+        "72% reduced Charges per use"
+      ],
+      "flavour": "\"Calculations complete, and He is assembled. Our immaculate tactics are set in motion.\""
     },
     "leopold s applause": {
       "name": "Leopold's Applause",
@@ -1423,6 +1674,16 @@
         "Inflicts a random Curse on you when your Totems die, ignoring Curse limit"
       ],
       "flavour": "The greatest mistakes cause suffering long after they have been made"
+    },
+    "arakaali s gift": {
+      "name": "Arakaali's Gift",
+      "base": "Antidote Charm",
+      "mods": [
+        "Used when you become Poisoned",
+        "Recover Life equal to 17% of Mana Flask's Recovery Amount when used",
+        "Recover Mana equal to 16% of Life Flask's Recovery Amount when used"
+      ],
+      "flavour": "Devotees of the Goddess of Lust needed never fear her sting."
     },
     "fireflower": {
       "name": "Fireflower",
@@ -1683,6 +1944,16 @@
       ],
       "flavour": "Turning, gazing, blinking, behold the eyes of void. Burning, razing, drinking, your mind is destroyed."
     },
+    "forsaken bangle": {
+      "name": "Forsaken Bangle",
+      "base": "Amethyst Charm",
+      "mods": [
+        "Used when you take Chaos damage from a Hit",
+        "25% increased Duration",
+        "50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"
+      ],
+      "flavour": "Among the Templars, a secret few ate the sins of others. They bore this burden to empower their hidden Order."
+    },
     "nocturne": {
       "name": "Nocturne",
       "base": "Wooden Buckler",
@@ -1694,6 +1965,17 @@
         "100% increased Parried Debuff Duration"
       ],
       "flavour": "Light and shadow chase eternal, but neither knows the other exists..."
+    },
+    "melting maelstrom": {
+      "name": "Melting Maelstrom",
+      "base": "Ultimate Mana Flask",
+      "mods": [
+        "Effect is not removed when Unreserved Mana is Filled",
+        "250% increased Duration",
+        "Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres",
+        "Deals 25% of current Mana as Chaos Damage to you when Effect ends"
+      ],
+      "flavour": "What is life, but a dreamlike spiral of panic?"
     },
     "blackflame": {
       "name": "Blackflame",
@@ -7774,6 +8056,12 @@
         "50% of Evasion Rating also grants Elemental Damage reduction"
       ]
     },
+    "zealot s oath": {
+      "name": "Zealot's Oath",
+      "stats": [
+        "Excess Life Recovery from Regeneration is applied to Energy Shield Energy Shield does not Recharge"
+      ]
+    },
     "fast acting toxins": {
       "name": "Fast Acting Toxins",
       "stats": [
@@ -7839,6 +8127,14 @@
       "name": "Hidden Forms",
       "stats": [
         "Gain 8% of Damage as Extra Damage of a random Element while Shapeshifted"
+      ]
+    },
+    "choice of power": {
+      "name": "Choice of Power",
+      "stats": [
+        "Remnants you create have 50% increased effect",
+        "Remnants can be collected from 50% further away",
+        "All Flames of Chayula that you manifest are Purple"
       ]
     },
     "bond of the ape": {
@@ -8952,6 +9248,12 @@
         "20% increased chance to inflict Ailments against Rare or Unique Enemies"
       ]
     },
+    "crimson assault": {
+      "name": "Crimson Assault",
+      "stats": [
+        "Bleeding you inflict is Aggravated Base Bleeding Duration is 1 second 50% more Magnitude of Bleeding you inflict"
+      ]
+    },
     "escalation": {
       "name": "Escalation",
       "stats": [
@@ -9274,6 +9576,18 @@
         "50% chance to gain Onslaught on Killing Blow with Axes"
       ]
     },
+    "zarokh s gift": {
+      "name": "Zarokh's Gift",
+      "stats": [
+        "Sinister Jewel Socket"
+      ]
+    },
+    "ritual cadence": {
+      "name": "Ritual Cadence",
+      "stats": [
+        "Invocation Skills instead Trigger Spells every 2 seconds Invocation Skills cannot gain Energy while Triggering Spells Invoked Spells consume 50% less Energy"
+      ]
+    },
     "volcanic skin": {
       "name": "Volcanic Skin",
       "stats": [
@@ -9402,6 +9716,13 @@
       "name": "Vale Shelter",
       "stats": [
         "Charms gain 0.15 charges per Second"
+      ]
+    },
+    "path of the sorceress": {
+      "name": "Path of the Sorceress",
+      "stats": [
+        "Can Allocate Passive Skills from the Sorceress's starting point",
+        "Grants 4 Passive Skill Points"
       ]
     },
     "adaptable assault": {
@@ -9613,6 +9934,12 @@
         "Enemies affected by your Hazards Recently have 25% reduced Evasion Rating"
       ]
     },
+    "dance with death": {
+      "name": "Dance with Death",
+      "stats": [
+        "25% more Skill Speed while Off Hand is empty and you have a One-Handed Martial Weapon equipped in your Main Hand"
+      ]
+    },
     "puppet master chance": {
       "name": "Puppet Master chance",
       "stats": [
@@ -9656,6 +9983,12 @@
       "name": "Lunar Boon",
       "stats": [
         "40% increased Mana Regeneration Rate while Shapeshifted"
+      ]
+    },
+    "unwavering stance": {
+      "name": "Unwavering Stance",
+      "stats": [
+        "Cannot be Light Stunned Cannot Dodge Roll or Sprint"
       ]
     },
     "specialised shots": {
@@ -10138,6 +10471,12 @@
         "50% increased Attack Damage"
       ]
     },
+    "avatar of fire": {
+      "name": "Avatar of Fire",
+      "stats": [
+        "75% of Damage Converted to Fire Damage Deal no Non-Fire Damage"
+      ]
+    },
     "inner turmoil": {
       "name": "Inner Turmoil",
       "stats": [
@@ -10203,6 +10542,12 @@
         "25% increased Damage while you have a Totem",
         "Spells Cast by Totems have 3% increased Cast Speed per Summoned Totem",
         "Attacks used by Totems have 3% increased Attack Speed per Summoned Totem"
+      ]
+    },
+    "glancing blows": {
+      "name": "Glancing Blows",
+      "stats": [
+        "Chance to Evade is Unlucky Chance to Deflect is Lucky"
       ]
     },
     "precision salvo": {
@@ -10760,6 +11105,12 @@
         "Your speed is unaffected by Slows"
       ]
     },
+    "oasis": {
+      "name": "Oasis",
+      "stats": [
+        "Cannot use Charms 30% more Recovery from Flasks"
+      ]
+    },
     "waning hindrances": {
       "name": "Waning Hindrances",
       "stats": [
@@ -10811,6 +11162,12 @@
         "5% reduced Attack Speed",
         "20% increased Stun Buildup",
         "40% increased Damage with Two Handed Weapons"
+      ]
+    },
+    "resonance": {
+      "name": "Resonance",
+      "stats": [
+        "Gain Power Charges instead of Frenzy Charges Gain Frenzy Charges instead of Endurance Charges Gain Endurance Charges instead of Power Charges"
       ]
     },
     "sand in the eyes": {
@@ -11186,6 +11543,12 @@
         "25% increased Damage with Hits against Ignited Enemies"
       ]
     },
+    "iron reflexes": {
+      "name": "Iron Reflexes",
+      "stats": [
+        "Converts all Evasion Rating to Armour"
+      ]
+    },
     "the molten one s gift": {
       "name": "The Molten One's Gift",
       "stats": [
@@ -11554,6 +11917,12 @@
         "30% increased Magnitude of Shock you inflict"
       ]
     },
+    "giant s blood": {
+      "name": "Giant's Blood",
+      "stats": [
+        "You can wield Two-Handed Axes, Maces and Swords in one hand Triple Attribute requirements of Martial Weapons Inherent Life granted by Strength is halved"
+      ]
+    },
     "swift claw": {
       "name": "Swift Claw",
       "stats": [
@@ -11669,6 +12038,12 @@
         "25% increased Skill Effect Duration"
       ]
     },
+    "bolstering implants": {
+      "name": "Bolstering Implants",
+      "stats": [
+        "+2 to Level of all Skills with a Strength requirement"
+      ]
+    },
     "gem enthusiast": {
       "name": "Gem Enthusiast",
       "stats": [
@@ -11713,11 +12088,23 @@
         "12% increased Reservation Efficiency of Minion Skills"
       ]
     },
+    "vaal pact": {
+      "name": "Vaal Pact",
+      "stats": [
+        "50% more amount of Life Leeched Leech Life 67% less quickly Cannot Recover Life other than from Leech Life Leech effects are not removed when Unreserved Life is Filled"
+      ]
+    },
     "reverberating parry": {
       "name": "Reverberating Parry",
       "stats": [
         "15% increased Parried Debuff Magnitude",
         "20% increased Parry Hit Area of Effect"
+      ]
+    },
+    "eternal youth": {
+      "name": "Eternal Youth",
+      "stats": [
+        "Life Recharges instead of Energy Shield 50% less Life Recovery from Flasks"
       ]
     },
     "quick fingers": {
@@ -11773,6 +12160,12 @@
       "stats": [
         "10% increased Block chance",
         "15% reduced Slowing Potency of Debuffs on You"
+      ]
+    },
+    "conduit": {
+      "name": "Conduit",
+      "stats": [
+        "If you would gain a Charge, Allies in your Presence gain that Charge instead"
       ]
     },
     "crashing wave": {
@@ -11865,6 +12258,12 @@
       "stats": [
         "16% increased Skill Effect Duration",
         "Companions have a 40% chance to Poison on Hit"
+      ]
+    },
+    "heartstopper": {
+      "name": "Heartstopper",
+      "stats": [
+        "Take 50% less Damage over Time if you've started taking Damage over Time in the past second Take 50% more Damage over Time if you haven't started taking Damage over Time in the past second"
       ]
     },
     "hallowed": {
@@ -12265,11 +12664,23 @@
         "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge"
       ]
     },
+    "neurological implants": {
+      "name": "Neurological Implants",
+      "stats": [
+        "+2 to Level of all Skills with an Intelligence requirement"
+      ]
+    },
     "staunching": {
       "name": "Staunching",
       "stats": [
         "Life Flasks gain 0.1 charges per Second",
         "+10 to Strength"
+      ]
+    },
+    "primal hunger": {
+      "name": "Primal Hunger",
+      "stats": [
+        "100% more Maximum Rage Regenerate 1 Rage per second per 4 Rage spent Recently No Rage effect"
       ]
     },
     "whirling assault": {
@@ -12605,6 +13016,12 @@
         "18% increased Area of Effect for Attacks"
       ]
     },
+    "necromantic talisman": {
+      "name": "Necromantic Talisman",
+      "stats": [
+        "All bonuses from Equipped Amulet apply to your Minions instead of you"
+      ]
+    },
     "chronomancy": {
       "name": "Chronomancy",
       "stats": [
@@ -12801,6 +13218,18 @@
         "30% increased Stun Buildup"
       ]
     },
+    "trusted kinship": {
+      "name": "Trusted Kinship",
+      "stats": [
+        "You can have two Companions of different types 30% more Reservation Efficiency of Companion Skills 20% less Reservation Efficiency of non-Companion Skills"
+      ]
+    },
+    "point blank": {
+      "name": "Point Blank",
+      "stats": [
+        "Projectiles deal 20% more Hit damage to targets in the first 3.5 metres of their movement, scaling down with distance travelled to reach 0% after 7 metres"
+      ]
+    },
     "gravedigger": {
       "name": "Gravedigger",
       "stats": [
@@ -12955,6 +13384,12 @@
       "stats": [
         "Every five Rage also grants you 2% increased Minion Attack Speed",
         "Every Rage also grants you 1% increased Minion Damage"
+      ]
+    },
+    "blackflame covenant": {
+      "name": "Blackflame Covenant",
+      "stats": [
+        "Fire Spells Convert 100% of Fire Damage to Chaos Damage Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"
       ]
     },
     "thousand cuts": {
@@ -13130,6 +13565,12 @@
         "6% increased Cast Speed for each different Spell you've Cast in the last eight seconds"
       ]
     },
+    "resolute technique": {
+      "name": "Resolute Technique",
+      "stats": [
+        "Accuracy Rating is Doubled Never deal Critical Hits"
+      ]
+    },
     "hastening barrier": {
       "name": "Hastening Barrier",
       "stats": [
@@ -13261,6 +13702,12 @@
         "+10 to Dexterity"
       ]
     },
+    "ancestral bond": {
+      "name": "Ancestral Bond",
+      "stats": [
+        "Your Totem Limit is doubled No Charge requirement for placing Totems Totems reserve 75 Spirit each"
+      ]
+    },
     "refills": {
       "name": "Refills",
       "stats": [
@@ -13360,6 +13807,12 @@
       "name": "Proliferating Weeds",
       "stats": [
         "Fissure Skills have +1 to Limit"
+      ]
+    },
+    "mind over matter": {
+      "name": "Mind Over Matter",
+      "stats": [
+        "All Damage is taken from Mana before Life 50% less Mana Recovery Rate"
       ]
     },
     "sigil of lightning": {
@@ -13488,6 +13941,12 @@
         "Attacks have 10% chance to Maim on Hit"
       ]
     },
+    "elemental equilibrium": {
+      "name": "Elemental Equilibrium",
+      "stats": [
+        "Create Lightning Infusion Remnants instead of Fire Create Cold Infusion Remnants instead of Lightning Create Fire Infusion Remnants instead of Cold"
+      ]
+    },
     "arcane mixtures": {
       "name": "Arcane Mixtures",
       "stats": [
@@ -13588,6 +14047,12 @@
       "stats": [
         "Damage Penetrates 10% Lightning Resistance if on Low Mana",
         "Damage Penetrates 15% Lightning Resistance"
+      ]
+    },
+    "whispers of doom": {
+      "name": "Whispers of Doom",
+      "stats": [
+        "You can apply an additional Curse Double Activation Delay of Curses"
       ]
     },
     "steady footing": {
@@ -13802,11 +14267,23 @@
         "+5% to Lightning Resistance"
       ]
     },
+    "wildsurge incantation": {
+      "name": "Wildsurge Incantation",
+      "stats": [
+        "Storm and Plant Spells: • deal 50% more damage • cost 50% less • have 75% less duration"
+      ]
+    },
     "morning star": {
       "name": "Morning Star",
       "stats": [
         "30% increased Critical Hit Chance with Flails",
         "20% increased Critical Damage Bonus with Flails"
+      ]
+    },
+    "scarred faith": {
+      "name": "Scarred Faith",
+      "stats": [
+        "5% of Physical Damage prevented Recouped as Energy Shield per enemy Power Energy Shield does not Recharge You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"
       ]
     },
     "prolonged fury": {
@@ -14059,6 +14536,12 @@
         "20% increased Evasion Rating",
         "Gain Deflection Rating equal to 5% of Evasion Rating",
         "8% increased Dexterity"
+      ]
+    },
+    "blood magic": {
+      "name": "Blood Magic",
+      "stats": [
+        "You have no Mana Skill Mana Costs Converted to Life Costs"
       ]
     },
     "ancestral conduits": {
@@ -14459,6 +14942,12 @@
         "15% increased Duration of Damaging Ailments on Enemies"
       ]
     },
+    "pain attunement": {
+      "name": "Pain Attunement",
+      "stats": [
+        "30% less Critical Damage Bonus when on Full Life 30% more Critical Damage Bonus when on Low Life"
+      ]
+    },
     "shrapnel": {
       "name": "Shrapnel",
       "stats": [
@@ -14598,6 +15087,12 @@
         "20% reduced Critical Hit Chance"
       ]
     },
+    "chaos inoculation": {
+      "name": "Chaos Inoculation",
+      "stats": [
+        "Maximum Life is 1 Immune to Chaos Damage and Bleeding"
+      ]
+    },
     "silent shiv": {
       "name": "Silent Shiv",
       "stats": [
@@ -14643,6 +15138,12 @@
       "stats": [
         "6% increased Attack Speed",
         "30% increased Evasion Rating if you have Hit an Enemy Recently"
+      ]
+    },
+    "bulwark": {
+      "name": "Bulwark",
+      "stats": [
+        "Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling"
       ]
     },
     "desperate times": {
@@ -14804,6 +15305,12 @@
         "Recover 20 Life when you Block",
         "+2% to maximum Block chance",
         "80% less Knockback Distance for Blocked Hits"
+      ]
+    },
+    "eldritch battery": {
+      "name": "Eldritch Battery",
+      "stats": [
+        "Convert 100% of maximum Energy Shield to maximum Mana Mana Costs are Doubled"
       ]
     },
     "shifted strikes": {
@@ -15319,6 +15826,12 @@
         "Damage Penetrates 15% Lightning Resistance"
       ]
     },
+    "lord of the wilds": {
+      "name": "Lord of the Wilds",
+      "stats": [
+        "You can equip a non-Unique Sceptre while wielding a Talisman 50% less Spirit Non-Minion Skills have 50% less Reservation Efficiency"
+      ]
+    },
     "pitiless killer": {
       "name": "Pitiless Killer",
       "stats": [
@@ -15677,6 +16190,12 @@
       "name": "Ruzhan's Trap",
       "stats": [
         "Grants Skill: <underline>{Ruzhan's Trap}"
+      ]
+    },
+    "hollow palm technique": {
+      "name": "Hollow Palm Technique",
+      "stats": [
+        "Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: • Base Unarmed Physical damage replaced with damage based on their Skill Level • 1% more Attack Speed per 75 Item Evasion on Equipped Armour Items • +0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"
       ]
     },
     "wary dodging": {

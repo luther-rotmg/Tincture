@@ -585,7 +585,9 @@ async function main() {
     const acc = { runes: {}, uniques: {}, gems: {} };
     const files = fs.readdirSync(CACHE_DIR).filter(f => /^c-.*\.json$/.test(f));
     for (const f of files) { try { EFFECTS.collectFromChar(JSON.parse(fs.readFileSync(path.join(CACHE_DIR, f), 'utf8')), acc); } catch (_) {} }
-    const out = EFFECTS.buildEffectsJson(acc, { tree, gemInfo, generated: new Date().toISOString(), sources: EFFECT_SOURCES });
+    let wanted = new Set();
+    try { wanted = EFFECTS.wantedFromMeta(JSON.parse(fs.readFileSync(path.join(REPO, 'meta-detail.json'), 'utf8'))); } catch (_) {}
+    const out = EFFECTS.buildEffectsJson(acc, { tree, gemInfo, generated: new Date().toISOString(), sources: EFFECT_SOURCES, wanted });
     if (!Object.keys(out.runes).length && !Object.keys(out.uniques).length && !Object.keys(out.gems).length) {
       console.log('effects.json NOT written: no rune/unique/gem data from cache — run --enumerate first to populate tools/.cache with c-*.json characters');
       return;
@@ -777,7 +779,7 @@ async function main() {
     // the tree export, and Gems.lua. Fail-safe: a problem here must never abort the build/meta commit.
     try {
       globalChars.forEach(c => EFFECTS.collectFromChar(c, effAcc));
-      const effects = EFFECTS.buildEffectsJson(effAcc, { tree, gemInfo, generated: nowIso, sources: EFFECT_SOURCES });
+      const effects = EFFECTS.buildEffectsJson(effAcc, { tree, gemInfo, generated: nowIso, sources: EFFECT_SOURCES, wanted: EFFECTS.wantedFromMeta(meta) });
       fs.writeFileSync(path.join(REPO, 'effects.json'), JSON.stringify(effects, null, 2) + '\n');
       console.log(`effects.json: ${Object.keys(effects.runes).length} runes, ${Object.keys(effects.uniques).length} uniques, ${Object.keys(effects.gems).length} gems, ${Object.keys(effects.notables).length} notables`);
     } catch (e) { console.log('effects.json skipped:', e.message); }
