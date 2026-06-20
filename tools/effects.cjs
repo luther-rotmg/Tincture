@@ -16,12 +16,27 @@ function normKey(s) {
   return cleanMarkup(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
-function notablesFromTree(tree) {
+// Names the meta actually references (notables + anointments, across all ascendancies +
+// global), normalized. Used to pull in popular "other"-flagged tree nodes without bloat.
+function wantedFromMeta(meta) {
+  const out = new Set();
+  if (!meta) return out;
+  const add = md => { if (!md) return; for (const col of ['notables', 'anointments']) for (const x of (md[col] || [])) if (x && x.name) out.add(normKey(x.name)); };
+  add(meta.global);
+  for (const md of Object.values(meta.byAsc || {})) add(md);
+  return out;
+}
+
+// Keep notables AND keystones, plus any named-with-stats node the meta references
+// (popular "other"-flagged passives + anointments) — never the ~3,300 small named nodes.
+function notablesFromTree(tree, wanted) {
+  const want = wanted instanceof Set ? wanted : new Set();
   const out = {};
   const nodes = (tree && tree.nodes) || {};
   for (const [k, n] of Object.entries(nodes)) {
-    if (k === 'root' || !n || !n.isNotable || !n.name) continue;
+    if (k === 'root' || !n || !n.name) continue;
     if (!Array.isArray(n.stats) || !n.stats.length) continue;
+    if (!(n.isNotable || n.isKeystone || want.has(normKey(n.name)))) continue;
     const key = normKey(n.name);
     if (out[key]) continue;
     out[key] = { name: cleanMarkup(n.name), stats: n.stats.map(cleanMarkup).filter(Boolean) };
@@ -113,4 +128,4 @@ function buildEffectsJson(acc, opts) {
   };
 }
 
-module.exports = { normKey, cleanMarkup, notablesFromTree, gemInfoFromLua, collectFromChar, buildEffectsJson };
+module.exports = { normKey, cleanMarkup, notablesFromTree, wantedFromMeta, gemInfoFromLua, collectFromChar, buildEffectsJson };

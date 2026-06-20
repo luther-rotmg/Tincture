@@ -128,3 +128,34 @@ test('collectFromChar skips frameType-3 items named Normal/Magic/Rare (meta nois
   E.collectFromChar({ items: [{ itemData: { frameType: 3, name: 'Rare Amulet of Doom' } }], skills: [] }, acc);
   assert.strictEqual(acc.uniques['rare amulet of doom'], undefined);
 });
+
+test('notablesFromTree includes keystones + meta-referenced other nodes, excludes unreferenced others', () => {
+  const tree = { nodes: {
+    root: { out: [] },
+    a: { isNotable: true, name: 'Gathering Winds', stats: ['Gain Tailwind on Skill use'] },
+    k: { isKeystone: true, name: 'Chaos Inoculation', stats: ['Maximum Life becomes 1'] },
+    o1: { name: 'Point Blank', stats: ['More damage at close range'] },
+    o2: { name: 'Tiny Passive', stats: ['+10 to Strength'] },
+  }};
+  const out = E.notablesFromTree(tree, new Set([E.normKey('Point Blank')]));
+  assert.ok(out['gathering winds'], 'notable kept');
+  assert.ok(out['chaos inoculation'], 'keystone kept');
+  assert.ok(out['point blank'], 'referenced other node kept');
+  assert.strictEqual(out['tiny passive'], undefined, 'unreferenced other node dropped');
+});
+
+test('notablesFromTree without wanted still keeps notables and keystones', () => {
+  const tree = { nodes: { k: { isKeystone: true, name: 'Blood Magic', stats: ['Removes all Mana'] }, o: { name: 'Nope', stats: ['x'] } } };
+  const out = E.notablesFromTree(tree);
+  assert.ok(out['blood magic']);
+  assert.strictEqual(out['nope'], undefined);
+});
+
+test('wantedFromMeta collects normalized notable + anointment names from global and byAsc', () => {
+  const meta = {
+    global: { notables: [{ name: 'Point Blank' }], anointments: [{ name: 'Well of Power' }] },
+    byAsc: { x: { notables: [{ name: 'Choice of Power' }], anointments: [] } },
+  };
+  const w = E.wantedFromMeta(meta);
+  assert.ok(w.has('point blank') && w.has('well of power') && w.has('choice of power'));
+});
