@@ -1777,7 +1777,7 @@ function lookupUrl(name){
 }
 // rich hover/tap card for one entity. Mirrors the .bv-tip item card; reuses .tip-mod/.tip-num.
 function entityCard(type, entry, displayKind){
-  const numify = m => esc(m).replace(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/g, '<span class="tip-num">$1</span>');
+  const numify = m => String(m == null ? "" : m).split(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/).map((p, i) => i % 2 ? `<span class="tip-num">${esc(p)}</span>` : esc(p)).join("");
   const modRows = arr => (arr||[]).map(l=>`<div class="tip-mod">${numify(l)}</div>`).join("");
   let body = "", badge = "";
   if (type === "runes"){ badge = "Rune / Soul Core"; body = modRows(entry.lines); }
