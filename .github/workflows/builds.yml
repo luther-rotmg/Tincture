@@ -37,10 +37,11 @@ jobs:
 
       # gate the (expensive, ~10-min networked) reconstruction on the cjs unit tests so a broken
       # edit fails fast here instead of writing bad builds.
-      - name: Reconstructor syntax + unit tests
+      - name: Reconstructor + effects syntax + unit tests
         run: |
           node --check tools/build-from-ninja.cjs
-          node --test tools/test-build-from-ninja.cjs
+          node --check tools/effects.cjs
+          node --test tools/test-build-from-ninja.cjs tools/test-effects.cjs
 
       - name: Reconstruct builds + meta breakdown (one pass per ascendancy)
         run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur
@@ -55,11 +56,11 @@ jobs:
         run: |
           git config user.name  "tincture-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- builds/ meta-detail.json; then
+          if git diff --quiet -- builds/ meta-detail.json effects.json; then
             echo "No change this run."
           else
-            git add builds/ meta-detail.json
-            git commit -m "Builds: refresh reconstructed builds + meta ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git add builds/ meta-detail.json effects.json
+            git commit -m "Builds: refresh reconstructed builds + meta + effects ($(date -u '+%Y-%m-%d %H:%M UTC'))"
             # the hourly distill bot pushes to the same branch — rebase to avoid a Monday race
             git pull --rebase --autostash origin main
             git push

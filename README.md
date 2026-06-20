@@ -160,6 +160,10 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 
 Meta data via [poe.ninja](https://poe.ninja), derived from Grinding Gear Games' official ladder.
 
+- **Effect tooltips** (`effects.json`): rune/unique/gem/notable effect text derived at build
+  time from poe.ninja public ladder data, the GGG `poe2-skilltree-export` (0.5.2), and PoB2
+  `Gems.lua` (MIT). Strictly additive — falls back to a web lookup when an entry is missing.
+
 Tincture is an independent fan project and is **not affiliated with or endorsed by Grinding Gear Games**. Build files are player-driven; GGG does not curate or rank them. Judge a build on its merits before committing a league to it.
 
 ## License

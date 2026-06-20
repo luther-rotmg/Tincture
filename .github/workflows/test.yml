@@ -40,7 +40,8 @@ jobs:
       - name: distill --demo runs offline (fail-safe path)
         run: python scripts/distill.py --demo
 
-      - name: Reconstructor syntax + unit tests
+      - name: Reconstructor + effects syntax + unit tests
         run: |
           node --check tools/build-from-ninja.cjs
-          node --test tools/test-build-from-ninja.cjs
+          node --check tools/effects.cjs
+          node --test tools/test-build-from-ninja.cjs tools/test-effects.cjs
