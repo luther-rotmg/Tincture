@@ -107,3 +107,24 @@ test('buildEffectsJson assembles all maps and merges gem kind+tags', () => {
   assert.deepStrictEqual(out.gems['ice nova'].tags, ['cold', 'spell']);
   assert.strictEqual(out.notables['notable one'].stats[0], '+5 life');
 });
+
+test('collectFromChar harvests unique jewels and flasks, not just items', () => {
+  const acc = { runes: {}, uniques: {}, gems: {} };
+  const char = {
+    items: [{ itemData: { inventoryId: 'Ring', frameType: 3, name: "Kalandra's Touch", baseType: 'Ring', explicitMods: ['Reflects opposite Ring'] } }],
+    jewels: [{ itemData: { frameType: 3, name: 'From Nothing', baseType: 'Sapphire', explicitMods: ['Allocates a Jewel socket'], flavourText: ['x'] } }],
+    flasks: [{ itemData: { frameType: 3, name: 'The Fall of the Axe', baseType: 'Silver Charm', implicitMods: ['Used when you are Slowed'], explicitMods: ['Grants Onslaught during effect'] } }],
+    skills: [],
+  };
+  E.collectFromChar(char, acc);
+  assert.ok(acc.uniques['kalandra s touch'], 'item unique still harvested');
+  assert.ok(acc.uniques['from nothing'], 'jewel unique harvested');
+  assert.strictEqual(acc.uniques['the fall of the axe'].base, 'Silver Charm', 'flask unique harvested');
+  assert.deepStrictEqual(acc.uniques['the fall of the axe'].mods, ['Used when you are Slowed', 'Grants Onslaught during effect']);
+});
+
+test('collectFromChar skips frameType-3 items named Normal/Magic/Rare (meta noise)', () => {
+  const acc = { runes: {}, uniques: {}, gems: {} };
+  E.collectFromChar({ items: [{ itemData: { frameType: 3, name: 'Rare Amulet of Doom' } }], skills: [] }, acc);
+  assert.strictEqual(acc.uniques['rare amulet of doom'], undefined);
+});

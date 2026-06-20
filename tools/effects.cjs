@@ -49,7 +49,10 @@ function gemInfoFromLua(lua) {
 }
 
 function collectFromChar(char, acc) {
-  for (const it of (char.items || [])) {
+  // uniques live in items, but unique JEWELS are in char.jewels and unique FLASKS/charms
+  // in char.flasks — same item shape. Harvest all three. (Jewels/flasks carry no socketed
+  // runes, so the rune loop below is a harmless no-op for them.)
+  for (const it of [].concat(char.items || [], char.jewels || [], char.flasks || [])) {
     const d = it.itemData || it;
     // runes / soul cores socketed into gear — mod text is slot-prefixed and self-describing
     for (const s of (d.socketedItems || [])) {
@@ -63,7 +66,7 @@ function collectFromChar(char, acc) {
       }
     }
     // uniques — first seen wins (a representative real item)
-    if (d.frameType === 3 && d.name) {
+    if (d.frameType === 3 && d.name && !/^(Normal|Magic|Rare) /.test(d.name)) {
       const key = normKey(d.name);
       if (!acc.uniques[key]) {
         acc.uniques[key] = {
