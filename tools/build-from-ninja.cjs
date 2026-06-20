@@ -28,6 +28,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const EFFECTS = require('./effects.cjs');
 
 const UA = 'Tincture/0.5.0 (+https://github.com/luther-rotmg/Tincture; contact: ryan.duke360@gmail.com) build-reconstructor';
 const TREE_URL = 'https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/0.5.2/data.json';
@@ -35,6 +36,13 @@ const GEMS_URL = 'https://raw.githubusercontent.com/PathOfBuildingCommunity/Path
 const BASEITEMS_URL = 'https://repoe-fork.github.io/poe2/base_items.json'; // live-game BaseItemTypes dump — authoritative gem-id keys for QA
 const REPO = path.resolve(__dirname, '..');
 const CACHE_DIR = path.join(__dirname, '.cache'); // gitignored; the Action runs fresh
+
+// Attribution for effects.json (in-site effect tooltips). All public, derived at build time.
+const EFFECT_SOURCES = [
+  { name: 'poe.ninja', what: 'public ladder character data (rune/unique/gem text)', url: 'https://poe.ninja/poe2/builds' },
+  { name: 'poe2-skilltree-export', ref: '0.5.2', what: 'passive notable stats', url: 'https://github.com/grindinggear/poe2-skilltree-export' },
+  { name: 'PathOfBuilding-PoE2', license: 'MIT', what: 'gem kind + tags (Gems.lua)', url: 'https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2' },
+];
 
 // disk cache for tools/.cache. `producer` is an async () => Buffer|string fetched on a miss.
 // Safe for CONTENT-ADDRESSED entries (snapshot-keyed searches, hash-keyed dictionaries) and the
@@ -570,6 +578,19 @@ async function main() {
   for (let i = 0; i < args.length; i++) if (args[i].startsWith('--')) opt[args[i].slice(2)] = args[i + 1] && !args[i + 1].startsWith('--') ? args[++i] : true;
   const league = opt.league || 'runesofaldur';
 
+  if (opt['effects-only']) {
+    const luaText = await diskCached('Gems.lua', () => get(GEMS_URL));
+    const tree = JSON.parse(await diskCached('tree.json', () => get(TREE_URL)));
+    const gemInfo = EFFECTS.gemInfoFromLua(luaText);
+    const acc = { runes: {}, uniques: {}, gems: {} };
+    const files = fs.readdirSync(CACHE_DIR).filter(f => /^c-.*\.json$/.test(f));
+    for (const f of files) { try { EFFECTS.collectFromChar(JSON.parse(fs.readFileSync(path.join(CACHE_DIR, f), 'utf8')), acc); } catch (_) {} }
+    const out = EFFECTS.buildEffectsJson(acc, { tree, gemInfo, generated: new Date().toISOString(), sources: EFFECT_SOURCES });
+    fs.writeFileSync(path.join(REPO, 'effects.json'), JSON.stringify(out, null, 2) + '\n');
+    console.log(`effects.json: ${Object.keys(out.runes).length} runes, ${Object.keys(out.uniques).length} uniques, ${Object.keys(out.gems).length} gems, ${Object.keys(out.notables).length} notables (from ${files.length} cached chars)`);
+    return;
+  }
+
   // data maps (prefer local cache in tools/.cache for dev; else fetch — never committed)
   const cacheDir = CACHE_DIR;
   // --cache-only: replay the last run's cached searches + character pulls with ZERO network
@@ -578,7 +599,9 @@ async function main() {
   const cached = (f, url, bin) => { if (cacheOnly && !fs.existsSync(path.join(cacheDir, f))) return Promise.reject(new Error('cache-only miss: ' + f)); return diskCached(f, () => get(url, bin), bin); };
   const tree = JSON.parse(await cached('tree.json', TREE_URL));
   const slugMap = slugMapFromTree(tree);
-  const gem = gemMapFromLua(await cached('Gems.lua', GEMS_URL));
+  const luaText = await cached('Gems.lua', GEMS_URL);
+  const gem = gemMapFromLua(luaText);
+  const gemInfo = EFFECTS.gemInfoFromLua(luaText);
   // Authoritative live-game gem-id keys; QA rejects any emitted gem id missing here
   // (it would not resolve in-game → full-catalog fallback). Fail-soft if unavailable.
   let baseItems = null, weaponClass = null;
@@ -627,6 +650,7 @@ async function main() {
     const SAMPLE = opt['no-builds'] ? 0 : (Number(opt.sample) || 5);   // chars pulled per ascendancy (gear/rune sample; build is the #1)
     let builds = 0;
     const globalChars = [];
+    const effAcc = { runes: {}, uniques: {}, gems: {} };
     for (const asc of Object.keys(ASCENDANCY_CODES)) {
       const slug = slugify(asc);
       let s;
@@ -745,6 +769,14 @@ async function main() {
       if (!cacheOnly) await sleep(500); // be polite to poe.ninja
     }
     if (globalChars.length && meta.global) { const gg = aggregateGear(globalChars); meta.global.gear = gg.gear; meta.global.runes = gg.runes; }
+    // effect-text glossary for the in-site tooltips — derived from the same pulled characters,
+    // the tree export, and Gems.lua. Fail-safe: a problem here must never abort the build/meta commit.
+    try {
+      globalChars.forEach(c => EFFECTS.collectFromChar(c, effAcc));
+      const effects = EFFECTS.buildEffectsJson(effAcc, { tree, gemInfo, generated: nowIso, sources: EFFECT_SOURCES });
+      fs.writeFileSync(path.join(REPO, 'effects.json'), JSON.stringify(effects, null, 2) + '\n');
+      console.log(`effects.json: ${Object.keys(effects.runes).length} runes, ${Object.keys(effects.uniques).length} uniques, ${Object.keys(effects.gems).length} gems, ${Object.keys(effects.notables).length} notables`);
+    } catch (e) { console.log('effects.json skipped:', e.message); }
     const slugs = refreshManifest();
     fs.writeFileSync(path.join(REPO, 'meta-detail.json'), JSON.stringify(meta, null, 2) + '\n');
     console.log(`\n${builds} builds · meta-detail.json for ${Object.keys(meta.byAsc).length} ascendancies · manifest (${slugs.length})`);
