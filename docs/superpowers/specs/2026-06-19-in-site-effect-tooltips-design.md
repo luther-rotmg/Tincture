@@ -44,10 +44,30 @@ to leave the site. We want that knowledge available **in-window**.
 1. **Scope:** full coverage — runes/soul cores, uniques, skill gems, support gems, and
    passive notables.
 2. **Interaction:** hybrid — hover/focus on desktop, tap-to-open on touch.
-3. **Data source:** derive a compiled `effects.json` at build time from **Path of
-   Building 2** (`PathOfBuilding-PoE2`, MIT) plus the **GGG passive-tree export**
-   already used by `treedata.py`. Version-pinned, attributed, CI-refreshed. Fails safe
-   to the existing link.
+3. **Data source:** derive a compiled `effects.json` at build time, version-pinned,
+   attributed, CI-refreshed, failing safe to the existing link. (See refinement below.)
+
+## Post-spike refinement (2026-06-19)
+
+A data-shape spike during planning improved the data source. The effect text we need is
+**already present in the poe.ninja character data the `build-from-ninja.cjs --enumerate`
+pass pulls every week**, so we derive it there instead of adding a new PoB2 `Data/`
+dependency:
+
+- **Runes / soul cores:** `socketedItems[].explicitMods` on equipped gear — slot-prefixed,
+  self-describing (e.g. `"Boots: 5% increased Movement Speed"`). Accumulate the union of
+  distinct lines per rune across sampled characters.
+- **Uniques:** the unique item's own `name` / `baseType` / `explicitMods` / `flavourText`.
+- **Skill / support gems:** the gem `itemData.secDescrText || descrText` (in-game text);
+  gem **kind + tags** come from the already-fetched PoB2 `Gems.lua` (MIT).
+- **Notables:** the GGG `poe2-skilltree-export` (pinned `0.5.2`) node `stats[]`.
+
+So the only PoB2 use is `Gems.lua` (which the pipeline already downloads). Generation
+folds into the existing weekly enumerate pass via a new pure module `tools/effects.cjs`
+(unit-tested with `node --test`) rather than a separate PoB2-Lua-uniques parser. Same
+honesty / fail-safe / attribution posture, **fewer dependencies and lower upkeep**. The
+implementation plan (`docs/superpowers/plans/2026-06-19-in-site-effect-tooltips.md`)
+follows this refinement.
 
 ## Architecture
 
