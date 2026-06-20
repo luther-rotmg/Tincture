@@ -121,12 +121,12 @@ attribution is unchanged.
 
 ## Error handling / fail-safe
 
-- Every change is additive: a missing/unparseable PoB2 file, an unmatched name, or a
-  malformed entry → the existing link. The unique-merge and PoB2 fetch are wrapped so a
-  failure can never abort the `builds/`+`meta-detail.json`+`effects.json` commit (the
-  enumerate effects block is already in a `try/catch`).
-- `--effects-only` keeps its empty-output guard; it also reads `meta-detail.json` from
-  the repo to build `wanted` and fetches/caches the PoB2 unique files.
+- Every change is additive: an unmatched name, a malformed entry, or a missing
+  `char.jewels`/`char.flasks` array → the existing link. The whole effects build stays
+  inside the existing `try/catch` so a failure can never abort the
+  `builds/`+`meta-detail.json`+`effects.json` commit.
+- `--effects-only` keeps its empty-output guard and reads `meta-detail.json` from the
+  repo to build the `wanted` notable/anointment set.
 
 ## Testing
 
@@ -144,8 +144,8 @@ Extend `tools/test-effects.cjs` (`node --test`):
 ## CI
 
 - `builds.yml` + `test.yml` already run the effects unit tests and commit `effects.json`;
-  no workflow change needed beyond the version-pinned PoB2 unique fetch happening inside
-  the enumerate pass. Pin bumps are deliberate PRs (same posture as the tree-export pin).
+  **no workflow change needed** — the jewel/flask harvest, keystone inclusion, and
+  anointment mapping are all internal to the existing enumerate pass / front end.
 
 ## Limitations (honest)
 
