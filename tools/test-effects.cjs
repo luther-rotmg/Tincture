@@ -159,3 +159,9 @@ test('wantedFromMeta collects normalized notable + anointment names from global 
   const w = E.wantedFromMeta(meta);
   assert.ok(w.has('point blank') && w.has('well of power') && w.has('choice of power'));
 });
+
+test('buildEffectsJson forwards opts.wanted to notablesFromTree', () => {
+  const tree = { nodes: { o: { name: 'Point Blank', stats: ['close-range damage'] } } };
+  const out = E.buildEffectsJson({ runes: {}, uniques: {}, gems: {} }, { tree, wanted: new Set([E.normKey('Point Blank')]), generated: 't', sources: [] });
+  assert.ok(out.notables['point blank'], 'wanted other-node resolves through buildEffectsJson');
+});

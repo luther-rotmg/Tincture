@@ -124,7 +124,7 @@ function buildEffectsJson(acc, opts) {
     runes,
     uniques: acc.uniques || {},
     gems,
-    notables: notablesFromTree(opts.tree || {}),
+    notables: notablesFromTree(opts.tree || {}, opts.wanted),
   };
 }
 
