@@ -1802,13 +1802,13 @@ function metaCol(title, arr, opts){
     const label = fmtName ? fmtName(x) : esc(x.name);
     let cls = "meta-item", attr = "", nm, card = "";
     if (kind){   // named entity: rich effect card when we have it, else the lookup link
-      cls += " tip-row";
       const hit = effectFor(kind, x.name);
       if (hit){
         cls += " has-card";
         nm = `<button type="button" class="nm tip-link ent-trigger" aria-expanded="false">${label}</button>`;
         card = entityCard(hit.type, hit.entry);
       } else {
+        cls += " tip-row";
         attr = ` data-tip="${esc(x.name)} · ${esc(kind)} · look it up ↗"`;
         nm = `<a class="nm tip-link" href="${lookupUrl(x.name)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
       }
