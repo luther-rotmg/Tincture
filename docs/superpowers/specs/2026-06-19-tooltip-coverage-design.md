@@ -37,8 +37,9 @@ pinpoints the gaps:
   types; keep the link. Out of scope.
 - The **5 ascendancy-granted skill misses** — would need a granted-skill source; low
   count, out of scope for this patch.
-- **100% unique coverage** — see Limitations; the newest league uniques that neither
-  PoB2 nor the sample has stay on the link until PoB2's data catches up.
+- **Literal 100% unique coverage** — a unique worn by no sampled character stays on the
+  link (see Limitations); in practice this only affects uniques outside the meta's
+  top-uniques list.
 
 ## Findings that shape the design (from spikes)
 
@@ -51,11 +52,15 @@ pinpoints the gaps:
 - **Tree size:** 4,494 named-with-stats nodes (1,187 notable + 33 keystone + 3,274
   "other"). Dumping all "other" nodes would ~4× the notables section of the served file,
   so include "other" nodes only when referenced by the meta.
-- **PoB2 uniques:** `PathOfBuilding-PoE2/src/Data/Uniques/<slot>.lua` (per-slot) holds
-  ~435 unique blocks. It has **7/11** of the sampled gap-uniques but **lacks the 4
-  newest 0.5.0 ones** (Heart of the Well, From Nothing, Prism of Belief, Against the
-  Darkness). PoB2 block format: `[[\nName\nBaseType\n<metadata lines>\n<mod lines>\n]]`,
-  mods prefixed with `{tags:…}`/`{variant:N}`/`{range:N}` markup.
+- **Uniques root cause = unread arrays:** the unique misses are almost all **jewels and
+  flasks**. `collectFromChar` only reads `char.items`, but poe.ninja characters carry
+  unique jewels in `char.jewels` and unique flasks/charms in `char.flasks` (same item
+  shape: `frameType:3`, `name`, `baseType`, `explicitMods`, `flavourText`). The gap
+  uniques are already in the sample we pull — Heart of the Well in **182/262** cached
+  characters, Nascent Hope 127, From Nothing 119, Prism of Belief 66. They were simply
+  never harvested. (Checked alternatives: repoe-fork `uniques.json` is metadata-only — no
+  mods; poe2db has mods but only via fragile HTML scraping — both unnecessary since the
+  data is already ours.)
 
 ## Design
 
@@ -81,21 +86,22 @@ non-empty `stats[]` **and** (`isNotable || isKeystone || wanted.has(normKey(name
   `entityCard(type, entry, displayKind)`; existing callers pass the kind they already
   have. Unmatched anointments keep the link.
 
-### 3. Uniques — hybrid PoB2 + sample (`tools/effects.cjs` + pipeline)
+### 3. Uniques — harvest jewels + flasks (`tools/effects.cjs`)
 
-- New pure fn `uniquesFromPob(luaText)` parses one PoB2 `Uniques/<slot>.lua`: split on
-  `[[ … ]]` blocks → `name` (line 1), `base` (line 2), skip metadata directives
-  (`Variant:`/`Implicits:`/`Source:`/`League:`/`Requires`/etc.), take the **Current**
-  variant's mod lines, strip `{…}` markup → `mods[]`. Returns `{ [normKey]: {name, base,
-  mods} }`.
-- The pipeline fetches the pinned set of `Uniques/*.lua` files (same `cached()` +
-  version-pin pattern as `Gems.lua`/the tree export) and merges:
-  **`effects.json.uniques` = sample-derived (from `collectFromChar`) ∪ PoB2-derived**,
-  with **PoB2 mods preferred** (canonical ranges) and **sample `flavour` kept** when
-  present (PoB2 blocks have no flavour text). PoB2 fills gaps the sample missed; the
-  sample keeps the newest uniques PoB2 lacks.
-- **Filter non-uniques:** drop entries whose name matches `^(Normal|Magic|Rare) ` (e.g.
-  "Normal Body Armour" — a placeholder, not a unique).
+The whole fix is reading the arrays we skipped. `collectFromChar` iterates a combined
+list `[...(char.items||[]), ...(char.jewels||[]), ...(char.flasks||[])]` for the unique
+(and rune) harvest instead of `char.items` alone. Jewels/flasks carry no socketed runes,
+so the rune harvest is unaffected; the unique harvest now captures unique jewels and
+flasks/charms with their real mods + flavour, straight from the live ladder.
+
+- **No new dependency, no scraping, no PoB2 Data.** The newest 0.5.0 uniques PoB2 lacks
+  (Heart of the Well, From Nothing, …) are filled "by other means" = the players wearing
+  them in the sample we already pull; they resolve automatically and stay current.
+- **Filter non-uniques:** in the unique capture, skip names matching
+  `^(Normal|Magic|Rare) ` (e.g. "Normal Body Armour" — a placeholder that leaked into the
+  meta's top-uniques list).
+- This modifies the shipped `collectFromChar`; its existing tests stay green and a new
+  test covers jewel/flask harvest + the junk-name filter.
 
 ### 4. Coverage audit tool (`tools/coverage-audit.cjs`)
 
@@ -107,9 +113,11 @@ coverage is measurable before/after and over time. Reads `effects.json` +
 
 - poe.ninja public ladder data (runes/uniques/gems/flavour) — existing.
 - GGG `poe2-skilltree-export` 0.5.2 (notables **+ keystones**) — existing, broadened use.
-- PoB2 `PathOfBuilding-PoE2` `Gems.lua` (gem tags) — existing; **+ `Data/Uniques/*.lua`
-  (unique mods), MIT, pinned** — NEW. Update the on-site + README credit to name the
-  unique source.
+- PoB2 `PathOfBuilding-PoE2` `Gems.lua` (gem tags) — existing, unchanged.
+
+**No new data source is introduced.** Uniques now come from the `char.jewels` /
+`char.flasks` arrays of the poe.ninja sample we already pull; on-site + README
+attribution is unchanged.
 
 ## Error handling / fail-safe
 
@@ -125,10 +133,9 @@ coverage is measurable before/after and over time. Reads `effects.json` +
 Extend `tools/test-effects.cjs` (`node --test`):
 - `notablesFromTree` includes a keystone, includes a `wanted` "other" node, and excludes
   an unreferenced "other" node.
-- `uniquesFromPob` parses a representative multi-variant block (name/base/mods, markup
-  stripped, current-variant selection, metadata lines skipped).
-- unique merge prefers PoB2 mods, keeps sample flavour, fills sample-only gaps, and drops
-  `^(Normal|Magic|Rare) ` names.
+- `collectFromChar` harvests unique jewels (from `char.jewels`) and flasks (from
+  `char.flasks`), not just `char.items`; drops `^(Normal|Magic|Rare) ` names; the rune
+  harvest is unaffected (jewels/flasks have no socketed runes).
 - Front-end (`index.html`) has no JS test harness — verified in the local preview
   (anointment card shows the granted notable + "Anointment" badge; a keystone and a
   previously-missing unique now render). Before/after coverage measured with
@@ -142,13 +149,14 @@ Extend `tools/test-effects.cjs` (`node --test`):
 
 ## Limitations (honest)
 
-- Uniques won't reach 100%: the newest 0.5.0 uniques absent from both PoB2 and the
-  sample stay on the link. They resolve automatically once PoB2's community data adds
-  them (weekly rebuild) or a sampled character equips them.
+- A unique worn by **zero** sampled characters keeps the link — vanishingly rare for
+  anything in the meta's top-uniques list (those are popular by definition), and it
+  resolves the moment a sampled player equips it.
 - A handful of notables/anointments genuinely absent from the tree export (Path Seeker,
   Lucid Dreaming, …) keep the link.
 
 ## Expected outcome
 
-~68% → **~90%+** coverage: notables ~83%→~98%, anointments 0%→~90%, uniques 54%→~80%,
-with PoB2 touching only uniques and everything else derived from data already pulled.
+~68% → **~95%** coverage: notables ~83%→~98%, anointments 0%→~90%, uniques 54%→~95%,
+with **no new data source** — everything derived from data already pulled (the GGG tree
+export + the poe.ninja sample's items, jewels, and flasks).
