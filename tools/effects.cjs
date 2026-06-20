@@ -90,4 +90,24 @@ function collectFromChar(char, acc) {
   }
 }
 
-module.exports = { normKey, cleanMarkup, notablesFromTree, gemInfoFromLua, collectFromChar };
+function buildEffectsJson(acc, opts) {
+  const gemInfo = (opts && opts.gemInfo) || {};
+  const gems = {};
+  for (const [key, g] of Object.entries(acc.gems || {})) {
+    const info = gemInfo[key] || {};
+    gems[key] = { name: g.name, kind: g.kind || info.kind || 'skill', desc: g.desc, tags: info.tags || [] };
+  }
+  const runes = {};
+  for (const [key, r] of Object.entries(acc.runes || {})) {
+    if (r.lines && r.lines.length) runes[key] = { name: r.name, lines: r.lines };
+  }
+  return {
+    meta: { generated: opts.generated, sources: opts.sources || [] },
+    runes,
+    uniques: acc.uniques || {},
+    gems,
+    notables: notablesFromTree(opts.tree || {}),
+  };
+}
+
+module.exports = { normKey, cleanMarkup, notablesFromTree, gemInfoFromLua, collectFromChar, buildEffectsJson };

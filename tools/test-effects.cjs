@@ -89,3 +89,21 @@ test('collectFromChar skips gems with no description text', () => {
   E.collectFromChar({ items: [], skills: [ { allGems: [ { name: 'Mystery', itemData: {} } ] } ] }, acc);
   assert.strictEqual(acc.gems['mystery'], undefined);
 });
+
+test('buildEffectsJson assembles all maps and merges gem kind+tags', () => {
+  const acc = {
+    runes: { 'a rune': { name: 'A Rune', lines: ['Boots: +1'] }, 'empty': { name: 'Empty', lines: [] } },
+    uniques: { 'x': { name: 'X', base: 'Ring', mods: ['m'], flavour: '' } },
+    gems: { 'ice nova': { name: 'Ice Nova', desc: 'cold ring' } },
+  };
+  const tree = { nodes: { n: { isNotable: true, name: 'Notable One', stats: ['+5 life'] } } };
+  const gemInfo = { 'ice nova': { kind: 'skill', tags: ['cold', 'spell'] } };
+  const out = E.buildEffectsJson(acc, { tree, gemInfo, generated: '2026-06-19T00:00:00Z', sources: [{ name: 'poe.ninja' }] });
+
+  assert.strictEqual(out.meta.generated, '2026-06-19T00:00:00Z');
+  assert.strictEqual(out.meta.sources[0].name, 'poe.ninja');
+  assert.deepStrictEqual(Object.keys(out.runes), ['a rune']); // empty-lines rune dropped
+  assert.strictEqual(out.gems['ice nova'].kind, 'skill');
+  assert.deepStrictEqual(out.gems['ice nova'].tags, ['cold', 'spell']);
+  assert.strictEqual(out.notables['notable one'].stats[0], '+5 life');
+});
