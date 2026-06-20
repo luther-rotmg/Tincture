@@ -745,6 +745,33 @@
   .tip-sockets .tip-mod{ color:var(--gold-bright); font-family:var(--fmono); font-size:11px; padding-top:3px; padding-bottom:3px; }
   .tip-sockets .tip-mod::before{ background:var(--gold-bright); }
   .bv-actions{ margin-top:15px; }
+  /* in-site effect cards on meta entities (runes/uniques/gems/notables) */
+  .meta-item.has-card{ position:relative; }
+  .meta-item .nm.tip-link.ent-trigger{ background:none; border:none; padding:0; margin:0; font:inherit;
+    text-align:left; color:var(--bone); cursor:help; border-bottom:1px dotted transparent; }
+  .meta-item .nm.tip-link.ent-trigger:hover, .meta-item .nm.tip-link.ent-trigger:focus-visible{
+    color:var(--gold-bright); border-bottom-color:var(--hair-strong); outline:none; }
+  .ent-card{ display:none; position:absolute; left:0; top:calc(100% + 4px); z-index:50;
+    width:max-content; max-width:300px; padding:9px 11px 10px;
+    background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:3px;
+    box-shadow:0 10px 30px rgba(0,0,0,.55); text-align:left; cursor:default; white-space:normal; }
+  .meta-item.has-card:hover .ent-card, .meta-item.has-card:focus-within .ent-card,
+  .meta-item.has-card.open .ent-card{ display:block; }
+  .ent-head{ display:flex; align-items:baseline; gap:8px; justify-content:space-between;
+    margin-bottom:6px; padding-bottom:6px; border-bottom:1px solid var(--hair); }
+  .ent-name{ font-family:var(--fdisplay); font-size:13px; color:var(--gold-bright); }
+  .ent-badge{ font-family:var(--fmono); font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); border:1px solid var(--hair); border-radius:2px; padding:1px 5px; flex:none; }
+  .ent-base{ font-family:var(--fmono); font-size:10px; color:var(--muted); margin-bottom:5px; }
+  .ent-desc{ font-family:var(--ftext); font-size:12px; line-height:1.45; color:var(--bone-dim); }
+  .ent-flav{ font-family:var(--ftext); font-style:italic; font-size:11.5px; color:var(--muted); margin-top:7px; }
+  .ent-tags{ display:flex; flex-wrap:wrap; gap:4px; margin-bottom:6px; }
+  .ent-tag{ font-family:var(--fmono); font-size:9px; letter-spacing:.04em; color:var(--bone-dim);
+    border:1px solid var(--hair); border-radius:2px; padding:1px 5px; }
+  .ent-foot{ font-family:var(--fmono); font-size:9px; line-height:1.5; color:var(--muted);
+    margin-top:8px; padding-top:6px; border-top:1px solid var(--hair); }
+  .ent-foot a{ color:var(--verdigris); text-decoration:none; }
+  .ent-foot a:hover{ color:var(--gold-bright); }
 
   .section-caveat{
     margin:26px 0 0; padding-top:18px; border-top:1px solid var(--hair);
@@ -1746,6 +1773,26 @@ function effectFor(kind, name){
 // "we don't host it, here's where to read it" stance as the build-guide pointer.
 function lookupUrl(name){
   return "https://www.google.com/search?q=" + encodeURIComponent('"' + name + '" Path of Exile 2');
+}
+// rich hover/tap card for one entity. Mirrors the .bv-tip item card; reuses .tip-mod/.tip-num.
+function entityCard(type, entry){
+  const numify = m => esc(m).replace(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/g, '<span class="tip-num">$1</span>');
+  const modRows = arr => (arr||[]).map(l=>`<div class="tip-mod">${numify(l)}</div>`).join("");
+  let body = "", badge = "";
+  if (type === "runes"){ badge = "Rune / Soul Core"; body = modRows(entry.lines); }
+  else if (type === "notables"){ badge = "Notable"; body = modRows(entry.stats); }
+  else if (type === "uniques"){
+    badge = "Unique";
+    body = (entry.base?`<div class="ent-base">${esc(entry.base)}</div>`:"")
+      + modRows(entry.mods)
+      + (entry.flavour?`<div class="ent-flav">${esc(entry.flavour)}</div>`:"");
+  } else if (type === "gems"){
+    badge = entry.kind === "support" ? "Support" : "Skill";
+    body = ((entry.tags||[]).length?`<div class="ent-tags">${entry.tags.slice(0,6).map(t=>`<span class="ent-tag">${esc(t)}</span>`).join("")}</div>`:"")
+      + `<div class="ent-desc">${esc(entry.desc)}</div>`;
+  }
+  const foot = `<div class="ent-foot">derived from public ladder data · <a href="${lookupUrl(entry.name)}" target="_blank" rel="noopener noreferrer">look it up ↗</a></div>`;
+  return `<div class="ent-card" role="tooltip"><div class="ent-head"><span class="ent-name">${esc(entry.name)}</span><span class="ent-badge">${esc(badge)}</span></div>${body}${foot}</div>`;
 }
 function metaCol(title, arr, opts){
   if (!arr || !arr.length) return "";
