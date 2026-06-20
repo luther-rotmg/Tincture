@@ -1336,6 +1336,7 @@ function normalizeData(json){
 let DATA = normalizeData(SAMPLE_DATA);
 let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
 let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
+let EFFECTS = null;        // effects.json: in-site effect text for runes/uniques/gems/notables
 let HISTORY = null;        // history.json: append-only per-snapshot ascendancy shares (the SC league)
 let ECONOMY = null;        // economy.json: live currency exchange (rates + per-currency value/volume/7d)
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
@@ -1718,6 +1719,28 @@ const metaFor = b => (META && META.byAsc) ? META.byAsc[slugOf(b)] : null;
 function skillsLine(md){
   if (!md || !(md.skills||[]).length) return "";
   return `<div class="skills-line"><b>commonly plays</b> <span class="sk">${md.skills.slice(0,3).map(s=>esc(s.name)).join(" · ")}</span></div>`;
+}
+// map a metaCol category label -> effects.json bucket
+const KIND_TO_TYPE = { "Skill gem":"gems", "Support gem":"gems", "Passive notable":"notables", "Unique item":"uniques", "Rune / soul core":"runes" };
+// SAME normalization as tools/effects.cjs normKey — strip markup, lowercase, punctuation -> space.
+function normKeyFE(s){
+  return String(s==null?"":s)
+    .replace(/\[[^\]|]+\|([^\]]+)\]/g,"$1").replace(/\[([^\]]+)\]/g,"$1")
+    .toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+}
+// resolve an entity to its effect entry, or null (caller then falls back to the lookup link).
+function effectFor(kind, name){
+  if (!EFFECTS) return null;
+  const type = KIND_TO_TYPE[kind];
+  const map = type && EFFECTS[type];
+  if (!map) return null;
+  const k = normKeyFE(name);
+  if (map[k]) return { type, entry: map[k] };
+  if (type === "runes"){   // tier fallback: "Perfect Iron Rune" -> "iron rune"
+    const k2 = k.replace(/^(lesser|greater|grand|perfect|superior|exceptional)\s+/,"");
+    if (k2 !== k && map[k2]) return { type, entry: map[k2] };
+  }
+  return null;
 }
 // neutral outbound lookup for a named entity (rune, gem, notable, unique…) — same honest
 // "we don't host it, here's where to read it" stance as the build-guide pointer.
@@ -2855,15 +2878,17 @@ async function boot(){
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
   // enrichment fetches run concurrently (independent of each other) so first render isn't serialized:
   // meta-detail, the history chart, and the loadable-build manifest (also speeds the quiz/first decant).
-  const [m, h, ec] = await Promise.all([
+  const [m, h, ec, ef] = await Promise.all([
     fetchJSON("meta-detail.json", 8000),
     fetchJSON("history.json", 8000),
     fetchJSON("economy.json", 8000),
+    fetchJSON("effects.json", 8000),
     buildsManifest().catch(() => null),
   ]);
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
   if (h && Array.isArray(h.points)) HISTORY = h;
   if (ec && Array.isArray(ec.currencies)) ECONOMY = ec;
+  if (ef && (ef.runes || ef.uniques || ef.gems || ef.notables)) EFFECTS = ef;   // shape-gate before promoting
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
