@@ -1800,15 +1800,22 @@ function metaCol(title, arr, opts){
   const fmtName = opts.fmtName, kind = opts.kind;
   const items = arr.map(x=>{
     const label = fmtName ? fmtName(x) : esc(x.name);
-    let cls = "meta-item", attr = "", nm;
-    if (kind){   // named entity: tooltip (full name + category) + one-click lookup
+    let cls = "meta-item", attr = "", nm, card = "";
+    if (kind){   // named entity: rich effect card when we have it, else the lookup link
       cls += " tip-row";
-      attr = ` data-tip="${esc(x.name)} · ${esc(kind)} · look it up ↗"`;
-      nm = `<a class="nm tip-link" href="${lookupUrl(x.name)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      const hit = effectFor(kind, x.name);
+      if (hit){
+        cls += " has-card";
+        nm = `<button type="button" class="nm tip-link ent-trigger" aria-expanded="false">${label}</button>`;
+        card = entityCard(hit.type, hit.entry);
+      } else {
+        attr = ` data-tip="${esc(x.name)} · ${esc(kind)} · look it up ↗"`;
+        nm = `<a class="nm tip-link" href="${lookupUrl(x.name)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      }
     } else {     // affix lines are self-describing stat text — left as plain labels
       nm = `<span class="nm">${label}</span>`;
     }
-    return `<div class="${cls}"${attr}><div class="r1">${nm}<span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`;
+    return `<div class="${cls}"${attr}><div class="r1">${nm}<span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div>${card}</div>`;
   }).join("");
   return `<div class="meta-col"><h5>${esc(title)}</h5>${items}</div>`;
 }
