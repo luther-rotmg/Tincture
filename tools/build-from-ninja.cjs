@@ -586,6 +586,10 @@ async function main() {
     const files = fs.readdirSync(CACHE_DIR).filter(f => /^c-.*\.json$/.test(f));
     for (const f of files) { try { EFFECTS.collectFromChar(JSON.parse(fs.readFileSync(path.join(CACHE_DIR, f), 'utf8')), acc); } catch (_) {} }
     const out = EFFECTS.buildEffectsJson(acc, { tree, gemInfo, generated: new Date().toISOString(), sources: EFFECT_SOURCES });
+    if (!Object.keys(out.runes).length && !Object.keys(out.uniques).length && !Object.keys(out.gems).length) {
+      console.log('effects.json NOT written: no rune/unique/gem data from cache — run --enumerate first to populate tools/.cache with c-*.json characters');
+      return;
+    }
     fs.writeFileSync(path.join(REPO, 'effects.json'), JSON.stringify(out, null, 2) + '\n');
     console.log(`effects.json: ${Object.keys(out.runes).length} runes, ${Object.keys(out.uniques).length} uniques, ${Object.keys(out.gems).length} gems, ${Object.keys(out.notables).length} notables (from ${files.length} cached chars)`);
     return;
