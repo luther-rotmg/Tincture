@@ -633,6 +633,17 @@
   .meta-item .pc{ font-family:var(--fmono); font-size:10px; color:var(--bone-dim); flex:none; }
   .meta-item .track{ height:3px; background:rgba(200,162,74,.09); border-radius:2px; overflow:hidden; margin-top:3px; }
   .meta-item .fill{ height:100%; background:linear-gradient(90deg, rgba(200,162,74,.35), var(--gold)); border-radius:2px; }
+  /* meta names are lookup links with a category tooltip (full name + what it is + ↗) */
+  .meta-item.tip-row{ position:relative; }
+  .meta-item .nm.tip-link{ color:var(--bone); text-decoration:none; cursor:help; border-bottom:1px dotted transparent; }
+  .meta-item .nm.tip-link:hover, .meta-item .nm.tip-link:focus-visible{ color:var(--gold-bright); border-bottom-color:var(--hair-strong); outline:none; }
+  .meta-item.tip-row:hover::after, .meta-item.tip-row:focus-within::after{
+    content:attr(data-tip); position:absolute; left:0; top:calc(100% + 3px); z-index:40;
+    width:max-content; max-width:250px; white-space:normal;
+    font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; line-height:1.6;
+    color:var(--bone-dim); background:#1d1711; border:1px solid var(--hair-strong); border-radius:3px;
+    padding:8px 10px; box-shadow:0 18px 44px -18px rgba(0,0,0,.8); pointer-events:none;
+  }
   .meta-stats{ font-family:var(--fmono); font-size:11px; color:var(--bone-dim); margin:16px 0 0; display:flex; gap:18px; flex-wrap:wrap; align-items:baseline; }
   .meta-stats b{ color:var(--gold-bright); }
   .meta-stats .smp{ color:var(--muted); }
@@ -1708,9 +1719,27 @@ function skillsLine(md){
   if (!md || !(md.skills||[]).length) return "";
   return `<div class="skills-line"><b>commonly plays</b> <span class="sk">${md.skills.slice(0,3).map(s=>esc(s.name)).join(" · ")}</span></div>`;
 }
-function metaCol(title, arr, fmtName){
+// neutral outbound lookup for a named entity (rune, gem, notable, unique…) — same honest
+// "we don't host it, here's where to read it" stance as the build-guide pointer.
+function lookupUrl(name){
+  return "https://www.google.com/search?q=" + encodeURIComponent('"' + name + '" Path of Exile 2');
+}
+function metaCol(title, arr, opts){
   if (!arr || !arr.length) return "";
-  const items = arr.map(x=>`<div class="meta-item"><div class="r1"><span class="nm">${fmtName?fmtName(x):esc(x.name)}</span><span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`).join("");
+  opts = (typeof opts === "function") ? { fmtName: opts } : (opts || {});   // back-compat: 3rd arg used to be fmtName
+  const fmtName = opts.fmtName, kind = opts.kind;
+  const items = arr.map(x=>{
+    const label = fmtName ? fmtName(x) : esc(x.name);
+    let cls = "meta-item", attr = "", nm;
+    if (kind){   // named entity: tooltip (full name + category) + one-click lookup
+      cls += " tip-row";
+      attr = ` data-tip="${esc(x.name)} · ${esc(kind)} · look it up ↗"`;
+      nm = `<a class="nm tip-link" href="${lookupUrl(x.name)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    } else {     // affix lines are self-describing stat text — left as plain labels
+      nm = `<span class="nm">${label}</span>`;
+    }
+    return `<div class="${cls}"${attr}><div class="r1">${nm}<span class="pc">${x.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.max(2,Math.min(100,x.pct))}%"></div></div></div>`;
+  }).join("");
   return `<div class="meta-col"><h5>${esc(title)}</h5>${items}</div>`;
 }
 // affix label with the typical rolled-value range substituted in (e.g. "+30–40% to ...")
@@ -1722,11 +1751,11 @@ function affixLabel(x){
   return esc(x.name);
 }
 function metaCoreGrid(md){
-  return `<div class="meta-grid">${metaCol("Top skills",md.skills)}${metaCol("Top supports",md.supports)}${metaCol("Top notables",md.notables)}${metaCol("Weapon",md.weapons)}${metaCol("Top anointments",md.anointments)}${metaCol("Top uniques",md.uniques)}</div>`;
+  return `<div class="meta-grid">${metaCol("Top skills",md.skills,{kind:"Skill gem"})}${metaCol("Top supports",md.supports,{kind:"Support gem"})}${metaCol("Top notables",md.notables,{kind:"Passive notable"})}${metaCol("Weapon",md.weapons,{kind:"Weapon base"})}${metaCol("Top anointments",md.anointments,{kind:"Anointment"})}${metaCol("Top uniques",md.uniques,{kind:"Unique item"})}</div>`;
 }
 function metaGearGrid(md){
   if (!((md.gear||[]).length || (md.runes||[]).length)) return "";
-  return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear,affixLabel)}${metaCol("Weapon augments",md.runes)}</div>`
+  return `<div class="meta-grid meta-gear">${metaCol("Affixes to chase",md.gear,affixLabel)}${metaCol("Weapon augments",md.runes,{kind:"Rune / soul core"})}</div>`
     + `<p class="meta-gear-note">Affixes = share of the sampled builds' <b>rare gear pieces</b> carrying each; augments = share of <b>sampled builds</b> socketing each. A small sample of top characters, so read it as a guide.</p>`;
 }
 // hover/focus tooltip for one equipped item: rarity + base + item level, then the affix
