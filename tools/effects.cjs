@@ -80,14 +80,16 @@ function collectFromChar(char, acc) {
         if (line && !e.lines.includes(line)) e.lines.push(line);
       }
     }
-    // uniques — first seen wins (a representative real item)
+    // uniques — first modful instance wins. Skip empty-mods uniques (e.g. Heart of the Well,
+    // random-roll Megalomaniac) so a card always shows effect text; else the UI keeps the link.
     if (d.frameType === 3 && d.name && !/^(Normal|Magic|Rare) /.test(d.name)) {
       const key = normKey(d.name);
-      if (!acc.uniques[key]) {
+      const mods = [].concat(d.implicitMods || [], d.explicitMods || []).map(cleanMarkup).filter(Boolean);
+      if (mods.length && !acc.uniques[key]) {
         acc.uniques[key] = {
           name: cleanMarkup(d.name),
           base: cleanMarkup(d.baseType || d.typeLine || ''),
-          mods: [].concat(d.implicitMods || [], d.explicitMods || []).map(cleanMarkup).filter(Boolean),
+          mods,
           flavour: cleanMarkup((d.flavourText || []).join(' ')),
         };
       }

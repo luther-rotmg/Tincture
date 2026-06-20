@@ -165,3 +165,9 @@ test('buildEffectsJson forwards opts.wanted to notablesFromTree', () => {
   const out = E.buildEffectsJson({ runes: {}, uniques: {}, gems: {} }, { tree, wanted: new Set([E.normKey('Point Blank')]), generated: 't', sources: [] });
   assert.ok(out.notables['point blank'], 'wanted other-node resolves through buildEffectsJson');
 });
+
+test('collectFromChar skips uniques with no mods (effect-less items fall back to link)', () => {
+  const acc = { runes: {}, uniques: {}, gems: {} };
+  E.collectFromChar({ jewels: [{ itemData: { frameType: 3, name: 'Heart of the Well', baseType: 'Diamond', explicitMods: [], implicitMods: [], flavourText: ['x'] } }], skills: [] }, acc);
+  assert.strictEqual(acc.uniques['heart of the well'], undefined, 'empty-mods unique not recorded');
+});
