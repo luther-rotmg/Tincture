@@ -48,4 +48,46 @@ function gemInfoFromLua(lua) {
   return out;
 }
 
-module.exports = { normKey, cleanMarkup, notablesFromTree, gemInfoFromLua };
+function collectFromChar(char, acc) {
+  for (const it of (char.items || [])) {
+    const d = it.itemData || it;
+    // runes / soul cores socketed into gear — mod text is slot-prefixed and self-describing
+    for (const s of (d.socketedItems || [])) {
+      const nm = s.typeLine || s.baseType || s.name || '';
+      if (!nm || !/\bRune\b|Soul Core/i.test(nm)) continue;
+      const key = normKey(nm);
+      const e = acc.runes[key] || (acc.runes[key] = { name: cleanMarkup(nm), lines: [] });
+      for (const m of (s.explicitMods || [])) {
+        const line = cleanMarkup(m);
+        if (line && !e.lines.includes(line)) e.lines.push(line);
+      }
+    }
+    // uniques — first seen wins (a representative real item)
+    if (d.frameType === 3 && d.name) {
+      const key = normKey(d.name);
+      if (!acc.uniques[key]) {
+        acc.uniques[key] = {
+          name: cleanMarkup(d.name),
+          base: cleanMarkup(d.baseType || d.typeLine || ''),
+          mods: [].concat(d.implicitMods || [], d.explicitMods || []).map(cleanMarkup).filter(Boolean),
+          flavour: cleanMarkup((d.flavourText || []).join(' ')),
+        };
+      }
+    }
+  }
+  // skill + support gems — description from the in-game gem text
+  for (const g of (char.skills || [])) {
+    for (const gm of (g.allGems || [])) {
+      const d = gm.itemData || {};
+      const nm = gm.name || d.typeLine || d.baseType;
+      if (!nm) continue;
+      const key = normKey(nm);
+      if (acc.gems[key]) continue;
+      const desc = cleanMarkup(d.secDescrText || d.descrText || '');
+      if (!desc) continue; // no description -> omit (front end falls back to link)
+      acc.gems[key] = { name: cleanMarkup(nm), desc };
+    }
+  }
+}
+
+module.exports = { normKey, cleanMarkup, notablesFromTree, gemInfoFromLua, collectFromChar };

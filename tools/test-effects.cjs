@@ -54,3 +54,38 @@ test('gemInfoFromLua parses kind from gameId and display tags', () => {
   assert.deepStrictEqual(out['ice nova'].tags, ['spell', 'cold']);
   assert.strictEqual(out['inspiration'].kind, 'support');
 });
+
+test('collectFromChar gathers runes (union of slot lines), uniques, gems', () => {
+  const acc = { runes: {}, uniques: {}, gems: {} };
+  const charA = {
+    items: [
+      { itemData: { inventoryId: 'Boots', frameType: 2, socketedItems: [
+        { typeLine: "Farrul's Rune of the Chase", explicitMods: ['Boots: 5% increased Movement Speed'] } ] } },
+      { itemData: { inventoryId: 'Ring', frameType: 3, name: "Kalandra's Touch", baseType: 'Ring',
+        implicitMods: [], explicitMods: ['Reflects opposite Ring'], flavourText: ['Power is a matter of perspective.'] } },
+    ],
+    skills: [ { allGems: [
+      { name: 'Ice Nova', itemData: { typeLine: 'Ice Nova', secDescrText: 'Creates a ring of [Cold] damage.' } } ] } ],
+  };
+  const charB = {
+    items: [
+      { itemData: { inventoryId: 'BodyArmour', frameType: 2, socketedItems: [
+        { typeLine: "Farrul's Rune of the Chase", explicitMods: ['Body Armours: +10 to Spirit'] } ] } },
+    ], skills: [],
+  };
+  E.collectFromChar(charA, acc);
+  E.collectFromChar(charB, acc);
+
+  assert.deepStrictEqual(acc.runes['farrul s rune of the chase'].lines,
+    ['Boots: 5% increased Movement Speed', 'Body Armours: +10 to Spirit']);
+  assert.strictEqual(acc.uniques['kalandra s touch'].base, 'Ring');
+  assert.deepStrictEqual(acc.uniques['kalandra s touch'].mods, ['Reflects opposite Ring']);
+  assert.strictEqual(acc.uniques['kalandra s touch'].flavour, 'Power is a matter of perspective.');
+  assert.strictEqual(acc.gems['ice nova'].desc, 'Creates a ring of Cold damage.');
+});
+
+test('collectFromChar skips gems with no description text', () => {
+  const acc = { runes: {}, uniques: {}, gems: {} };
+  E.collectFromChar({ items: [], skills: [ { allGems: [ { name: 'Mystery', itemData: {} } ] } ] }, acc);
+  assert.strictEqual(acc.gems['mystery'], undefined);
+});
