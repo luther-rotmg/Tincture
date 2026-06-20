@@ -1794,6 +1794,32 @@ function entityCard(type, entry){
   const foot = `<div class="ent-foot">derived from public ladder data · <a href="${esc(lookupUrl(entry.name))}" target="_blank" rel="noopener noreferrer">look it up ↗</a></div>`;
   return `<div class="ent-card" role="tooltip"><div class="ent-head"><span class="ent-name">${esc(entry.name)}</span><span class="ent-badge">${esc(badge)}</span></div>${body}${foot}</div>`;
 }
+// hybrid open/close for effect cards: desktop also opens on hover/focus via CSS; this adds
+// click-to-pin (desktop) and tap-to-open (touch), single-open, with outside-click + Esc close.
+function closeAllCards(){
+  document.querySelectorAll(".meta-item.has-card.open").forEach(el=>{
+    el.classList.remove("open");
+    const b = el.querySelector(".ent-trigger"); if (b) b.setAttribute("aria-expanded","false");
+  });
+}
+function setupEntityCards(){
+  document.addEventListener("click", e=>{
+    if (e.target.closest && e.target.closest(".ent-card")) return;   // clicks inside a card (e.g. the link) pass through
+    const trig = e.target.closest && e.target.closest(".ent-trigger");
+    if (trig){
+      const host = trig.closest(".meta-item.has-card");
+      if (host){
+        e.preventDefault();
+        const wasOpen = host.classList.contains("open");
+        closeAllCards();
+        if (!wasOpen){ host.classList.add("open"); trig.setAttribute("aria-expanded","true"); }
+      }
+      return;
+    }
+    closeAllCards();   // any outside click
+  });
+  document.addEventListener("keydown", e=>{ if (e.key === "Escape") closeAllCards(); });
+}
 function metaCol(title, arr, opts){
   if (!arr || !arr.length) return "";
   opts = (typeof opts === "function") ? { fmtName: opts } : (opts || {});   // back-compat: 3rd arg used to be fmtName
@@ -2955,6 +2981,7 @@ async function boot(){
   renderExchange();
   setupQuiz();
   setupArchive();
+  setupEntityCards();
   watchStill();
 
   // the Cellar's "API" address should reflect wherever this page is actually served
