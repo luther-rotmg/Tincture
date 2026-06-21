@@ -652,7 +652,8 @@
   .meta-stats b{ color:var(--gold-bright); }
   .meta-stats .smp{ color:var(--muted); }
   .meta-src{ font-family:var(--fmono); font-size:10px; line-height:1.6; color:var(--muted); margin:11px 0 0; }
-  .row-share{ margin-top:14px; padding-top:12px; border-top:1px solid var(--hair); }
+  .row-share{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:14px; padding-top:12px; border-top:1px solid var(--hair); }
+  .row-share .overview-link{ text-decoration:none; }
   .bv-quality{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; margin:2px 0 14px; }
   .bv-quality .bvq-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-quality .bvq{ font-family:var(--fmono); font-size:10px; letter-spacing:.02em; }
@@ -1382,6 +1383,7 @@ let DATA = normalizeData(SAMPLE_DATA);
 let dataState = "live";   // "live" once data.json loads; "sample" if we fall back to the bundle
 let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
 let EFFECTS = null;        // effects.json: in-site effect text for runes/uniques/gems/notables
+let LANDING = null;        // b/index.json: Set of slugs that have a /b/<slug>.html SEO landing page
 let HISTORY = null;        // history.json: append-only per-snapshot ascendancy shares (the SC league)
 let ECONOMY = null;        // economy.json: live currency exchange (rates + per-currency value/volume/7d)
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
@@ -2099,8 +2101,13 @@ function renderRows(){
       // fail-safe: a single malformed meta-detail entry must degrade to no-detail, never abort the
       // whole ledger render (the rest of the rows after it).
       try {
-        detail.innerHTML = metaDetailHTML(md, slugOf(b))
-          + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(slugOf(b))}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button></div>`;
+        const lslug = slugOf(b);
+        // internal link to the per-ascendancy SEO overview page, only when one exists (b/index.json)
+        const overview = (LANDING && LANDING.has(lslug))
+          ? `<a class="arch-btn overview-link" href="b/${esc(lslug)}.html" target="_blank" rel="noopener" title="Open the ${esc(b.asc)} overview — class, playstyle, common skills and uniques">Read the ${esc(b.asc)} overview ↗</a>`
+          : "";
+        detail.innerHTML = metaDetailHTML(md, lslug)
+          + `<div class="row-share"><button class="arch-btn row-copylink" type="button" data-slug="${esc(lslug)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 11a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg> Copy link to this pick</button>${overview}</div>`;
       } catch (_) {
         detail.innerHTML = `<div class="meta-src">Build details unavailable for ${esc(b.asc)}.</div>`;
       }
@@ -3023,17 +3030,19 @@ async function boot(){
   // is hourly/weekly-fresh, so honor the server's max-age+ETag (cache:"default") instead of
   // re-pulling the full bodies (effects.json ~534KB) on every load; only data.json stays no-store.
   const manifestP = buildsManifest().catch(() => null);
-  const [m, h, ec, ef] = await Promise.all([
+  const [m, h, ec, ef, lp] = await Promise.all([
     fetchJSON("meta-detail.json", 8000, "default"),
     fetchJSON("history.json", 8000, "default"),
     fetchJSON("economy.json", 8000, "default"),
     fetchJSON("effects.json", 8000, "default"),
+    fetchJSON("b/index.json", 8000, "default"),
   ]);
   await manifestP;
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
   if (h && Array.isArray(h.points)) HISTORY = h;
   if (ec && Array.isArray(ec.currencies)) ECONOMY = ec;
   if (ef && (ef.runes || ef.uniques || ef.gems || ef.notables)) EFFECTS = ef;   // shape-gate before promoting
+  if (lp && Array.isArray(lp.slugs)) LANDING = new Set(lp.slugs);   // slugs with a /b/<slug>.html landing page
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();

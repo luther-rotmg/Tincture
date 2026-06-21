@@ -721,6 +721,15 @@ def generate_landing_pages(payload):
                     os.remove(os.path.join(LANDING_DIR, fn))
                 except OSError:
                     pass
+        # Manifest of slugs that have a landing page, so the SPA links to /b/<slug>.html only
+        # when the page actually exists (a pruned/uncovered ascendancy gets no dead link).
+        try:
+            mtmp = os.path.join(LANDING_DIR, "index.json.tmp")
+            with open(mtmp, "w", encoding="utf-8") as f:
+                json.dump({"updated": payload.get("updated"), "slugs": sorted(slugs)}, f, separators=(",", ":"))
+            os.replace(mtmp, os.path.join(LANDING_DIR, "index.json"))
+        except Exception as e:  # noqa: BLE001
+            print(f"[warn] could not write {LANDING_DIR}/index.json: {e}")
         print(f"[write] {LANDING_DIR} — {len(slugs)} landing pages")
         return slugs
     except Exception as e:  # noqa: BLE001
