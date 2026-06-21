@@ -1078,6 +1078,10 @@
       <button data-sort="pop" class="active" aria-pressed="true">popularity</button>
       <span style="color:var(--hair-strong)">/</span>
       <button data-sort="trend" aria-pressed="false">rising</button>
+      <span style="color:var(--hair-strong)">/</span>
+      <button data-sort="ehp" aria-pressed="false" title="Sort by median effective HP of the sampled characters">EHP</button>
+      <span style="color:var(--hair-strong)">/</span>
+      <button data-sort="dps" aria-pressed="false" title="Sort by median DPS of the sampled characters">DPS</button>
     </div>
     <input type="search" id="ledgerSearch" class="ledger-search" placeholder="search ascendancy, skill, unique…" aria-label="Search builds" autocomplete="off" />
     <div id="ledgerStatus" class="sr-only" aria-live="polite"></div>
@@ -1755,7 +1759,10 @@ function currentBuilds(){
   if (activeClass !== "All") list = list.filter(b=>b.cls===activeClass);
   if (searchQuery) list = list.filter(b => buildSearchText(b).includes(searchQuery));
   const num = v => (v==null ? -Infinity : v);  // curated builds have null pop/delta
+  const statOf = (b, k) => { const md = (META && META.byAsc) ? META.byAsc[slugOf(b)] : null; return md && md.stats ? md.stats[k] : null; };
   if (activeSort === "trend") list.sort((a,b)=> num(b.delta) - num(a.delta));
+  else if (activeSort === "ehp") list.sort((a,b)=> num(statOf(b,"ehp")) - num(statOf(a,"ehp")) || num(b.pop) - num(a.pop));
+  else if (activeSort === "dps") list.sort((a,b)=> num(statOf(b,"dps")) - num(statOf(a,"dps")) || num(b.pop) - num(a.pop));
   else list.sort((a,b)=> num(b.pop) - num(a.pop));
   return list;
 }
@@ -2146,7 +2153,7 @@ function renderRows(){
     rows.appendChild(foot);
   }
   const lstat = $("#ledgerStatus");
-  if (lstat){ if (renderRows.ready) lstat.textContent = `${currentBuilds().length} ${activeClass==="All"?"":activeClass+" "}builds, sorted by ${activeSort==="trend"?"rising":"popularity"}`; renderRows.ready = true; }
+  if (lstat){ if (renderRows.ready) lstat.textContent = `${currentBuilds().length} ${activeClass==="All"?"":activeClass+" "}builds, sorted by ${({pop:"popularity",trend:"rising",ehp:"median EHP",dps:"median DPS"})[activeSort]||activeSort}`; renderRows.ready = true; }
 }
 function renderHero(){
   const L = curLeague();
