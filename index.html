@@ -331,6 +331,17 @@
   .cmp-ent.cmp-shared{ border-color:var(--verdigris,#5b8a7e); color:var(--verdigris,#5b8a7e); }
   .cmp-foot, .cmp-empty{ color:var(--muted); font-size:11.5px; margin-top:12px; }
   .cmp-decant{ margin-top:8px; }
+  .vs-link{ font-family:var(--fmono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); background:none; border:1px solid var(--hair); border-radius:2px; padding:2px 6px; cursor:pointer; transition:color .18s, border-color .18s; }
+  .vs-link:hover{ color:var(--gold-bright); border-color:var(--gold); }
+  .cmp-pickers{ display:flex; flex-wrap:wrap; gap:10px; margin:4px 0 18px; }
+  .cmp-pick{ min-height:36px; }
+  @media (max-width:480px){
+    .cmp-table td, .cmp-table th[scope="row"]{ padding:6px 10px; font-size:12px; }
+    .cmp-table td{ min-width:104px; }
+    .cmp-pickers{ gap:8px; }
+    .cmp-pick{ flex:1 1 100%; }
+    .vs-link{ min-height:32px; display:inline-flex; align-items:center; }
+  }
 
   /* ---------------- The Still (signature aggregation visual) ---------------- */
   .still{
@@ -2220,6 +2231,7 @@ function renderRows(){
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
           Decant
         </button>
+        <button class="vs-link" type="button" data-slug="${esc(slugOf(b))}" title="Add ${esc(b.asc)} to The Counterpoise comparison" aria-label="Compare ${esc(b.asc)}">vs</button>
       </div>`;
     row.querySelector(".decant").onclick = e => { e.stopPropagation(); decant(b); };
     rows.appendChild(row);
@@ -2281,6 +2293,12 @@ function renderRows(){
       rows.appendChild(detail);
     }
   });
+  rows.querySelectorAll(".vs-link").forEach(btn => btn.addEventListener("click", e => {
+    e.stopPropagation();
+    setCompareSel([...compareSel, btn.dataset.slug]);
+    const sec = document.getElementById("compare");
+    if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
   if (!L.curated){
     const sb = shownBuilds(L);
     const cover = Math.round(sb.reduce((a,x)=>a+x.pop,0));
