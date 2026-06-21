@@ -3051,6 +3051,43 @@ function parseCompareHash(hash, known){
 function compareHashOf(slugs){
   return (slugs && slugs.length) ? "#compare=" + slugs.slice(0, 3).join(",") : "";
 }
+function comparablesList(){   // [{slug, asc}] sorted by asc name
+  const ba = (META && META.byAsc) || {};
+  return Object.keys(ba).map(s => ({ slug: s, asc: ba[s].asc || s })).sort((a,b)=>a.asc.localeCompare(b.asc));
+}
+function renderComparePickers(){
+  const host = $("#cmpPickers");
+  if (!host) return;
+  const opts = comparablesList();
+  const slots = Math.min(3, Math.max(2, compareSel.length + (compareSel.length < 3 ? 1 : 0)));
+  let html = "";
+  for (let i = 0; i < slots; i++){
+    const sel = compareSel[i] || "";
+    html += `<select class="cmp-pick" data-i="${i}" aria-label="Comparison slot ${i+1}">`
+      + `<option value="">${i < 2 ? "Pick an ascendancy…" : "+ add a third…"}</option>`
+      + opts.map(o => `<option value="${esc(o.slug)}"${o.slug===sel?" selected":""}>${esc(o.asc)}</option>`).join("")
+      + `</select>`;
+  }
+  host.innerHTML = html;
+  host.querySelectorAll(".cmp-pick").forEach(sel => sel.addEventListener("change", () => {
+    const picks = [...host.querySelectorAll(".cmp-pick")].map(s => s.value).filter(Boolean);
+    setCompareSel(picks);
+  }));
+}
+function setCompareSel(slugs){
+  const known = (META && META.byAsc) ? Object.keys(META.byAsc) : [];
+  const out = [];
+  (slugs || []).forEach(s => { if (s && known.indexOf(s) >= 0 && out.indexOf(s) < 0 && out.length < 3) out.push(s); });
+  compareSel = out;
+  writeCompareHash();
+  renderComparePickers();
+  renderCompare();
+}
+function writeCompareHash(){
+  const h = compareHashOf(compareSel);
+  // URL-only, no history spam — match writeAscHash's approach
+  history.replaceState(null, "", h || (location.pathname + location.search));
+}
 
 function writeAscHash(slug){
   const base = location.pathname + location.search;
@@ -3094,6 +3131,12 @@ function route(){
   }
   if (p.quiz && typeof openQuiz==="function") openQuiz(p.quiz);   // restore quiz state when present
   if (p.asc) openAsc(p.asc, true);
+  if (/^#?compare=/.test(location.hash)){
+    const known = (META && META.byAsc) ? Object.keys(META.byAsc) : [];
+    compareSel = parseCompareHash(location.hash, known);
+    renderComparePickers();
+    renderCompare();
+  }
 }
 
 // The Lineage — a hand-rolled SVG line chart of the top ascendancies' share over the accumulated
@@ -3200,7 +3243,14 @@ async function boot(){
   renderAssay();
   renderHistory();
   renderExchange();
+  renderComparePickers();
   renderCompare();
+  if (/^#?compare=/.test(location.hash)){
+    const known = (META && META.byAsc) ? Object.keys(META.byAsc) : [];
+    compareSel = parseCompareHash(location.hash, known);
+    renderComparePickers();
+    renderCompare();
+  }
   setupQuiz();
   setupArchive();
   setupEntityCards();
