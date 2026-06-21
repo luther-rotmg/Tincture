@@ -1775,9 +1775,15 @@ function effectFor(kind, name){
 function lookupUrl(name){
   return "https://www.google.com/search?q=" + encodeURIComponent('"' + name + '" Path of Exile 2');
 }
+// Highlight number runs in mod/stat text. Split on numbers FIRST, then escape each part,
+// wrapping only the number tokens — so escaping can never let the digit regex corrupt an
+// HTML entity (e.g. the 39 in &#39;). Shared by itemTip (fmtMod) and entityCard (numify).
+function highlightNums(m){
+  return String(m == null ? "" : m).split(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/).map((p, i) => i % 2 ? `<span class="tip-num">${esc(p)}</span>` : esc(p)).join("");
+}
 // rich hover/tap card for one entity. Mirrors the .bv-tip item card; reuses .tip-mod/.tip-num.
 function entityCard(type, entry, displayKind){
-  const numify = m => String(m == null ? "" : m).split(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/).map((p, i) => i % 2 ? `<span class="tip-num">${esc(p)}</span>` : esc(p)).join("");
+  const numify = highlightNums;
   const modRows = arr => (arr||[]).map(l=>`<div class="tip-mod">${numify(l)}</div>`).join("");
   let body = "", badge = "";
   if (type === "runes"){ badge = "Rune / Soul Core"; body = modRows(entry.lines); }
@@ -1841,7 +1847,7 @@ function metaCol(title, arr, opts){
       } else {
         cls += " tip-row";
         attr = ` data-tip="${esc(x.name)} · ${esc(kind)} · look it up ↗"`;
-        nm = `<a class="nm tip-link" href="${lookupUrl(x.name)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+        nm = `<a class="nm tip-link" href="${esc(lookupUrl(x.name))}" target="_blank" rel="noopener noreferrer">${label}</a>`;
       }
     } else {     // affix lines are self-describing stat text — left as plain labels
       nm = `<span class="nm">${label}</span>`;
@@ -1871,7 +1877,7 @@ function metaGearGrid(md){
 // Each mod is its own marked row, grouped + labelled, with rolled values highlighted, so it
 // reads as a stat sheet rather than a blob of text.
 function itemTip(it){
-  const fmtMod = m => String(m == null ? "" : m).split(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/).map((p, i) => i % 2 ? `<span class="tip-num">${esc(p)}</span>` : esc(p)).join("");
+  const fmtMod = highlightNums;
   const rows = arr => (arr||[]).map(m=>`<div class="tip-mod">${fmtMod(m)}</div>`).join("");
   const group = (label, arr, cls) => (arr&&arr.length) ? `<div class="tip-grp ${cls||""}">${label?`<div class="tip-lbl">${label}</div>`:""}${rows(arr)}</div>` : "";
   const sockets = (it.sockets&&it.sockets.length) ? `<div class="tip-grp tip-sockets"><div class="tip-lbl">Socketed</div>${it.sockets.map(s=>`<div class="tip-mod">${esc(s)}</div>`).join("")}</div>` : "";
@@ -1941,7 +1947,7 @@ function variantsHTML(md){
       <div class="bv-var-acts">
         <button class="arch-btn bv-var-decant" type="button" data-slug="${esc(v.slug)}" data-asc="${esc(md.asc)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg> Decant</button>
         ${v.pob?`<button class="arch-btn bv-pob" type="button" data-pob="${esc(v.slug)}">PoB</button>`:""}
-        <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(v.source.account)}/${encodeURIComponent(v.source.name)}" target="_blank" rel="noopener noreferrer">source ↗</a>
+        <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(v.source.account)}/${encodeURIComponent(v.source.name)}" target="_blank" rel="noopener noreferrer">source ↗</a>
       </div>
     </div>`;
   };
@@ -1966,7 +1972,7 @@ function metaDetailHTML(md, slug){
   const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
   const ss = md.stats && md.stats.sample;   // count behind the EHP/DPS median (the sampled set, NOT md.sample = full population)
   const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters</span></div>` : "";
-  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${esc(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
+  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
   return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
 
