@@ -2978,9 +2978,11 @@ function renderExchange(){
   if (!e || !Array.isArray(e.currencies) || !e.currencies.length){ panel.hidden = true; return; }
   panel.hidden = false;
   const rates = e.rates || {}, exRate = rates.exalted, chRate = rates.chaos;
+  const stale = e.updated && (Date.now() - new Date(e.updated).getTime()) > 3*3600e3;   // hourly refresh overdue
   $("#exRates").innerHTML = `1 <b>Divine Orb</b>`
     + (exRate ? ` = <b>${fmt(Math.round(exRate))}</b> Exalted` : "")
-    + (chRate ? ` &middot; <b>${chRate.toFixed(1)}</b> Chaos` : "");
+    + (chRate ? ` &middot; <b>${chRate.toFixed(1)}</b> Chaos` : "")
+    + (stale ? ` <span style="color:var(--gold); font-size:.82em" title="The hourly exchange refresh is overdue — these prices may be out of date.">· prices ${esc(relTime(e.updated))}</span>` : "");
   const ref = new Set([e.primary, e.secondary, "exalted"]);   // skip the reference currencies themselves
   const top = e.currencies.filter(c => !ref.has(c.id) && c.volume != null)
     .sort((a, b) => (b.volume || 0) - (a.volume || 0)).slice(0, 8);
