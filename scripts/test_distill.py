@@ -474,6 +474,20 @@ class Guides(unittest.TestCase):
         self.assertEqual(distill.untriaged_guides(None, {"guides":{}, "unguided":[]}), [])
         self.assertEqual(distill.untriaged_guides({}, None), [])
 
+    def test_shipped_guides_json_valid_and_complete(self):
+        # the committed guides.json must be well-formed AND cover every live ascendancy
+        # (each in guides or unguided) — an untriaged new ascendancy fails CI, the reminder bite.
+        gpath = os.path.join(ROOT, "guides.json")
+        if not os.path.exists(gpath):
+            self.skipTest("guides.json not present")
+        with open(gpath, encoding="utf-8") as f:
+            doc = json.load(f)
+        self.assertEqual(distill.guides_schema_errors(doc), [], "guides.json has schema errors")
+        if os.path.exists(DATA_PATH):
+            payload = load_data()
+            self.assertEqual(distill.untriaged_guides(payload, doc), [],
+                             "every live ascendancy must be in guides.json's guides or unguided — add the new one(s)")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
