@@ -2061,7 +2061,7 @@ function compareTableHTML(slugs){
     cols.map(c => c.def && c.def.resists ? c.def.resists[key] : null),
     v => `${v}%${v>=75?' ✓':''}`);
   const listRow = (label, pick) => `<tr><th scope="row">${label}</th>` +
-    cols.map(c => `<td>${(pick(c)||[]).map(x=>`<span class="cmp-ent${shared[x.name]?' cmp-shared':''}" title="${esc(x.name)} — ${x.pct}% of this ascendancy">${esc(x.name)}</span>`).join("")||'—'}</td>`).join("") + `</tr>`;
+    cols.map(c => `<td>${(pick(c)||[]).map(x=>`<span class="cmp-ent${shared[x.name]?' cmp-shared':''}" title="${esc(x.name)} — ${fmt(x.pct)}% of this ascendancy">${esc(x.name)}</span>`).join("")||'—'}</td>`).join("") + `</tr>`;
 
   const head = `<tr><td class="cmp-corner"></td>${cols.map(c=>`<th scope="col" class="cmp-colhead">
       <div class="cmp-asc">${esc(c.asc)}</div>
