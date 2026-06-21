@@ -3085,8 +3085,7 @@ function setCompareSel(slugs){
 }
 function writeCompareHash(){
   const h = compareHashOf(compareSel);
-  // URL-only, no history spam — match writeAscHash's approach
-  history.replaceState(null, "", h || (location.pathname + location.search));
+  try { history.replaceState(null, "", h || (location.pathname + location.search)); } catch(_){}
 }
 
 function writeAscHash(slug){
@@ -3245,12 +3244,6 @@ async function boot(){
   renderExchange();
   renderComparePickers();
   renderCompare();
-  if (/^#?compare=/.test(location.hash)){
-    const known = (META && META.byAsc) ? Object.keys(META.byAsc) : [];
-    compareSel = parseCompareHash(location.hash, known);
-    renderComparePickers();
-    renderCompare();
-  }
   setupQuiz();
   setupArchive();
   setupEntityCards();
