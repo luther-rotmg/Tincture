@@ -635,6 +635,10 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
     parts = [
         "<!DOCTYPE html>", '<html lang="en"><head>', '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        # Tighter CSP than the SPA: these pages have no executable script (the ld+json is a data
+        # block, unaffected by script-src), no external resources, only inline style attributes and
+        # the system font. So: nothing loads except same-origin images (favicon) and inline styles.
+        "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'self'; form-action 'none'\">",
         f"<title>{_esc(title)}</title>",
         f'<meta name="description" content="{_esc(desc)}">',
         f'<link rel="canonical" href="{_esc(url)}">',
