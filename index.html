@@ -1871,7 +1871,7 @@ function metaGearGrid(md){
 // Each mod is its own marked row, grouped + labelled, with rolled values highlighted, so it
 // reads as a stat sheet rather than a blob of text.
 function itemTip(it){
-  const fmtMod = m => esc(m).replace(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/g, '<span class="tip-num">$1</span>');
+  const fmtMod = m => String(m == null ? "" : m).split(/(\d[\d.]*(?:\s*(?:to|–|-)\s*\d[\d.]*)?)/).map((p, i) => i % 2 ? `<span class="tip-num">${esc(p)}</span>` : esc(p)).join("");
   const rows = arr => (arr||[]).map(m=>`<div class="tip-mod">${fmtMod(m)}</div>`).join("");
   const group = (label, arr, cls) => (arr&&arr.length) ? `<div class="tip-grp ${cls||""}">${label?`<div class="tip-lbl">${label}</div>`:""}${rows(arr)}</div>` : "";
   const sockets = (it.sockets&&it.sockets.length) ? `<div class="tip-grp tip-sockets"><div class="tip-lbl">Socketed</div>${it.sockets.map(s=>`<div class="tip-mod">${esc(s)}</div>`).join("")}</div>` : "";
