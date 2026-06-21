@@ -719,7 +719,8 @@
     width:max-content; max-width:300px; padding:9px 11px 10px;
     background:var(--ink-2); border:1px solid var(--hair-strong); border-radius:3px;
     box-shadow:0 10px 30px rgba(0,0,0,.55); text-align:left; cursor:default; }
-  .bv-item.has-tip:hover .bv-tip, .bv-item.has-tip:focus-within .bv-tip{ display:block; }
+  .bv-item.has-tip:hover .bv-tip, .bv-item.has-tip:focus-within .bv-tip,
+  .bv-item.has-tip.open .bv-tip{ display:block; }
   .tip-head{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-bottom:7px; padding-bottom:6px; border-bottom:1px solid var(--hair); }
   .tip-rar{ font-family:var(--fmono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; }
   .tip-rar.r-unique{ color:var(--gold-bright); }
@@ -878,6 +879,11 @@
     .crucible-grid{ grid-template-columns:minmax(88px,1fr) repeat(var(--cru-cols,4),minmax(42px,1fr)); gap:3px; }
     .cru-cell{ min-height:34px; font-size:10px; }
     .cru-rowh .a{ font-size:12.5px; }
+    .row-detail{ padding-left:14px; }
+    .bv-tip, .ent-card{ left:0; right:auto; max-width:calc(100vw - 36px); width:auto; }
+    .sort button{ padding:10px 8px; }
+    .row-toggle{ padding:10px; }
+    .ghost-link, .guide-link{ display:inline-flex; min-height:36px; align-items:center; }
   }
 
   /* ---- The Prescription (guided build finder) ---- */
@@ -1815,10 +1821,11 @@ function closeAllCards(){
     el.classList.remove("open");
     const b = el.querySelector(".ent-trigger"); if (b) b.setAttribute("aria-expanded","false");
   });
+  document.querySelectorAll(".bv-item.has-tip.open").forEach(el=>el.classList.remove("open"));
 }
 function setupEntityCards(){
   document.addEventListener("click", e=>{
-    if (e.target.closest && e.target.closest(".ent-card")) return;   // clicks inside a card (e.g. the link) pass through
+    if (e.target.closest && e.target.closest(".ent-card, .bv-tip")) return;   // clicks inside an open card pass through
     const trig = e.target.closest && e.target.closest(".ent-trigger");
     if (trig){
       const host = trig.closest(".meta-item.has-card");
@@ -1828,6 +1835,13 @@ function setupEntityCards(){
         closeAllCards();
         if (!wasOpen){ host.classList.add("open"); trig.setAttribute("aria-expanded","true"); }
       }
+      return;
+    }
+    const bvItem = e.target.closest && e.target.closest(".bv-item.has-tip");
+    if (bvItem){   // tap the gear item to pin its in-game card (touch devices have no hover)
+      const wasOpen = bvItem.classList.contains("open");
+      closeAllCards();
+      if (!wasOpen) bvItem.classList.add("open");
       return;
     }
     closeAllCards();   // any outside click
@@ -3011,6 +3025,7 @@ async function boot(){
     : new URL("data.json", location.href).href;
 
   $("#folderBtn").onclick = connectFolder;
+  if (!hasFSA()){ const fb = $("#folderBtn"); if (fb) fb.hidden = true; }   // FSA unsupported (mobile / Firefox): the connect button can't work — Decant still downloads the .build
   document.querySelectorAll(".sort button").forEach(btn=>{
     btn.onclick = ()=>{
       activeSort = btn.dataset.sort;
