@@ -249,6 +249,9 @@
   }
   .sort button.active{color:var(--gold-bright); border-bottom-color:var(--gold);}
   .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .ledger-search{ font-family:var(--fmono); font-size:11.5px; color:var(--bone); background:rgba(0,0,0,.25); border:1px solid var(--hair); border-radius:3px; padding:6px 11px; min-width:210px; margin-left:auto; outline:none; transition:border-color .16s;}
+  .ledger-search::placeholder{ color:var(--muted); }
+  .ledger-search:focus{ border-color:var(--gold); }
 
   /* ---------------- ledger ---------------- */
   .ledger-head, .row{
@@ -880,6 +883,7 @@
     .cru-cell{ min-height:34px; font-size:10px; }
     .cru-rowh .a{ font-size:12.5px; }
     .row-detail{ padding-left:14px; }
+    .ledger-search{ width:100%; min-width:0; margin-left:0; }
     .bv-tip, .ent-card{ left:0; right:auto; max-width:calc(100vw - 36px); width:auto; }
     .sort button{ padding:10px 8px; }
     .row-toggle{ padding:10px; }
@@ -1075,6 +1079,7 @@
       <span style="color:var(--hair-strong)">/</span>
       <button data-sort="trend" aria-pressed="false">rising</button>
     </div>
+    <input type="search" id="ledgerSearch" class="ledger-search" placeholder="search ascendancy, skill, unique…" aria-label="Search builds" autocomplete="off" />
     <div id="ledgerStatus" class="sr-only" aria-live="polite"></div>
   </div>
 
@@ -1379,6 +1384,7 @@ let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
 let dirHandle = null;          // in-memory only (kept per session)
 let activeClass = "All";
 let activeSort = "pop";
+let searchQuery = "";
 
 const $ = (s, r=document) => r.querySelector(s);
 const fmt = n => (n == null ? "—" : Number(n).toLocaleString("en-US"));
@@ -1734,9 +1740,20 @@ function renderChips(){
     wrap.appendChild(btn);
   });
 }
+// searchable text for a build — ascendancy, class, editorial tag, headline skill, plus (when
+// META is loaded) its popular skills/supports/uniques/weapons/notables — so a search finds
+// builds by what they actually play, not just the ascendancy name.
+function buildSearchText(b){
+  let s = `${b.asc} ${b.cls} ${b.tag||""} ${b.skill||""}`;
+  const md = (META && META.byAsc) ? META.byAsc[slugOf(b)] : null;
+  if (md) for (const col of ["skills","supports","uniques","weapons","notables","anointments"])
+    (md[col]||[]).forEach(x=>{ if (x && x.name) s += " " + x.name; });
+  return s.toLowerCase();
+}
 function currentBuilds(){
   let list = (curLeague().builds||[]).slice();
   if (activeClass !== "All") list = list.filter(b=>b.cls===activeClass);
+  if (searchQuery) list = list.filter(b => buildSearchText(b).includes(searchQuery));
   const num = v => (v==null ? -Infinity : v);  // curated builds have null pop/delta
   if (activeSort === "trend") list.sort((a,b)=> num(b.delta) - num(a.delta));
   else list.sort((a,b)=> num(b.pop) - num(a.pop));
@@ -2010,7 +2027,9 @@ function renderRows(){
   if (!list.length){
     const d = document.createElement("div");
     d.style.cssText = "padding:40px 18px;color:var(--muted);font-family:var(--fmono);font-size:13px";
-    d.textContent = `No ${activeClass} builds in the current distillation. Pick another class above.`;
+    d.textContent = searchQuery
+      ? `No builds match “${searchQuery}”. Clear the search or pick another class.`
+      : `No ${activeClass} builds in the current distillation. Pick another class above.`;
     rows.appendChild(d);
     return;
   }
@@ -3038,6 +3057,11 @@ async function boot(){
       renderRows();
     };
   });
+  const searchEl = $("#ledgerSearch");
+  if (searchEl){
+    let deb;
+    searchEl.addEventListener("input", ()=>{ clearTimeout(deb); deb = setTimeout(()=>{ searchQuery = searchEl.value.trim().toLowerCase(); renderRows(); }, 150); });
+  }
 
   // collapsible "How to Decant" guide — collapsed by default
   const guide = $("#guide"), guideToggle = $("#guideToggle");
