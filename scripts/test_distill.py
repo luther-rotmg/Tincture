@@ -381,6 +381,25 @@ class HistoryAndSEO(unittest.TestCase):
         self.assertIn("Eldritch Battery", h)      # enrichment: notables
         self.assertIn("Wand / Focus", h)          # enrichment: weapon
 
+    def test_landing_html_security_and_crosslink_invariants(self):
+        sibs = [("deadeye", "Deadeye"), ("titan", "Titan"), ("oracle", "Oracle")]
+        h = distill.landing_html("Titan", "Warrior", "tanky slam", weapon="Mace", siblings=sibs)
+        # the tight CSP + favicon shipped on every landing page must not silently disappear
+        self.assertIn('http-equiv="Content-Security-Policy"', h)
+        self.assertIn("default-src 'none'", h)
+        self.assertIn('rel="icon"', h)
+        self.assertIn("/favicon.svg", h)
+        self.assertIn('name="theme-color"', h)
+        # the ONLY <script> is the JSON-LD data block — no executable inline JS — so the page's
+        # script-src 'none' is safe. If real JS ever creeps in, this fails before the CSP breaks it.
+        self.assertEqual(h.count("<script"), 1)
+        self.assertIn('type="application/ld+json"', h)
+        # cross-link footer: links to the OTHER ascendancies, NEVER a self-link (relative hrefs)
+        self.assertIn('class="b-siblings"', h)
+        self.assertIn('href="deadeye.html"', h)   # a sibling is linked
+        self.assertIn(">Oracle</a>", h)
+        self.assertNotIn('href="titan.html"', h)  # but the page never links to itself
+
 
 class Economy(unittest.TestCase):
     def test_economy_payload_shape(self):
