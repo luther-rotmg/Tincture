@@ -662,6 +662,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
         '<meta property="og:image:height" content="630">',
         '<meta property="og:type" content="article">',
         '<meta name="theme-color" content="#14100b">',
+        '<link rel="icon" type="image/svg+xml" href="/favicon.svg">',
         f'<script type="application/ld+json">{ld}</script>',
         '</head>',
         '<body style="font-family:Georgia,serif;max-width:680px;margin:40px auto;padding:0 18px;'
