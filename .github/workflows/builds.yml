@@ -41,7 +41,7 @@ jobs:
         run: |
           node --check tools/build-from-ninja.cjs
           node --check tools/effects.cjs
-          node --test tools/test-build-from-ninja.cjs tools/test-effects.cjs
+          node --test tools/test-build-from-ninja.cjs tools/test-effects.cjs tools/test-contracts.cjs
 
       - name: Reconstruct builds + meta breakdown (one pass per ascendancy)
         run: node tools/build-from-ninja.cjs --enumerate --league runesofaldur
