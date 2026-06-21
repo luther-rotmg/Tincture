@@ -248,6 +248,7 @@
     border-bottom:1px solid transparent;
   }
   .sort button.active{color:var(--gold-bright); border-bottom-color:var(--gold);}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
 
   /* ---------------- ledger ---------------- */
   .ledger-head, .row{
@@ -1061,13 +1062,14 @@
 
   <!-- ===================== CONTROLS ===================== -->
   <div class="controls" id="ledger">
-    <div class="chips" id="classChips"></div>
-    <div class="sort">
+    <div class="chips" id="classChips" role="group" aria-label="Filter builds by class"></div>
+    <div class="sort" role="group" aria-label="Sort builds">
       <span>sort</span>
-      <button data-sort="pop" class="active">popularity</button>
+      <button data-sort="pop" class="active" aria-pressed="true">popularity</button>
       <span style="color:var(--hair-strong)">/</span>
-      <button data-sort="trend">rising</button>
+      <button data-sort="trend" aria-pressed="false">rising</button>
     </div>
+    <div id="ledgerStatus" class="sr-only" aria-live="polite"></div>
   </div>
 
   <!-- ===================== LEDGER ===================== -->
@@ -1721,6 +1723,7 @@ function renderChips(){
     const btn = document.createElement("button");
     btn.className = "chip" + (c===activeClass?" active":"");
     btn.textContent = c;
+    btn.setAttribute("aria-pressed", c===activeClass ? "true" : "false");
     btn.onclick = ()=>{ activeClass = c; renderChips(); renderRows(); };
     wrap.appendChild(btn);
   });
@@ -2052,6 +2055,7 @@ function renderRows(){
       row.dataset.slug = slugOf(b);
       const detail = document.createElement("div");
       detail.className = "row-detail";
+      detail.id = "detail-" + slugOf(b);
       // fail-safe: a single malformed meta-detail entry must degrade to no-detail, never abort the
       // whole ledger render (the rest of the rows after it).
       try {
@@ -2061,6 +2065,7 @@ function renderRows(){
         detail.innerHTML = `<div class="meta-src">Build details unavailable for ${esc(b.asc)}.</div>`;
       }
       const toggleBtn = row.querySelector(".row-toggle");
+      if (toggleBtn) toggleBtn.setAttribute("aria-controls", detail.id);
       row.addEventListener("click", e => {
         if (e.target.closest(".decant, .guide-link, a, .arch-btn")) return;   // let actions/links/buttons work
         const open = detail.classList.toggle("open");
@@ -2107,6 +2112,8 @@ function renderRows(){
       (trendsReady ? `Trend = 24-hour change in share.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
     rows.appendChild(foot);
   }
+  const lstat = $("#ledgerStatus");
+  if (lstat){ if (renderRows.ready) lstat.textContent = `${currentBuilds().length} ${activeClass==="All"?"":activeClass+" "}builds, sorted by ${activeSort==="trend"?"rising":"popularity"}`; renderRows.ready = true; }
 }
 function renderHero(){
   const L = curLeague();
@@ -3007,7 +3014,7 @@ async function boot(){
   document.querySelectorAll(".sort button").forEach(btn=>{
     btn.onclick = ()=>{
       activeSort = btn.dataset.sort;
-      document.querySelectorAll(".sort button").forEach(x=>x.classList.toggle("active", x===btn));
+      document.querySelectorAll(".sort button").forEach(x=>{ const on=x===btn; x.classList.toggle("active", on); x.setAttribute("aria-pressed", on?"true":"false"); });
       renderRows();
     };
   });
