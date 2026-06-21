@@ -515,6 +515,7 @@ def guides_schema_errors(doc):
 def untriaged_guides(payload, doc):
     """Sorted slugs of live (non-curated) default-league ascendancies handled by neither
     guides nor unguided — i.e. new ascendancies that need a curation decision."""
+    payload = payload if isinstance(payload, dict) else {}
     guides = (doc.get("guides") or {}) if isinstance(doc, dict) else {}
     ung = set((doc.get("unguided") or []) if isinstance(doc, dict) else [])
     handled = set(guides) | ung

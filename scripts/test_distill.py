@@ -470,6 +470,10 @@ class Guides(unittest.TestCase):
         # Deadeye guided, Titan unguided, Smith untriaged, Lich is curated-only (ignored)
         self.assertEqual(distill.untriaged_guides(payload, doc), ["smith-of-kitava"])
 
+    def test_untriaged_tolerates_bad_payload(self):
+        self.assertEqual(distill.untriaged_guides(None, {"guides":{}, "unguided":[]}), [])
+        self.assertEqual(distill.untriaged_guides({}, None), [])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
