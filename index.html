@@ -2914,6 +2914,22 @@ function setupQuiz(){
 }
 
 /* ----- deep links (hash routing; URL only — no storage, replaceState, fail-safe) ----- */
+
+// ---- The Counterpoise: compare-selection hash (URL-only, no storage) ----
+function parseCompareHash(hash, known){
+  const raw = String(hash == null ? "" : hash).replace(/^#?compare=/, "");
+  const out = [];
+  for (const part of raw.split(",")){
+    const v = part.trim().toLowerCase();
+    if (v && known.indexOf(v) >= 0 && out.indexOf(v) < 0) out.push(v);
+    if (out.length >= 3) break;
+  }
+  return out;
+}
+function compareHashOf(slugs){
+  return (slugs && slugs.length) ? "#compare=" + slugs.slice(0, 3).join(",") : "";
+}
+
 function writeAscHash(slug){
   const base = location.pathname + location.search;
   try { history.replaceState(null, "", slug ? base + "#asc=" + slug : base); } catch(_){ /* file:// / sandboxed */ }

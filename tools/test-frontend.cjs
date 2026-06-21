@@ -58,3 +58,28 @@ test('relTime (index.html) FLOORS every bucket — freshness is never overstated
   assert.equal(relTime(ago(5 * HR + pad)), '5 hours ago');
   assert.equal(relTime(new Date(Date.now() + 60000).toISOString()), 'just now'); // future clamps to 0
 });
+
+// --- The Counterpoise: hash helpers (Task 1) ---
+const parseCompareHash = new Function('hash','known',
+  extract(/function parseCompareHash\s*\([^)]*\)\s*\{([\s\S]*?)\n\}/, 'parseCompareHash'));
+const compareHashOf = new Function('slugs',
+  extract(/function compareHashOf\s*\([^)]*\)\s*\{([\s\S]*?)\n\}/, 'compareHashOf'));
+
+test('parseCompareHash filters to known slugs, dedupes, caps at 3', () => {
+  const known = ['titan','deadeye','oracle','lich'];
+  assert.deepEqual(parseCompareHash('#compare=titan,deadeye', known), ['titan','deadeye']);
+  assert.deepEqual(parseCompareHash('compare=titan,deadeye', known), ['titan','deadeye']); // tolerate missing #
+  assert.deepEqual(parseCompareHash('#compare=TITAN, Deadeye ', known), ['titan','deadeye']); // case/space
+  assert.deepEqual(parseCompareHash('#compare=titan,titan,deadeye', known), ['titan','deadeye']); // dedupe
+  assert.deepEqual(parseCompareHash('#compare=titan,bogus,oracle', known), ['titan','oracle']); // unknown dropped
+  assert.deepEqual(parseCompareHash('#compare=titan,deadeye,oracle,lich', known), ['titan','deadeye','oracle']); // cap 3
+  assert.deepEqual(parseCompareHash('', known), []);
+  assert.deepEqual(parseCompareHash('#compare=', known), []);
+});
+
+test('compareHashOf round-trips with parseCompareHash', () => {
+  const known = ['titan','deadeye','oracle'];
+  assert.equal(compareHashOf([]), '');
+  assert.equal(compareHashOf(['titan','deadeye']), '#compare=titan,deadeye');
+  assert.deepEqual(parseCompareHash(compareHashOf(['titan','deadeye','oracle']), known), ['titan','deadeye','oracle']);
+});
