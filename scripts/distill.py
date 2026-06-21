@@ -823,6 +823,31 @@ def write_data(payload):
     write_sitemap(payload.get("updated"), slugs)
     write_history(payload)
 
+
+def warn_missing_guides(payload):
+    """Non-blocking: log new/un-triaged ascendancies + patch drift for guides.json. Never raises."""
+    try:
+        path = os.path.join(ROOT, "guides.json")
+        if not os.path.exists(path):
+            return []
+        with open(path, encoding="utf-8") as f:
+            doc = json.load(f)
+        for e in guides_schema_errors(doc):
+            print(f"[warn] guides.json: {e}", file=sys.stderr)
+        missing = untriaged_guides(payload, doc)
+        for slug in missing:
+            print(f"[warn] ascendancy '{slug}' is in the meta but has no guide "
+                  f"(add it to guides.json or its unguided list)", file=sys.stderr)
+        gp, dp = doc.get("patch"), payload.get("patch")
+        if gp and dp and gp != dp:
+            print(f"[warn] guides.json patch {gp} is behind data.json patch {dp} — re-vet the guides",
+                  file=sys.stderr)
+        return missing
+    except Exception as e:  # noqa: BLE001
+        print(f"[warn] could not check guides.json: {e}", file=sys.stderr)
+        return []
+
+
 # ----------------------------------------------------------------------------- #
 # Modes
 # ----------------------------------------------------------------------------- #
@@ -901,7 +926,9 @@ def run_live():
               "Exiting 0 so the site stays up.")
         return 0
 
-    write_data(build_payload(leagues_out))
+    payload = build_payload(leagues_out)
+    write_data(payload)
+    warn_missing_guides(payload)
     return 0
 
 
