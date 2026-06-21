@@ -2968,10 +2968,10 @@ function renderExchange(){
 
 // fetch JSON with a hard timeout so a hung/slow response can't stall boot — it falls to the
 // honest sample marker instead of hanging. Returns null on any failure (abort/non-200/parse).
-async function fetchJSON(url, ms){
+async function fetchJSON(url, ms, cache){
   const ctl = (typeof AbortController !== "undefined") ? new AbortController() : null;
   const t = ctl ? setTimeout(()=>ctl.abort(), ms || 8000) : null;
-  try { const r = await fetch(url, { cache:"no-store", signal: ctl && ctl.signal }); if (!r.ok) return null; return await r.json(); }
+  try { const r = await fetch(url, { cache: cache || "no-store", signal: ctl && ctl.signal }); if (!r.ok) return null; return await r.json(); }
   catch(_){ return null; }
   finally { if (t) clearTimeout(t); }
 }
@@ -2990,13 +2990,18 @@ async function boot(){
   // optional enrichment: per-ascendancy popular skills/supports/notables/uniques/stats
   // enrichment fetches run concurrently (independent of each other) so first render isn't serialized:
   // meta-detail, the history chart, and the loadable-build manifest (also speeds the quiz/first decant).
+  // The Decant manifest warms via side-effect; await it explicitly rather than as an ignored
+  // Promise.all slot (a reorder would silently rebind the destructured JSON). Enrichment JSON
+  // is hourly/weekly-fresh, so honor the server's max-age+ETag (cache:"default") instead of
+  // re-pulling the full bodies (effects.json ~534KB) on every load; only data.json stays no-store.
+  const manifestP = buildsManifest().catch(() => null);
   const [m, h, ec, ef] = await Promise.all([
-    fetchJSON("meta-detail.json", 8000),
-    fetchJSON("history.json", 8000),
-    fetchJSON("economy.json", 8000),
-    fetchJSON("effects.json", 8000),
-    buildsManifest().catch(() => null),
+    fetchJSON("meta-detail.json", 8000, "default"),
+    fetchJSON("history.json", 8000, "default"),
+    fetchJSON("economy.json", 8000, "default"),
+    fetchJSON("effects.json", 8000, "default"),
   ]);
+  await manifestP;
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
   if (h && Array.isArray(h.points)) HISTORY = h;
   if (ec && Array.isArray(ec.currencies)) ECONOMY = ec;
