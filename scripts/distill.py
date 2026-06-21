@@ -485,6 +485,53 @@ def slugify_asc(asc):
     return re.sub(r"[^a-z0-9]+", "-", (str(asc) + "-").lower()).strip("-")
 
 
+def guides_schema_errors(doc):
+    """Return a list of human-readable problems with a guides.json doc; [] means valid."""
+    errs = []
+    if not isinstance(doc, dict):
+        return ["guides.json is not an object"]
+    guides = doc.get("guides")
+    if not isinstance(guides, dict):
+        errs.append("'guides' is missing or not an object")
+        guides = {}
+    for slug, e in guides.items():
+        if not isinstance(e, dict):
+            errs.append(f"guides['{slug}'] is not an object"); continue
+        url = e.get("url")
+        if not (isinstance(url, str) and (url.startswith("http://") or url.startswith("https://"))):
+            errs.append(f"guides['{slug}'] has a missing/invalid url")
+        if not (isinstance(e.get("source"), str) and e.get("source").strip()):
+            errs.append(f"guides['{slug}'] has a missing/empty source")
+    ung = doc.get("unguided", [])
+    if not isinstance(ung, list) or not all(isinstance(s, str) for s in ung):
+        errs.append("'unguided' must be a list of slug strings")
+        ung = [s for s in (ung if isinstance(ung, list) else []) if isinstance(s, str)]
+    both = set(guides) & set(ung)
+    if both:
+        errs.append(f"slug(s) in both guides and unguided: {sorted(both)}")
+    return errs
+
+
+def untriaged_guides(payload, doc):
+    """Sorted slugs of live (non-curated) default-league ascendancies handled by neither
+    guides nor unguided — i.e. new ascendancies that need a curation decision."""
+    guides = (doc.get("guides") or {}) if isinstance(doc, dict) else {}
+    ung = set((doc.get("unguided") or []) if isinstance(doc, dict) else [])
+    handled = set(guides) | ung
+    default_url = payload.get("default")
+    out = set()
+    for lg in payload.get("leagues", []):
+        if lg.get("url") != default_url or lg.get("curated"):
+            continue
+        for b in lg.get("builds", []):
+            asc = b.get("asc")
+            if asc:
+                slug = slugify_asc(asc)
+                if slug not in handled:
+                    out.add(slug)
+    return sorted(out)
+
+
 def _history_append(points, point, cap):
     """Pure: append `point` unless it duplicates the last snapshot's shares; cap the length.
     Append-only history is honest (real accumulated data) — poe.ninja's timeMachine param is

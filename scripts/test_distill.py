@@ -448,5 +448,28 @@ class ArtifactLockstep(unittest.TestCase):
                                     f"variant {v['slug']} has no .build file")
 
 
+class Guides(unittest.TestCase):
+    def test_schema_errors_catches_bad_entries(self):
+        ok = {"patch":"0.5.0","guides":{"deadeye":{"url":"https://x.gg","source":"Maxroll"}},"unguided":["lich"]}
+        self.assertEqual(distill.guides_schema_errors(ok), [])
+        bad = {"guides":{"deadeye":{"url":"ftp://x","source":""}, "titan":{"source":"M"}}, "unguided":"nope"}
+        errs = distill.guides_schema_errors(bad)
+        self.assertTrue(any("deadeye" in e for e in errs))   # bad url + empty source
+        self.assertTrue(any("titan" in e for e in errs))     # missing url
+        self.assertTrue(any("unguided" in e for e in errs))  # not a list
+        # a slug in both guides and unguided is an error
+        both = {"guides":{"deadeye":{"url":"https://x","source":"M"}}, "unguided":["deadeye"]}
+        self.assertTrue(any("both" in e.lower() for e in distill.guides_schema_errors(both)))
+
+    def test_untriaged_lists_only_unhandled_live_ascendancies(self):
+        payload = {"default":"sc","leagues":[
+            {"url":"sc","builds":[{"asc":"Deadeye"},{"asc":"Titan"},{"asc":"Smith of Kitava"}]},
+            {"url":"std","curated":True,"builds":[{"asc":"Lich"}]},
+        ]}
+        doc = {"guides":{"deadeye":{"url":"https://x","source":"M"}}, "unguided":["titan"]}
+        # Deadeye guided, Titan unguided, Smith untriaged, Lich is curated-only (ignored)
+        self.assertEqual(distill.untriaged_guides(payload, doc), ["smith-of-kitava"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
