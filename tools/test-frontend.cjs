@@ -83,3 +83,52 @@ test('compareHashOf round-trips with parseCompareHash', () => {
   assert.equal(compareHashOf(['titan','deadeye']), '#compare=titan,deadeye');
   assert.deepEqual(parseCompareHash(compareHashOf(['titan','deadeye','oracle']), known), ['titan','deadeye','oracle']);
 });
+
+// --- The Counterpoise: column model (Task 2) ---
+const ascForCompare = new Function('slug','byAsc','build',
+  extract(/function ascForCompare\s*\([^)]*\)\s*\{([\s\S]*?)\n\}/, 'ascForCompare'));
+const sharedCompareNames = new Function('cols',
+  extract(/function sharedCompareNames\s*\([^)]*\)\s*\{([\s\S]*?)\n\}/, 'sharedCompareNames'));
+
+const BYASC = {
+  titan: { asc:'Titan', stats:{ehp:45000,dps:120000,level:95},
+    build:{defence:{ehp:45000,life:3000,es:0,resists:{fire:75,cold:75,lightning:75,chaos:30},evade:0,crit:0}},
+    weapons:[{name:'Mace',pct:80}], skills:[{name:'Sunder',pct:60},{name:'Leap',pct:40},{name:'Warcry',pct:30},{name:'x',pct:1}],
+    supports:[{name:'Brutality',pct:70}], uniques:[{name:'Widowhail',pct:50}], notables:[{name:'Resolute',pct:66}] },
+  deadeye: { asc:'Deadeye', stats:{ehp:27000,dps:300000,level:94},
+    build:{defence:{ehp:27000,life:1800,es:600,resists:{fire:75,cold:75,lightning:75,chaos:0},evade:60,crit:80}},
+    weapons:[{name:'Bow',pct:90}], skills:[{name:'Lightning Arrow',pct:55}], supports:[{name:'Brutality',pct:40}],
+    uniques:[{name:'Widowhail',pct:65}], notables:[{name:'Point Blank',pct:50}] },
+};
+
+test('ascForCompare merges byAsc + ledger build, takes top 3, null on unknown', () => {
+  const col = ascForCompare('titan', BYASC, {asc:'Titan',cls:'Warrior',tag:'tanky slam',pop:12.3,n:400});
+  assert.equal(col.asc, 'Titan');
+  assert.equal(col.cls, 'Warrior');           // from ledger build (byAsc has no cls)
+  assert.equal(col.tag, 'tanky slam');
+  assert.equal(col.ehp, 45000);
+  assert.equal(col.dps, 120000);
+  assert.equal(col.weapon, 'Mace');
+  assert.equal(col.def.resists.chaos, 30);
+  assert.equal(col.skills.length, 3);          // capped at top 3 even though 4 provided
+  assert.equal(col.n, 400);
+  assert.equal(ascForCompare('nope', BYASC, null), null);
+});
+
+test('ascForCompare tolerates a missing ledger build (cls/tag/pop null)', () => {
+  const col = ascForCompare('deadeye', BYASC, null);
+  assert.equal(col.asc, 'Deadeye');
+  assert.equal(col.cls, null);
+  assert.equal(col.pop, null);
+  assert.equal(col.ehp, 27000);
+});
+
+test('sharedCompareNames flags names in 2+ columns only', () => {
+  const a = ascForCompare('titan', BYASC, null);
+  const b = ascForCompare('deadeye', BYASC, null);
+  const shared = sharedCompareNames([a, b]);
+  assert.equal(shared['Widowhail'], true);     // unique in both
+  assert.equal(shared['Brutality'], true);     // support in both
+  assert.ok(!shared['Sunder']);                // only in titan
+  assert.ok(!shared['Bow']);                   // weapons are not part of composition overlap
+});

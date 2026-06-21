@@ -1981,6 +1981,39 @@ function defenceHTML(md){
     + (extra.length?`<div class="def-extra">${extra.join(" · ")}</div>`:"")
     + `<span class="bv-def-note">from the source character's Path of Building export</span></div>`;
 }
+// ---- The Counterpoise: per-column view-model + shared-entry detector ----
+function ascForCompare(slug, byAsc, build){
+  const md = byAsc && byAsc[slug];
+  if (!md) return null;
+  const d = (md.build && md.build.defence) || {};
+  const top = arr => (arr || []).slice(0, 3).map(x => ({ name: x.name, pct: x.pct }));
+  return {
+    slug: slug,
+    asc: md.asc || (build && build.asc) || slug,
+    cls: (build && build.cls) || md.cls || null,
+    tag: (build && build.tag) || null,
+    pop: build ? build.pop : null,
+    n: build ? build.n : null,
+    weapon: (md.weapons && md.weapons[0] && md.weapons[0].name) || null,
+    ehp: (md.stats && md.stats.ehp) || d.ehp || null,
+    dps: (md.stats && md.stats.dps) || null,
+    level: (md.stats && md.stats.level) || null,
+    def: d,
+    skills: top(md.skills), supports: top(md.supports),
+    uniques: top(md.uniques), notables: top(md.notables),
+  };
+}
+function sharedCompareNames(cols){
+  const seen = {}, shared = {};
+  for (const c of (cols || [])){
+    if (!c) continue;
+    const names = [].concat(c.skills || [], c.supports || [], c.uniques || [], c.notables || [])
+      .map(x => x && x.name).filter(Boolean);
+    const uniq = Array.from(new Set(names));
+    for (const nm of uniq){ if (seen[nm]) shared[nm] = true; seen[nm] = true; }
+  }
+  return shared;
+}
 // loadable build VARIANTS — other strong, meaningfully-different characters for this ascendancy,
 // each a real QA'd .build (<slug>-N) you can Decant or copy as PoB. Absent field -> nothing.
 function variantsHTML(md){
