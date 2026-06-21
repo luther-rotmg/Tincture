@@ -1438,6 +1438,7 @@ let dataState = "live";   // "live" once data.json loads; "sample" if we fall ba
 let META = null;          // meta-detail.json: per-ascendancy popular skills/supports/notables/uniques/stats
 let EFFECTS = null;        // effects.json: in-site effect text for runes/uniques/gems/notables
 let LANDING = null;        // b/index.json: Set of slugs that have a /b/<slug>.html SEO landing page
+let GUIDES = null;         // guides.json: curated community-guide link per ascendancy slug
 let HISTORY = null;        // history.json: append-only per-snapshot ascendancy shares (the SC league)
 let ECONOMY = null;        // economy.json: live currency exchange (rates + per-currency value/volume/7d)
 let activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
@@ -1831,6 +1832,18 @@ function guideUrl(b){
   return "https://www.google.com/search?q=" + encodeURIComponent(q);
 }
 
+// curated community guide when we have one, else the neutral web search (an honest pointer, never an endorsement)
+function guideLinkHTML(b){
+  const g = (GUIDES && GUIDES.guides) ? GUIDES.guides[slugOf(b)] : null;
+  if (g && g.url){
+    return `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${esc(g.url)}"`
+      + ` title="A community guide for ${esc(b.asc)} by ${esc(g.source)} — a pointer, not an endorsement; may lag the latest patch">`
+      + `${esc(g.source)} guide ↗</a>`;
+  }
+  return `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${guideUrl(b)}"`
+    + ` title="Open a web search for community build guides — Tincture doesn't host or endorse guides">guide ↗</a>`;
+}
+
 /* ----- per-build meta detail (from meta-detail.json) ----- */
 const metaFor = b => (META && META.byAsc) ? META.byAsc[slugOf(b)] : null;
 function skillsLine(md){
@@ -2203,7 +2216,7 @@ function renderRows(){
       b.cls && `<span class="cls">${esc(b.cls)}</span>`,
       tag && esc(tag),
       (b.n!=null ? `~${fmt(b.n)} characters` : null),
-      `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${guideUrl(b)}" title="Open a web search for community build guides — Tincture doesn't host or endorse guides">guide ↗</a>`,
+      guideLinkHTML(b),
     ].filter(Boolean);
     const conf = confidence(b);
     const confHTML = conf
@@ -3245,12 +3258,13 @@ async function boot(){
   // is hourly/weekly-fresh, so honor the server's max-age+ETag (cache:"default") instead of
   // re-pulling the full bodies (effects.json ~534KB) on every load; only data.json stays no-store.
   const manifestP = buildsManifest().catch(() => null);
-  const [m, h, ec, ef, lp] = await Promise.all([
+  const [m, h, ec, ef, lp, gd] = await Promise.all([
     fetchJSON("meta-detail.json", 8000, "default"),
     fetchJSON("history.json", 8000, "default"),
     fetchJSON("economy.json", 8000, "default"),
     fetchJSON("effects.json", 8000, "default"),
     fetchJSON("b/index.json", 8000, "default"),
+    fetchJSON("guides.json", 8000, "default"),
   ]);
   await manifestP;
   if (m && m.byAsc) META = m;   // validate shape before promoting (never enrich from garbage)
@@ -3258,6 +3272,7 @@ async function boot(){
   if (ec && Array.isArray(ec.currencies)) ECONOMY = ec;
   if (ef && (ef.runes || ef.uniques || ef.gems || ef.notables)) EFFECTS = ef;   // shape-gate before promoting
   if (lp && Array.isArray(lp.slugs)) LANDING = new Set(lp.slugs);   // slugs with a /b/<slug>.html landing page
+  if (gd && gd.guides) GUIDES = gd;   // shape-gate before promoting (neutral search if absent)
 
   activeUrl = DATA.default || (DATA.leagues[0]||{}).url;
   setupLeaguePicker();
