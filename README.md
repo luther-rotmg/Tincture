@@ -30,7 +30,7 @@ poe.ninja PoE2 build API  ──►  scripts/distill.py  ──►  data.json  �
    (ladder-derived meta)       (hourly, via Actions)     (committed)     (static page)
 ```
 
-1. **`scripts/distill.py`** pulls the current league's build aggregation from poe.ninja (which is itself derived from GGG's official ladder — the top 15,000 characters), normalizes it, assigns tiers, and computes each build's 24-hour movement by diffing the previous snapshot.
+1. **`scripts/distill.py`** pulls the current league's build aggregation from poe.ninja (which is itself derived from GGG's official ladder), normalizes it, assigns tiers, and computes each build's 24-hour movement by diffing the previous snapshot.
 2. The result is written to **`data.json`** in the front end's exact schema.
 3. **`.github/workflows/distill.yml`** runs that hourly and commits `data.json` when the meta moves.
 4. **`index.html`** reads `data.json` (falling back to bundled sample data if it's missing), renders the ledger, and handles Decant entirely client-side.
