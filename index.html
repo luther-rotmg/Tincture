@@ -495,7 +495,10 @@
     body{font-size:17px;}
     .hero-grid{grid-template-columns:1fr; gap:30px;}
     .hero-side{border-left:none; border-top:1px solid var(--hair); padding-left:0; padding-top:26px;}
-    .still-grid{grid-template-columns:1fr; gap:34px;}
+    .still-grid{grid-template-columns:minmax(0,1fr); gap:34px;}
+    .still-grid > *{ min-width:0; }                 /* let the stacked column shrink below content min-content */
+    .still-copy{ overflow-wrap:break-word; }        /* wrap any long credit string instead of overflowing */
+    .still-svg{ max-width:100%; height:auto; }       /* SVG scales down on narrow screens */
     .ledger-head{display:none;}
     .row{
       grid-template-columns:36px 1fr auto;
@@ -916,15 +919,20 @@
     .panel{ padding:20px 16px; }
     .bar-row{ grid-template-columns:108px 1fr 64px; gap:8px; }
     .stat-grid{ gap:16px; }
+    .stat-grid > *, .counters > *{ min-width:0; }   /* let stat/counter columns shrink + labels wrap on very narrow phones */
     .crucible-grid{ grid-template-columns:minmax(88px,1fr) repeat(var(--cru-cols,4),minmax(42px,1fr)); gap:3px; }
     .cru-cell{ min-height:34px; font-size:10px; }
     .cru-rowh .a{ font-size:12.5px; }
+    .bar-lab .a{ white-space:normal; overflow:visible; text-overflow:clip; line-height:1.15; }
     .row-detail{ padding-left:14px; }
-    .ledger-search{ width:100%; min-width:0; margin-left:0; }
+    .ledger-search{ width:100%; min-width:0; margin-left:0; min-height:36px; padding-top:9px; padding-bottom:9px; }
     .bv-tip, .ent-card{ left:0; right:auto; max-width:calc(100vw - 36px); width:auto; }
+    .sort{ flex-wrap:wrap; row-gap:6px; }
     .sort button{ padding:10px 8px; }
-    .row-toggle{ padding:10px; }
+    .row-toggle{ padding:8px; min-height:36px; min-width:34px; display:inline-flex; align-items:center; justify-content:center; }
     .ghost-link, .guide-link{ display:inline-flex; min-height:36px; align-items:center; }
+    /* comfortable tap targets on mobile (>=36px) */
+    .league-select, .folder, .chip{ min-height:36px; }
   }
 
   /* ---- The Prescription (guided build finder) ---- */
@@ -2450,7 +2458,7 @@ function barRowsHTML(builds, maxPop, avg){
     const tc = (b.tier||"").toLowerCase();
     const avgPct = maxPop>0 ? (avg/maxPop*100) : 0;
     return `<div class="bar-row">
-      <div class="bar-lab"><span class="a">${esc(b.asc)}</span><span class="c">${esc(b.cls||"")}</span></div>
+      <div class="bar-lab"><span class="a" title="${esc(b.asc)}">${esc(b.asc)}</span><span class="c">${esc(b.cls||"")}</span></div>
       <div class="bar-track" role="img" aria-label="${esc(b.asc)}, ${b.pop.toFixed(1)} percent, about ${fmt(b.n)} characters">
         <div class="bar-fill ${tc}" style="width:${w.toFixed(1)}%"></div>
         <div class="bar-avg" style="left:${avgPct.toFixed(1)}%" title="league average ${avg.toFixed(1)}%"></div>
@@ -2620,7 +2628,7 @@ function paintCrucible(){
   const body = rows.map(r=>{
     const solo = r.reach === 1;
     const cells = r.byLeague.map((c,i)=> cruCellHTML(r.asc, c, crucibleView, gm, c.present && c.share === colMax[i], solo)).join("");
-    return `<div class="cru-rowh"><span class="a">${esc(r.asc)}</span><span class="c">${esc(r.cls||'')}</span></div>${cells}`;
+    return `<div class="cru-rowh"><span class="a" title="${esc(r.asc)}">${esc(r.asc)}</span><span class="c">${esc(r.cls||'')}</span></div>${cells}`;
   }).join("");
   const wrap = $("#assayCrucible");
   wrap.style.setProperty("--cru-cols", lg.length);   // keep the grid track count in lockstep with the data

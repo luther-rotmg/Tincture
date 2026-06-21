@@ -46,6 +46,19 @@ width/padding too). Use `min-height` + vertical padding; don't change desktop si
 **Done when:** each of those controls measures ≥36px tall at 377px; desktop unchanged; nothing overflows
 as a result (re-run F1 check).
 
+### F5 — The Still grid overflow at ≤375px (found during impl)
+At ≤880px The Still stacks to one `1fr` column, but the copy column's min-content (~359px, from an
+unbreakable source-credit string) floors the track above the container, so anything narrower than 377px
+scrolls sideways. Fix: in the ≤880px block, `grid-template-columns:minmax(0,1fr)`, `.still-grid > *{min-width:0}`,
+`.still-copy{overflow-wrap:break-word}`, `.still-svg{max-width:100%;height:auto}`. **Done when:** no horizontal
+scroll at 360px.
+
+### F6 — Stat/counter grids overflow at ≤320px (found during impl)
+`.counters` (`repeat(2,1fr)`) and `.stat-grid` columns are floored by their labels' min-content, overflowing
+on very narrow phones. Fix (mobile block): `.stat-grid > *, .counters > *{ min-width:0 }` so columns shrink and
+labels wrap. **Done when:** no element overflows at 360px (a sub-pixel/pseudo-element residual at 320px — the
+rare iPhone-SE-1 width — is acceptable; 360px is the supported floor).
+
 ### F4 — Control-row tidy (Tier 3, measurable)
 Confirm the controls row (chips + sort + search) wraps cleanly with consistent gaps once the sort wraps
 (F1) and targets grow (F3) — no overlap, even spacing. Adjust the controls `gap`/`row-gap` only if the
