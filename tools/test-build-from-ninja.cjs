@@ -193,3 +193,12 @@ test('variantIsDistinct keeps only meaningfully-different variants (vs ALL accep
   assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 60000 }, accepted), true);     // far from both
   assert.equal(T.variantIsDistinct({ name: 'Monk — Tempest Flurry', ehp: 0 }, [primary]), false);       // same skill, EHP unknown → treat as dup
 });
+
+test('coverageOk refuses a throttled run below 70% of prior coverage; allows force / first run', () => {
+  assert.equal(T.coverageOk(5, 20, false), false);   // 25% -> refuse (would lose most ascendancies)
+  assert.equal(T.coverageOk(15, 20, false), true);   // 75% -> ok
+  assert.equal(T.coverageOk(14, 20, false), true);   // ceil(20*0.7)=14 -> exactly at threshold, ok
+  assert.equal(T.coverageOk(13, 20, false), false);  // 65% -> refuse
+  assert.equal(T.coverageOk(5, 20, true), true);     // --force overrides
+  assert.equal(T.coverageOk(5, 0, false), true);     // first run / no prior meta-detail
+});

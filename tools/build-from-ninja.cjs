@@ -547,6 +547,15 @@ async function extractMeta(s, gem) {
   };
 }
 
+// FAIL-SAFE: is this --enumerate run's ascendancy coverage healthy enough to overwrite the
+// committed meta-detail.json / effects.json / manifest? Refuse when a throttled run produced
+// fewer than 70% of the previous run's ascendancies (the live site would otherwise lose most
+// of them until next week). First run (no prior) and an explicit --force are exempt.
+function coverageOk(nowByAsc, priorByAsc, force) {
+  if (force) return true;
+  if (!priorByAsc) return true;
+  return nowByAsc >= Math.ceil(priorByAsc * 0.7);
+}
 function writeBuild(slug, build) {
   const outDir = path.join(REPO, 'builds');
   fs.mkdirSync(outDir, { recursive: true });
@@ -774,6 +783,16 @@ async function main() {
       }
       if (!cacheOnly) await sleep(500); // be polite to poe.ninja
     }
+    // FAIL-SAFE: a throttled run that pulled far fewer ascendancies than the last good run must
+    // NOT overwrite the committed meta-detail.json/effects.json/manifest — the live site would
+    // lose most ascendancies until next week. Skip the commit-worthy writes below 70% coverage
+    // (first run + --force exempt; cache-only replays the prior meta, so it's exempt too).
+    const priorByAsc = cacheOnly ? 0 : (() => { try { return Object.keys(JSON.parse(fs.readFileSync(path.join(REPO, 'meta-detail.json'), 'utf8')).byAsc || {}).length; } catch (_) { return 0; } })();
+    const nowByAsc = Object.keys(meta.byAsc).length;
+    if (!coverageOk(nowByAsc, priorByAsc, !!opt.force)) {
+      console.log(`\n⚠ partial/throttled run: ${nowByAsc}/${priorByAsc} ascendancies (${Math.round(nowByAsc / priorByAsc * 100)}%) — refusing to overwrite meta-detail.json / effects.json / manifest; keeping last good. Re-run, or pass --force to override.`);
+      return;
+    }
     if (globalChars.length && meta.global) { const gg = aggregateGear(globalChars); meta.global.gear = gg.gear; meta.global.runes = gg.runes; }
     // effect-text glossary for the in-site tooltips — derived from the same pulled characters,
     // the tree export, and Gems.lua. Fail-safe: a problem here must never abort the build/meta commit.
@@ -821,4 +840,4 @@ function variantIsDistinct(cand, accepted) {
 
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, variantIsDistinct };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, variantIsDistinct, coverageOk };
