@@ -2257,7 +2257,7 @@ function renderRows(){
       const toggleBtn = row.querySelector(".row-toggle");
       if (toggleBtn) toggleBtn.setAttribute("aria-controls", detail.id);
       row.addEventListener("click", e => {
-        if (e.target.closest(".decant, .guide-link, a, .arch-btn")) return;   // let actions/links/buttons work
+        if (e.target.closest(".decant, .guide-link, a, .arch-btn, .vs-link")) return;   // let actions/links/buttons work
         const open = detail.classList.toggle("open");
         row.classList.toggle("open", open);
         if (toggleBtn) toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");  // keyboard: the button bubbles its click to here
