@@ -38,9 +38,11 @@ No scraping (ToS + the project's "don't republish others' builds" rule) — only
 - `guides` keyed by ascendancy **slug** (`slugOf({asc, skill:""})` — matches `META.byAsc` keys and the `/b` slugs).
 - `url` (required), `source` (required — the site/creator name for attribution). Optional `note`.
 - `patch` = the patch the picks were vetted against (drives staleness).
-- **`unguided`** = ascendancies *intentionally* left without a guide (no solid current pick exists). They fall
-  back to the neutral search in the UI exactly like an absent key — the list exists only so the coverage check
-  (below) can tell "triaged, deliberately skipped" apart from "new and forgotten."
+- **`unguided`** = ascendancies *intentionally* left without a curated guide (no solid current pick yet, OR not
+  in the current live meta — e.g. demo/sample or past-league ascendancies). They fall back to the neutral search
+  in the UI exactly like an absent key; the list exists so the coverage check (below) can tell "triaged,
+  deliberately skipped" apart from "new and forgotten" — and so the check stays deterministic even when a
+  `--demo` run swaps `data.json` to the sample set.
 - Any live ascendancy in NEITHER `guides` nor `unguided` is **untriaged** → the reminder fires.
 
 ## Front end (`index.html`)
