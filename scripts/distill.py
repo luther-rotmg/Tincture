@@ -611,7 +611,7 @@ def _esc(s):
     return _html.escape(str(s), quote=True)
 
 
-def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon=None):
+def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon=None, siblings=None):
     """A real-content (not doorway) SEO page for one ascendancy: class, playstyle, common skills,
     signature uniques, key notables, a self-canonical, JSON-LD, and a link into the live SPA deep
     link. Stable content (no volatile share) so it doesn't churn hourly. Only called for
@@ -632,6 +632,16 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
     def ul(heading, items):
         items = [i for i in (items or []) if i][:6]
         return ("<h2>" + heading + "</h2>\n<ul>" + "".join(f"<li>{_esc(i)}</li>" for i in items) + "</ul>") if items else ""
+    def sib_nav(sibs):
+        # internal links to every other landing page (relative siblings in /b/), so the SEO pages
+        # form a connected cluster rather than only being reachable from the SPA + sitemap.
+        items = [f'<a href="{_esc(s)}.html" style="color:#c8a24a;text-decoration:none">{_esc(name)}</a>'
+                 for s, name in (sibs or []) if s != slug]
+        if not items:
+            return ""
+        return ('<nav class="b-siblings" aria-label="Other ascendancies" style="margin-top:32px;'
+                'padding-top:16px;border-top:1px solid #2a2018;font-size:14px;line-height:2.0;color:#877a62">'
+                '<b style="color:#a8946a">Other ascendancies:</b> ' + " &middot; ".join(items) + '</nav>')
     parts = [
         "<!DOCTYPE html>", '<html lang="en"><head>', '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -647,7 +657,11 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
         f'<meta property="og:description" content="{_esc(desc)}">',
         f'<meta property="og:url" content="{_esc(url)}">',
         f'<meta property="og:image" content="{SITE}/docs/og.png">',
+        '<meta property="og:image:type" content="image/png">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
         '<meta property="og:type" content="article">',
+        '<meta name="theme-color" content="#14100b">',
         f'<script type="application/ld+json">{ld}</script>',
         '</head>',
         '<body style="font-family:Georgia,serif;max-width:680px;margin:40px auto;padding:0 18px;'
@@ -666,6 +680,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
         '<p style="color:#877a62;font-size:13px;margin-top:34px">Tincture is an independent fan project, '
         'not affiliated with or endorsed by Grinding Gear Games. Build data is reconstructed from the '
         'public poe.ninja ladder and credited to its source character.</p>',
+        sib_nav(siblings),
         "</body></html>",
     ]
     return "\n".join(p for p in parts if p) + "\n"
@@ -705,12 +720,13 @@ def generate_landing_pages(payload):
                 pass
         names = lambda arr: [x.get("name") for x in (arr or []) if isinstance(x, dict) and x.get("name")]
         os.makedirs(LANDING_DIR, exist_ok=True)
+        siblings = sorted((slugify_asc(a), a) for a in info)   # (slug, asc) for cross-linking every page
         slugs = []
         for asc, (cls, tag) in sorted(info.items()):
             slug = slugify_asc(asc)
             e = meta_by.get(asc) or {}
             weapon = (e.get("weapons") or [{}])[0].get("name") if e.get("weapons") else None
-            page = landing_html(asc, cls, tag, names(e.get("skills")), names(e.get("uniques")), names(e.get("notables")), weapon)
+            page = landing_html(asc, cls, tag, names(e.get("skills")), names(e.get("uniques")), names(e.get("notables")), weapon, siblings=siblings)
             tmp = os.path.join(LANDING_DIR, slug + ".html.tmp")
             with open(tmp, "w", encoding="utf-8") as f:
                 f.write(page)
