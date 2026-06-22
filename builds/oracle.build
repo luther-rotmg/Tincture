@@ -26,6 +26,9 @@
       "id": "mana38"
     },
     {
+      "id": "triggers18"
+    },
+    {
       "id": "attributes23"
     },
     {
@@ -36,9 +39,6 @@
     },
     {
       "id": "AscendancyDruid1Notable2"
-    },
-    {
-      "id": "templar_druid_notable1"
     },
     {
       "id": "stun_threshold_from_energy_shield19_"
@@ -92,7 +92,13 @@
       "id": "intelligence7"
     },
     {
+      "id": "cast_speed37"
+    },
+    {
       "id": "jewel_slot1979"
+    },
+    {
+      "id": "triggers6"
     },
     {
       "id": "attributes56"
@@ -113,19 +119,16 @@
       "id": "intelligence62"
     },
     {
-      "id": "jewel_slot1977"
+      "id": "ranged30_"
     },
     {
-      "id": "mana_regeneration20"
+      "id": "jewel_slot1977"
     },
     {
       "id": "mana_regeneration28_"
     },
     {
       "id": "attributes31"
-    },
-    {
-      "id": "criticals40"
     },
     {
       "id": "attributes61"
@@ -215,9 +218,6 @@
       "id": "projectile_spells1"
     },
     {
-      "id": "mana16"
-    },
-    {
       "id": "passive_keystone_mind_over_matter"
     },
     {
@@ -243,6 +243,9 @@
     },
     {
       "id": "mana_flasks13"
+    },
+    {
+      "id": "triggers10"
     },
     {
       "id": "strength6"
@@ -338,9 +341,6 @@
       "id": "passive_keystone_hollow_palm_technique"
     },
     {
-      "id": "fire35"
-    },
-    {
       "id": "mana_regeneration46"
     },
     {
@@ -353,6 +353,10 @@
     },
     {
       "id": "oracle_energy_gain2",
+      "weapon_set": 1
+    },
+    {
+      "id": "templar_druid_notable1",
       "weapon_set": 1
     },
     {
@@ -388,10 +392,6 @@
       "weapon_set": 1
     },
     {
-      "id": "ranged30_",
-      "weapon_set": 1
-    },
-    {
       "id": "projectile_spells3",
       "weapon_set": 1
     },
@@ -409,10 +409,6 @@
     },
     {
       "id": "duration9_",
-      "weapon_set": 1
-    },
-    {
-      "id": "oracle_damage_and_minions4",
       "weapon_set": 1
     },
     {
@@ -437,6 +433,10 @@
     },
     {
       "id": "monkchakra24",
+      "weapon_set": 1
+    },
+    {
+      "id": "fire35",
       "weapon_set": 1
     },
     {
@@ -787,10 +787,10 @@
   ],
   "inventory_slots": [
     {
-      "inventory_id": "Helm1",
-      "additional_text": "Ancestral Tiara\n1. +71 to maximum [EnergyShield|Energy Shield]\n2. 42% increased [EnergyShield|Energy Shield]\n3. +36 to maximum Mana\n4. +31 to [Intelligence|Intelligence]\n5. +38% to [Resistances|Cold Resistance]\n6. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n7. [RavenTouched|Raven-Touched]",
+      "inventory_id": "Amulet1",
+      "additional_text": "Solar Amulet\n1. +13 to [Spirit|Spirit]\n2. +263 to maximum Mana\n3. 11% increased maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. +17% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        80,
+        65,
         100
       ],
       "slot_x": 0,
@@ -798,7 +798,7 @@
     },
     {
       "inventory_id": "Weapon1",
-      "additional_text": "Dueling Wand\n1. [Gain] 27% of Damage as Extra [Fire] Damage\n2. +4 to Level of all [Spell|Spell] Skills\n3. +75 to maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. [ShamanOnlyMods|Bonded]: 5% increased maximum Mana\n6. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n7. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
+      "additional_text": "Dueling Wand\n1. [Gain] 27% of Damage as Extra [Fire] Damage\n2. +4 to Level of all [Spell|Spell] Skills\n3. +3 to Level of all [Spell|Spell] Skills\n4. -20% to all [ElementalDamage|Elemental] [Resistances]\n5. [Gain] 20% of Damage as Extra Damage of a random [ElementalDamage|Element]\n6. [ShamanOnlyMods|Bonded]: -20% to [Resistances|Chaos Resistance]\n7. [ShamanOnlyMods|Bonded]: [Gain] 20% of Damage as Extra [Chaos] Damage\n8. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n9. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
       "level_interval": [
         90,
         100
@@ -807,24 +807,28 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
+      "inventory_id": "Ring2",
       "unique_name": "Kalandra's Touch",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Vaal Gloves\n1. +44 to maximum [EnergyShield|Energy Shield]\n2. 100% increased [EnergyShield|Energy Shield]\n3. +40% to [Resistances|Lightning Resistance]\n4. +160 to maximum Mana\n5. [ShamanOnlyMods|Bonded]: +64 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +64 to maximum Mana",
+      "inventory_id": "Boots1",
+      "additional_text": "Luxurious Slippers\n1. +57 to maximum [EnergyShield|Energy Shield]\n2. +124 to maximum Mana\n3. +32 to [Intelligence|Intelligence]\n4. 8% increased Movement Speed\n5. +8% to all [ElementalDamage|Elemental] [Resistances]\n6. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        75,
+        70,
         100
       ],
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
+      "inventory_id": "Gloves1",
+      "additional_text": "Vaal Gloves\n1. +44 to maximum [EnergyShield|Energy Shield]\n2. 100% increased [EnergyShield|Energy Shield]\n3. +160 to maximum Mana\n4. [ShamanOnlyMods|Bonded]: +64 to maximum Life\n5. [ShamanOnlyMods|Bonded]: +64 to maximum Mana",
+      "level_interval": [
+        75,
+        100
+      ],
       "slot_x": 0,
       "slot_y": 0
     },
@@ -835,17 +839,7 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Boots1",
-      "additional_text": "Sekhema Sandals\n1. 100% increased [EnergyShield|Energy Shield]\n2. +30 to [Intelligence|Intelligence]\n3. +43% to [Resistances|Cold Resistance]\n4. 8% increased Movement Speed\n5. +80 to maximum Mana\n6. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
-      "level_interval": [
-        80,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring2",
+      "inventory_id": "Ring1",
       "additional_text": "Mnemonic Ring\n1. 8% increased maximum Mana\n2. +245 to maximum Mana\n3. +33 to [Intelligence|Intelligence]\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
         63,
@@ -861,10 +855,16 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +14 to [Spirit|Spirit]\n2. +177 to maximum Mana\n3. 8% increased maximum Mana\n4. +50 to [Spirit|Spirit]\n5. +38% to [Resistances|Fire Resistance]\n6. 63% increased Mana Regeneration Rate",
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "additional_text": "Ancestral Tiara\n1. +72 to maximum [EnergyShield|Energy Shield]\n2. 31% increased [Critical|Critical Hit] Chance\n3. +32 to [Intelligence|Intelligence]\n4. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n5. [RavenTouched|Raven-Touched]",
       "level_interval": [
-        60,
+        80,
         100
       ],
       "slot_x": 0,

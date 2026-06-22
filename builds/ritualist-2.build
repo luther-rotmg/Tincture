@@ -1,9 +1,12 @@
 {
   "name": "Ritualist — Ice Shot (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"pukin\" (Nijtyak-5658)",
-  "description": "A representative Ritualist build from the public runesofaldur ladder (character \"pukin\", account \"Nijtyak-5658\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Nijtyak-5658/pukin . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Ritualist build from the public runesofaldur ladder (character \"pukin\", account \"Nijtyak-5658\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Nijtyak-5658/pukin . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Huntress3",
   "passives": [
+    {
+      "id": "mana_regeneration49"
+    },
     {
       "id": "energy_shield34_"
     },
@@ -18,9 +21,6 @@
     },
     {
       "id": "dexterity46"
-    },
-    {
-      "id": "mana_regeneration45"
     },
     {
       "id": "criticals57_"
@@ -317,6 +317,9 @@
       "id": "chaos33_"
     },
     {
+      "id": "mana_regeneration47_"
+    },
+    {
       "id": "bow19"
     },
     {
@@ -351,6 +354,9 @@
     },
     {
       "id": "dexterity9"
+    },
+    {
+      "id": "mana_regeneration48"
     },
     {
       "id": "AscendancyHuntress3Small1_1"
@@ -408,9 +414,6 @@
     },
     {
       "id": "elemental16"
-    },
-    {
-      "id": "mana_regeneration46"
     }
   ],
   "skills": [

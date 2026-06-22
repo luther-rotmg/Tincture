@@ -896,22 +896,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemGhostDance",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
         78,
@@ -922,6 +906,13 @@
       "id": "Metadata/Items/Gems/SkillGemHyenaCackle",
       "level_interval": [
         64,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "level_interval": [
+        90,
         100
       ]
     }

@@ -1,7 +1,7 @@
 {
   "name": "Gemling Legionnaire — Cast on Critical (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"Venereable\" (Sticker45-4455)",
-  "description": "A representative Gemling Legionnaire build from the public runesofaldur ladder (character \"Venereable\", account \"Sticker45-4455\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Sticker45-4455/Venereable . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Gemling Legionnaire build from the public runesofaldur ladder (character \"Venereable\", account \"Sticker45-4455\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Sticker45-4455/Venereable . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Mercenary3",
   "passives": [
     {
@@ -111,6 +111,9 @@
     },
     {
       "id": "dexterity75"
+    },
+    {
+      "id": "remnant18"
     },
     {
       "id": "mana37"
@@ -746,13 +749,6 @@
             65,
             100
           ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemStrongHearted",
-          "level_interval": [
-            1,
-            100
-          ]
         }
       ]
     },
@@ -772,16 +768,6 @@
     }
   ],
   "inventory_slots": [
-    {
-      "inventory_id": "Ring2",
-      "additional_text": "Mnemonic Ring\n1. 8% increased maximum Mana\n2. +247 to maximum Mana\n3. +30 to [Intelligence|Intelligence]\n4. +16% to all [ElementalDamage|Elemental] [Resistances]",
-      "level_interval": [
-        63,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
     {
       "inventory_id": "Weapon1",
       "unique_name": "Runeseeker's Call",
@@ -832,9 +818,19 @@
     },
     {
       "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +15 to [Spirit|Spirit]\n2. +201 to maximum Mana\n3. 9% increased maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. +18% to all [ElementalDamage|Elemental] [Resistances]",
+      "additional_text": "Solar Amulet\n1. +13 to [Spirit|Spirit]\n2. +261 to maximum Mana\n3. 11% increased maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. +18% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
-        64,
+        65,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring2",
+      "additional_text": "Mnemonic Ring\n1. 9% increased maximum Mana\n2. +267 to maximum Mana\n3. +30 to [Intelligence|Intelligence]\n4. +14% to all [ElementalDamage|Elemental] [Resistances]",
+      "level_interval": [
+        63,
         100
       ],
       "slot_x": 0,

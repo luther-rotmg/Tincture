@@ -29,9 +29,6 @@
       "id": "armour18"
     },
     {
-      "id": "maximum_resistances10"
-    },
-    {
       "id": "attributes51"
     },
     {
@@ -62,10 +59,10 @@
       "id": "attributes50"
     },
     {
-      "id": "totems42"
+      "id": "armour46"
     },
     {
-      "id": "armour46"
+      "id": "ranged32"
     },
     {
       "id": "totems40"
@@ -105,6 +102,9 @@
     },
     {
       "id": "AscendancyWarrior2Small3"
+    },
+    {
+      "id": "armour31"
     },
     {
       "id": "totems7"
@@ -302,6 +302,9 @@
       "id": "rage3"
     },
     {
+      "id": "fire75"
+    },
+    {
       "id": "fire14"
     },
     {
@@ -338,13 +341,13 @@
       "id": "strength15"
     },
     {
+      "id": "rage18"
+    },
+    {
       "id": "jewel_slot1971"
     },
     {
       "id": "dexterity77"
-    },
-    {
-      "id": "totems41"
     },
     {
       "id": "dexterity73"
@@ -377,9 +380,6 @@
       "id": "ballista16"
     },
     {
-      "id": "maximum_resistances11"
-    },
-    {
       "id": "attributes81"
     },
     {
@@ -396,6 +396,9 @@
     },
     {
       "id": "strength68"
+    },
+    {
+      "id": "totems48_"
     },
     {
       "id": "strength84"
@@ -592,6 +595,26 @@
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Gloves1",
+      "additional_text": "Ornate Mitts\n1. Adds 28 to 41 [Fire] damage to [Attack|Attacks]\n2. +129 to maximum Life\n3. +32% to [Resistances|Lightning Resistance]\n4. +24% to [Resistances|Chaos Resistance]\n5. +43% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. +18% to [Resistances|Cold Resistance]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        70,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "additional_text": "Imperial Greathelm\n1. +215 to [Armour|Armour]\n2. 100% increased [Armour|Armour]\n3. +161 to maximum Life\n4. +39% to [Resistances|Cold Resistance]\n5. +4 to Maximum [Rage]\n6. [RavenTouched|Raven-Touched]",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Belt1",
       "unique_name": "Mageblood",
       "slot_x": 0,
@@ -608,30 +631,10 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring2",
-      "additional_text": "Ruby Ring\n1. +29% to [Resistances|Fire Resistance]\n2. Adds 22 to 27 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 34 to 54 [Fire] damage to [Attack|Attacks]\n4. +105 to maximum Life\n5. 18% increased [ItemRarity|Rarity of Items] found",
-      "level_interval": [
-        64,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "BodyArmour1",
       "additional_text": "Soldier Cuirass\n1. +296 to [Armour|Armour]\n2. 104% increased [Armour|Armour]\n3. +46 to [Spirit|Spirit]\n4. +49% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. +204 to [StunThreshold|Stun Threshold]\n6. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
         65,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Helm1",
-      "additional_text": "Paragon Greathelm\n1. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n2. +4 to Maximum [Rage]\n3. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n4. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
-      "level_interval": [
-        75,
         100
       ],
       "slot_x": 0,
@@ -654,10 +657,10 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Feathered Mitts\n1. Adds 28 to 45 [Fire] damage to [Attack|Attacks]\n2. +148 to maximum Life\n3. +41% to [Resistances|Cold Resistance]\n4. +16% to [Resistances|Chaos Resistance]\n5. +36% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. +18% to [Resistances|Cold Resistance]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "inventory_id": "Ring2",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 19 to 35 [Physical|Physical] Damage to [Attack|Attacks]\n3. +117 to maximum Life\n4. +33% to [Resistances|Fire Resistance]\n5. +27% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        65,
+        64,
         100
       ],
       "slot_x": 0,

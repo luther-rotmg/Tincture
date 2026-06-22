@@ -44,9 +44,6 @@
       "id": "jewel_slot1969"
     },
     {
-      "id": "mana_leech8"
-    },
-    {
       "id": "lightning21"
     },
     {
@@ -87,6 +84,9 @@
     },
     {
       "id": "criticals54_"
+    },
+    {
+      "id": "spell_criticals15"
     },
     {
       "id": "remnant1"
@@ -269,6 +269,9 @@
       "id": "intelligence54"
     },
     {
+      "id": "spell_criticals16"
+    },
+    {
       "id": "intelligence59"
     },
     {
@@ -314,9 +317,6 @@
       "id": "intelligence25"
     },
     {
-      "id": "mana_leech20"
-    },
-    {
       "id": "mana19"
     },
     {
@@ -339,6 +339,9 @@
     },
     {
       "id": "lightning_penetration27"
+    },
+    {
+      "id": "spell_criticals12_"
     },
     {
       "id": "dexterity6"
@@ -405,16 +408,13 @@
     },
     {
       "id": "lightning20__"
-    },
-    {
-      "id": "life_on_kill4"
     }
   ],
   "skills": [
     {
       "id": "Metadata/Items/Gem/SkillGemSpellslinger",
       "level_interval": [
-        78,
+        90,
         100
       ],
       "support_skills": [
@@ -486,43 +486,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemArcticArmour",
       "level_interval": [
         90,
@@ -567,6 +530,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemFireball",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemIgnitionThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFirePenetrationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemZarokhsRevolt",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemWildshardsThree",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemArbitersIgnition",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemBlasphemy",
       "level_interval": [
         84,
@@ -591,6 +598,43 @@
           "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
           "level_interval": [
             1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
             100
           ]
         }
@@ -628,80 +672,6 @@
           "id": "Metadata/Items/Gem/SupportGemInnervate",
           "level_interval": [
             1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemWolfPounce",
-      "level_interval": [
-        72,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsRite",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMartialTempoThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemHolyDescent",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemFirestorm",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemFirePenetrationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemIgnitionThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemArbitersIgnition",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -791,16 +761,23 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemDiscipline",
+      "id": "Metadata/Items/Gems/SkillGemArc",
       "level_interval": [
-        90,
+        78,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsExodus",
+          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemChainThree",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -810,17 +787,7 @@
   "inventory_slots": [
     {
       "inventory_id": "Helm1",
-      "additional_text": "Ancestral Tiara\n1. 141% increased [EnergyShield|Energy Shield]\n2. +38 to maximum Mana\n3. +70% to [Resistances|Fire Resistance]\n4. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n5. [RavenTouched|Raven-Touched]",
-      "level_interval": [
-        80,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Gloves1",
-      "additional_text": "Sirenscale Gloves\n1. +53 to maximum [EnergyShield|Energy Shield]\n2. 99% increased [EnergyShield|Energy Shield]\n3. +24% to [Resistances|Fire Resistance]\n4. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
+      "additional_text": "Ancestral Tiara\n1. 141% increased [EnergyShield|Energy Shield]\n2. +38 to maximum Mana\n3. +70% to [Resistances|Cold Resistance]\n4. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n5. [RavenTouched|Raven-Touched]",
       "level_interval": [
         80,
         100
@@ -831,6 +798,16 @@
     {
       "inventory_id": "BodyArmour1",
       "additional_text": "Feathered Raiment\n1. 10% of Damage is taken from Mana before Life\n2. +177 to maximum Life\n3. +159 to maximum Mana\n4. 19% increased maximum Mana\n5. +35% to [Resistances|Lightning Resistance]\n6. +31% to Lightning and Chaos Resistances\n7. 15% of Damage is taken from Mana before Life\n8. [Idol|Idols] socketed in this item gain the benefits of their [ShamanOnlyMods|Bonded] modifiers\n9. Can roll Soul modifiers\n10. [ShamanOnlyMods|Bonded]: 3% increased maximum Life\n11. [ShamanOnlyMods|Bonded]: 3% increased maximum Mana\n12. [ShamanOnlyMods|Bonded]: +5% to [Quality] of all Skills\n13. [ShamanOnlyMods|Bonded]: 8% of Maximum Life [StatConversion|Converted] to [EnergyShield|Energy Shield]",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "Sirenscale Gloves\n1. +57 to maximum [EnergyShield|Energy Shield]\n2. 100% increased [EnergyShield|Energy Shield]\n3. 40% increased [Projectile] Speed\n4. +45% to [Resistances|Fire Resistance]\n5. +1 Suffix Modifier allowed\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage",
       "level_interval": [
         80,
         100
@@ -861,18 +838,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon1",
-      "additional_text": "Dueling Wand\n1. 103% increased [Spell] Damage\n2. 117% increased [Lightning] Damage\n3. +3 to Level of all [Spell|Spell] Skills\n4. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n5. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
-      "level_interval": [
-        78,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Ring2",
-      "additional_text": "Breach Ring\n1. +20% to Maximum [Quality]\n2. +297 to maximum Mana\n3. 24% increased Cast Speed\n4. +28 to [Strength|Strength]",
+      "additional_text": "Mnemonic Ring\n1. 9% increased maximum Mana\n2. +258 to maximum Mana\n3. 24% increased Cast Speed\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
         61,
         100
@@ -881,10 +848,10 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon2",
-      "additional_text": "Changeling Talisman\n1. 48% increased [Physical] Damage\n2. +6 to [Intelligence|Intelligence]",
+      "inventory_id": "Weapon1",
+      "additional_text": "Dueling Wand\n1. 103% increased [Spell] Damage\n2. 117% increased [Lightning] Damage\n3. +3 to Level of all [Spell|Spell] Skills\n4. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n5. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
       "level_interval": [
-        1,
+        90,
         100
       ],
       "slot_x": 0,
@@ -892,9 +859,9 @@
     },
     {
       "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +15 to [Spirit|Spirit]\n2. +86 to maximum [EnergyShield|Energy Shield]\n3. +119 to maximum Mana\n4. +50 to [Spirit|Spirit]\n5. 26% increased Cast Speed",
+      "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. +118 to maximum Life\n4. +6 to Level of all [Spell|Spell] Skills",
       "level_interval": [
-        64,
+        90,
         100
       ],
       "slot_x": 0,

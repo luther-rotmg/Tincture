@@ -44,6 +44,9 @@
       "id": "archon2_"
     },
     {
+      "id": "energy_shield9"
+    },
+    {
       "id": "minion_offence45"
     },
     {
@@ -134,10 +137,10 @@
       "id": "cast_speed38"
     },
     {
-      "id": "stun_threshold_from_energy_shield13"
+      "id": "minion_reservation5"
     },
     {
-      "id": "minion_offence29"
+      "id": "stun_threshold_from_energy_shield13"
     },
     {
       "id": "volatility1"
@@ -167,9 +170,6 @@
       "id": "cold69_"
     },
     {
-      "id": "minion_offence44_"
-    },
-    {
       "id": "jewel_slot1977"
     },
     {
@@ -183,9 +183,6 @@
     },
     {
       "id": "archon23"
-    },
-    {
-      "id": "minion_offence31"
     },
     {
       "id": "intelligence56"
@@ -218,9 +215,6 @@
       "id": "archon3"
     },
     {
-      "id": "minion_offence50"
-    },
-    {
       "id": "physical_witch8"
     },
     {
@@ -248,7 +242,13 @@
       "id": "energy_shield46_"
     },
     {
+      "id": "energy_shield22"
+    },
+    {
       "id": "intelligence17"
+    },
+    {
+      "id": "intelligence101_"
     },
     {
       "id": "minion_offence11"
@@ -267,6 +267,9 @@
     },
     {
       "id": "archon22__"
+    },
+    {
+      "id": "energy_shield36"
     },
     {
       "id": "energy_shield15"
@@ -456,6 +459,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemAscendancySummonFireDjinn",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemLongFuseTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemEnormity",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemBiddingThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemMuster",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemXophsPyre",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemWolfPack",
       "level_interval": [
         90,
@@ -477,13 +524,6 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemMuster",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
           "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
           "level_interval": [
             25,
@@ -491,22 +531,6 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemSkeletalReaver",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
           "id": "Metadata/Items/Gem/SupportGemMuster",
           "level_interval": [
             1,
@@ -514,58 +538,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemHeft",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFireInfusion",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
           "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMinionMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemLivingLightningTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
             1,
             100
@@ -618,37 +591,30 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
       "level_interval": [
-        84,
+        90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "id": "Metadata/Items/Gem/SupportGemLivingLightningTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
             1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -729,23 +695,60 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemSkeletalStormMage",
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
         84,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemMuster",
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
+          "level_interval": [
+            65,
             100
           ]
         }
@@ -757,29 +760,18 @@
         78,
         100
       ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemSkeletalBrute",
-      "level_interval": [
-        84,
-        100
-      ]
     }
   ],
   "inventory_slots": [
     {
-      "inventory_id": "BodyArmour1",
-      "additional_text": "Sacramental Robe\n1. 22% increased [ESRechargeRate|Energy Shield Recharge Rate]\n2. +94 to maximum [EnergyShield|Energy Shield]\n3. 106% increased [EnergyShield|Energy Shield]\n4. +36% to [Resistances|Cold Resistance]\n5. +39% to [Resistances|Lightning Resistance]\n6. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
-      "level_interval": [
-        75,
-        100
-      ],
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "Vaal Gloves\n1. +54 to maximum [EnergyShield|Energy Shield]\n2. 36% increased [EnergyShield|Energy Shield]\n3. +38 to maximum Life\n4. +36% to [Resistances|Fire Resistance]\n5. +24 to [Intelligence|Intelligence]\n6. [ESRecharge|Energy Shield Recharge] starts after spending a total of\n 2000 Mana, no more than once every 2 seconds\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +32 to maximum Mana",
+      "additional_text": "Vaal Gloves\n1. +54 to maximum [EnergyShield|Energy Shield]\n2. 36% increased [EnergyShield|Energy Shield]\n3. +38 to maximum Life\n4. +36% to [Resistances|Fire Resistance]\n5. +19 to [Intelligence|Intelligence]\n6. [ESRecharge|Energy Shield Recharge] starts after spending a total of\n 2000 Mana, no more than once every 2 seconds\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +32 to maximum Mana",
       "level_interval": [
         75,
         100
@@ -794,6 +786,12 @@
         80,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "unique_name": "Temporalis",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -840,12 +838,6 @@
         90,
         100
       ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     }

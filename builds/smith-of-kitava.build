@@ -11,6 +11,9 @@
       "id": "AscendancyWarrior3Notable6_10"
     },
     {
+      "id": "attributes107"
+    },
+    {
       "id": "attributes70"
     },
     {
@@ -74,9 +77,6 @@
       "id": "being_surrounded6"
     },
     {
-      "id": "life_leech15"
-    },
-    {
       "id": "being_surrounded5"
     },
     {
@@ -99,9 +99,6 @@
     },
     {
       "id": "poison16"
-    },
-    {
-      "id": "attack38_"
     },
     {
       "id": "strength21"
@@ -173,6 +170,9 @@
       "id": "jewel_slot1956"
     },
     {
+      "id": "armour_break22"
+    },
+    {
       "id": "strength69"
     },
     {
@@ -209,6 +209,9 @@
       "id": "armour35"
     },
     {
+      "id": "attributes100_"
+    },
+    {
       "id": "block1"
     },
     {
@@ -218,7 +221,7 @@
       "id": "attributes20-"
     },
     {
-      "id": "area_attacks31"
+      "id": "attributes101"
     },
     {
       "id": "dexterity34"
@@ -276,6 +279,9 @@
     },
     {
       "id": "ailments14"
+    },
+    {
+      "id": "attributes103"
     },
     {
       "id": "slow_attacks4"
@@ -410,15 +416,7 @@
       "weapon_set": 1
     },
     {
-      "id": "slow_mitigation8",
-      "weapon_set": 1
-    },
-    {
       "id": "shield29",
-      "weapon_set": 1
-    },
-    {
-      "id": "slow_mitigation7_",
       "weapon_set": 1
     },
     {
@@ -427,10 +425,6 @@
     },
     {
       "id": "azmerianimals28",
-      "weapon_set": 2
-    },
-    {
-      "id": "boss_slaying5",
       "weapon_set": 2
     },
     {
@@ -446,10 +440,6 @@
       "weapon_set": 2
     },
     {
-      "id": "boss_slaying3",
-      "weapon_set": 2
-    },
-    {
       "id": "boss_slaying6",
       "weapon_set": 2
     },
@@ -459,6 +449,50 @@
     }
   ],
   "skills": [
+    {
+      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemLacerateThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEnvenomThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAdmixture",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemHeft",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemAtaluiBloodletting",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
     {
       "id": "Metadata/Items/Gem/SkillGemHeraldOfBlood",
       "level_interval": [
@@ -583,7 +617,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemStyrnsFerocity",
+          "id": "Metadata/Items/Gem/SupportGemVoranasSiege",
           "level_interval": [
             65,
             100
@@ -592,42 +626,35 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemShieldWall",
+      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
       "level_interval": [
-        90,
+        1,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemLacerateThree",
+          "id": "Metadata/Items/Gems/SupportGemMobility",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemEnvenomThree",
+          "id": "Metadata/Items/Gem/SupportGemSteadfastTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemAdmixture",
+          "id": "Metadata/Items/Gem/SupportGemDeadlyResolve",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemHeft",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemAtaluiBloodletting",
+          "id": "Metadata/Items/Gem/SupportGemStyrnsMountain",
           "level_interval": [
             65,
             100
@@ -710,29 +737,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemShieldBlock",
-      "level_interval": [
-        1,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemMobility",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemSteadfastTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
       "level_interval": [
         78,
@@ -807,18 +811,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Massive Mitts\n1. Adds 13 to 20 [Fire] damage to [Attack|Attacks]\n2. +145 to maximum Life\n3. +2 to Level of all [Melee|Melee] Skills\n4. +43% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. Gain 21 Mana per enemy killed\n6. 20% increased [BuffMagnitude|Magnitude] of [DamagingAilments|Damaging Ailments] you inflict\n7. [ShamanOnlyMods|Bonded]: 15% increased Duration of [DamagingAilments|Damaging Ailments] on Enemies",
-      "level_interval": [
-        80,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Belt1",
-      "unique_name": "Headhunter",
+      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -851,6 +845,16 @@
     {
       "inventory_id": "Boots1",
       "additional_text": "Ornate Greaves\n1. 35% increased Movement Speed\n2. 62% increased [Armour|Armour]\n3. +96 to maximum Life\n4. +50% to [Resistances|Chaos Resistance]\n5. +43% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. 15% increased [Curse] Duration\n7. 15% increased [Poison] Duration",
+      "level_interval": [
+        70,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "Ornate Mitts\n1. Adds 9 to 15 [Physical|Physical] Damage to [Attack|Attacks]\n2. +136 to maximum Life\n3. +2 to Level of all [Melee|Melee] Skills\n4. +39% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. Gain 32 Mana per enemy killed\n6. 20% increased [BuffMagnitude|Magnitude] of [DamagingAilments|Damaging Ailments] you inflict\n7. [ShamanOnlyMods|Bonded]: 15% increased Duration of [DamagingAilments|Damaging Ailments] on Enemies",
       "level_interval": [
         70,
         100
