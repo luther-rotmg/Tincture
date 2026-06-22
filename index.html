@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://tincturepoe2.com/docs/og.png" />
 <!-- data.json is published as an open dataset (see The Cellar) -->
 <script type="application/ld+json" id="ldDataset">
-{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.0), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
+{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.3), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
 </script>
 <!-- Fonts are self-hosted (fonts.css → fonts/*.woff2) so the page makes NO third-party
      requests — no visitor IP leaks to Google. That's what backs the "no tracking" claim. -->
@@ -1000,7 +1000,7 @@
     <div class="meta-right">
       <span class="league-badge">
         <select id="leagueSelect" class="league-select" aria-label="Choose a league"></select>
-        <span class="sep"></span><span class="patch" id="patch">0.5.0</span>
+        <span class="sep"></span><span class="patch" id="patch">0.5.3</span>
       </span>
       <button class="folder" id="folderBtn" title="Connect your BuildPlanner folder — reconstructed picks save a loadable .build straight here in one click">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -1389,7 +1389,7 @@
    wrapper with a leagues[] array. Replaced verbatim by data.json once the live
    aggregator runs. Standard is included empty to show the dropdown + empty state. */
 const SAMPLE_DATA = {
-  patch: "0.5.0",
+  patch: "0.5.3",
   updated: new Date(Date.now() - 14 * 60 * 1000).toISOString(),
   sources: 1,
   default: "runesofaldur",
@@ -1617,7 +1617,7 @@ function templateText(b){
     estCharacters: b.n ?? null,        // derived: share × league total, not a measured count
     trend24h: b.delta ?? null,
     source: "poe.ninja-derived ascendancy share (hourly)",
-    guide: `Search a community guide for "${b.asc}${b.cls?` (${b.cls})`:""} PoE2 0.5.0".`,
+    guide: `Search a community guide for "${b.asc}${b.cls?` (${b.cls})`:""} PoE2 0.5.3".`,
   }, null, 2);
   return banner + "\n" + body + "\n";
 }
@@ -1828,7 +1828,7 @@ function currentBuilds(){
    community guides for the picked ascendancy (patch-specific). An honest "find a guide",
    not a "best guide" we can't substantiate. */
 function guideUrl(b){
-  const q = `${b.asc}${b.skill ? " " + b.skill : ""} Path of Exile 2 ${DATA.patch || "0.5.0"} build guide`;
+  const q = `${b.asc}${b.skill ? " " + b.skill : ""} Path of Exile 2 ${DATA.patch || "0.5.3"} build guide`;
   return "https://www.google.com/search?q=" + encodeURIComponent(q);
 }
 

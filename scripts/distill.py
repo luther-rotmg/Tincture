@@ -41,7 +41,7 @@ from datetime import datetime, timezone
 # ----------------------------------------------------------------------------- #
 # Config
 # ----------------------------------------------------------------------------- #
-PATCH = "0.5.0"
+PATCH = "0.5.3"
 
 POE2_API = "https://poe.ninja/poe2/api"
 
@@ -669,7 +669,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
     deep = f"{SITE}/#asc={slug}"
     title = f"{asc} build meta — Path of Exile 2 (Runes of Aldur) | Tincture"
     wbit = f" Typically a {weapon} build." if weapon else ""
-    desc = (f"{asc}" + (f" ({cls})" if cls else "") + " in Path of Exile 2 0.5.0 — "
+    desc = (f"{asc}" + (f" ({cls})" if cls else "") + f" in Path of Exile 2 {PATCH} — "
             + (tag or "a current ladder ascendancy") + "." + wbit
             + " See its live ladder share, popular skills and uniques, and a loadable build on Tincture.")
     ld = json.dumps({
@@ -718,7 +718,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
         f'<p><a href="{SITE}/" style="color:#c8a24a;text-decoration:none">&#8592; Tincture</a> '
         '&middot; the Path of Exile&nbsp;2 build meta, distilled</p>',
         f'<h1 style="color:#e6c47a">{_esc(asc)}</h1>',
-        f"<p><b>Class:</b> {_esc(cls or 'unknown')} &middot; Path of Exile&nbsp;2 0.5.0 (Runes of Aldur)"
+        f"<p><b>Class:</b> {_esc(cls or 'unknown')} &middot; Path of Exile&nbsp;2 {PATCH} (Runes of Aldur)"
         + (f" &middot; <b>{_esc(weapon)}</b>" if weapon else "") + "</p>",
         (f"<p><i>{_esc(tag)}</i></p>" if tag else ""),
         ul("Commonly plays", skills),

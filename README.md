@@ -4,7 +4,7 @@
 
 Tincture reads what the top of the live ladder is actually playing, boils thousands of characters down to one ranked list, visualizes the whole meta, breaks down the skills, supports and passives behind every ascendancy, and **Decants any meta pick as a real, loadable `.build`** — reconstructed from a top public-ladder character and dropped straight into your in-game Build Planner in one click. A scheduled job re-distills it hourly, and the page flags it if a refresh is ever overdue.
 
-> Built for the **Runes of Aldur** league (PoE 2 patch 0.5.0). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
+> Built for the **Runes of Aldur** league (PoE 2 patch 0.5.3). It's a single static page plus a tiny Python pipeline — no backend, no database, no tracking.
 
 ![Tincture — the live Path of Exile 2 build meta, distilled and decanted](docs/clip/tincture-demo.gif)
 
