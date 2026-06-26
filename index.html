@@ -2204,10 +2204,24 @@ function buildViewHTML(md, slug){
 }
 function metaDetailHTML(md, slug){
   const st = md.stats||{};
-  const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
-  const ss = md.stats && md.stats.sample;   // count behind the EHP/DPS median (the sampled set, NOT md.sample = full population)
-  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters</span></div>` : "";
-  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
+  const dfn = (md.build && md.build.defence) || {};
+  const ownEhp = dfn.ehp!=null ? dfn.ehp : null;
+  const headEhp = ownEhp!=null ? ownEhp : (st.ehp||null);
+  const bits = [ st.level?`Level <b>${st.level}</b>`:null,
+    headEhp?`EHP <b>${fmt(headEhp)}</b>`:null,
+    dfn.biggestHit?`Largest hit survived <b>${fmt(dfn.biggestHit)}</b>`:null,
+    st.dps?`DPS <b>~${fmt(st.dps)}</b>`:null ].filter(Boolean);
+  const ss = md.stats && md.stats.sample;
+  const medCaption = `median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters`;
+  const smp = ownEhp!=null
+    ? `<span class="smp">EHP &amp; defences are this build's own; DPS is the ascendancy ${medCaption}</span>`
+    : `<span class="smp">${medCaption}</span>`;
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}${smp}</div>` : "";
+  const q = md.build && md.build.quality;
+  const prov = (q && q.selectedFrom) ? ` · selected as the soundest of ${q.selectedFrom} level-85+ ladder characters${q.onMetaWeapon!==null?" running the dominant weapon":""}` : "";
+  const bstamp = (META && META.buildsUpdated) || (META && META.updated) || null;
+  const bstale = bstamp && (Date.now() - new Date(bstamp).getTime()) > 8*86400e3;
+  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""}${prov} · <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${bstamp ? ` · reconstructed ${esc(relTime(bstamp))}${bstale?" (refresh overdue)":""}` : ""}</div>` : "";
   return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
 
