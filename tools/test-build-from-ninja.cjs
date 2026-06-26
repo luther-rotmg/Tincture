@@ -202,3 +202,41 @@ test('coverageOk refuses a throttled run below 70% of prior coverage; allows for
   assert.equal(T.coverageOk(5, 20, true), true);     // --force overrides
   assert.equal(T.coverageOk(5, 0, false), true);     // first run / no prior meta-detail
 });
+
+test('parseDefensiveStats: capped is resistance>=75 (penalty-proof, raised-cap-proof)', () => {
+  const mk = (f, fm) => ({ defensiveStats: {
+    effectiveHealthPool: 31555, life: 1497, energyShield: 2379, lowestMaximumHitTaken: 7188,
+    fireResistance: f, fireResistanceMax: fm, fireResistanceOverCap: Math.max(0, f - fm),
+    coldResistance: 76, coldResistanceMax: 75, lightningResistance: 75, lightningResistanceMax: 75,
+    chaosResistance: 0, chaosResistanceMax: 75 } });
+  // penalised cap 74/74 -> NOT capped (under the 75 floor)
+  assert.equal(T.parseDefensiveStats(mk(74, 74)).capped.fire, false);
+  // gear-raised cap, at 78/80 -> capped (>=75, safe)
+  assert.equal(T.parseDefensiveStats(mk(78, 80)).capped.fire, true);
+  // exactly 75/75 -> capped
+  assert.equal(T.parseDefensiveStats(mk(75, 75)).capped.fire, true);
+  const d = T.parseDefensiveStats(mk(76, 75));
+  assert.equal(d.ehp, 31555);
+  assert.equal(d.biggestHit, 7188);
+  assert.equal(d.capped.cold, true);     // 76 >= 75
+  assert.equal(d.capped.chaos, false);   // 0 < 75
+});
+
+test('parseDefensiveStats: chaosImmune from a Chaos Inoculation keystone', () => {
+  const base = { defensiveStats: { effectiveHealthPool: 1, fireResistance: 75, fireResistanceMax: 75 } };
+  assert.equal(T.parseDefensiveStats(base).chaosImmune, false);
+  const ci = { ...base, keystones: [{ name: 'Chaos Inoculation' }] };
+  assert.equal(T.parseDefensiveStats(ci).chaosImmune, true);
+  assert.equal(T.parseDefensiveStats({}), null);            // no defensiveStats -> null
+  assert.equal(T.parseDefensiveStats(null), null);
+});
+
+test('mergeDefence: defensiveStats wins, PoB pdr/crit retained, null ds fields do not clobber', () => {
+  // a char with NO pathOfBuildingExport but a defensiveStats block -> ds-only object
+  const dsOnly = T.mergeDefence({ defensiveStats: { effectiveHealthPool: 4200, fireResistance: 75, fireResistanceMax: 75 } });
+  assert.equal(dsOnly.ehp, 4200);
+  assert.equal(dsOnly.capped.fire, true);
+  assert.equal(dsOnly.pdr, undefined);                      // no PoB -> no pdr key
+  // a char with NEITHER -> null
+  assert.equal(T.mergeDefence({}), null);
+});

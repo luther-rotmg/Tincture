@@ -76,6 +76,38 @@ function parsePobDefence(code) {
   return useful ? d : null;
 }
 
+// ---- defence profile from poe.ninja's defensiveStats (richer + decode-proof; superset of the PoB layer) ----
+// effectiveHealthPool == PoB TotalEHP to within 1 across all classes. "capped" is resistance>=75
+// (PoE2 base max-res floor): penalty-lowered caps read uncapped, gear-raised-but-above-75 read capped.
+function parseDefensiveStats(char) {
+  const ds = char && char.defensiveStats;
+  if (!ds || typeof ds !== 'object') return null;
+  const num = v => (typeof v === 'number' && isFinite(v)) ? v : null;
+  const els = ['fire', 'cold', 'lightning', 'chaos'];
+  const resists = {}, resistMax = {}, overcap = {}, capped = {};
+  for (const el of els) {
+    const r = num(ds[el + 'Resistance']), m = num(ds[el + 'ResistanceMax']), o = num(ds[el + 'ResistanceOverCap']);
+    if (r != null) { resists[el] = r; capped[el] = r >= 75; }
+    if (m != null) resistMax[el] = m;
+    if (o != null) overcap[el] = o;
+  }
+  const chaosImmune = Array.isArray(char.keystones) && char.keystones.some(k => k && k.name === 'Chaos Inoculation');
+  return {
+    ehp: num(ds.effectiveHealthPool), life: num(ds.life), es: num(ds.energyShield), ward: num(ds.ward),
+    armour: num(ds.armour), resists, resistMax, overcap, capped, chaosImmune,
+    biggestHit: num(ds.lowestMaximumHitTaken), evade: num(ds.evadeChance), block: num(ds.blockChance),
+  };
+}
+// merge: PoB layer (keeps pdr/crit) with the richer defensiveStats layered over its non-null fields.
+function mergeDefence(char) {
+  const pob = parsePobDefence(char && char.pathOfBuildingExport);
+  const ds = parseDefensiveStats(char);
+  if (!pob && !ds) return null;
+  const out = Object.assign({}, pob || {});
+  if (ds) for (const k of Object.keys(ds)) { if (ds[k] != null) out[k] = ds[k]; }
+  return out;
+}
+
 // ---- meta-weapon matching ----
 // poe.ninja's "weaponmode" is a "Main / Offhand" family name (e.g. "Mace / Shield",
 // "Quarterstaff", "Wand / Sceptre"); base_items' item_class splits a weapon by hand
@@ -840,4 +872,4 @@ function variantIsDistinct(cand, accepted) {
 
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
