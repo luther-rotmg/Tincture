@@ -240,3 +240,16 @@ test('mergeDefence: defensiveStats wins, PoB pdr/crit retained, null ds fields d
   // a char with NEITHER -> null
   assert.equal(T.mergeDefence({}), null);
 });
+
+test('mainSkillSupportCount counts supports on the highest-DPS active group', () => {
+  const gem = { Spark: 'Metadata/Items/Gems/SkillGemSpark', Comet: 'Metadata/Items/Gems/SkillGemComet',
+    A: 'Metadata/Items/Gems/SupportGemA', B: 'Metadata/Items/Gems/SupportGemB',
+    C: 'Metadata/Items/Gems/SupportGemC', D: 'Metadata/Items/Gems/SupportGemD' };
+  const char = { skills: [
+    { dps: [{ dps: 100 }], allGems: [{ name: 'Spark' }, { name: 'A' }, { name: 'B' }] },         // lower dps, 2 supports
+    { dps: [{ dps: 900 }], allGems: [{ name: 'Comet' }, { name: 'A' }, { name: 'B' }, { name: 'C' }, { name: 'D' }] }, // main, 4 supports
+  ] };
+  assert.equal(T.mainSkillSupportCount(char, gem), 4);
+  assert.equal(T.mainSkillSupportCount({ skills: [] }, gem), 0);
+  assert.equal(T.mainSkillSupportCount(null, gem), 0);
+});

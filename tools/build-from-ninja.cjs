@@ -108,6 +108,20 @@ function mergeDefence(char) {
   return out;
 }
 
+// support count of the main (highest-DPS) active skill group — mirrors convert()'s main-skill pick.
+function mainSkillSupportCount(char, gem) {
+  let best = -1, bestSup = 0;
+  ((char && char.skills) || []).forEach(group => {
+    const gems = ((group.allGems) || []).map(g => ({ name: g.name, id: gem && gem[g.name] })).filter(g => g.id);
+    const active = gems.find(g => /\/SkillGem/i.test(g.id));
+    if (!active || /PlayerDefault/i.test(active.id)) return;
+    const supports = gems.filter(g => g !== active && /\/SupportGem/i.test(g.id));
+    const dps = Array.isArray(group.dps) ? Math.max(0, ...group.dps.map(d => Number(d && d.dps) || 0)) : (Number(group.dps) || 0);
+    if (dps > best) { best = dps; bestSup = supports.length; }
+  });
+  return best < 0 ? 0 : bestSup;
+}
+
 // ---- meta-weapon matching ----
 // poe.ninja's "weaponmode" is a "Main / Offhand" family name (e.g. "Mace / Shield",
 // "Quarterstaff", "Wand / Sceptre"); base_items' item_class splits a weapon by hand
@@ -872,4 +886,4 @@ function variantIsDistinct(cand, accepted) {
 
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, mainSkillSupportCount, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
