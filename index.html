@@ -697,6 +697,9 @@
   .bv-quality .bvq-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-quality .bvq{ font-family:var(--fmono); font-size:10px; letter-spacing:.02em; }
   .bv-quality .bvq.ok{ color:var(--rise); }
+  .bvq.warn{ color:var(--bone-dim); border-color:var(--hair-strong); background:rgba(200,162,74,.06); }
+  .bvq.note{ color:var(--muted); }
+  .bvq-asof{ color:var(--muted); font-size:9px; letter-spacing:.05em; align-self:center; margin-left:4px; }
   .bv-def{ margin:2px 0 16px; }
   .bv-def-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-def .def-row{ display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 6px; }
@@ -2007,12 +2010,31 @@ function itemTip(it){
 function qualityChip(md){
   const q = md.build && md.build.quality;
   if (!q) return "";
-  const items = [];
-  if (q.onMetaWeapon === true) items.push("runs the dominant meta weapon");
-  if (q.gemsValid) items.push("all gems resolve in-game");
-  if (q.level) items.push(`reconstructed from a level&nbsp;${q.level} ladder character`);
-  if (!items.length) return "";
-  return `<div class="bv-quality"><span class="bvq-h">QA</span>${items.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")}</div>`;
+  const d = (md.build && md.build.defence) || {};
+  const res = d.resists || {}, cap = d.capped || {};
+  const ok = [], warn = [], note = [];
+  if (q.onMetaWeapon === true) ok.push("runs the dominant meta weapon");
+  else if (q.onMetaWeapon === null) note.push("no single dominant weapon — any popular weapon is representative");
+  if (q.gemsValid) ok.push("all gems resolve in-game");
+  if (q.resistsCapped){
+    const vals = ["fire","cold","lightning"].map(k=>res[k]).filter(v=>v!=null);
+    ok.push("all resistances capped"+(vals.length?` (${vals.join("/")}%)`:""));
+  } else {
+    ["fire","cold","lightning"].forEach(k=>{ if (cap[k]===false && res[k]!=null) warn.push(`${k[0].toUpperCase()+k.slice(1)} resistance ${res[k]}% — cap it to 75% before you map`); });
+    if (cap.chaos===false && res.chaos!=null && !d.chaosImmune) warn.push(`Chaos resistance ${res.chaos}% — uncapped (no Chaos Inoculation)`);
+  }
+  if (q.fullyAscended) ok.push("fully ascended (8 points)");
+  else if (q.ascendancyPoints!=null) warn.push(`only ${q.ascendancyPoints}/8 ascendancy points allocated`);
+  if (q.mainSkillLinked) ok.push(`main skill fully linked (${q.mainSkillSupports} supports)`);
+  else if (q.mainSkillSupports!=null) warn.push(`main skill has ${q.mainSkillSupports} support${q.mainSkillSupports===1?"":"s"} (under 3)`);
+  if (q.level) ok.push(`level&nbsp;${q.level} ladder character`);
+  if (!ok.length && !warn.length && !note.length) return "";
+  const asOf = q.snapshotUtc ? `<span class="bvq-asof">as of ${esc(relTime(q.snapshotUtc))}</span>` : "";
+  return `<div class="bv-quality"><span class="bvq-h">Reconstruction checks</span>`
+    + ok.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")
+    + warn.map(t=>`<span class="bvq warn">⚠ ${esc(t)}</span>`).join("")
+    + note.map(t=>`<span class="bvq note">${esc(t)}</span>`).join("")
+    + asOf + `</div>`;
 }
 // honest defence layer from the source character's PoB export (reconstructor parsePobDefence).
 // Absent field -> nothing rendered (fail-safe for older meta-detail.json).
