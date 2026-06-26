@@ -253,3 +253,34 @@ test('mainSkillSupportCount counts supports on the highest-DPS active group', ()
   assert.equal(T.mainSkillSupportCount({ skills: [] }, gem), 0);
   assert.equal(T.mainSkillSupportCount(null, gem), 0);
 });
+
+test('qa returns a soundness quality verdict; uncapped resist is NOT marked capped', () => {
+  const gem = { Comet: 'Metadata/Items/Gems/SkillGemComet', A: 'Metadata/Items/Gems/SupportGemA',
+    B: 'Metadata/Items/Gems/SupportGemB', C: 'Metadata/Items/Gems/SupportGemC' };
+  const char = {
+    level: 95, updatedUtc: '2026-06-19T07:23:51Z',
+    passiveCounts: { ascendancy: 8 },
+    defensiveStats: { effectiveHealthPool: 50000,
+      fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+      lightningResistance: 60, lightningResistanceMax: 75, chaosResistance: 30, chaosResistanceMax: 75 },
+    skills: [{ dps: [{ dps: 500 }], allGems: [{ name: 'Comet' }, { name: 'A' }, { name: 'B' }, { name: 'C' }] }],
+  };
+  // minimal build so qa's other checks don't throw; we only assert .quality here
+  const build = { name: 'x', ascendancy: 'Sorceress1', passives: [{ id: 'AscendancySorceress1Start' }],
+    skills: [{ id: 'Metadata/Items/Gems/SkillGemComet' }], inventory_slots: [] };
+  const r = T.qa(build, char, { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem });
+  assert.equal(r.quality.resistsCapped, false);          // lightning 60 < 75
+  assert.equal(r.quality.fullyAscended, true);           // 8 points
+  assert.equal(r.quality.mainSkillSupports, 3);
+  assert.equal(r.quality.mainSkillLinked, true);
+  assert.equal(r.quality.snapshotUtc, '2026-06-19T07:23:51Z');
+});
+
+test('qa resistsCapped honours Chaos Inoculation but flags a real chaos hole', () => {
+  const cap = v => ({ fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: v, chaosResistanceMax: 75, effectiveHealthPool: 1 });
+  const build = { name: 'x', ascendancy: 'Witch1', passives: [], skills: [{ id: 'Metadata/Items/Gems/SkillGemX' }], inventory_slots: [] };
+  const o = { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem: {} };
+  assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 } }, o).quality.resistsCapped, false); // chaos 0, no CI
+  assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 }, keystones: [{ name: 'Chaos Inoculation' }] }, o).quality.resistsCapped, true);
+});

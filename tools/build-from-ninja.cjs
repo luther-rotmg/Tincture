@@ -325,7 +325,7 @@ function convert(char, { slug, gem, account, name, league }) {
 }
 
 // ---- QA: catch conversion errors + cheap cohesion checks ----
-function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
+function qa(build, char, { slug, tree, baseItems, md, weaponClass, gem }) {
   const issues = [];
   const warn = m => issues.push({ sev: 'warn', m });
   const fail = m => issues.push({ sev: 'fail', m });
@@ -410,7 +410,21 @@ function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
     if (metaFam && haveFam !== metaFam) fail(`build weapon ${haveFam || '?'} != dominant meta weapon ${w0.name} [${w0.pct}%] — stats/build mismatch`);
   }
 
-  return { ok: !issues.some(i => i.sev === 'fail'), issues, stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length } };
+  // ---- soundness signals (warn-level; never hard-fail a real ladder build) ----
+  const def = parseDefensiveStats(char);
+  const cap = (def && def.capped) || {};
+  const resistsCapped = !!(def && cap.fire && cap.cold && cap.lightning && (cap.chaos || def.chaosImmune));
+  if (def && !resistsCapped) warn('one or more resistances below the 75% cap');
+  const ascendancyPoints = (char.passiveCounts && char.passiveCounts.ascendancy) || 0;
+  const fullyAscended = ascendancyPoints >= 8;
+  if (!fullyAscended) warn(`only ${ascendancyPoints}/8 ascendancy points`);
+  const mainSkillSupports = mainSkillSupportCount(char, gem);
+  const mainSkillLinked = mainSkillSupports >= 3;
+  if (!mainSkillLinked) warn(`main skill has ${mainSkillSupports} support(s) (<3)`);
+
+  return { ok: !issues.some(i => i.sev === 'fail'), issues,
+    stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length },
+    quality: { resistsCapped, ascendancyPoints, fullyAscended, mainSkillSupports, mainSkillLinked, snapshotUtc: char.updatedUtc || null } };
 }
 
 // connectivity over the real tree graph (nodes + out/in adjacency + per-class start)
@@ -621,7 +635,7 @@ function refreshManifest() {
 
 function buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet }) {
   const build = convert(char, { slug: slugMap, gem, account, name, league });
-  const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass });
+  const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass, gem });
   if (!quiet) { console.log('=== QA', JSON.stringify(report.stats)); report.issues.forEach(i => console.log(`  [${i.sev}] ${i.m}`)); }
   return { build, report };
 }
