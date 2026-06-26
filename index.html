@@ -1695,7 +1695,7 @@ async function decant(b, slugOverride){
   if (real != null) return saveRealBuild(b, real, slug + ".build");
   // honest fallback: a labelled meta template (.txt) — never the game's .build slot
   saveBlob(templateText(b), slugOf(b) + "-tincture-template.txt", "text/plain;charset=utf-8");
-  toast(`Saved <b>${esc(b.asc)}</b> as a labelled meta template (.txt) — we haven't reconstructed a loadable build for this pick yet. Pair it with a community guide.`, "ok", 7000);
+  toast(`Saved a <b>${esc(b.asc)}</b> starter (.txt) — its ladder share, playstyle, and a guide link. No loadable build for this exact pick yet, so follow the linked guide.`, "ok", 7000);
 }
 
 async function saveRealBuild(b, file, name){
@@ -2387,8 +2387,8 @@ function renderHero(){
   if (!ranked.length){
     if (hg){ hg.hidden = true; hg.removeAttribute("href"); }
     const curated = L.curated && (L.builds||[]).length;
-    $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No ranked data"}</span>`;
-    $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}.`;
+    $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No live ladder data yet"}</span>`;
+    $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}. Pick the live challenge league from the dropdown above for the full ranked meta.`;
     // Don't show a curated league's whole-population total as "characters read" — the
     // picks are hand-chosen, not a ladder sample. A real (non-curated) empty league keeps
     // its honest ladder total.
