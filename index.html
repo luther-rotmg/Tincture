@@ -345,7 +345,7 @@
 
   /* ---------------- The Still (signature aggregation visual) ---------------- */
   .still{
-    margin:78px 0 0; padding:52px 0 46px;
+    margin:78px 0 0; padding:52px 0 30px;
     border-top:1px solid var(--hair-strong);
   }
   .still-grid{display:grid; grid-template-columns:300px 1fr; gap:54px; align-items:center;}
@@ -470,7 +470,7 @@
   /* "export my character" picker (native <dialog>) — dormant until the OAuth path is enabled */
   dialog.char-pick{
     color:var(--bone); background:var(--ink-2); border:1px solid var(--hair-strong);
-    border-radius:4px; padding:24px 26px; max-width:min(92vw,420px); width:100%;
+    border-radius:3px; padding:24px 26px; max-width:min(92vw,420px); width:100%;
     box-shadow:0 28px 70px -24px rgba(0,0,0,.85);
   }
   dialog.char-pick::backdrop{background:rgba(10,8,5,.66);}
@@ -1220,6 +1220,7 @@
   <!-- ===================== THE COUNTERPOISE (compare) ===================== -->
   <section class="section-frame counterpoise" id="compare" aria-label="Compare ascendancies side by side">
     <header class="section-head">
+      <span class="eyebrow">Weigh two essences</span>
       <h2>The Counterpoise</h2>
       <p class="sub">Weigh two or three ascendancies against each other — vitals, defences, and the build behind each. Higher isn't automatically better; survivability and damage trade off.</p>
     </header>
