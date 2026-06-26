@@ -806,14 +806,21 @@ async function main() {
               // persist a compact QA verdict (the report is otherwise discarded) as an honest,
               // additive trust signal the front end renders; old readers ignore the new field.
               meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items,
-                defence: parsePobDefence(char.pathOfBuildingExport),   // from the source character's PoB export
+                defence: mergeDefence(char),
                 quality: {
                   level: char.level || null,
                   sample: pulled.length,
-                  onMetaWeapon: metaFam ? onMetaWeapon(char) : null,   // null = no clear dominant weapon to check
+                  selectedFrom: cands.length,
+                  onMetaWeapon: metaFam ? onMetaWeapon(char) : null,
                   gemsValid: !report.issues.some(i => i.sev === 'fail' && /BaseItemTypes/.test(i.m)),
                   treeConnected: !report.issues.some(i => /orphan/.test(i.m)),
                   warnings: report.issues.filter(i => i.sev === 'warn').length,
+                  resistsCapped: report.quality.resistsCapped,
+                  ascendancyPoints: report.quality.ascendancyPoints,
+                  fullyAscended: report.quality.fullyAscended,
+                  mainSkillSupports: report.quality.mainSkillSupports,
+                  mainSkillLinked: report.quality.mainSkillLinked,
+                  snapshotUtc: report.quality.snapshotUtc,
                 } };
               meta.byAsc[slug].skillSetups = readableSkills(char);
               meta.byAsc[slug].buildItems = buildItems(char);
@@ -838,7 +845,8 @@ async function main() {
                     slug: vslug, name: r.build.name,
                     source: { account: cand.account, name: cand.name, level: cand.char.level || null },
                     ehp: cand.ehp || null, dps: cand.dps || null,
-                    defence: parsePobDefence(cand.char.pathOfBuildingExport),
+                    defence: mergeDefence(cand.char),
+                    snapshotUtc: cand.char.updatedUtc || null,
                     pob: !!cand.char.pathOfBuildingExport,
                     skillSetups: readableSkills(cand.char).slice(0, 4),
                   });
