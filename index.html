@@ -2041,19 +2041,26 @@ function qualityChip(md){
 function defenceHTML(md){
   const d = md.build && md.build.defence;
   if (!d) return "";
-  const res = d.resists || {};
-  const resPill = (lab,v,k) => v==null ? "" : `<span class="def-res ${k}${v>=75?' capped':(v<0?' neg':'')}">${lab} <b>${v}%</b></span>`;
+  const res = d.resists || {}, cap = d.capped || {}, rmax = d.resistMax || {}, over = d.overcap || {};
+  const resPill = (lab,v,css,el) => {
+    if (v==null) return "";
+    const isCap = (cap[el]!=null) ? !!cap[el] : (v>=75);   // data-driven; PoB-only fallback to >=75
+    const maxTxt = (rmax[el]!=null && rmax[el]!==75) ? `/${rmax[el]}` : "";
+    const title = (isCap && over[el]===0) ? ' title="capped, no headroom"' : "";
+    return `<span class="def-res ${css}${isCap?' capped':(v<0?' neg':'')}"${title}>${lab} <b>${v}%${maxTxt}</b></span>`;
+  };
   const pools=[];
-  if (d.life!=null && d.life>1) pools.push(`Life <b>${fmt(d.life)}</b>`);   // PoB exports Life=1 for CI/pure-ES — not a real pool
+  if (d.life!=null && d.life>1) pools.push(`Life <b>${fmt(d.life)}</b>`);
   if (d.es!=null && d.es>0) pools.push(`ES <b>${fmt(d.es)}</b>`);
   if (d.ward!=null && d.ward>0) pools.push(`Ward <b>${fmt(d.ward)}</b>`);
-  if (!pools.length && d.ehp!=null) pools.push(`EHP <b>${fmt(d.ehp)}</b>`);   // ES/CI build with no shown pool → show EHP, never a lone "Life 1"
+  if (!pools.length && d.ehp!=null) pools.push(`EHP <b>${fmt(d.ehp)}</b>`);
   const extra=[];
+  if (d.biggestHit) extra.push(`Largest hit survived ${fmt(d.biggestHit)}`);
   if (d.evade) extra.push(`Evade ${d.evade}%`);
   if (d.block) extra.push(`Block ${d.block}%`);
   if (d.pdr) extra.push(`Phys&nbsp;reduc ${d.pdr}%`);
   if (d.crit!=null) extra.push(`Crit ${d.crit}%`);
-  const resRow = resPill('Fire',res.fire,'fire')+resPill('Cold',res.cold,'cold')+resPill('Lightning',res.lightning,'lit')+resPill('Chaos',res.chaos,'chaos');
+  const resRow = resPill('Fire',res.fire,'fire','fire')+resPill('Cold',res.cold,'cold','cold')+resPill('Lightning',res.lightning,'lit','lightning')+resPill('Chaos',res.chaos,'chaos','chaos');
   if (!resRow && !pools.length) return "";
   return `<div class="bv-def"><span class="bv-def-h">Defences</span>`
     + (resRow?`<div class="def-row">${resRow}</div>`:"")
