@@ -122,6 +122,23 @@ function mainSkillSupportCount(char, gem) {
   return best < 0 ? 0 : bestSup;
 }
 
+// prefer the soundest REAL build: capped resistances, then fully ascended, then EHP/DPS balance.
+// Sorts in place so cands[0] is the featured pick and cands.slice(1) feeds the variant loop.
+function sortBySoundness(cands) {
+  const info = cands.map(p => {
+    const def = parseDefensiveStats(p.char), cap = (def && def.capped) || {};
+    const capped = !!(def && cap.fire && cap.cold && cap.lightning && (cap.chaos || def.chaosImmune));
+    const ascended = ((p.char && p.char.passiveCounts && p.char.passiveCounts.ascendancy) || 0) >= 8;
+    const ehp = (def && def.ehp) || p.ehp || 0;
+    return { p, capped, ascended, ehp, dps: p.dps || 0 };
+  });
+  const maxE = Math.max(1, ...info.map(x => x.ehp)), maxD = Math.max(1, ...info.map(x => x.dps));
+  info.forEach(x => { x.balance = Math.min(x.ehp / maxE, x.dps / maxD); });
+  info.sort((a, b) => (b.capped - a.capped) || (b.ascended - a.ascended) || (b.balance - a.balance));
+  cands.length = 0; info.forEach(x => cands.push(x.p));
+  return cands;
+}
+
 // ---- meta-weapon matching ----
 // poe.ninja's "weaponmode" is a "Main / Offhand" family name (e.g. "Mace / Shield",
 // "Quarterstaff", "Wand / Sceptre"); base_items' item_class splits a weapon by hand
@@ -779,8 +796,7 @@ async function main() {
             if (onMeta.length) cands = onMeta;
             else console.log(`  ! ${asc}: no L85+ char running meta weapon ${metaWep} within ${pulled.length} pulls — QA will reject the off-weapon build`);
           }
-          const maxE = Math.max(1, ...cands.map(p => p.ehp || 0)), maxD = Math.max(1, ...cands.map(p => p.dps || 0));
-          cands.sort((a, b) => Math.min((b.ehp || 0) / maxE, (b.dps || 0) / maxD) - Math.min((a.ehp || 0) / maxE, (a.dps || 0) / maxD));
+          sortBySoundness(cands);   // capped resists, then fully ascended, then EHP/DPS balance — cands[0] is featured
           const { account, name, char } = cands[0];
           try {
             const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet: true });
@@ -900,4 +916,4 @@ function variantIsDistinct(cand, accepted) {
 
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, mainSkillSupportCount, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, mainSkillSupportCount, sortBySoundness, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };

@@ -312,3 +312,18 @@ test('qa resistsCapped fails closed on absent resist field; snapshotUtc is null 
   assert.equal(T.qa(build, charNoUtc, o).quality.snapshotUtc, null,
     'missing updatedUtc must yield snapshotUtc === null');
 });
+
+test('sortBySoundness puts the capped+ascended build first even at lower balance', () => {
+  const capped = { passiveCounts: { ascendancy: 8 }, defensiveStats: {
+    effectiveHealthPool: 30000, fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: 75, chaosResistanceMax: 75 } };
+  const glassUncapped = { passiveCounts: { ascendancy: 8 }, defensiveStats: {
+    effectiveHealthPool: 90000, fireResistance: 40, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: 75, chaosResistanceMax: 75 } };
+  const cands = [
+    { name: 'glass', char: glassUncapped, ehp: 90000, dps: 9000 },   // higher balance, uncapped fire
+    { name: 'tank', char: capped, ehp: 30000, dps: 8000 },           // lower balance, fully capped
+  ];
+  T.sortBySoundness(cands);
+  assert.equal(cands[0].name, 'tank');     // capped wins the preorder
+});
