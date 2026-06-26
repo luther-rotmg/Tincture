@@ -2181,8 +2181,8 @@ function variantsHTML(md){
     const skill = (v.skillSetups&&v.skillSetups[0]&&v.skillSetups[0].skill) || ((v.name||"").split(" — ")[1]||"").replace(" (public ladder)","") || "variant";
     const ehp = (v.defence && v.defence.ehp) || v.ehp;   // prefer the PoB EHP so it matches the primary panel's basis
     const stats = [ehp?`EHP ${fmt(ehp)}`:"", v.dps?`DPS ${fmt(v.dps)}`:""].filter(Boolean).join(" · ");
-    const res = v.defence && v.defence.resists;
-    const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":res[k]).join("/")} res` : "";
+    const res = v.defence && v.defence.resists, cap = v.defence && v.defence.capped;
+    const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":`${res[k]}${(cap&&cap[k])?"✓":""}`).join("/")} res` : "";
     return `<div class="bv-var">
       <div class="bv-var-info"><span class="bv-var-skill">${esc(skill)}</span>
         <span class="bv-var-meta">${esc(v.source.name)} · L${v.source.level||"?"}${stats?" · "+esc(stats):""}${resStr?" · "+esc(resStr):""}</span></div>
