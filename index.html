@@ -2401,7 +2401,7 @@ function renderHero(){
   const top = ranked[0];
   $("#essenceName").innerHTML = `<span class="asc">${esc(top.asc)}</span>${top.skill ? `<span class="skill">${esc(top.skill)}</span>` : ""}`;
   $("#essenceSub").innerHTML =
-    `The clearest signal in <b>${esc(L.name)}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — about <span class="figure">~${fmt(top.n)}</span> characters (share × ladder size).`;
+    `The most-played build in <b>${esc(L.name)}</b> right now — <span class="figure">${top.pop.toFixed(1)}%</span> of the live ladder is on it (about <span class="figure">~${fmt(top.n)}</span> characters). When you're not sure what to play, this is the safe default: start here and Decant it in one click.`;
   $("#heroChars").textContent = fmt((L.totals && L.totals.characters) || 0);
   $("#heroBuilds").textContent = ranked.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
