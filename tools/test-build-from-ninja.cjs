@@ -284,3 +284,31 @@ test('qa resistsCapped honours Chaos Inoculation but flags a real chaos hole', (
   assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 } }, o).quality.resistsCapped, false); // chaos 0, no CI
   assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 }, keystones: [{ name: 'Chaos Inoculation' }] }, o).quality.resistsCapped, true);
 });
+
+test('qa resistsCapped fails closed on absent resist field; snapshotUtc is null when updatedUtc absent', () => {
+  // Absent lightningResistance/lightningResistanceMax fields — parseDefensiveStats leaves
+  // capped.lightning undefined (falsy). The formula must treat undefined as uncapped and
+  // return false, never true. This locks the fail-closed invariant.
+  const build = { name: 'x', ascendancy: 'Sorceress1', passives: [{ id: 'AscendancySorceress1Start' }],
+    skills: [{ id: 'Metadata/Items/Gems/SkillGemComet' }], inventory_slots: [] };
+  const o = { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem: {} };
+
+  // fire and cold are capped (75/75 each) but lightning fields are entirely absent
+  const charMissingLightning = {
+    passiveCounts: { ascendancy: 8 },
+    defensiveStats: {
+      effectiveHealthPool: 40000,
+      fireResistance: 75, fireResistanceMax: 75,
+      coldResistance: 75, coldResistanceMax: 75,
+      // lightningResistance and lightningResistanceMax intentionally omitted
+      chaosResistance: 75, chaosResistanceMax: 75,
+    },
+  };
+  assert.equal(T.qa(build, charMissingLightning, o).quality.resistsCapped, false,
+    'absent lightning field must not read as capped');
+
+  // snapshotUtc must be null when char has no updatedUtc
+  const charNoUtc = { passiveCounts: { ascendancy: 8 }, defensiveStats: { effectiveHealthPool: 1 } };
+  assert.equal(T.qa(build, charNoUtc, o).quality.snapshotUtc, null,
+    'missing updatedUtc must yield snapshotUtc === null');
+});
