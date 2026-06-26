@@ -2082,7 +2082,7 @@ function ascForCompare(slug, byAsc, build){
     pop: build ? build.pop : null,
     n: build ? build.n : null,
     weapon: (md.weapons && md.weapons[0] && md.weapons[0].name) || null,
-    ehp: (md.stats && md.stats.ehp) || d.ehp || null,
+    ehp: (md.build && md.build.defence && md.build.defence.ehp) != null ? md.build.defence.ehp : ((md.stats && md.stats.ehp) || d.ehp || null),
     dps: (md.stats && md.stats.dps) || null,
     level: (md.stats && md.stats.level) || null,
     def: d,
@@ -2118,9 +2118,16 @@ function compareTableHTML(slugs){
     const tds = vals.map((v,i)=>`<td class="${i===mi?'cmp-best':''}">${v==null?'—':(fmtFn?fmtFn(v):fmt(v))}</td>`).join("");
     return `<tr><th scope="row">${label}</th>${tds}</tr>`;
   };
-  const resRow = key => numRow(key[0].toUpperCase()+key.slice(1)+" res",
-    cols.map(c => c.def && c.def.resists ? c.def.resists[key] : null),
-    v => `${v}%${v>=75?' ✓':''}`);
+  const resRow = key => {
+    const vals = cols.map(c => c.def && c.def.resists ? c.def.resists[key] : null);
+    const mi = maxIdx(vals);
+    const tds = cols.map((c,i) => {
+      const v = vals[i];
+      const isCap = (c.def && c.def.capped && c.def.capped[key]!=null) ? !!c.def.capped[key] : (v!=null && v>=75);
+      return `<td class="${i===mi?'cmp-best':''}">${v==null?'—':`${v}%${isCap?' ✓':''}`}</td>`;
+    }).join("");
+    return `<tr><th scope="row">${key[0].toUpperCase()+key.slice(1)} res</th>${tds}</tr>`;
+  };
   const listRow = (label, pick) => `<tr><th scope="row">${label}</th>` +
     cols.map(c => `<td>${(pick(c)||[]).map(x=>`<span class="cmp-ent${shared[x.name]?' cmp-shared':''}" title="${esc(x.name)} — ${fmt(x.pct)}% of this ascendancy">${esc(x.name)}</span>`).join("")||'—'}</td>`).join("") + `</tr>`;
 
@@ -2134,8 +2141,8 @@ function compareTableHTML(slugs){
   return `<table class="cmp-table">
     <thead>${head}</thead>
     <tbody>
-      ${numRow('Median EHP', cols.map(c=>c.ehp))}
-      ${numRow('Median DPS', cols.map(c=>c.dps))}
+      ${numRow('EHP', cols.map(c=>c.ehp))}
+      ${numRow('DPS', cols.map(c=>c.dps), v=>`~${fmt(v)}`)}
       ${numRow('Level', cols.map(c=>c.level))}
       ${numRow('Life', cols.map(c=>c.def&&c.def.life))}
       ${numRow('Energy shield', cols.map(c=>c.def&&c.def.es))}
@@ -2148,7 +2155,7 @@ function compareTableHTML(slugs){
       ${listRow('Key notables', c=>c.notables)}
     </tbody>
   </table>
-  <p class="cmp-foot">Medians, where the source reports them. Same ladder data as the ledger — nothing fabricated. The accent marks the higher number in a row, not a better build.</p>`;
+  <p class="cmp-foot">EHP &amp; defences are each featured build's own (from its Path of Building export); DPS is the ascendancy median (~). Same ladder data as the ledger — nothing fabricated. The accent marks the higher number in a row, not a better build.</p>`;
 }
 
 function renderCompare(){
