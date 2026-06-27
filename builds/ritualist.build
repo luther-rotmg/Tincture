@@ -116,6 +116,9 @@
       "id": "intelligence7"
     },
     {
+      "id": "evasion_and_energy_shield2"
+    },
+    {
       "id": "evasion_and_energy_shield16"
     },
     {
@@ -339,9 +342,6 @@
     },
     {
       "id": "criticals12"
-    },
-    {
-      "id": "criticals56"
     },
     {
       "id": "dexterity6"
@@ -719,6 +719,13 @@
       ],
       "support_skills": [
         {
+          "id": "Metadata/Items/Gem/SupportGemAtzirisCommunion",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
             65,
@@ -790,7 +797,7 @@
     },
     {
       "inventory_id": "Weapon1",
-      "additional_text": "Obliterator Bow\n1. 50% reduced Projectile Range\n2. Adds 37 to 49 [Physical|Physical] Damage\n3. +3 to Level of all [Projectile] Skills\n4. +31 to [Dexterity|Dexterity]\n5. Bow [Attack|Attacks] fire an additional Arrow\n6. +50% [SurpassChance|Surpassing] chance to fire an additional Arrow\n7. [ShamanOnlyMods|Bonded]: 50% increased [Projectile] Speed",
+      "additional_text": "Obliterator Bow\n1. 50% reduced Projectile Range\n2. Adds 37 to 49 [Physical|Physical] Damage\n3. +3 to Level of all [Projectile] Skills\n4. +31 to [Dexterity|Dexterity]\n5. Bow [Attack|Attacks] fire an additional Arrow\n6. 25% reduced [Poison] Duration\n7. Targets can be affected by +1 of your [Poison|Poisons] at the same time\n8. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Speed\n9. [ShamanOnlyMods|Bonded]: [Gain] 13% of [Physical|Physical] Damage as extra [Chaos|Chaos] Damage",
       "level_interval": [
         78,
         100

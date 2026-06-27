@@ -1,5 +1,5 @@
 {
-  "name": "Warbringer — Voltaic Grenade (public ladder)",
+  "name": "Warbringer — Mortar Cannon (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"Kalmar_W___\" (kalmar10-1481)",
   "description": "A representative Warbringer build from the public runesofaldur ladder (character \"Kalmar_W___\", account \"kalmar10-1481\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/kalmar10-1481/Kalmar_W___ . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Warrior2",
@@ -595,6 +595,12 @@
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Amulet1",
+      "unique_name": "Fireflower",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Gloves1",
       "additional_text": "Ornate Mitts\n1. Adds 28 to 41 [Fire] damage to [Attack|Attacks]\n2. +129 to maximum Life\n3. +32% to [Resistances|Lightning Resistance]\n4. +24% to [Resistances|Chaos Resistance]\n5. +43% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. +18% to [Resistances|Cold Resistance]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
@@ -637,12 +643,6 @@
         65,
         100
       ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Amulet1",
-      "unique_name": "Fireflower",
       "slot_x": 0,
       "slot_y": 0
     },

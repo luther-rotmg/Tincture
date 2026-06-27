@@ -80,13 +80,7 @@
       "id": "azmerianimals58"
     },
     {
-      "id": "slowed_enemies23_"
-    },
-    {
       "id": "criticals54_"
-    },
-    {
-      "id": "spell_criticals15"
     },
     {
       "id": "remnant1"
@@ -114,9 +108,6 @@
     },
     {
       "id": "intelligence7"
-    },
-    {
-      "id": "slowed_enemies22"
     },
     {
       "id": "AscendancyMonk3Small1"
@@ -200,9 +191,6 @@
       "id": "jewel_slot1976"
     },
     {
-      "id": "duration6"
-    },
-    {
       "id": "attributes100_"
     },
     {
@@ -228,9 +216,6 @@
     },
     {
       "id": "criticals17"
-    },
-    {
-      "id": "duration10"
     },
     {
       "id": "triggers16"
@@ -260,16 +245,10 @@
       "id": "criticals15"
     },
     {
-      "id": "duration12"
-    },
-    {
       "id": "projectile_spells1"
     },
     {
       "id": "intelligence54"
-    },
-    {
-      "id": "spell_criticals16"
     },
     {
       "id": "intelligence59"
@@ -332,16 +311,10 @@
       "id": "criticals12"
     },
     {
-      "id": "slowed_enemies16"
-    },
-    {
       "id": "criticals56"
     },
     {
       "id": "lightning_penetration27"
-    },
-    {
-      "id": "spell_criticals12_"
     },
     {
       "id": "dexterity6"
@@ -408,6 +381,78 @@
     },
     {
       "id": "lightning20__"
+    },
+    {
+      "id": "slowed_enemies23_",
+      "weapon_set": 1
+    },
+    {
+      "id": "slowed_enemies22",
+      "weapon_set": 1
+    },
+    {
+      "id": "mana_regeneration11",
+      "weapon_set": 1
+    },
+    {
+      "id": "mana_regeneration8",
+      "weapon_set": 1
+    },
+    {
+      "id": "duration6",
+      "weapon_set": 1
+    },
+    {
+      "id": "mana_regeneration17",
+      "weapon_set": 1
+    },
+    {
+      "id": "duration10",
+      "weapon_set": 1
+    },
+    {
+      "id": "duration12",
+      "weapon_set": 1
+    },
+    {
+      "id": "slowed_enemies16",
+      "weapon_set": 1
+    },
+    {
+      "id": "cold38",
+      "weapon_set": 2
+    },
+    {
+      "id": "monkchakra18",
+      "weapon_set": 2
+    },
+    {
+      "id": "monkchakra13",
+      "weapon_set": 2
+    },
+    {
+      "id": "intelligence101_",
+      "weapon_set": 2
+    },
+    {
+      "id": "cold7",
+      "weapon_set": 2
+    },
+    {
+      "id": "cold13",
+      "weapon_set": 2
+    },
+    {
+      "id": "intelligence102",
+      "weapon_set": 2
+    },
+    {
+      "id": "monkchakra14",
+      "weapon_set": 2
+    },
+    {
+      "id": "cold12",
+      "weapon_set": 2
     }
   ],
   "skills": [
@@ -486,44 +531,37 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
+      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
-          "level_interval": [
-            1,
+            65,
             100
           ]
         }
@@ -574,16 +612,30 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
       "level_interval": [
-        84,
+        90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "level_interval": [
+            1,
             100
           ]
         },
@@ -595,7 +647,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
           "level_interval": [
             1,
             100
@@ -604,37 +656,44 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
+      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
+          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -670,6 +729,43 @@
         },
         {
           "id": "Metadata/Items/Gem/SupportGemInnervate",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
           "level_interval": [
             1,
             100
@@ -761,23 +857,39 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemArc",
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
-        78,
+        90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemChainThree",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDiscipline",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsExodus",
+          "level_interval": [
+            65,
             100
           ]
         }
@@ -826,12 +938,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
-      "unique_name": "Kalandra's Touch",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Belt1",
       "unique_name": "Headhunter",
       "slot_x": 0,
@@ -851,7 +957,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Dueling Wand\n1. 103% increased [Spell] Damage\n2. 117% increased [Lightning] Damage\n3. +3 to Level of all [Spell|Spell] Skills\n4. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n5. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
       "level_interval": [
-        90,
+        65,
         100
       ],
       "slot_x": 0,
@@ -861,9 +967,15 @@
       "inventory_id": "Amulet1",
       "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. +118 to maximum Life\n4. +6 to Level of all [Spell|Spell] Skills",
       "level_interval": [
-        90,
+        65,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring1",
+      "unique_name": "Kalandra's Touch",
       "slot_x": 0,
       "slot_y": 0
     }

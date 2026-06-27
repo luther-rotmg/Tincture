@@ -746,6 +746,13 @@
       ],
       "support_skills": [
         {
+          "id": "Metadata/Items/Gem/SupportGemAtzirisCommunion",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gem/SupportGemEnergyRetention",
           "level_interval": [
             1,
@@ -899,7 +906,7 @@
       "inventory_id": "Weapon1",
       "additional_text": "Reaping Staff\n1. [Gain] 54% of Damage as Extra [Fire] Damage\n2. [Gain] 54% of Damage as Extra [Cold] Damage\n3. +7 to Level of all [Physical|Physical] [Spell|Spell] Skills\n4. +1 to Level of all [Spell|Spell] Skills\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: 12% chance when collecting an [ElementalInfusion|Elemental Infusion] to gain an\nadditional [ElementalInfusion|Elemental Infusion] of the same type\n7. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster",
       "level_interval": [
-        84,
+        64,
         100
       ],
       "slot_x": 0,
@@ -941,7 +948,7 @@
       "inventory_id": "Weapon2",
       "additional_text": "Chiming Staff\n1. 39% increased [Spell] Damage\n2. 99% increased [Lightning] Damage\n3. +227 to maximum Mana\n4. 36% increased [CriticalDamageBonus|Critical Spell Damage Bonus]\n5. 74% increased chance to [Shock]\n6. [Gain] 20% of Damage as Extra [Lightning] Damage\n7. [ShamanOnlyMods|Bonded]: 60% increased [BuffMagnitude|Magnitude] of [Shock|Shock] you inflict",
       "level_interval": [
-        72,
+        57,
         100
       ],
       "slot_x": 0,
