@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://tincturepoe2.com/docs/og.png" />
 <!-- data.json is published as an open dataset (see The Cellar) -->
 <script type="application/ld+json" id="ldDataset">
-{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.3), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
+{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.3), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, since-last-refresh trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
 </script>
 <!-- Fonts are self-hosted (fonts.css → fonts/*.woff2) so the page makes NO third-party
      requests — no visitor IP leaks to Google. That's what backs the "no tracking" claim. -->
@@ -1138,7 +1138,7 @@
       <span>#</span>
       <span>Build</span>
       <span class="ar">Of the ladder</span>
-      <span class="ar"><span class="hint" tabindex="0" data-tip="Change in share over 24 hours. Reads ‘baseline’ until enough hourly snapshots accumulate.">Trend</span></span>
+      <span class="ar"><span class="hint" tabindex="0" data-tip="Change in share since the last refresh. Reads ‘baseline’ until enough hourly snapshots accumulate.">Trend</span></span>
       <span class="ar">Decant</span>
     </div>
     <div class="rows" id="rows"></div>
@@ -1353,7 +1353,7 @@
         <dt>leagues[]</dt><dd>{ url, name, mode, label, totals{characters, ascendancies}, builds[], note?, curated? }</dd>
         <dt>builds[]</dt><dd>{ rank, tier, cls, asc, skill, pop, delta, n, tag } — pop/delta/n are null on curated rows</dd>
       </dl>
-      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. <code>n</code> is derived (share × league total), not a measured headcount; 24-hour trends sit at baseline until snapshots accumulate. Two companion files are public too: <code>meta-detail.json</code> (per-ascendancy top skills, supports, passive notables, uniques and stat medians — the breakdown behind the expandable ledger rows and The Dispensary) and <code>builds/&lt;slug&gt;.build</code> (the real loadable build Decant serves for each meta pick). No key, no rate limit beyond the host's — please don't hammer it. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
+      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. <code>n</code> is derived (share × league total), not a measured headcount; Trends sit at baseline until snapshots accumulate. Two companion files are public too: <code>meta-detail.json</code> (per-ascendancy top skills, supports, passive notables, uniques and stat medians — the breakdown behind the expandable ledger rows and The Dispensary) and <code>builds/&lt;slug&gt;.build</code> (the real loadable build Decant serves for each meta pick). No key, no rate limit beyond the host's — please don't hammer it. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
     </div>
   </section>
 
@@ -1616,7 +1616,7 @@ function templateText(b){
     playstyle: tagFor(b) || null,
     metaSharePct: b.pop ?? null,
     estCharacters: b.n ?? null,        // derived: share × league total, not a measured count
-    trend24h: b.delta ?? null,
+    trendSinceRefresh: b.delta ?? null,
     source: "poe.ninja-derived ascendancy share (hourly)",
     guide: `Search a community guide for "${b.asc}${b.cls?` (${b.cls})`:""} PoE2 0.5.3".`,
   }, null, 2);
@@ -2278,7 +2278,7 @@ function renderRows(){
       : `<div class="pop">${confHTML}</div>`;
     let trendCell;
     if (b.delta == null) trendCell = `<span class="trend flat"></span>`;
-    else if (!trendsReady) trendCell = `<span class="trend base" title="24-hour trends appear once enough hourly snapshots accumulate">baseline</span>`;
+    else if (!trendsReady) trendCell = `<span class="trend base" title="trends appear once enough hourly snapshots accumulate">baseline</span>`;
     else trendCell = trendHTML(b.delta);
     const md = metaFor(b);
     row.innerHTML = `
@@ -2374,7 +2374,7 @@ function renderRows(){
     const foot = document.createElement("div");
     foot.className = "ledger-foot";
     foot.innerHTML = `Top <b>${sb.length}</b> ascendancies shown — together about <b>${cover}%</b> of the ladder; the rest is the long tail. ` +
-      (trendsReady ? `Trend = 24-hour change in share.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
+      (trendsReady ? `Trend = change in share since the last refresh.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
     rows.appendChild(foot);
   }
   const lstat = $("#ledgerStatus");
@@ -2874,7 +2874,7 @@ function archToCSV(){
     + "sample_n is DERIVED (share x league total), not a measured headcount. "
     + "curated rows are hand-picked archetypes (blank stats), not ladder data. "
     + "Not a .build and not an official GGG API export.";
-  const head = ["league","mode","class","ascendancy","skill","tier","share_pct","trend_24h","sample_n","curated","tag"];
+  const head = ["league","mode","class","ascendancy","skill","tier","share_pct","trend_since_refresh","sample_n","curated","tag"];
   const rows = archFiltered().map(r=>[
     r.leagueLabel.split(" · ")[0], r.mode, r.cls, r.asc, r.skill, r.tier,
     r.pop==null?"":r.pop, r.delta==null?"":r.delta, r.n==null?"":r.n, r.curated?"true":"false", r.tag,
@@ -2905,7 +2905,7 @@ function setupArchive(){
   $("#archClass").innerHTML = `<option value="all">All classes</option>` + classes.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
   $("#archSortM").innerHTML = [["pop|desc","Share"],["delta|desc","Rising"],["n|desc","Sample"],["asc|asc","Name"],["league|asc","League"],["cls|asc","Class"]]
     .map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
-  $("#archDisclaimer").innerHTML = `Live ladder shares from poe.ninja, refreshed hourly. 24-hour trends read <b>baseline</b> until enough snapshots accumulate. Standard rows are curated archetypes (—), not ladder data. Counts are derived (share × ladder size).`;
+  $("#archDisclaimer").innerHTML = `Live ladder shares from poe.ninja, refreshed hourly. Trends read <b>baseline</b> until enough snapshots accumulate. Standard rows are curated archetypes (—), not ladder data. Counts are derived (share × ladder size).`;
   secL.value = archLeague; $("#archClass").value = archClass;
   secL.onchange = ()=>{ archLeague = secL.value; archRender(); };
   $("#archClass").onchange = e=>{ archClass = e.target.value; archRender(); };
