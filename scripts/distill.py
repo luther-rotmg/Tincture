@@ -301,6 +301,8 @@ def _apportion_n(rows, total):
     the real population — a mild inflation the honesty ethos warns against. Largest-remainder
     apportionment floors every row then hands the leftover characters to the largest fractional
     remainders, so the derived counts never sum past the population while staying share-accurate.
+    When the source shares themselves sum above 100%, the exact counts are first scaled down
+    proportionally to at most the population, so even the floors can't overshoot.
     """
     if not rows:
         return

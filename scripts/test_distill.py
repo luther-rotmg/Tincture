@@ -314,8 +314,8 @@ class Apportion(unittest.TestCase):
 
     def test_derived_n_clamped_when_shares_exceed_100(self):
         # poe.ninja top-N shares can sum to >100% (overlapping categories + independent rounding);
-        # the apportionment clamp (target = min(total, round(sum(exacts)))) must never let the
-        # derived sample counts inflate past the real ladder population.
+        # _apportion_n scales the exact counts down to <= total before flooring, so the derived
+        # sample counts never inflate past the real ladder population.
         league = {"total": 1000, "statistics": [
             {"class": "Titan", "percentage": 25.0}, {"class": "Deadeye", "percentage": 25.0},
             {"class": "Lich", "percentage": 25.0}, {"class": "Invoker", "percentage": 25.0},
