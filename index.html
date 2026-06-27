@@ -1693,8 +1693,12 @@ async function decant(b, slugOverride){
     } catch (_) { /* not reconstructed */ }
   }
   if (real != null) return saveRealBuild(b, real, slug + ".build");
-  // honest fallback: a labelled meta template (.txt) — never the game's .build slot
-  saveBlob(templateText(b), slugOf(b) + "-tincture-template.txt", "text/plain;charset=utf-8");
+  // honest fallback: a labelled meta template (.txt) — never the game's .build slot.
+  // enrich a stub pick (variant / non-top-N compare) from its ascendancy's ledger row so the
+  // template carries real share/playstyle instead of all-null; name the file with the real slug.
+  const lrow = (curLeague().builds||[]).find(x => slugOf(x) === slugOf(b));
+  if (lrow) b = { ...lrow, ...b };
+  saveBlob(templateText(b), slug + "-tincture-template.txt", "text/plain;charset=utf-8");
   toast(`Saved a <b>${esc(b.asc)}</b> starter (.txt) — its ladder share, playstyle, and a guide link. No loadable build for this exact pick yet, so follow the linked guide.`, "ok", 7000);
 }
 
