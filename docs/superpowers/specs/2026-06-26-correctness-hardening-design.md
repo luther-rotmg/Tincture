@@ -1,6 +1,8 @@
 # Correctness & Honesty Hardening
 
 **Status:** approved design (rev. 2, post adversarial verification) · **Date:** 2026-06-26 · **Type:** bug-fix sweep (front-end + docs + pipeline test)
+
+> **Rev. 3 note (during implementation):** Task E's >100%-share test — specced as a "characterization lock" assuming the apportionment clamp already worked — **failed**, exposing a real inflation bug: `_apportion_n`'s floors summed past `total` for >100% shares and the `min(total, …)` clamp couldn't reduce them, so `sum(n) > total` (violating the "never inflate totals" invariant). So `scripts/distill.py` **was** changed (scale `exacts` down proportionally to ≤ `total` before flooring) — a justified deviation from the "NO change to distill.py" line below. Verified: `python scripts/test_distill.py` 45/45; sub-100%/exactly-100%/zero paths unchanged.
 **Branch:** `feature/correctness-hardening` (stacked on `feature/look-feel-voice` → ② → ①)
 
 ## Overview
