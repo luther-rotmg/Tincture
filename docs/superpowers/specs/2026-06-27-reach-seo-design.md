@@ -92,7 +92,7 @@ In `landing_html`'s head `parts` (after the `og:image:height` line, distill.py:7
            return None
        return name
    ```
-2. **Wire into `write_landing`** (distill.py:786): replace
+2. **Wire into `generate_landing_pages`** (the real function name — def at distill.py:762, NOT "write_landing"; the weapon-extraction line is 786): replace
    `weapon = (e.get("weapons") or [{}])[0].get("name") if e.get("weapons") else None`
    with `weapon = _dominant_weapon(e)`.
 3. **Factual wording** in `landing_html` (distill.py:680): replace
@@ -103,6 +103,22 @@ In `landing_html`'s head `parts` (after the `og:image:height` line, distill.py:7
 
 Net: ~16 ascendancies keep a clean weapon claim ("Most-played weapon: Bow / Quiver."), the 5 weak-plurality
 ones (Titan/Infernalist/Acolyte/Ritualist/Gemling) and the 2 "Unknown" ones (Stormweaver/Shaman) omit it.
+(The kept labels include weapon *sets* like "Bow / Quiver" — naming a main/offhand loadout under the singular
+"weapon" is an accepted plurality fact and a large honesty improvement over "Typically"; no set-vs-single
+branching, per the chosen wording.)
+
+## D — Regenerate & commit the `/b` pages + sitemap (ship the fix immediately)
+
+The 15 committed `b/*.html` already bake the dishonest text into **three** indexed spots each
+(`<meta name="description">`, `og:description`, and the ld+json `description` — all built from the single
+`desc` var, so the one-line `wbit` fix covers all three) **and** are stale vs current data (`b/titan.html`
+says "Quarterstaff" while live `meta-detail.json` has "Staff" 15%). So after the code fix, **regenerate the
+real pages from the CURRENT live data and commit them** — don't wait for the next hourly `distill.yml`:
+- Use a **scratch script** (NOT `python distill.py --demo`, which overwrites `data.json`/`history` with
+  SAMPLE data): load the committed `data.json` as `payload`, then `slugs = distill.generate_landing_pages(payload)`,
+  then `distill.write_sitemap(payload.get("updated"), slugs)`. This rewrites `b/*.html` + `b/index.json` +
+  `sitemap.xml` from the live `meta-detail.json` — no network, no `data.json` mutation.
+- Commit the regenerated `b/*.html`, `b/index.json`, `sitemap.xml`.
 
 ## Testing (Python 3.14.6 local + CI `test.yml`)
 
@@ -115,19 +131,27 @@ Add to `scripts/test_distill.py`:
 - **`_sitemap_xml`**: excludes `data.json`, includes the homepage `<loc>` and a `/b/<slug>.html` `<loc>`.
 - Run `python scripts/test_distill.py` → all green (currently 45 tests; +the new ones).
 
-**Regen verification:** `python scripts/distill.py --demo` (offline, uses the bundled sample) regenerates
-`/b/*.html` + `sitemap.xml`; spot-check a generated `/b` page has the twitter tags + the new weapon wording
-(or none), and `sitemap.xml` has no `data.json`. (Restore any demo-regenerated artifacts not meant to commit;
-the real `/b`/sitemap refresh happens via `distill.yml` on the next live run.)
+**Regen verification (the §D scratch-script regen, from live data):** after regenerating, spot-check that a
+previously-dishonest page (`b/stormweaver.html`, `b/titan.html`) now has the four `twitter:*` tags, contains
+**no** "Typically a" / "Unknown" weapon text, and omits the weapon line; a dominant page (`b/deadeye.html`)
+shows "Most-played weapon: Bow / Quiver." + the twitter tags; and `sitemap.xml` has no `data.json` `<loc>`,
+unchanged otherwise (homepage + `/b` pages, same format). Do NOT use `--demo` (it overwrites `data.json` with
+sample data).
 
 ## Rollout
 
-Pure pipeline/SEO; no SPA change. `/b` pages + `sitemap.xml` regenerate on the next `distill.yml` run (hourly)
-once merged. Branch off `main` (post ①②③); standard finish (merge/PR per the owner's choice).
+Pure pipeline/SEO; no SPA change. The §D step commits the regenerated `b/*.html` + `b/index.json` +
+`sitemap.xml` so the honest pages are live on merge (the hourly `distill.yml` keeps them fresh after). Branch
+off `main` (post ①②③); standard finish (merge/PR per the owner's choice).
 
 ## Integration points (verified anchors)
 
-- `scripts/distill.py`: `write_sitemap` [467] + new `_sitemap_xml` helper [~476]; `landing_html` head twitter
-  tags [~719] + `wbit` [680]; new `_dominant_weapon` + `WEAPON_DOMINANT_PCT` [~near 671]; `write_landing`
-  weapon extraction [786].
-- `scripts/test_distill.py`: new tests for `_dominant_weapon`, `landing_html`, `_sitemap_xml`.
+- `scripts/distill.py`: `write_sitemap` [467] + new `_sitemap_xml(lastmod, asc_slugs)` helper (move `url_block`
+  + blocks + xml assembly into it, drop the `data.json` block; preserve exact 2-space indent / homepage-then-`/b`
+  ordering / trailing newline); `landing_html` head twitter tags inserted after [719] (before the `og:type`
+  line 720; `parts` joins via `"\n".join(p for p in parts if p)` at 744) + `wbit` [680]; new `_dominant_weapon`
+  + `WEAPON_DOMINANT_PCT = 30` module-level above `landing_html` [~671]; `generate_landing_pages` weapon
+  extraction [786].
+- `scripts/test_distill.py`: new tests for `_dominant_weapon`, `landing_html` (twitter + wording + no
+  "Typically"/"Unknown"), `_sitemap_xml` (no `data.json`).
+- Regenerated artifacts (committed via §D): `b/*.html`, `b/index.json`, `sitemap.xml`.
