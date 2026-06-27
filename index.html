@@ -2164,8 +2164,13 @@ function renderCompare(){
   // decant from a column
   wrap.querySelectorAll(".cmp-decant").forEach(btn => btn.addEventListener("click", e => {
     e.stopPropagation();
-    const b = (curLeague().builds||[]).find(x => slugOf(x) === btn.dataset.slug);
-    if (b) decant(b);
+    const slug = btn.dataset.slug;
+    const b = (curLeague().builds||[]).find(x => slugOf(x) === slug);
+    if (b) { decant(b); return; }
+    // not in the active top-N ledger (one of the non-ranked ascendancies): synthesize a pick
+    // from its meta-detail entry and let decant() manifest-gate the slug (real .build or honest .txt).
+    const md = META && META.byAsc && META.byAsc[slug];
+    if (md) decant({ asc: md.asc, skill: "" }, slug);
   }));
 }
 
