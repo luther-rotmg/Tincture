@@ -1566,6 +1566,7 @@ const defaultLeague = () => leagues().find(l => l.url === (DATA && DATA.default)
 function relTime(iso){
   // floor every bucket so freshness is never overstated — a tool that promises "refreshed
   // hourly" must not round 31 min up to "1 hour ago" or 90 min up to "2 hours ago".
+  if (!iso || isNaN(new Date(iso).getTime())) return "—";
   const diff = Math.max(0, Date.now() - new Date(iso).getTime());
   const m = Math.floor(diff/60000);
   if (m < 1) return "just now";
@@ -2946,7 +2947,7 @@ function setupArchive(){
 function animateCounters(){
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll(".counter .num").forEach(el=>{
-    const target = +el.dataset.count;
+    const target = +el.dataset.count || 0;
     const pre = el.dataset.prefix || "";
     const suf = el.dataset.suffix || "";
     if (reduce){ el.textContent = pre + fmt(target) + suf; return; }
