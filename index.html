@@ -50,7 +50,7 @@
     --ink-3:#241d14;        /* row hover */
     --bone:#ece3d0;         /* primary text */
     --bone-dim:#b6aa90;     /* secondary text */
-    --muted:#9b8c6f;        /* low-emphasis (≥4.5:1 on raised panels for AA) */
+    --muted:#9b8c6f;        /* low-emphasis — 5.06–5.75:1 across grounds, passes AA */
     --gold:#c8a24a;         /* primary accent */
     --gold-bright:#e6c47a;  /* hover / glow */
     --oxblood:#9c3a2c;      /* the essence / S-tier */
@@ -3046,7 +3046,7 @@ function rxScore(state){
     if(state.pace==='tanky'&&/tanky|slow|durable|forgiving|frontline|sustain/.test(t)){ s+=2; why.push('slow & tanky'); }
     if(state.risk==='safe'){ if(/tanky|forgiving|durable|frontline|sustain/.test(t)){ s+=2; why.push('survivable'); } if(c.ehp!=null&&c.ehp>=hiEhp){ s+=2; if(!why.includes('survivable')) why.push('high EHP'); } }
     if(state.risk==='glass'){ if(/glass|burst|high risk|spike|crit/.test(t)){ s+=2; why.push('high burst'); } if(c.dps!=null&&c.dps>=hiDps){ s+=2; if(!why.includes('high burst')) why.push('top DPS'); } }
-    if(state.xp==='new'){ if(/beginner|forgiving|hands-off|league-start|simple|easy/.test(t)){ s+=3; why.push('beginner-friendly'); } if(c.loadable) s+=1; if(c.pop!=null&&c.pop>=5){ s+=1; if(!why.includes('beginner-friendly')) why.push('popular & proven'); } }
+    if(state.xp==='new'){ if(/beginner|forgiving|hands-off|league-start|simple|easy/.test(t)){ s+=3; why.push('beginner-friendly'); } if(c.loadable) s+=1; if(c.pop!=null&&c.pop>=5){ s+=1; if(!why.includes('beginner-friendly')) why.push('popular pick'); } }
     if(state.xp==='vet'&&/high skill|ceiling|combo|high floor|spike|micro/.test(t)){ s+=2; why.push('high ceiling'); }
     if(state.cls&&c.cls&&c.cls.toLowerCase()===state.cls){ s+=3; why.push('your class'); }
     c.score=s; c.why=why;
