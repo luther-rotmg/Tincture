@@ -542,6 +542,9 @@ class Guides(unittest.TestCase):
             payload = load_data()
             self.assertEqual(distill.untriaged_guides(payload, doc), [],
                              "every live ascendancy must be in guides.json's guides or unguided — add the new one(s)")
+            self.assertEqual(distill.untriaged_leveling(payload, doc), [],
+                             "every live ascendancy must be in guides.json's leveling or "
+                             "levelingUnguided — add the new one(s)")
 
 
 class LandingTwitter(unittest.TestCase):
