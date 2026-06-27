@@ -674,6 +674,19 @@ def _esc(s):
     return _html.escape(str(s), quote=True)
 
 
+WEAPON_DOMINANT_PCT = 30   # below this share there's no single "build weapon" worth naming on a /b page
+
+
+def _dominant_weapon(entry):
+    """The ascendancy's weapon to name on its /b page — only a clearly dominant, classified one.
+    None when the plurality is weak (< WEAPON_DOMINANT_PCT) or the weaponmode is unclassified ('Unknown')."""
+    w = (entry.get("weapons") or [{}])[0]
+    name = w.get("name")
+    if not name or "Unknown" in name or (w.get("pct") or 0) < WEAPON_DOMINANT_PCT:
+        return None
+    return name
+
+
 def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon=None, siblings=None):
     """A real-content (not doorway) SEO page for one ascendancy: class, playstyle, common skills,
     signature uniques, key notables, a self-canonical, JSON-LD, and a link into the live SPA deep
@@ -683,7 +696,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
     url = f"{SITE}/b/{slug}.html"
     deep = f"{SITE}/#asc={slug}"
     title = f"{asc} build meta — Path of Exile 2 (Runes of Aldur) | Tincture"
-    wbit = f" Typically a {weapon} build." if weapon else ""
+    wbit = f" Most-played weapon: {weapon}." if weapon else ""
     desc = (f"{asc}" + (f" ({cls})" if cls else "") + f" in Path of Exile 2 {PATCH} — "
             + (tag or "a current ladder ascendancy") + "." + wbit
             + " See its live ladder share, popular skills and uniques, and a loadable build on Tincture.")
@@ -793,7 +806,7 @@ def generate_landing_pages(payload):
         for asc, (cls, tag) in sorted(info.items()):
             slug = slugify_asc(asc)
             e = meta_by.get(asc) or {}
-            weapon = (e.get("weapons") or [{}])[0].get("name") if e.get("weapons") else None
+            weapon = _dominant_weapon(e)
             page = landing_html(asc, cls, tag, names(e.get("skills")), names(e.get("uniques")), names(e.get("notables")), weapon, siblings=siblings)
             tmp = os.path.join(LANDING_DIR, slug + ".html.tmp")
             with open(tmp, "w", encoding="utf-8") as f:

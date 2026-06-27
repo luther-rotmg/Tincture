@@ -520,5 +520,25 @@ class LandingTwitter(unittest.TestCase):
         self.assertIn('name="twitter:image" content="https://tincturepoe2.com/docs/og.png"', h)
 
 
+class WeaponLabel(unittest.TestCase):
+    def test_dominant_weapon_gates_weak_and_unknown(self):
+        self.assertEqual(distill._dominant_weapon({"weapons": [{"name": "Bow / Quiver", "pct": 87.6}]}), "Bow / Quiver")
+        self.assertEqual(distill._dominant_weapon({"weapons": [{"name": "Crossbow", "pct": 30.0}]}), "Crossbow")  # exactly at threshold
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Staff", "pct": 15}]}))                 # weak plurality
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Unknown / Sceptre", "pct": 45}]}))     # unclassified main
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Dual Unknown", "pct": 41.7}]}))
+        self.assertIsNone(distill._dominant_weapon({"weapons": []}))
+        self.assertIsNone(distill._dominant_weapon({}))
+
+    def test_landing_html_weapon_wording_is_honest(self):
+        dom = distill.landing_html("Deadeye", "Ranger", "bow", ["Lightning Arrow"], weapon="Bow / Quiver")
+        self.assertIn("Most-played weapon: Bow / Quiver.", dom)
+        self.assertNotIn("Typically a", dom)
+        none = distill.landing_html("Titan", "Warrior", "slam", ["Sunder"], weapon=None)
+        self.assertNotIn("Most-played weapon", none)
+        self.assertNotIn("Typically a", none)
+        self.assertNotIn("Unknown", none)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
