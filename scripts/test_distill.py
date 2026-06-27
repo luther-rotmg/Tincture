@@ -297,6 +297,17 @@ class FailSafe(unittest.TestCase):
         self.assertEqual(before, after, "an empty feed must leave data.json byte-for-byte unchanged")
 
 
+class SitemapXml(unittest.TestCase):
+    def test_excludes_data_json_keeps_home_and_landing(self):
+        xml = distill._sitemap_xml("2026-06-27", ["deadeye", "titan"])
+        self.assertNotIn("data.json", xml)                                  # a data file is not a crawlable page
+        self.assertIn("<loc>https://tincturepoe2.com/</loc>", xml)
+        self.assertIn("<loc>https://tincturepoe2.com/b/deadeye.html</loc>", xml)
+        self.assertIn("<loc>https://tincturepoe2.com/b/titan.html</loc>", xml)
+        self.assertIn("<lastmod>2026-06-27</lastmod>", xml)
+        self.assertTrue(xml.endswith("</urlset>\n"))
+
+
 class Apportion(unittest.TestCase):
     def test_derived_n_never_sums_above_total(self):
         # largest-remainder rounding: per-row round() can bias the headcounts above the real

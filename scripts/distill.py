@@ -464,21 +464,27 @@ def write_builds_manifest():
         print(f"[warn] could not write builds manifest: {e}")
 
 
+def _sitemap_xml(lastmod, asc_slugs=None):
+    """The sitemap XML string: the homepage + each per-ascendancy /b landing page. A JSON data file
+    (data.json) is NOT a crawlable page, so it is deliberately excluded. Pure — no IO."""
+    def url_block(loc, prio, freq="hourly"):
+        return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
+                f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
+    blocks = url_block(SITE_URL, "1.0")
+    for slug in sorted(asc_slugs or []):
+        blocks += url_block(f"{SITE_URL}b/{slug}.html", "0.6", "weekly")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + blocks + "</urlset>\n")
+
+
 def write_sitemap(updated_iso, asc_slugs=None):
     """Rewrite sitemap.xml with a <lastmod> matching data.json's update day, turning the
     'refreshed hourly' claim into a verifiable crawler freshness signal. Date granularity keeps
     the file (and its commits) from churning every hour. Includes the per-ascendancy landing
     pages. Fail-safe — a hiccup never breaks a run."""
     lastmod = (updated_iso or "")[:10] or datetime.now(timezone.utc).date().isoformat()
-    def url_block(loc, prio, freq="hourly"):
-        return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
-                f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
-    blocks = url_block(SITE_URL, "1.0") + url_block(SITE_URL + "data.json", "0.5")
-    for slug in sorted(asc_slugs or []):
-        blocks += url_block(f"{SITE_URL}b/{slug}.html", "0.6", "weekly")
-    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-           + blocks + "</urlset>\n")
+    xml = _sitemap_xml(lastmod, asc_slugs)
     try:
         tmp = SITEMAP_PATH + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
