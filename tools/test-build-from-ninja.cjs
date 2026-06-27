@@ -202,3 +202,128 @@ test('coverageOk refuses a throttled run below 70% of prior coverage; allows for
   assert.equal(T.coverageOk(5, 20, true), true);     // --force overrides
   assert.equal(T.coverageOk(5, 0, false), true);     // first run / no prior meta-detail
 });
+
+test('parseDefensiveStats: capped is resistance>=75 (penalty-proof, raised-cap-proof)', () => {
+  const mk = (f, fm) => ({ defensiveStats: {
+    effectiveHealthPool: 31555, life: 1497, energyShield: 2379, lowestMaximumHitTaken: 7188,
+    fireResistance: f, fireResistanceMax: fm, fireResistanceOverCap: Math.max(0, f - fm),
+    coldResistance: 76, coldResistanceMax: 75, lightningResistance: 75, lightningResistanceMax: 75,
+    chaosResistance: 0, chaosResistanceMax: 75 } });
+  // penalised cap 74/74 -> NOT capped (under the 75 floor)
+  assert.equal(T.parseDefensiveStats(mk(74, 74)).capped.fire, false);
+  // gear-raised cap, at 78/80 -> capped (>=75, safe)
+  assert.equal(T.parseDefensiveStats(mk(78, 80)).capped.fire, true);
+  // exactly 75/75 -> capped
+  assert.equal(T.parseDefensiveStats(mk(75, 75)).capped.fire, true);
+  const d = T.parseDefensiveStats(mk(76, 75));
+  assert.equal(d.ehp, 31555);
+  assert.equal(d.biggestHit, 7188);
+  assert.equal(d.capped.cold, true);     // 76 >= 75
+  assert.equal(d.capped.chaos, false);   // 0 < 75
+});
+
+test('parseDefensiveStats: chaosImmune from a Chaos Inoculation keystone', () => {
+  const base = { defensiveStats: { effectiveHealthPool: 1, fireResistance: 75, fireResistanceMax: 75 } };
+  assert.equal(T.parseDefensiveStats(base).chaosImmune, false);
+  const ci = { ...base, keystones: [{ name: 'Chaos Inoculation' }] };
+  assert.equal(T.parseDefensiveStats(ci).chaosImmune, true);
+  assert.equal(T.parseDefensiveStats({}), null);            // no defensiveStats -> null
+  assert.equal(T.parseDefensiveStats(null), null);
+});
+
+test('mergeDefence: defensiveStats wins, PoB pdr/crit retained, null ds fields do not clobber', () => {
+  // a char with NO pathOfBuildingExport but a defensiveStats block -> ds-only object
+  const dsOnly = T.mergeDefence({ defensiveStats: { effectiveHealthPool: 4200, fireResistance: 75, fireResistanceMax: 75 } });
+  assert.equal(dsOnly.ehp, 4200);
+  assert.equal(dsOnly.capped.fire, true);
+  assert.equal(dsOnly.pdr, undefined);                      // no PoB -> no pdr key
+  // a char with NEITHER -> null
+  assert.equal(T.mergeDefence({}), null);
+});
+
+test('mainSkillSupportCount counts supports on the highest-DPS active group', () => {
+  const gem = { Spark: 'Metadata/Items/Gems/SkillGemSpark', Comet: 'Metadata/Items/Gems/SkillGemComet',
+    A: 'Metadata/Items/Gems/SupportGemA', B: 'Metadata/Items/Gems/SupportGemB',
+    C: 'Metadata/Items/Gems/SupportGemC', D: 'Metadata/Items/Gems/SupportGemD' };
+  const char = { skills: [
+    { dps: [{ dps: 100 }], allGems: [{ name: 'Spark' }, { name: 'A' }, { name: 'B' }] },         // lower dps, 2 supports
+    { dps: [{ dps: 900 }], allGems: [{ name: 'Comet' }, { name: 'A' }, { name: 'B' }, { name: 'C' }, { name: 'D' }] }, // main, 4 supports
+  ] };
+  assert.equal(T.mainSkillSupportCount(char, gem), 4);
+  assert.equal(T.mainSkillSupportCount({ skills: [] }, gem), 0);
+  assert.equal(T.mainSkillSupportCount(null, gem), 0);
+});
+
+test('qa returns a soundness quality verdict; uncapped resist is NOT marked capped', () => {
+  const gem = { Comet: 'Metadata/Items/Gems/SkillGemComet', A: 'Metadata/Items/Gems/SupportGemA',
+    B: 'Metadata/Items/Gems/SupportGemB', C: 'Metadata/Items/Gems/SupportGemC' };
+  const char = {
+    level: 95, updatedUtc: '2026-06-19T07:23:51Z',
+    passiveCounts: { ascendancy: 8 },
+    defensiveStats: { effectiveHealthPool: 50000,
+      fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+      lightningResistance: 60, lightningResistanceMax: 75, chaosResistance: 30, chaosResistanceMax: 75 },
+    skills: [{ dps: [{ dps: 500 }], allGems: [{ name: 'Comet' }, { name: 'A' }, { name: 'B' }, { name: 'C' }] }],
+  };
+  // minimal build so qa's other checks don't throw; we only assert .quality here
+  const build = { name: 'x', ascendancy: 'Sorceress1', passives: [{ id: 'AscendancySorceress1Start' }],
+    skills: [{ id: 'Metadata/Items/Gems/SkillGemComet' }], inventory_slots: [] };
+  const r = T.qa(build, char, { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem });
+  assert.equal(r.quality.resistsCapped, false);          // lightning 60 < 75
+  assert.equal(r.quality.fullyAscended, true);           // 8 points
+  assert.equal(r.quality.mainSkillSupports, 3);
+  assert.equal(r.quality.mainSkillLinked, true);
+  assert.equal(r.quality.snapshotUtc, '2026-06-19T07:23:51Z');
+});
+
+test('qa resistsCapped honours Chaos Inoculation but flags a real chaos hole', () => {
+  const cap = v => ({ fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: v, chaosResistanceMax: 75, effectiveHealthPool: 1 });
+  const build = { name: 'x', ascendancy: 'Witch1', passives: [], skills: [{ id: 'Metadata/Items/Gems/SkillGemX' }], inventory_slots: [] };
+  const o = { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem: {} };
+  assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 } }, o).quality.resistsCapped, false); // chaos 0, no CI
+  assert.equal(T.qa(build, { defensiveStats: cap(0), passiveCounts: { ascendancy: 8 }, keystones: [{ name: 'Chaos Inoculation' }] }, o).quality.resistsCapped, true);
+});
+
+test('qa resistsCapped fails closed on absent resist field; snapshotUtc is null when updatedUtc absent', () => {
+  // Absent lightningResistance/lightningResistanceMax fields — parseDefensiveStats leaves
+  // capped.lightning undefined (falsy). The formula must treat undefined as uncapped and
+  // return false, never true. This locks the fail-closed invariant.
+  const build = { name: 'x', ascendancy: 'Sorceress1', passives: [{ id: 'AscendancySorceress1Start' }],
+    skills: [{ id: 'Metadata/Items/Gems/SkillGemComet' }], inventory_slots: [] };
+  const o = { slug: {}, tree: null, baseItems: null, md: null, weaponClass: null, gem: {} };
+
+  // fire and cold are capped (75/75 each) but lightning fields are entirely absent
+  const charMissingLightning = {
+    passiveCounts: { ascendancy: 8 },
+    defensiveStats: {
+      effectiveHealthPool: 40000,
+      fireResistance: 75, fireResistanceMax: 75,
+      coldResistance: 75, coldResistanceMax: 75,
+      // lightningResistance and lightningResistanceMax intentionally omitted
+      chaosResistance: 75, chaosResistanceMax: 75,
+    },
+  };
+  assert.equal(T.qa(build, charMissingLightning, o).quality.resistsCapped, false,
+    'absent lightning field must not read as capped');
+
+  // snapshotUtc must be null when char has no updatedUtc
+  const charNoUtc = { passiveCounts: { ascendancy: 8 }, defensiveStats: { effectiveHealthPool: 1 } };
+  assert.equal(T.qa(build, charNoUtc, o).quality.snapshotUtc, null,
+    'missing updatedUtc must yield snapshotUtc === null');
+});
+
+test('sortBySoundness puts the capped+ascended build first even at lower balance', () => {
+  const capped = { passiveCounts: { ascendancy: 8 }, defensiveStats: {
+    effectiveHealthPool: 30000, fireResistance: 75, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: 75, chaosResistanceMax: 75 } };
+  const glassUncapped = { passiveCounts: { ascendancy: 8 }, defensiveStats: {
+    effectiveHealthPool: 90000, fireResistance: 40, fireResistanceMax: 75, coldResistance: 75, coldResistanceMax: 75,
+    lightningResistance: 75, lightningResistanceMax: 75, chaosResistance: 75, chaosResistanceMax: 75 } };
+  const cands = [
+    { name: 'glass', char: glassUncapped, ehp: 90000, dps: 9000 },   // higher balance, uncapped fire
+    { name: 'tank', char: capped, ehp: 30000, dps: 8000 },           // lower balance, fully capped
+  ];
+  T.sortBySoundness(cands);
+  assert.equal(cands[0].name, 'tank');     // capped wins the preorder
+});

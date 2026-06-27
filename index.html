@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://tincturepoe2.com/docs/og.png" />
 <!-- data.json is published as an open dataset (see The Cellar) -->
 <script type="application/ld+json" id="ldDataset">
-{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.3), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, 24h trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
+{"@context":"https://schema.org","@type":"Dataset","name":"Tincture — Path of Exile 2 build meta","description":"Hourly-distilled Path of Exile 2 ascendancy meta (Runes of Aldur, patch 0.5.3), derived from poe.ninja's public ladder aggregation: ranked ascendancy shares, since-last-refresh trends, and per-league (Softcore/Hardcore/SSF/HC SSF) breakdowns.","url":"https://tincturepoe2.com/","creator":{"@type":"Person","name":"Ryan Duke"},"isAccessibleForFree":true,"isBasedOn":"https://poe.ninja/poe2/builds","creditText":"Derived from poe.ninja's public Path of Exile 2 ladder aggregation.","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://tincturepoe2.com/data.json"},"keywords":["Path of Exile 2","PoE2","build meta","ladder","ascendancy","Runes of Aldur"]}
 </script>
 <!-- Fonts are self-hosted (fonts.css → fonts/*.woff2) so the page makes NO third-party
      requests — no visitor IP leaks to Google. That's what backs the "no tracking" claim. -->
@@ -50,7 +50,7 @@
     --ink-3:#241d14;        /* row hover */
     --bone:#ece3d0;         /* primary text */
     --bone-dim:#b6aa90;     /* secondary text */
-    --muted:#9b8c6f;        /* low-emphasis (≥4.5:1 on raised panels for AA) */
+    --muted:#9b8c6f;        /* low-emphasis — 5.06–5.75:1 across grounds, passes AA */
     --gold:#c8a24a;         /* primary accent */
     --gold-bright:#e6c47a;  /* hover / glow */
     --oxblood:#9c3a2c;      /* the essence / S-tier */
@@ -319,7 +319,7 @@
   /* ---------------- The Counterpoise (compare) ---------------- */
   .counterpoise .cmp-table-wrap{ overflow-x:auto; }
   .cmp-table{ width:100%; border-collapse:collapse; font-size:13px; }
-  .cmp-table th[scope="row"]{ text-align:left; color:var(--muted); font-family:var(--fmono); font-size:11px; letter-spacing:.04em; white-space:nowrap; padding:7px 12px 7px 0; position:sticky; left:0; background:var(--bg); z-index:1; }
+  .cmp-table th[scope="row"]{ text-align:left; color:var(--muted); font-family:var(--fmono); font-size:11px; letter-spacing:.04em; white-space:nowrap; padding:7px 12px 7px 0; position:sticky; left:0; background:var(--ink-2); z-index:1; }
   .cmp-table td{ padding:7px 14px; text-align:right; border-bottom:1px solid var(--hair); min-width:120px; }
   .cmp-table tbody tr:hover td, .cmp-table tbody tr:hover th{ background:rgba(200,162,74,.04); }
   .cmp-colhead{ text-align:right; vertical-align:bottom; padding:6px 14px 12px; border-bottom:1px solid var(--hair-strong); }
@@ -345,7 +345,7 @@
 
   /* ---------------- The Still (signature aggregation visual) ---------------- */
   .still{
-    margin:78px 0 0; padding:52px 0 46px;
+    margin:78px 0 0; padding:52px 0 30px;
     border-top:1px solid var(--hair-strong);
   }
   .still-grid{display:grid; grid-template-columns:300px 1fr; gap:54px; align-items:center;}
@@ -470,7 +470,7 @@
   /* "export my character" picker (native <dialog>) — dormant until the OAuth path is enabled */
   dialog.char-pick{
     color:var(--bone); background:var(--ink-2); border:1px solid var(--hair-strong);
-    border-radius:4px; padding:24px 26px; max-width:min(92vw,420px); width:100%;
+    border-radius:3px; padding:24px 26px; max-width:min(92vw,420px); width:100%;
     box-shadow:0 28px 70px -24px rgba(0,0,0,.85);
   }
   dialog.char-pick::backdrop{background:rgba(10,8,5,.66);}
@@ -697,6 +697,9 @@
   .bv-quality .bvq-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-quality .bvq{ font-family:var(--fmono); font-size:10px; letter-spacing:.02em; }
   .bv-quality .bvq.ok{ color:var(--rise); }
+  .bvq.warn{ color:var(--bone-dim); border-color:var(--hair-strong); background:rgba(200,162,74,.06); }
+  .bvq.note{ color:var(--muted); }
+  .bvq-asof{ color:var(--muted); font-size:9px; letter-spacing:.05em; align-self:center; margin-left:4px; }
   .bv-def{ margin:2px 0 16px; }
   .bv-def-h{ font-family:var(--fmono); font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
   .bv-def .def-row{ display:flex; flex-wrap:wrap; gap:6px; margin:7px 0 6px; }
@@ -936,13 +939,13 @@
   }
 
   /* ---- The Prescription (guided build finder) ---- */
-  .prescription{ margin:34px 0; padding:22px 28px; border:1px solid var(--hair); border-radius:4px;
-    background:linear-gradient(180deg, rgba(200,162,74,.04), rgba(0,0,0,.18)); }
-  .prescription .guide-toggle{ padding:0; }            /* the panel already pads; collapse like the guide */
-  .prescription .gt-title{ font-family:var(--fdisplay); font-size:21px; }
-  .prescription .rx-body{ display:none; margin-top:20px; }
+  .prescription{ margin:0; border-bottom:1px solid var(--hair); }
+  .prescription .guide-toggle{ padding:22px 0; }        /* align to the column spine like .guide */
+  .prescription .gt-title{ font-family:var(--ftext); font-size:19px; }
+  .prescription .rx-body{ display:none; padding:0 0 40px; }
   .prescription.open .rx-body{ display:block; }
   .prescription.open .gt-chevron{ transform:rotate(180deg); }
+  .prescription.open{ background:linear-gradient(180deg, rgba(200,162,74,.035), transparent); }
   .rx{ display:grid; gap:18px; margin-top:22px; }
   .rx-q .q{ font-family:var(--fmono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--bone-dim); margin-bottom:9px; }
   .rx-opts{ display:flex; flex-wrap:wrap; gap:8px; }
@@ -970,7 +973,6 @@
   .rx-loadable.yes{ color:var(--rise); } .rx-loadable.no{ color:var(--muted); }
   .rx-note{ font-family:var(--fmono); font-size:10.5px; letter-spacing:.02em; color:var(--muted); line-height:1.6; margin:20px 0 0; max-width:78ch; }
   @media (max-width:560px){
-    .prescription{ padding:22px 16px; }
     .rx-card{ grid-template-columns:auto 1fr; }
     .rx-acts{ grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; margin-top:6px; }
   }
@@ -1035,16 +1037,14 @@
         <div class="cta-row">
           <button class="decant lg" id="heroDecant">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg>
-            Decant the essence
+            Decant this build → your game
           </button>
           <a class="ghost-link" id="heroGuide" target="_blank" rel="noopener noreferrer" hidden>find a build guide ↗</a>
           <a class="ghost-link" id="exportMine" href="/api/oauth/login" hidden>export my own character ↗</a>
-          <a href="#guide" class="ghost-link" id="guideHeroLink">new? how Decant works ↓</a>
+          <a href="#guide" class="ghost-link" id="guideHeroLink">new? how it works ↓</a>
           <a href="#prescription" class="ghost-link" id="rxHeroLink">match me to a build ↓</a>
-          <a href="#assay" class="ghost-link">see the analysis ↓</a>
-          <a href="#archive" class="ghost-link">access all the data ↓</a>
         </div>
-        <p class="cta-note">Top picks now Decant a real, <b>loadable <code>.build</code></b> — reconstructed from a representative public-ladder character (credited in the file) and saved straight to your Build Planner. Picks we haven't reconstructed yet export an honest labelled template.</p>
+        <p class="cta-note">Top picks now Decant a real, <b>loadable <code>.build</code></b> — reconstructed from a real public-ladder player running that build (credited in the file) and saved straight to your Build Planner. Picks we haven't reconstructed yet export an honest labelled template.</p>
       </div>
       <aside class="hero-side" aria-label="League data summary">
         <div class="stat-row"><span class="k">Characters read</span><span class="v" id="heroChars">—</span></div>
@@ -1063,7 +1063,7 @@
       <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
     </button>
     <div class="guide-body" id="guideBody">
-      <p class="lede">Tincture reads what the live ladder is actually playing and lets you grab any pick in one click. For the top picks that's now a real, <em>loadable</em> <code>.build</code> — reconstructed from a representative public-ladder character (passives, gems and items, with the source character credited in the file) and dropped straight into PoE&nbsp;2's in-game Build Planner. For picks we haven't reconstructed yet, Decant exports an honest <b>labelled template</b> rather than a fabricated build. Either way you go from "what should I play?" to a starting point in one click.</p>
+      <p class="lede">Tincture reads what the live ladder is actually playing and lets you grab any pick in one click. For the top picks that's now a real, <em>loadable</em> <code>.build</code> — reconstructed from a real public-ladder player running that build (passives, gems and items, credited in the file) and dropped straight into PoE&nbsp;2's in-game Build Planner. For picks we haven't reconstructed yet, Decant exports an honest <b>labelled template</b> rather than a fabricated build. Either way you go from "what should I play?" to a starting point in one click.</p>
 
       <ol class="steps">
         <li class="step">
@@ -1100,7 +1100,7 @@
       <svg class="gt-chevron" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
     </button>
     <div class="rx-body" id="rxBody">
-      <p class="sub">Answer a few questions and Tincture matches you to ascendancies that fit — ranked, each with an honest reason. Your answers live only in the link, so the result is shareable.</p>
+      <p class="sub">Answer a few questions and Tincture matches you to ascendancies that fit — ranked, with the reason each one matched. Your answers live only in the link, so the result is shareable.</p>
       <div class="rx" id="rxQuiz"></div>
     <div class="rx-actions">
       <button class="decant lg" id="rxRun" type="button">
@@ -1111,7 +1111,7 @@
       <button class="ghost-link" id="rxReset" type="button" hidden>start over</button>
     </div>
       <div class="rx-results" id="rxResults" aria-live="polite"></div>
-      <p class="rx-note">Matching is editorial guidance — from the playstyle tags plus the meta's weapons and median EHP/DPS — a starting shortlist, not a power ranking. Every result links to the honest ledger row and Decant.</p>
+      <p class="rx-note">Matched to how you want to play and ranked by ladder share (popularity, not a strength score) — every result is a real pick that links to the honest ledger row and Decant.</p>
     </div>
   </section>
 
@@ -1138,7 +1138,7 @@
       <span>#</span>
       <span>Build</span>
       <span class="ar">Of the ladder</span>
-      <span class="ar"><span class="hint" tabindex="0" data-tip="Change in share over 24 hours. Reads ‘baseline’ until enough hourly snapshots accumulate.">Trend</span></span>
+      <span class="ar"><span class="hint" tabindex="0" data-tip="Change in share since the last refresh. Reads ‘baseline’ until enough hourly snapshots accumulate.">Trend</span></span>
       <span class="ar">Decant</span>
     </div>
     <div class="rows" id="rows"></div>
@@ -1218,8 +1218,9 @@
   <!-- ===================== THE COUNTERPOISE (compare) ===================== -->
   <section class="section-frame counterpoise" id="compare" aria-label="Compare ascendancies side by side">
     <header class="section-head">
+      <span class="eyebrow">Weigh two essences</span>
       <h2>The Counterpoise</h2>
-      <p class="section-sub">Weigh two or three ascendancies against each other — vitals, defences, and the build behind each. Higher isn't automatically better; survivability and damage trade off.</p>
+      <p class="sub">Weigh two or three ascendancies against each other — vitals, defences, and the build behind each. Higher isn't automatically better; survivability and damage trade off.</p>
     </header>
     <div class="cmp-pickers" id="cmpPickers" role="group" aria-label="Choose ascendancies to compare"></div>
     <div class="cmp-table-wrap" id="cmpTable"></div>
@@ -1231,7 +1232,7 @@
       <div class="still-copy">
         <span class="eyebrow">The Still</span>
         <h2>Thousands of characters, reduced to one essence.</h2>
-        <p>Every hour we read poe.ninja's live aggregation of the Runes of Aldur ladder — itself drawn from the live ladder through GGG's official API — and boil the cloud of variation down to the consensus that's actually winning. Each week we go deeper: reconstructing a real, <b>loadable</b> build for every meta pick and breaking down the skills, supports and passives behind each ascendancy. No editorial guesswork — just what the ladder is doing, distilled and decanted.</p>
+        <p>Every hour we read poe.ninja's live aggregation of the Runes of Aldur ladder — itself drawn from the live ladder through GGG's official API — and boil the cloud of variation down to the consensus that's actually being played. Each week we go deeper: reconstructing a real, <b>loadable</b> build for every meta pick and breaking down the skills, supports and passives behind each ascendancy. No guesswork about the rankings — they're straight from the ladder. The playstyle notes are ours, and we say so.</p>
         <div class="provenance">
           <div class="src">poe.ninja <span class="note">— live PoE 2 ladder build data, per-character</span></div>
           <div class="src">GGG ladder <span class="note">— the source underneath, via GGG's official API</span></div>
@@ -1352,7 +1353,7 @@
         <dt>leagues[]</dt><dd>{ url, name, mode, label, totals{characters, ascendancies}, builds[], note?, curated? }</dd>
         <dt>builds[]</dt><dd>{ rank, tier, cls, asc, skill, pop, delta, n, tag } — pop/delta/n are null on curated rows</dd>
       </dl>
-      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. <code>n</code> is derived (share × league total), not a measured headcount; 24-hour trends sit at baseline until snapshots accumulate. Two companion files are public too: <code>meta-detail.json</code> (per-ascendancy top skills, supports, passive notables, uniques and stat medians — the breakdown behind the expandable ledger rows and The Dispensary) and <code>builds/&lt;slug&gt;.build</code> (the real loadable build Decant serves for each meta pick). No key, no rate limit beyond the host's — please don't hammer it. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
+      <p class="arch-api-foot">A single static JSON file — poe.ninja-derived ascendancy shares for each live Runes of Aldur league plus a curated Standard list, re-distilled hourly. <code>n</code> is derived (share × league total), not a measured headcount; Trends sit at baseline until snapshots accumulate. Two companion files are public too: <code>meta-detail.json</code> (per-ascendancy top skills, supports, passive notables, uniques and stat medians — the breakdown behind the expandable ledger rows and The Dispensary) and <code>builds/&lt;slug&gt;.build</code> (the real loadable build Decant serves for each meta pick). No key, no rate limit beyond the host's — please don't hammer it. Tincture is an independent fan project, not affiliated with or endorsed by Grinding Gear Games.</p>
     </div>
   </section>
 
@@ -1565,6 +1566,7 @@ const defaultLeague = () => leagues().find(l => l.url === (DATA && DATA.default)
 function relTime(iso){
   // floor every bucket so freshness is never overstated — a tool that promises "refreshed
   // hourly" must not round 31 min up to "1 hour ago" or 90 min up to "2 hours ago".
+  if (!iso || isNaN(new Date(iso).getTime())) return "—";
   const diff = Math.max(0, Date.now() - new Date(iso).getTime());
   const m = Math.floor(diff/60000);
   if (m < 1) return "just now";
@@ -1615,7 +1617,7 @@ function templateText(b){
     playstyle: tagFor(b) || null,
     metaSharePct: b.pop ?? null,
     estCharacters: b.n ?? null,        // derived: share × league total, not a measured count
-    trend24h: b.delta ?? null,
+    trendSinceRefresh: b.delta ?? null,
     source: "poe.ninja-derived ascendancy share (hourly)",
     guide: `Search a community guide for "${b.asc}${b.cls?` (${b.cls})`:""} PoE2 0.5.3".`,
   }, null, 2);
@@ -1692,9 +1694,13 @@ async function decant(b, slugOverride){
     } catch (_) { /* not reconstructed */ }
   }
   if (real != null) return saveRealBuild(b, real, slug + ".build");
-  // honest fallback: a labelled meta template (.txt) — never the game's .build slot
-  saveBlob(templateText(b), slugOf(b) + "-tincture-template.txt", "text/plain;charset=utf-8");
-  toast(`Saved <b>${esc(b.asc)}</b> as a labelled meta template (.txt) — we haven't reconstructed a loadable build for this pick yet. Pair it with a community guide.`, "ok", 7000);
+  // honest fallback: a labelled meta template (.txt) — never the game's .build slot.
+  // enrich a stub pick (variant / non-top-N compare) from its ascendancy's ledger row so the
+  // template carries real share/playstyle instead of all-null; name the file with the real slug.
+  const lrow = (curLeague().builds||[]).find(x => slugOf(x) === slugOf(b));
+  if (lrow) b = { ...lrow, ...b };
+  saveBlob(templateText(b), slug + "-tincture-template.txt", "text/plain;charset=utf-8");
+  toast(`Saved a <b>${esc(b.asc)}</b> starter (.txt) — its ladder share, playstyle, and a guide link. No loadable build for this exact pick yet, so follow the linked guide.`, "ok", 7000);
 }
 
 async function saveRealBuild(b, file, name){
@@ -2007,31 +2013,57 @@ function itemTip(it){
 function qualityChip(md){
   const q = md.build && md.build.quality;
   if (!q) return "";
-  const items = [];
-  if (q.onMetaWeapon === true) items.push("runs the dominant meta weapon");
-  if (q.gemsValid) items.push("all gems resolve in-game");
-  if (q.level) items.push(`reconstructed from a level&nbsp;${q.level} ladder character`);
-  if (!items.length) return "";
-  return `<div class="bv-quality"><span class="bvq-h">QA</span>${items.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")}</div>`;
+  const d = (md.build && md.build.defence) || {};
+  const res = d.resists || {}, cap = d.capped || {};
+  const ok = [], warn = [], note = [];
+  if (q.onMetaWeapon === true) ok.push("runs the dominant meta weapon");
+  else if (q.onMetaWeapon === null) note.push("no single dominant weapon — any popular weapon is representative");
+  if (q.gemsValid) ok.push("all gems resolve in-game");
+  if (q.resistsCapped){
+    const vals = ["fire","cold","lightning"].map(k=>res[k]).filter(v=>v!=null);
+    ok.push("all resistances capped"+(vals.length?` (${vals.join("/")}%)`:""));
+  } else {
+    ["fire","cold","lightning"].forEach(k=>{ if (cap[k]===false && res[k]!=null) warn.push(`${k[0].toUpperCase()+k.slice(1)} resistance ${res[k]}% — cap it to 75% before you map`); });
+    if (cap.chaos===false && res.chaos!=null && !d.chaosImmune) warn.push(`Chaos resistance ${res.chaos}% — uncapped (no Chaos Inoculation)`);
+  }
+  if (q.fullyAscended) ok.push("fully ascended (8 points)");
+  else if (q.ascendancyPoints!=null) warn.push(`only ${q.ascendancyPoints}/8 ascendancy points allocated`);
+  if (q.mainSkillLinked) ok.push(`main skill fully linked (${q.mainSkillSupports} supports)`);
+  else if (q.mainSkillSupports!=null) warn.push(`main skill has ${q.mainSkillSupports} support${q.mainSkillSupports===1?"":"s"} (under 3)`);
+  if (q.level) ok.push(`level&nbsp;${q.level} ladder character`);
+  if (!ok.length && !warn.length && !note.length) return "";
+  const asOf = q.snapshotUtc ? `<span class="bvq-asof">as of ${esc(relTime(q.snapshotUtc))}</span>` : "";
+  return `<div class="bv-quality"><span class="bvq-h">Reconstruction checks</span>`
+    + ok.map(t=>`<span class="bvq ok">✓ ${t}</span>`).join("")
+    + warn.map(t=>`<span class="bvq warn">⚠ ${esc(t)}</span>`).join("")
+    + note.map(t=>`<span class="bvq note">${esc(t)}</span>`).join("")
+    + asOf + `</div>`;
 }
 // honest defence layer from the source character's PoB export (reconstructor parsePobDefence).
 // Absent field -> nothing rendered (fail-safe for older meta-detail.json).
 function defenceHTML(md){
   const d = md.build && md.build.defence;
   if (!d) return "";
-  const res = d.resists || {};
-  const resPill = (lab,v,k) => v==null ? "" : `<span class="def-res ${k}${v>=75?' capped':(v<0?' neg':'')}">${lab} <b>${v}%</b></span>`;
+  const res = d.resists || {}, cap = d.capped || {}, rmax = d.resistMax || {}, over = d.overcap || {};
+  const resPill = (lab,v,css,el) => {
+    if (v==null) return "";
+    const isCap = (cap[el]!=null) ? !!cap[el] : (v>=75);   // data-driven; PoB-only fallback to >=75
+    const maxTxt = (rmax[el]!=null && rmax[el]!==75) ? `/${rmax[el]}` : "";
+    const title = (isCap && over[el]===0) ? ' title="capped, no headroom"' : "";
+    return `<span class="def-res ${css}${isCap?' capped':(v<0?' neg':'')}"${title}>${lab} <b>${v}%${maxTxt}</b></span>`;
+  };
   const pools=[];
-  if (d.life!=null && d.life>1) pools.push(`Life <b>${fmt(d.life)}</b>`);   // PoB exports Life=1 for CI/pure-ES — not a real pool
+  if (d.life!=null && d.life>1) pools.push(`Life <b>${fmt(d.life)}</b>`);
   if (d.es!=null && d.es>0) pools.push(`ES <b>${fmt(d.es)}</b>`);
   if (d.ward!=null && d.ward>0) pools.push(`Ward <b>${fmt(d.ward)}</b>`);
-  if (!pools.length && d.ehp!=null) pools.push(`EHP <b>${fmt(d.ehp)}</b>`);   // ES/CI build with no shown pool → show EHP, never a lone "Life 1"
+  if (!pools.length && d.ehp!=null) pools.push(`EHP <b>${fmt(d.ehp)}</b>`);
   const extra=[];
+  if (d.biggestHit) extra.push(`Largest hit survived ${fmt(d.biggestHit)}`);
   if (d.evade) extra.push(`Evade ${d.evade}%`);
   if (d.block) extra.push(`Block ${d.block}%`);
   if (d.pdr) extra.push(`Phys&nbsp;reduc ${d.pdr}%`);
   if (d.crit!=null) extra.push(`Crit ${d.crit}%`);
-  const resRow = resPill('Fire',res.fire,'fire')+resPill('Cold',res.cold,'cold')+resPill('Lightning',res.lightning,'lit')+resPill('Chaos',res.chaos,'chaos');
+  const resRow = resPill('Fire',res.fire,'fire','fire')+resPill('Cold',res.cold,'cold','cold')+resPill('Lightning',res.lightning,'lit','lightning')+resPill('Chaos',res.chaos,'chaos','chaos');
   if (!resRow && !pools.length) return "";
   return `<div class="bv-def"><span class="bv-def-h">Defences</span>`
     + (resRow?`<div class="def-row">${resRow}</div>`:"")
@@ -2053,7 +2085,7 @@ function ascForCompare(slug, byAsc, build){
     pop: build ? build.pop : null,
     n: build ? build.n : null,
     weapon: (md.weapons && md.weapons[0] && md.weapons[0].name) || null,
-    ehp: (md.stats && md.stats.ehp) || d.ehp || null,
+    ehp: (md.build && md.build.defence && md.build.defence.ehp) != null ? md.build.defence.ehp : ((md.stats && md.stats.ehp) || d.ehp || null),
     dps: (md.stats && md.stats.dps) || null,
     level: (md.stats && md.stats.level) || null,
     def: d,
@@ -2089,9 +2121,16 @@ function compareTableHTML(slugs){
     const tds = vals.map((v,i)=>`<td class="${i===mi?'cmp-best':''}">${v==null?'—':(fmtFn?fmtFn(v):fmt(v))}</td>`).join("");
     return `<tr><th scope="row">${label}</th>${tds}</tr>`;
   };
-  const resRow = key => numRow(key[0].toUpperCase()+key.slice(1)+" res",
-    cols.map(c => c.def && c.def.resists ? c.def.resists[key] : null),
-    v => `${v}%${v>=75?' ✓':''}`);
+  const resRow = key => {
+    const vals = cols.map(c => c.def && c.def.resists ? c.def.resists[key] : null);
+    const mi = maxIdx(vals);
+    const tds = cols.map((c,i) => {
+      const v = vals[i];
+      const isCap = (c.def && c.def.capped && c.def.capped[key]!=null) ? !!c.def.capped[key] : (v!=null && v>=75);
+      return `<td class="${i===mi?'cmp-best':''}">${v==null?'—':`${v}%${isCap?' ✓':''}`}</td>`;
+    }).join("");
+    return `<tr><th scope="row">${key[0].toUpperCase()+key.slice(1)} res</th>${tds}</tr>`;
+  };
   const listRow = (label, pick) => `<tr><th scope="row">${label}</th>` +
     cols.map(c => `<td>${(pick(c)||[]).map(x=>`<span class="cmp-ent${shared[x.name]?' cmp-shared':''}" title="${esc(x.name)} — ${fmt(x.pct)}% of this ascendancy">${esc(x.name)}</span>`).join("")||'—'}</td>`).join("") + `</tr>`;
 
@@ -2105,8 +2144,8 @@ function compareTableHTML(slugs){
   return `<table class="cmp-table">
     <thead>${head}</thead>
     <tbody>
-      ${numRow('Median EHP', cols.map(c=>c.ehp))}
-      ${numRow('Median DPS', cols.map(c=>c.dps))}
+      ${numRow('EHP', cols.map(c=>c.ehp))}
+      ${numRow('DPS', cols.map(c=>c.dps), v=>`~${fmt(v)}`)}
       ${numRow('Level', cols.map(c=>c.level))}
       ${numRow('Life', cols.map(c=>c.def&&c.def.life))}
       ${numRow('Energy shield', cols.map(c=>c.def&&c.def.es))}
@@ -2119,7 +2158,7 @@ function compareTableHTML(slugs){
       ${listRow('Key notables', c=>c.notables)}
     </tbody>
   </table>
-  <p class="cmp-foot">Medians, where the source reports them. Same ladder data as the ledger — nothing fabricated. The accent marks the higher number in a row, not a better build.</p>`;
+  <p class="cmp-foot">EHP &amp; defences are each featured build's own (from its Path of Building export); DPS is the ascendancy median (~). Same ladder data as the ledger — nothing fabricated. The accent marks the higher number in a row, not a better build.</p>`;
 }
 
 function renderCompare(){
@@ -2130,8 +2169,13 @@ function renderCompare(){
   // decant from a column
   wrap.querySelectorAll(".cmp-decant").forEach(btn => btn.addEventListener("click", e => {
     e.stopPropagation();
-    const b = (curLeague().builds||[]).find(x => slugOf(x) === btn.dataset.slug);
-    if (b) decant(b);
+    const slug = btn.dataset.slug;
+    const b = (curLeague().builds||[]).find(x => slugOf(x) === slug);
+    if (b) { decant(b); return; }
+    // not in the active top-N ledger (one of the non-ranked ascendancies): synthesize a pick
+    // from its meta-detail entry and let decant() manifest-gate the slug (real .build or honest .txt).
+    const md = META && META.byAsc && META.byAsc[slug];
+    if (md) decant({ asc: md.asc, skill: "" }, slug);
   }));
 }
 
@@ -2145,8 +2189,8 @@ function variantsHTML(md){
     const skill = (v.skillSetups&&v.skillSetups[0]&&v.skillSetups[0].skill) || ((v.name||"").split(" — ")[1]||"").replace(" (public ladder)","") || "variant";
     const ehp = (v.defence && v.defence.ehp) || v.ehp;   // prefer the PoB EHP so it matches the primary panel's basis
     const stats = [ehp?`EHP ${fmt(ehp)}`:"", v.dps?`DPS ${fmt(v.dps)}`:""].filter(Boolean).join(" · ");
-    const res = v.defence && v.defence.resists;
-    const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":res[k]).join("/")} res` : "";
+    const res = v.defence && v.defence.resists, cap = v.defence && v.defence.capped;
+    const resStr = res ? `${["fire","cold","lightning","chaos"].map(k=>res[k]==null?"–":`${res[k]}${(cap&&cap[k])?"✓":""}`).join("/")} res` : "";
     return `<div class="bv-var">
       <div class="bv-var-info"><span class="bv-var-skill">${esc(skill)}</span>
         <span class="bv-var-meta">${esc(v.source.name)} · L${v.source.level||"?"}${stats?" · "+esc(stats):""}${resStr?" · "+esc(resStr):""}</span></div>
@@ -2175,10 +2219,24 @@ function buildViewHTML(md, slug){
 }
 function metaDetailHTML(md, slug){
   const st = md.stats||{};
-  const bits = [st.level?`Level <b>${st.level}</b>`:null, st.ehp?`EHP <b>${fmt(st.ehp)}</b>`:null, st.dps?`DPS <b>${fmt(st.dps)}</b>`:null].filter(Boolean);
-  const ss = md.stats && md.stats.sample;   // count behind the EHP/DPS median (the sampled set, NOT md.sample = full population)
-  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}<span class="smp">median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters</span></div>` : "";
-  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""} · <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${META && META.updated ? ` · reconstructed ${esc(relTime(META.updated))}` : ""}</div>` : "";
+  const dfn = (md.build && md.build.defence) || {};
+  const ownEhp = dfn.ehp!=null ? dfn.ehp : null;
+  const headEhp = ownEhp!=null ? ownEhp : (st.ehp||null);
+  const bits = [ st.level?`Level <b>${st.level}</b>`:null,
+    headEhp?`EHP <b>${fmt(headEhp)}</b>`:null,
+    dfn.biggestHit?`Largest hit survived <b>${fmt(dfn.biggestHit)}</b>`:null,
+    st.dps?`DPS <b>~${fmt(st.dps)}</b>`:null ].filter(Boolean);
+  const ss = md.stats && md.stats.sample;
+  const medCaption = `median across ${ss?fmt(ss)+" sampled":"the sampled"} ${esc(md.asc)} characters`;
+  const smp = ownEhp!=null
+    ? `<span class="smp">EHP &amp; defences are this build's own; DPS is the ascendancy ${medCaption}</span>`
+    : `<span class="smp">${medCaption}</span>`;
+  const stats = bits.length ? `<div class="meta-stats">${bits.join("")}${smp}</div>` : "";
+  const q = md.build && md.build.quality;
+  const prov = (q && q.selectedFrom > 1) ? ` · selected as the soundest of ${q.selectedFrom} level-85+ ladder characters${q.onMetaWeapon!==null?" running the dominant weapon":""}` : "";
+  const bstamp = (META && META.buildsUpdated) || (META && META.updated) || null;
+  const bstale = bstamp && (Date.now() - new Date(bstamp).getTime()) > 8*86400e3;
+  const src = md.source ? `<div class="meta-src">Build reconstructed from public-ladder character <b>${esc(md.source.name)}</b> (${esc(md.source.account)})${md.source.level?`, level ${md.source.level}`:""}${prov} · <a href="https://poe.ninja/poe2/builds/${encodeURIComponent(META.league||"")}/character/${encodeURIComponent(md.source.account)}/${encodeURIComponent(md.source.name)}" target="_blank" rel="noopener noreferrer">view on poe.ninja ↗</a>${bstamp ? ` · reconstructed ${esc(relTime(bstamp))}${bstale?" (refresh overdue)":""}` : ""}</div>` : "";
   return metaCoreGrid(md) + metaGearGrid(md) + buildViewHTML(md, slug) + stats + src;
 }
 
@@ -2230,7 +2288,7 @@ function renderRows(){
       : `<div class="pop">${confHTML}</div>`;
     let trendCell;
     if (b.delta == null) trendCell = `<span class="trend flat"></span>`;
-    else if (!trendsReady) trendCell = `<span class="trend base" title="24-hour trends appear once enough hourly snapshots accumulate">baseline</span>`;
+    else if (!trendsReady) trendCell = `<span class="trend base" title="trends appear once enough hourly snapshots accumulate">baseline</span>`;
     else trendCell = trendHTML(b.delta);
     const md = metaFor(b);
     row.innerHTML = `
@@ -2326,7 +2384,7 @@ function renderRows(){
     const foot = document.createElement("div");
     foot.className = "ledger-foot";
     foot.innerHTML = `Top <b>${sb.length}</b> ascendancies shown — together about <b>${cover}%</b> of the ladder; the rest is the long tail. ` +
-      (trendsReady ? `Trend = 24-hour change in share.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
+      (trendsReady ? `Trend = change in share since the last refresh.` : `Trends read <b>baseline</b> until enough hourly snapshots accumulate.`);
     rows.appendChild(foot);
   }
   const lstat = $("#ledgerStatus");
@@ -2339,8 +2397,8 @@ function renderHero(){
   if (!ranked.length){
     if (hg){ hg.hidden = true; hg.removeAttribute("href"); }
     const curated = L.curated && (L.builds||[]).length;
-    $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No ranked data"}</span>`;
-    $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}.`;
+    $("#essenceName").innerHTML = `<span class="asc">${curated ? "Classic archetypes" : "No live ladder data yet"}</span>`;
+    $("#essenceSub").innerHTML = esc(L.note) || `poe.ninja doesn't publish a build breakdown for ${esc(L.name)}. Pick the live challenge league from the dropdown above for the full ranked meta.`;
     // Don't show a curated league's whole-population total as "characters read" — the
     // picks are hand-chosen, not a ladder sample. A real (non-curated) empty league keeps
     // its honest ladder total.
@@ -2353,7 +2411,7 @@ function renderHero(){
   const top = ranked[0];
   $("#essenceName").innerHTML = `<span class="asc">${esc(top.asc)}</span>${top.skill ? `<span class="skill">${esc(top.skill)}</span>` : ""}`;
   $("#essenceSub").innerHTML =
-    `The clearest signal in <b>${esc(L.name)}</b> right now. <span class="figure">${top.pop.toFixed(1)}%</span> of the tracked ladder is running it — about <span class="figure">~${fmt(top.n)}</span> characters (share × ladder size).`;
+    `The most-played build in <b>${esc(L.name)}</b> right now — <span class="figure">${top.pop.toFixed(1)}%</span> of the live ladder is on it (about <span class="figure">~${fmt(top.n)}</span> characters). When you're not sure what to play, this is the safe default: start here and Decant it in one click.`;
   $("#heroChars").textContent = fmt((L.totals && L.totals.characters) || 0);
   $("#heroBuilds").textContent = ranked.length;
   $("#heroShare").innerHTML = `${top.pop.toFixed(1)}<small>%</small>`;
@@ -2826,7 +2884,7 @@ function archToCSV(){
     + "sample_n is DERIVED (share x league total), not a measured headcount. "
     + "curated rows are hand-picked archetypes (blank stats), not ladder data. "
     + "Not a .build and not an official GGG API export.";
-  const head = ["league","mode","class","ascendancy","skill","tier","share_pct","trend_24h","sample_n","curated","tag"];
+  const head = ["league","mode","class","ascendancy","skill","tier","share_pct","trend_since_refresh","sample_n","curated","tag"];
   const rows = archFiltered().map(r=>[
     r.leagueLabel.split(" · ")[0], r.mode, r.cls, r.asc, r.skill, r.tier,
     r.pop==null?"":r.pop, r.delta==null?"":r.delta, r.n==null?"":r.n, r.curated?"true":"false", r.tag,
@@ -2857,7 +2915,7 @@ function setupArchive(){
   $("#archClass").innerHTML = `<option value="all">All classes</option>` + classes.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join("");
   $("#archSortM").innerHTML = [["pop|desc","Share"],["delta|desc","Rising"],["n|desc","Sample"],["asc|asc","Name"],["league|asc","League"],["cls|asc","Class"]]
     .map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
-  $("#archDisclaimer").innerHTML = `Live ladder shares from poe.ninja, refreshed hourly. 24-hour trends read <b>baseline</b> until enough snapshots accumulate. Standard rows are curated archetypes (—), not ladder data. Counts are derived (share × ladder size).`;
+  $("#archDisclaimer").innerHTML = `Live ladder shares from poe.ninja, refreshed hourly. Trends read <b>baseline</b> until enough snapshots accumulate. Standard rows are curated archetypes (—), not ladder data. Counts are derived (share × ladder size).`;
   secL.value = archLeague; $("#archClass").value = archClass;
   secL.onchange = ()=>{ archLeague = secL.value; archRender(); };
   $("#archClass").onchange = e=>{ archClass = e.target.value; archRender(); };
@@ -2889,7 +2947,7 @@ function setupArchive(){
 function animateCounters(){
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.querySelectorAll(".counter .num").forEach(el=>{
-    const target = +el.dataset.count;
+    const target = +el.dataset.count || 0;
     const pre = el.dataset.prefix || "";
     const suf = el.dataset.suffix || "";
     if (reduce){ el.textContent = pre + fmt(target) + suf; return; }
@@ -2931,12 +2989,12 @@ const QUIZ = [
     { k:'minion', label:'Minions do the work' },
   ]},
   { id:'pace', q:'Preferred pace?', opts:[
-    { k:'fast',  label:'Fast, zoomy clear' },
+    { k:'fast',  label:'fast — blast through packs' },
     { k:'tanky', label:'Slow & steady, tanky' },
   ]},
   { id:'risk', q:'Survivability vs damage?', opts:[
     { k:'safe',  label:'Keep me alive' },
-    { k:'glass', label:'Glass cannon' },
+    { k:'glass', label:'all-out damage (fragile)' },
     { k:'bal',   label:'Balanced' },
   ]},
   { id:'xp', q:'Experience level?', opts:[
@@ -2998,7 +3056,7 @@ function rxScore(state){
     if(state.pace==='tanky'&&/tanky|slow|durable|forgiving|frontline|sustain/.test(t)){ s+=2; why.push('slow & tanky'); }
     if(state.risk==='safe'){ if(/tanky|forgiving|durable|frontline|sustain/.test(t)){ s+=2; why.push('survivable'); } if(c.ehp!=null&&c.ehp>=hiEhp){ s+=2; if(!why.includes('survivable')) why.push('high EHP'); } }
     if(state.risk==='glass'){ if(/glass|burst|high risk|spike|crit/.test(t)){ s+=2; why.push('high burst'); } if(c.dps!=null&&c.dps>=hiDps){ s+=2; if(!why.includes('high burst')) why.push('top DPS'); } }
-    if(state.xp==='new'){ if(/beginner|forgiving|hands-off|league-start|simple|easy/.test(t)){ s+=3; why.push('beginner-friendly'); } if(c.loadable) s+=1; if(c.pop!=null&&c.pop>=5){ s+=1; if(!why.includes('beginner-friendly')) why.push('popular & proven'); } }
+    if(state.xp==='new'){ if(/beginner|forgiving|hands-off|league-start|simple|easy/.test(t)){ s+=3; why.push('beginner-friendly'); } if(c.loadable) s+=1; if(c.pop!=null&&c.pop>=5){ s+=1; if(!why.includes('beginner-friendly')) why.push('popular pick'); } }
     if(state.xp==='vet'&&/high skill|ceiling|combo|high floor|spike|micro/.test(t)){ s+=2; why.push('high ceiling'); }
     if(state.cls&&c.cls&&c.cls.toLowerCase()===state.cls){ s+=3; why.push('your class'); }
     c.score=s; c.why=why;

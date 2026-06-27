@@ -14,7 +14,7 @@ Tincture reads what the top of the live ladder is actually playing, boils thousa
 
 The big sites are planners and raw stat dashboards. Tincture is a **discovery** tool with one job: get you from "what should I play?" to a confident starting point, fast — and it's honest about exactly what it knows.
 
-- **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with 24-hour trend arrows that light up once a day of snapshots has accumulated.
+- **Distilled, not dumped.** poe.ninja shows you the full spread of ladder data. Tincture serves the consensus — ranked, tiered, each row carrying an editorial playstyle note and a sample-confidence cue, with trend arrows that light up once a day of snapshots has accumulated.
 - **The whole meta, visualized.** *The Assay* charts class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, a cross-league comparison, and **The Crucible** — an ascendancy × league-mode heatmap with a *Share* ⇄ *Vs. typical* (over/under-index) toggle. All hand-rolled SVG/CSS, no libraries, computed in your browser.
 - **The build behind the pick.** Expand any ledger row for that ascendancy's most popular skills, support gems, passive notables and unique items — with median EHP/DPS where the source reports them — aggregated from poe.ninja's published build index for that ascendancy. *The Dispensary* does the same for the entire meta at once.
 - **All the data, yours.** *The Cellar* lays every build across every league in one sortable table, shows the raw `data.json`, and exports CSV/JSON. The static files the page reads (`data.json`, `meta-detail.json`, `builds/<slug>.build`) are the public "API" — no backend, no key.
@@ -30,7 +30,7 @@ poe.ninja PoE2 build API  ──►  scripts/distill.py  ──►  data.json  �
    (ladder-derived meta)       (hourly, via Actions)     (committed)     (static page)
 ```
 
-1. **`scripts/distill.py`** pulls the current league's build aggregation from poe.ninja (which is itself derived from GGG's official ladder), normalizes it, assigns tiers, and computes each build's 24-hour movement by diffing the previous snapshot.
+1. **`scripts/distill.py`** pulls the current league's build aggregation from poe.ninja (which is itself derived from GGG's official ladder), normalizes it, assigns tiers, and computes each build's movement since the last refresh by diffing the previous snapshot.
 2. The result is written to **`data.json`** in the front end's exact schema.
 3. **`.github/workflows/distill.yml`** runs that hourly and commits `data.json` when the meta moves.
 4. **`index.html`** reads `data.json` (falling back to bundled sample data if it's missing), renders the ledger, and handles Decant entirely client-side.
@@ -116,7 +116,7 @@ returns each current league's most-played ascendancies with a share-of-ladder %
 and a trend flag. `distill.py` picks the softcore **Runes of Aldur** league
 (`leagueUrl: runesofaldur`), maps each ascendancy to its base class, reconstructs
 per-ascendancy character counts from the league total, tiers them, and diffs
-against the previous snapshot for the 24-hour trend arrows. It needs no auth and
+against the previous snapshot for the trend arrows. It needs no auth and
 answers bare requests, so the GitHub Action fetches it directly.
 
 Run `python scripts/distill.py --probe` to see exactly what it returns.
@@ -130,7 +130,7 @@ Run `python scripts/distill.py --probe` to see exactly what it returns.
 ## Roadmap
 
 - [x] Decode the `.build` format ([SCHEMA.md](SCHEMA.md)) + a validated serializer (`scripts/buildfile.py`)
-- [x] Live meta from poe.ninja's `build-index-state` (ascendancy shares + 24h trend)
+- [x] Live meta from poe.ninja's `build-index-state` (ascendancy shares + since-last-refresh trend)
 - [x] League switcher — Softcore / Hardcore / SSF / HC SSF + Standard (dropdown)
 - [x] **The Assay** — class composition, ascendancy shares, meta concentration (HHI + effective ascendancies), tier spread, cross-league comparison, and **The Crucible** ascendancy × mode heatmap with a Share / over-under-index toggle (hand-rolled SVG/CSS)
 - [x] **The Cellar** — every build across every league in one sortable table, raw `data.json` view, CSV/JSON export, open-data docs

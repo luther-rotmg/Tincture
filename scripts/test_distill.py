@@ -312,6 +312,17 @@ class Apportion(unittest.TestCase):
         for r in rows:                                  # each still within 1 of its exact share
             self.assertLessEqual(abs(r["n"] - total * 24.567 / 100.0), 1.0)
 
+    def test_derived_n_clamped_when_shares_exceed_100(self):
+        # poe.ninja top-N shares can sum to >100% (overlapping categories + independent rounding);
+        # _apportion_n scales the exact counts down to <= total before flooring, so the derived
+        # sample counts never inflate past the real ladder population.
+        league = {"total": 1000, "statistics": [
+            {"class": "Titan", "percentage": 25.0}, {"class": "Deadeye", "percentage": 25.0},
+            {"class": "Lich", "percentage": 25.0}, {"class": "Invoker", "percentage": 25.0},
+            {"class": "Infernalist", "percentage": 25.0}]}   # shares sum to 125%
+        rows, total = distill.normalize_one(league)
+        self.assertLessEqual(sum(r["n"] for r in rows), total)
+
     def test_zero_total_yields_zero_n(self):
         rows, _ = distill.normalize_one({"total": 0, "statistics": [{"class": "Titan", "percentage": 5.0}]})
         self.assertEqual(rows[0]["n"], 0)

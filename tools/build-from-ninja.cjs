@@ -76,6 +76,69 @@ function parsePobDefence(code) {
   return useful ? d : null;
 }
 
+// ---- defence profile from poe.ninja's defensiveStats (richer + decode-proof; superset of the PoB layer) ----
+// effectiveHealthPool == PoB TotalEHP to within 1 across all classes. "capped" is resistance>=75
+// (PoE2 base max-res floor): penalty-lowered caps read uncapped, gear-raised-but-above-75 read capped.
+function parseDefensiveStats(char) {
+  const ds = char && char.defensiveStats;
+  if (!ds || typeof ds !== 'object') return null;
+  const num = v => (typeof v === 'number' && isFinite(v)) ? v : null;
+  const els = ['fire', 'cold', 'lightning', 'chaos'];
+  const resists = {}, resistMax = {}, overcap = {}, capped = {};
+  for (const el of els) {
+    const r = num(ds[el + 'Resistance']), m = num(ds[el + 'ResistanceMax']), o = num(ds[el + 'ResistanceOverCap']);
+    if (r != null) { resists[el] = r; capped[el] = r >= 75; }
+    if (m != null) resistMax[el] = m;
+    if (o != null) overcap[el] = o;
+  }
+  const chaosImmune = Array.isArray(char.keystones) && char.keystones.some(k => k && k.name === 'Chaos Inoculation');
+  return {
+    ehp: num(ds.effectiveHealthPool), life: num(ds.life), es: num(ds.energyShield), ward: num(ds.ward),
+    armour: num(ds.armour), resists, resistMax, overcap, capped, chaosImmune,
+    biggestHit: num(ds.lowestMaximumHitTaken), evade: num(ds.evadeChance), block: num(ds.blockChance),
+  };
+}
+// merge: PoB layer (keeps pdr/crit) with the richer defensiveStats layered over its non-null fields.
+function mergeDefence(char) {
+  const pob = parsePobDefence(char && char.pathOfBuildingExport);
+  const ds = parseDefensiveStats(char);
+  if (!pob && !ds) return null;
+  const out = Object.assign({}, pob || {});
+  if (ds) for (const k of Object.keys(ds)) { if (ds[k] != null) out[k] = ds[k]; }
+  return out;
+}
+
+// support count of the main (highest-DPS) active skill group — mirrors convert()'s main-skill pick.
+function mainSkillSupportCount(char, gem) {
+  let best = -1, bestSup = 0;
+  ((char && char.skills) || []).forEach(group => {
+    const gems = ((group.allGems) || []).map(g => ({ name: g.name, id: gem && gem[g.name] })).filter(g => g.id);
+    const active = gems.find(g => /\/SkillGem/i.test(g.id));
+    if (!active || /PlayerDefault/i.test(active.id)) return;
+    const supports = gems.filter(g => g !== active && /\/SupportGem/i.test(g.id));
+    const dps = Array.isArray(group.dps) ? Math.max(0, ...group.dps.map(d => Number(d && d.dps) || 0)) : (Number(group.dps) || 0);
+    if (dps > best) { best = dps; bestSup = supports.length; }
+  });
+  return best < 0 ? 0 : bestSup;
+}
+
+// prefer the soundest REAL build: capped resistances, then fully ascended, then EHP/DPS balance.
+// Sorts in place so cands[0] is the featured pick and cands.slice(1) feeds the variant loop.
+function sortBySoundness(cands) {
+  const info = cands.map(p => {
+    const def = parseDefensiveStats(p.char), cap = (def && def.capped) || {};
+    const capped = !!(def && cap.fire && cap.cold && cap.lightning && (cap.chaos || def.chaosImmune));
+    const ascended = ((p.char && p.char.passiveCounts && p.char.passiveCounts.ascendancy) || 0) >= 8;
+    const ehp = (def && def.ehp) || p.ehp || 0;
+    return { p, capped, ascended, ehp, dps: p.dps || 0 };
+  });
+  const maxE = Math.max(1, ...info.map(x => x.ehp)), maxD = Math.max(1, ...info.map(x => x.dps));
+  info.forEach(x => { x.balance = Math.min(x.ehp / maxE, x.dps / maxD); });
+  info.sort((a, b) => (b.capped - a.capped) || (b.ascended - a.ascended) || (b.balance - a.balance));
+  cands.length = 0; info.forEach(x => cands.push(x.p));
+  return cands;
+}
+
 // ---- meta-weapon matching ----
 // poe.ninja's "weaponmode" is a "Main / Offhand" family name (e.g. "Mace / Shield",
 // "Quarterstaff", "Wand / Sceptre"); base_items' item_class splits a weapon by hand
@@ -279,7 +342,7 @@ function convert(char, { slug, gem, account, name, league }) {
 }
 
 // ---- QA: catch conversion errors + cheap cohesion checks ----
-function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
+function qa(build, char, { slug, tree, baseItems, md, weaponClass, gem }) {
   const issues = [];
   const warn = m => issues.push({ sev: 'warn', m });
   const fail = m => issues.push({ sev: 'fail', m });
@@ -364,7 +427,21 @@ function qa(build, char, { slug, tree, baseItems, md, weaponClass }) {
     if (metaFam && haveFam !== metaFam) fail(`build weapon ${haveFam || '?'} != dominant meta weapon ${w0.name} [${w0.pct}%] — stats/build mismatch`);
   }
 
-  return { ok: !issues.some(i => i.sev === 'fail'), issues, stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length } };
+  // ---- soundness signals (warn-level; never hard-fail a real ladder build) ----
+  const def = parseDefensiveStats(char);
+  const cap = (def && def.capped) || {};
+  const resistsCapped = !!(def && cap.fire && cap.cold && cap.lightning && (cap.chaos || def.chaosImmune));
+  if (def && !resistsCapped) warn('one or more resistances below the 75% cap');
+  const ascendancyPoints = (char.passiveCounts && char.passiveCounts.ascendancy) || 0;
+  const fullyAscended = ascendancyPoints >= 8;
+  if (!fullyAscended) warn(`only ${ascendancyPoints}/8 ascendancy points`);
+  const mainSkillSupports = mainSkillSupportCount(char, gem);
+  const mainSkillLinked = mainSkillSupports >= 3;
+  if (!mainSkillLinked) warn(`main skill has ${mainSkillSupports} support(s) (<3)`);
+
+  return { ok: !issues.some(i => i.sev === 'fail'), issues,
+    stats: { sharedUnique, ws1: ws1.length, ws2: ws2.length, ascUnique, skills: build.skills.length, items: build.inventory_slots.length },
+    quality: { resistsCapped, ascendancyPoints, fullyAscended, mainSkillSupports, mainSkillLinked, snapshotUtc: char.updatedUtc || null } };
 }
 
 // connectivity over the real tree graph (nodes + out/in adjacency + per-class start)
@@ -575,7 +652,7 @@ function refreshManifest() {
 
 function buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet }) {
   const build = convert(char, { slug: slugMap, gem, account, name, league });
-  const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass });
+  const report = qa(build, char, { slug: slugMap, tree, baseItems, md, weaponClass, gem });
   if (!quiet) { console.log('=== QA', JSON.stringify(report.stats)); report.issues.forEach(i => console.log(`  [${i.sev}] ${i.m}`)); }
   return { build, report };
 }
@@ -719,8 +796,7 @@ async function main() {
             if (onMeta.length) cands = onMeta;
             else console.log(`  ! ${asc}: no L85+ char running meta weapon ${metaWep} within ${pulled.length} pulls — QA will reject the off-weapon build`);
           }
-          const maxE = Math.max(1, ...cands.map(p => p.ehp || 0)), maxD = Math.max(1, ...cands.map(p => p.dps || 0));
-          cands.sort((a, b) => Math.min((b.ehp || 0) / maxE, (b.dps || 0) / maxD) - Math.min((a.ehp || 0) / maxE, (a.dps || 0) / maxD));
+          sortBySoundness(cands);   // capped resists, then fully ascended, then EHP/DPS balance — cands[0] is featured
           const { account, name, char } = cands[0];
           try {
             const { build, report } = buildOne(char, { gem, account, name, league, tree, slugMap, baseItems, md, weaponClass, quiet: true });
@@ -730,14 +806,21 @@ async function main() {
               // persist a compact QA verdict (the report is otherwise discarded) as an honest,
               // additive trust signal the front end renders; old readers ignore the new field.
               meta.byAsc[slug].build = { passives: build.passives.length, skills: report.stats.skills, items: report.stats.items,
-                defence: parsePobDefence(char.pathOfBuildingExport),   // from the source character's PoB export
+                defence: mergeDefence(char),
                 quality: {
                   level: char.level || null,
                   sample: pulled.length,
-                  onMetaWeapon: metaFam ? onMetaWeapon(char) : null,   // null = no clear dominant weapon to check
+                  selectedFrom: cands.length,
+                  onMetaWeapon: metaFam ? onMetaWeapon(char) : null,
                   gemsValid: !report.issues.some(i => i.sev === 'fail' && /BaseItemTypes/.test(i.m)),
                   treeConnected: !report.issues.some(i => /orphan/.test(i.m)),
                   warnings: report.issues.filter(i => i.sev === 'warn').length,
+                  resistsCapped: report.quality.resistsCapped,
+                  ascendancyPoints: report.quality.ascendancyPoints,
+                  fullyAscended: report.quality.fullyAscended,
+                  mainSkillSupports: report.quality.mainSkillSupports,
+                  mainSkillLinked: report.quality.mainSkillLinked,
+                  snapshotUtc: report.quality.snapshotUtc,
                 } };
               meta.byAsc[slug].skillSetups = readableSkills(char);
               meta.byAsc[slug].buildItems = buildItems(char);
@@ -762,7 +845,8 @@ async function main() {
                     slug: vslug, name: r.build.name,
                     source: { account: cand.account, name: cand.name, level: cand.char.level || null },
                     ehp: cand.ehp || null, dps: cand.dps || null,
-                    defence: parsePobDefence(cand.char.pathOfBuildingExport),
+                    defence: mergeDefence(cand.char),
+                    snapshotUtc: cand.char.updatedUtc || null,
                     pob: !!cand.char.pathOfBuildingExport,
                     skillSetups: readableSkills(cand.char).slice(0, 4),
                   });
@@ -840,4 +924,4 @@ function variantIsDistinct(cand, accepted) {
 
 if (require.main === module) main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
 // exported for unit tests (importing the module must not run the CLI — hence the guard above)
-module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
+module.exports = { weaponFamily, metaWeaponFamily, charWeaponFamily, convert, qa, gemMapFromLua, slugMapFromTree, parsePobDefence, parseDefensiveStats, mergeDefence, mainSkillSupportCount, sortBySoundness, variantIsDistinct, coverageOk, slugify, ASCENDANCY_CODES };
