@@ -551,13 +551,9 @@ def guides_schema_errors(doc):
     return errs
 
 
-def untriaged_guides(payload, doc):
-    """Sorted slugs of live (non-curated) default-league ascendancies handled by neither
-    guides nor unguided — i.e. new ascendancies that need a curation decision."""
+def _live_default_slugs(payload):
+    """Slugs of live (non-curated) default-league ascendancies in the payload."""
     payload = payload if isinstance(payload, dict) else {}
-    guides = (doc.get("guides") or {}) if isinstance(doc, dict) else {}
-    ung = set((doc.get("unguided") or []) if isinstance(doc, dict) else [])
-    handled = set(guides) | ung
     default_url = payload.get("default")
     out = set()
     for lg in payload.get("leagues", []):
@@ -566,10 +562,25 @@ def untriaged_guides(payload, doc):
         for b in lg.get("builds", []):
             asc = b.get("asc")
             if asc:
-                slug = slugify_asc(asc)
-                if slug not in handled:
-                    out.add(slug)
-    return sorted(out)
+                out.add(slugify_asc(asc))
+    return out
+
+
+def untriaged_guides(payload, doc):
+    """Sorted slugs of live (non-curated) default-league ascendancies handled by neither
+    guides nor unguided — i.e. new ascendancies that need a curation decision."""
+    guides = (doc.get("guides") or {}) if isinstance(doc, dict) else {}
+    ung = set((doc.get("unguided") or []) if isinstance(doc, dict) else [])
+    handled = set(guides) | ung
+    return sorted(s for s in _live_default_slugs(payload) if s not in handled)
+
+
+def untriaged_leveling(payload, doc):
+    """Leveling twin of untriaged_guides: live slugs in neither leveling nor levelingUnguided."""
+    lvl = (doc.get("leveling") or {}) if isinstance(doc, dict) else {}
+    lung = set((doc.get("levelingUnguided") or []) if isinstance(doc, dict) else [])
+    handled = set(lvl) | lung
+    return sorted(s for s in _live_default_slugs(payload) if s not in handled)
 
 
 def _history_append(points, point, cap):
@@ -894,6 +905,9 @@ def warn_missing_guides(payload):
         for slug in missing:
             print(f"[warn] ascendancy '{slug}' is in the meta but has no guide "
                   f"(add it to guides.json or its unguided list)", file=sys.stderr)
+        for slug in untriaged_leveling(payload, doc):
+            print(f"[warn] ascendancy '{slug}' has no leveling guide "
+                  f"(add it to guides.json leveling or levelingUnguided list)", file=sys.stderr)
         gp, dp = doc.get("patch"), payload.get("patch")
         if gp and dp and gp != dp:
             print(f"[warn] guides.json patch {gp} is behind data.json patch {dp} — re-vet the guides",

@@ -517,6 +517,18 @@ class Guides(unittest.TestCase):
         self.assertEqual(distill.untriaged_guides(None, {"guides":{}, "unguided":[]}), [])
         self.assertEqual(distill.untriaged_guides({}, None), [])
 
+    def test_untriaged_leveling_lists_only_unhandled_live_ascendancies(self):
+        payload = {"default":"sc","leagues":[
+            {"url":"sc","builds":[{"asc":"Deadeye"},{"asc":"Titan"},{"asc":"Smith of Kitava"}]},
+            {"url":"std","curated":True,"builds":[{"asc":"Lich"}]},
+        ]}
+        doc = {"leveling":{"deadeye":{"url":"https://x","source":"M"}}, "levelingUnguided":["titan"]}
+        # Deadeye has a leveling guide, Titan is levelingUnguided, Smith is untriaged, Lich is curated-only
+        self.assertEqual(distill.untriaged_leveling(payload, doc), ["smith-of-kitava"])
+        # tolerates a bad payload/doc exactly like its build-guide twin
+        self.assertEqual(distill.untriaged_leveling(None, {"leveling":{}, "levelingUnguided":[]}), [])
+        self.assertEqual(distill.untriaged_leveling({}, None), [])
+
     def test_shipped_guides_json_valid_and_complete(self):
         # the committed guides.json must be well-formed AND cover every live ascendancy
         # (each in guides or unguided) — an untriaged new ascendancy fails CI, the reminder bite.
