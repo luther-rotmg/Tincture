@@ -297,6 +297,17 @@ class FailSafe(unittest.TestCase):
         self.assertEqual(before, after, "an empty feed must leave data.json byte-for-byte unchanged")
 
 
+class SitemapXml(unittest.TestCase):
+    def test_excludes_data_json_keeps_home_and_landing(self):
+        xml = distill._sitemap_xml("2026-06-27", ["deadeye", "titan"])
+        self.assertNotIn("data.json", xml)                                  # a data file is not a crawlable page
+        self.assertIn("<loc>https://tincturepoe2.com/</loc>", xml)
+        self.assertIn("<loc>https://tincturepoe2.com/b/deadeye.html</loc>", xml)
+        self.assertIn("<loc>https://tincturepoe2.com/b/titan.html</loc>", xml)
+        self.assertIn("<lastmod>2026-06-27</lastmod>", xml)
+        self.assertTrue(xml.endswith("</urlset>\n"))
+
+
 class Apportion(unittest.TestCase):
     def test_derived_n_never_sums_above_total(self):
         # largest-remainder rounding: per-row round() can bias the headcounts above the real
@@ -498,6 +509,35 @@ class Guides(unittest.TestCase):
             payload = load_data()
             self.assertEqual(distill.untriaged_guides(payload, doc), [],
                              "every live ascendancy must be in guides.json's guides or unguided — add the new one(s)")
+
+
+class LandingTwitter(unittest.TestCase):
+    def test_landing_html_has_twitter_card(self):
+        h = distill.landing_html("Deadeye", "Ranger", "bow striker", ["Lightning Arrow"], weapon="Bow / Quiver")
+        self.assertIn('name="twitter:card" content="summary_large_image"', h)
+        self.assertIn('name="twitter:title"', h)
+        self.assertIn('name="twitter:description"', h)
+        self.assertIn('name="twitter:image" content="https://tincturepoe2.com/docs/og.png"', h)
+
+
+class WeaponLabel(unittest.TestCase):
+    def test_dominant_weapon_gates_weak_and_unknown(self):
+        self.assertEqual(distill._dominant_weapon({"weapons": [{"name": "Bow / Quiver", "pct": 87.6}]}), "Bow / Quiver")
+        self.assertEqual(distill._dominant_weapon({"weapons": [{"name": "Crossbow", "pct": 30.0}]}), "Crossbow")  # exactly at threshold
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Staff", "pct": 15}]}))                 # weak plurality
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Unknown / Sceptre", "pct": 45}]}))     # unclassified main
+        self.assertIsNone(distill._dominant_weapon({"weapons": [{"name": "Dual Unknown", "pct": 41.7}]}))
+        self.assertIsNone(distill._dominant_weapon({"weapons": []}))
+        self.assertIsNone(distill._dominant_weapon({}))
+
+    def test_landing_html_weapon_wording_is_honest(self):
+        dom = distill.landing_html("Deadeye", "Ranger", "bow", ["Lightning Arrow"], weapon="Bow / Quiver")
+        self.assertIn("Most-played weapon: Bow / Quiver.", dom)
+        self.assertNotIn("Typically a", dom)
+        none = distill.landing_html("Titan", "Warrior", "slam", ["Sunder"], weapon=None)
+        self.assertNotIn("Most-played weapon", none)
+        self.assertNotIn("Typically a", none)
+        self.assertNotIn("Unknown", none)
 
 
 if __name__ == "__main__":

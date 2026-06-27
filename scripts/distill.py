@@ -464,21 +464,27 @@ def write_builds_manifest():
         print(f"[warn] could not write builds manifest: {e}")
 
 
+def _sitemap_xml(lastmod, asc_slugs=None):
+    """The sitemap XML string: the homepage + each per-ascendancy /b landing page. A JSON data file
+    (data.json) is NOT a crawlable page, so it is deliberately excluded. Pure — no IO."""
+    def url_block(loc, prio, freq="hourly"):
+        return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
+                f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
+    blocks = url_block(SITE_URL, "1.0")
+    for slug in sorted(asc_slugs or []):
+        blocks += url_block(f"{SITE_URL}b/{slug}.html", "0.6", "weekly")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + blocks + "</urlset>\n")
+
+
 def write_sitemap(updated_iso, asc_slugs=None):
     """Rewrite sitemap.xml with a <lastmod> matching data.json's update day, turning the
     'refreshed hourly' claim into a verifiable crawler freshness signal. Date granularity keeps
     the file (and its commits) from churning every hour. Includes the per-ascendancy landing
     pages. Fail-safe — a hiccup never breaks a run."""
     lastmod = (updated_iso or "")[:10] or datetime.now(timezone.utc).date().isoformat()
-    def url_block(loc, prio, freq="hourly"):
-        return (f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
-                f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n")
-    blocks = url_block(SITE_URL, "1.0") + url_block(SITE_URL + "data.json", "0.5")
-    for slug in sorted(asc_slugs or []):
-        blocks += url_block(f"{SITE_URL}b/{slug}.html", "0.6", "weekly")
-    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-           + blocks + "</urlset>\n")
+    xml = _sitemap_xml(lastmod, asc_slugs)
     try:
         tmp = SITEMAP_PATH + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
@@ -668,6 +674,19 @@ def _esc(s):
     return _html.escape(str(s), quote=True)
 
 
+WEAPON_DOMINANT_PCT = 30   # below this share there's no single "build weapon" worth naming on a /b page
+
+
+def _dominant_weapon(entry):
+    """The ascendancy's weapon to name on its /b page — only a clearly dominant, classified one.
+    None when the plurality is weak (< WEAPON_DOMINANT_PCT) or the weaponmode is unclassified ('Unknown')."""
+    w = (entry.get("weapons") or [{}])[0]
+    name = w.get("name")
+    if not name or "Unknown" in name or (w.get("pct") or 0) < WEAPON_DOMINANT_PCT:
+        return None
+    return name
+
+
 def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon=None, siblings=None):
     """A real-content (not doorway) SEO page for one ascendancy: class, playstyle, common skills,
     signature uniques, key notables, a self-canonical, JSON-LD, and a link into the live SPA deep
@@ -677,7 +696,7 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
     url = f"{SITE}/b/{slug}.html"
     deep = f"{SITE}/#asc={slug}"
     title = f"{asc} build meta — Path of Exile 2 (Runes of Aldur) | Tincture"
-    wbit = f" Typically a {weapon} build." if weapon else ""
+    wbit = f" Most-played weapon: {weapon}." if weapon else ""
     desc = (f"{asc}" + (f" ({cls})" if cls else "") + f" in Path of Exile 2 {PATCH} — "
             + (tag or "a current ladder ascendancy") + "." + wbit
             + " See its live ladder share, popular skills and uniques, and a loadable build on Tincture.")
@@ -717,6 +736,10 @@ def landing_html(asc, cls, tag, skills=None, uniques=None, notables=None, weapon
         '<meta property="og:image:type" content="image/png">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:title" content="{_esc(title)}">',
+        f'<meta name="twitter:description" content="{_esc(desc)}">',
+        f'<meta name="twitter:image" content="{SITE}/docs/og.png">',
         '<meta property="og:type" content="article">',
         '<meta name="theme-color" content="#14100b">',
         '<link rel="icon" type="image/svg+xml" href="/favicon.svg">',
@@ -783,7 +806,7 @@ def generate_landing_pages(payload):
         for asc, (cls, tag) in sorted(info.items()):
             slug = slugify_asc(asc)
             e = meta_by.get(asc) or {}
-            weapon = (e.get("weapons") or [{}])[0].get("name") if e.get("weapons") else None
+            weapon = _dominant_weapon(e)
             page = landing_html(asc, cls, tag, names(e.get("skills")), names(e.get("uniques")), names(e.get("notables")), weapon, siblings=siblings)
             tmp = os.path.join(LANDING_DIR, slug + ".html.tmp")
             with open(tmp, "w", encoding="utf-8") as f:
