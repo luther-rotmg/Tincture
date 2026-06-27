@@ -501,22 +501,29 @@ def slugify_asc(asc):
 
 
 def guides_schema_errors(doc):
-    """Return a list of human-readable problems with a guides.json doc; [] means valid."""
+    """Return a list of human-readable problems with a guides.json doc; [] means valid.
+    The `leveling`/`levelingUnguided` keys are OPTIONAL (additive) — absent is valid."""
     errs = []
     if not isinstance(doc, dict):
         return ["guides.json is not an object"]
+
+    def _map_errs(m, label):
+        out = []
+        for slug, e in m.items():
+            if not isinstance(e, dict):
+                out.append(f"{label}['{slug}'] is not an object"); continue
+            url = e.get("url")
+            if not (isinstance(url, str) and (url.startswith("http://") or url.startswith("https://"))):
+                out.append(f"{label}['{slug}'] has a missing/invalid url")
+            if not (isinstance(e.get("source"), str) and e.get("source").strip()):
+                out.append(f"{label}['{slug}'] has a missing/empty source")
+        return out
+
     guides = doc.get("guides")
     if not isinstance(guides, dict):
         errs.append("'guides' is missing or not an object")
         guides = {}
-    for slug, e in guides.items():
-        if not isinstance(e, dict):
-            errs.append(f"guides['{slug}'] is not an object"); continue
-        url = e.get("url")
-        if not (isinstance(url, str) and (url.startswith("http://") or url.startswith("https://"))):
-            errs.append(f"guides['{slug}'] has a missing/invalid url")
-        if not (isinstance(e.get("source"), str) and e.get("source").strip()):
-            errs.append(f"guides['{slug}'] has a missing/empty source")
+    errs += _map_errs(guides, "guides")
     ung = doc.get("unguided", [])
     if not isinstance(ung, list) or not all(isinstance(s, str) for s in ung):
         errs.append("'unguided' must be a list of slug strings")
@@ -524,6 +531,23 @@ def guides_schema_errors(doc):
     both = set(guides) & set(ung)
     if both:
         errs.append(f"slug(s) in both guides and unguided: {sorted(both)}")
+
+    # leveling (optional) — same shape as guides; absent keys are valid
+    lvl = doc.get("leveling")
+    lvl_map = {}
+    if lvl is not None:
+        if not isinstance(lvl, dict):
+            errs.append("'leveling' must be an object")
+        else:
+            lvl_map = lvl
+            errs += _map_errs(lvl, "leveling")
+    lung = doc.get("levelingUnguided", [])
+    if not isinstance(lung, list) or not all(isinstance(s, str) for s in lung):
+        errs.append("'levelingUnguided' must be a list of slug strings")
+        lung = [s for s in (lung if isinstance(lung, list) else []) if isinstance(s, str)]
+    lboth = set(lvl_map) & set(lung)
+    if lboth:
+        errs.append(f"slug(s) in both leveling and levelingUnguided: {sorted(lboth)}")
     return errs
 
 

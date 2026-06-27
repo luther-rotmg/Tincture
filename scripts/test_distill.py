@@ -482,6 +482,27 @@ class Guides(unittest.TestCase):
         # a slug in both guides and unguided is an error
         both = {"guides":{"deadeye":{"url":"https://x","source":"M"}}, "unguided":["deadeye"]}
         self.assertTrue(any("both" in e.lower() for e in distill.guides_schema_errors(both)))
+        # leveling keys are OPTIONAL — a doc with none still validates clean
+        self.assertEqual(distill.guides_schema_errors(
+            {"guides":{"deadeye":{"url":"https://x.gg","source":"Maxroll"}}}), [])
+        # a valid leveling map + levelingUnguided validates clean
+        okl = {"guides":{"deadeye":{"url":"https://x.gg","source":"Maxroll"}},
+               "leveling":{"deadeye":{"url":"https://x.gg/lvl","source":"Maxroll"}},
+               "levelingUnguided":["titan"]}
+        self.assertEqual(distill.guides_schema_errors(okl), [])
+        # bad leveling: non-http url + empty source, and a non-list levelingUnguided
+        badl = {"guides":{"deadeye":{"url":"https://x.gg","source":"M"}},
+                "leveling":{"oracle":{"url":"ftp://x","source":""}},
+                "levelingUnguided":"nope"}
+        el = distill.guides_schema_errors(badl)
+        self.assertTrue(any("oracle" in e for e in el))            # bad url + empty source
+        self.assertTrue(any("levelingUnguided" in e for e in el))  # not a list
+        # a slug in both leveling and levelingUnguided is an error
+        bothl = {"guides":{"deadeye":{"url":"https://x","source":"M"}},
+                 "leveling":{"oracle":{"url":"https://x","source":"M"}},
+                 "levelingUnguided":["oracle"]}
+        self.assertTrue(any("both leveling" in e.lower()
+                            for e in distill.guides_schema_errors(bothl)))
 
     def test_untriaged_lists_only_unhandled_live_ascendancies(self):
         payload = {"default":"sc","leagues":[
