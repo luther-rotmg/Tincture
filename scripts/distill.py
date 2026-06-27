@@ -309,6 +309,13 @@ def _apportion_n(rows, total):
             r["n"] = 0
         return
     exacts = [total * r["_popf"] / 100.0 for r in rows]
+    # poe.ninja top-N shares can sum to >100% (overlapping categories or independent rounding).
+    # Scale exacts down proportionally so they sum to at most `total` before flooring — otherwise
+    # the floors alone can exceed the real population and the clamp below has no effect.
+    raw_sum = sum(exacts)
+    if raw_sum > total:
+        scale = total / raw_sum
+        exacts = [e * scale for e in exacts]
     floors = [int(e) for e in exacts]                 # int() == floor for non-negative shares
     target = min(total, round(sum(exacts)))           # never exceed the real population
     deficit = max(0, target - sum(floors))            # always < len(rows) (sum of fractions)
