@@ -511,5 +511,14 @@ class Guides(unittest.TestCase):
                              "every live ascendancy must be in guides.json's guides or unguided — add the new one(s)")
 
 
+class LandingTwitter(unittest.TestCase):
+    def test_landing_html_has_twitter_card(self):
+        h = distill.landing_html("Deadeye", "Ranger", "bow striker", ["Lightning Arrow"], weapon="Bow / Quiver")
+        self.assertIn('name="twitter:card" content="summary_large_image"', h)
+        self.assertIn('name="twitter:title"', h)
+        self.assertIn('name="twitter:description"', h)
+        self.assertIn('name="twitter:image" content="https://tincturepoe2.com/docs/og.png"', h)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
