@@ -1850,6 +1850,22 @@ function guideLinkHTML(b){
     + ` title="Open a web search for community build guides — Tincture doesn't host or endorse guides">guide ↗</a>`;
 }
 
+// curated community LEVELING guide when we have one, else the neutral web search (an honest pointer, never an endorsement)
+function levelingUrl(b){
+  const q = `${b.asc}${b.skill ? " " + b.skill : ""} Path of Exile 2 ${DATA.patch || "0.5.3"} leveling guide`;
+  return "https://www.google.com/search?q=" + encodeURIComponent(q);
+}
+function levelingLinkHTML(b){
+  const g = (GUIDES && GUIDES.leveling) ? GUIDES.leveling[slugOf(b)] : null;
+  if (g && g.url){
+    return `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${esc(g.url)}"`
+      + ` title="A community leveling guide for ${esc(b.asc)} by ${esc(g.source)} — a pointer, not an endorsement; may lag the latest patch">`
+      + `${esc(g.source)} leveling ↗</a>`;
+  }
+  return `<a class="guide-link" target="_blank" rel="noopener noreferrer" href="${levelingUrl(b)}"`
+    + ` title="Open a web search for community leveling guides — Tincture doesn't host or endorse guides">leveling ↗</a>`;
+}
+
 /* ----- per-build meta detail (from meta-detail.json) ----- */
 const metaFor = b => (META && META.byAsc) ? META.byAsc[slugOf(b)] : null;
 function skillsLine(md){
@@ -2275,6 +2291,7 @@ function renderRows(){
       tag && esc(tag),
       (b.n!=null ? `~${fmt(b.n)} characters` : null),
       guideLinkHTML(b),
+      levelingLinkHTML(b),
     ].filter(Boolean);
     const conf = confidence(b);
     const confHTML = conf
@@ -3083,6 +3100,7 @@ function rxRenderResults(ranked){
         <button class="decant sm" type="button" data-asc="${esc(c.asc)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v4.5L5.5 16a3 3 0 0 0 2.7 4.3h7.6A3 3 0 0 0 18.5 16L14 7.5V3"/><path d="M8 14h8"/></svg> Decant</button>
         <a href="#asc=${esc(c.slug)}" data-asc="${esc(c.asc)}" class="rx-view">view in ledger ↓</a>
         <a href="${guideUrl(c.b)}" target="_blank" rel="noopener noreferrer">guide ↗</a>
+        <a href="${levelingUrl(c.b)}" target="_blank" rel="noopener noreferrer">leveling ↗</a>
       </div>
     </div>`;
   }).join("");

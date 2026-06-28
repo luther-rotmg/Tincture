@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-06-21",
+  "updated": "2026-06-27",
   "guides": {
     "martial-artist": { "url": "https://maxroll.gg/poe2/build-guides/whirling-assault-martial-artist-build-guide", "source": "Maxroll" },
     "spirit-walker": { "url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters", "source": "Maxroll" },
@@ -13,5 +13,18 @@
     "titan": { "url": "https://maxroll.gg/poe2/build-guides/whirling-assault-titan-endgame-build-guide", "source": "Maxroll" },
     "abyssal-lich": { "url": "https://odealo.com/articles/detonate-dead-abyssal-lich-poe-2-build", "source": "Odealo" }
   },
-  "unguided": ["chronomancer", "infernalist", "invoker", "lich", "pathfinder"]
+  "unguided": ["chronomancer", "infernalist", "invoker", "lich", "pathfinder"],
+  "leveling": {
+    "martial-artist": { "url": "https://deltiasgaming.com/path-of-exile-2-0-5-monk-martial-artist-leveling-guide/", "source": "Deltia's Gaming" },
+    "spirit-walker": { "url": "https://www.poe-vault.com/poe2/huntress/spirit-walker/companion-leveling-build", "source": "PoE Vault" },
+    "deadeye": { "url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye-leveling-build-guide", "source": "Maxroll" },
+    "gemling-legionnaire": { "url": "https://www.poe-vault.com/poe2/mercenary/gemling-legionnaire/grenadier-leveling-build", "source": "PoE Vault" },
+    "oracle": { "url": "https://www.poe-vault.com/poe2/druid/oracle/werewolf-leveling-build", "source": "PoE Vault" },
+    "stormweaver": { "url": "https://maxroll.gg/poe2/build-guides/spark-archmage-stormweaver-leveling-guide", "source": "Maxroll" },
+    "disciple-of-varashta": { "url": "https://maxroll.gg/poe2/build-guides/disciple-of-varashta-plant-build-guide", "source": "Maxroll" },
+    "blood-mage": { "url": "https://maxroll.gg/poe2/build-guides/fireball-blood-mage-leveling-guide", "source": "Maxroll" },
+    "titan": { "url": "https://maxroll.gg/poe2/build-guides/boneshatter-titan-leveling-guide", "source": "Maxroll" },
+    "abyssal-lich": { "url": "https://mobalytics.gg/poe-2/builds/plants-lich-deadrabb1t", "source": "Mobalytics" }
+  },
+  "levelingUnguided": []
 }

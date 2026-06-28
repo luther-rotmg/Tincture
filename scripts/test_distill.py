@@ -482,6 +482,27 @@ class Guides(unittest.TestCase):
         # a slug in both guides and unguided is an error
         both = {"guides":{"deadeye":{"url":"https://x","source":"M"}}, "unguided":["deadeye"]}
         self.assertTrue(any("both" in e.lower() for e in distill.guides_schema_errors(both)))
+        # leveling keys are OPTIONAL — a doc with none still validates clean
+        self.assertEqual(distill.guides_schema_errors(
+            {"guides":{"deadeye":{"url":"https://x.gg","source":"Maxroll"}}}), [])
+        # a valid leveling map + levelingUnguided validates clean
+        okl = {"guides":{"deadeye":{"url":"https://x.gg","source":"Maxroll"}},
+               "leveling":{"deadeye":{"url":"https://x.gg/lvl","source":"Maxroll"}},
+               "levelingUnguided":["titan"]}
+        self.assertEqual(distill.guides_schema_errors(okl), [])
+        # bad leveling: non-http url + empty source, and a non-list levelingUnguided
+        badl = {"guides":{"deadeye":{"url":"https://x.gg","source":"M"}},
+                "leveling":{"oracle":{"url":"ftp://x","source":""}},
+                "levelingUnguided":"nope"}
+        el = distill.guides_schema_errors(badl)
+        self.assertTrue(any("oracle" in e for e in el))            # bad url + empty source
+        self.assertTrue(any("levelingUnguided" in e for e in el))  # not a list
+        # a slug in both leveling and levelingUnguided is an error
+        bothl = {"guides":{"deadeye":{"url":"https://x","source":"M"}},
+                 "leveling":{"oracle":{"url":"https://x","source":"M"}},
+                 "levelingUnguided":["oracle"]}
+        self.assertTrue(any("both leveling" in e.lower()
+                            for e in distill.guides_schema_errors(bothl)))
 
     def test_untriaged_lists_only_unhandled_live_ascendancies(self):
         payload = {"default":"sc","leagues":[
@@ -496,6 +517,18 @@ class Guides(unittest.TestCase):
         self.assertEqual(distill.untriaged_guides(None, {"guides":{}, "unguided":[]}), [])
         self.assertEqual(distill.untriaged_guides({}, None), [])
 
+    def test_untriaged_leveling_lists_only_unhandled_live_ascendancies(self):
+        payload = {"default":"sc","leagues":[
+            {"url":"sc","builds":[{"asc":"Deadeye"},{"asc":"Titan"},{"asc":"Smith of Kitava"}]},
+            {"url":"std","curated":True,"builds":[{"asc":"Lich"}]},
+        ]}
+        doc = {"leveling":{"deadeye":{"url":"https://x","source":"M"}}, "levelingUnguided":["titan"]}
+        # Deadeye has a leveling guide, Titan is levelingUnguided, Smith is untriaged, Lich is curated-only
+        self.assertEqual(distill.untriaged_leveling(payload, doc), ["smith-of-kitava"])
+        # tolerates a bad payload/doc exactly like its build-guide twin
+        self.assertEqual(distill.untriaged_leveling(None, {"leveling":{}, "levelingUnguided":[]}), [])
+        self.assertEqual(distill.untriaged_leveling({}, None), [])
+
     def test_shipped_guides_json_valid_and_complete(self):
         # the committed guides.json must be well-formed AND cover every live ascendancy
         # (each in guides or unguided) — an untriaged new ascendancy fails CI, the reminder bite.
@@ -509,6 +542,9 @@ class Guides(unittest.TestCase):
             payload = load_data()
             self.assertEqual(distill.untriaged_guides(payload, doc), [],
                              "every live ascendancy must be in guides.json's guides or unguided — add the new one(s)")
+            self.assertEqual(distill.untriaged_leveling(payload, doc), [],
+                             "every live ascendancy must be in guides.json's leveling or "
+                             "levelingUnguided — add the new one(s)")
 
 
 class LandingTwitter(unittest.TestCase):
