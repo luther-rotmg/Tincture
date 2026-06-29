@@ -612,50 +612,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemStormblastBolts",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemCloseCombatTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDeliberation",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
       "level_interval": [
         90,
@@ -692,6 +648,50 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemStormblastBolts",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCloseCombatTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDeliberation",
           "level_interval": [
             1,
             100
@@ -774,12 +774,35 @@
       ],
       "support_skills": [
         {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
           "level_interval": [
             65,
             100
           ]
         },
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
           "level_interval": [
@@ -788,9 +811,9 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
           "level_interval": [
-            65,
+            1,
             100
           ]
         }
@@ -809,40 +832,11 @@
             65,
             100
           ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemEternalRage",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemVitality",
-          "level_interval": [
-            1,
-            100
-          ]
         }
       ]
     }
   ],
   "inventory_slots": [
-    {
-      "inventory_id": "Helm1",
-      "unique_name": "Alpha's Howl",
-      "slot_x": 0,
-      "slot_y": 0
-    },
     {
       "inventory_id": "Boots1",
       "additional_text": "Cavalry Boots\n1. +166 to [Evasion] Rating\n2. 80% increased [Evasion|Evasion] Rating\n3. +45% to [Resistances|Fire Resistance]\n4. +37% to [Resistances|Lightning Resistance]\n5. 5% increased Movement Speed\n6. +5% to all [ElementalDamage|Elemental] [Resistances]\n7. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
@@ -882,6 +876,12 @@
         77,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "unique_name": "Alpha's Howl",
       "slot_x": 0,
       "slot_y": 0
     },

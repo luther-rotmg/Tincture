@@ -14,9 +14,6 @@
       "id": "AscendancyMonk1Notable7"
     },
     {
-      "id": "quarterstaff18"
-    },
-    {
       "id": "dexterity51"
     },
     {
@@ -26,13 +23,13 @@
       "id": "movement_speed4"
     },
     {
-      "id": "criticals11"
-    },
-    {
       "id": "movement_speed5"
     },
     {
       "id": "stun_threshold_from_energy_shield19_"
+    },
+    {
+      "id": "intelligence9"
     },
     {
       "id": "azmerianimals11"
@@ -47,9 +44,6 @@
       "id": "AscendancyMonk1Start"
     },
     {
-      "id": "quarterstaff8"
-    },
-    {
       "id": "attributes28"
     },
     {
@@ -57,6 +51,9 @@
     },
     {
       "id": "criticals54_"
+    },
+    {
+      "id": "criticals43_"
     },
     {
       "id": "evasion11"
@@ -69,6 +66,9 @@
     },
     {
       "id": "intelligence68"
+    },
+    {
+      "id": "criticals41"
     },
     {
       "id": "evasion_and_energy_shield33"
@@ -89,6 +89,12 @@
       "id": "intelligence7"
     },
     {
+      "id": "intelligence4"
+    },
+    {
+      "id": "criticals38_"
+    },
+    {
       "id": "stun_threshold_from_energy_shield13"
     },
     {
@@ -98,13 +104,13 @@
       "id": "AscendancyMonk1Notable3"
     },
     {
-      "id": "criticals14"
-    },
-    {
       "id": "AscendancyMonk1Small7"
     },
     {
       "id": "criticals29"
+    },
+    {
+      "id": "evasion39"
     },
     {
       "id": "evasion_and_energy_shield26"
@@ -114,6 +120,12 @@
     },
     {
       "id": "criticals58"
+    },
+    {
+      "id": "slow_mitigation13"
+    },
+    {
+      "id": "slow_mitigation15"
     },
     {
       "id": "dexterity82_"
@@ -134,7 +146,7 @@
       "id": "azmerianimals10"
     },
     {
-      "id": "mana_regeneration11"
+      "id": "evasion4"
     },
     {
       "id": "power_charges6_"
@@ -149,7 +161,7 @@
       "id": "dexterity7"
     },
     {
-      "id": "mana_regeneration8"
+      "id": "spell_suppression12"
     },
     {
       "id": "slow_mitigation5"
@@ -164,16 +176,7 @@
       "id": "AscendancyMonk1Small4"
     },
     {
-      "id": "criticals3"
-    },
-    {
-      "id": "mana_regeneration17"
-    },
-    {
       "id": "criticals10"
-    },
-    {
-      "id": "area_attacks31"
     },
     {
       "id": "ranger_huntress_notable1"
@@ -189,9 +192,6 @@
     },
     {
       "id": "slow_mitigation3"
-    },
-    {
-      "id": "attack24"
     },
     {
       "id": "dexterity80"
@@ -218,19 +218,7 @@
       "id": "attack5"
     },
     {
-      "id": "attack22"
-    },
-    {
-      "id": "attack_speed27"
-    },
-    {
       "id": "movement_speed9"
-    },
-    {
-      "id": "criticals15"
-    },
-    {
-      "id": "quarterstaff9_"
     },
     {
       "id": "jewel_slot1970"
@@ -263,7 +251,13 @@
       "id": "AscendancyMonk1Small3"
     },
     {
+      "id": "slow_mitigation16"
+    },
+    {
       "id": "evasion_and_energy_shield15"
+    },
+    {
+      "id": "intelligence5"
     },
     {
       "id": "criticals59"
@@ -272,19 +266,16 @@
       "id": "dexterity54"
     },
     {
-      "id": "criticals12"
+      "id": "slow_mitigation8"
     },
     {
-      "id": "slow_mitigation8"
+      "id": "intelligence3"
     },
     {
       "id": "criticals56"
     },
     {
       "id": "dexterity6"
-    },
-    {
-      "id": "attack27"
     },
     {
       "id": "dexterity9"
@@ -294,6 +285,9 @@
     },
     {
       "id": "azmerianimals7"
+    },
+    {
+      "id": "spell_suppression36"
     },
     {
       "id": "evasion_and_energy_shield30"
@@ -315,6 +309,9 @@
     },
     {
       "id": "jewel_slot1960"
+    },
+    {
+      "id": "spell_suppression6"
     },
     {
       "id": "movement_speed1"
@@ -344,27 +341,14 @@
       "id": "power_charges8"
     },
     {
-      "id": "quarterstaff12",
-      "weapon_set": 1
-    },
-    {
-      "id": "area_attacks58",
-      "weapon_set": 1
+      "id": "spell_suppression11+"
     },
     {
       "id": "criticals89",
       "weapon_set": 1
     },
     {
-      "id": "area_attacks44",
-      "weapon_set": 1
-    },
-    {
       "id": "area_attacks54",
-      "weapon_set": 1
-    },
-    {
-      "id": "area_attacks51",
       "weapon_set": 1
     },
     {
@@ -388,10 +372,6 @@
       "weapon_set": 1
     },
     {
-      "id": "quarterstaff13",
-      "weapon_set": 1
-    },
-    {
       "id": "criticals83",
       "weapon_set": 1
     },
@@ -400,11 +380,27 @@
       "weapon_set": 1
     },
     {
+      "id": "criticals3",
+      "weapon_set": 1
+    },
+    {
+      "id": "area_attacks31",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack24",
+      "weapon_set": 1
+    },
+    {
       "id": "daze_2",
       "weapon_set": 1
     },
     {
       "id": "area_attacks56",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack22",
       "weapon_set": 1
     },
     {
@@ -420,11 +416,15 @@
       "weapon_set": 1
     },
     {
-      "id": "area_attacks52",
+      "id": "criticals12",
       "weapon_set": 1
     },
     {
       "id": "criticals90",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack27",
       "weapon_set": 1
     },
     {
@@ -1010,18 +1010,18 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "unique_name": "Lochtonial Caress",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Ring2",
       "additional_text": "Amethyst Ring\n1. +8% to [Resistances|Chaos Resistance]\n2. Adds 19 to 33 [Cold] damage to [Attack|Attacks]\n3. Adds 2 to 67 [Lightning] damage to [Attack|Attacks]\n4. +12% to all [ElementalDamage|Elemental] [Resistances]\n5. +35% to [Resistances|Cold Resistance]",
       "level_interval": [
         60,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "unique_name": "Lochtonial Caress",
       "slot_x": 0,
       "slot_y": 0
     },

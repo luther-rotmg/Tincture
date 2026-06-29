@@ -1,7 +1,7 @@
 {
   "name": "Amazon — Lightning Spear (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"上古回歸_嘆氣獵人\" (o0931060781-1022)",
-  "description": "A representative Amazon build from the public runesofaldur ladder (character \"上古回歸_嘆氣獵人\", account \"o0931060781-1022\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/o0931060781-1022/%E4%B8%8A%E5%8F%A4%E5%9B%9E%E6%AD%B8_%E5%98%86%E6%B0%A3%E7%8D%B5%E4%BA%BA . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Amazon build from the public runesofaldur ladder (character \"上古回歸_嘆氣獵人\", account \"o0931060781-1022\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/o0931060781-1022/%E4%B8%8A%E5%8F%A4%E5%9B%9E%E6%AD%B8_%E5%98%86%E6%B0%A3%E7%8D%B5%E4%BA%BA . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Huntress1",
   "passives": [
     {
@@ -44,9 +44,6 @@
       "id": "spear5"
     },
     {
-      "id": "azmerianimals11"
-    },
-    {
       "id": "spear4"
     },
     {
@@ -60,9 +57,6 @@
     },
     {
       "id": "dexterity12_"
-    },
-    {
-      "id": "evasion_and_energy_shield10"
     },
     {
       "id": "criticals54_"
@@ -173,7 +167,10 @@
       "id": "heralds10"
     },
     {
-      "id": "azmerianimals10"
+      "id": "ailments47"
+    },
+    {
+      "id": "monkchakra6"
     },
     {
       "id": "criticals87"
@@ -275,6 +272,9 @@
       "id": "volatility3"
     },
     {
+      "id": "ailments46"
+    },
+    {
       "id": "jewel_slot1970"
     },
     {
@@ -309,6 +309,9 @@
     },
     {
       "id": "chaos33_"
+    },
+    {
+      "id": "ailments48"
     },
     {
       "id": "attack43"
@@ -432,14 +435,14 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemExecuteTwo",
+          "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
+          "id": "Metadata/Items/Gems/SupportGemExecuteTwo",
           "level_interval": [
             1,
             100

@@ -26,19 +26,22 @@
       "id": "being_surrounded13"
     },
     {
-      "id": "movement_speed4"
+      "id": "crossbow1"
     },
     {
-      "id": "crossbow1"
+      "id": "area_attacks10"
     },
     {
       "id": "slow_mitigation11"
     },
     {
-      "id": "movement_speed5"
+      "id": "area_attacks17"
     },
     {
       "id": "attributes115"
+    },
+    {
+      "id": "projectiles29"
     },
     {
       "id": "AscendancyMercenary2Notable6"
@@ -60,9 +63,6 @@
     },
     {
       "id": "boss_slaying10"
-    },
-    {
-      "id": "area_attacks11"
     },
     {
       "id": "spell_suppression8"
@@ -99,6 +99,9 @@
     },
     {
       "id": "being_surrounded21"
+    },
+    {
+      "id": "projectiles27"
     },
     {
       "id": "being_surrounded23"
@@ -140,9 +143,6 @@
       "id": "dexterity81"
     },
     {
-      "id": "area_attacks19"
-    },
-    {
       "id": "attributes19"
     },
     {
@@ -159,9 +159,6 @@
     },
     {
       "id": "lightning29"
-    },
-    {
-      "id": "being_surrounded19"
     },
     {
       "id": "attributes9"
@@ -209,6 +206,9 @@
       "id": "rage6"
     },
     {
+      "id": "area_attacks16_"
+    },
+    {
       "id": "boss_slaying4"
     },
     {
@@ -221,16 +221,10 @@
       "id": "elemental_attacks9"
     },
     {
-      "id": "area_attacks18"
-    },
-    {
       "id": "dexterity27"
     },
     {
       "id": "elemental_attacks6"
-    },
-    {
-      "id": "movement_speed9"
     },
     {
       "id": "AscendancyMercenary2Small1"
@@ -246,6 +240,9 @@
     },
     {
       "id": "being_surrounded15"
+    },
+    {
+      "id": "projectiles26"
     },
     {
       "id": "dexterity52"
@@ -269,10 +266,10 @@
       "id": "dexterity79"
     },
     {
-      "id": "rage1"
+      "id": "boss_slaying6"
     },
     {
-      "id": "two_handed8"
+      "id": "rage1"
     },
     {
       "id": "rage3"
@@ -336,6 +333,9 @@
     },
     {
       "id": "boss_slaying7"
+    },
+    {
+      "id": "marks12"
     },
     {
       "id": "strength84"
@@ -929,7 +929,7 @@
   "inventory_slots": [
     {
       "inventory_id": "Ring2",
-      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 25 to 42 [Fire] damage to [Attack|Attacks]\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. +19% to all [ElementalDamage|Elemental] [Resistances]\n5. +46% to [Resistances|Lightning Resistance]",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 30 to 50 [Fire] damage to [Attack|Attacks]\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. +16% to all [ElementalDamage|Elemental] [Resistances]\n5. +40% to [Resistances|Cold Resistance]",
       "level_interval": [
         60,
         100
@@ -975,7 +975,7 @@
     },
     {
       "inventory_id": "Ring1",
-      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 14 to 22 [Fire] damage to [Attack|Attacks]\n3. Adds 16 to 27 [Cold] damage to [Attack|Attacks]\n4. Adds 3 to 84 [Lightning] damage to [Attack|Attacks]\n5. +41% to [Resistances|Cold Resistance]",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 26 to 43 [Cold] damage to [Attack|Attacks]\n3. Adds 1 to 81 [Lightning] damage to [Attack|Attacks]\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. +43% to [Resistances|Lightning Resistance]",
       "level_interval": [
         65,
         100

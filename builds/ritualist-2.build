@@ -1,9 +1,12 @@
 {
   "name": "Ritualist — Spark (public ladder)",
-  "author": "Tincture — reconstructed from public ladder character \"Rolling_Sim_\" (Pocky18BaTH-3565)",
-  "description": "A representative Ritualist build from the public runesofaldur ladder (character \"Rolling_Sim_\", account \"Pocky18BaTH-3565\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Pocky18BaTH-3565/Rolling_Sim_ . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "author": "Tincture — reconstructed from public ladder character \"BINNAAUMM\" (binaum-4999)",
+  "description": "A representative Ritualist build from the public runesofaldur ladder (character \"BINNAAUMM\", account \"binaum-4999\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/binaum-4999/BINNAAUMM . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Huntress3",
   "passives": [
+    {
+      "id": "energy_shield34_"
+    },
     {
       "id": "boss_slaying2_"
     },
@@ -15,6 +18,9 @@
     },
     {
       "id": "dexterity25"
+    },
+    {
+      "id": "witch_sorceress_notable2"
     },
     {
       "id": "projectile_spells9"
@@ -41,7 +47,16 @@
       "id": "movement_speed4"
     },
     {
-      "id": "strength70"
+      "id": "energy_shield_recovery26"
+    },
+    {
+      "id": "projectiles47"
+    },
+    {
+      "id": "attributes3"
+    },
+    {
+      "id": "energy_shield_recovery24"
     },
     {
       "id": "AscendancyHuntress3Notable3_"
@@ -53,13 +68,10 @@
       "id": "intelligence57"
     },
     {
+      "id": "energy_shield13"
+    },
+    {
       "id": "AscendancyHuntress3Notable1_"
-    },
-    {
-      "id": "Puppetmaster10"
-    },
-    {
-      "id": "armour47"
     },
     {
       "id": "jewel_slot1969"
@@ -83,16 +95,10 @@
       "id": "intelligence84"
     },
     {
-      "id": "armour46"
+      "id": "intelligence74"
     },
     {
       "id": "dexterity12_"
-    },
-    {
-      "id": "projectiles13"
-    },
-    {
-      "id": "Puppetmaster7__"
     },
     {
       "id": "energy_shield24"
@@ -101,16 +107,10 @@
       "id": "evasion11"
     },
     {
-      "id": "Puppetmaster9"
-    },
-    {
       "id": "dexterity48"
     },
     {
       "id": "intelligence68"
-    },
-    {
-      "id": "Puppetmaster1"
     },
     {
       "id": "dexterity24_"
@@ -119,31 +119,25 @@
       "id": "dexterity47"
     },
     {
+      "id": "projectiles45"
+    },
+    {
       "id": "cast_speed2"
     },
     {
       "id": "dexterity75"
     },
     {
-      "id": "armour49"
+      "id": "energy_shield_recovery14"
     },
     {
       "id": "AscendancyHuntress3Notable4"
     },
     {
-      "id": "dexterity68"
-    },
-    {
-      "id": "Puppetmaster5"
-    },
-    {
-      "id": "energy_shield44"
-    },
-    {
-      "id": "attack11"
-    },
-    {
       "id": "slaying1"
+    },
+    {
+      "id": "energy_shield_recovery6"
     },
     {
       "id": "dexterity21"
@@ -152,7 +146,10 @@
       "id": "jewel_slot1979"
     },
     {
-      "id": "slowed_enemies17"
+      "id": "energy_shield_recovery29"
+    },
+    {
+      "id": "energy_shield_recovery8"
     },
     {
       "id": "slaying11"
@@ -167,19 +164,10 @@
       "id": "dexterity81"
     },
     {
-      "id": "dexterity44"
-    },
-    {
-      "id": "attack10"
-    },
-    {
-      "id": "ranged30_"
-    },
-    {
       "id": "projectile_spells3"
     },
     {
-      "id": "dexterity66"
+      "id": "jewel_slot1977"
     },
     {
       "id": "attributes10"
@@ -191,16 +179,7 @@
       "id": "strength85"
     },
     {
-      "id": "passive_keystone_iron_reflexes_"
-    },
-    {
       "id": "intelligence56"
-    },
-    {
-      "id": "armour48"
-    },
-    {
-      "id": "dexterity67_"
     },
     {
       "id": "attributes9"
@@ -209,19 +188,10 @@
       "id": "attributes11"
     },
     {
-      "id": "attack7"
+      "id": "energy_shield_recovery28"
     },
     {
       "id": "dexterity7"
-    },
-    {
-      "id": "focus5"
-    },
-    {
-      "id": "life_recoup36"
-    },
-    {
-      "id": "passive_keystone_giants_blood"
     },
     {
       "id": "companions8"
@@ -230,7 +200,10 @@
       "id": "jewel_slot1976"
     },
     {
-      "id": "projectiles9_"
+      "id": "duration6"
+    },
+    {
+      "id": "intelligence72"
     },
     {
       "id": "dexterity55"
@@ -239,10 +212,13 @@
       "id": "AscendancyHuntress3Notable2"
     },
     {
-      "id": "focus1"
+      "id": "dexterity34"
     },
     {
-      "id": "dexterity34"
+      "id": "ranger_huntress_notable1"
+    },
+    {
+      "id": "energy_shield_recovery7"
     },
     {
       "id": "boss_slaying9_"
@@ -251,28 +227,40 @@
       "id": "AscendancyHuntress3Start"
     },
     {
+      "id": "energy_shield_recovery22"
+    },
+    {
       "id": "AscendancyHuntress3Small3"
     },
     {
       "id": "dexterity80"
     },
     {
-      "id": "focus3"
+      "id": "intelligence17"
     },
     {
-      "id": "intelligence17"
+      "id": "strength44"
+    },
+    {
+      "id": "duration10"
     },
     {
       "id": "boss_slaying3"
     },
     {
-      "id": "dexterity43"
+      "id": "energy_shield7"
     },
     {
       "id": "movement_speed9"
     },
     {
+      "id": "projectiles46"
+    },
+    {
       "id": "energy_shield36"
+    },
+    {
+      "id": "duration12"
     },
     {
       "id": "projectile_spells1"
@@ -291,6 +279,9 @@
     },
     {
       "id": "intelligence52"
+    },
+    {
+      "id": "intelligence8"
     },
     {
       "id": "attributes12"
@@ -317,13 +308,7 @@
       "id": "intelligence51"
     },
     {
-      "id": "intelligence103"
-    },
-    {
       "id": "dexterity76"
-    },
-    {
-      "id": "strength71"
     },
     {
       "id": "intelligence25"
@@ -338,10 +323,7 @@
       "id": "boss_slaying6"
     },
     {
-      "id": "Puppetmaster4"
-    },
-    {
-      "id": "Puppetmaster2_"
+      "id": "energy_shield_recovery13"
     },
     {
       "id": "strength83"
@@ -356,13 +338,7 @@
       "id": "intelligence53_"
     },
     {
-      "id": "Puppetmaster11"
-    },
-    {
       "id": "dexterity54"
-    },
-    {
-      "id": "slowed_enemies16"
     },
     {
       "id": "dexterity77"
@@ -372,9 +348,6 @@
     },
     {
       "id": "projectiles48"
-    },
-    {
-      "id": "projectiles11"
     },
     {
       "id": "intelligence16"
@@ -390,6 +363,9 @@
     },
     {
       "id": "attributes8_"
+    },
+    {
+      "id": "intelligence71"
     },
     {
       "id": "intelligence45"
@@ -416,22 +392,10 @@
       "id": "jewel_slot1961"
     },
     {
-      "id": "Puppetmaster6"
-    },
-    {
-      "id": "energy_shield33_"
-    },
-    {
       "id": "energy_shield16"
     },
     {
-      "id": "attributes6"
-    },
-    {
       "id": "intelligence58"
-    },
-    {
-      "id": "Puppetmaster8"
     },
     {
       "id": "attributes29"
@@ -440,17 +404,14 @@
       "id": "strength84"
     },
     {
-      "id": "slowed_enemies18"
-    },
-    {
-      "id": "Puppetmaster3"
+      "id": "energy_shield_recovery27"
     }
   ],
   "skills": [
     {
       "id": "Metadata/Items/Gems/SkillGemSpark",
       "level_interval": [
-        84,
+        22,
         100
       ],
       "support_skills": [
@@ -469,9 +430,9 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "id": "Metadata/Items/Gem/SupportGemWildshardsThree",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -483,9 +444,39 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemWildshardsThree",
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -494,7 +485,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemConvalescence",
       "level_interval": [
-        84,
+        66,
         100
       ],
       "support_skills": [
@@ -511,50 +502,41 @@
             1,
             100
           ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemClarity",
+          "level_interval": [
+            1,
+            100
+          ]
         }
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "id": "Metadata/Items/Gem/SkillGemSpellslinger",
       "level_interval": [
         78,
         100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterludeTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
       ]
     },
     {
       "id": "Metadata/Items/Gems/SkillGemCrushingFear",
       "level_interval": [
-        84,
+        90,
         100
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "id": "Metadata/Items/Gems/SkillGemHyenaCackle",
       "level_interval": [
-        84,
+        66,
         100
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemWolfPounce",
+      "id": "Metadata/Items/Gems/SkillGemGhostDance",
       "level_interval": [
-        78,
+        84,
         100
       ]
     }
@@ -562,13 +544,11 @@
   "inventory_slots": [
     {
       "inventory_id": "BodyArmour1",
-      "unique_name": "Greed's Embrace",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring2",
-      "unique_name": "Kalandra's Touch",
+      "additional_text": "Vile Robe\n1. 132% increased [EnergyShield|Energy Shield]\n2. +27 to maximum Life\n3. +38% to [Resistances|Fire Resistance]\n4. +40% to [Resistances|Cold Resistance]\n5. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. 12% increased [ItemRarity|Rarity of Items] found\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana\n9. [ShamanOnlyMods|Bonded]: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "level_interval": [
+        65,
+        100
+      ],
       "slot_x": 0,
       "slot_y": 0
     },
@@ -579,8 +559,22 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon1",
-      "unique_name": "The Hammer of Faith",
+      "inventory_id": "Boots1",
+      "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. +50 to maximum [EnergyShield|Energy Shield]\n3. +109 to maximum Life\n4. +37% to [Resistances|Fire Resistance]\n5. +37% to [Resistances|Lightning Resistance]\n6. +22% to [Resistances|Lightning Resistance]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "Gold Amulet\n1. 16% increased [ItemRarity|Rarity of Items] found\n2. 38% increased maximum [EnergyShield|Energy Shield]\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. +15 to all [Attributes|Attributes]\n5. +16% to all [ElementalDamage|Elemental] [Resistances]",
+      "level_interval": [
+        54,
+        100
+      ],
       "slot_x": 0,
       "slot_y": 0
     },
@@ -597,10 +591,16 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Amulet1",
-      "additional_text": "Gold Amulet\n1. 19% increased [ItemRarity|Rarity of Items] found\n2. +72 to maximum [EnergyShield|Energy Shield]\n3. 46% increased maximum [EnergyShield|Energy Shield]\n4. 18% increased [ItemRarity|Rarity of Items] found",
+      "inventory_id": "Ring1",
+      "unique_name": "Andvarius",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon1",
+      "additional_text": "Dueling Wand\n1. [Gain] 27% of Damage as Extra [Fire] Damage\n2. 25% increased [Spell] Damage\n3. +116 to maximum Mana\n4. +2 to Level of all [Spell|Spell] Skills\n5. 35% increased Cast Speed\n6. 100% increased chance to [Shock]\n7. +60 to maximum [EnergyShield|Energy Shield]\n8. 25% chance for [Spell] Skills to fire 2 additional [Projectile|Projectiles]\n9. [ShamanOnlyMods|Bonded]: 5% increased maximum Life\n10. [ShamanOnlyMods|Bonded]: Every [Rage] also grants 1% increased [Spell] Damage",
       "level_interval": [
-        64,
+        65,
         100
       ],
       "slot_x": 0,
@@ -608,26 +608,12 @@
     },
     {
       "inventory_id": "Weapon2",
-      "additional_text": "Nettle Talisman\n1. Adds 2 to 7 [Fire|Fire] Damage",
-      "level_interval": [
-        5,
-        100
-      ],
+      "unique_name": "Hysseg's Claw",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Boots1",
-      "additional_text": "Luxurious Slippers\n1. 30% increased Movement Speed\n2. +56 to maximum [EnergyShield|Energy Shield]\n3. 100% increased [EnergyShield|Energy Shield]\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. +22% to [Resistances|Cold Resistance]\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
-      "level_interval": [
-        70,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring1",
+      "inventory_id": "Ring2",
       "unique_name": "Andvarius",
       "slot_x": 0,
       "slot_y": 0

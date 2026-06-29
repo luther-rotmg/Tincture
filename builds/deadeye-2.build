@@ -697,12 +697,19 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemWindDancer",
+      "id": "Metadata/Items/Gem/SkillGemTornadoShot",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
         {
           "id": "Metadata/Items/Gems/SupportGemBlindTwo",
           "level_interval": [
@@ -711,74 +718,23 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemBludgeon",
+          "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMaim",
+          "id": "Metadata/Items/Gem/SupportGemDurability",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
           "level_interval": [
             1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemHeft",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemIceShot",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFork",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -829,19 +785,56 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemTornadoShot",
+      "id": "Metadata/Items/Gem/SkillGemIceShot",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
           "level_interval": [
             1,
             100
           ]
         },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFork",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemWindDancer",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemBlindTwo",
           "level_interval": [
@@ -850,21 +843,28 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMartialTempoTwo",
+          "id": "Metadata/Items/Gems/SupportGemBludgeon",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDurability",
+          "id": "Metadata/Items/Gems/SupportGemMaim",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemHeft",
           "level_interval": [
             1,
             100
@@ -896,22 +896,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemGhostDance",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
         78,
@@ -922,6 +906,13 @@
       "id": "Metadata/Items/Gems/SkillGemHyenaCackle",
       "level_interval": [
         64,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEscapeShot",
+      "level_interval": [
+        84,
         100
       ]
     }
@@ -938,6 +929,16 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Gloves1",
+      "additional_text": "Secured Wraps\n1. Adds 23 to 34 [Cold] damage to [Attack|Attacks]\n2. 39% increased [Projectile] Damage\n3. +63% [SurpassChance|Surpassing] chance to fire an additional [Projectile]\n4. Adds 5 to 12 [Physical|Physical] Damage to [Attack|Attacks]\n5. 8% increased [Attack] Speed\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n8. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You\n9. [ShamanOnlyMods|Bonded]: Fissure Skills have +2 to [Limit]",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Weapon2",
       "unique_name": "Hysseg's Claw",
       "slot_x": 0,
@@ -948,16 +949,6 @@
       "additional_text": "Prismatic Ring\n1. +10% to all [ElementalDamage|Elemental] [Resistances]\n2. Adds 17 to 30 [Physical|Physical] Damage to [Attack|Attacks]\n3. 16% increased [ItemRarity|Rarity of Items] found\n4. +18% to all [ElementalDamage|Elemental] [Resistances]\n5. +42% to [Resistances|Cold Resistance]",
       "level_interval": [
         60,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Gloves1",
-      "additional_text": "Vaal Gloves\n1. Adds 21 to 35 [Cold] damage to [Attack|Attacks]\n2. +107 to maximum Life\n3. +2 to Level of all [Projectile] Skills\n4. [ManaLeech|Leech] 8.42% of [Physical] [Attack] Damage as Mana\n5. +22% to [Resistances|Fire Resistance]\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana\n9. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage",
-      "level_interval": [
-        75,
         100
       ],
       "slot_x": 0,

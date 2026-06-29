@@ -26,9 +26,6 @@
       "id": "mana38"
     },
     {
-      "id": "triggers18"
-    },
-    {
       "id": "attributes23"
     },
     {
@@ -42,6 +39,9 @@
     },
     {
       "id": "AscendancyDruid1Notable2"
+    },
+    {
+      "id": "templar_druid_notable1"
     },
     {
       "id": "stun_threshold_from_energy_shield19_"
@@ -90,9 +90,6 @@
     },
     {
       "id": "jewel_slot1979"
-    },
-    {
-      "id": "triggers6"
     },
     {
       "id": "life_on_kill13"
@@ -182,6 +179,9 @@
       "id": "intelligence40"
     },
     {
+      "id": "intelligence101_"
+    },
+    {
       "id": "triggers16"
     },
     {
@@ -242,9 +242,6 @@
       "id": "mana_flasks13"
     },
     {
-      "id": "triggers10"
-    },
-    {
       "id": "strength6"
     },
     {
@@ -276,6 +273,9 @@
     },
     {
       "id": "lightning70"
+    },
+    {
+      "id": "intelligence103"
     },
     {
       "id": "mana_leech20"
@@ -787,6 +787,16 @@
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Ring1",
+      "additional_text": "Mnemonic Ring\n1. 8% increased maximum Mana\n2. +249 to maximum Mana\n3. 23% increased Cast Speed\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
+      "level_interval": [
+        63,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Amulet1",
       "additional_text": "Solar Amulet\n1. +13 to [Spirit|Spirit]\n2. +263 to maximum Mana\n3. 11% increased maximum Mana\n4. +3 to Level of all [Spell|Spell] Skills\n5. +17% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
@@ -835,16 +845,6 @@
     {
       "inventory_id": "Weapon2",
       "unique_name": "Skysliver",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring1",
-      "additional_text": "Mnemonic Ring\n1. 8% increased maximum Mana\n2. +245 to maximum Mana\n3. +33 to [Intelligence|Intelligence]\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
-      "level_interval": [
-        63,
-        100
-      ],
       "slot_x": 0,
       "slot_y": 0
     },

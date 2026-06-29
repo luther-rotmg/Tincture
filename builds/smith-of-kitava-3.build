@@ -784,16 +784,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon1",
-      "additional_text": "Ruination Maul\n1. Causes Enemies to Explode on [Critical] kill, for 10% of their Life as [Physical|Physical Damage]\n2. 73% increased [Physical] Damage\n3. Adds 44 to 69 [Physical|Physical] Damage\n4. +172 to [Accuracy|Accuracy] Rating\n5. +4.85% to [Critical|Critical Hit] Chance\n6. 25% increased [Stun|Stun] Duration\n7. 40% increased [Physical] Damage\n8. [ShamanOnlyMods|Bonded]: 40% increased effect of [ArmourBreak|Fully Broken Armour]",
-      "level_interval": [
-        79,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Helm1",
       "additional_text": "Ancestral Tiara\n1. +64 to maximum [EnergyShield|Energy Shield]\n2. 92% increased [EnergyShield|Energy Shield]\n3. +31 to [Intelligence|Intelligence]\n4. +38% to [Resistances|Fire Resistance]\n5. +27% to [Resistances|Cold Resistance]\n6. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
@@ -820,6 +810,12 @@
         59,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon1",
+      "unique_name": "The Hammer of Faith",
       "slot_x": 0,
       "slot_y": 0
     },

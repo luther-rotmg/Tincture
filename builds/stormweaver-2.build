@@ -639,50 +639,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemFlameWall",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFortressTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
       "level_interval": [
         90,
@@ -734,7 +690,7 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
           "level_interval": [
             1,
             100
@@ -755,7 +711,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
           "level_interval": [
             1,
             100
@@ -764,37 +720,37 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "id": "Metadata/Items/Gems/SkillGemFlameWall",
       "level_interval": [
-        90,
+        84,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMobility",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "id": "Metadata/Items/Gems/SupportGemFortressTwo",
           "level_interval": [
-            65,
+            1,
             100
           ]
         }
@@ -861,6 +817,36 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemBlink",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
         84,
@@ -868,14 +854,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
           "level_interval": [
             1,
             100
@@ -908,7 +894,7 @@
   "inventory_slots": [
     {
       "inventory_id": "Helm1",
-      "additional_text": "Sorcerous Tiara\n1. +72 to maximum [EnergyShield|Energy Shield]\n2. +36% to [Resistances|Fire Resistance]\n3. +40% to [Resistances|Cold Resistance]\n4. 15% increased Cost [Efficiency]\n5. [RavenTouched|Raven-Touched]\n6. [ShamanOnlyMods|Bonded]: [Meta] Skills have 15% increased [Reservation] [Efficiency]",
+      "additional_text": "Sorcerous Tiara\n1. +72 to maximum [EnergyShield|Energy Shield]\n2. +78% to [Resistances|Cold Resistance]\n3. 15% increased Cost [Efficiency]\n4. [RavenTouched|Raven-Touched]\n5. [ShamanOnlyMods|Bonded]: [Meta] Skills have 15% increased [Reservation] [Efficiency]",
       "level_interval": [
         70,
         100
@@ -928,7 +914,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Sandsworn Sandals\n1. 35% increased Movement Speed\n2. 17% increased [ItemRarity|Rarity of Items] found\n3. +37% to [Resistances|Cold Resistance]\n4. +35% to [Resistances|Lightning Resistance]\n5. 5% increased Movement Speed\n6. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Sandsworn Sandals\n1. 35% increased Movement Speed\n2. 100% increased [EnergyShield|Energy Shield]\n3. +85% to [Resistances|Lightning Resistance]\n4. 5% increased Movement Speed\n5. 15% increased Mana Cost [Efficiency] if you haven't Dodge Rolled [Recently]\n6. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         75,
         100

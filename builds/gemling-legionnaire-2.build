@@ -483,7 +483,37 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemOvercharge",
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistence",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspiration",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpark",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMobility",
           "level_interval": [
             1,
             100
@@ -497,7 +527,146 @@
           ]
         },
         {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemVilentasPropulsion",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPierceThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemArc",
+      "level_interval": [
+        64,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemChain",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectilesTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gems/SupportGemLightningExposure",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemBlindside",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEmberFusillade",
+      "level_interval": [
+        64,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemChainTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorrosion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemComorbidity",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFastForwardTwo",
           "level_interval": [
             1,
             100
@@ -550,80 +719,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemSupercritical",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemSpark",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemVilentasPropulsion",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPierceThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemTheStarsAnswer",
       "level_interval": [
         84,
@@ -653,6 +748,43 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemExecuteTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEyeOfWinter",
+      "level_interval": [
+        58,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspiration",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEternalFlame",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemExploitWeakness",
           "level_interval": [
             1,
             100
@@ -735,6 +867,36 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemPoweredByVerisium",
+      "level_interval": [
+        22,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
       "level_interval": [
         78,
@@ -758,6 +920,29 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemAlchemistsBoon",
+      "level_interval": [
+        58,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemClarity",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemAscendancyVirtuousBarrier",
       "level_interval": [
         90,
@@ -765,44 +950,9 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemAlchemistsBoon",
-      "level_interval": [
-        58,
-        100
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
         90,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemArc",
-      "level_interval": [
-        64,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemColdSnap",
-      "level_interval": [
-        64,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemEmberFusillade",
-      "level_interval": [
-        64,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemEyeOfWinter",
-      "level_interval": [
-        58,
         100
       ]
     }
@@ -842,7 +992,7 @@
     },
     {
       "inventory_id": "Helm1",
-      "additional_text": "Ancestral Tiara\n1. +69 to maximum [EnergyShield|Energy Shield]\n2. 41% increased [EnergyShield|Energy Shield]\n3. +33 to maximum Mana\n4. +35 to [Intelligence|Intelligence]\n5. +36% to [Resistances|Fire Resistance]\n6. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n7. [RavenTouched|Raven-Touched]",
+      "additional_text": "Ancestral Tiara\n1. +69 to maximum [EnergyShield|Energy Shield]\n2. 41% increased [EnergyShield|Energy Shield]\n3. +33 to maximum Mana\n4. +35 to [Intelligence|Intelligence]\n5. +36% to [Resistances|Fire Resistance]\n6. 3% increased maximum Mana\n7. +1 to maximum Mana per 2 [ItemEnergyShield|Item Energy Shield] on [Equipped] Helmet\n8. [RavenTouched|Raven-Touched]",
       "level_interval": [
         80,
         100
@@ -851,14 +1001,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Runemastered Grasping Mail\n1. Can roll Ring Modifiers\n2. Catalysts can be applied to this item\n3. +225 to maximum Mana\n4. 25% increased maximum Mana\n5. +39% to [Resistances|Cold Resistance]\n6. [Remnant|Remnants] can be collected from 50% further away\n7. 15% of Damage is taken from Mana before Life\n8. Can roll Soul modifiers\n9. [ShamanOnlyMods|Bonded]: 3% increased maximum Life\n10. [ShamanOnlyMods|Bonded]: 3% increased maximum Mana\n11. [ShamanOnlyMods|Bonded]: 8% of Maximum Life [StatConversion|Converted] to [EnergyShield|Energy Shield]",
+      "additional_text": "Runemastered Grasping Mail\n1. Can roll Ring Modifiers\n2. Catalysts can be applied to this item\n3. +274 to maximum Mana\n4. 29% increased maximum Mana\n5. +35% to Cold and Chaos Resistances\n6. [Remnant|Remnants] can be collected from 41% further away\n7. 15% of Damage is taken from Mana before Life\n8. Can roll Soul modifiers\n9. [ShamanOnlyMods|Bonded]: 3% increased maximum Life\n10. [ShamanOnlyMods|Bonded]: 3% increased maximum Mana\n11. [ShamanOnlyMods|Bonded]: 8% of Maximum Life [StatConversion|Converted] to [EnergyShield|Energy Shield]",
       "level_interval": [
         65,
         100
@@ -873,6 +1017,12 @@
         65,
         100
       ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },

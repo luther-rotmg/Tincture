@@ -1,5 +1,5 @@
 {
-  "name": "Oracle — Thrashing Vines (public ladder)",
+  "name": "Oracle — Entangle (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"morlox_v\" (morloxIC-1573)",
   "description": "A representative Oracle build from the public runesofaldur ladder (character \"morlox_v\", account \"morloxIC-1573\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/morloxIC-1573/morlox_v . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Druid1",
@@ -9,9 +9,6 @@
     },
     {
       "id": "AscendancyDruid1Small8"
-    },
-    {
-      "id": "mana_regeneration4"
     },
     {
       "id": "intelligence49"
@@ -65,9 +62,6 @@
       "id": "AscendancyDruid1Small1"
     },
     {
-      "id": "oracle_movement_cooldown1"
-    },
-    {
       "id": "attributes78"
     },
     {
@@ -86,13 +80,7 @@
       "id": "spell_criticals15"
     },
     {
-      "id": "life_costs10"
-    },
-    {
       "id": "physical62"
-    },
-    {
-      "id": "oracle_damage_and_minions3"
     },
     {
       "id": "intelligence47"
@@ -164,31 +152,16 @@
       "id": "mana6"
     },
     {
-      "id": "mana_regeneration20"
-    },
-    {
-      "id": "oracle_movement_cooldown2"
-    },
-    {
       "id": "attributes31"
     },
     {
-      "id": "criticals40"
-    },
-    {
       "id": "area_attacks5_"
-    },
-    {
-      "id": "mana_regeneration3"
     },
     {
       "id": "intelligence48"
     },
     {
       "id": "attributes61"
-    },
-    {
-      "id": "oracle_movement_cooldown3_"
     },
     {
       "id": "intelligence38"
@@ -245,13 +218,7 @@
       "id": "mana15"
     },
     {
-      "id": "oracle_movement_cooldown5_"
-    },
-    {
       "id": "power_endurance_charges3"
-    },
-    {
-      "id": "strength53"
     },
     {
       "id": "intelligence44"
@@ -317,16 +284,10 @@
       "id": "physical53"
     },
     {
-      "id": "life_costs4"
-    },
-    {
       "id": "attributes13"
     },
     {
       "id": "mana28"
-    },
-    {
-      "id": "oracle_damage_and_minions4"
     },
     {
       "id": "intelligence33_"
@@ -339,9 +300,6 @@
     },
     {
       "id": "passive_keystone_alternate_es_recovery"
-    },
-    {
-      "id": "attributes55"
     },
     {
       "id": "strength13"
@@ -398,29 +356,156 @@
       "id": "jewel_slot1972"
     },
     {
-      "id": "oracle_damage_and_minions1"
-    },
-    {
-      "id": "oracle_damage_and_minions2"
-    },
-    {
       "id": "monkchakra24"
-    },
-    {
-      "id": "oracle_movement_cooldown4"
     },
     {
       "id": "auras18"
     },
     {
       "id": "slowed_enemies18"
+    },
+    {
+      "id": "mana_regeneration4",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals32_",
+      "weapon_set": 1
+    },
+    {
+      "id": "life_costs10",
+      "weapon_set": 1
+    },
+    {
+      "id": "oracle_damage_and_minions3",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals101",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals95",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals93_",
+      "weapon_set": 1
+    },
+    {
+      "id": "mana_regeneration20",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals40",
+      "weapon_set": 1
+    },
+    {
+      "id": "mana_regeneration3",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals94",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals34",
+      "weapon_set": 1
+    },
+    {
+      "id": "life_costs4",
+      "weapon_set": 1
+    },
+    {
+      "id": "oracle_damage_and_minions4",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals35",
+      "weapon_set": 1
+    },
+    {
+      "id": "oracle_damage_and_minions1",
+      "weapon_set": 1
+    },
+    {
+      "id": "oracle_damage_and_minions2",
+      "weapon_set": 1
+    },
+    {
+      "id": "attributes3",
+      "weapon_set": 2
+    },
+    {
+      "id": "chill_and_freeze26",
+      "weapon_set": 2
+    },
+    {
+      "id": "slowed_enemies8",
+      "weapon_set": 2
+    },
+    {
+      "id": "chill_and_freeze29",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical4",
+      "weapon_set": 2
+    },
+    {
+      "id": "slowed_enemies6",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical3",
+      "weapon_set": 2
+    },
+    {
+      "id": "chill_and_freeze30",
+      "weapon_set": 2
+    },
+    {
+      "id": "duration15",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical8",
+      "weapon_set": 2
+    },
+    {
+      "id": "intelligence72",
+      "weapon_set": 2
+    },
+    {
+      "id": "duration14",
+      "weapon_set": 2
+    },
+    {
+      "id": "duration13",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical2",
+      "weapon_set": 2
+    },
+    {
+      "id": "chill_and_freeze31_",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical9",
+      "weapon_set": 2
+    },
+    {
+      "id": "oracle_duration_physical1__",
+      "weapon_set": 2
     }
   ],
   "skills": [
     {
       "id": "Metadata/Items/Gem/SkillGemSpellslinger",
       "level_interval": [
-        78,
+        90,
         100
       ],
       "support_skills": [
@@ -521,6 +606,43 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSpellTotem",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPhysicalMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
@@ -633,36 +755,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemSpellTotem",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemArcaneTempoTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemAncestralUrgencyThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
         78,
@@ -709,6 +801,16 @@
       "additional_text": "Lunar Amulet\n1. +26 to maximum [EnergyShield|Energy Shield]\n2. 44% increased [Armour]\n3. +32 to maximum Mana\n4. +45 to [Spirit|Spirit]\n5. +4 to Level of all [Spell|Spell] Skills\n6. +36% to [Resistances|Lightning Resistance]",
       "level_interval": [
         60,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Weapon1",
+      "additional_text": "Dueling Wand\n1. [Gain] 27% of Damage as Extra [Fire] Damage\n2. [Gain] 30% of Damage as Extra [Lightning] Damage\n3. +5 to Level of all [Spell|Spell] Skills\n4. +3 to Level of all [Spell|Spell] Skills\n5. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster\n6. [ShamanOnlyMods|Bonded]: [LifeLeech|Leeches] 1% of maximum Life when you Cast a [Spell|Spell]",
+      "level_interval": [
+        65,
         100
       ],
       "slot_x": 0,
@@ -767,16 +869,6 @@
     {
       "inventory_id": "Ring2",
       "unique_name": "Kalandra's Touch",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Weapon1",
-      "additional_text": "Dueling Wand\n1. [Gain] 30% of Damage as Extra [Cold] Damage\n2. [Gain] 30% of Damage as Extra [Lightning] Damage\n3. +144 to maximum Mana\n4. 27% increased Cast Speed\n5. +5 to Level of all [Physical|Physical] [Spell|Spell] Skills\n6. +1 to Level of all [Spell|Spell] Skills\n7. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster",
-      "level_interval": [
-        65,
-        100
-      ],
       "slot_x": 0,
       "slot_y": 0
     },

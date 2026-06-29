@@ -278,9 +278,6 @@
       "id": "intelligence51"
     },
     {
-      "id": "criticals74"
-    },
-    {
       "id": "attack_speed5"
     },
     {
@@ -701,7 +698,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
+          "id": "Metadata/Items/Gems/SupportGemFork",
           "level_interval": [
             1,
             100
@@ -805,36 +802,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
-      "level_interval": [
-        64,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrecision",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemBarrage",
       "level_interval": [
         84,
@@ -863,14 +830,37 @@
           ]
         }
       ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        64,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
     }
   ],
   "inventory_slots": [
     {
       "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +11 to [Spirit|Spirit]\n2. 54% increased [Evasion|Evasion Rating]\n3. +50 to [Spirit|Spirit]\n4. +3 to Level of all [Projectile] Skills",
+      "additional_text": "Gold Amulet\n1. 20% increased [ItemRarity|Rarity of Items] found\n2. 70% increased maximum [EnergyShield|Energy Shield]\n3. 15% increased [ItemRarity|Rarity of Items] found\n4. 39% increased [CriticalDamageBonus|Critical Damage Bonus]",
       "level_interval": [
-        64,
+        60,
         100
       ],
       "slot_x": 0,
@@ -879,16 +869,6 @@
     {
       "inventory_id": "Belt1",
       "unique_name": "Mageblood",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Weapon2",
-      "additional_text": "Warmonger Bow\n1. Adds 61 to 101 [Cold|Cold] Damage\n2. +4.27% to [Critical|Critical Hit] Chance\n3. +19% to [CriticalDamageBonus|Critical Damage Bonus]\n4. +1 Suffix Modifier allowed\n5. Bow [Attack|Attacks] fire an additional Arrow\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Speed\n8. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
-      "level_interval": [
-        77,
-        100
-      ],
       "slot_x": 0,
       "slot_y": 0
     },
@@ -929,6 +909,16 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Weapon2",
+      "additional_text": "Warmonger Bow\n1. 252% increased [Physical] Damage\n2. +194 to [Accuracy|Accuracy] Rating\n3. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n4. +4 to Level of all [Projectile] Skills\n5. +198% [SurpassChance|Surpassing] chance to fire an additional Arrow\n6. +1 Suffix Modifier allowed\n7. 20% increased [Physical] Damage\n8. Bow [Attack|Attacks] fire an additional Arrow\n9. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Speed\n10. [ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]",
+      "level_interval": [
+        77,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Ring1",
       "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. 37% increased [ItemRarity|Rarity of Items] found\n3. +16% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
@@ -940,7 +930,7 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +45% to [Resistances|Fire Resistance]\n3. +42% to [Resistances|Cold Resistance]\n4. Gain [Deflect|Deflection Rating] equal to 20% of [Evasion|Evasion Rating]\n5. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
+      "additional_text": "Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +45% to [Resistances|Fire Resistance]\n3. +42% to [Resistances|Cold Resistance]\n4. Gain [Deflect|Deflection Rating] equal to 20% of [Evasion|Evasion Rating]\n5. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. +18% to [Resistances|Fire Resistance]\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
         65,
         100

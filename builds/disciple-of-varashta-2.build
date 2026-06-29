@@ -497,6 +497,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemWolfPack",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemInfernalLegionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMinionMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
+          "level_interval": [
+            25,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemSkeletalReaver",
       "level_interval": [
         84,
@@ -761,80 +805,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemWolfPack",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemInfernalLegionTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFeedingFrenzyTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
-          "level_interval": [
-            25,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemClarity",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
-          "level_interval": [
-            65,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemSkeletalCleric",
       "level_interval": [
         84,
@@ -872,6 +842,36 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemFulmination",
       "level_interval": [
         78,
@@ -880,6 +880,13 @@
       "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemLightningMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUpwelling",
           "level_interval": [
             1,
             100
@@ -932,6 +939,16 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Amulet1",
+      "additional_text": "Portent Amulet\n1. -1 Suffix Modifier allowed\n2. 53% increased maximum [EnergyShield|Energy Shield]\n3. +4 to Level of all [Minion|Minion] Skills\n4. +22 to all [Attributes|Attributes]",
+      "level_interval": [
+        60,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Weapon1",
       "additional_text": "Wrath Sceptre\n1. [Allies|Allies] in your [Presence|Presence] deal 71% increased Damage\n2. [Allies|Allies] in your [Presence|Presence] deal 1 to 22 added [Attack|Attack] [Lightning|Lightning] Damage\n3. 21% reduced [Attributes|Attribute] Requirements\n4. +5 to Level of all [Minion|Minion] Skills\n5. 22% increased Mana Regeneration Rate\n6. 16% increased [LightRadius|Light Radius]\n7. 30% reduced Mana Cost [Efficiency] of [Command] Skills\n8. [Minion|Minions] deal 60% increased Damage with [Command] Skills\n9. [ShamanOnlyMods|Bonded]: 25% reduced [Reservation] [Efficiency] of [Minion] Skills\n10. [ShamanOnlyMods|Bonded]: [TemporaryMinion|Temporary Minion] Skills have +2 to [Limit] of [Minion|Minions] summoned",
       "level_interval": [
@@ -953,19 +970,9 @@
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "Opulent Gloves\n1. +55 to maximum [EnergyShield|Energy Shield]\n2. 99% increased [EnergyShield|Energy Shield]\n3. +17 to [Dexterity|Dexterity]\n4. Gain 36 Mana per enemy killed\n5. 28% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +32 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +32 to maximum Mana",
+      "additional_text": "Sirenscale Gloves\n1. +60 to maximum [EnergyShield|Energy Shield]\n2. Adds 1 to 45 [Lightning] damage to [Attack|Attacks]\n3. +40% to [Resistances|Lightning Resistance]\n4. Gain 15 Mana per enemy killed\n5. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
-        70,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Amulet1",
-      "additional_text": "Portent Amulet\n1. -1 Suffix Modifier allowed\n2. +4 to Level of all [Minion|Minion] Skills\n3. +21 to all [Attributes|Attributes]",
-      "level_interval": [
-        60,
+        80,
         100
       ],
       "slot_x": 0,

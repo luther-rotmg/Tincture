@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-06-27T17:29:42.850Z",
+    "generated": "2026-06-29T17:15:55.670Z",
     "sources": [
       {
         "name": "poe.ninja",
@@ -120,17 +120,27 @@
         "Helmets: +4 to Maximum Rage"
       ]
     },
-    "farrul s rune of the chase": {
-      "name": "Farrul's Rune of the Chase",
-      "lines": [
-        "Boots: 5% increased Movement Speed"
-      ]
-    },
     "guatelitzi s soul core of endurance": {
       "name": "Guatelitzi's Soul Core of Endurance",
       "lines": [
         "Martial Weapon: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
         "Wand or Staff: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge"
+      ]
+    },
+    "perfect desert rune": {
+      "name": "Perfect Desert Rune",
+      "lines": [
+        "Martial Weapon: Adds 17 to 20 Fire Damage",
+        "Wand or Staff: Gain 12% of Damage as Extra Fire Damage",
+        "Armour: +22% to Fire Resistance"
+      ]
+    },
+    "perfect glacial rune": {
+      "name": "Perfect Glacial Rune",
+      "lines": [
+        "Martial Weapon: Adds 16 to 20 Cold Damage",
+        "Wand or Staff: Gain 12% of Damage as Extra Cold Damage",
+        "Armour: +22% to Cold Resistance"
       ]
     },
     "ancient rune of splinters": {
@@ -150,6 +160,12 @@
       "lines": [
         "Martial Weapon: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
         "Wand or Staff: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge"
+      ]
+    },
+    "farrul s rune of the chase": {
+      "name": "Farrul's Rune of the Chase",
+      "lines": [
+        "Boots: 5% increased Movement Speed"
       ]
     },
     "fenumus rune of agony": {
@@ -208,16 +224,18 @@
         "Wand or Staff: 50% chance when you gain a Power Charge to gain an additional Power Charge"
       ]
     },
-    "the greatwolf s rune of willpower": {
-      "name": "The Greatwolf's Rune of Willpower",
+    "perfect robust rune": {
+      "name": "Perfect Robust Rune",
       "lines": [
-        "Body Armours: 15% of Damage is taken from Mana before Life"
+        "All Equipment: +15 to Strength"
       ]
     },
-    "zalatl s soul core of insulation": {
-      "name": "Zalatl's Soul Core of Insulation",
+    "soul core of ticaba": {
+      "name": "Soul Core of Ticaba",
       "lines": [
-        "Boots: +40% of Armour also applies to Lightning Damage"
+        "Martial Weapon: +5% to Critical Damage Bonus",
+        "Body Armours: Hits against you have 20% reduced Critical Damage Bonus",
+        "Shields and Bucklers: Hits against you have 20% reduced Critical Damage Bonus"
       ]
     },
     "greater desert rune": {
@@ -228,6 +246,18 @@
         "Armour: +18% to Fire Resistance"
       ]
     },
+    "fenumus rune of spinning": {
+      "name": "Fenumus' Rune of Spinning",
+      "lines": [
+        "Gloves: 8% increased Cast Speed"
+      ]
+    },
+    "perfect ward rune": {
+      "name": "Perfect Ward Rune",
+      "lines": [
+        "Armour: +30 to maximum Runic Ward"
+      ]
+    },
     "rune of reach": {
       "name": "Rune of Reach",
       "lines": [
@@ -235,6 +265,18 @@
         "Wand or Staff:",
         "Remnants you create have 25% reduced effect",
         "Remnants can be collected from 50% further away"
+      ]
+    },
+    "the greatwolf s rune of willpower": {
+      "name": "The Greatwolf's Rune of Willpower",
+      "lines": [
+        "Body Armours: 15% of Damage is taken from Mana before Life"
+      ]
+    },
+    "zalatl s soul core of insulation": {
+      "name": "Zalatl's Soul Core of Insulation",
+      "lines": [
+        "Boots: +40% of Armour also applies to Lightning Damage"
       ]
     },
     "warding rune of heart": {
@@ -251,12 +293,10 @@
         "Armour: +75 to maximum Life"
       ]
     },
-    "perfect desert rune": {
-      "name": "Perfect Desert Rune",
+    "the greatwolf s rune of claws": {
+      "name": "The Greatwolf's Rune of Claws",
       "lines": [
-        "Martial Weapon: Adds 17 to 20 Fire Damage",
-        "Wand or Staff: Gain 12% of Damage as Extra Fire Damage",
-        "Armour: +22% to Fire Resistance"
+        "Gloves: Adds 5 to 12 Physical Damage to Attacks"
       ]
     },
     "perfect vision rune": {
@@ -306,18 +346,6 @@
         "Body Armours: 3% increased maximum Life"
       ]
     },
-    "the greatwolf s rune of claws": {
-      "name": "The Greatwolf's Rune of Claws",
-      "lines": [
-        "Gloves: Adds 5 to 12 Physical Damage to Attacks"
-      ]
-    },
-    "perfect robust rune": {
-      "name": "Perfect Robust Rune",
-      "lines": [
-        "All Equipment: +15 to Strength"
-      ]
-    },
     "ancient rune of prowess": {
       "name": "Ancient Rune of Prowess",
       "lines": [
@@ -329,14 +357,6 @@
       "lines": [
         "Boots: 12% increased speed of Recoup Effects",
         "Helmets: 8% of Damage taken Recouped as Life"
-      ]
-    },
-    "perfect glacial rune": {
-      "name": "Perfect Glacial Rune",
-      "lines": [
-        "Martial Weapon: Adds 16 to 20 Cold Damage",
-        "Wand or Staff: Gain 12% of Damage as Extra Cold Damage",
-        "Armour: +22% to Cold Resistance"
       ]
     },
     "perfect stone rune": {
@@ -390,12 +410,6 @@
         "+30 to Armour",
         "+30 to Evasion Rating",
         "+10 to maximum Energy Shield"
-      ]
-    },
-    "fenumus rune of spinning": {
-      "name": "Fenumus' Rune of Spinning",
-      "lines": [
-        "Gloves: 8% increased Cast Speed"
       ]
     },
     "quipolatl s soul core of flow": {
@@ -511,11 +525,10 @@
         "Foci:"
       ]
     },
-    "soul core of cholotl": {
-      "name": "Soul Core of Cholotl",
+    "thane girt s rune of wildness": {
+      "name": "Thane Girt's Rune of Wildness",
       "lines": [
-        "Martial Weapon: Convert 20% of Requirements to Dexterity",
-        "Armour: Convert 20% of Requirements to Dexterity"
+        "Wand or Staff: 25% chance for Spell Skills to fire 2 additional Projectiles"
       ]
     },
     "greater vision rune": {
@@ -524,12 +537,6 @@
         "Martial Weapon: +120 to Accuracy Rating",
         "Wand or Staff: 24% increased Critical Hit Chance for Spells",
         "Armour: 16% increased Life and Mana Recovery from Flasks"
-      ]
-    },
-    "saqawal s rune of erosion": {
-      "name": "Saqawal's Rune of Erosion",
-      "lines": [
-        "Helmets: 25% increased Exposure Effect"
       ]
     },
     "perfect charging rune": {
@@ -546,12 +553,12 @@
         "-1 to Spirit per 2 Levels"
       ]
     },
-    "greater body rune": {
-      "name": "Greater Body Rune",
+    "greater stone rune": {
+      "name": "Greater Stone Rune",
       "lines": [
-        "Martial Weapon: Leeches 5% of Physical Damage as Life",
-        "Wand or Staff: +50 to maximum Energy Shield",
-        "Armour: +60 to maximum Life"
+        "Martial Weapon: Causes 40% increased Stun Buildup",
+        "Wand or Staff: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+        "Armour: +100 to Stun Threshold"
       ]
     }
   },
@@ -800,15 +807,6 @@
       ],
       "flavour": "\"Try on another life. See how it fits. You'll find that your one life is utterly inadequate.\" - He of Many Names and Many Faces"
     },
-    "flesh crucible": {
-      "name": "Flesh Crucible",
-      "base": "Diamond",
-      "mods": [
-        "14% less maximum Life",
-        "Pain Attunement"
-      ],
-      "flavour": "\"Never mind the pain, it's only... making room. Unrelated fact, a person can live a normal life with just one kidney. Or just one lung. You never know what Vaal technology will cost you...\""
-    },
     "sanguis heroum": {
       "name": "Sanguis Heroum",
       "base": "Staunching Charm",
@@ -916,13 +914,82 @@
       ],
       "flavour": "Uhtred drank. Verisium burned through his veins. He gazed at death's face. With all his strength, he turned instead to the stars, and witnessed Truth."
     },
+    "sunsplinter": {
+      "name": "Sunsplinter",
+      "base": "Array Buckler",
+      "mods": [
+        "309% increased Evasion Rating",
+        "+1 to Level of all Fire Skills",
+        "+4 to Level of all Cold Skills",
+        "+2 to Level of all Lightning Skills",
+        "+3% to Maximum Fire Resistance",
+        "+1% to Maximum Cold Resistance",
+        "+2% to Maximum Lightning Resistance"
+      ],
+      "flavour": "\"Lundara held back the hordes, while Solerai rose to split the sky. With a single stroke, she ended the Winter of the World.\" - Wranga, tale-woman of the Wahida akhara"
+    },
+    "prism of belief": {
+      "name": "Prism of Belief",
+      "base": "Diamond",
+      "mods": [
+        "+2 to Level of all Comet Skills"
+      ],
+      "flavour": "Entropy can be reversed."
+    },
+    "the flesh poppet": {
+      "name": "The Flesh Poppet",
+      "base": "Vicious Talisman",
+      "mods": [
+        "110% increased Physical Damage",
+        "12% increased Attack Speed",
+        "+7 to all Attributes",
+        "37% reduced Presence Area of Effect",
+        "Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"
+      ],
+      "flavour": "Long ago, the witches of the Azak Tribe learned how to tap into the flow of Vivid lifeforce to 'cooperate' with their enemies... forcefully."
+    },
+    "call of the brotherhood": {
+      "name": "Call of the Brotherhood",
+      "base": "Topaz Ring",
+      "mods": [
+        "+23% to Lightning Resistance",
+        "+15 to Intelligence",
+        "32% increased Mana Regeneration Rate",
+        "29% increased Freeze Buildup",
+        "100% of Lightning Damage Converted to Cold Damage"
+      ],
+      "flavour": "Forged by three brothers so that they may recognize each other across any distance of time or travel."
+    },
+    "horror s flight": {
+      "name": "Horror's Flight",
+      "base": "Engraved Bracers",
+      "mods": [
+        "263% increased Evasion Rating",
+        "15% increased Attack Speed",
+        "+17 to Dexterity",
+        "Adds 23 to 32 Chaos Damage to Attacks",
+        "Gain 1 Fear Incarnate when you Cull a target"
+      ],
+      "flavour": "If fear doesn't kill you, I will."
+    },
+    "alpha s howl": {
+      "name": "Alpha's Howl",
+      "base": "Runemastered Armoured Cap",
+      "mods": [
+        "98% increased Evasion Rating",
+        "+116 to Spirit",
+        "+53% to Cold Resistance",
+        "Presence Radius is doubled"
+      ],
+      "flavour": "Nature respects the strong And paints the snow red With the blood of the weak"
+    },
     "ingenuity": {
       "name": "Ingenuity",
       "base": "Utility Belt",
       "mods": [
         "Has 2 Charm Slots",
         "20% of Flask Recovery applied Instantly",
-        "8% increased Charm Charges gained",
+        "5% reduced Charm Charges gained",
         "4% reduced Charm Charges used",
         "29% increased bonuses gained from left Equipped Ring",
         "30% increased bonuses gained from right Equipped Ring"
@@ -939,17 +1006,6 @@
         "Lightning Resistance does not affect Lightning damage taken"
       ],
       "flavour": "\"This was the first step in some grand design, lost to the ages, now ours to decipher.\" - Dominus, High Templar"
-    },
-    "alpha s howl": {
-      "name": "Alpha's Howl",
-      "base": "Armoured Cap",
-      "mods": [
-        "87% increased Evasion Rating",
-        "+100 to Spirit",
-        "+50% to Cold Resistance",
-        "Presence Radius is doubled"
-      ],
-      "flavour": "Nature respects the strong And paints the snow red With the blood of the weak"
     },
     "shavronne s satchel": {
       "name": "Shavronne's Satchel",
@@ -987,6 +1043,15 @@
       ],
       "flavour": "They believed themselves courageous and selfless, but that bravery became the doom at their door."
     },
+    "flesh crucible": {
+      "name": "Flesh Crucible",
+      "base": "Diamond",
+      "mods": [
+        "13% less maximum Life",
+        "Iron Reflexes"
+      ],
+      "flavour": "\"Never mind the pain, it's only... making room. Unrelated fact, a person can live a normal life with just one kidney. Or just one lung. You never know what Vaal technology will cost you...\""
+    },
     "the black cat": {
       "name": "The Black Cat",
       "base": "Grounding Charm",
@@ -996,33 +1061,6 @@
         "Lightning Damage of Enemies Hitting you is Unlucky during effect"
       ],
       "flavour": "The most beloved member of every Brinerot crew is the one that refuses to do any actual work."
-    },
-    "grip of kulemak": {
-      "name": "Grip of Kulemak",
-      "base": "Abyssal Signet",
-      "mods": [
-        "Inflict Abyssal Wasting on Hit",
-        "20% reduced Presence Area of Effect",
-        "25% reduced Light Radius",
-        "22% increased Ignite Magnitude",
-        "Meta Skills gain 15% increased Energy",
-        "You and Allies in your Presence have 16% increased Cast Speed",
-        "You and Allies in your Presence have 14% increased Cooldown Recovery Rate"
-      ],
-      "flavour": "Drink deeply of the Well. Let the Abyss coil within."
-    },
-    "cospri s will": {
-      "name": "Cospri's Will",
-      "base": "Assassin Garb",
-      "mods": [
-        "5% increased Movement Speed",
-        "200% increased Evasion and Energy Shield",
-        "+25% to Chaos Resistance",
-        "Curses you inflict have infinite Duration",
-        "Curses you inflict can affect Hexproof Enemies",
-        "Withered you inflict has infinite Duration"
-      ],
-      "flavour": "Curse their vile Council, They cast me aside as if I am some bastard child. If they only knew the power I possess."
     },
     "valako s vice": {
       "name": "Valako's Vice",
@@ -1049,14 +1087,6 @@
         "8% increased Damage per Minion"
       ],
       "flavour": "In a time of great need, surrounded by Abyssals, the Wayward Druid came to the Sun Clan's aid. It is a debt they have never forgotten."
-    },
-    "prism of belief": {
-      "name": "Prism of Belief",
-      "base": "Diamond",
-      "mods": [
-        "+3 to Level of all Ice Shot Skills"
-      ],
-      "flavour": "Entropy can be reversed."
     },
     "hateforge": {
       "name": "Hateforge",
@@ -1218,18 +1248,16 @@
       ],
       "flavour": "Each crest was a Thane's word, bolted to Ivor's bow. They would join the Count's side, or die by his hands."
     },
-    "serle s grit": {
-      "name": "Serle's Grit",
-      "base": "Kalguuran Forgehammer",
+    "olrovasara": {
+      "name": "Olrovasara",
+      "base": "Torment Club",
       "mods": [
-        "Has 3 Sockets",
-        "Maximum Quality is 40%",
-        "Adds 29 to 52 Physical Damage",
-        "+27 to Strength",
-        "Skills which Empower an Attack have 18% chance to not count that Attack",
-        "49 to 89 added Physical Thorns damage per Runic Plate"
+        "Adds 1 to 66 Lightning Damage",
+        "+376 to Accuracy Rating",
+        "28% increased Attack Speed",
+        "On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of 500"
       ],
-      "flavour": "A common soldier from a common family kept hammering into the night after each grueling march, his eyes afire with starlight and determination. Few suspected that he would one day become the greatest among them."
+      "flavour": "\"True heroes grow stronger in the face of adversity.\" - Fourth Tenet of the Knights of the Sun"
     },
     "vestige of darkness": {
       "name": "Vestige of Darkness",
@@ -1266,6 +1294,18 @@
         "Life Regeneration is applied to Energy Shield instead"
       ],
       "flavour": "Healing the soul requires sacrifice."
+    },
+    "the hammer of faith": {
+      "name": "The Hammer of Faith",
+      "base": "Giant Maul",
+      "mods": [
+        "347% increased Physical Damage",
+        "10% reduced Attack Speed",
+        "+10% to all Elemental Resistances",
+        "50% increased Mana Regeneration Rate",
+        "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds"
+      ],
+      "flavour": "The secret Order endured by publicly praying however the Templars demanded. One day, justice would fall upon them..."
     },
     "gifts from above": {
       "name": "Gifts from Above",
@@ -1461,20 +1501,6 @@
       ],
       "flavour": "For none of us are as cruel as all of us."
     },
-    "the prisoner s manacles": {
-      "name": "The Prisoner's Manacles",
-      "base": "Kalguuran Cuffs",
-      "mods": [
-        "289% increased Armour and Energy Shield",
-        "+100 to maximum Life",
-        "100% increased Attribute Requirements",
-        "+30% to Lightning Resistance",
-        "26.4 Life Regeneration per second",
-        "Debuffs you inflict have 30% increased Slow Magnitude",
-        "Cannot Immobilise enemies"
-      ],
-      "flavour": "Only once did Maligaro wonder if he'd gone too far. His greatest success took three entire legions to capture."
-    },
     "valako s roar": {
       "name": "Valako's Roar",
       "base": "Topaz Charm",
@@ -1484,6 +1510,20 @@
         "Grants a Frenzy Charge on use"
       ],
       "flavour": "The sea swells, the sky thunders; two ships tilt at odds. Flashes of light show only swinging axes... and a grin."
+    },
+    "fixation of yix": {
+      "name": "Fixation of Yix",
+      "base": "Stellar Amulet",
+      "mods": [
+        "+7 to all Attributes",
+        "+100 to maximum Life",
+        "Allies in your Presence have 45% increased Critical Hit Chance",
+        "Allies in your Presence have 49% increased Critical Damage Bonus",
+        "Allies in your Presence have 20% increased Attack Speed",
+        "Allies in your Presence have 15% increased Cast Speed",
+        "50% reduced Presence Area of Effect"
+      ],
+      "flavour": "He knew not why he was changing, only that he wanted to hold his family close..."
     },
     "nightscale": {
       "name": "Nightscale",
@@ -1509,19 +1549,6 @@
       ],
       "flavour": "They screamed her name in adulation as they gave their very lives. She looked on with impatience."
     },
-    "wondertrap": {
-      "name": "Wondertrap",
-      "base": "Silk Slippers",
-      "mods": [
-        "20% increased Movement Speed",
-        "+44 to maximum Energy Shield",
-        "+13 to Strength",
-        "+12 to Dexterity",
-        "+11 to Intelligence",
-        "50% increased Rarity of Items found when on Low Life"
-      ],
-      "flavour": "Wonders abound at death's door."
-    },
     "opportunity": {
       "name": "Opportunity",
       "base": "Ultimate Life Flask",
@@ -1536,18 +1563,6 @@
       ],
       "flavour": "\"Calculations complete, and He is assembled. Our immaculate tactics are set in motion.\""
     },
-    "call of the brotherhood": {
-      "name": "Call of the Brotherhood",
-      "base": "Topaz Ring",
-      "mods": [
-        "+30% to Lightning Resistance",
-        "+16 to Intelligence",
-        "31% increased Mana Regeneration Rate",
-        "28% increased Freeze Buildup",
-        "100% of Lightning Damage Converted to Cold Damage"
-      ],
-      "flavour": "Forged by three brothers so that they may recognize each other across any distance of time or travel."
-    },
     "darkness enthroned": {
       "name": "Darkness Enthroned",
       "base": "Fine Belt",
@@ -1558,19 +1573,6 @@
         "This item gains bonuses from Socketed Items as though it was Gloves"
       ],
       "flavour": "Kulemak sat triumphant, raising the crown. Darkness coiled the world in eternal night. Victory, a mere moment, came crashing down. No conqueror, no conquered, only searing Light."
-    },
-    "snakepit": {
-      "name": "Snakepit",
-      "base": "Pearl Ring",
-      "mods": [
-        "7% increased Cast Speed",
-        "15% increased Cast Speed",
-        "Left ring slot: Projectiles from Spells cannot Chain",
-        "Left ring slot: Projectiles from Spells Fork",
-        "Right ring slot: Projectiles from Spells cannot Fork",
-        "Projectiles from Spells cannot Pierce"
-      ],
-      "flavour": "They wrap around you until your blood turns as cold as theirs."
     },
     "veilpiercer": {
       "name": "Veilpiercer",
@@ -1585,6 +1587,20 @@
         "22% increased Damage with Hits against targets in your Presence"
       ],
       "flavour": "The tribe revelled wildly, unaware that each fruit they ate further bound their continuity to the fog's. In time, the merest touch could break their reality."
+    },
+    "snakepit": {
+      "name": "Snakepit",
+      "base": "Pearl Ring",
+      "mods": [
+        "9% increased Cast Speed",
+        "36% increased Spell Damage",
+        "18% increased Cast Speed",
+        "Left ring slot: Projectiles from Spells cannot Chain",
+        "Left ring slot: Projectiles from Spells Fork",
+        "Right ring slot: Projectiles from Spells cannot Fork",
+        "Projectiles from Spells cannot Pierce"
+      ],
+      "flavour": "They wrap around you until your blood turns as cold as theirs."
     },
     "evergrasping ring": {
       "name": "Evergrasping Ring",
@@ -1622,19 +1638,22 @@
       ],
       "flavour": "The priests found the Great Shield the night it fell to Middengard, but it was the smiths who delved into the secrets it held."
     },
-    "fixation of yix": {
-      "name": "Fixation of Yix",
-      "base": "Stellar Amulet",
+    "grip of kulemak": {
+      "name": "Grip of Kulemak",
+      "base": "Abyssal Signet",
       "mods": [
-        "+5 to all Attributes",
-        "+120 to maximum Life",
-        "Allies in your Presence have 49% increased Critical Hit Chance",
-        "Allies in your Presence have 50% increased Critical Damage Bonus",
-        "Allies in your Presence have 18% increased Attack Speed",
-        "Allies in your Presence have 19% increased Cast Speed",
-        "50% reduced Presence Area of Effect"
+        "Inflict Abyssal Wasting on Hit",
+        "43% increased Armour",
+        "37% increased Evasion Rating",
+        "9% increased maximum Life",
+        "+34% of Armour also applies to Elemental Damage",
+        "Gain Deflection Rating equal to 18% of Evasion Rating",
+        "22% reduced Presence Area of Effect",
+        "28% reduced Light Radius",
+        "Recover 3% of your maximum Life when an Enemy dies in your Presence",
+        "You and Allies in your Presence have +20% to Chaos Resistance"
       ],
-      "flavour": "He knew not why he was changing, only that he wanted to hold his family close..."
+      "flavour": "Drink deeply of the Well. Let the Abyss coil within."
     },
     "myris uxor": {
       "name": "Myris Uxor",
@@ -1660,19 +1679,6 @@
       ],
       "flavour": "\"And here we shall remain... trapped in our symphony of eternal anguish. Artist and Composer, their fates entwined for all of time.\" - Adamantia Brektov, the Composer"
     },
-    "horror s flight": {
-      "name": "Horror's Flight",
-      "base": "Engraved Bracers",
-      "mods": [
-        "295% increased Evasion Rating",
-        "13% increased Attack Speed",
-        "+21 to Dexterity",
-        "Adds 22 to 33 Chaos Damage to Attacks",
-        "Gain 1 Fear Incarnate when you Cull a target",
-        "Raven-Touched"
-      ],
-      "flavour": "If fear doesn't kill you, I will."
-    },
     "loreweave": {
       "name": "Loreweave",
       "base": "Ornate Ringmail",
@@ -1690,39 +1696,17 @@
       ],
       "flavour": "The collector need not even speak. Each ring regaled them with tales of his conquest."
     },
-    "reverie": {
-      "name": "Reverie",
-      "base": "Runemastered Shaman Mantle",
+    "chernobog s pillar": {
+      "name": "Chernobog's Pillar",
+      "base": "Runemastered Blacksteel Tower Shield",
       "mods": [
-        "109% increased Armour and Energy Shield",
-        "-10% to Fire Resistance",
-        "+18% to Chaos Resistance",
-        "Cannot use Life Flasks Non-Unique Life Flasks apply their Effects constantly Recovery from Life Flasks cannot be Instant Recovery from your Life Flasks cannot be applied to anything other than you",
-        "41% less Life Flask Recovery"
+        "150% increased Armour",
+        "+40% to Fire Resistance",
+        "+25% to Chaos Resistance",
+        "+193 to Stun Threshold",
+        "Gain 1% of damage as Fire damage per 1% Chance to Block"
       ],
-      "flavour": "\"Do not despair! Give yourself to the woods! Become empty, and the Goddess will find you. From within her roots... you shall be restored.\" - Cirel of Caer Tarth"
-    },
-    "decree of acuity": {
-      "name": "Decree of Acuity",
-      "base": "Runemastered Ancient Visor",
-      "mods": [
-        "244% increased Armour and Evasion",
-        "+35 to Dexterity",
-        "Gain 28% of Evasion Rating as extra Armour",
-        "You are Blind",
-        "The Effect of Blind on you is reversed"
-      ],
-      "flavour": "\"Focus. Hone your mind. Your lessers rely on the tangible. Shed your senses, and raze them from this physical realm.\""
-    },
-    "forsaken bangle": {
-      "name": "Forsaken Bangle",
-      "base": "Amethyst Charm",
-      "mods": [
-        "Used when you take Chaos damage from a Hit",
-        "21% increased Duration",
-        "50% of Chaos damage you prevent when Hit Recouped as Life and Mana during effect"
-      ],
-      "flavour": "Among the Templars, a secret few ate the sins of others. They bore this burden to empower their hidden Order."
+      "flavour": "Fire dances with those who doubt Licks the skin and flesh from the fearful Where there is no fear There is no flame"
     },
     "lioneye s glare": {
       "name": "Lioneye's Glare",
@@ -1772,19 +1756,6 @@
         "Maximum Physical Damage Reduction is 50%"
       ],
       "flavour": "Bleeding just means you're still alive."
-    },
-    "guiding palm of the eye": {
-      "name": "Guiding Palm of the Eye",
-      "base": "Shrine Sceptre",
-      "mods": [
-        "Gain 25% of Damage as Extra Cold Damage",
-        "Allies in your Presence deal 20 to 34 added Attack Cold Damage",
-        "50% of your Base Life Regeneration is granted to Allies in your Presence",
-        "+27 to Intelligence",
-        "25% increased Light Radius",
-        "Grants effect of Guided Freezing Shrine"
-      ],
-      "flavour": "\"With piercing eyes, you saw through the Stillness. Undulating as one, you gloriously covered all in white. But... I can bear you no longer.\" The Dreamer whispered with fogging breath, ice creeping down his hand."
     },
     "ming s heart": {
       "name": "Ming's Heart",
@@ -1844,18 +1815,6 @@
         "+19% to Fire Resistance"
       ],
       "flavour": "Some would question if the risk was worth it. The rest were already dead."
-    },
-    "the hammer of faith": {
-      "name": "The Hammer of Faith",
-      "base": "Giant Maul",
-      "mods": [
-        "321% increased Physical Damage",
-        "10% reduced Attack Speed",
-        "+10% to all Elemental Resistances",
-        "50% increased Mana Regeneration Rate",
-        "Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds"
-      ],
-      "flavour": "The secret Order endured by publicly praying however the Templars demanded. One day, justice would fall upon them..."
     },
     "arakaali s gift": {
       "name": "Arakaali's Gift",
@@ -1921,31 +1880,54 @@
       ],
       "flavour": "\"The rain of a thousand quills that whittle present into past, life into death.\" - Rigwald of the Ezomytes"
     },
-    "crown of eyes": {
-      "name": "Crown of Eyes",
-      "base": "Runemastered Vermeil Circlet",
+    "slivertongue": {
+      "name": "Slivertongue",
+      "base": "Zealot Bow",
       "mods": [
-        "136% increased Energy Shield",
-        "+166 to Accuracy Rating",
-        "+12 to all Attributes",
-        "-10% to Fire Resistance",
-        "Increases and Reductions to Spell damage also apply to Attacks"
+        "Adds 45 to 66 Physical Damage",
+        "+4.8% to Critical Hit Chance",
+        "Leeches 6.26% of Physical Damage as Life",
+        "Leeches 4.21% of Physical Damage as Mana",
+        "Arrows Fork",
+        "Arrows Pierce all targets after Forking"
       ],
-      "flavour": "Turning, gazing, blinking, behold the eyes of void. Burning, razing, drinking, your mind is destroyed."
+      "flavour": "A hundred blind heads, each seeking the taste of prey on the air."
     },
-    "sunsplinter": {
-      "name": "Sunsplinter",
-      "base": "Array Buckler",
+    "threaded light": {
+      "name": "Threaded Light",
+      "base": "Runemastered Woven Focus",
       "mods": [
-        "247% increased Evasion Rating",
-        "+1 to Level of all Fire Skills",
-        "+4 to Level of all Cold Skills",
-        "+2 to Level of all Lightning Skills",
-        "+2% to Maximum Fire Resistance",
-        "+1% to Maximum Cold Resistance",
-        "+4% to Maximum Lightning Resistance"
+        "58% increased Energy Shield",
+        "40% increased Mana Regeneration Rate",
+        "20% increased Light Radius",
+        "12% increased Spell Damage per 10 Spirit"
       ],
-      "flavour": "\"Lundara held back the hordes, while Solerai rose to split the sky. With a single stroke, she ended the Winter of the World.\" - Wranga, tale-woman of the Wahida akhara"
+      "flavour": "A gift, a braid, of golden hair. The war, forgotten. The reason, remembered."
+    },
+    "painter s servant": {
+      "name": "Painter's Servant",
+      "base": "Runemastered Torn Gloves",
+      "mods": [
+        "Gain 10% of Elemental Damage as Extra Cold Damage",
+        "Gain 10% of Elemental Damage as Extra Fire Damage",
+        "Gain 10% of Elemental Damage as Extra Lightning Damage",
+        "33% of Elemental Damage Converted to Cold Damage",
+        "33% of Elemental Damage Converted to Fire Damage",
+        "33% of Elemental Damage Converted to Lightning Damage"
+      ],
+      "flavour": "Bloodshed on the crimson shores, longing for the endless sea. Treasures, life, I'd give it all just to capture thee."
+    },
+    "feathered fortress": {
+      "name": "Feathered Fortress",
+      "base": "Runemastered Crescent Targe",
+      "mods": [
+        "+23 to Strength",
+        "+22 to Dexterity",
+        "+28% to Fire Resistance",
+        "+28% to Cold Resistance",
+        "No Movement Speed Penalty while Shield is Raised"
+      ],
+      "flavour": "Ride the western wind, and take flight."
     }
   },
   "gems": {
@@ -2725,30 +2707,32 @@
         "physical"
       ]
     },
-    "breachlord s rift": {
-      "name": "Breachlord's Rift",
+    "herald of ash": {
+      "name": "Herald of Ash",
       "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing it to Break Armour of enemies it Freezes or Electrocutes.",
+      "desc": "While active, enemies you sufficiently Overkill with non-Herald Attacks will cause an explosion that Ignites nearby enemies based on the Overkill damage dealt.",
       "tags": [
-        "lineage",
-        "lightning",
-        "cold"
+        "buff",
+        "persistent",
+        "area",
+        "fire",
+        "duration",
+        "herald"
       ]
     },
-    "armour demolisher ii": {
-      "name": "Armour Demolisher II",
+    "swift affliction ii": {
+      "name": "Swift Affliction II",
       "kind": "skill",
-      "desc": "Supports any skill, causing Armour Break it inflicts to be stronger.",
+      "desc": "Supports any skill that deals damage, causing it to deal more non-Ailment damage over time but have a shorter duration.",
+      "tags": [
+        "duration"
+      ]
+    },
+    "acrimony": {
+      "name": "Acrimony",
+      "kind": "skill",
+      "desc": "Supports Skills which can Damage Enemies. Enemies affected by Damage over time from Supported Skills which was not caused by a Damaging Ailment have reduced Life regeneration rate. Only the strongest instance of this Debuff will apply. Does not Support Skills used by Minions.",
       "tags": []
-    },
-    "mark for death ii": {
-      "name": "Mark for Death II",
-      "kind": "skill",
-      "desc": "Supports Mark Skills. Enemies affected by Supported Marks will have their Armour Broken by Physical Damage they take.",
-      "tags": [
-        "mark",
-        "physical"
-      ]
     },
     "herald of thunder": {
       "name": "Herald of Thunder",
@@ -2792,34 +2776,33 @@
         "lightning"
       ]
     },
-    "rageforged ii": {
-      "name": "Rageforged II",
+    "uhtred s constellation": {
+      "name": "Uhtred's Constellation",
       "kind": "skill",
-      "desc": "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage, with a chance to skip spending Rage while still benefitting as though it had. If you don't have enough Rage to spend, the damage bonus will not apply.",
-      "tags": []
-    },
-    "overreach": {
-      "name": "Overreach",
-      "kind": "skill",
-      "desc": "Supports Attack Skills which deal Damage in an Area. Supported Skills have significantly increased Area of Effect, but are less Accurate against nearby targets.",
+      "desc": "Supports non-instant skills which have a cooldown, granting them two additional cooldown uses and more damage per different skill with a cooldown you have used recently.",
       "tags": [
-        "attack",
-        "area"
-      ]
-    },
-    "salvo": {
-      "name": "Salvo",
-      "kind": "skill",
-      "desc": "Supports Attack Skills you use yourself which fire Projectiles, Sealing them over time. The Seals are broken when used, causing additional Projectiles to be fired. Projectiles from Supported Skills are fired in random directions. Cannot Support Skills which require Combo, have a Cooldown or which already gain Seals.",
-      "tags": [
-        "attack",
-        "projectile"
+        "lineage"
       ]
     },
     "direstrike ii": {
       "name": "Direstrike II",
       "kind": "skill",
       "desc": "Supports Persistent Buff Skills, causing you to deal increased Attack Damage while on Low Life while the Supported Skill is active.",
+      "tags": [
+        "buff",
+        "persistent"
+      ]
+    },
+    "empowered sparks ii": {
+      "name": "Empowered Sparks II",
+      "kind": "skill",
+      "desc": "Supports Skills which generate Charges. When generating Power Charge with Supported Skills, Empower some of your Attacks to Trigger Spark Projectiles on use.",
+      "tags": []
+    },
+    "clarity i": {
+      "name": "Clarity I",
+      "kind": "skill",
+      "desc": "Supports Persistent Buff Skills, causing you to gain increased Mana Regeneration while the Skill is active.",
       "tags": [
         "buff",
         "persistent"
@@ -2841,11 +2824,28 @@
         "lightning"
       ]
     },
-    "empowered sparks ii": {
-      "name": "Empowered Sparks II",
+    "escape shot": {
+      "name": "Escape Shot",
       "kind": "skill",
-      "desc": "Supports Skills which generate Charges. When generating Power Charge with Supported Skills, Empower some of your Attacks to Trigger Spark Projectiles on use.",
-      "tags": []
+      "desc": "Leap backwards, firing an icy arrow which can Chill or Freeze enemies around the location from which you escaped. This arrow will create Ice Fragments on impact.",
+      "tags": [
+        "attack",
+        "area",
+        "projectile",
+        "trigger",
+        "cold"
+      ]
+    },
+    "vruun s inevitability": {
+      "name": "Vruun's Inevitability",
+      "kind": "skill",
+      "desc": "Supports Melee Attack Skills. Supported Skills gain Combo when you successfully Strike Enemies with other Melee Attacks. Supported Skills expend their Combo when used, gaining more area of effect the higher Combo they had. Cannot support skills which already gain Combo. Cannot modify the Skills of Minions.",
+      "tags": [
+        "lineage",
+        "attack",
+        "melee",
+        "conditional"
+      ]
     },
     "nova projectiles i": {
       "name": "Nova Projectiles I",
@@ -3044,6 +3044,15 @@
         "duration",
         "travel",
         "meta"
+      ]
+    },
+    "mark for death ii": {
+      "name": "Mark for Death II",
+      "kind": "skill",
+      "desc": "Supports Mark Skills. Enemies affected by Supported Marks will have their Armour Broken by Physical Damage they take.",
+      "tags": [
+        "mark",
+        "physical"
       ]
     },
     "opening move": {
@@ -3396,42 +3405,6 @@
         "stages"
       ]
     },
-    "tul s stillness": {
-      "name": "Tul's Stillness",
-      "kind": "skill",
-      "desc": "Supports Skills that can cause Damaging Hits, granting extra Chaos damage and causing Chaos damage to Contribute to Freeze Buildup.",
-      "tags": [
-        "lineage",
-        "cold",
-        "chaos"
-      ]
-    },
-    "convalescence": {
-      "name": "Convalescence",
-      "kind": "skill",
-      "desc": "While active, grants a skill that you can use to instantly begin Recharging Energy Shield and gain a Buff for a duration that prevents that Recharge being interrupted. The Buff is removed at maximum Energy Shield and the skill cannot be used while Energy Shield is full.",
-      "tags": [
-        "spell",
-        "buff",
-        "persistent",
-        "duration"
-      ]
-    },
-    "clarity i": {
-      "name": "Clarity I",
-      "kind": "skill",
-      "desc": "Supports Persistent Buff Skills, causing you to gain increased Mana Regeneration while the Skill is active.",
-      "tags": [
-        "buff",
-        "persistent"
-      ]
-    },
-    "second wind iii": {
-      "name": "Second Wind III",
-      "kind": "skill",
-      "desc": "Supports Skills which have a cooldown, giving them extra uses of that cooldown and causing them to recover your Life when a Skill is used and goes on cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
-      "tags": []
-    },
     "cast on critical": {
       "name": "Cast on Critical",
       "kind": "skill",
@@ -3494,15 +3467,14 @@
         "duration"
       ]
     },
-    "living lightning ii": {
-      "name": "Living Lightning II",
+    "arbiter s ignition": {
+      "name": "Arbiter's Ignition",
       "kind": "skill",
-      "desc": "Supports Skills which cause Damaging Hits. Living Lightning Minions are created when dealing Lightning damage with Supported Skills - bundles of living electricity that target nearby enemies with Chaining Attacks. Enemies will not directly engage these Minions, and can pass through them. Does not modify skills used by Minions.",
+      "desc": "Supports Fire Spell Skills causing you to gain Elemental Archon when Igniting with them.",
       "tags": [
-        "minion",
-        "trigger",
-        "lightning",
-        "duration"
+        "lineage",
+        "spell",
+        "fire"
       ]
     },
     "fortress ii": {
@@ -3567,6 +3539,23 @@
         "stages"
       ]
     },
+    "convalescence": {
+      "name": "Convalescence",
+      "kind": "skill",
+      "desc": "While active, grants a skill that you can use to instantly begin Recharging Energy Shield and gain a Buff for a duration that prevents that Recharge being interrupted. The Buff is removed at maximum Energy Shield and the skill cannot be used while Energy Shield is full.",
+      "tags": [
+        "spell",
+        "buff",
+        "persistent",
+        "duration"
+      ]
+    },
+    "second wind iii": {
+      "name": "Second Wind III",
+      "kind": "skill",
+      "desc": "Supports Skills which have a cooldown, giving them extra uses of that cooldown and causing them to recover your Life when a Skill is used and goes on cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
+      "tags": []
+    },
     "elemental conflux": {
       "name": "Elemental Conflux",
       "kind": "skill",
@@ -3624,6 +3613,12 @@
         "chaos"
       ]
     },
+    "rageforged ii": {
+      "name": "Rageforged II",
+      "kind": "skill",
+      "desc": "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage, with a chance to skip spending Rage while still benefitting as though it had. If you don't have enough Rage to spend, the damage bonus will not apply.",
+      "tags": []
+    },
     "tempest bell": {
       "name": "Tempest Bell",
       "kind": "skill",
@@ -3664,6 +3659,17 @@
         "physical"
       ]
     },
+    "living lightning ii": {
+      "name": "Living Lightning II",
+      "kind": "skill",
+      "desc": "Supports Skills which cause Damaging Hits. Living Lightning Minions are created when dealing Lightning damage with Supported Skills - bundles of living electricity that target nearby enemies with Chaining Attacks. Enemies will not directly engage these Minions, and can pass through them. Does not modify skills used by Minions.",
+      "tags": [
+        "minion",
+        "trigger",
+        "lightning",
+        "duration"
+      ]
+    },
     "quarterstaff strike": {
       "name": "Quarterstaff Strike",
       "kind": "skill",
@@ -3680,19 +3686,6 @@
       "kind": "skill",
       "desc": "Supports Skills which create Fissures in the ground, causing them to create additional secondary Fissures which branch off from the primary fissure, with lowered area of effect and Damage.",
       "tags": []
-    },
-    "herald of ash": {
-      "name": "Herald of Ash",
-      "kind": "skill",
-      "desc": "While active, enemies you sufficiently Overkill with non-Herald Attacks will cause an explosion that Ignites nearby enemies based on the Overkill damage dealt.",
-      "tags": [
-        "buff",
-        "persistent",
-        "area",
-        "fire",
-        "duration",
-        "herald"
-      ]
     },
     "power siphon": {
       "name": "Power Siphon",
@@ -3762,14 +3755,6 @@
         "storm"
       ]
     },
-    "uhtred s constellation": {
-      "name": "Uhtred's Constellation",
-      "kind": "skill",
-      "desc": "Supports non-instant skills which have a cooldown, granting them two additional cooldown uses and more damage per different skill with a cooldown you have used recently.",
-      "tags": [
-        "lineage"
-      ]
-    },
     "zarokh s refrain": {
       "name": "Zarokh's Refrain",
       "kind": "skill",
@@ -3794,16 +3779,6 @@
       "desc": "Supports any Skill that deals damage. Enemies you kill with supported Skills have a chance to drop a Verisium Infusion Remnant.",
       "tags": [
         "remnant"
-      ]
-    },
-    "arbiter s ignition": {
-      "name": "Arbiter's Ignition",
-      "kind": "skill",
-      "desc": "Supports Fire Spell Skills causing you to gain Elemental Archon when Igniting with them.",
-      "tags": [
-        "lineage",
-        "spell",
-        "fire"
       ]
     },
     "pinnacle of power": {
@@ -3873,80 +3848,109 @@
         "physical"
       ]
     },
-    "ice strike": {
-      "name": "Ice Strike",
+    "wolf pack": {
+      "name": "Wolf Pack",
       "kind": "skill",
-      "desc": "Perform a fast icy Strike. Using this Attack three times in quick succession causes a final strike that is slower and more powerful.",
+      "desc": "Activate to summon a pack of Wolf Companions. The pack treated as a single Companion for effects that count or limit Companions, regardless of the number of Wolves in the pack.",
       "tags": [
-        "attack",
-        "area",
-        "melee",
-        "strike",
-        "cold"
+        "minion",
+        "companion",
+        "persistent",
+        "physical"
       ]
     },
-    "shattering palm": {
-      "name": "Shattering Palm",
+    "minion mastery": {
+      "name": "Minion Mastery",
       "kind": "skill",
-      "desc": "Dash to an enemy and Strike them with an Attack that manifests a wave of cold, coating nearby enemies in shards of ice. Dealing enough damage to these enemies will shatter the shards, causing an icy explosion that deals Attack damage.",
+      "desc": "Supports Minion skills, granting them an additional level. Does not support skills which do not have levels.",
       "tags": [
-        "attack",
-        "area",
-        "melee",
-        "strike",
-        "trigger",
-        "cold"
+        "minion"
       ]
     },
-    "charged staff": {
-      "name": "Charged Staff",
+    "minion instability": {
+      "name": "Minion Instability",
       "kind": "skill",
-      "desc": "Consume all Power Charges to charge your Quarterstaff with electricity, adding Lightning damage and a Lightning shockwave to your Quarterstaff Attacks. Reusing this skill while the Buff is active adds to the Buff's duration and damage.",
+      "desc": "Supports skills which create Minions, causing them to violently explode when reduced to Low Life.",
       "tags": [
-        "spell",
-        "attack",
+        "minion",
+        "fire"
+      ]
+    },
+    "essence harvest": {
+      "name": "Essence Harvest",
+      "kind": "skill",
+      "desc": "Supports Skills which create Reviving Persistent Minions. When those Minions die, you Recoup a percentage of your maximum Mana.",
+      "tags": [
+        "minion",
+        "persistent"
+      ]
+    },
+    "amanamu s tithe": {
+      "name": "Amanamu's Tithe",
+      "kind": "skill",
+      "desc": "Supports Persistent Minion Skills, granting a chance when Supported Minions die for you to gain an Abyssal Monster Modifier.",
+      "tags": [
+        "lineage",
+        "minion",
+        "persistent"
+      ]
+    },
+    "cast on minion death": {
+      "name": "Cast on Minion Death",
+      "kind": "skill",
+      "desc": "While active, gains Energy when one of your Persistent Minions is Killed, and triggers socketed Spells upon reaching maximum Energy. Very underlevelled Minions will incur an Energy generation penalty. Cannot socket Spells which create Minions.",
+      "tags": [
         "buff",
-        "area",
-        "lightning",
-        "duration",
-        "conditional"
-      ]
-    },
-    "esh s radiance": {
-      "name": "Esh's Radiance",
-      "kind": "skill",
-      "desc": "Supports Skills that can cause Damaging Hits, granting extra Chaos damage and causing Chaos damage to Contribute to Shock.",
-      "tags": [
-        "lineage",
-        "lightning",
-        "chaos"
-      ]
-    },
-    "doedre s undoing": {
-      "name": "Doedre's Undoing",
-      "kind": "skill",
-      "desc": "Supports Curse Skills. Supported Skills create an area which Curses Enemies within it, and spawns Witchtoads in that area. Witchtoads leap at eneimes that get close, and seek out Cursed enemies with higher aggression. Dark Consequences will be Triggered when they hit enemies with their leap, violently exploding the Witchtoad.",
-      "tags": [
-        "lineage",
-        "spell",
-        "area",
+        "minion",
+        "persistent",
         "trigger",
-        "chaos",
-        "curse"
+        "meta"
       ]
     },
-    "deadly herald": {
-      "name": "Deadly Herald",
+    "parry": {
+      "name": "Parry",
       "kind": "skill",
-      "desc": "Supports Herald Skills, making their triggered effects deal more damage at the expense of higher Spirit cost.",
+      "desc": "Ready your Buckler to parry the next Hit you would take, Blocking the Hit and retaliating with a quick sweep that leaves enemies off balance, causing them to take massively increased Attack damage for a short duration. Parrying causes you to accumulate Heavy Stun buildup. You cannot Evade a Hit you could parry, but Evasion instead grants an equal chance to avoid this Heavy Stun buildup.",
       "tags": [
-        "herald"
+        "attack",
+        "melee",
+        "physical",
+        "duration",
+        "channelling"
       ]
     },
-    "reaper s invocation": {
-      "name": "Reaper's Invocation",
+    "minion pact ii": {
+      "name": "Minion Pact II",
       "kind": "skill",
-      "desc": "While active, gains Energy when you kill an enemy with a Melee Attack. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
+      "desc": "Supports damaging skills you use yourself, draining the life from one of your Minions on use in order to boost the skill's damage. Only takes effect if you have a Minion with enough life to drain the full amount.",
+      "tags": [
+        "minion"
+      ]
+    },
+    "styrn s mountain": {
+      "name": "Styrn's Mountain",
+      "kind": "skill",
+      "desc": "Supports Skills that Raise your Shield causing your other melee skills to deal more damage if you block.",
+      "tags": [
+        "lineage"
+      ]
+    },
+    "grim feast": {
+      "name": "Grim Feast",
+      "kind": "skill",
+      "desc": "While active, your Reviving Minions store a percentage of their maximum Life in a collectible Grim Remnant on death. Using Grim Resurrection Consumes the Life you've collected to Revive up to that much total Life of dead Minions.",
+      "tags": [
+        "buff",
+        "spell",
+        "minion",
+        "persistent",
+        "remnant"
+      ]
+    },
+    "spellslinger": {
+      "name": "Spellslinger",
+      "kind": "skill",
+      "desc": "While active, gains Energy when you cast Spells. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
       "tags": [
         "buff",
         "persistent",
@@ -3967,16 +3971,456 @@
         "repeatable"
       ]
     },
-    "spellslinger": {
-      "name": "Spellslinger",
+    "overabundance i": {
+      "name": "Overabundance I",
       "kind": "skill",
-      "desc": "While active, gains Energy when you cast Spells. Using the Invocation once sufficient Energy is gathered will consume the Energy to trigger socketed Spells, and can trigger them multiple times if it has enough Energy.",
+      "desc": "Supports Skills which have a Limit, increasing that Limit at the cost of their duration. Only applies to restrictions that use the word \"Limit\".",
+      "tags": []
+    },
+    "swift affliction iii": {
+      "name": "Swift Affliction III",
+      "kind": "skill",
+      "desc": "Supports any skill that deals damage, causing effects with a duration of one second or less to deal more non-Ailment damage over time.",
+      "tags": [
+        "duration"
+      ]
+    },
+    "rage ii": {
+      "name": "Rage II",
+      "kind": "skill",
+      "desc": "Supports Melee Attacks, causing them to grant Rage on Hit.",
+      "tags": [
+        "attack",
+        "melee"
+      ]
+    },
+    "culmination ii": {
+      "name": "Culmination II",
+      "kind": "skill",
+      "desc": "Supports Melee Attack Skills. Supported Skills gain Combo when you successfully Strike Enemies with other Melee Attacks. Supported Skills reset their Combo on use, dealing more Damage the higher Combo you had on use. Cannot support skills which already gain Combo. Cannot modify the Skills of Minions.",
+      "tags": [
+        "attack",
+        "melee",
+        "conditional"
+      ]
+    },
+    "prototype seventeen": {
+      "name": "Prototype Seventeen",
+      "kind": "skill",
+      "desc": "Supports non-Channelling skill you use yourself that Hits enemies, causing it to gain Critical Hit chance based on Rage, but also remove all Rage upon Critically Hitting.",
+      "tags": [
+        "lineage"
+      ]
+    },
+    "charged staff": {
+      "name": "Charged Staff",
+      "kind": "skill",
+      "desc": "Consume all Power Charges to charge your Quarterstaff with electricity, adding Lightning damage and a Lightning shockwave to your Quarterstaff Attacks. Reusing this skill while the Buff is active adds to the Buff's duration and damage.",
+      "tags": [
+        "spell",
+        "attack",
+        "buff",
+        "area",
+        "lightning",
+        "duration",
+        "conditional"
+      ]
+    },
+    "innervate": {
+      "name": "Innervate",
+      "kind": "skill",
+      "desc": "Supports damaging skills you use yourself. Killing a Shocked enemy with supported skills imbues your damage with Lightning damage for a short time.",
+      "tags": [
+        "lightning",
+        "duration"
+      ]
+    },
+    "deadly herald": {
+      "name": "Deadly Herald",
+      "kind": "skill",
+      "desc": "Supports Herald Skills, making their triggered effects deal more damage at the expense of higher Spirit cost.",
+      "tags": [
+        "herald"
+      ]
+    },
+    "ember fusillade": {
+      "name": "Ember Fusillade",
+      "kind": "skill",
+      "desc": "Conjure a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies. Consumes a Lightning Infusion if possible to cause the entire Fusillade to create beams that Chain to enemies.",
+      "tags": [
+        "spell",
+        "area",
+        "projectile",
+        "fire",
+        "duration",
+        "repeatable"
+      ]
+    },
+    "multishot ii": {
+      "name": "Multishot II",
+      "kind": "skill",
+      "desc": "Supports Projectile skills, making them fire extra Projectiles. Also lowers Attack and Cast speed of supported skills, as well as lessening their damage.",
+      "tags": [
+        "projectile"
+      ]
+    },
+    "compressed duration ii": {
+      "name": "Compressed Duration II",
+      "kind": "skill",
+      "desc": "Supports any skill that has a duration making that duration shorter.",
+      "tags": [
+        "duration"
+      ]
+    },
+    "spell echo": {
+      "name": "Spell Echo",
+      "kind": "skill",
+      "desc": "Supports Cascadable Spells you use yourself. Supported Spells Echo.",
+      "tags": [
+        "spell",
+        "area"
+      ]
+    },
+    "lightning warp": {
+      "name": "Lightning Warp",
+      "kind": "skill",
+      "desc": "Target an enemy to either teleport inside the target's body if they are under the Cull threshold, causing it to violently explode, or to apply a Debuff to them, which will cause the same effect if that enemy falls under the Cull threshold during its duration. Can also be used on Ball Lightning Projectiles. On teleport, the target is destroyed, and the explosion deals Lightning damage to surrounding enemies. If targeting an enemy, the explosion also creates Shocked Ground. Creates a Lightning Infusion on successful use. Highlights enemies that can be Culled.",
+      "tags": [
+        "spell",
+        "area",
+        "lightning",
+        "duration",
+        "remnant",
+        "repeatable"
+      ]
+    },
+    "energy retention": {
+      "name": "Energy Retention",
+      "kind": "skill",
+      "desc": "Supports Meta Skills. Supported Skills gain a chance to partially Refund a portion of Energy cost when Triggering or Invoking other Skills.",
+      "tags": [
+        "trigger"
+      ]
+    },
+    "frost darts": {
+      "name": "Frost Darts",
+      "kind": "skill",
+      "desc": "Conjures a number of icy Projectiles that launch towards the target. Projectiles that Hit a Chilled or Frozen target create chunks of ice that deal additional damage on impacting the ground. Consumes a Cold Infusion if possible to cause each Projectile to lodge into the enemy then explode.",
+      "tags": [
+        "spell",
+        "area",
+        "projectile",
+        "cold",
+        "payoff",
+        "repeatable"
+      ]
+    },
+    "khatal s rejuvenation": {
+      "name": "Khatal's Rejuvenation",
+      "kind": "skill",
+      "desc": "Supports Skills that generate Remnants. Picking up Remnants from Supported Skills grants Khatal's Rejuvenation.",
+      "tags": [
+        "lineage",
+        "remnant"
+      ]
+    },
+    "reap": {
+      "name": "Reap",
+      "kind": "skill",
+      "desc": "Conjure a bloody scythe that sweeps across the targeted area, dealing Physical damage to enemies and applying Critical Weakness. Cannot be Triggered.",
+      "tags": [
+        "spell",
+        "area",
+        "physical",
+        "duration"
+      ]
+    },
+    "crushing fear": {
+      "name": "Crushing Fear",
+      "kind": "skill",
+      "desc": "Dash to an enemy and Strike them, Culling enemies if their life is low enough. When this skill kills an enemy you draw out their final fears, crushing them to create a shockwave. Enemies around you that can be Culled will be highlighted.",
+      "tags": [
+        "attack",
+        "area",
+        "melee",
+        "strike",
+        "physical",
+        "chaos"
+      ]
+    },
+    "overwhelming presence": {
+      "name": "Overwhelming Presence",
+      "kind": "skill",
+      "desc": "While active, emits an Aura that makes enemies in your Presence easier to Stun and inflict Elemental Ailments upon.",
       "tags": [
         "buff",
         "persistent",
+        "aura"
+      ]
+    },
+    "brutus brain": {
+      "name": "Brutus' Brain",
+      "kind": "skill",
+      "desc": "Supports skills which create Minions, causing those Minions to be unable to deal or take Damage. Cannot support skills which create undamageable Minions.",
+      "tags": [
+        "lineage",
+        "minion"
+      ]
+    },
+    "soul drain": {
+      "name": "Soul Drain",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing you to recover Mana when it Culls an enemy.",
+      "tags": []
+    },
+    "life drain": {
+      "name": "Life Drain",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing you to recover Life when it Culls an enemy.",
+      "tags": []
+    },
+    "flame wall": {
+      "name": "Flame Wall",
+      "kind": "skill",
+      "desc": "Create a wall of Fire in front of you, which Ignites everything within its area. Any Projectiles fired through the wall by you and Allies deal added Fire damage. Consumes a Lightning Infusion if possible to also add Lightning damage to the Projectiles.",
+      "tags": [
+        "spell",
+        "area",
+        "fire",
+        "duration",
+        "repeatable"
+      ]
+    },
+    "fortress i": {
+      "name": "Fortress I",
+      "kind": "skill",
+      "desc": "Supports skills that create walls in a line, causing them to be created in a circle instead but deal less Hit damage.",
+      "tags": []
+    },
+    "blink": {
+      "name": "Blink",
+      "kind": "skill",
+      "desc": "While active, replaces your dodge roll with a short-cooldown Spell that allows you to tunnel through space, instantly reappearing a medium distance away.",
+      "tags": [
+        "buff",
+        "spell",
+        "persistent",
+        "travel"
+      ]
+    },
+    "cursed ground": {
+      "name": "Cursed Ground",
+      "kind": "skill",
+      "desc": "Supports Curse Skills. Supported Curse Skills create areas which Curse Enemies so long as they are within them.",
+      "tags": [
+        "curse"
+      ]
+    },
+    "armour demolisher ii": {
+      "name": "Armour Demolisher II",
+      "kind": "skill",
+      "desc": "Supports any skill, causing Armour Break it inflicts to be stronger.",
+      "tags": []
+    },
+    "salvo": {
+      "name": "Salvo",
+      "kind": "skill",
+      "desc": "Supports Attack Skills you use yourself which fire Projectiles, Sealing them over time. The Seals are broken when used, causing additional Projectiles to be fired. Projectiles from Supported Skills are fired in random directions. Cannot Support Skills which require Combo, have a Cooldown or which already gain Seals.",
+      "tags": [
+        "attack",
+        "projectile"
+      ]
+    },
+    "pin i": {
+      "name": "Pin I",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, allowing its Physical damage to Pin enemies but making it unable to Stun.",
+      "tags": [
+        "physical"
+      ]
+    },
+    "strong hearted": {
+      "name": "Strong Hearted",
+      "kind": "skill",
+      "desc": "Supports Persistent Buff Skills, causing Shock applied to you to last for a shorter duration while the Supported Skill is active.",
+      "tags": [
+        "buff",
+        "persistent"
+      ]
+    },
+    "shattering palm": {
+      "name": "Shattering Palm",
+      "kind": "skill",
+      "desc": "Dash to an enemy and Strike them with an Attack that manifests a wave of cold, coating nearby enemies in shards of ice. Dealing enough damage to these enemies will shatter the shards, causing an icy explosion that deals Attack damage.",
+      "tags": [
+        "attack",
+        "area",
+        "melee",
+        "strike",
         "trigger",
-        "invocation",
-        "meta"
+        "cold"
+      ]
+    },
+    "cold exposure": {
+      "name": "Cold Exposure",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing it to inflict Exposure when it Critically Hits an enemy.",
+      "tags": [
+        "cold",
+        "duration"
+      ]
+    },
+    "ice strike": {
+      "name": "Ice Strike",
+      "kind": "skill",
+      "desc": "Perform a fast icy Strike. Using this Attack three times in quick succession causes a final strike that is slower and more powerful.",
+      "tags": [
+        "attack",
+        "area",
+        "melee",
+        "strike",
+        "cold"
+      ]
+    },
+    "crescendo iii": {
+      "name": "Crescendo III",
+      "kind": "skill",
+      "desc": "Supports Strikes that perform a Final Strike at the end of a combination of attacks, causing the Final Strike to be Ancestrally Boosted.",
+      "tags": [
+        "attack",
+        "melee",
+        "strike"
+      ]
+    },
+    "ailith s chimes": {
+      "name": "Ailith's Chimes",
+      "kind": "skill",
+      "desc": "Supports Skills which can expend Combo. On expending Combo with Supported Skills, you have a chance to gain Power Charges based on the amount of Combo expended.",
+      "tags": [
+        "lineage"
+      ]
+    },
+    "thunderstorm": {
+      "name": "Thunderstorm",
+      "kind": "skill",
+      "desc": "Conjure a thunderstorm which causes lightning strikes and torrential rain in an area. Enemies in the area are Drenched, causing them to become Shocked or Frozen more easily. Plants in the area become Overgrown.",
+      "tags": [
+        "spell",
+        "area",
+        "sustained",
+        "lightning",
+        "duration",
+        "storm"
+      ]
+    },
+    "lightning attunement": {
+      "name": "Lightning Attunement",
+      "kind": "skill",
+      "desc": "Supports any skill that deals damage, causing them to Gain Lightning Damage but deal less Cold and Fire Damage.",
+      "tags": [
+        "lightning"
+      ]
+    },
+    "bounty ii": {
+      "name": "Bounty II",
+      "kind": "skill",
+      "desc": "Supports any Skill that Hits Enemies, causing Enemies it kills to grant more Flask and Charm charges.",
+      "tags": []
+    },
+    "purity of lightning": {
+      "name": "Purity of Lightning",
+      "kind": "skill",
+      "desc": "Emit an Aura that boosts the Lightning Resistance of you and Allies in your Presence.",
+      "tags": [
+        "buff",
+        "persistent",
+        "aura",
+        "lightning"
+      ]
+    },
+    "companion plague harvester": {
+      "name": "Companion: Plague Harvester",
+      "kind": "skill",
+      "desc": "Summon a Reviving Beast Companion to aid you in combat.",
+      "tags": []
+    },
+    "hulking minions": {
+      "name": "Hulking Minions",
+      "kind": "skill",
+      "desc": "Supports Skills which summon Persistent Minions. Supported Minions are larger, have more Life, and deal more Damage, but cost significantly more Spirit.",
+      "tags": [
+        "minion",
+        "persistent"
+      ]
+    },
+    "minion splash ii": {
+      "name": "Minion Splash II",
+      "kind": "skill",
+      "desc": "Supports Skills which create Minions which Strike, increasing their Area of Effect and causing those Minions' Strikes to have Melee Splash.",
+      "tags": [
+        "attack",
+        "minion",
+        "melee",
+        "strike"
+      ]
+    },
+    "into the breach": {
+      "name": "Into the Breach",
+      "kind": "skill",
+      "desc": "Create a Breach around you, allowing you to see nearby Flames of Chayula. You are considered to be in a Breach while this skill is active.",
+      "tags": [
+        "buff",
+        "persistent",
+        "remnant"
+      ]
+    },
+    "selfless remnants": {
+      "name": "Selfless Remnants",
+      "kind": "skill",
+      "desc": "Supports Skills that generate Remnants, causing those Remnants to affect Allies in your Presence when collected instead of you.",
+      "tags": [
+        "remnant"
+      ]
+    },
+    "prolonged duration i": {
+      "name": "Prolonged Duration I",
+      "kind": "skill",
+      "desc": "Supports any skill that has a duration, making that duration longer.",
+      "tags": [
+        "duration"
+      ]
+    },
+    "void illusion": {
+      "name": "Void Illusion",
+      "kind": "skill",
+      "desc": "While active, creates a short-lived illusory copy of yourself whenever you dodge roll. The copy can be damaged by enemies, and copies that are destroyed by an enemy will cause damaging explosions. Copies created this way have 1 Life.",
+      "tags": [
+        "attack",
+        "buff",
+        "persistent",
+        "area",
+        "trigger",
+        "duration"
+      ]
+    },
+    "sacrifice": {
+      "name": "Sacrifice",
+      "kind": "skill",
+      "desc": "While active, your undead Reviving Minions can be used in place of Corpses by your skills, but your Minions Revive more slowly.",
+      "tags": [
+        "buff",
+        "minion",
+        "persistent"
+      ]
+    },
+    "barkskin": {
+      "name": "Barkskin",
+      "kind": "skill",
+      "desc": "While active, taking Hit damage from enemies to your Energy Shield causes you to gain Armour for a short duration. Armour gained from multiple Hits can stack. The total Armour gained from this Skill cannot exceed the Item Armour on your Equipped Armour Items.",
+      "tags": [
+        "buff",
+        "persistent",
+        "duration"
       ]
     },
     "vilenta s propulsion": {
@@ -3987,14 +4431,6 @@
         "lineage",
         "spell",
         "projectile"
-      ]
-    },
-    "energy retention": {
-      "name": "Energy Retention",
-      "kind": "skill",
-      "desc": "Supports Meta Skills. Supported Skills gain a chance to partially Refund a portion of Energy cost when Triggering or Invoking other Skills.",
-      "tags": [
-        "trigger"
       ]
     },
     "fireball": {
@@ -4075,27 +4511,10 @@
         "repeatable"
       ]
     },
-    "multishot ii": {
-      "name": "Multishot II",
-      "kind": "skill",
-      "desc": "Supports Projectile skills, making them fire extra Projectiles. Also lowers Attack and Cast speed of supported skills, as well as lessening their damage.",
-      "tags": [
-        "projectile"
-      ]
-    },
     "lightning exposure": {
       "name": "Lightning Exposure",
       "kind": "skill",
       "desc": "Supports any skill that Hits enemies, causing it to inflict Exposure when inflicting Shock.",
-      "tags": [
-        "lightning",
-        "duration"
-      ]
-    },
-    "innervate": {
-      "name": "Innervate",
-      "kind": "skill",
-      "desc": "Supports damaging skills you use yourself. Killing a Shocked enemy with supported skills imbues your damage with Lightning damage for a short time.",
       "tags": [
         "lightning",
         "duration"
@@ -4113,36 +4532,6 @@
         "repeatable"
       ]
     },
-    "into the breach": {
-      "name": "Into the Breach",
-      "kind": "skill",
-      "desc": "Create a Breach around you, allowing you to see nearby Flames of Chayula. You are considered to be in a Breach while this skill is active.",
-      "tags": [
-        "buff",
-        "persistent",
-        "remnant"
-      ]
-    },
-    "khatal s rejuvenation": {
-      "name": "Khatal's Rejuvenation",
-      "kind": "skill",
-      "desc": "Supports Skills that generate Remnants. Picking up Remnants from Supported Skills grants Khatal's Rejuvenation.",
-      "tags": [
-        "lineage",
-        "remnant"
-      ]
-    },
-    "blink": {
-      "name": "Blink",
-      "kind": "skill",
-      "desc": "While active, replaces your dodge roll with a short-cooldown Spell that allows you to tunnel through space, instantly reappearing a medium distance away.",
-      "tags": [
-        "buff",
-        "spell",
-        "persistent",
-        "travel"
-      ]
-    },
     "discipline": {
       "name": "Discipline",
       "kind": "skill",
@@ -4151,44 +4540,6 @@
         "buff",
         "persistent",
         "aura"
-      ]
-    },
-    "selfless remnants": {
-      "name": "Selfless Remnants",
-      "kind": "skill",
-      "desc": "Supports Skills that generate Remnants, causing those Remnants to affect Allies in your Presence when collected instead of you.",
-      "tags": [
-        "remnant"
-      ]
-    },
-    "wolf pack": {
-      "name": "Wolf Pack",
-      "kind": "skill",
-      "desc": "Activate to summon a pack of Wolf Companions. The pack treated as a single Companion for effects that count or limit Companions, regardless of the number of Wolves in the pack.",
-      "tags": [
-        "minion",
-        "companion",
-        "persistent",
-        "physical"
-      ]
-    },
-    "amanamu s tithe": {
-      "name": "Amanamu's Tithe",
-      "kind": "skill",
-      "desc": "Supports Persistent Minion Skills, granting a chance when Supported Minions die for you to gain an Abyssal Monster Modifier.",
-      "tags": [
-        "lineage",
-        "minion",
-        "persistent"
-      ]
-    },
-    "minion instability": {
-      "name": "Minion Instability",
-      "kind": "skill",
-      "desc": "Supports skills which create Minions, causing them to violently explode when reduced to Low Life.",
-      "tags": [
-        "minion",
-        "fire"
       ]
     },
     "feeding frenzy i": {
@@ -4217,42 +4568,14 @@
         "minion"
       ]
     },
-    "skeletal cleric": {
-      "name": "Skeletal Cleric",
+    "skeletal reaver": {
+      "name": "Skeletal Reaver",
       "kind": "skill",
-      "desc": "Activate to summon Reviving Skeletal Clerics that heal other minions and revive fallen Skeletons.",
+      "desc": "Activate to summon aggressive, Reviving Skeletal Reavers that can enrage on Command. Skeletal Reavers do more Attack Damage and gain increased Attack speed based on their Rage",
       "tags": [
         "minion",
-        "persistent"
-      ]
-    },
-    "barkskin": {
-      "name": "Barkskin",
-      "kind": "skill",
-      "desc": "While active, taking Hit damage from enemies to your Energy Shield causes you to gain Armour for a short duration. Armour gained from multiple Hits can stack. The total Armour gained from this Skill cannot exceed the Item Armour on your Equipped Armour Items.",
-      "tags": [
-        "buff",
         "persistent",
-        "duration"
-      ]
-    },
-    "sacrifice": {
-      "name": "Sacrifice",
-      "kind": "skill",
-      "desc": "While active, your undead Reviving Minions can be used in place of Corpses by your skills, but your Minions Revive more slowly.",
-      "tags": [
-        "buff",
-        "minion",
-        "persistent"
-      ]
-    },
-    "strong hearted": {
-      "name": "Strong Hearted",
-      "kind": "skill",
-      "desc": "Supports Persistent Buff Skills, causing Shock applied to you to last for a shorter duration while the Supported Skill is active.",
-      "tags": [
-        "buff",
-        "persistent"
+        "physical"
       ]
     },
     "time of need": {
@@ -4262,57 +4585,6 @@
       "tags": [
         "buff",
         "persistent"
-      ]
-    },
-    "overwhelming presence": {
-      "name": "Overwhelming Presence",
-      "kind": "skill",
-      "desc": "While active, emits an Aura that makes enemies in your Presence easier to Stun and inflict Elemental Ailments upon.",
-      "tags": [
-        "buff",
-        "persistent",
-        "aura"
-      ]
-    },
-    "withering presence": {
-      "name": "Withering Presence",
-      "kind": "skill",
-      "desc": "While active, emits an Aura that periodically Withers enemies in your Presence.",
-      "tags": [
-        "buff",
-        "persistent",
-        "aura",
-        "chaos",
-        "duration"
-      ]
-    },
-    "chaos mastery": {
-      "name": "Chaos Mastery",
-      "kind": "skill",
-      "desc": "Supports Chaos skills, granting them an additional level. Does not support skills which do not have levels.",
-      "tags": [
-        "chaos"
-      ]
-    },
-    "alchemist s boon": {
-      "name": "Alchemist's Boon",
-      "kind": "skill",
-      "desc": "While active, grants you Flask charges passively and causes Life and Mana recovery from your Flasks to also apply to Allies in your Presence.",
-      "tags": [
-        "buff",
-        "persistent",
-        "aura"
-      ]
-    },
-    "purity of lightning": {
-      "name": "Purity of Lightning",
-      "kind": "skill",
-      "desc": "Emit an Aura that boosts the Lightning Resistance of you and Allies in your Presence.",
-      "tags": [
-        "buff",
-        "persistent",
-        "aura",
-        "lightning"
       ]
     },
     "mirage deadeye": {
@@ -4346,14 +4618,6 @@
       "desc": "Supports Skills which fire Grenades, giving fired Grenades a chance to activate again, but lengthening their cooldowns.",
       "tags": [
         "grenade"
-      ]
-    },
-    "lightning attunement": {
-      "name": "Lightning Attunement",
-      "kind": "skill",
-      "desc": "Supports any skill that deals damage, causing them to Gain Lightning Damage but deal less Cold and Fire Damage.",
-      "tags": [
-        "lightning"
       ]
     },
     "explosive shot": {
@@ -4521,28 +4785,36 @@
         "duration"
       ]
     },
-    "brutus brain": {
-      "name": "Brutus' Brain",
-      "kind": "skill",
-      "desc": "Supports skills which create Minions, causing those Minions to be unable to deal or take Damage. Cannot support skills which create undamageable Minions.",
-      "tags": [
-        "lineage",
-        "minion"
-      ]
-    },
-    "minion mastery": {
-      "name": "Minion Mastery",
-      "kind": "skill",
-      "desc": "Supports Minion skills, granting them an additional level. Does not support skills which do not have levels.",
-      "tags": [
-        "minion"
-      ]
-    },
     "stoicism ii": {
       "name": "Stoicism II",
       "kind": "skill",
       "desc": "Supports Attack Skills you use yourself. Supported Skills steadily gain more Damage, up to a cap. This Damage bonus is reset if you Dodge Roll or use a Travel Skill.",
       "tags": []
+    },
+    "shred": {
+      "name": "Shred",
+      "kind": "skill",
+      "desc": "Shapeshift into a Werewolf and lash out with a flurry of claw swipes. The first Attack can dash to faraway enemies and the final Attack Strikes twice. Attacking a Frozen enemy will create Ice Fragments, which are Projectiles that land and explode after a short delay.",
+      "tags": [
+        "attack",
+        "shapeshift",
+        "wolf",
+        "area",
+        "melee",
+        "strike",
+        "projectile",
+        "trigger",
+        "cold",
+        "payoff"
+      ]
+    },
+    "fire attunement": {
+      "name": "Fire Attunement",
+      "kind": "skill",
+      "desc": "Supports any skill that deals damage, causing them to Gain Fire Damage but deal less Cold and Lightning Damage.",
+      "tags": [
+        "fire"
+      ]
     },
     "mirage archer": {
       "name": "Mirage Archer",
@@ -4554,6 +4826,16 @@
         "trigger",
         "duration",
         "meta"
+      ]
+    },
+    "tul s stillness": {
+      "name": "Tul's Stillness",
+      "kind": "skill",
+      "desc": "Supports Skills that can cause Damaging Hits, granting extra Chaos damage and causing Chaos damage to Contribute to Freeze Buildup.",
+      "tags": [
+        "lineage",
+        "cold",
+        "chaos"
       ]
     },
     "maul": {
@@ -4583,6 +4865,25 @@
       "kind": "skill",
       "desc": "Supports any skill that Hits Enemies, causing it to build up Stun significantly more quickly, at the cost of Damage.",
       "tags": []
+    },
+    "skeletal cleric": {
+      "name": "Skeletal Cleric",
+      "kind": "skill",
+      "desc": "Activate to summon Reviving Skeletal Clerics that heal other minions and revive fallen Skeletons.",
+      "tags": [
+        "minion",
+        "persistent"
+      ]
+    },
+    "alchemist s boon": {
+      "name": "Alchemist's Boon",
+      "kind": "skill",
+      "desc": "While active, grants you Flask charges passively and causes Life and Mana recovery from your Flasks to also apply to Allies in your Presence.",
+      "tags": [
+        "buff",
+        "persistent",
+        "aura"
+      ]
     },
     "shield wall": {
       "name": "Shield Wall",
@@ -4785,21 +5086,6 @@
         "spell"
       ]
     },
-    "supercritical": {
-      "name": "Supercritical",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing it to deal more damage with Critical Hits but have less Critical Hit chance.",
-      "tags": []
-    },
-    "atalui s bloodletting": {
-      "name": "Atalui's Bloodletting",
-      "kind": "skill",
-      "desc": "Supports any Skill, turning a portion of its Mana cost into a Life cost. Does not support Skills which reserve Spirit. Supported Skills Gain a portion of their Life cost as extra Physical Damage.",
-      "tags": [
-        "lineage",
-        "physical"
-      ]
-    },
     "exposing cry": {
       "name": "Exposing Cry",
       "kind": "skill",
@@ -4817,14 +5103,6 @@
         "warcry"
       ]
     },
-    "ahn s citadel": {
-      "name": "Ahn's Citadel",
-      "kind": "skill",
-      "desc": "Supports skills that create walls in a line, causing them to instead be created along a fissure.",
-      "tags": [
-        "lineage"
-      ]
-    },
     "kaom s madness": {
       "name": "Kaom's Madness",
       "kind": "skill",
@@ -4833,6 +5111,14 @@
         "lineage",
         "attack",
         "melee"
+      ]
+    },
+    "ahn s citadel": {
+      "name": "Ahn's Citadel",
+      "kind": "skill",
+      "desc": "Supports skills that create walls in a line, causing them to instead be created along a fissure.",
+      "tags": [
+        "lineage"
       ]
     },
     "cadence": {
@@ -4850,6 +5136,26 @@
       "tags": [
         "buff",
         "persistent"
+      ]
+    },
+    "mace strike": {
+      "name": "Mace Strike",
+      "kind": "skill",
+      "desc": "Strike with your Mace.",
+      "tags": [
+        "attack",
+        "area",
+        "melee",
+        "strike"
+      ]
+    },
+    "atalui s bloodletting": {
+      "name": "Atalui's Bloodletting",
+      "kind": "skill",
+      "desc": "Supports any Skill, turning a portion of its Mana cost into a Life cost. Does not support Skills which reserve Spirit. Supported Skills Gain a portion of their Life cost as extra Physical Damage.",
+      "tags": [
+        "lineage",
+        "physical"
       ]
     },
     "scavenged plating": {
@@ -4956,14 +5262,6 @@
       "desc": "Supports any damaging skill that you use yourself, causing it to deal more damage if you move a sufficient distance while using the skill. Teleportation does not count towards the distance travelled.",
       "tags": []
     },
-    "prolonged duration i": {
-      "name": "Prolonged Duration I",
-      "kind": "skill",
-      "desc": "Supports any skill that has a duration, making that duration longer.",
-      "tags": [
-        "duration"
-      ]
-    },
     "savage fury": {
       "name": "Savage Fury",
       "kind": "skill",
@@ -5053,31 +5351,12 @@
         "slam"
       ]
     },
-    "mace strike": {
-      "name": "Mace Strike",
-      "kind": "skill",
-      "desc": "Strike with your Mace.",
-      "tags": [
-        "attack",
-        "area",
-        "melee",
-        "strike"
-      ]
-    },
     "brutality iii": {
       "name": "Brutality III",
       "kind": "skill",
       "desc": "Supports any skill that deals damage, boosting its Physical damage at the expense of all other Damage Types, as well as giving Hits from that skill a chance to ignore Physical Damage reduction.",
       "tags": [
         "physical"
-      ]
-    },
-    "fire attunement": {
-      "name": "Fire Attunement",
-      "kind": "skill",
-      "desc": "Supports any skill that deals damage, causing them to Gain Fire Damage but deal less Cold and Lightning Damage.",
-      "tags": [
-        "fire"
       ]
     },
     "resonating shield": {
@@ -5104,14 +5383,6 @@
         "physical",
         "channelling",
         "stages"
-      ]
-    },
-    "styrn s mountain": {
-      "name": "Styrn's Mountain",
-      "kind": "skill",
-      "desc": "Supports Skills that Raise your Shield causing your other melee skills to deal more damage if you block.",
-      "tags": [
-        "lineage"
       ]
     },
     "sunder": {
@@ -5336,18 +5607,6 @@
         "channelling"
       ]
     },
-    "escape shot": {
-      "name": "Escape Shot",
-      "kind": "skill",
-      "desc": "Leap backwards, firing an icy arrow which can Chill or Freeze enemies around the location from which you escaped. This arrow will create Ice Fragments on impact.",
-      "tags": [
-        "attack",
-        "area",
-        "projectile",
-        "trigger",
-        "cold"
-      ]
-    },
     "crossbow shot": {
       "name": "Crossbow Shot",
       "kind": "skill",
@@ -5381,14 +5640,6 @@
         "physical"
       ]
     },
-    "runic tempering": {
-      "name": "Runic Tempering",
-      "kind": "skill",
-      "desc": "Channel to imbue your armour with Runic Plates. When you are Hit while you have these plates, some of the damage you would take will be prevented, and this skill will cause backlash, dealing your Thorns damage in an area around your attacker.",
-      "tags": [
-        "channelling"
-      ]
-    },
     "shield charge": {
       "name": "Shield Charge",
       "kind": "skill",
@@ -5400,18 +5651,6 @@
         "physical",
         "channelling",
         "travel"
-      ]
-    },
-    "flame wall": {
-      "name": "Flame Wall",
-      "kind": "skill",
-      "desc": "Create a wall of Fire in front of you, which Ignites everything within its area. Any Projectiles fired through the wall by you and Allies deal added Fire damage. Consumes a Lightning Infusion if possible to also add Lightning damage to the Projectiles.",
-      "tags": [
-        "spell",
-        "area",
-        "fire",
-        "duration",
-        "repeatable"
       ]
     },
     "volcanic fissure": {
@@ -5464,26 +5703,6 @@
         "persistent"
       ]
     },
-    "minion splash ii": {
-      "name": "Minion Splash II",
-      "kind": "skill",
-      "desc": "Supports Skills which create Minions which Strike, increasing their Area of Effect and causing those Minions' Strikes to have Melee Splash.",
-      "tags": [
-        "attack",
-        "minion",
-        "melee",
-        "strike"
-      ]
-    },
-    "hulking minions": {
-      "name": "Hulking Minions",
-      "kind": "skill",
-      "desc": "Supports Skills which summon Persistent Minions. Supported Minions are larger, have more Life, and deal more Damage, but cost significantly more Spirit.",
-      "tags": [
-        "minion",
-        "persistent"
-      ]
-    },
     "muster": {
       "name": "Muster",
       "kind": "skill",
@@ -5508,16 +5727,6 @@
       "kind": "skill",
       "desc": "Supports Offering Skills. Supported Skills Sacrifice a portion of your life on use, but deal much more damage and have more powerful Buffs in return.",
       "tags": []
-    },
-    "skeletal reaver": {
-      "name": "Skeletal Reaver",
-      "kind": "skill",
-      "desc": "Activate to summon aggressive, Reviving Skeletal Reavers that can enrage on Command. Skeletal Reavers do more Attack Damage and gain increased Attack speed based on their Rage",
-      "tags": [
-        "minion",
-        "persistent",
-        "physical"
-      ]
     },
     "skeletal sniper": {
       "name": "Skeletal Sniper",
@@ -5581,15 +5790,6 @@
       "kind": "skill",
       "desc": "Supports Offering Skills. Supported Skills have increased Buff effect and deal more damage, but will target an additional skeletal Minion when cast. If there is not an additional skeletal Minion to target, no damage or Buff effect will be granted.",
       "tags": []
-    },
-    "essence harvest": {
-      "name": "Essence Harvest",
-      "kind": "skill",
-      "desc": "Supports Skills which create Reviving Persistent Minions. When those Minions die, you Recoup a percentage of your maximum Mana.",
-      "tags": [
-        "minion",
-        "persistent"
-      ]
     },
     "skeletal frost mage": {
       "name": "Skeletal Frost Mage",
@@ -5655,14 +5855,6 @@
         "projectile"
       ]
     },
-    "cursed ground": {
-      "name": "Cursed Ground",
-      "kind": "skill",
-      "desc": "Supports Curse Skills. Supported Curse Skills create areas which Curse Enemies so long as they are within them.",
-      "tags": [
-        "curse"
-      ]
-    },
     "skeletal arsonist": {
       "name": "Skeletal Arsonist",
       "kind": "skill",
@@ -5710,27 +5902,6 @@
         "lineage",
         "buff",
         "persistent"
-      ]
-    },
-    "compressed duration ii": {
-      "name": "Compressed Duration II",
-      "kind": "skill",
-      "desc": "Supports any skill that has a duration making that duration shorter.",
-      "tags": [
-        "duration"
-      ]
-    },
-    "lightning warp": {
-      "name": "Lightning Warp",
-      "kind": "skill",
-      "desc": "Target an enemy to either teleport inside the target's body if they are under the Cull threshold, causing it to violently explode, or to apply a Debuff to them, which will cause the same effect if that enemy falls under the Cull threshold during its duration. Can also be used on Ball Lightning Projectiles. On teleport, the target is destroyed, and the explosion deals Lightning damage to surrounding enemies. If targeting an enemy, the explosion also creates Shocked Ground. Creates a Lightning Infusion on successful use. Highlights enemies that can be Culled.",
-      "tags": [
-        "spell",
-        "area",
-        "lightning",
-        "duration",
-        "remnant",
-        "repeatable"
       ]
     },
     "demon form": {
@@ -5834,6 +6005,24 @@
         "repeatable"
       ]
     },
+    "chaos mastery": {
+      "name": "Chaos Mastery",
+      "kind": "skill",
+      "desc": "Supports Chaos skills, granting them an additional level. Does not support skills which do not have levels.",
+      "tags": [
+        "chaos"
+      ]
+    },
+    "esh s radiance": {
+      "name": "Esh's Radiance",
+      "kind": "skill",
+      "desc": "Supports Skills that can cause Damaging Hits, granting extra Chaos damage and causing Chaos damage to Contribute to Shock.",
+      "tags": [
+        "lineage",
+        "lightning",
+        "chaos"
+      ]
+    },
     "despair": {
       "name": "Despair",
       "kind": "skill",
@@ -5845,6 +6034,19 @@
         "duration",
         "curse",
         "repeatable"
+      ]
+    },
+    "doedre s undoing": {
+      "name": "Doedre's Undoing",
+      "kind": "skill",
+      "desc": "Supports Curse Skills. Supported Skills create an area which Curses Enemies within it, and spawns Witchtoads in that area. Witchtoads leap at eneimes that get close, and seek out Cursed enemies with higher aggression. Dark Consequences will be Triggered when they hit enemies with their leap, violently exploding the Witchtoad.",
+      "tags": [
+        "lineage",
+        "spell",
+        "area",
+        "trigger",
+        "chaos",
+        "curse"
       ]
     },
     "withering touch": {
@@ -5900,14 +6102,6 @@
         "lightning",
         "duration",
         "repeatable"
-      ]
-    },
-    "swift affliction iii": {
-      "name": "Swift Affliction III",
-      "kind": "skill",
-      "desc": "Supports any skill that deals damage, causing effects with a duration of one second or less to deal more non-Ailment damage over time.",
-      "tags": [
-        "duration"
       ]
     },
     "ixchel s torment": {
@@ -6117,11 +6311,17 @@
         "cold"
       ]
     },
-    "corpse conservation": {
-      "name": "Corpse Conservation",
+    "withering presence": {
+      "name": "Withering Presence",
       "kind": "skill",
-      "desc": "Supports skills that consume Corpses, giving them a chance to take effect without destroying the Corpse.",
-      "tags": []
+      "desc": "While active, emits an Aura that periodically Withers enemies in your Presence.",
+      "tags": [
+        "buff",
+        "persistent",
+        "aura",
+        "chaos",
+        "duration"
+      ]
     },
     "fulmination": {
       "name": "Fulmination",
@@ -6142,17 +6342,6 @@
         "lineage",
         "buff",
         "persistent",
-        "duration"
-      ]
-    },
-    "reap": {
-      "name": "Reap",
-      "kind": "skill",
-      "desc": "Conjure a bloody scythe that sweeps across the targeted area, dealing Physical damage to enemies and applying Critical Weakness. Cannot be Triggered.",
-      "tags": [
-        "spell",
-        "area",
-        "physical",
         "duration"
       ]
     },
@@ -6198,19 +6387,6 @@
         "persistent"
       ]
     },
-    "thunderstorm": {
-      "name": "Thunderstorm",
-      "kind": "skill",
-      "desc": "Conjure a thunderstorm which causes lightning strikes and torrential rain in an area. Enemies in the area are Drenched, causing them to become Shocked or Frozen more easily. Plants in the area become Overgrown.",
-      "tags": [
-        "spell",
-        "area",
-        "sustained",
-        "lightning",
-        "duration",
-        "storm"
-      ]
-    },
     "accelerated growth ii": {
       "name": "Accelerated Growth II",
       "kind": "skill",
@@ -6231,14 +6407,6 @@
         "spell",
         "area",
         "trigger",
-        "duration"
-      ]
-    },
-    "swift affliction ii": {
-      "name": "Swift Affliction II",
-      "kind": "skill",
-      "desc": "Supports any skill that deals damage, causing it to deal more non-Ailment damage over time but have a shorter duration.",
-      "tags": [
         "duration"
       ]
     },
@@ -6263,21 +6431,6 @@
       "tags": [
         "projectile"
       ]
-    },
-    "spell echo": {
-      "name": "Spell Echo",
-      "kind": "skill",
-      "desc": "Supports Cascadable Spells you use yourself. Supported Spells Echo.",
-      "tags": [
-        "spell",
-        "area"
-      ]
-    },
-    "overabundance i": {
-      "name": "Overabundance I",
-      "kind": "skill",
-      "desc": "Supports Skills which have a Limit, increasing that Limit at the cost of their duration. Only applies to restrictions that use the word \"Limit\".",
-      "tags": []
     },
     "elemental storm": {
       "name": "Elemental Storm",
@@ -6307,43 +6460,6 @@
         "repeatable"
       ]
     },
-    "controlled destruction": {
-      "name": "Controlled Destruction",
-      "kind": "skill",
-      "desc": "Supports Spells that Hit enemies, boosting their damage but preventing them from dealing Critical Hits.",
-      "tags": [
-        "spell"
-      ]
-    },
-    "morgana s tempest": {
-      "name": "Morgana's Tempest",
-      "kind": "skill",
-      "desc": "Supports Storm skills, increasing their Limit and causing them to move quickly from the user to the target location, but become less effective. Cannot Support Triggered Skills.",
-      "tags": [
-        "lineage",
-        "storm"
-      ]
-    },
-    "kelari the tainted sands": {
-      "name": "Kelari, the Tainted Sands",
-      "kind": "skill",
-      "desc": "Summon Kelari, an invulnerable Sand Djinn Minion, to do your bidding. Kelari will only act when you Command him to do so. Kelari delivers swift Hits with massive Critical Hit potential.",
-      "tags": [
-        "minion",
-        "persistent",
-        "command",
-        "physical"
-      ]
-    },
-    "bidding ii": {
-      "name": "Bidding II",
-      "kind": "skill",
-      "desc": "Supports Minion Skills. Supported Minions deal more damage and have increased Cooldown Recovery Rate with Command Skills.",
-      "tags": [
-        "minion",
-        "command"
-      ]
-    },
     "mana tempest": {
       "name": "Mana Tempest",
       "kind": "skill",
@@ -6352,6 +6468,15 @@
         "spell",
         "buff",
         "lightning",
+        "storm"
+      ]
+    },
+    "morgana s tempest": {
+      "name": "Morgana's Tempest",
+      "kind": "skill",
+      "desc": "Supports Storm skills, increasing their Limit and causing them to move quickly from the user to the target location, but become less effective. Cannot Support Triggered Skills.",
+      "tags": [
+        "lineage",
         "storm"
       ]
     },
@@ -6401,6 +6526,48 @@
         "repeatable"
       ]
     },
+    "consecrate": {
+      "name": "Consecrate",
+      "kind": "skill",
+      "desc": "Create an area of Consecrated Ground around you.",
+      "tags": [
+        "spell",
+        "area",
+        "duration",
+        "nova"
+      ]
+    },
+    "persistent ground iii": {
+      "name": "Persistent Ground III",
+      "kind": "skill",
+      "desc": "Supports Skills which create Ground Surfaces, causing created Surfaces to last much longer as well as lowering the Cooldown Recovery Speed of affected Enemies. Ground Surfaces from Supported Skills only end when their duration expires.",
+      "tags": []
+    },
+    "encroaching ground": {
+      "name": "Encroaching Ground",
+      "kind": "skill",
+      "desc": "Supports Skills that create Ground Surfaces, causing those Surfaces to grow over time, up to a limit.",
+      "tags": [
+        "area"
+      ]
+    },
+    "m rrigan s insight": {
+      "name": "Mórrigan's Insight",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing them to deal more damage and trigger Nature's Exchange when consuming Freeze on enemies. Cannot support skills that Consume Freeze.",
+      "tags": []
+    },
+    "inevitable agony": {
+      "name": "Inevitable Agony",
+      "kind": "skill",
+      "desc": "Debuff all targets in an area, causing a portion of Damage they take from Hits to be tracked by the Debuff. When the debuff's duration expires or can kill the target, the target loses life equal to that tracked damage all at once.",
+      "tags": [
+        "spell",
+        "area",
+        "duration",
+        "repeatable"
+      ]
+    },
     "frostbolt": {
       "name": "Frostbolt",
       "kind": "skill",
@@ -6413,12 +6580,6 @@
         "repeatable"
       ]
     },
-    "rising tempest": {
-      "name": "Rising Tempest",
-      "kind": "skill",
-      "desc": "Supports Skills which deal Damage, raising Elemental Damage dealt for each Skill used Recently of a different Elemental type. Cannot support Minion Skills.",
-      "tags": []
-    },
     "temporal rift": {
       "name": "Temporal Rift",
       "kind": "skill",
@@ -6427,17 +6588,6 @@
         "spell",
         "buff",
         "persistent"
-      ]
-    },
-    "inevitable agony": {
-      "name": "Inevitable Agony",
-      "kind": "skill",
-      "desc": "Debuff all targets in an area, causing a portion of Damage they take from Hits to be tracked by the Debuff. When the debuff's duration expires or can kill the target, the target loses life equal to that tracked damage all at once.",
-      "tags": [
-        "spell",
-        "area",
-        "duration",
-        "repeatable"
       ]
     },
     "ruzhan the blazing sword": {
@@ -6471,12 +6621,13 @@
         "cold"
       ]
     },
-    "encroaching ground": {
-      "name": "Encroaching Ground",
+    "bidding ii": {
+      "name": "Bidding II",
       "kind": "skill",
-      "desc": "Supports Skills that create Ground Surfaces, causing those Surfaces to grow over time, up to a limit.",
+      "desc": "Supports Minion Skills. Supported Minions deal more damage and have increased Cooldown Recovery Rate with Command Skills.",
       "tags": [
-        "area"
+        "minion",
+        "command"
       ]
     },
     "frost nexus": {
@@ -6488,16 +6639,15 @@
         "cold"
       ]
     },
-    "cast on minion death": {
-      "name": "Cast on Minion Death",
+    "kelari the tainted sands": {
+      "name": "Kelari, the Tainted Sands",
       "kind": "skill",
-      "desc": "While active, gains Energy when one of your Persistent Minions is Killed, and triggers socketed Spells upon reaching maximum Energy. Very underlevelled Minions will incur an Energy generation penalty. Cannot socket Spells which create Minions.",
+      "desc": "Summon Kelari, an invulnerable Sand Djinn Minion, to do your bidding. Kelari will only act when you Command him to do so. Kelari delivers swift Hits with massive Critical Hit potential.",
       "tags": [
-        "buff",
         "minion",
         "persistent",
-        "trigger",
-        "meta"
+        "command",
+        "physical"
       ]
     },
     "sacrificial lamb ii": {
@@ -6646,15 +6796,11 @@
         "meta"
       ]
     },
-    "thrill of the kill": {
-      "name": "Thrill of the Kill",
+    "supercritical": {
+      "name": "Supercritical",
       "kind": "skill",
-      "desc": "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage for a short time.",
-      "tags": [
-        "attack",
-        "lightning",
-        "duration"
-      ]
+      "desc": "Supports any skill that Hits enemies, causing it to deal more damage with Critical Hits but have less Critical Hit chance.",
+      "tags": []
     },
     "sorcery ward": {
       "name": "Sorcery Ward",
@@ -6761,34 +6907,12 @@
         "duration"
       ]
     },
-    "crushing fear": {
-      "name": "Crushing Fear",
-      "kind": "skill",
-      "desc": "Dash to an enemy and Strike them, Culling enemies if their life is low enough. When this skill kills an enemy you draw out their final fears, crushing them to create a shockwave. Enemies around you that can be Culled will be highlighted.",
-      "tags": [
-        "attack",
-        "area",
-        "melee",
-        "strike",
-        "physical",
-        "chaos"
-      ]
-    },
     "poison i": {
       "name": "Poison I",
       "kind": "skill",
       "desc": "Supports any skill that Hits enemies, giving it a chance to Poison enemies.",
       "tags": [
         "chaos"
-      ]
-    },
-    "rage ii": {
-      "name": "Rage II",
-      "kind": "skill",
-      "desc": "Supports Melee Attacks, causing them to grant Rage on Hit.",
-      "tags": [
-        "attack",
-        "melee"
       ]
     },
     "punch through": {
@@ -6798,6 +6922,25 @@
       "tags": [
         "attack",
         "melee"
+      ]
+    },
+    "overreach": {
+      "name": "Overreach",
+      "kind": "skill",
+      "desc": "Supports Attack Skills which deal Damage in an Area. Supported Skills have significantly increased Area of Effect, but are less Accurate against nearby targets.",
+      "tags": [
+        "attack",
+        "area"
+      ]
+    },
+    "breachlord s rift": {
+      "name": "Breachlord's Rift",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing it to Break Armour of enemies it Freezes or Electrocutes.",
+      "tags": [
+        "lineage",
+        "lightning",
+        "cold"
       ]
     },
     "lightning spear": {
@@ -6833,6 +6976,24 @@
       "desc": "Supports Skills which have a cooldown, giving them extra uses of that cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
       "tags": []
     },
+    "deep freeze": {
+      "name": "Deep Freeze",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing Freeze it inflicts to last longer.",
+      "tags": [
+        "cold"
+      ]
+    },
+    "thrill of the kill": {
+      "name": "Thrill of the Kill",
+      "kind": "skill",
+      "desc": "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage for a short time.",
+      "tags": [
+        "attack",
+        "lightning",
+        "duration"
+      ]
+    },
     "heightened accuracy i": {
       "name": "Heightened Accuracy I",
       "kind": "skill",
@@ -6862,24 +7023,18 @@
         "conditional"
       ]
     },
-    "deep freeze": {
-      "name": "Deep Freeze",
+    "magma barrier": {
+      "name": "Magma Barrier",
       "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing Freeze it inflicts to last longer.",
+      "desc": "While active, increases your Block Chance passively and imbues your Shield with lava over time. When fully imbued, your next Block with your Shield raised will expend the lava to Trigger the Magma Spray skill and grant you an Endurance Charge.",
       "tags": [
-        "cold"
-      ]
-    },
-    "cross slash": {
-      "name": "Cross Slash",
-      "kind": "skill",
-      "desc": "Shapeshift into a Werewolf and leap backwards as you gouge the ground with both claws. Enemies can be Hit separately by both gouges. Hitting a Marked enemy with both gouges will Activate the Mark and cause an additional shockwave. Ice Fragments will be pulled into the location where the gouges cross and explode immediately. This skill can be used while using other skills to interrupt them.",
-      "tags": [
+        "buff",
         "attack",
-        "shapeshift",
-        "wolf",
+        "persistent",
         "area",
-        "melee"
+        "melee",
+        "trigger",
+        "fire"
       ]
     },
     "contagion": {
@@ -6892,14 +7047,6 @@
         "chaos",
         "duration",
         "repeatable"
-      ]
-    },
-    "brutality i": {
-      "name": "Brutality I",
-      "kind": "skill",
-      "desc": "Supports any skill that deals damage, boosting its Physical damage at the expense of all other Damage Types.",
-      "tags": [
-        "physical"
       ]
     },
     "glacial lance": {
@@ -6944,32 +7091,35 @@
         "chaining"
       ]
     },
-    "snap": {
-      "name": "Snap",
+    "efficiency i": {
+      "name": "Efficiency I",
       "kind": "skill",
-      "desc": "Consume the elemental energy from a Frozen, Shocked or Ignited enemy, creating an elemental blast that leaves behind an Infusion Remnant. The blast will spread to other enemies affected by the same Ailment, but those blasts cannot spread further. Can also be cast on a Frostbolt to create a larger cold blast.",
+      "desc": "Supports any skill, making it cost less to use. Cannot support skills which reserve Spirit.",
+      "tags": []
+    },
+    "nova projectiles ii": {
+      "name": "Nova Projectiles II",
+      "kind": "skill",
+      "desc": "Supports Projectile Skills, making them fire extra Projectiles in a circle, at the cost of Damage and gaining a cooldown. Does not Support Skills which rain down Projectiles from above. Cannot Support Skills which already have a cooldown.",
       "tags": [
-        "spell",
-        "area",
-        "lightning",
-        "cold",
-        "fire",
-        "payoff",
-        "remnant",
-        "repeatable"
+        "projectile"
       ]
     },
-    "ember fusillade": {
-      "name": "Ember Fusillade",
+    "chain ii": {
+      "name": "Chain II",
       "kind": "skill",
-      "desc": "Conjure a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies. Consumes a Lightning Infusion if possible to cause the entire Fusillade to create beams that Chain to enemies.",
+      "desc": "Supports Projectile skills and any other skills that Chain, causing them to Chain additional times.",
       "tags": [
-        "spell",
-        "area",
         "projectile",
-        "fire",
-        "duration",
-        "repeatable"
+        "chaining"
+      ]
+    },
+    "escalating poison": {
+      "name": "Escalating Poison",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, allowing it to inflict an extra Poison on enemies but shortening the duration of those Poisons.",
+      "tags": [
+        "chaos"
       ]
     },
     "eye of winter": {
@@ -6982,48 +7132,42 @@
         "cold"
       ]
     },
-    "acrimony": {
-      "name": "Acrimony",
+    "eternal flame i": {
+      "name": "Eternal Flame I",
       "kind": "skill",
-      "desc": "Supports Skills which can Damage Enemies. Enemies affected by Damage over time from Supported Skills which was not caused by a Damaging Ailment have reduced Life regeneration rate. Only the strongest instance of this Debuff will apply. Does not Support Skills used by Minions.",
-      "tags": []
-    },
-    "immolate": {
-      "name": "Immolate",
-      "kind": "skill",
-      "desc": "Supports Attacks, granting them extra Fire damage against Ignited enemies but making them unable to Ignite enemies themselves.",
+      "desc": "Supports any skill that Hits enemies, causing its Ignites to be inflicted less often but last longer.",
       "tags": [
-        "fire",
+        "fire"
+      ]
+    },
+    "exploit weakness": {
+      "name": "Exploit Weakness",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, causing them to deal more Damage against enemies with Broken Armour but preventing them from Breaking Armour themselves. Cannot support skills that Consume Broken Armour.",
+      "tags": [
         "payoff"
       ]
     },
-    "m rrigan s insight": {
-      "name": "Mórrigan's Insight",
+    "elemental surge": {
+      "name": "Elemental Surge",
       "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing them to deal more damage and trigger Nature's Exchange when consuming Freeze on enemies. Cannot support skills that Consume Freeze.",
-      "tags": []
-    },
-    "rite of restoration": {
-      "name": "Rite of Restoration",
-      "kind": "skill",
-      "desc": "Place a Sigil on the ground, providing a powerful Buff to you and Allies standing in it which grants Life Regeneration and amplifies Armour, Evasion and Energy Shield. The Buff becomes more powerful the more mana you spend while standing in the Sigil.",
+      "desc": "Grants your weapon Surges. Non-Melee Projectile Attacks with that weapon Consume Surges to cause the Projectiles fired to explode at the end of their flight.",
       "tags": [
-        "spell",
+        "attack",
         "area",
-        "duration",
-        "stages"
+        "trigger",
+        "lightning",
+        "cold",
+        "fire"
       ]
     },
-    "firebolt": {
-      "name": "Firebolt",
+    "pursuit ii": {
+      "name": "Pursuit II",
       "kind": "skill",
-      "desc": "Launch a fiery Projectile towards a target. The Projectile explodes on impact, damaging foes in a small area.",
+      "desc": "Supports Melee Attacks. Supported Skills deal more Melee damage if you have struck with a Projectile Attack Hit in the last eight seconds, but cannot themselves deal Projectile Damage.",
       "tags": [
-        "spell",
-        "area",
-        "projectile",
-        "fire",
-        "repeatable"
+        "attack",
+        "melee"
       ]
     },
     "urgent totems i": {
@@ -7041,42 +7185,6 @@
       "tags": [
         "ammunition",
         "projectile"
-      ]
-    },
-    "elemental surge": {
-      "name": "Elemental Surge",
-      "kind": "skill",
-      "desc": "Grants your weapon Surges. Non-Melee Projectile Attacks with that weapon Consume Surges to cause the Projectiles fired to explode at the end of their flight.",
-      "tags": [
-        "attack",
-        "area",
-        "trigger",
-        "lightning",
-        "cold",
-        "fire"
-      ]
-    },
-    "bounty ii": {
-      "name": "Bounty II",
-      "kind": "skill",
-      "desc": "Supports any Skill that Hits Enemies, causing Enemies it kills to grant more Flask and Charm charges.",
-      "tags": []
-    },
-    "pursuit ii": {
-      "name": "Pursuit II",
-      "kind": "skill",
-      "desc": "Supports Melee Attacks. Supported Skills deal more Melee damage if you have struck with a Projectile Attack Hit in the last eight seconds, but cannot themselves deal Projectile Damage.",
-      "tags": [
-        "attack",
-        "melee"
-      ]
-    },
-    "minion pact ii": {
-      "name": "Minion Pact II",
-      "kind": "skill",
-      "desc": "Supports damaging skills you use yourself, draining the life from one of your Minions on use in order to boost the skill's damage. Only takes effect if you have a Minion with enough life to drain the full amount.",
-      "tags": [
-        "minion"
       ]
     },
     "vivid stampede": {
@@ -7158,15 +7266,6 @@
         "meta"
       ]
     },
-    "stormfire": {
-      "name": "Stormfire",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies. Enemies Shocked by Supported Skills take a percentage of damage from Ignite as Lightning damage as well as Fire damage.",
-      "tags": [
-        "lightning",
-        "fire"
-      ]
-    },
     "bursting plague": {
       "name": "Bursting Plague",
       "kind": "skill",
@@ -7244,20 +7343,6 @@
         "repeatable"
       ]
     },
-    "persistent ground iii": {
-      "name": "Persistent Ground III",
-      "kind": "skill",
-      "desc": "Supports Skills which create Ground Surfaces, causing created Surfaces to last much longer as well as lowering the Cooldown Recovery Speed of affected Enemies. Ground Surfaces from Supported Skills only end when their duration expires.",
-      "tags": []
-    },
-    "escalating poison": {
-      "name": "Escalating Poison",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, allowing it to inflict an extra Poison on enemies but shortening the duration of those Poisons.",
-      "tags": [
-        "chaos"
-      ]
-    },
     "vine arrow": {
       "name": "Vine Arrow",
       "kind": "skill",
@@ -7295,25 +7380,6 @@
       "desc": "Supports Skills which create Remnants, making those Remnants more powerful, but delaying their effect.",
       "tags": [
         "remnant"
-      ]
-    },
-    "raise zombie": {
-      "name": "Raise Zombie",
-      "kind": "skill",
-      "desc": "Consume a Corpse or Power Charge to create a short-lived Zombie. Zombies created from Power Charges are Empowered and also create two additional non-empowered Zombies.",
-      "tags": [
-        "minion",
-        "physical",
-        "duration"
-      ]
-    },
-    "crazed minions": {
-      "name": "Crazed Minions",
-      "kind": "skill",
-      "desc": "Supports Minion Skills which summon Reviving Minions. Supported Minions deal significantly more Damage if they have Revived Recently.",
-      "tags": [
-        "minion",
-        "persistent"
       ]
     },
     "disengage": {
@@ -7371,6 +7437,14 @@
         "fire"
       ]
     },
+    "controlled destruction": {
+      "name": "Controlled Destruction",
+      "kind": "skill",
+      "desc": "Supports Spells that Hit enemies, boosting their damage but preventing them from dealing Critical Hits.",
+      "tags": [
+        "spell"
+      ]
+    },
     "upheaval i": {
       "name": "Upheaval I",
       "kind": "skill",
@@ -7404,15 +7478,6 @@
         "storm"
       ]
     },
-    "cold exposure": {
-      "name": "Cold Exposure",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing it to inflict Exposure when it Critically Hits an enemy.",
-      "tags": [
-        "cold",
-        "duration"
-      ]
-    },
     "execrate": {
       "name": "Execrate",
       "kind": "skill",
@@ -7423,14 +7488,6 @@
       "name": "Ricochet I",
       "kind": "skill",
       "desc": "Supports any Skill which creates Projectiles, giving those Projectiles a chance to Chain when impacting terrain.",
-      "tags": [
-        "projectile"
-      ]
-    },
-    "nova projectiles ii": {
-      "name": "Nova Projectiles II",
-      "kind": "skill",
-      "desc": "Supports Projectile Skills, making them fire extra Projectiles in a circle, at the cost of Damage and gaining a cooldown. Does not Support Skills which rain down Projectiles from above. Cannot Support Skills which already have a cooldown.",
       "tags": [
         "projectile"
       ]
@@ -7446,32 +7503,6 @@
         "physical",
         "duration",
         "repeatable"
-      ]
-    },
-    "harmonic remnants i": {
-      "name": "Harmonic Remnants I",
-      "kind": "skill",
-      "desc": "Supports Skills which create Remnants, allowing those Remnants to be collected from further away.",
-      "tags": [
-        "remnant"
-      ]
-    },
-    "rapid casting i": {
-      "name": "Rapid Casting I",
-      "kind": "skill",
-      "desc": "Supports Spells, causing them to cast faster.",
-      "tags": [
-        "spell"
-      ]
-    },
-    "stomping ground": {
-      "name": "Stomping Ground",
-      "kind": "skill",
-      "desc": "Supports Travel skills, causing your footsteps to crack the earth and emit damaging shockwaves while using the skill.",
-      "tags": [
-        "attack",
-        "area",
-        "trigger"
       ]
     },
     "apocalypse": {
@@ -7491,29 +7522,13 @@
         "storm"
       ]
     },
-    "parry": {
-      "name": "Parry",
+    "brutality i": {
+      "name": "Brutality I",
       "kind": "skill",
-      "desc": "Ready your Buckler to parry the next Hit you would take, Blocking the Hit and retaliating with a quick sweep that leaves enemies off balance, causing them to take massively increased Attack damage for a short duration. Parrying causes you to accumulate Heavy Stun buildup. You cannot Evade a Hit you could parry, but Evasion instead grants an equal chance to avoid this Heavy Stun buildup.",
+      "desc": "Supports any skill that deals damage, boosting its Physical damage at the expense of all other Damage Types.",
       "tags": [
-        "attack",
-        "melee",
-        "physical",
-        "duration",
-        "channelling"
+        "physical"
       ]
-    },
-    "fortress i": {
-      "name": "Fortress I",
-      "kind": "skill",
-      "desc": "Supports skills that create walls in a line, causing them to be created in a circle instead but deal less Hit damage.",
-      "tags": []
-    },
-    "life drain": {
-      "name": "Life Drain",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, causing you to recover Life when it Culls an enemy.",
-      "tags": []
     },
     "steadfast i": {
       "name": "Steadfast I",
@@ -7531,91 +7546,61 @@
         "minion"
       ]
     },
-    "hayoxi s fulmination": {
-      "name": "Hayoxi's Fulmination",
+    "chain iii": {
+      "name": "Chain III",
       "kind": "skill",
-      "desc": "Supports Curse Skills, giving them a short cooldown but causing them to create areas which Curse enemies so long as they are within them. Cursed areas from Supported Skills gather power before erupting in a column of annihilating light after a moderate delay.",
+      "desc": "Supports Projectile skills and any other skills that Chain, causing them to Chain additional times.",
       "tags": [
-        "lineage",
+        "projectile",
+        "chaining"
+      ]
+    },
+    "enduring impact i": {
+      "name": "Enduring Impact I",
+      "kind": "skill",
+      "desc": "Supports any skill that Hits enemies, giving it a chance to gain an Endurance Charge when causing a Heavy Stun.",
+      "tags": []
+    },
+    "accelerated growth": {
+      "name": "Accelerated Growth",
+      "kind": "skill",
+      "desc": "Supports Plant Skills, causing them to Trigger an explosion after they have been Overgrown.",
+      "tags": [
         "spell",
         "area",
         "trigger",
-        "physical",
-        "lightning",
-        "cold",
-        "fire",
-        "chaos",
-        "curse"
+        "plant"
       ]
     },
-    "grim feast": {
-      "name": "Grim Feast",
+    "volcano": {
+      "name": "Volcano",
       "kind": "skill",
-      "desc": "While active, your Reviving Minions store a percentage of their maximum Life in a collectible Grim Remnant on death. Using Grim Resurrection Consumes the Life you've collected to Revive up to that much total Life of dead Minions.",
+      "desc": "Uplift a volcano from the earth, damaging enemies standing on it and releasing a spray of molten Projectiles. While the volcano persists, Slamming it will cause another Projectile spray. Channelling this Skill for longer makes the initial eruption more violent, but does not affect subsequent Projectile sprays.",
       "tags": [
-        "buff",
         "spell",
-        "minion",
-        "persistent",
-        "remnant"
-      ]
-    },
-    "zenith i": {
-      "name": "Zenith I",
-      "kind": "skill",
-      "desc": "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",
-      "tags": [
-        "spell"
-      ]
-    },
-    "shockwave totem": {
-      "name": "Shockwave Totem",
-      "kind": "skill",
-      "desc": "Raise a Totem that Slams the ground around it, repeatedly damaging nearby enemies. Jagged Ground erupts when hit by this Slam, damaging enemies standing on it. The Totem cannot create Jagged Ground. This Skill can be used while Shapeshifted.",
-      "tags": [
-        "attack",
-        "totem",
         "area",
-        "melee",
-        "slam",
+        "projectile",
+        "sustained",
+        "fire",
         "duration",
-        "nova"
+        "channelling"
       ]
     },
-    "reinforced totems ii": {
-      "name": "Reinforced Totems II",
+    "fire penetration i": {
+      "name": "Fire Penetration I",
       "kind": "skill",
-      "desc": "Supports Skills which create Totems. Totems created by Supported Skills have additional Elemental Resistances.",
+      "desc": "Supports any skill that Hits enemies, making those Hits Penetrate enemy Fire resistance.",
       "tags": [
-        "totem"
-      ]
-    },
-    "wildfire": {
-      "name": "Wildfire",
-      "kind": "skill",
-      "desc": "Supports any skill that Hits enemies, Spreading Ignites it inflicts to nearby enemies after a delay.",
-      "tags": [
-        "area",
         "fire"
       ]
     },
-    "ancestral cry": {
-      "name": "Ancestral Cry",
+    "expand": {
+      "name": "Expand",
       "kind": "skill",
-      "desc": "Perform a Warcry using Glory gained by Igniting enemies to turn you into an embodiment of Kaom. While embodying Kaom, you Trigger Volcanic Steps while travelling, Melee Strikes and Slams are Ancestrally Boosted, and your Melee Strikes Trigger Volcanic Eruption.",
+      "desc": "Supports Spells you cast yourself, Sealing them over time. The Seals are broken when cast, increasing area of effect. Cannot support Channelling Skills or Skills with a Cooldown or which already gain Seals.",
       "tags": [
-        "warcry",
-        "attack",
-        "buff",
-        "area",
-        "melee",
-        "slam",
-        "projectile",
-        "trigger",
-        "fire",
-        "duration",
-        "nova",
-        "conditional"
+        "spell",
+        "area"
       ]
     }
   },

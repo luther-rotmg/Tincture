@@ -1,7 +1,7 @@
 {
   "name": "Acolyte of Chayula — Into the Breach (public ladder)",
-  "author": "Tincture — reconstructed from public ladder character \"ChayulaRem\" (CryyyKent-2095)",
-  "description": "A representative Acolyte of Chayula build from the public runesofaldur ladder (character \"ChayulaRem\", account \"CryyyKent-2095\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/CryyyKent-2095/ChayulaRem . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "author": "Tincture — reconstructed from public ladder character \"vongba\" (bobeocuteee-5652)",
+  "description": "A representative Acolyte of Chayula build from the public runesofaldur ladder (character \"vongba\", account \"bobeocuteee-5652\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/bobeocuteee-5652/vongba . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Monk3",
   "passives": [
     {
@@ -14,6 +14,9 @@
       "id": "energy_shield_and_armour9"
     },
     {
+      "id": "energy_shield11"
+    },
+    {
       "id": "AscendancyMonk3Notable6"
     },
     {
@@ -24,6 +27,9 @@
     },
     {
       "id": "energy_shield_and_armour31"
+    },
+    {
+      "id": "witch_sorceress_notable2"
     },
     {
       "id": "jewel_slot1974"
@@ -53,7 +59,7 @@
       "id": "intelligence57"
     },
     {
-      "id": "stun_threshold_from_energy_shield21"
+      "id": "energy_shield9"
     },
     {
       "id": "energy_shield_and_armour4"
@@ -68,9 +74,6 @@
       "id": "jewel_slot1969"
     },
     {
-      "id": "glory13"
-    },
-    {
       "id": "attributes7"
     },
     {
@@ -78,6 +81,9 @@
     },
     {
       "id": "intelligence6"
+    },
+    {
+      "id": "energy_shield37"
     },
     {
       "id": "attributes50"
@@ -110,25 +116,22 @@
       "id": "focus10"
     },
     {
-      "id": "energy_shield24"
-    },
-    {
       "id": "remnant1"
     },
     {
       "id": "energy_shield_and_armour33"
     },
     {
+      "id": "energy_shield10_"
+    },
+    {
+      "id": "auras23"
+    },
+    {
       "id": "attributes53"
     },
     {
-      "id": "intelligence47"
-    },
-    {
       "id": "intelligence4"
-    },
-    {
-      "id": "stun_threshold_from_energy_shield13"
     },
     {
       "id": "AscendancyMonk3Small1"
@@ -164,13 +167,13 @@
       "id": "intelligence41__"
     },
     {
+      "id": "armour43"
+    },
+    {
       "id": "armour_and_evasion21"
     },
     {
       "id": "focus4"
-    },
-    {
-      "id": "glory10"
     },
     {
       "id": "jewel_slot1977"
@@ -209,10 +212,13 @@
       "id": "attributes14"
     },
     {
-      "id": "glory9"
+      "id": "armour44"
     },
     {
       "id": "focus5"
+    },
+    {
+      "id": "armour45_"
     },
     {
       "id": "passive_keystone_conduit"
@@ -224,10 +230,13 @@
       "id": "focus1"
     },
     {
-      "id": "focus2"
+      "id": "energy_shield46_"
     },
     {
-      "id": "energy_shield46_"
+      "id": "energy_shield22"
+    },
+    {
+      "id": "focus3"
     },
     {
       "id": "strength53"
@@ -236,13 +245,19 @@
       "id": "intelligence17"
     },
     {
+      "id": "intelligence101_"
+    },
+    {
       "id": "attributes54_"
+    },
+    {
+      "id": "armour42"
     },
     {
       "id": "energy_shield7"
     },
     {
-      "id": "passive_keystone_fire_spells_to_chaos"
+      "id": "passive_keystone_resolute_technique"
     },
     {
       "id": "energy_shield36"
@@ -251,10 +266,13 @@
       "id": "attributes79"
     },
     {
-      "id": "glory14"
+      "id": "auras21"
     },
     {
       "id": "intelligence54"
+    },
+    {
+      "id": "passive_keystone_mind_over_matter"
     },
     {
       "id": "intelligence59"
@@ -290,9 +308,6 @@
       "id": "energy_shield23"
     },
     {
-      "id": "intelligence46"
-    },
-    {
       "id": "attributes55"
     },
     {
@@ -323,10 +338,10 @@
       "id": "AscendancyMonk3Notable6_Choice"
     },
     {
-      "id": "auras8"
+      "id": "attributes71"
     },
     {
-      "id": "attributes71"
+      "id": "armour_and_evasion13"
     },
     {
       "id": "intelligence5"
@@ -336,9 +351,6 @@
     },
     {
       "id": "intelligence53_"
-    },
-    {
-      "id": "auras19"
     },
     {
       "id": "jewel_slot1971"
@@ -354,12 +366,6 @@
     },
     {
       "id": "intelligence45"
-    },
-    {
-      "id": "auras6"
-    },
-    {
-      "id": "stun_threshold_from_energy_shield20"
     },
     {
       "id": "maximum_resistances11"
@@ -389,9 +395,6 @@
       "id": "intelligence58"
     },
     {
-      "id": "remnant5"
-    },
-    {
       "id": "strength68"
     },
     {
@@ -410,7 +413,7 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
             100
@@ -424,7 +427,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
           "level_interval": [
             1,
             100
@@ -440,44 +443,21 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
-      "level_interval": [
-        78,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemWarmBlooded",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemCoolHeaded",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemStrongHearted",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemProfaneRitual",
       "level_interval": [
-        78,
+        72,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "id": "Metadata/Items/Gems/SupportGemMobility",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
           "level_interval": [
             1,
             100
@@ -489,25 +469,9 @@
             1,
             100
           ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemTimeOfNeed",
-      "level_interval": [
-        78,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemHerbalismTwo",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
             1,
             100
@@ -518,17 +482,10 @@
     {
       "id": "Metadata/Items/Gem/SkillGemConvalescence",
       "level_interval": [
-        78,
+        58,
         100
       ],
       "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
         {
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
           "level_interval": [
@@ -539,40 +496,71 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemBarkskin",
+      "id": "Metadata/Items/Gems/SkillGemPurityOfFire",
       "level_interval": [
-        78,
+        84,
         100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSacrifice",
+      "level_interval": [
+        72,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSkeletalReaver",
+      "level_interval": [
+        72,
+        100
       ]
     },
     {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
-        78,
+        72,
         100
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemOverwhelmingPresence",
+      "id": "Metadata/Items/Gem/SkillGemBarkskin",
       "level_interval": [
-        84,
+        72,
         100
       ]
     }
   ],
   "inventory_slots": [
     {
-      "inventory_id": "BodyArmour1",
-      "unique_name": "Doryani's Prototype",
+      "inventory_id": "Ring1",
+      "unique_name": "Ventor's Gamble",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring2",
+      "unique_name": "Ventor's Gamble",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "Massive Mitts\n1. +170 to [Armour|Armour]\n2. 101% increased [Armour|Armour]\n3. +31 to maximum Life\n4. +42% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. Gain 4 Life per Enemy Hit with [Attack|Attacks]\n6. Gain 12 Mana per enemy killed\n7. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "Jade Amulet\n1. +12 to [Dexterity|Dexterity]\n2. 50% increased [Armour]\n3. 40% increased maximum [EnergyShield|Energy Shield]\n4. +2 to Level of all [Projectile] Skills\n5. +13 to all [Attributes|Attributes]\n6. +23 to [Strength|Strength]",
+      "level_interval": [
+        60,
+        100
+      ],
       "slot_x": 0,
       "slot_y": 0
     },
@@ -583,28 +571,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Massive Mitts\n1. +182 to [Armour|Armour]\n2. 100% increased [Armour|Armour]\n3. +41% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n4. [LifeLeech|Leech] 7.9% of [Physical] [Attack] Damage as Life\n5. 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
-      "level_interval": [
-        80,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Amulet1",
-      "additional_text": "Jade Amulet\n1. +10 to [Dexterity|Dexterity]\n2. 60% increased [Armour]\n3. 44% increased maximum [EnergyShield|Energy Shield]\n4. +106 to maximum Life\n5. +33 to [Dexterity|Dexterity]\n6. +45% to [Resistances|Fire Resistance]\n7. +44% to [Resistances|Cold Resistance]",
-      "level_interval": [
-        65,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring2",
-      "unique_name": "Ventor's Gamble",
+      "inventory_id": "BodyArmour1",
+      "unique_name": "Doryani's Prototype",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -621,16 +589,10 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
-      "unique_name": "Ventor's Gamble",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Boots1",
-      "additional_text": "Apostle Leggings\n1. 35% increased Movement Speed\n2. 98% increased [Armour|Armour] and [EnergyShield|Energy Shield]\n3. +22% to [Resistances|Fire Resistance]\n4. +37% to [Resistances|Lightning Resistance]\n5. +41% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. 5% increased Movement Speed\n7. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Vaal Greaves\n1. 30% increased Movement Speed\n2. +169 to [Armour|Armour]\n3. 100% increased [Armour|Armour]\n4. +42% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. +250 to [StunThreshold|Stun Threshold]\n6. 5% increased Movement Speed\n7. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        70,
+        75,
         100
       ],
       "slot_x": 0,
