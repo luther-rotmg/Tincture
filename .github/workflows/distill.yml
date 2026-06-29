@@ -30,11 +30,42 @@ jobs:
       - name: Distill the current-league meta
         run: python scripts/distill.py
 
-      # Gate the commit on the honesty invariants: if the freshly-written data.json is
-      # malformed or inflated, this fails the job and the commit step never runs, so the
-      # live site keeps the last good data.json. Fail-safe by construction.
-      - name: Validate the distilled data
+      # Gate the commit on the OUTPUT-INTEGRITY invariants only: if the freshly-written
+      # data.json is malformed/inflated/fabricated, this fails the job and the commit step
+      # never runs, so the live site keeps the last good data.json. Fail-safe by construction.
+      # The curation-coverage lock (every live ascendancy has a guide) is enforced in
+      # test.yml, NOT here — a missing guide link must never freeze the meta refresh (the
+      # front end falls back to a neutral search, and the next step warns). TINCTURE_DISTILL_GATE
+      # skips exactly that one live-data curation test.
+      - name: Validate the distilled data (output-integrity gate)
         run: python scripts/test_distill.py
+        env:
+          TINCTURE_DISTILL_GATE: "1"
+
+      # A REMINDER, not a gate. The meta keeps refreshing even when curation lags; the hard
+      # coverage-lock lives in test.yml. Emits ::warning:: annotations so an untriaged
+      # ascendancy shows on the run summary instead of being buried in the distill step's log.
+      # Defensive + continue-on-error so it can never fail the hourly job.
+      - name: Flag untriaged ascendancies (non-blocking)
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import json, sys
+          sys.path.insert(0, "scripts")
+          import distill
+          try:
+              doc = json.load(open("guides.json", encoding="utf-8"))
+              payload = json.load(open("data.json", encoding="utf-8"))
+          except Exception as e:
+              print(f"::notice::skipped guide-coverage check: {e}")
+              sys.exit(0)
+          for slug in distill.untriaged_guides(payload, doc):
+              print(f"::warning title=Untriaged build guide::'{slug}' is live but has no build "
+                    f"guide — add it to guides.json guides or unguided")
+          for slug in distill.untriaged_leveling(payload, doc):
+              print(f"::warning title=Untriaged leveling guide::'{slug}' is live but has no "
+                    f"leveling guide — add it to guides.json leveling or levelingUnguided")
+          PY
 
       - name: Commit refreshed data
         run: |
