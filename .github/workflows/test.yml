@@ -9,6 +9,7 @@ on:
       - "scripts/**"
       - "tools/**"
       - "index.html"            # contract tests extract normKeyFE/slugOf from it
+      - "guides.json"           # re-run the curation coverage-lock when a guide is added/changed
       - ".github/workflows/test.yml"
   pull_request:
   workflow_dispatch:

@@ -529,6 +529,11 @@ class Guides(unittest.TestCase):
         self.assertEqual(distill.untriaged_leveling(None, {"leveling":{}, "levelingUnguided":[]}), [])
         self.assertEqual(distill.untriaged_leveling({}, None), [])
 
+    @unittest.skipIf(
+        os.environ.get("TINCTURE_DISTILL_GATE") == "1",
+        "curation coverage is enforced in test.yml (the code/data gate), not the hourly distill "
+        "gate — the meta must keep refreshing even if a newly-live ascendancy isn't triaged yet",
+    )
     def test_shipped_guides_json_valid_and_complete(self):
         # the committed guides.json must be well-formed AND cover every live ascendancy
         # (each in guides or unguided) — an untriaged new ascendancy fails CI, the reminder bite.
