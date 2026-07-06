@@ -1,11 +1,14 @@
 {
-  "name": "Tactician — Galvanic Shards (public ladder)",
-  "author": "Tincture — reconstructed from public ladder character \"Exoxit_PooTwo\" (Exoxit-0276)",
-  "description": "A representative Tactician build from the public runesofaldur ladder (character \"Exoxit_PooTwo\", account \"Exoxit-0276\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/Exoxit-0276/Exoxit_PooTwo . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "name": "Tactician — Stormblast Bolts (public ladder)",
+  "author": "Tincture — reconstructed from public ladder character \"reroll_fun_is_forbidden\" (ggz7yy-7184)",
+  "description": "A representative Tactician build from the public runesofaldur ladder (character \"reroll_fun_is_forbidden\", account \"ggz7yy-7184\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/ggz7yy-7184/reroll_fun_is_forbidden . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Mercenary1",
   "passives": [
     {
       "id": "attributes107"
+    },
+    {
+      "id": "companions55"
     },
     {
       "id": "jewel_slot1974"
@@ -23,46 +26,49 @@
       "id": "movement_speed4"
     },
     {
-      "id": "criticals91"
-    },
-    {
       "id": "crossbow1"
     },
     {
       "id": "AscendancyMercenary1Small4"
     },
     {
-      "id": "slow_mitigation11"
-    },
-    {
       "id": "movement_speed5"
     },
     {
-      "id": "attributes115"
+      "id": "crossbow8_"
     },
     {
-      "id": "projectiles29"
+      "id": "attributes104"
+    },
+    {
+      "id": "companions56"
     },
     {
       "id": "crossbow14"
     },
     {
-      "id": "attack_speed31"
-    },
-    {
-      "id": "attributes109"
+      "id": "criticals92"
     },
     {
       "id": "dexterity26"
     },
     {
-      "id": "attributes82"
+      "id": "attributes7"
     },
     {
       "id": "elemental_attacks2"
     },
     {
+      "id": "criticals47"
+    },
+    {
+      "id": "azmerianimals11"
+    },
+    {
       "id": "DeliriumAnoint_ZarokhsGift_"
+    },
+    {
+      "id": "azmerianimals12"
     },
     {
       "id": "dexterity12_"
@@ -74,13 +80,13 @@
       "id": "elemental32"
     },
     {
-      "id": "strength78_"
-    },
-    {
       "id": "criticals54_"
     },
     {
       "id": "attributes27"
+    },
+    {
+      "id": "attributes102"
     },
     {
       "id": "AscendancyMercenary1Notable1"
@@ -89,13 +95,7 @@
       "id": "attributes45"
     },
     {
-      "id": "rage2"
-    },
-    {
-      "id": "slow_mitigation4_"
-    },
-    {
-      "id": "slow_mitigation9"
+      "id": "DeliriumAnoint_AugmentedFlesh"
     },
     {
       "id": "dexterity75"
@@ -104,13 +104,7 @@
       "id": "evasion31"
     },
     {
-      "id": "projectiles27"
-    },
-    {
       "id": "crossbow2"
-    },
-    {
-      "id": "criticals63"
     },
     {
       "id": "dexterity13"
@@ -119,13 +113,13 @@
       "id": "daze_3"
     },
     {
-      "id": "attributes58"
+      "id": "criticals79"
     },
     {
       "id": "criticals58"
     },
     {
-      "id": "slow_mitigation15"
+      "id": "criticals78"
     },
     {
       "id": "dexterity82_"
@@ -137,31 +131,25 @@
       "id": "attributes19"
     },
     {
-      "id": "elemental25"
+      "id": "attack2"
     },
     {
-      "id": "criticals61"
+      "id": "elemental25"
     },
     {
       "id": "daze_7"
     },
     {
-      "id": "jewel_slot1956"
-    },
-    {
-      "id": "strength73"
-    },
-    {
-      "id": "DeliriumAnoint_GraceOfTheAncestors"
-    },
-    {
       "id": "attributes10"
     },
     {
-      "id": "attributes17_"
+      "id": "strength85"
     },
     {
       "id": "AscendancyMercenary1Small1"
+    },
+    {
+      "id": "azmerianimals10"
     },
     {
       "id": "crossbow23"
@@ -176,16 +164,10 @@
       "id": "elemental_attacks8"
     },
     {
-      "id": "strength76"
+      "id": "crossbow6"
     },
     {
       "id": "elemental18"
-    },
-    {
-      "id": "spell_suppression12"
-    },
-    {
-      "id": "slow_mitigation5"
     },
     {
       "id": "jewel_slot1976"
@@ -197,19 +179,19 @@
       "id": "passive_keystone_vaal_pact"
     },
     {
-      "id": "slow_mitigation2"
+      "id": "crossbow7"
+    },
+    {
+      "id": "criticals75_"
     },
     {
       "id": "dexterity55"
     },
     {
+      "id": "criticals76"
+    },
+    {
       "id": "attributes20-"
-    },
-    {
-      "id": "attributes108"
-    },
-    {
-      "id": "spell_suppression35"
     },
     {
       "id": "dexterity34"
@@ -218,16 +200,7 @@
       "id": "AscendancyMercenary1Start"
     },
     {
-      "id": "attributes18"
-    },
-    {
-      "id": "rage6"
-    },
-    {
-      "id": "slow_mitigation3"
-    },
-    {
-      "id": "attributes44"
+      "id": "attack6"
     },
     {
       "id": "daze_2"
@@ -242,16 +215,7 @@
       "id": "criticals53"
     },
     {
-      "id": "attributes105"
-    },
-    {
-      "id": "attributes59_"
-    },
-    {
       "id": "elemental_attacks9"
-    },
-    {
-      "id": "slow_mitigation1"
     },
     {
       "id": "criticals55_"
@@ -261,6 +225,9 @@
     },
     {
       "id": "elemental28"
+    },
+    {
+      "id": "attack5"
     },
     {
       "id": "dexterity27"
@@ -275,28 +242,22 @@
       "id": "crossbow4"
     },
     {
-      "id": "criticals62"
-    },
-    {
       "id": "AscendancyMercenary1Notable6"
     },
     {
       "id": "crossbow3"
     },
     {
-      "id": "AscendancyMercenary1Notable4_"
+      "id": "duelist_mercenary_notable2"
     },
     {
-      "id": "criticals48"
+      "id": "AscendancyMercenary1Notable4_"
     },
     {
       "id": "AscendancyMercenary1Small5_"
     },
     {
       "id": "jewel_slot1970"
-    },
-    {
-      "id": "projectiles26"
     },
     {
       "id": "daze_19"
@@ -314,16 +275,7 @@
       "id": "dexterity30_"
     },
     {
-      "id": "armour_and_evasion37"
-    },
-    {
-      "id": "criticals74"
-    },
-    {
       "id": "dexterity76"
-    },
-    {
-      "id": "slow_mitigation10_"
     },
     {
       "id": "evasion30"
@@ -332,13 +284,10 @@
       "id": "dexterity79"
     },
     {
-      "id": "rage1"
-    },
-    {
-      "id": "rage3"
-    },
-    {
       "id": "crossbow26"
+    },
+    {
+      "id": "strength83"
     },
     {
       "id": "jewel_slot1975"
@@ -365,9 +314,6 @@
       "id": "dexterity54"
     },
     {
-      "id": "slow_mitigation8"
-    },
-    {
       "id": "criticals56"
     },
     {
@@ -377,10 +323,7 @@
       "id": "criticals49"
     },
     {
-      "id": "criticals64"
-    },
-    {
-      "id": "attributes106"
+      "id": "azmerianimals7"
     },
     {
       "id": "attributes8_"
@@ -392,13 +335,7 @@
       "id": "projectiles18"
     },
     {
-      "id": "attributes112"
-    },
-    {
       "id": "jewel_slot1960"
-    },
-    {
-      "id": "strength75"
     },
     {
       "id": "daze_4"
@@ -407,66 +344,173 @@
       "id": "evasion17_"
     },
     {
-      "id": "strength68"
-    },
-    {
       "id": "strength37"
     },
     {
-      "id": "slow_mitigation7_"
+      "id": "strength84"
     },
     {
-      "id": "spell_suppression7"
+      "id": "boss_slaying2_",
+      "weapon_set": 1
     },
     {
-      "id": "spell_suppression11+"
+      "id": "criticals91",
+      "weapon_set": 1
+    },
+    {
+      "id": "projectiles29",
+      "weapon_set": 1
+    },
+    {
+      "id": "cooldowns15",
+      "weapon_set": 1
+    },
+    {
+      "id": "boss_slaying10",
+      "weapon_set": 1
+    },
+    {
+      "id": "cooldowns16",
+      "weapon_set": 1
+    },
+    {
+      "id": "projectiles27",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack_speed42",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack_speed35",
+      "weapon_set": 1
+    },
+    {
+      "id": "shock6",
+      "weapon_set": 1
+    },
+    {
+      "id": "cooldowns14",
+      "weapon_set": 1
+    },
+    {
+      "id": "boss_slaying4",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack_speed43",
+      "weapon_set": 1
+    },
+    {
+      "id": "shock3",
+      "weapon_set": 1
+    },
+    {
+      "id": "criticals48",
+      "weapon_set": 1
+    },
+    {
+      "id": "projectiles26",
+      "weapon_set": 1
+    },
+    {
+      "id": "shock15",
+      "weapon_set": 1
+    },
+    {
+      "id": "shock4",
+      "weapon_set": 1
+    },
+    {
+      "id": "attack_speed45",
+      "weapon_set": 1
+    },
+    {
+      "id": "boss_slaying7",
+      "weapon_set": 1
+    },
+    {
+      "id": "elemental_attacks10",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation11",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation4_",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation9",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation13",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation15",
+      "weapon_set": 2
+    },
+    {
+      "id": "spell_suppression12",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation5",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation2",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation12",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation3",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation1",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation10_",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation16",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation8",
+      "weapon_set": 2
+    },
+    {
+      "id": "spell_suppression36",
+      "weapon_set": 2
+    },
+    {
+      "id": "spell_suppression6",
+      "weapon_set": 2
+    },
+    {
+      "id": "slow_mitigation7_",
+      "weapon_set": 2
+    },
+    {
+      "id": "elemental_attacks4",
+      "weapon_set": 2
+    },
+    {
+      "id": "spell_suppression11+",
+      "weapon_set": 2
     }
   ],
   "skills": [
-    {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
-      "level_interval": [
-        46,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
     {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
@@ -503,7 +547,88 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemAmbush",
+          "id": "Metadata/Items/Gems/SupportGemLifeThiefThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemMirageArcher",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemBlindTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemGalvanicShards",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemPietysMercy",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFork",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
           "level_interval": [
             1,
             100
@@ -526,16 +651,16 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gems/SupportGemDeadlyHeralds",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -556,72 +681,42 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemGalvanicShards",
+      "id": "Metadata/Items/Gem/SkillGemStormblastBolts",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFork",
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemPietysMercy",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemWarBanner",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemDaressosPassion",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "id": "Metadata/Items/Gems/SupportGemConcentratedEffect",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gems/SupportGemCloseCombatTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemBlindside",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDeliberation",
           "level_interval": [
             1,
             100
@@ -637,21 +732,28 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsAugury",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFireMastery",
+          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
           "level_interval": [
             1,
             100
@@ -674,7 +776,81 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+          "id": "Metadata/Items/Gems/SupportGemClarityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCannibalism",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecision",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemClarity",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        46,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
           "level_interval": [
             65,
             100
@@ -690,19 +866,12 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsExodus",
+          "id": "Metadata/Items/Gems/SupportGemHerbalism",
           "level_interval": [
-            65,
+            1,
             100
           ]
         }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemEternalRage",
-      "level_interval": [
-        78,
-        100
       ]
     },
     {
@@ -715,8 +884,14 @@
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Ring1",
+      "unique_name": "Kalandra's Touch",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Weapon1",
-      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 142 to 213 [Fire|Fire] Damage\n3. 139% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]\n4. +5% to [Critical|Critical Hit] Chance\n5. +1 Suffix Modifier allowed\n6. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n7. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n8. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 145 to 223 [Fire|Fire] Damage\n3. 129% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]\n4. +4.96% to [Critical|Critical Hit] Chance\n5. 19% increased [Attack] Speed\n6. +1 Suffix Modifier allowed\n7. [Attack|Attacks] with this Weapon Penetrate 15% Elemental Resistances\n8. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         78,
         100
@@ -726,53 +901,17 @@
     },
     {
       "inventory_id": "Belt1",
-      "unique_name": "Headhunter",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Amulet1",
-      "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. +204 to maximum Life\n4. 39% increased [CriticalDamageBonus|Critical Damage Bonus]",
-      "level_interval": [
-        60,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Helm1",
-      "additional_text": "Freebooter Cap\n1. +179 to [Evasion] Rating\n2. 33% increased [Evasion|Evasion] Rating\n3. +212 to maximum Life\n4. 33% increased [Critical|Critical Hit] Chance\n5. +50 to all [Attributes]\n6. [RavenTouched|Raven-Touched]\n7. [ShamanOnlyMods|Bonded]: +1 Maximum Life per Level",
-      "level_interval": [
-        80,
-        100
-      ],
+      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "Polished Bracers\n1. 40% increased [Evasion|Evasion] Rating\n2. +193 to maximum Life\n3. 18% increased [ItemRarity|Rarity of Items] found\n4. 15% increased [Attack] Speed\n5. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
+      "additional_text": "Polished Bracers\n1. Adds 23 to 34 [Cold] damage to [Attack|Attacks]\n2. Adds 1 to 70 [Lightning] damage to [Attack|Attacks]\n3. 38% increased [Projectile] Speed\n4. 33% increased [CriticalDamageBonus|Critical Damage Bonus]\n5. 8% increased [Attack] Speed\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n8. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
       "level_interval": [
         80,
         100
       ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring2",
-      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 35 to 51 [Cold] damage to [Attack|Attacks]\n3. 16% increased [ItemRarity|Rarity of Items] found\n4. +19% to all [ElementalDamage|Elemental] [Resistances]\n5. +31% to [Resistances|Chaos Resistance]",
-      "level_interval": [
-        64,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Ring1",
-      "unique_name": "Kalandra's Touch",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -783,8 +922,38 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Amulet1",
+      "additional_text": "Gold Amulet\n1. 20% increased [ItemRarity|Rarity of Items] found\n2. +208 to maximum Life\n3. 11% increased maximum Life\n4. +3 to Level of all [Projectile] Skills\n5. +40% to [Resistances|Lightning Resistance]",
+      "level_interval": [
+        60,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring2",
+      "additional_text": "Refined Breach Ring\n1. +25% to Maximum [Quality]\n2. Adds 46 to 72 [Fire] damage to [Attack|Attacks]\n3. +16% to all [ElementalDamage|Elemental] [Resistances]\n4. +21% to [Resistances|Chaos Resistance]",
+      "level_interval": [
+        60,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Boots1",
-      "additional_text": "Drakeskin Boots\n1. 94% increased [Evasion|Evasion] Rating\n2. +144 to maximum Life\n3. 18% increased [ItemRarity|Rarity of Items] found\n4. 8% increased Movement Speed\n5. +240 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +64 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +64 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Drakeskin Boots\n1. 36% increased [Evasion|Evasion] Rating\n2. +45% to [Resistances|Fire Resistance]\n3. +78 to [StunThreshold|Stun Threshold]\n4. 8% increased Movement Speed\n5. +240 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +64 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +64 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Helm1",
+      "additional_text": "Freebooter Cap\n1. +206 to [Evasion] Rating\n2. 42% increased [Evasion|Evasion] Rating\n3. +214 to maximum Life\n4. 33% increased [Critical|Critical Hit] Chance\n5. +50 to all [Attributes]\n6. [RavenTouched|Raven-Touched]\n7. [ShamanOnlyMods|Bonded]: +1 Maximum Life per Level",
       "level_interval": [
         80,
         100

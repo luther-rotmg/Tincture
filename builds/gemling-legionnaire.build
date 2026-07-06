@@ -74,10 +74,13 @@
       "id": "life_regeneration25"
     },
     {
-      "id": "one_handed14"
+      "id": "evasion19"
     },
     {
       "id": "projectiles21_"
+    },
+    {
+      "id": "one_handed16__"
     },
     {
       "id": "criticals54_"
@@ -108,9 +111,6 @@
     },
     {
       "id": "dexterity75"
-    },
-    {
-      "id": "slow_attacks2_"
     },
     {
       "id": "armour49"
@@ -162,9 +162,6 @@
     },
     {
       "id": "criticals61"
-    },
-    {
-      "id": "one_handed12"
     },
     {
       "id": "daze_7"
@@ -236,6 +233,9 @@
       "id": "area_attacks31"
     },
     {
+      "id": "dexterity34"
+    },
+    {
       "id": "spear12"
     },
     {
@@ -296,9 +296,6 @@
       "id": "dexterity52"
     },
     {
-      "id": "projectiles36"
-    },
-    {
       "id": "projectiles20"
     },
     {
@@ -321,6 +318,9 @@
     },
     {
       "id": "strength71"
+    },
+    {
+      "id": "evasion30"
     },
     {
       "id": "dexterity79"
@@ -468,19 +468,12 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemGlacialLance",
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
         {
           "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
           "level_interval": [
@@ -489,23 +482,30 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemPerpetualCharge",
+          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
           "level_interval": [
-            65,
+            1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -550,6 +550,50 @@
           "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
           "level_interval": [
             1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemGlacialLance",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPerpetualCharge",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+          "level_interval": [
+            65,
             100
           ]
         }
@@ -629,50 +673,6 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemColdMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemLongshotTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
           "level_interval": [
             1,
             100
@@ -864,7 +864,7 @@
   "inventory_slots": [
     {
       "inventory_id": "Ring1",
-      "additional_text": "Gold Ring\n1. 13% increased [ItemRarity|Rarity of Items] found\n2. Adds 19 to 36 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 4 to 80 [Lightning] damage to [Attack|Attacks]\n4. +113 to maximum Life\n5. 18% increased [ItemRarity|Rarity of Items] found\n6. +23% to [Resistances|Chaos Resistance]",
+      "additional_text": "Gold Ring\n1. 14% increased [ItemRarity|Rarity of Items] found\n2. Adds 19 to 36 [Physical|Physical] Damage to [Attack|Attacks]\n3. Adds 4 to 80 [Lightning] damage to [Attack|Attacks]\n4. +113 to maximum Life\n5. 18% increased [ItemRarity|Rarity of Items] found\n6. +23% to [Resistances|Chaos Resistance]",
       "level_interval": [
         60,
         100
@@ -899,6 +899,16 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Gloves1",
+      "additional_text": "Massive Mitts\n1. +189 to [Armour|Armour]\n2. 97% increased [Armour|Armour]\n3. 16% increased [Attack] Speed\n4. +22% to [Resistances|Chaos Resistance]\n5. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
+      "level_interval": [
+        80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Helm1",
       "additional_text": "Imperial Greathelm\n1. 142% increased [Armour|Armour]\n2. +43 to maximum Life\n3. +44% to [Resistances|Fire Resistance]\n4. +39% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. +50 to all [Attributes]\n6. [RavenTouched|Raven-Touched]\n7. [ShamanOnlyMods|Bonded]: +1 Maximum Life per Level",
       "level_interval": [
@@ -910,7 +920,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Runeforged Blacksteel Sabatons\n1. +130 to maximum Life\n2. 18% increased [ItemRarity|Rarity of Items] found\n3. +43% to [Resistances|Lightning Resistance]\n4. 20% increased Movement Speed while Sprinting\n5. 5% increased Movement Speed\n6. Can roll Chronomancy modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Runeforged Blacksteel Sabatons\n1. +141 to maximum Life\n2. 18% increased [ItemRarity|Rarity of Items] found\n3. +43% to [Resistances|Lightning Resistance]\n4. 20% increased Movement Speed while Sprinting\n5. 5% increased Movement Speed\n6. Can roll Chronomancy modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         80,
         100
@@ -929,18 +939,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Massive Mitts\n1. 97% increased [Armour|Armour]\n2. Adds 29 to 39 [Fire] damage to [Attack|Attacks]\n3. +16% to [Resistances|Chaos Resistance]\n4. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n5. 8% increased [Attack] Speed\n6. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Mana\n8. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
-      "level_interval": [
-        80,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Weapon1",
-      "additional_text": "Akoyan Spear\n1. Adds 78 to 119 [Cold|Cold] Damage\n2. Adds 5 to 192 [Lightning|Lightning] Damage\n3. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n4. Adds 17 to 20 [Fire|Fire] Damage\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: 30% increased [Ignite|Ignite] [BuffMagnitude|Magnitude]\n7. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "additional_text": "Akoyan Spear\n1. Adds 78 to 119 [Cold|Cold] Damage\n2. Adds 5 to 192 [Lightning|Lightning] Damage\n3. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n4. Adds 17 to 20 [Fire|Fire] Damage\n5. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n8. [ShamanOnlyMods|Bonded]: 30% increased [Ignite|Ignite] [BuffMagnitude|Magnitude]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         78,
         100

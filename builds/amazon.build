@@ -8,13 +8,13 @@
       "id": "dexterity46"
     },
     {
+      "id": "dexterity25"
+    },
+    {
       "id": "dexterity51"
     },
     {
       "id": "AscendancyHuntress1Small9"
-    },
-    {
-      "id": "criticals57_"
     },
     {
       "id": "AscendancyHuntress1Notable9"
@@ -59,6 +59,12 @@
       "id": "dexterity12_"
     },
     {
+      "id": "evasion_and_energy_shield9_"
+    },
+    {
+      "id": "evasion_and_energy_shield10"
+    },
+    {
       "id": "criticals54_"
     },
     {
@@ -80,13 +86,13 @@
       "id": "criticals41"
     },
     {
+      "id": "dexterity24_"
+    },
+    {
       "id": "dexterity47"
     },
     {
       "id": "evasion_and_energy_shield27"
-    },
-    {
-      "id": "intelligence66"
     },
     {
       "id": "intelligence7"
@@ -141,9 +147,6 @@
     },
     {
       "id": "attack2"
-    },
-    {
-      "id": "passive_keystone_resonance"
     },
     {
       "id": "attack_speed30"
@@ -251,9 +254,6 @@
       "id": "AscendancyHuntress1Start"
     },
     {
-      "id": "attributes25"
-    },
-    {
       "id": "AscendancyHuntress1Notable5"
     },
     {
@@ -273,6 +273,12 @@
     },
     {
       "id": "ailments46"
+    },
+    {
+      "id": "criticals86"
+    },
+    {
+      "id": "criticals84"
     },
     {
       "id": "jewel_slot1970"
@@ -296,9 +302,6 @@
       "id": "shadow_monk_notable1"
     },
     {
-      "id": "evasion12"
-    },
-    {
       "id": "spells34"
     },
     {
@@ -318,6 +321,9 @@
     },
     {
       "id": "evasion_and_energy_shield15"
+    },
+    {
+      "id": "criticals59"
     },
     {
       "id": "dexterity54"
@@ -365,9 +371,6 @@
       "id": "intelligence67"
     },
     {
-      "id": "movement_speed3"
-    },
-    {
       "id": "accuracy20"
     },
     {
@@ -383,9 +386,6 @@
       "id": "jewel_slot1960"
     },
     {
-      "id": "movement_speed1"
-    },
-    {
       "id": "spear18"
     },
     {
@@ -393,6 +393,9 @@
     },
     {
       "id": "dexterity22"
+    },
+    {
+      "id": "criticals85"
     },
     {
       "id": "intelligence69"
@@ -509,6 +512,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemLightningSpear",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemFork",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemMinionPactTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemWindDancer",
       "level_interval": [
         90,
@@ -553,14 +600,14 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemExplosiveSpear",
+      "id": "Metadata/Items/Gems/SkillGemGlacialLance",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemExpediteTwo",
+          "id": "Metadata/Items/Gem/SupportGemMinionPactTwo",
           "level_interval": [
             1,
             100
@@ -581,14 +628,14 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemVoranasSiege",
+          "id": "Metadata/Items/Gems/SupportGemGlaciation",
           "level_interval": [
-            65,
+            1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemEmbitter",
+          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
           "level_interval": [
             1,
             100
@@ -635,50 +682,6 @@
           "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
           "level_interval": [
             1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemLightningSpear",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemFork",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemMinionPactTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -789,9 +792,32 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "id": "Metadata/Items/Gem/SkillGemCombatFrenzy",
       "level_interval": [
         90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemEternalRage",
+      "level_interval": [
+        58,
         100
       ],
       "support_skills": [
@@ -803,9 +829,9 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+          "id": "Metadata/Items/Gems/SupportGemPrecision",
           "level_interval": [
-            65,
+            1,
             100
           ]
         }
@@ -822,22 +848,6 @@
           "id": "Metadata/Items/Gem/SupportGemUhtredsExodus",
           "level_interval": [
             65,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemEternalRage",
-      "level_interval": [
-        58,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrecision",
-          "level_interval": [
-            1,
             100
           ]
         }
@@ -909,16 +919,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon2",
-      "additional_text": "Akoyan Spear\n1. 68% increased [Physical] Damage\n2. +174 to [Accuracy|Accuracy] Rating\n3. +4.95% to [Critical|Critical Hit] Chance\n4. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n7. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
-      "level_interval": [
-        78,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Belt1",
       "unique_name": "Mageblood",
       "slot_x": 0,
@@ -935,8 +935,18 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Weapon2",
+      "additional_text": "Akoyan Spear\n1. 257% increased [Physical] Damage\n2. Adds 37 to 66 [Physical|Physical] Damage\n3. +178 to [Accuracy|Accuracy] Rating\n4. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n5. 28% increased [Attack] Speed\n6. +1 Suffix Modifier allowed\n7. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n8. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "level_interval": [
+        78,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Amulet1",
-      "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. 36% increased [CriticalDamageBonus|Critical Damage Bonus]",
+      "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. 38% increased [CriticalDamageBonus|Critical Damage Bonus]",
       "level_interval": [
         60,
         100

@@ -1,7 +1,7 @@
 {
   "name": "Warbringer — Mortar Cannon (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"Kalmar_W___\" (kalmar10-1481)",
-  "description": "A representative Warbringer build from the public runesofaldur ladder (character \"Kalmar_W___\", account \"kalmar10-1481\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/kalmar10-1481/Kalmar_W___ . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Warbringer build from the public runesofaldur ladder (character \"Kalmar_W___\", account \"kalmar10-1481\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/kalmar10-1481/Kalmar_W___ . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Warrior2",
   "passives": [
     {
@@ -117,6 +117,9 @@
     },
     {
       "id": "strength67"
+    },
+    {
+      "id": "ballista10"
     },
     {
       "id": "strength59_"
@@ -628,7 +631,7 @@
     },
     {
       "inventory_id": "Weapon2",
-      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. Adds 55 to 89 [Physical|Physical] Damage\n3. Adds 84 to 118 [Fire|Fire] Damage\n4. Gain 51 Life per enemy killed\n5. 20% increased [Physical] Damage\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: 20% increased effect of [ArmourBreak|Fully Broken Armour]\n8. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. 63% increased [Physical] Damage\n3. Adds 54 to 88 [Physical|Physical] Damage\n4. +128 to [Accuracy|Accuracy] Rating\n5. +23 to [Strength|Strength]\n6. 40% increased [Physical] Damage\n7. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n8. [ShamanOnlyMods|Bonded]: 40% increased effect of [ArmourBreak|Fully Broken Armour]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         79,
         100

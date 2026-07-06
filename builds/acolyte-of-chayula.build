@@ -1,7 +1,7 @@
 {
   "name": "Acolyte of Chayula — Cast on Critical (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"LukaChonkic\" (1_mana_left-5237)",
-  "description": "A representative Acolyte of Chayula build from the public runesofaldur ladder (character \"LukaChonkic\", account \"1_mana_left-5237\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/1_mana_left-5237/LukaChonkic . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Acolyte of Chayula build from the public runesofaldur ladder (character \"LukaChonkic\", account \"1_mana_left-5237\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/1_mana_left-5237/LukaChonkic . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Monk3",
   "passives": [
     {
@@ -26,9 +26,6 @@
       "id": "attributes1"
     },
     {
-      "id": "spell_criticals13"
-    },
-    {
       "id": "mana38"
     },
     {
@@ -41,7 +38,13 @@
       "id": "intelligence57"
     },
     {
+      "id": "criticals89"
+    },
+    {
       "id": "jewel_slot1969"
+    },
+    {
+      "id": "mana_leech8"
     },
     {
       "id": "lightning21"
@@ -57,9 +60,6 @@
     },
     {
       "id": "attack_speed25"
-    },
-    {
-      "id": "spell_criticals11_"
     },
     {
       "id": "DeliriumAnoint_ZarokhsGift_"
@@ -131,6 +131,9 @@
       "id": "criticals58"
     },
     {
+      "id": "life_on_kill13"
+    },
+    {
       "id": "AscendancyMonk3Small4_"
     },
     {
@@ -150,9 +153,6 @@
     },
     {
       "id": "AscendancyMonk3Notable6_2"
-    },
-    {
-      "id": "spell_criticals8"
     },
     {
       "id": "lightning22"
@@ -296,6 +296,9 @@
       "id": "intelligence25"
     },
     {
+      "id": "mana_leech20"
+    },
+    {
       "id": "mana19"
     },
     {
@@ -303,6 +306,9 @@
     },
     {
       "id": "AscendancyMonk3Notable6_Choice"
+    },
+    {
+      "id": "life_on_kill3"
     },
     {
       "id": "intelligence53_"
@@ -344,9 +350,6 @@
       "id": "remnant16_"
     },
     {
-      "id": "criticals88_"
-    },
-    {
       "id": "triggers9"
     },
     {
@@ -381,6 +384,9 @@
     },
     {
       "id": "lightning20__"
+    },
+    {
+      "id": "life_on_kill4"
     },
     {
       "id": "slowed_enemies23_",
@@ -427,11 +433,11 @@
       "weapon_set": 2
     },
     {
-      "id": "monkchakra13",
+      "id": "projectile_spells8",
       "weapon_set": 2
     },
     {
-      "id": "intelligence101_",
+      "id": "monkchakra13",
       "weapon_set": 2
     },
     {
@@ -443,7 +449,7 @@
       "weapon_set": 2
     },
     {
-      "id": "intelligence102",
+      "id": "projectile_spells2",
       "weapon_set": 2
     },
     {
@@ -515,7 +521,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
@@ -612,6 +618,36 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
       "level_interval": [
         90,
@@ -641,50 +677,6 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
           "level_interval": [
             1,
             100
@@ -744,28 +736,35 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemBlasphemy",
+      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
       "level_interval": [
-        84,
+        90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningPenetration",
           "level_interval": [
             1,
             100
@@ -864,14 +863,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "id": "Metadata/Items/Gem/SupportGemInterludeThree",
           "level_interval": [
             1,
             100
@@ -945,7 +944,7 @@
     },
     {
       "inventory_id": "Ring2",
-      "additional_text": "Mnemonic Ring\n1. 9% increased maximum Mana\n2. +258 to maximum Mana\n3. 24% increased Cast Speed\n4. +15% to all [ElementalDamage|Elemental] [Resistances]",
+      "additional_text": "Mnemonic Ring\n1. 9% increased maximum Mana\n2. +268 to maximum Mana\n3. 24% increased Cast Speed\n4. 39% increased Mana Cost [Efficiency] of [Spell|Spells]",
       "level_interval": [
         61,
         100

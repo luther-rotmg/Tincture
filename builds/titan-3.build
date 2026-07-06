@@ -860,6 +860,12 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Ring2",
       "additional_text": "Gold Ring\n1. 10% increased [ItemRarity|Rarity of Items] found\n2. 21% increased [Cold] Damage\n3. +212 to maximum Mana\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. +19% to [Resistances|Chaos Resistance]\n6. [ManaLeech|Leech] 7.63% of [Physical] [Attack] Damage as Mana",
       "level_interval": [
@@ -886,12 +892,6 @@
         60,
         100
       ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },

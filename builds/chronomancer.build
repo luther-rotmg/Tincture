@@ -526,36 +526,31 @@
     {
       "id": "Metadata/Items/Gems/SkillGemCastOnElementalAilment",
       "level_interval": [
-        84,
+        90,
         100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemFreezingShards",
-      "level_interval": [
-        78,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
-      "level_interval": [
-        78,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
-      "level_interval": [
-        84,
-        100
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemSiphonElements",
-      "level_interval": [
-        84,
-        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemImpetusTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
@@ -563,6 +558,43 @@
       "level_interval": [
         84,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemOverabundanceTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemSpellEcho",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemExpedite",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
@@ -570,6 +602,43 @@
       "level_interval": [
         90,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSpellCascade",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
@@ -577,13 +646,154 @@
       "level_interval": [
         90,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemIceBiteTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemConsideredCasting",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemRunicExtraction",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "id": "Metadata/Items/Gems/SkillGemFreezingShards",
       "level_interval": [
-        84,
+        90,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemBountyTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPierceTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemCorrosion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDeliberation",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsRite",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemHeightenedCurse",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemFocusedCurse",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemCursedGround",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
       ]
     },
     {
@@ -591,15 +801,130 @@
       "level_interval": [
         84,
         100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemSiphonElements",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemLightningMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemClarityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
+      "level_interval": [
+        58,
+        100
       ]
     }
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Belt1",
+      "unique_name": "Headhunter",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Weapon1",
       "additional_text": "Gelid Staff\n1. [Gain] 49% of Damage as Extra [Cold] Damage\n2. [Gain] 54% of Damage as Extra [Lightning] Damage\n3. +7 to Level of all [Cold|Cold] [Spell|Spell] Skills\n4. +1 to Level of all [Spell|Spell] Skills\n5. 28% increased [Critical|Critical Hit Chance] for [Spell|Spells]\n6. [ShamanOnlyMods|Bonded]: 25% increased [CriticalDamageBonus|Critical Damage Bonus]\n7. [ShamanOnlyMods|Bonded]: [Archon] recovery period expires 30% faster",
       "level_interval": [
         64,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Gloves1",
+      "additional_text": "Sirenscale Gloves\n1. 94% increased [EnergyShield|Energy Shield]\n2. Adds 26 to 42 [Fire] damage to [Attack|Attacks]\n3. +143 to maximum Life\n4. 29% increased [CriticalDamageBonus|Critical Damage Bonus]\n5. +30 to [Intelligence|Intelligence]\n6. +35% to [Resistances|Lightning Resistance]\n7. +18% to [Resistances|Cold Resistance]\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "level_interval": [
+        80,
         100
       ],
       "slot_x": 0,
@@ -616,16 +941,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Belt1",
-      "additional_text": "Rawhide Belt\n1. 21% increased Life Recovery from [Flask|Flasks]\n2. Has 2 [Charm] Slots\n3. +154 to maximum Life\n4. 29% increased [Flask] Mana Recovery rate\n5. +37% to [Resistances|Cold Resistance]\n6. +35% to [Resistances|Lightning Resistance]",
-      "level_interval": [
-        56,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Weapon2",
       "additional_text": "Chiming Staff\n1. [Gain] 53% of Damage as Extra [Lightning] Damage\n2. 138% increased [Fire] Damage\n3. +203 to maximum Mana\n4. +5 to Level of all [Fire|Fire] [Spell|Spell] Skills\n5. 48% increased Cast Speed\n6. 64% increased [Flammability] [BuffMagnitude|Magnitude]\n7. 60% increased Mana Regeneration Rate\n8. [ShamanOnlyMods|Bonded]: 32% increased Mana Cost [Efficiency]",
       "level_interval": [
@@ -636,28 +951,8 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Grim Gloves\n1. +56 to maximum [EnergyShield|Energy Shield]\n2. 72% increased [EnergyShield|Energy Shield]\n3. +144 to maximum Life\n4. [LifeLeech|Leech] 9.57% of [Physical] [Attack] Damage as Life\n5. Gain 38 Mana per enemy killed\n6. +12 to [Intelligence|Intelligence]\n7. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
-      "level_interval": [
-        65,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Amulet1",
-      "additional_text": "Solar Amulet\n1. +12 to [Spirit|Spirit]\n2. +94 to maximum Mana\n3. +45 to [Spirit|Spirit]\n4. +22% to [Resistances|Lightning Resistance]",
-      "level_interval": [
-        60,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Boots1",
-      "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. +125 to maximum Life\n3. +70 to maximum Mana\n4. +32 to [Intelligence|Intelligence]\n5. +34% to [Resistances|Cold Resistance]\n6. +39% to [Resistances|Lightning Resistance]\n7. +15 to [Intelligence|Intelligence]\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
+      "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. +125 to maximum Life\n3. +70 to maximum Mana\n4. +32 to [Intelligence|Intelligence]\n5. +34% to [Resistances|Cold Resistance]\n6. +39% to [Resistances|Lightning Resistance]\n7. 20% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
         80,
         100
@@ -690,6 +985,16 @@
       "additional_text": "Ancestral Tiara\n1. 122% increased [EnergyShield|Energy Shield]\n2. +43 to maximum Life\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. +39% to [Resistances|Cold Resistance]\n5. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
         80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Amulet1",
+      "additional_text": "Absent Amulet\n1. -1 Prefix Modifier allowed\n2. -1 Suffix Modifier allowed\n3. +140 to maximum Mana\n4. +4 to Level of all [Spell|Spell] Skills",
+      "level_interval": [
+        60,
         100
       ],
       "slot_x": 0,
