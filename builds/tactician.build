@@ -5,6 +5,9 @@
   "ascendancy": "Mercenary1",
   "passives": [
     {
+      "id": "boss_slaying2_"
+    },
+    {
       "id": "attributes107"
     },
     {
@@ -41,9 +44,6 @@
       "id": "movement_speed5"
     },
     {
-      "id": "attributes115"
-    },
-    {
       "id": "projectiles29"
     },
     {
@@ -53,9 +53,6 @@
       "id": "attack_speed31"
     },
     {
-      "id": "attributes109"
-    },
-    {
       "id": "dexterity26"
     },
     {
@@ -63,6 +60,9 @@
     },
     {
       "id": "elemental_attacks2"
+    },
+    {
+      "id": "boss_slaying10"
     },
     {
       "id": "DeliriumAnoint_ZarokhsGift_"
@@ -137,6 +137,9 @@
       "id": "attributes19"
     },
     {
+      "id": "attack2"
+    },
+    {
       "id": "elemental25"
     },
     {
@@ -182,9 +185,6 @@
       "id": "elemental18"
     },
     {
-      "id": "spell_suppression12"
-    },
-    {
       "id": "slow_mitigation5"
     },
     {
@@ -206,16 +206,13 @@
       "id": "attributes20-"
     },
     {
-      "id": "attributes108"
-    },
-    {
-      "id": "spell_suppression35"
-    },
-    {
       "id": "dexterity34"
     },
     {
       "id": "AscendancyMercenary1Start"
+    },
+    {
+      "id": "attack6"
     },
     {
       "id": "attributes18"
@@ -228,6 +225,9 @@
     },
     {
       "id": "attributes44"
+    },
+    {
+      "id": "boss_slaying4"
     },
     {
       "id": "daze_2"
@@ -263,6 +263,9 @@
       "id": "elemental28"
     },
     {
+      "id": "attack5"
+    },
+    {
       "id": "dexterity27"
     },
     {
@@ -282,6 +285,9 @@
     },
     {
       "id": "crossbow3"
+    },
+    {
+      "id": "duelist_mercenary_notable2"
     },
     {
       "id": "AscendancyMercenary1Notable4_"
@@ -392,9 +398,6 @@
       "id": "projectiles18"
     },
     {
-      "id": "attributes112"
-    },
-    {
       "id": "jewel_slot1960"
     },
     {
@@ -416,10 +419,7 @@
       "id": "slow_mitigation7_"
     },
     {
-      "id": "spell_suppression7"
-    },
-    {
-      "id": "spell_suppression11+"
+      "id": "boss_slaying7"
     }
   ],
   "skills": [
@@ -503,7 +503,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
+          "id": "Metadata/Items/Gems/SupportGemOverpowerTwo",
           "level_interval": [
             1,
             100
@@ -526,7 +526,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemEmbitter",
+          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
           "level_interval": [
             1,
             100
@@ -577,23 +577,23 @@
           ]
         },
         {
+          "id": "Metadata/Items/Gem/SupportGemRigwaldsFerocity",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
           "id": "Metadata/Items/Gems/SupportGemFork",
           "level_interval": [
             1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemPietysMercy",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -758,20 +758,14 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
-      "unique_name": "Kalandra's Touch",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "BodyArmour1",
       "unique_name": "Morior Invictus",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon1",
-      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 153 to 228 [Fire|Fire] Damage\n3. Adds 17 to 357 [Lightning|Lightning] Damage\n4. 130% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]\n5. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n6. +5 to Level of all [Projectile] Skills\n7. +1 Suffix Modifier allowed\n8. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n9. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n10. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n11. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "inventory_id": "Weapon2",
+      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 152 to 225 [Fire|Fire] Damage\n3. Adds 12 to 355 [Lightning|Lightning] Damage\n4. +25% to [CriticalDamageBonus|Critical Damage Bonus]\n5. +5 to Level of all [Projectile] Skills\n6. +1 Suffix Modifier allowed\n7. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n8. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n9. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n10. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         78,
         100
@@ -794,6 +788,16 @@
       "additional_text": "Polished Bracers\n1. +140 to maximum Life\n2. 16% increased [Attack] Speed\n3. +45% to [Resistances|Fire Resistance]\n4. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
       "level_interval": [
         80,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring1",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 40 to 61 [Fire] damage to [Attack|Attacks]\n3. 16% increased [ItemRarity|Rarity of Items] found\n4. +16% to all [ElementalDamage|Elemental] [Resistances]\n5. +27% to [Resistances|Chaos Resistance]",
+      "level_interval": [
+        64,
         100
       ],
       "slot_x": 0,

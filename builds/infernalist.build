@@ -679,14 +679,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+          "id": "Metadata/Items/Gem/SupportGemRitualisticCurse",
           "level_interval": [
             1,
             100
@@ -920,7 +920,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Sekhema Sandals\n1. 99% increased [EnergyShield|Energy Shield]\n2. +43% to [Resistances|Fire Resistance]\n3. +45% to [Resistances|Cold Resistance]\n4. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n5. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
+      "additional_text": "Sekhema Sandals\n1. 99% increased [EnergyShield|Energy Shield]\n2. +44% to [Resistances|Fire Resistance]\n3. +43% to [Resistances|Cold Resistance]\n4. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n5. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n6. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
       "level_interval": [
         80,
         100
@@ -946,7 +946,7 @@
     },
     {
       "inventory_id": "Gloves1",
-      "additional_text": "Sirenscale Gloves\n1. +59 to maximum [EnergyShield|Energy Shield]\n2. 18% increased [ItemRarity|Rarity of Items] found\n3. +2 to Level of all [Projectile] Skills\n4. 28% increased [Projectile] Damage\n5. +30 to maximum [Ward|Runic Ward]\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n8. [ShamanOnlyMods|Bonded]: 15% increased Global [Armour], [Evasion] and [EnergyShield|Energy Shield]",
+      "additional_text": "Sirenscale Gloves\n1. +56 to maximum [EnergyShield|Energy Shield]\n2. 18% increased [ItemRarity|Rarity of Items] found\n3. +2 to Level of all [Projectile] Skills\n4. 29% increased [Projectile] Damage\n5. +30 to maximum [Ward|Runic Ward]\n6. Can roll Marksman modifiers\n7. [ShamanOnlyMods|Bonded]: 20% increased [Projectile] Damage\n8. [ShamanOnlyMods|Bonded]: 15% increased Global [Armour], [Evasion] and [EnergyShield|Energy Shield]",
       "level_interval": [
         80,
         100

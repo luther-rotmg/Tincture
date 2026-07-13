@@ -459,6 +459,43 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemMortarCannon",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemPayload",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemScattershotTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFireInfusion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
+          "level_interval": [
+            65,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemLeapSlam",
       "level_interval": [
         36,
@@ -541,43 +578,6 @@
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
           "level_interval": [
             1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemMortarCannon",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemPayload",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemScattershotTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFireInfusion",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
             100
           ]
         }
@@ -699,7 +699,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemBerserk",
       "level_interval": [
-        84,
+        90,
         100
       ]
     }
@@ -736,16 +736,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "BodyArmour1",
-      "additional_text": "Ornate Plate\n1. Regenerate 2.35% of maximum Life per second\n2. +304 to [Armour|Armour]\n3. 105% increased [Armour|Armour]\n4. +25% to [Resistances|Cold Resistance]\n5. +45% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
-      "level_interval": [
-        70,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Belt1",
       "unique_name": "Mageblood",
       "slot_x": 0,
@@ -766,6 +756,16 @@
       "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. 36% increased [Physical] Damage\n3. Adds 39 to 86 [Physical|Physical] Damage\n4. +80 to [Accuracy|Accuracy] Rating\n5. 40% increased [Physical] Damage\n6. [ShamanOnlyMods|Bonded]: 40% increased effect of [ArmourBreak|Fully Broken Armour]",
       "level_interval": [
         79,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "BodyArmour1",
+      "additional_text": "Ornate Plate\n1. Regenerate 2.48% of maximum Life per second\n2. +294 to [Armour|Armour]\n3. 105% increased [Armour|Armour]\n4. +43% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n5. 58% reduced [Poison|Poison] Duration on you\n6. 40% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. Regenerate 1.5% of maximum Life per second\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +40 to maximum Mana",
+      "level_interval": [
+        70,
         100
       ],
       "slot_x": 0,

@@ -86,6 +86,9 @@
       "id": "spell_criticals11_"
     },
     {
+      "id": "DeliriumAnoint_ZarokhsGift_"
+    },
+    {
       "id": "intelligence84"
     },
     {
@@ -546,20 +549,6 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemEssenceHarvest",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemMinionInstability",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
           "id": "Metadata/Items/Gem/SupportGemRomirasRequital",
           "level_interval": [
             65,
@@ -570,6 +559,20 @@
           "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
           "level_interval": [
             25,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEssenceHarvest",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemMinionInstability",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -600,6 +603,36 @@
           "id": "Metadata/Items/Gem/SupportGemAtzirisCommunion",
           "level_interval": [
             65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemEshsProwess",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemGambleshot",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -650,36 +683,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemEshsProwess",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemImpurity",
       "level_interval": [
         78,
@@ -717,35 +720,35 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemExplosiveTransmutation",
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemBountyTwo",
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemInspirationTwo",
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemRunicExtraction",
+          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gem/SupportGemMysticism",
           "level_interval": [
             1,
             100
@@ -756,7 +759,7 @@
     {
       "id": "Metadata/Items/Gem/SkillGemConvalescence",
       "level_interval": [
-        84,
+        90,
         100
       ],
       "support_skills": [
@@ -776,29 +779,6 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
           "level_interval": [
             1,
             100
@@ -844,21 +824,24 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemElementalConflux",
+      "level_interval": [
+        90,
+        100
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
-        84,
+        90,
         100
       ]
     }
   ],
   "inventory_slots": [
     {
-      "inventory_id": "Gloves1",
-      "additional_text": "Runeforged Sirenscale Gloves\n1. +47 to maximum [EnergyShield|Energy Shield]\n2. 103% increased [EnergyShield|Energy Shield]\n3. +48 to maximum Life\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. +45% to [Resistances|Cold Resistance]\n6. +25% to [Resistances|Chaos Resistance]\n7. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
-      "level_interval": [
-        80,
-        100
-      ],
+      "inventory_id": "Ring2",
+      "unique_name": "Andvarius",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -879,14 +862,24 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "BodyArmour1",
+      "additional_text": "Runeforged Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +1% to all Resistances for each Corrupted Item [Equipped]\n3. 75% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n4. +44% to [Resistances|Fire Resistance]\n5. +20% to [Resistances|Chaos Resistance]\n6. 12% increased [ItemRarity|Rarity of Items] found\n7. 15% Life Recovery from [Flask|Flasks] also applies to [Ward|Runic Ward]\n8. [ShamanOnlyMods|Bonded]: 15% increased Life Recovery from [Flask|Flasks]\n9. [ShamanOnlyMods|Bonded]: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "level_interval": [
+        65,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Belt1",
       "unique_name": "Headhunter",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "BodyArmour1",
-      "additional_text": "Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +69 to maximum [EnergyShield|Energy Shield]\n3. 68% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n4. +50 to [Spirit|Spirit]\n5. +44% to [Resistances|Lightning Resistance]\n6. 27% increased [ESRechargeRate|Energy Shield Recharge Rate]\n7. 12% increased [ItemRarity|Rarity of Items] found\n8. +22% to [Resistances|Fire Resistance]\n9. 15% Life Recovery from [Flask|Flasks] also applies to [Ward|Runic Ward]\n10. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n11. [ShamanOnlyMods|Bonded]: +20 to maximum Mana\n12. [ShamanOnlyMods|Bonded]: 15% increased Life Recovery from [Flask|Flasks]\n13. [ShamanOnlyMods|Bonded]: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "inventory_id": "Ring1",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. 53% increased [Spell] Damage\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. 32% increased Cast Speed\n5. +15% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
         65,
         100
@@ -905,12 +898,6 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring2",
-      "unique_name": "Andvarius",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
       "inventory_id": "Helm1",
       "additional_text": "Sorcerous Tiara\n1. +73 to maximum [EnergyShield|Energy Shield]\n2. 99% increased [EnergyShield|Energy Shield]\n3. +44% to [Resistances|Cold Resistance]\n4. 15% increased Cost [Efficiency]\n5. [RavenTouched|Raven-Touched]\n6. [ShamanOnlyMods|Bonded]: [Meta] Skills have 15% increased [Reservation] [Efficiency]",
       "level_interval": [
@@ -922,19 +909,19 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Sandsworn Sandals\n1. 35% increased Movement Speed\n2. 91% increased [EnergyShield|Energy Shield]\n3. +43% to [Resistances|Fire Resistance]\n4. +20% to [Resistances|Chaos Resistance]\n5. 8% increased Movement Speed\n6. 16% increased Movement Speed when on [LowLife|Low Life]\n7. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
+      "additional_text": "Sekhema Sandals\n1. 35% increased Movement Speed\n2. 100% increased [EnergyShield|Energy Shield]\n3. +44% to [Resistances|Fire Resistance]\n4. 8% increased Movement Speed\n5. 16% increased Movement Speed when on [LowLife|Low Life]\n6. 12% increased Movement Speed while Sprinting\n7. [ShamanOnlyMods|Bonded]: 80% increased [StunRecovery|Stun Recovery]\n8. [ShamanOnlyMods|Bonded]: 16% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
-        75,
+        80,
         100
       ],
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
-      "additional_text": "Gold Ring\n1. 14% increased [ItemRarity|Rarity of Items] found\n2. 42% increased [Spell] Damage\n3. 26% increased [Chaos] Damage\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. 32% increased Cast Speed",
+      "inventory_id": "Gloves1",
+      "additional_text": "Sirenscale Gloves\n1. 141% increased [EnergyShield|Energy Shield]\n2. +48 to maximum Life\n3. +43% to [Resistances|Cold Resistance]\n4. +42% to [Resistances|Lightning Resistance]\n5. Destroys all [Augment] Sockets on the item to create a [Jewel] Socket",
       "level_interval": [
-        61,
+        80,
         100
       ],
       "slot_x": 0,
