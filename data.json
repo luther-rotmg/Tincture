@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-17T18:12:56+00:00",
+  "updated": "2026-07-17T20:11:53+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124263,
+        "characters": 124262,
         "ascendancies": 10
       },
       "builds": [
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 16.8,
           "delta": 0.0,
-          "n": 20917,
+          "n": 20916,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 13517,
+        "characters": 13523,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 15.9,
           "delta": 0.0,
-          "n": 2147,
+          "n": 2148,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -177,7 +177,7 @@
           "skill": "",
           "pop": 8.2,
           "delta": 0.0,
-          "n": 1106,
+          "n": 1107,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -188,7 +188,7 @@
           "skill": "",
           "pop": 5.4,
           "delta": 0.0,
-          "n": 732,
+          "n": 733,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -221,7 +221,7 @@
           "skill": "",
           "pop": 4.4,
           "delta": 0.0,
-          "n": 596,
+          "n": 597,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -243,7 +243,7 @@
           "skill": "",
           "pop": 3.3,
           "delta": 0.0,
-          "n": 442,
+          "n": 443,
           "tag": "Crossbow generalist — flexible, anti-caster"
         }
       ]
