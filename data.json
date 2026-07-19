@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-19T21:02:20+00:00",
+  "updated": "2026-07-19T22:01:29+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -176,7 +176,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 855,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -209,7 +209,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 451,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -265,7 +265,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 18.5,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 3628,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -409,7 +409,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 13.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 922,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -420,7 +420,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.6,
-          "delta": 0.2,
+          "delta": 0.0,
           "n": 600,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -442,7 +442,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 5.5,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 387,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -486,7 +486,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 3.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 270,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         }
