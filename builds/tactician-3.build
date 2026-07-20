@@ -541,6 +541,50 @@
   ],
   "skills": [
     {
+      "id": "Metadata/Items/Gem/SkillGemGalvanicShards",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFork",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemPietysMercy",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemStormblastBolts",
       "level_interval": [
         90,
@@ -548,9 +592,9 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemRisingTempest",
+          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
           "level_interval": [
-            1,
+            65,
             100
           ]
         },
@@ -629,50 +673,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemDeadlyHeralds",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemRakiatasFlow",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemMirageArcher",
       "level_interval": [
         84,
@@ -710,12 +710,19 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemGalvanicShards",
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
         {
           "id": "Metadata/Items/Gems/SupportGemPrimalArmamentTwo",
           "level_interval": [
@@ -724,58 +731,21 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemFork",
+          "id": "Metadata/Items/Gems/SupportGemDeadlyHeralds",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemGarukhansResolve",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemPietysMercy",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemNovaProjectiles",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemCombatFrenzy",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
+          "id": "Metadata/Items/Gems/SupportGemPinpointCritical",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
           "level_interval": [
             1,
             100
@@ -814,21 +784,28 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemAscendancySupportingFire",
+      "id": "Metadata/Items/Gem/SkillGemCombatFrenzy",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemBiddingTwo",
+          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gems/SupportGemProfusionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemVitality",
           "level_interval": [
             1,
             100
@@ -860,22 +837,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemBerserk",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemHerbalismTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemEternalRage",
       "level_interval": [
         64,
@@ -884,6 +845,13 @@
       "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemHerbalismTwo",
           "level_interval": [
             1,
             100
@@ -904,21 +872,25 @@
             1,
             100
           ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemPrecisionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
         }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemBerserk",
+      "level_interval": [
+        90,
+        100
       ]
     }
   ],
   "inventory_slots": [
-    {
-      "inventory_id": "Ring1",
-      "additional_text": "Gold Ring\n1. 13% increased [ItemRarity|Rarity of Items] found\n2. Adds 33 to 46 [Fire] damage to [Attack|Attacks]\n3. Adds 25 to 42 [Cold] damage to [Attack|Attacks]\n4. +33 to [Strength|Strength]\n5. +28% to [Resistances|Cold Resistance]",
-      "level_interval": [
-        60,
-        100
-      ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
     {
       "inventory_id": "Belt1",
       "unique_name": "Mageblood",
@@ -958,6 +930,16 @@
       "additional_text": "Cinched Boots\n1. 95% increased [Evasion|Evasion] Rating\n2. +94 to maximum Life\n3. +45% to [Resistances|Fire Resistance]\n4. +44% to [Resistances|Lightning Resistance]\n5. 22.3 Life Regeneration per second\n6. 5% increased Movement Speed\n7. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         65,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring1",
+      "additional_text": "Breach Ring\n1. +20% to Maximum [Quality]\n2. Adds 46 to 64 [Fire] damage to [Attack|Attacks]\n3. +13% to all [ElementalDamage|Elemental] [Resistances]\n4. +29% to [Resistances|Cold Resistance]",
+      "level_interval": [
+        60,
         100
       ],
       "slot_x": 0,

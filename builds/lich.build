@@ -17,6 +17,9 @@
       "id": "remnant14"
     },
     {
+      "id": "energy_shield39"
+    },
+    {
       "id": "witch_sorceress_notable2"
     },
     {
@@ -401,9 +404,6 @@
       "id": "physical_witch5_"
     },
     {
-      "id": "energy_shield_recovery39"
-    },
-    {
       "id": "energy_shield33_"
     },
     {
@@ -609,6 +609,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemMysticism",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemWarmBlooded",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemCastOnCritical",
       "level_interval": [
         90,
@@ -630,7 +674,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemGambleshot",
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
@@ -720,43 +764,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
-      "level_interval": [
-        90,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemKhatalsRejuvenation",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemMysticism",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemConvalescence",
       "level_interval": [
         90,
@@ -781,6 +788,29 @@
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
           "level_interval": [
             1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalConflux",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+          "level_interval": [
+            65,
             100
           ]
         }
@@ -824,13 +854,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemElementalConflux",
-      "level_interval": [
-        90,
-        100
-      ]
-    },
-    {
       "id": "Metadata/Items/Gem/SkillGemChargeInfusion",
       "level_interval": [
         90,
@@ -863,7 +886,7 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Runeforged Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +1% to all Resistances for each Corrupted Item [Equipped]\n3. 75% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n4. +44% to [Resistances|Fire Resistance]\n5. +20% to [Resistances|Chaos Resistance]\n6. 12% increased [ItemRarity|Rarity of Items] found\n7. 15% Life Recovery from [Flask|Flasks] also applies to [Ward|Runic Ward]\n8. [ShamanOnlyMods|Bonded]: 15% increased Life Recovery from [Flask|Flasks]\n9. [ShamanOnlyMods|Bonded]: 10% increased Quantity of Gold Dropped by Slain Enemies",
+      "additional_text": "Runeforged Sacrificial Regalia\n1. +1 to Level of all [Corrupted] Skill Gems\n2. +1% to all Resistances for each Corrupted Item [Equipped]\n3. 75% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n4. +44% to [Resistances|Fire Resistance]\n5. +20% to [Resistances|Chaos Resistance]\n6. 15% Life Recovery from [Flask|Flasks] also applies to [Ward|Runic Ward]\n7. [Idol|Idols] socketed in this item gain the benefits of their [ShamanOnlyMods|Bonded] modifiers\n8. [ShamanOnlyMods|Bonded]: +5% to [Quality] of all Skills\n9. [ShamanOnlyMods|Bonded]: 15% increased Life Recovery from [Flask|Flasks]",
       "level_interval": [
         65,
         100
@@ -879,7 +902,7 @@
     },
     {
       "inventory_id": "Ring1",
-      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. 53% increased [Spell] Damage\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. 32% increased Cast Speed\n5. +15% to all [ElementalDamage|Elemental] [Resistances]",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. 51% increased [Spell] Damage\n3. 17% increased [ItemRarity|Rarity of Items] found\n4. 33% increased Cast Speed\n5. +15% to all [ElementalDamage|Elemental] [Resistances]",
       "level_interval": [
         65,
         100

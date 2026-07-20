@@ -89,16 +89,10 @@
       "id": "AscendancySorceress1Small9"
     },
     {
-      "id": "physical_witch7"
-    },
-    {
       "id": "criticals54_"
     },
     {
       "id": "spell_criticals15"
-    },
-    {
-      "id": "triggers1"
     },
     {
       "id": "dexterity48"
@@ -140,13 +134,16 @@
       "id": "intelligence41__"
     },
     {
+      "id": "dexterity82_"
+    },
+    {
+      "id": "dexterity81"
+    },
+    {
       "id": "mana31"
     },
     {
       "id": "jewel_slot1977"
-    },
-    {
-      "id": "physical_witch12"
     },
     {
       "id": "attributes10"
@@ -165,6 +162,9 @@
     },
     {
       "id": "strength46"
+    },
+    {
+      "id": "attributes9"
     },
     {
       "id": "attributes11"
@@ -201,6 +201,9 @@
     },
     {
       "id": "mana32"
+    },
+    {
+      "id": "dexterity80"
     },
     {
       "id": "criticals52"
@@ -242,9 +245,6 @@
       "id": "AscendancySorceress1Notable10"
     },
     {
-      "id": "triggers2"
-    },
-    {
       "id": "archon14"
     },
     {
@@ -266,10 +266,10 @@
       "id": "attributes21"
     },
     {
-      "id": "intelligence52"
+      "id": "jewel_slot1970"
     },
     {
-      "id": "triggers4"
+      "id": "intelligence52"
     },
     {
       "id": "intelligence13"
@@ -362,9 +362,6 @@
       "id": "jewel_slot1961"
     },
     {
-      "id": "physical_witch5_"
-    },
-    {
       "id": "intelligence58"
     },
     {
@@ -389,6 +386,10 @@
       "weapon_set": 1
     },
     {
+      "id": "physical_witch7",
+      "weapon_set": 1
+    },
+    {
       "id": "azmerianimals56",
       "weapon_set": 1
     },
@@ -401,11 +402,11 @@
       "weapon_set": 1
     },
     {
-      "id": "criticals83",
+      "id": "physical_witch12",
       "weapon_set": 1
     },
     {
-      "id": "spell_criticals18",
+      "id": "criticals83",
       "weapon_set": 1
     },
     {
@@ -429,7 +430,7 @@
       "weapon_set": 1
     },
     {
-      "id": "triggers17",
+      "id": "physical_witch5_",
       "weapon_set": 1
     },
     {
@@ -521,50 +522,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemBountyTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemFrostBomb",
       "level_interval": [
         84,
@@ -601,50 +558,6 @@
         },
         {
           "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemCursedGround",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemMobility",
           "level_interval": [
             1,
             100
@@ -734,6 +647,50 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gems/SkillGemArcticArmour",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemBountyTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemSpark",
       "level_interval": [
         90,
@@ -778,19 +735,49 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemSigilOfPower",
+      "id": "Metadata/Items/Gems/SkillGemAzmerianWolf",
       "level_interval": [
         90,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
+          "id": "Metadata/Items/Gem/SupportGemAmanamusTithe",
+          "level_interval": [
+            25,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemInfernalLegionTwo",
           "level_interval": [
             1,
             100
           ]
         },
+        {
+          "id": "Metadata/Items/Gem/SupportGemLoyalty",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDeathmarch",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gem/SkillGemElementalWeakness",
+      "level_interval": [
+        84,
+        100
+      ],
+      "support_skills": [
         {
           "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
           "level_interval": [
@@ -799,9 +786,23 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsConstellation",
+          "id": "Metadata/Items/Gems/SupportGemEncumbrance",
           "level_interval": [
-            65,
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemCursedGround",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMobility",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -838,6 +839,29 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gems/SkillGemRemnantsOfKalguur",
       "level_interval": [
         90,
@@ -861,26 +885,24 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gem/SkillGemManaRemnants",
+      "id": "Metadata/Items/Gem/SkillGemPinnacleOfPower",
+      "level_interval": [
+        60,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemPowerSiphon",
+      "level_interval": [
+        78,
+        100
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemDiscipline",
       "level_interval": [
         90,
         100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemDissipateTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
       ]
     }
   ],
@@ -897,11 +919,7 @@
     },
     {
       "inventory_id": "Weapon2",
-      "additional_text": "Chiming Staff\n1. 55% increased Mana Regeneration Rate",
-      "level_interval": [
-        57,
-        100
-      ],
+      "unique_name": "Adonia's Ego",
       "slot_x": 0,
       "slot_y": 0
     },

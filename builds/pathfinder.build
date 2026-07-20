@@ -455,15 +455,23 @@
       "weapon_set": 1
     },
     {
-      "id": "attributes107",
+      "id": "azmerianimals48",
       "weapon_set": 2
     },
     {
-      "id": "attributes115",
+      "id": "criticals96",
+      "weapon_set": 2
+    },
+    {
+      "id": "azmerianimals43",
       "weapon_set": 2
     },
     {
       "id": "dexterity41",
+      "weapon_set": 2
+    },
+    {
+      "id": "dexterity57",
       "weapon_set": 2
     },
     {
@@ -475,7 +483,15 @@
       "weapon_set": 2
     },
     {
+      "id": "azmerianimals44",
+      "weapon_set": 2
+    },
+    {
       "id": "Sprint7",
+      "weapon_set": 2
+    },
+    {
+      "id": "dexterity85_",
       "weapon_set": 2
     },
     {
@@ -483,27 +499,15 @@
       "weapon_set": 2
     },
     {
-      "id": "attributes111_",
-      "weapon_set": 2
-    },
-    {
-      "id": "attributes100_",
-      "weapon_set": 2
-    },
-    {
-      "id": "attributes108",
-      "weapon_set": 2
-    },
-    {
       "id": "shock16",
       "weapon_set": 2
     },
     {
-      "id": "attributes105",
+      "id": "attributes26",
       "weapon_set": 2
     },
     {
-      "id": "attributes26",
+      "id": "attributes74",
       "weapon_set": 2
     },
     {
@@ -523,15 +527,15 @@
       "weapon_set": 2
     },
     {
+      "id": "azmerianimals47",
+      "weapon_set": 2
+    },
+    {
       "id": "shock4",
       "weapon_set": 2
     },
     {
       "id": "Sprint3",
-      "weapon_set": 2
-    },
-    {
-      "id": "attributes106",
       "weapon_set": 2
     },
     {
@@ -543,96 +547,41 @@
       "weapon_set": 2
     },
     {
-      "id": "attributes110",
-      "weapon_set": 2
-    },
-    {
       "id": "Sprint9_",
       "weapon_set": 2
     }
   ],
   "skills": [
     {
-      "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
+      "id": "Metadata/Items/Gems/SkillGemWolfPounce",
       "level_interval": [
-        90,
+        84,
         100
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "id": "Metadata/Items/Gems/SupportGemChargedMark",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemUulNetolsEmbrace",
-          "level_interval": [
-            65,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemUruksSmelting",
+          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
+          "id": "Metadata/Items/Gems/SupportGemEternalMark",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
-      "level_interval": [
-        72,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemAcrimony",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFireMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemFastForwardTwo",
+          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
           "level_interval": [
             1,
             100
@@ -773,43 +722,6 @@
       ]
     },
     {
-      "id": "Metadata/Items/Gems/SkillGemWolfPounce",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemChargedMark",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemIngenuityTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemEternalMark",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistenceTwo",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
       "id": "Metadata/Items/Gems/SkillGemHeraldOfThunder",
       "level_interval": [
         90,
@@ -848,6 +760,131 @@
           "id": "Metadata/Items/Gem/SupportGemEshsRadiance",
           "level_interval": [
             65,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfAsh",
+      "level_interval": [
+        72,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemAcrimony",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFireMastery",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemSwiftAfflictionTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFastForwardTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemHeraldOfIce",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemUulNetolsEmbrace",
+          "level_interval": [
+            65,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemUruksSmelting",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemExecuteThree",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Metadata/Items/Gems/SkillGemBearMaul",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemDemolisherTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gem/SupportGemArmourExplosion",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemElementalFocus",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
+          "level_interval": [
+            1,
             100
           ]
         }
@@ -934,7 +971,7 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Slipstrike Vest\n1. +383 to [Evasion] Rating\n2. 40% increased [Evasion|Evasion] Rating\n3. +45% to [Resistances|Fire Resistance]\n4. +41% to [Resistances|Cold Resistance]\n5. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n6. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n7. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
+      "additional_text": "Slipstrike Vest\n1. +89 to [Evasion] Rating\n2. 41% increased [Evasion|Evasion] Rating\n3. +42% to [Resistances|Fire Resistance]\n4. +42% to [Resistances|Cold Resistance]\n5. Gain [Deflect|Deflection Rating] equal to 26% of [Evasion|Evasion Rating]\n6. 60% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]\n7. [ShamanOnlyMods|Bonded]: +60 to maximum Life\n8. [ShamanOnlyMods|Bonded]: +60 to maximum Mana",
       "level_interval": [
         70,
         100
@@ -976,9 +1013,9 @@
     },
     {
       "inventory_id": "Ring2",
-      "additional_text": "Gold Ring\n1. 14% increased [ItemRarity|Rarity of Items] found\n2. Adds 39 to 61 [Fire] damage to [Attack|Attacks]\n3. Adds 29 to 50 [Cold] damage to [Attack|Attacks]\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. +42% to [Resistances|Cold Resistance]\n6. +25% to [Resistances|Chaos Resistance]",
+      "additional_text": "Gold Ring\n1. 15% increased [ItemRarity|Rarity of Items] found\n2. Adds 33 to 50 [Cold] damage to [Attack|Attacks]\n3. Adds 1 to 96 [Lightning] damage to [Attack|Attacks]\n4. +16% to all [ElementalDamage|Elemental] [Resistances]\n5. +26% to [Resistances|Chaos Resistance]",
       "level_interval": [
-        65,
+        64,
         100
       ],
       "slot_x": 0,
