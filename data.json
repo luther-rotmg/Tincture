@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-19T23:01:24+00:00",
+  "updated": "2026-07-20T00:04:37+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 18.5,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 23047,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 16.2,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 20162,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -43,7 +43,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 15.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 19195,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -87,7 +87,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 4.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 6121,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
