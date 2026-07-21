@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-21T20:22:28+00:00",
+  "updated": "2026-07-21T22:09:02+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -154,7 +154,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 14.7,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1552,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -209,7 +209,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 4.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 459,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -398,7 +398,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 13.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 971,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -409,7 +409,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 13.1,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 936,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -486,7 +486,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 3.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 274,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         }
