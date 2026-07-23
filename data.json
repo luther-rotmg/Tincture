@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-23T04:23:26+00:00",
+  "updated": "2026-07-23T07:40:19+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124261,
+        "characters": 124262,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 19.0,
           "delta": 0.0,
-          "n": 23633,
+          "n": 23634,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 10643,
+        "characters": 10648,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 17.1,
           "delta": 0.0,
-          "n": 1819,
+          "n": 1820,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.8,
           "delta": 0.0,
-          "n": 1570,
+          "n": 1571,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -177,7 +177,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 902,
+          "n": 903,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -199,7 +199,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 505,
+          "n": 506,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 20112,
+        "characters": 20122,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 18.3,
           "delta": 0.0,
-          "n": 3688,
+          "n": 3690,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.6,
           "delta": 0.0,
-          "n": 2929,
+          "n": 2930,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -299,7 +299,7 @@
           "skill": "",
           "pop": 7.8,
           "delta": 0.0,
-          "n": 1569,
+          "n": 1570,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -310,7 +310,7 @@
           "skill": "",
           "pop": 7.1,
           "delta": 0.0,
-          "n": 1428,
+          "n": 1429,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -321,7 +321,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1341,
+          "n": 1342,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -332,7 +332,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 946,
+          "n": 947,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 7205,
+        "characters": 7209,
         "ascendancies": 10
       },
       "builds": [
@@ -388,7 +388,7 @@
           "skill": "",
           "pop": 14.2,
           "delta": 0.0,
-          "n": 1026,
+          "n": 1027,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -399,7 +399,7 @@
           "skill": "",
           "pop": 13.6,
           "delta": 0.0,
-          "n": 979,
+          "n": 980,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -421,7 +421,7 @@
           "skill": "",
           "pop": 8.7,
           "delta": 0.0,
-          "n": 629,
+          "n": 630,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 9979,
+        "characters": 9987,
         "ascendancies": 6
       },
       "builds": [
