@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-23T23:05:44+00:00",
+  "updated": "2026-07-24T00:07:37+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 19.3,
-          "delta": 0.3,
+          "delta": 0.0,
           "n": 23942,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 16.8,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 20878,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -43,7 +43,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 13.9,
-          "delta": -0.5,
+          "delta": 0.0,
           "n": 17304,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 7.1,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 8835,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -98,7 +98,7 @@
           "asc": "Blood Mage",
           "skill": "",
           "pop": 3.9,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4892,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         },
