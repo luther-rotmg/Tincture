@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-26T16:09:42+00:00",
+  "updated": "2026-07-26T18:07:41+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124264,
+        "characters": 124263,
         "ascendancies": 10
       },
       "builds": [
@@ -66,7 +66,7 @@
           "skill": "",
           "pop": 5.0,
           "delta": 0.0,
-          "n": 6165,
+          "n": 6164,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 10855,
+        "characters": 10863,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 17.1,
           "delta": 0.0,
-          "n": 1859,
+          "n": 1860,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.7,
           "delta": 0.0,
-          "n": 1598,
+          "n": 1599,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -166,7 +166,7 @@
           "skill": "",
           "pop": 13.3,
           "delta": 0.0,
-          "n": 1448,
+          "n": 1450,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -188,7 +188,7 @@
           "skill": "",
           "pop": 5.0,
           "delta": 0.0,
-          "n": 546,
+          "n": 547,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -232,7 +232,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 378,
+          "n": 379,
           "tag": "Time-bending caster — spike-cast glass cannon"
         },
         {
@@ -243,7 +243,7 @@
           "skill": "",
           "pop": 2.9,
           "delta": 0.0,
-          "n": 320,
+          "n": 321,
           "tag": "Crossbow generalist — flexible, anti-caster"
         }
       ]
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 20560,
+        "characters": 20570,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 18.2,
           "delta": 0.0,
-          "n": 3750,
+          "n": 3752,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.5,
           "delta": 0.0,
-          "n": 2989,
+          "n": 2990,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 8.0,
           "delta": 0.0,
-          "n": 1649,
+          "n": 1650,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -310,7 +310,7 @@
           "skill": "",
           "pop": 7.1,
           "delta": 0.0,
-          "n": 1465,
+          "n": 1466,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -321,7 +321,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1375,
+          "n": 1376,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -332,7 +332,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 966,
+          "n": 967,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -354,7 +354,7 @@
           "skill": "",
           "pop": 4.0,
           "delta": 0.0,
-          "n": 823,
+          "n": 824,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 7343,
+        "characters": 7349,
         "ascendancies": 10
       },
       "builds": [
@@ -388,7 +388,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 1049,
+          "n": 1050,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -421,7 +421,7 @@
           "skill": "",
           "pop": 8.8,
           "delta": 0.0,
-          "n": 647,
+          "n": 648,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -443,7 +443,7 @@
           "skill": "",
           "pop": 5.5,
           "delta": 0.0,
-          "n": 404,
+          "n": 405,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -454,7 +454,7 @@
           "skill": "",
           "pop": 4.8,
           "delta": 0.0,
-          "n": 355,
+          "n": 356,
           "tag": "Armour-stacking warrior — durable frontline"
         },
         {
@@ -465,7 +465,7 @@
           "skill": "",
           "pop": 4.8,
           "delta": 0.0,
-          "n": 353,
+          "n": 354,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 10078,
+        "characters": 10062,
         "ascendancies": 6
       },
       "builds": [
