@@ -452,14 +452,6 @@
       "weapon_set": 2
     },
     {
-      "id": "monkchakra2_",
-      "weapon_set": 2
-    },
-    {
-      "id": "monkchakra3",
-      "weapon_set": 2
-    },
-    {
       "id": "slowed_enemies22",
       "weapon_set": 2
     },
@@ -468,11 +460,19 @@
       "weapon_set": 2
     },
     {
+      "id": "minion_offence59",
+      "weapon_set": 2
+    },
+    {
       "id": "attack_speed10",
       "weapon_set": 2
     },
     {
       "id": "oracle_movement_cooldown2",
+      "weapon_set": 2
+    },
+    {
+      "id": "monkchakra6",
       "weapon_set": 2
     },
     {
@@ -626,14 +626,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemBlindTwo",
+          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemZenithTwo",
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
           "level_interval": [
             1,
             100
@@ -654,7 +654,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "id": "Metadata/Items/Gems/SupportGemBlindTwo",
           "level_interval": [
             1,
             100
@@ -707,14 +707,14 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemColdMastery",
+          "id": "Metadata/Items/Gem/SupportGemInterlude",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemInterlude",
+          "id": "Metadata/Items/Gems/SupportGemColdMastery",
           "level_interval": [
             1,
             100

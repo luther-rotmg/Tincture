@@ -29,9 +29,6 @@
       "id": "strength70"
     },
     {
-      "id": "AscendancyMercenary2Notable3_"
-    },
-    {
       "id": "attributes114"
     },
     {
@@ -39,6 +36,9 @@
     },
     {
       "id": "slow_mitigation11"
+    },
+    {
+      "id": "area_attacks17"
     },
     {
       "id": "evasion35"
@@ -80,9 +80,6 @@
       "id": "dexterity12_"
     },
     {
-      "id": "evasion19"
-    },
-    {
       "id": "poison16"
     },
     {
@@ -119,6 +116,12 @@
       "id": "being_surrounded23"
     },
     {
+      "id": "area_attacks30"
+    },
+    {
+      "id": "AscendancyMercenary2Small7"
+    },
+    {
       "id": "strength67"
     },
     {
@@ -152,9 +155,6 @@
       "id": "attributes19"
     },
     {
-      "id": "AscendancyMercenary2Small3"
-    },
-    {
       "id": "being_surrounded10"
     },
     {
@@ -177,9 +177,6 @@
     },
     {
       "id": "elemental_attacks8"
-    },
-    {
-      "id": "AscendancyMercenary2Small4"
     },
     {
       "id": "jewel_slot1976"
@@ -212,6 +209,9 @@
       "id": "area_attacks15"
     },
     {
+      "id": "AscendancyMercenary2Notable7"
+    },
+    {
       "id": "evasion10"
     },
     {
@@ -236,6 +236,9 @@
       "id": "attributes73"
     },
     {
+      "id": "AscendancyMercenary2Small1"
+    },
+    {
       "id": "duelist_mercenary_notable2"
     },
     {
@@ -246,9 +249,6 @@
     },
     {
       "id": "evasion8"
-    },
-    {
-      "id": "AscendancyMercenary2Notable4"
     },
     {
       "id": "jewel_slot1970"
@@ -282,9 +282,6 @@
     },
     {
       "id": "strength71"
-    },
-    {
-      "id": "evasion30"
     },
     {
       "id": "dexterity79"
@@ -345,6 +342,9 @@
     },
     {
       "id": "AscendancyMercenary2Small5"
+    },
+    {
+      "id": "AscendancyMercenary2Notable1"
     },
     {
       "id": "attributes43"
@@ -882,7 +882,7 @@
     },
     {
       "inventory_id": "Boots1",
-      "additional_text": "Drakeskin Boots\n1. +173 to [Evasion] Rating\n2. +51% to [Resistances|Chaos Resistance]\n3. Gain [Deflect|Deflection Rating] equal to 23% of [Evasion|Evasion Rating]\n4. 30% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
+      "additional_text": "Drakeskin Boots\n1. +173 to [Evasion] Rating\n2. +51% to [Resistances|Chaos Resistance]\n3. Gain [Deflect|Deflection Rating] equal to 23% of [Evasion|Evasion Rating]\n4. 5% increased Movement Speed\n5. Your speed is unaffected by [Slow|Slows]\n6. [ShamanOnlyMods|Bonded]: 5% increased Movement Speed\n7. [ShamanOnlyMods|Bonded]: 10% increased [CooldownRecovery|Cooldown Recovery Rate]",
       "level_interval": [
         80,
         100
@@ -893,12 +893,6 @@
     {
       "inventory_id": "BodyArmour1",
       "unique_name": "Hyrri's Ire",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -929,8 +923,14 @@
       "slot_y": 0
     },
     {
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Weapon1",
-      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. Adds 184 to 278 [Fire|Fire] Damage\n3. Adds 20 to 424 [Lightning|Lightning] Damage\n4. 17% increased [Attack] Speed\n5. +1 Suffix Modifier allowed\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. Can roll Destruction modifiers\n8. [ShamanOnlyMods|Bonded]: +5% to all [ElementalDamage|Elemental] [Resistances]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. Adds 180 to 270 [Fire|Fire] Damage\n3. Adds 15 to 422 [Lightning|Lightning] Damage\n4. 19% increased [Attack] Speed\n5. +1 Suffix Modifier allowed\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. Can roll Destruction modifiers\n8. [ShamanOnlyMods|Bonded]: +5% to all [ElementalDamage|Elemental] [Resistances]\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         79,
         100

@@ -44,9 +44,6 @@
       "id": "intelligence57"
     },
     {
-      "id": "criticals89"
-    },
-    {
       "id": "dexterity26"
     },
     {
@@ -167,13 +164,13 @@
       "id": "strength46"
     },
     {
-      "id": "criticals87"
-    },
-    {
       "id": "attributes9"
     },
     {
       "id": "attributes11"
+    },
+    {
+      "id": "criticals83"
     },
     {
       "id": "dexterity7"
@@ -206,7 +203,7 @@
       "id": "mana32"
     },
     {
-      "id": "AscendancyMercenary3Small5"
+      "id": "AscendancyMercenary3Notable2_3_"
     },
     {
       "id": "remnant7"
@@ -248,10 +245,16 @@
       "id": "projectile_spells1"
     },
     {
+      "id": "criticals86"
+    },
+    {
       "id": "intelligence54"
     },
     {
       "id": "remnant10"
+    },
+    {
+      "id": "criticals84"
     },
     {
       "id": "intelligence59"
@@ -347,10 +350,10 @@
       "id": "AscendancyMercenary3Start"
     },
     {
-      "id": "dexterity77"
+      "id": "AscendancyMercenary3Small2"
     },
     {
-      "id": "criticals90"
+      "id": "dexterity77"
     },
     {
       "id": "passive_keystone_eldritch_battery__"
@@ -360,9 +363,6 @@
     },
     {
       "id": "dexterity9"
-    },
-    {
-      "id": "AscendancyMercenary3Notable5__"
     },
     {
       "id": "attributes8_"
@@ -381,6 +381,9 @@
     },
     {
       "id": "projectiles18"
+    },
+    {
+      "id": "AscendancyMercenary3Notable2"
     },
     {
       "id": "jewel_slot1960"
@@ -793,7 +796,7 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemDemolisherTwo",
+          "id": "Metadata/Items/Gems/SupportGemDemolisher",
           "level_interval": [
             1,
             100
@@ -852,15 +855,6 @@
       "level_interval": [
         90,
         100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemDemolisher",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
       ]
     }
   ],
@@ -872,18 +866,14 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Belt1",
-      "unique_name": "Headhunter",
+      "inventory_id": "Boots1",
+      "unique_name": "Wondertrap",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Boots1",
-      "additional_text": "Luxurious Slippers\n1. 35% increased Movement Speed\n2. 76% increased [EnergyShield|Energy Shield]\n3. +35% to [Resistances|Fire Resistance]\n4. +43% to [Resistances|Cold Resistance]\n5. +29% to [Resistances|Lightning Resistance]\n6. 10% increased Movement Speed when on [LowLife|Low Life]",
-      "level_interval": [
-        70,
-        100
-      ],
+      "inventory_id": "Belt1",
+      "unique_name": "Headhunter",
       "slot_x": 0,
       "slot_y": 0
     },

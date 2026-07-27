@@ -955,7 +955,7 @@
     },
     {
       "inventory_id": "Weapon2",
-      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. 20% increased Explicit Lightning Modifier magnitudes\n3. Adds 25 to 851 [Lightning|Lightning] Damage\n4. +5 to Level of all [Projectile] Skills\n5. Forged by the Ire of Aldur\n6. [Grenade|Grenades] have 10% chance to activate a second time\n7. Can roll Destruction modifiers\n8. [ShamanOnlyMods|Bonded]: +5% to all [ElementalDamage|Elemental] [Resistances]\n9. [ShamanOnlyMods|Bonded]: 40% increased [Crossbow|Crossbow] Reload Speed",
+      "additional_text": "Siege Crossbow\n1. [Grenade] Skills Fire an additional [Projectile|Projectile]\n2. 20% increased Explicit Lightning Modifier magnitudes\n3. Adds 25 to 851 [Lightning|Lightning] Damage\n4. +5 to Level of all [Projectile] Skills\n5. Forged by the Ire of Aldur\n6. [Grenade|Grenades] have 10% chance to activate a second time\n7. Can roll Destruction modifiers\n8. [ShamanOnlyMods|Bonded]: 25% increased [Lightning] Damage\n9. [ShamanOnlyMods|Bonded]: +5% to all [ElementalDamage|Elemental] [Resistances]\n10. [ShamanOnlyMods|Bonded]: 40% increased [Crossbow|Crossbow] Reload Speed",
       "level_interval": [
         79,
         100
@@ -965,7 +965,7 @@
     },
     {
       "inventory_id": "Weapon1",
-      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 25 to 625 [Lightning|Lightning] Damage\n3. 21% increased [Attack] Speed\n4. Forged by the Ire of Aldur\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "additional_text": "Gemini Crossbow\n1. Loads an additional bolt\n2. Adds 25 to 625 [Lightning|Lightning] Damage\n3. 21% increased [Attack] Speed\n4. Forged by the Ire of Aldur\n5. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n6. [ShamanOnlyMods|Bonded]: 25% increased [Lightning] Damage\n7. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
         78,
         100

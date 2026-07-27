@@ -1,7 +1,7 @@
 {
   "name": "Warbringer — Shield Wall (public ladder)",
   "author": "Tincture — reconstructed from public ladder character \"FucqmanG\" (y01488-7457)",
-  "description": "A representative Warbringer build from the public runesofaldur ladder (character \"FucqmanG\", account \"y01488-7457\", level 99), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/y01488-7457/FucqmanG . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
+  "description": "A representative Warbringer build from the public runesofaldur ladder (character \"FucqmanG\", account \"y01488-7457\", level 100), reconstructed by Tincture from poe.ninja: https://poe.ninja/poe2/builds/runesofaldur/character/y01488-7457/FucqmanG . Path of Exile and its assets are owned by Grinding Gear Games; this tool isn't affiliated with or endorsed by GGG.",
   "ascendancy": "Warrior2",
   "passives": [
     {
@@ -41,7 +41,13 @@
       "id": "armour5"
     },
     {
+      "id": "fire38"
+    },
+    {
       "id": "maximum_resistances7_"
+    },
+    {
+      "id": "area_of_effect16"
     },
     {
       "id": "armour47"
@@ -51,9 +57,6 @@
     },
     {
       "id": "life_leech26"
-    },
-    {
-      "id": "life_leech28_"
     },
     {
       "id": "attack_speed54"
@@ -87,6 +90,9 @@
     },
     {
       "id": "melee12"
+    },
+    {
+      "id": "area_of_effect15"
     },
     {
       "id": "rage2"
@@ -144,9 +150,6 @@
     },
     {
       "id": "strength103"
-    },
-    {
-      "id": "warcries40"
     },
     {
       "id": "AscendancyWarrior2Small8"
@@ -227,10 +230,10 @@
       "id": "slow_attacks3"
     },
     {
-      "id": "warcries42"
+      "id": "AscendancyWarrior2Notable2"
     },
     {
-      "id": "AscendancyWarrior2Notable2"
+      "id": "area_of_effect18"
     },
     {
       "id": "attributes18"
@@ -287,9 +290,6 @@
       "id": "strength54"
     },
     {
-      "id": "life_leech16"
-    },
-    {
       "id": "AscendancyWarrior2Small2"
     },
     {
@@ -297,6 +297,9 @@
     },
     {
       "id": "strength108_"
+    },
+    {
+      "id": "fire10"
     },
     {
       "id": "strength71"
@@ -350,6 +353,9 @@
       "id": "jewel_slot1971"
     },
     {
+      "id": "fire16"
+    },
+    {
       "id": "melee33"
     },
     {
@@ -380,13 +386,13 @@
       "id": "armour4_"
     },
     {
+      "id": "area_of_effect19"
+    },
+    {
       "id": "strength101"
     },
     {
       "id": "maximum_resistances21"
-    },
-    {
-      "id": "warcries41"
     },
     {
       "id": "attributes6"
@@ -515,7 +521,7 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemLifeThiefThree",
+          "id": "Metadata/Items/Gems/SupportGemHeavySwing",
           "level_interval": [
             1,
             100
@@ -545,7 +551,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
+          "id": "Metadata/Items/Gems/SupportGemCannibalismTwo",
+          "level_interval": [
+            1,
+            100
+          ]
+        },
+        {
+          "id": "Metadata/Items/Gems/SupportGemFireMastery",
           "level_interval": [
             1,
             100
@@ -559,37 +572,14 @@
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemCannibalism",
+          "id": "Metadata/Items/Gem/SupportGemHerDeclaration",
           "level_interval": [
             1,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gems/SupportGemFireMastery",
-          "level_interval": [
-            1,
-            100
-          ]
-        }
-      ]
-    },
-    {
-      "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
-      "level_interval": [
-        84,
-        100
-      ],
-      "support_skills": [
-        {
-          "id": "Metadata/Items/Gems/SupportGemPersistence",
-          "level_interval": [
-            1,
-            100
-          ]
-        },
-        {
-          "id": "Metadata/Items/Gems/SupportGemVitality",
+          "id": "Metadata/Items/Gems/SupportGemVitalityTwo",
           "level_interval": [
             1,
             100
@@ -605,14 +595,14 @@
       ],
       "support_skills": [
         {
-          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
+          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
           "level_interval": [
             65,
             100
           ]
         },
         {
-          "id": "Metadata/Items/Gem/SupportGemUhtredsOmen",
+          "id": "Metadata/Items/Gem/SupportGemDiallasDesire",
           "level_interval": [
             65,
             100
@@ -644,6 +634,22 @@
       ]
     },
     {
+      "id": "Metadata/Items/Gem/SkillGemScavengedPlating",
+      "level_interval": [
+        90,
+        100
+      ],
+      "support_skills": [
+        {
+          "id": "Metadata/Items/Gems/SupportGemPersistence",
+          "level_interval": [
+            1,
+            100
+          ]
+        }
+      ]
+    },
+    {
       "id": "Metadata/Items/Gem/SkillGemShieldBlock",
       "level_interval": [
         1,
@@ -653,22 +659,38 @@
   ],
   "inventory_slots": [
     {
+      "inventory_id": "Ring2",
+      "additional_text": "Grasping Ring\n1. This item gains bonuses from Socketed Items as though it was Gloves\n2. 8% increased [Attack] Speed\n3. [ShamanOnlyMods|Bonded]: 20% reduced [Slow|Slowing] Potency of [Debuff|Debuffs] on You",
+      "level_interval": [
+        50,
+        100
+      ],
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
       "inventory_id": "Boots1",
       "unique_name": "Trampletoe",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring2",
+      "inventory_id": "Belt1",
+      "unique_name": "Mageblood",
+      "slot_x": 0,
+      "slot_y": 0
+    },
+    {
+      "inventory_id": "Ring1",
       "unique_name": "Kalandra's Touch",
       "slot_x": 0,
       "slot_y": 0
     },
     {
-      "inventory_id": "Weapon1",
-      "additional_text": "Marauding Mace\n1. Adds 11 to 21 [Physical|Physical] Damage\n2. Adds 69 to 106 [Cold|Cold] Damage\n3. +31 to [Accuracy|Accuracy] Rating\n4. +4 to Level of all [Melee|Melee] Skills\n5. 10% increased [LightRadius|Light Radius]\n6. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n7. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n8. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
+      "inventory_id": "Helm1",
+      "additional_text": "Imperial Greathelm\n1. 100% increased [Armour|Armour]\n2. +141 to maximum Life\n3. +109 to maximum Mana\n4. +43% to [Resistances|Fire Resistance]\n5. +41% to [Resistances|Cold Resistance]\n6. +18% to [Resistances|Fire Resistance]\n7. [RavenTouched|Raven-Touched]\n8. [ShamanOnlyMods|Bonded]: +20 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +20 to maximum Mana",
       "level_interval": [
-        77,
+        80,
         100
       ],
       "slot_x": 0,
@@ -686,23 +708,11 @@
     },
     {
       "inventory_id": "BodyArmour1",
-      "additional_text": "Warlord Cuirass\n1. +25% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n2. +302 to [Armour|Armour]\n3. +45% to [Resistances|Cold Resistance]\n4. +41% to [Resistances|Lightning Resistance]\n5. +39% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. 6% increased maximum Life\n7. 50% reduced [BuffEffect|effect] of [Curse|Curses] on you\n8. [ShamanOnlyMods|Bonded]: 8% increased [Curse] [BuffMagnitude|Magnitudes]",
+      "additional_text": "Warlord Cuirass\n1. +25% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n2. 110% increased [Armour|Armour]\n3. +45% to [Resistances|Cold Resistance]\n4. +43% to [Resistances|Lightning Resistance]\n5. +48% of [Armour|Armour] also applies to [ElementalDamage|Elemental Damage]\n6. +36% to [Resistances|Lightning Resistance]\n7. 50% reduced [BuffEffect|effect] of [Curse|Curses] on you\n8. [ShamanOnlyMods|Bonded]: +40 to maximum Life\n9. [ShamanOnlyMods|Bonded]: +40 to maximum Mana\n10. [ShamanOnlyMods|Bonded]: 8% increased [Curse] [BuffMagnitude|Magnitudes]",
       "level_interval": [
         80,
         100
       ],
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Helm1",
-      "unique_name": "Thrillsteel",
-      "slot_x": 0,
-      "slot_y": 0
-    },
-    {
-      "inventory_id": "Belt1",
-      "unique_name": "Mageblood",
       "slot_x": 0,
       "slot_y": 0
     },
@@ -717,10 +727,10 @@
       "slot_y": 0
     },
     {
-      "inventory_id": "Ring1",
-      "additional_text": "Amethyst Ring\n1. +9% to [Resistances|Chaos Resistance]\n2. Adds 15 to 30 [Physical|Physical] Damage to [Attack|Attacks]\n3. +114 to maximum Life\n4. 18% increased [ItemRarity|Rarity of Items] found\n5. +16% to all [ElementalDamage|Elemental] [Resistances]\n6. +38% to [Resistances|Fire Resistance]",
+      "inventory_id": "Weapon1",
+      "additional_text": "Marauding Mace\n1. 69% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]\n2. 28% increased [Attack] Speed\n3. Gain 74 Life per enemy killed\n4. [LifeLeech|Leeches] 6% of [Physical|Physical] Damage as Life\n5. 50% increased [Attack] Damage against [Rarity|Rare or Unique] Enemies\n6. [Gain] 5% of Damage as Extra Damage of all [ElementalDamage|Elements]\n7. [ShamanOnlyMods|Bonded]: 5% increased maximum Life\n8. [ShamanOnlyMods|Bonded]: +1 to Level of all [Attack] Skills\n9. [ShamanOnlyMods|Bonded]: 8% chance to gain an additional random [Charges|Charge] when you gain a Charge",
       "level_interval": [
-        60,
+        77,
         100
       ],
       "slot_x": 0,
