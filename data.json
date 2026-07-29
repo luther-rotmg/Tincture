@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-07-29T21:06:34+00:00",
+  "updated": "2026-07-29T22:09:11+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 14.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 18090,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -154,7 +154,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 14.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1615,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -265,7 +265,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 18.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 3812,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -453,7 +453,7 @@
           "asc": "Smith of Kitava",
           "skill": "",
           "pop": 4.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 361,
           "tag": "Armour-stacking warrior — durable frontline"
         },
