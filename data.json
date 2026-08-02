@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-01T23:04:46+00:00",
+  "updated": "2026-08-02T00:06:32+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 22.5,
-          "delta": -0.3,
+          "delta": 0.0,
           "n": 27971,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 14.8,
-          "delta": 0.2,
+          "delta": 0.0,
           "n": 18429,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -43,7 +43,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 11.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 13637,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 8.8,
-          "delta": -0.2,
+          "delta": 0.0,
           "n": 10986,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -87,7 +87,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 4.0,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4960,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -109,7 +109,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 3.8,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 4779,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
@@ -120,7 +120,7 @@
           "asc": "Blood Mage",
           "skill": "",
           "pop": 3.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 4190,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         }
@@ -176,7 +176,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 993,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -242,7 +242,7 @@
           "asc": "Witchhunter",
           "skill": "",
           "pop": 3.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 330,
           "tag": "Crossbow generalist — flexible, anti-caster"
         }
