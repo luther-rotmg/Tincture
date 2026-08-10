@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-10T21:51:58+00:00",
+  "updated": "2026-08-10T22:49:05+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 20.7,
-          "delta": -0.2,
+          "delta": 0.0,
           "n": 25696,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 15.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 19450,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -87,7 +87,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 4.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 5492,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
@@ -98,7 +98,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 3.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4487,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -120,7 +120,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 3.3,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4162,
           "tag": "Ailment caster — control and scaling damage"
         }
@@ -154,7 +154,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 14.5,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1686,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -342,7 +342,7 @@
           "asc": "Lich",
           "skill": "",
           "pop": 4.0,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 911,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
@@ -409,7 +409,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 12.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 1011,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -464,7 +464,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 380,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -475,7 +475,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 3.9,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 309,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
