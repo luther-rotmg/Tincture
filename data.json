@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-13T20:54:31+00:00",
+  "updated": "2026-08-13T21:55:22+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 20.3,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 25243,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 15.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 19729,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -65,7 +65,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 5.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 7023,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -76,7 +76,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 4.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 5790,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -87,7 +87,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 4.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 5663,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
@@ -120,7 +120,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 3.2,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4027,
           "tag": "Ailment caster — control and scaling damage"
         }
@@ -165,7 +165,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 13.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1539,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -353,7 +353,7 @@
           "asc": "Witchhunter",
           "skill": "",
           "pop": 4.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 902,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
@@ -387,7 +387,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 14.0,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1110,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -420,7 +420,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 700,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -464,7 +464,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 385,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
