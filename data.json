@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-14T22:32:38+00:00",
+  "updated": "2026-08-14T23:29:19+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -65,7 +65,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 5.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 7013,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -231,7 +231,7 @@
           "asc": "Chronomancer",
           "skill": "",
           "pop": 3.4,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 405,
           "tag": "Time-bending caster — spike-cast glass cannon"
         },
@@ -265,7 +265,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 17.7,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4066,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -398,7 +398,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 13.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1083,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -420,7 +420,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 704,
           "tag": "Gem-stacking shell — scales with investment"
         },
