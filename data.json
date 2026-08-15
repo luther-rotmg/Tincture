@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-15T21:28:36+00:00",
+  "updated": "2026-08-15T22:31:00+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 20.2,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 25123,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 16.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 19834,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 8.5,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 10599,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -65,7 +65,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 5.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 7045,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -353,7 +353,7 @@
           "asc": "Witchhunter",
           "skill": "",
           "pop": 3.9,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 907,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
