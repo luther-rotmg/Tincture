@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-17T01:49:23+00:00",
+  "updated": "2026-08-17T03:07:40+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124226,
+        "characters": 124224,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 20.2,
           "delta": 0.0,
-          "n": 25032,
+          "n": 25031,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 16.0,
           "delta": 0.0,
-          "n": 19905,
+          "n": 19904,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 11846,
+        "characters": 11852,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 16.8,
           "delta": 0.0,
-          "n": 1987,
+          "n": 1988,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.5,
           "delta": 0.0,
-          "n": 1719,
+          "n": 1720,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -188,7 +188,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 600,
+          "n": 601,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -199,7 +199,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 554,
+          "n": 555,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -210,7 +210,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 534,
+          "n": 535,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 23181,
+        "characters": 23190,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 17.7,
           "delta": 0.0,
-          "n": 4097,
+          "n": 4099,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3349,
+          "n": 3350,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 8.1,
           "delta": 0.0,
-          "n": 1875,
+          "n": 1876,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -299,7 +299,7 @@
           "skill": "",
           "pop": 8.1,
           "delta": 0.0,
-          "n": 1873,
+          "n": 1874,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -354,7 +354,7 @@
           "skill": "",
           "pop": 3.9,
           "delta": 0.0,
-          "n": 911,
+          "n": 912,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -365,7 +365,7 @@
           "skill": "",
           "pop": 3.6,
           "delta": 0.0,
-          "n": 831,
+          "n": 832,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 12514,
+        "characters": 12527,
         "ascendancies": 6
       },
       "builds": [
