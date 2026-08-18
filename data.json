@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-18T20:33:03+00:00",
+  "updated": "2026-08-18T21:31:38+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -265,7 +265,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 17.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4117,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -276,7 +276,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 14.4,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 3371,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -387,7 +387,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 14.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 1121,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -398,7 +398,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 13.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 1099,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -431,7 +431,7 @@
           "asc": "Lich",
           "skill": "",
           "pop": 5.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 447,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
@@ -442,7 +442,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 5.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 446,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -464,7 +464,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 389,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
