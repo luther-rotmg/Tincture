@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-18T23:29:30+00:00",
+  "updated": "2026-08-19T01:46:07+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124231,
+        "characters": 124230,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 20.0,
-          "delta": -0.1,
-          "n": 24886,
+          "delta": 0.0,
+          "n": 24885,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 16.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 20072,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -120,7 +120,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 3.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 3911,
           "tag": "Ailment caster — control and scaling damage"
         }
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 11918,
+        "characters": 11921,
         "ascendancies": 10
       },
       "builds": [
@@ -166,7 +166,7 @@
           "skill": "",
           "pop": 13.1,
           "delta": 0.0,
-          "n": 1566,
+          "n": 1567,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -177,7 +177,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 1096,
+          "n": 1097,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -188,7 +188,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 605,
+          "n": 606,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 23363,
+        "characters": 23369,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 17.6,
           "delta": 0.0,
-          "n": 4119,
+          "n": 4120,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3372,
+          "n": 3373,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -343,7 +343,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 964,
+          "n": 965,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -354,7 +354,7 @@
           "skill": "",
           "pop": 3.9,
           "delta": 0.0,
-          "n": 912,
+          "n": 913,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -365,7 +365,7 @@
           "skill": "",
           "pop": 3.6,
           "delta": 0.0,
-          "n": 835,
+          "n": 836,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8035,
+        "characters": 8037,
         "ascendancies": 10
       },
       "builds": [
@@ -410,7 +410,7 @@
           "skill": "",
           "pop": 12.9,
           "delta": 0.0,
-          "n": 1038,
+          "n": 1039,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -421,7 +421,7 @@
           "skill": "",
           "pop": 8.9,
           "delta": 0.0,
-          "n": 713,
+          "n": 714,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 12701,
+        "characters": 12708,
         "ascendancies": 6
       },
       "builds": [
