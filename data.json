@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-19T19:32:41+00:00",
+  "updated": "2026-08-19T20:37:34+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 23434,
+        "characters": 23440,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 17.6,
           "delta": 0.0,
-          "n": 4131,
+          "n": 4132,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3383,
+          "n": 3384,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -321,7 +321,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1581,
+          "n": 1582,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -343,7 +343,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 967,
+          "n": 968,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8060,
+        "characters": 8062,
         "ascendancies": 10
       },
       "builds": [
@@ -421,7 +421,7 @@
           "skill": "",
           "pop": 8.9,
           "delta": 0.0,
-          "n": 715,
+          "n": 716,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 12772,
+        "characters": 12789,
         "ascendancies": 6
       },
       "builds": [
