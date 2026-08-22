@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-22T16:34:03+00:00",
+  "updated": "2026-08-22T17:28:25+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12027,
+        "characters": 12028,
         "ascendancies": 10
       },
       "builds": [
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.5,
           "delta": 0.0,
-          "n": 1742,
+          "n": 1743,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 23706,
+        "characters": 23719,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 17.5,
           "delta": 0.0,
-          "n": 4157,
+          "n": 4159,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3422,
+          "n": 3423,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 8.1,
           "delta": 0.0,
-          "n": 1920,
+          "n": 1922,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -299,7 +299,7 @@
           "skill": "",
           "pop": 8.1,
           "delta": 0.0,
-          "n": 1918,
+          "n": 1919,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -310,7 +310,7 @@
           "skill": "",
           "pop": 7.4,
           "delta": 0.0,
-          "n": 1762,
+          "n": 1763,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -321,7 +321,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1595,
+          "n": 1596,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -343,7 +343,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 981,
+          "n": 982,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -354,7 +354,7 @@
           "skill": "",
           "pop": 3.9,
           "delta": 0.0,
-          "n": 919,
+          "n": 920,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -500,7 +500,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 13038,
+        "characters": 13052,
         "ascendancies": 6
       },
       "builds": [
