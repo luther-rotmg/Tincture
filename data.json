@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-08-24T22:35:55+00:00",
+  "updated": "2026-08-24T23:29:03+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -32,7 +32,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 16.5,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 20458,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -65,7 +65,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 5.7,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 7128,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -120,7 +120,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 3.1,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3790,
           "tag": "Ailment caster — control and scaling damage"
         }
@@ -165,7 +165,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 13.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 1594,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -287,7 +287,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 8.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1953,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -409,7 +409,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 12.9,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1059,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -475,7 +475,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 4.1,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 333,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
