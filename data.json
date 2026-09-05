@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-05T15:56:39+00:00",
+  "updated": "2026-09-05T18:08:45+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124196,
+        "characters": 124198,
         "ascendancies": 10
       },
       "builds": [
@@ -99,7 +99,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 4367,
+          "n": 4368,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -110,7 +110,7 @@
           "skill": "",
           "pop": 3.4,
           "delta": 0.0,
-          "n": 4269,
+          "n": 4270,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 25921,
+        "characters": 25920,
         "ascendancies": 10
       },
       "builds": [
@@ -299,7 +299,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2193,
+          "n": 2192,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8474,
+        "characters": 8475,
         "ascendancies": 0
       },
       "builds": [],
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97609,
+        "characters": 97608,
         "ascendancies": 6
       },
       "builds": [
