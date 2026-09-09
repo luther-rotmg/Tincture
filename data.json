@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-09T04:28:05+00:00",
+  "updated": "2026-09-09T09:35:11+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124395,
+        "characters": 124396,
         "ascendancies": 10
       },
       "builds": [
@@ -55,7 +55,7 @@
           "skill": "",
           "pop": 8.6,
           "delta": 0.0,
-          "n": 10712,
+          "n": 10713,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26082,
+        "characters": 26093,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4363,
+          "n": 4365,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3748,
+          "n": 3749,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 9.1,
           "delta": 0.0,
-          "n": 2386,
+          "n": 2387,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -332,7 +332,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1177,
+          "n": 1178,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -343,7 +343,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1061,
+          "n": 1062,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -354,7 +354,7 @@
           "skill": "",
           "pop": 3.8,
           "delta": 0.0,
-          "n": 1003,
+          "n": 1004,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -365,7 +365,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 909,
+          "n": 910,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8485,
+        "characters": 8487,
         "ascendancies": 0
       },
       "builds": [],
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97562,
+        "characters": 97568,
         "ascendancies": 6
       },
       "builds": [
