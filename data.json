@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-10T14:16:45+00:00",
+  "updated": "2026-09-10T18:18:22+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124380,
+        "characters": 124388,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 20.3,
           "delta": 0.0,
-          "n": 25237,
+          "n": 25238,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 14.2,
           "delta": 0.0,
-          "n": 17623,
+          "n": 17624,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 13.6,
           "delta": 0.0,
-          "n": 16872,
+          "n": 16873,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -55,7 +55,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 10613,
+          "n": 10614,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -66,7 +66,7 @@
           "skill": "",
           "pop": 5.7,
           "delta": 0.0,
-          "n": 7032,
+          "n": 7033,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -77,7 +77,7 @@
           "skill": "",
           "pop": 4.2,
           "delta": 0.0,
-          "n": 5165,
+          "n": 5166,
           "tag": "Elemental spellcaster — strong bossing"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12421,
+        "characters": 12424,
         "ascendancies": 10
       },
       "builds": [
@@ -188,7 +188,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 638,
+          "n": 639,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -199,7 +199,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 585,
+          "n": 586,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26133,
+        "characters": 26137,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4373,
+          "n": 4374,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3756,
+          "n": 3757,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -299,7 +299,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2210,
+          "n": 2211,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97559,
+        "characters": 97545,
         "ascendancies": 6
       },
       "builds": [
