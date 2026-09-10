@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-10T21:33:28+00:00",
+  "updated": "2026-09-10T23:59:58+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124383,
+        "characters": 124384,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 20.4,
-          "delta": 0.1,
-          "n": 25408,
+          "delta": 0.0,
+          "n": 25409,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -43,7 +43,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 13.4,
-          "delta": -0.2,
+          "delta": 0.0,
           "n": 16670,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 8.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 10643,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -76,7 +76,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 4.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 5109,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -87,7 +87,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 3.8,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 4674,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -98,7 +98,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 3.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4526,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
@@ -109,7 +109,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 3.4,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 4288,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12424,
+        "characters": 12426,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 2066,
+          "n": 2067,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.5,
           "delta": 0.0,
-          "n": 1797,
+          "n": 1798,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26146,
+        "characters": 26147,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4372,
+          "n": 4373,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97544,
+        "characters": 97545,
         "ascendancies": 6
       },
       "builds": [
