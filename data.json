@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-13T22:20:17+00:00",
+  "updated": "2026-09-14T00:55:53+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124360,
+        "characters": 124357,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.5,
-          "delta": 0.4,
-          "n": 36676,
+          "delta": 0.0,
+          "n": 36675,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -32,8 +32,8 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 19.5,
-          "delta": -0.2,
-          "n": 24257,
+          "delta": 0.0,
+          "n": 24256,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -43,8 +43,8 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.0,
-          "delta": -0.5,
-          "n": 11232,
+          "delta": 0.0,
+          "n": 11231,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -98,7 +98,7 @@
           "asc": "Titan",
           "skill": "",
           "pop": 2.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3283,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26266,
+        "characters": 26267,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4380,
+          "n": 4381,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -353,7 +353,7 @@
           "asc": "Witchhunter",
           "skill": "",
           "pop": 3.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1011,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97564,
+        "characters": 97565,
         "ascendancies": 6
       },
       "builds": [
