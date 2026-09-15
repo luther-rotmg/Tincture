@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-15T18:06:04+00:00",
+  "updated": "2026-09-15T21:15:19+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124351,
+        "characters": 124350,
         "ascendancies": 10
       },
       "builds": [
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.0,
           "delta": 0.0,
-          "n": 11139,
+          "n": 11138,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26315,
+        "characters": 26320,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4386,
+          "n": 4387,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3781,
+          "n": 3782,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2417,
+          "n": 2418,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -321,7 +321,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1766,
+          "n": 1767,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97564,
+        "characters": 97561,
         "ascendancies": 6
       },
       "builds": [
