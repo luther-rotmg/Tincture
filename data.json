@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-14T22:24:55+00:00",
+  "updated": "2026-09-15T01:21:10+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124348,
+        "characters": 124346,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.8,
-          "delta": 0.3,
-          "n": 37062,
+          "delta": 0.0,
+          "n": 37061,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -32,8 +32,8 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 19.4,
-          "delta": -0.1,
-          "n": 24157,
+          "delta": 0.0,
+          "n": 24156,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -76,7 +76,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 4.9,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 6082,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -120,7 +120,7 @@
           "asc": "Lich",
           "skill": "",
           "pop": 2.1,
-          "delta": null,
+          "delta": 0.0,
           "n": 2599,
           "tag": "Chaos / energy-shield caster — strong burst"
         }
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12447,
+        "characters": 12448,
         "ascendancies": 10
       },
       "builds": [
@@ -166,7 +166,7 @@
           "skill": "",
           "pop": 13.2,
           "delta": 0.0,
-          "n": 1643,
+          "n": 1644,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -176,7 +176,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.5,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 1177,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26292,
+        "characters": 26296,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.7,
           "delta": 0.0,
-          "n": 4382,
+          "n": 4383,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3778,
+          "n": 3779,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -288,7 +288,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2415,
+          "n": 2416,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -376,7 +376,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8489,
+        "characters": 8490,
         "ascendancies": 0
       },
       "builds": [],
