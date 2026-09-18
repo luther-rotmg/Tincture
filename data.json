@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-18T00:07:37+00:00",
+  "updated": "2026-09-18T05:47:51+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124354,
+        "characters": 124353,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 30.4,
-          "delta": 0.2,
-          "n": 37785,
+          "delta": 0.0,
+          "n": 37784,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -32,7 +32,7 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 19.3,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 24053,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 5.3,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 6633,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12459,
+        "characters": 12461,
         "ascendancies": 10
       },
       "builds": [
@@ -144,7 +144,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 2073,
+          "n": 2074,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -155,7 +155,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 1800,
+          "n": 1801,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -254,7 +254,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26365,
+        "characters": 26368,
         "ascendancies": 10
       },
       "builds": [
@@ -266,7 +266,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4387,
+          "n": 4388,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -277,7 +277,7 @@
           "skill": "",
           "pop": 14.4,
           "delta": 0.0,
-          "n": 3787,
+          "n": 3788,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -390,7 +390,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97507,
+        "characters": 97513,
         "ascendancies": 6
       },
       "builds": [
