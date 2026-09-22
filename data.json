@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-21T23:11:09+00:00",
+  "updated": "2026-09-22T04:39:57+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124349,
+        "characters": 124350,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 30.8,
-          "delta": 0.1,
-          "n": 38285,
+          "delta": 0.0,
+          "n": 38286,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 5.2,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 6499,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26482,
+        "characters": 26487,
         "ascendancies": 10
       },
       "builds": [
@@ -166,8 +166,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 14.3,
-          "delta": -0.1,
-          "n": 3799,
+          "delta": 0.0,
+          "n": 3800,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -178,7 +178,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2442,
+          "n": 2443,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2249,
+          "n": 2250,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 1975,
+          "n": 1976,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8509,
+        "characters": 8511,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97527,
+        "characters": 97522,
         "ascendancies": 6
       },
       "builds": [
