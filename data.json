@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-23T11:23:04+00:00",
+  "updated": "2026-09-23T16:45:38+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26521,
+        "characters": 26526,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4412,
+          "n": 4413,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -178,7 +178,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2446,
+          "n": 2447,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -244,7 +244,7 @@
           "skill": "",
           "pop": 3.9,
           "delta": 0.0,
-          "n": 1022,
+          "n": 1023,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -255,7 +255,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 923,
+          "n": 924,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8515,
+        "characters": 8516,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97549,
+        "characters": 97560,
         "ascendancies": 6
       },
       "builds": [
