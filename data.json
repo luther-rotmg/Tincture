@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-23T23:35:19+00:00",
+  "updated": "2026-09-24T04:33:25+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 31.0,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 38491,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -65,7 +65,7 @@
           "asc": "Infernalist",
           "skill": "",
           "pop": 5.1,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 6280,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
@@ -109,7 +109,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 2.5,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3047,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12461,
+        "characters": 12463,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26536,
+        "characters": 26537,
         "ascendancies": 10
       },
       "builds": [
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97576,
+        "characters": 97584,
         "ascendancies": 6
       },
       "builds": [
