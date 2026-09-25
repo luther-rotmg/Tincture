@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-24T22:13:12+00:00",
+  "updated": "2026-09-25T01:23:10+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -76,7 +76,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 4.9,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 6153,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -87,7 +87,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.0,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 5008,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26554,
+        "characters": 26556,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4415,
+          "n": 4416,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3806,
+          "n": 3807,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -243,7 +243,7 @@
           "asc": "Witchhunter",
           "skill": "",
           "pop": 3.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 1022,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97573,
+        "characters": 97562,
         "ascendancies": 6
       },
       "builds": [
