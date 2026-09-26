@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-26T12:58:49+00:00",
+  "updated": "2026-09-26T17:02:56+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124345,
+        "characters": 124344,
         "ascendancies": 10
       },
       "builds": [
@@ -66,7 +66,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 6320,
+          "n": 6319,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12466,
+        "characters": 12467,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26575,
+        "characters": 26580,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4420,
+          "n": 4421,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3808,
+          "n": 3809,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -222,7 +222,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1197,
+          "n": 1198,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -233,7 +233,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1092,
+          "n": 1093,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8525,
+        "characters": 8526,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97540,
+        "characters": 97541,
         "ascendancies": 6
       },
       "builds": [
