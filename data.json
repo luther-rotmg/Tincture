@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-09-26T22:39:17+00:00",
+  "updated": "2026-09-27T01:18:29+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 31.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 38749,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 5.1,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 6382,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26589,
+        "characters": 26588,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4419,
+          "n": 4418,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97530,
+        "characters": 97529,
         "ascendancies": 6
       },
       "builds": [
