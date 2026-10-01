@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-01T08:43:53+00:00",
+  "updated": "2026-10-01T16:17:56+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12476,
+        "characters": 12477,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26658,
+        "characters": 26662,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4434,
+          "n": 4435,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3816,
+          "n": 3817,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -222,7 +222,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1203,
+          "n": 1204,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97475,
+        "characters": 97479,
         "ascendancies": 6
       },
       "builds": [
