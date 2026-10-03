@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-03T00:23:13+00:00",
+  "updated": "2026-10-03T06:21:08+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 30.4,
-          "delta": -0.2,
+          "delta": 0.0,
           "n": 37843,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -76,7 +76,7 @@
           "asc": "Disciple of Varashta",
           "skill": "",
           "pop": 4.8,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 6025,
           "tag": "Ailment caster — control and scaling damage"
         },
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12480,
+        "characters": 12484,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26670,
+        "characters": 26672,
         "ascendancies": 10
       },
       "builds": [
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3818,
+          "n": 3819,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97470,
+        "characters": 97467,
         "ascendancies": 6
       },
       "builds": [
