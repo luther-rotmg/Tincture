@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-03T23:44:47+00:00",
+  "updated": "2026-10-04T05:40:03+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124344,
+        "characters": 124342,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 30.3,
-          "delta": -0.1,
-          "n": 37711,
+          "delta": 0.0,
+          "n": 37710,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.3,
           "delta": 0.0,
-          "n": 23970,
+          "n": 23969,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -43,7 +43,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 11423,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -98,7 +98,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 2.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3191,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26678,
+        "characters": 26679,
         "ascendancies": 10
       },
       "builds": [
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97477,
+        "characters": 97473,
         "ascendancies": 6
       },
       "builds": [
