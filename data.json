@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-05T22:31:27+00:00",
+  "updated": "2026-10-06T02:52:44+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124268,
+        "characters": 124262,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 30.1,
-          "delta": -0.1,
-          "n": 37395,
+          "delta": 0.0,
+          "n": 37393,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.3,
           "delta": 0.0,
-          "n": 24036,
+          "n": 24035,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -43,8 +43,8 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.3,
-          "delta": 0.1,
-          "n": 11512,
+          "delta": 0.0,
+          "n": 11511,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -55,7 +55,7 @@
           "skill": "",
           "pop": 5.3,
           "delta": 0.0,
-          "n": 6534,
+          "n": 6533,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12493,
+        "characters": 12494,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 97078,
+        "characters": 97016,
         "ascendancies": 6
       },
       "builds": [
