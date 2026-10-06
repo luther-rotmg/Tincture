@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-06T16:42:23+00:00",
+  "updated": "2026-10-06T21:34:13+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26703,
+        "characters": 26705,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4436,
+          "n": 4438,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -233,7 +233,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1100,
+          "n": 1099,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8531,
+        "characters": 8532,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 96853,
+        "characters": 96777,
         "ascendancies": 6
       },
       "builds": [
