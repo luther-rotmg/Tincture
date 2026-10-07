@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-07T08:32:01+00:00",
+  "updated": "2026-10-07T16:19:45+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124253,
+        "characters": 124256,
         "ascendancies": 10
       },
       "builds": [
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.4,
           "delta": 0.0,
-          "n": 24149,
+          "n": 24150,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.3,
           "delta": 0.0,
-          "n": 11571,
+          "n": 11572,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12489,
+        "characters": 12490,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26709,
+        "characters": 26714,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4439,
+          "n": 4440,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2274,
+          "n": 2275,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 1996,
+          "n": 1997,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -211,7 +211,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1792,
+          "n": 1793,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 96625,
+        "characters": 96563,
         "ascendancies": 6
       },
       "builds": [
