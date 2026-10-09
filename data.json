@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-08T21:58:40+00:00",
+  "updated": "2026-10-09T01:58:47+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124252,
+        "characters": 124253,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.7,
-          "delta": -0.1,
-          "n": 36889,
+          "delta": 0.0,
+          "n": 36890,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -43,7 +43,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 11636,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12493,
+        "characters": 12494,
         "ascendancies": 0
       },
       "builds": [],
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4442,
+          "n": 4440,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3830,
+          "n": 3828,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -178,7 +178,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2462,
+          "n": 2461,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2275,
+          "n": 2278,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 1998,
+          "n": 1999,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -244,7 +244,7 @@
           "skill": "",
           "pop": 3.9,
           "delta": 0.0,
-          "n": 1030,
+          "n": 1032,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
         {
@@ -255,7 +255,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 930,
+          "n": 931,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 96322,
+        "characters": 96292,
         "ascendancies": 6
       },
       "builds": [
