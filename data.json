@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-10T18:26:41+00:00",
+  "updated": "2026-10-10T22:24:28+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 29.6,
           "delta": 0.0,
-          "n": 36797,
+          "n": 36735,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.4,
           "delta": 0.0,
-          "n": 24128,
+          "n": 24122,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.4,
           "delta": 0.0,
-          "n": 11685,
+          "n": 11711,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -66,7 +66,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 6303,
+          "n": 6317,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
         {
@@ -77,7 +77,7 @@
           "skill": "",
           "pop": 4.8,
           "delta": 0.0,
-          "n": 5934,
+          "n": 5926,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -86,9 +86,9 @@
           "cls": "Druid",
           "asc": "Oracle",
           "skill": "",
-          "pop": 4.1,
-          "delta": 0.0,
-          "n": 5149,
+          "pop": 4.2,
+          "delta": 0.1,
+          "n": 5165,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -99,7 +99,7 @@
           "skill": "",
           "pop": 2.7,
           "delta": 0.0,
-          "n": 3299,
+          "n": 3315,
           "tag": "Elemental spellcaster — strong bossing"
         },
         {
@@ -110,7 +110,7 @@
           "skill": "",
           "pop": 2.6,
           "delta": 0.0,
-          "n": 3191,
+          "n": 3193,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -119,9 +119,9 @@
           "cls": "Witch",
           "asc": "Blood Mage",
           "skill": "",
-          "pop": 2.1,
-          "delta": 0.0,
-          "n": 2667,
+          "pop": 2.2,
+          "delta": 0.1,
+          "n": 2676,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         }
       ]
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26743,
+        "characters": 26747,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4443,
+          "n": 4442,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3829,
+          "n": 3831,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2278,
+          "n": 2279,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 2001,
+          "n": 2000,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -222,7 +222,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1208,
+          "n": 1209,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8534,
+        "characters": 8539,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 96007,
+        "characters": 95948,
         "ascendancies": 6
       },
       "builds": [
