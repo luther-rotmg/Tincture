@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-10T00:41:46+00:00",
+  "updated": "2026-10-10T06:56:19+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -21,7 +21,7 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.6,
-          "delta": -0.1,
+          "delta": 0.0,
           "n": 36796,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
@@ -98,7 +98,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 2.7,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3299,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26735,
+        "characters": 26738,
         "ascendancies": 10
       },
       "builds": [
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3828,
+          "n": 3829,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -178,7 +178,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2461,
+          "n": 2462,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 96124,
+        "characters": 96087,
         "ascendancies": 6
       },
       "builds": [
