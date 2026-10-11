@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-10T22:24:28+00:00",
+  "updated": "2026-10-11T01:47:04+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124249,
+        "characters": 124251,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 29.6,
           "delta": 0.0,
-          "n": 36735,
+          "n": 36736,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.4,
           "delta": 0.0,
-          "n": 24122,
+          "n": 24123,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -87,7 +87,7 @@
           "asc": "Oracle",
           "skill": "",
           "pop": 4.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 5165,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
@@ -120,7 +120,7 @@
           "asc": "Blood Mage",
           "skill": "",
           "pop": 2.2,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 2676,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         }
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12493,
+        "characters": 12495,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26747,
+        "characters": 26748,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4442,
+          "n": 4443,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 95948,
+        "characters": 95907,
         "ascendancies": 6
       },
       "builds": [
