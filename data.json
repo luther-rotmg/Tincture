@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-15T19:01:44+00:00",
+  "updated": "2026-10-15T22:07:17+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26780,
+        "characters": 26781,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4445,
+          "n": 4447,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3836,
+          "n": 3835,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 2002,
+          "n": 2000,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -211,7 +211,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1795,
+          "n": 1799,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -222,7 +222,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1213,
+          "n": 1212,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -233,7 +233,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1098,
+          "n": 1099,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -242,8 +242,8 @@
           "cls": "Mercenary",
           "asc": "Witchhunter",
           "skill": "",
-          "pop": 3.9,
-          "delta": 0.0,
+          "pop": 3.8,
+          "delta": -0.1,
           "n": 1031,
           "tag": "Crossbow generalist — flexible, anti-caster"
         },
@@ -255,7 +255,7 @@
           "skill": "",
           "pop": 3.5,
           "delta": 0.0,
-          "n": 930,
+          "n": 928,
           "tag": "Tactical crossbow — utility and team play"
         }
       ]
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 95108,
+        "characters": 95052,
         "ascendancies": 6
       },
       "builds": [
