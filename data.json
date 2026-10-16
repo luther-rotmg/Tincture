@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-16T17:19:07+00:00",
+  "updated": "2026-10-16T20:55:38+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124240,
+        "characters": 124241,
         "ascendancies": 10
       },
       "builds": [
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.6,
           "delta": 0.0,
-          "n": 11879,
+          "n": 11880,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26791,
+        "characters": 26792,
         "ascendancies": 10
       },
       "builds": [
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3836,
+          "n": 3837,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 94903,
+        "characters": 94850,
         "ascendancies": 6
       },
       "builds": [
