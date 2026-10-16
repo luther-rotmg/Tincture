@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-16T01:10:04+00:00",
+  "updated": "2026-10-16T07:01:33+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124237,
+        "characters": 124238,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.2,
-          "delta": -0.1,
-          "n": 36293,
+          "delta": 0.0,
+          "n": 36294,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -43,7 +43,7 @@
           "asc": "Gemling Legionnaire",
           "skill": "",
           "pop": 9.6,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 11879,
           "tag": "Gem-stacking shell — scales with investment"
         },
@@ -54,7 +54,7 @@
           "asc": "Deadeye",
           "skill": "",
           "pop": 5.4,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 6677,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 95019,
+        "characters": 94980,
         "ascendancies": 6
       },
       "builds": [
