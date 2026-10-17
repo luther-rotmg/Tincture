@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-17T13:36:43+00:00",
+  "updated": "2026-10-17T16:59:30+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124240,
+        "characters": 124238,
         "ascendancies": 10
       },
       "builds": [
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.4,
           "delta": 0.0,
-          "n": 24126,
+          "n": 24125,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.6,
           "delta": 0.0,
-          "n": 11912,
+          "n": 11911,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26793,
+        "characters": 26792,
         "ascendancies": 10
       },
       "builds": [
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2285,
+          "n": 2284,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 94760,
+        "characters": 94731,
         "ascendancies": 6
       },
       "builds": [
