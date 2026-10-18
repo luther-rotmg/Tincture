@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-17T22:10:52+00:00",
+  "updated": "2026-10-18T00:51:16+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124239,
+        "characters": 124237,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 29.1,
-          "delta": -0.1,
-          "n": 36172,
+          "delta": 0.0,
+          "n": 36171,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.4,
           "delta": 0.0,
-          "n": 24109,
+          "n": 24108,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -98,7 +98,7 @@
           "asc": "Stormweaver",
           "skill": "",
           "pop": 2.8,
-          "delta": 0.1,
+          "delta": 0.0,
           "n": 3425,
           "tag": "Elemental spellcaster — strong bossing"
         },
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26794,
+        "characters": 26795,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4448,
+          "n": 4449,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 94662,
+        "characters": 94644,
         "ascendancies": 6
       },
       "builds": [
