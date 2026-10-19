@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-19T12:54:44+00:00",
+  "updated": "2026-10-19T19:13:47+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124231,
+        "characters": 124233,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 29.1,
           "delta": 0.0,
-          "n": 36091,
+          "n": 36092,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26808,
+        "characters": 26811,
         "ascendancies": 10
       },
       "builds": [
@@ -156,7 +156,7 @@
           "skill": "",
           "pop": 16.6,
           "delta": 0.0,
-          "n": 4449,
+          "n": 4450,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -211,7 +211,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1800,
+          "n": 1801,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -266,7 +266,7 @@
       "mode": "HC SSF",
       "label": "Runes of Aldur · HC SSF",
       "totals": {
-        "characters": 8536,
+        "characters": 8537,
         "ascendancies": 0
       },
       "builds": [],
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 94340,
+        "characters": 94240,
         "ascendancies": 6
       },
       "builds": [
