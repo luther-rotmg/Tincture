@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-19T06:01:41+00:00",
+  "updated": "2026-10-19T12:54:44+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124234,
+        "characters": 124231,
         "ascendancies": 10
       },
       "builds": [
@@ -22,7 +22,7 @@
           "skill": "",
           "pop": 29.1,
           "delta": 0.0,
-          "n": 36092,
+          "n": 36091,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -44,7 +44,7 @@
           "skill": "",
           "pop": 9.6,
           "delta": 0.0,
-          "n": 11977,
+          "n": 11976,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -132,7 +132,7 @@
       "mode": "Hardcore",
       "label": "Runes of Aldur · Hardcore",
       "totals": {
-        "characters": 12538,
+        "characters": 12540,
         "ascendancies": 0
       },
       "builds": [],
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26803,
+        "characters": 26808,
         "ascendancies": 10
       },
       "builds": [
@@ -167,7 +167,7 @@
           "skill": "",
           "pop": 14.3,
           "delta": 0.0,
-          "n": 3836,
+          "n": 3837,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -178,7 +178,7 @@
           "skill": "",
           "pop": 9.2,
           "delta": 0.0,
-          "n": 2473,
+          "n": 2474,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2289,
+          "n": 2290,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 2003,
+          "n": 2004,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 94401,
+        "characters": 94340,
         "ascendancies": 6
       },
       "builds": [
