@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-20T14:56:12+00:00",
+  "updated": "2026-10-20T19:08:17+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26820,
+        "characters": 26823,
         "ascendancies": 10
       },
       "builds": [
@@ -200,7 +200,7 @@
           "skill": "",
           "pop": 7.5,
           "delta": 0.0,
-          "n": 2005,
+          "n": 2006,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -211,7 +211,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1800,
+          "n": 1801,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 93963,
+        "characters": 93892,
         "ascendancies": 6
       },
       "builds": [
