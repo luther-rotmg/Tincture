@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-20T23:06:45+00:00",
+  "updated": "2026-10-21T01:29:56+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124233,
+        "characters": 124235,
         "ascendancies": 10
       },
       "builds": [
@@ -21,8 +21,8 @@
           "asc": "Spirit Walker",
           "skill": "",
           "pop": 28.8,
-          "delta": -0.2,
-          "n": 35837,
+          "delta": 0.0,
+          "n": 35838,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -32,8 +32,8 @@
           "asc": "Martial Artist",
           "skill": "",
           "pop": 19.5,
-          "delta": 0.1,
-          "n": 24234,
+          "delta": 0.0,
+          "n": 24235,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 93820,
+        "characters": 93794,
         "ascendancies": 6
       },
       "builds": [
