@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-21T18:32:20+00:00",
+  "updated": "2026-10-21T22:14:42+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2294,
+          "n": 2293,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -211,7 +211,7 @@
           "skill": "",
           "pop": 6.7,
           "delta": 0.0,
-          "n": 1800,
+          "n": 1801,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -233,7 +233,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1100,
+          "n": 1101,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 93537,
+        "characters": 93504,
         "ascendancies": 6
       },
       "builds": [
