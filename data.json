@@ -1,6 +1,6 @@
 {
   "patch": "0.5.3",
-  "updated": "2026-10-22T18:27:32+00:00",
+  "updated": "2026-10-22T22:14:12+00:00",
   "sources": 1,
   "default": "runesofaldur",
   "leagues": [
@@ -10,7 +10,7 @@
       "mode": "Softcore",
       "label": "Runes of Aldur · Softcore",
       "totals": {
-        "characters": 124238,
+        "characters": 124242,
         "ascendancies": 10
       },
       "builds": [
@@ -20,9 +20,9 @@
           "cls": "Huntress",
           "asc": "Spirit Walker",
           "skill": "",
-          "pop": 28.8,
-          "delta": 0.0,
-          "n": 35776,
+          "pop": 28.7,
+          "delta": -0.1,
+          "n": 35692,
           "tag": "Spear-and-spirit hybrid — clears fast, bosses fine"
         },
         {
@@ -33,7 +33,7 @@
           "skill": "",
           "pop": 19.5,
           "delta": 0.0,
-          "n": 24230,
+          "n": 24231,
           "tag": "Combo melee striker — high mobility, high skill ceiling"
         },
         {
@@ -42,9 +42,9 @@
           "cls": "Mercenary",
           "asc": "Gemling Legionnaire",
           "skill": "",
-          "pop": 9.7,
-          "delta": 0.0,
-          "n": 12099,
+          "pop": 9.8,
+          "delta": 0.1,
+          "n": 12120,
           "tag": "Gem-stacking shell — scales with investment"
         },
         {
@@ -55,7 +55,7 @@
           "skill": "",
           "pop": 5.4,
           "delta": 0.0,
-          "n": 6723,
+          "n": 6742,
           "tag": "Classic bow / projectiles — fast clear, league-start friendly"
         },
         {
@@ -66,7 +66,7 @@
           "skill": "",
           "pop": 5.1,
           "delta": 0.0,
-          "n": 6380,
+          "n": 6381,
           "tag": "Hands-off minion summoner — beginner-friendly"
         },
         {
@@ -77,7 +77,7 @@
           "skill": "",
           "pop": 4.7,
           "delta": 0.0,
-          "n": 5863,
+          "n": 5862,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -88,7 +88,7 @@
           "skill": "",
           "pop": 4.2,
           "delta": 0.0,
-          "n": 5227,
+          "n": 5231,
           "tag": "Hybrid druid — adaptable, summon/transform flex"
         },
         {
@@ -99,7 +99,7 @@
           "skill": "",
           "pop": 2.8,
           "delta": 0.0,
-          "n": 3470,
+          "n": 3485,
           "tag": "Elemental spellcaster — strong bossing"
         },
         {
@@ -110,7 +110,7 @@
           "skill": "",
           "pop": 2.6,
           "delta": 0.0,
-          "n": 3210,
+          "n": 3216,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -121,7 +121,7 @@
           "skill": "",
           "pop": 2.2,
           "delta": 0.0,
-          "n": 2735,
+          "n": 2738,
           "tag": "Life-fuelled spellcaster — high risk, high burst"
         }
       ]
@@ -144,7 +144,7 @@
       "mode": "SSF",
       "label": "Runes of Aldur · SSF",
       "totals": {
-        "characters": 26830,
+        "characters": 26831,
         "ascendancies": 10
       },
       "builds": [
@@ -189,7 +189,7 @@
           "skill": "",
           "pop": 8.5,
           "delta": 0.0,
-          "n": 2293,
+          "n": 2294,
           "tag": "Ailment caster — control and scaling damage"
         },
         {
@@ -222,7 +222,7 @@
           "skill": "",
           "pop": 4.5,
           "delta": 0.0,
-          "n": 1213,
+          "n": 1214,
           "tag": "Slow, tanky slam melee — very forgiving"
         },
         {
@@ -233,7 +233,7 @@
           "skill": "",
           "pop": 4.1,
           "delta": 0.0,
-          "n": 1101,
+          "n": 1102,
           "tag": "Chaos / energy-shield caster — strong burst"
         },
         {
@@ -280,7 +280,7 @@
       "curated": true,
       "note": "Standard isn't ranked by poe.ninja, so these are hand-picked evergreen archetypes — classic, beginner-friendly starting points, not live ladder data.",
       "totals": {
-        "characters": 93291,
+        "characters": 93264,
         "ascendancies": 6
       },
       "builds": [
